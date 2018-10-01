@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Maintaining Oracle Big Data Appliance</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="powering on, turning on, emergency shutdown, powering off, emergency, power off switch, memory, adding to servers, servers, adding memory, spine switches, replacing, replacing spine switch, thresholds for PDUs, PDU thresholds, monitoring PDUs, Node Migration" />
+<meta name="dcterms.created" content="2018-07-19T23:52:02Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E85370-07" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda48/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="part-maintenance.htm" title="Previous" type="text/html" />
+<link rel="Next" href="disks.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-C9377F5D-557D-4576-986E-F7FCDFF9E444"></a> <span id="PAGE" style="display:none;">19/31</span> <!-- End Header -->
+<a id="BIGOG245"></a>
+<h1 id="BIGOG-GUID-C9377F5D-557D-4576-986E-F7FCDFF9E444" class="sect1"><span class="enumeration_chapter">11</span> Maintaining Oracle Big Data Appliance</h1>
+<div>
+<p>This chapter describes how to monitor and maintain Oracle Big Data Appliance. Some procedures use the <code class="codeph">dcli</code> utility to execute commands in parallel on all servers.</p>
+<p>This chapter contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="maintenance.htm#GUID-100E21BA-582E-4C51-B8F0-6FA4DD5D8923">Monitoring the Ambient Temperature of Servers</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-35BF48BA-B8A5-48E5-AE20-80D7920CDA8B">Adding Memory to the Servers</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-5754F15B-A634-4DB0-83E8-028E2EA4A92C">Maintaining the Physical Disks of Servers</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-3DBF29E1-0632-4505-A6F7-E0C4A27A1C4E">Maintaining the InfiniBand Network</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-A321B1D6-55A3-47E8-BF27-B76661082C31">Changing the Number of Connections to a Gateway Switch</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-6A52A5B7-A792-4693-9B2F-548B5ED34DEF">Changing the NTP Servers</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0">Monitoring the PDU Current</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-8C49FD54-7911-49A0-9818-675FE578B2D2" title="&nbsp;There is no automated failover for the cluster nodes. You must perform the recovery process manually and the process differs for critical and non-critical nodes.">Node Migration</a></p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-C9377F5D-557D-4576-986E-F7FCDFF9E444__GUID-09CF94DD-995C-46FA-847A-2E35070443EC">
+<p class="notep1">See Also:</p>
+<p><a href="dcli.htm#GUID-ED09B97C-BAAE-41E1-A7D0-A65BF1E8AF8F">Executing Commands Across a Cluster Using the dcli Utility</a></p>
+</div>
+</div>
+<a id="BIGOG254"></a>
+<div class="props_rev_3"><a id="GUID-100E21BA-582E-4C51-B8F0-6FA4DD5D8923"></a>
+<h2 id="BIGOG-GUID-100E21BA-582E-4C51-B8F0-6FA4DD5D8923" class="sect2"><span class="enumeration_section">11.1</span> Monitoring the Ambient Temperature of Servers</h2>
+<div>
+<div class="section">
+<p><a id="d49684e87" class="indexterm-anchor"></a>Maintaining environmental temperature conditions within design specification for a server helps to achieve maximum efficiency and targeted component service lifetimes. Temperatures outside the ambient temperature range of 21 to 23 degrees Celsius (70 to 74 degrees Fahrenheit) affect all components within Oracle Big Data Appliance, possibly causing performance problems and shortened service lifetimes.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To monitor the ambient temperature:</p>
+<ol>
+<li>
+<p>Connect to an Oracle Big Data Appliance server as <code class="codeph">root</code>.</p>
+</li>
+<li>
+<p>Set up passwordless SSH for <code class="codeph">root</code> by entering the <code class="codeph">setup-root-ssh</code> command, as described in <span class="q">"<a href="dcli.htm#GUID-3E1D048B-3EDF-4E14-81E8-93741428708B">Setting Up Passwordless SSH</a>"</span>.</p>
+</li>
+<li>
+<p>Check the current temperature:</p>
+<pre dir="ltr">
+dcli 'ipmitool sunoem cli "show /SYS/T_AMB" | grep value'
+</pre></li>
+<li>
+<p>If any temperature reading is outside the operating range, then investigate and correct the problem. See <a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A__CHDHAHCA" title="Temperature and humidity requirements">Table 2-13</a>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The following is an example of the command output:</p>
+<pre dir="ltr">
+bda1node01-adm.example.com: value = 22.000 degree C
+bda1node02-adm.example.com: value = 22.000 degree C
+bda1node03-adm.example.com: value = 22.000 degree C
+bda1node04-adm.example.com: value = 23.000 degree C
+          .
+          .
+          .
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG255"></a>
+<div class="props_rev_3"><a id="GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4"></a>
+<h2 id="BIGOG-GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4" class="sect2"><span class="enumeration_section">11.2</span> Powering On and Off Oracle Big Data Appliance</h2>
+<div>
+<p>This section includes the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="maintenance.htm#GUID-184757D8-6241-4382-B24F-61F33331E4BB">Nonemergency Power Procedures</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-253E7068-178B-47DD-A06F-C019B2A6B9ED">Emergency Power-Off Considerations</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-226AF5FD-B8E9-4268-B413-21DBA678D74D">Cautions and Warnings</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG256"></a>
+<div class="props_rev_3"><a id="GUID-184757D8-6241-4382-B24F-61F33331E4BB"></a>
+<h3 id="BIGOG-GUID-184757D8-6241-4382-B24F-61F33331E4BB" class="sect3"><span class="enumeration_section">11.2.1</span> Nonemergency Power Procedures</h3>
+<div>
+<p>This section contains the procedures for powering on and off the components of Oracle Big Data Appliance in an orderly fashion.</p>
+<div class="infoboxnotealso" id="GUID-184757D8-6241-4382-B24F-61F33331E4BB__GUID-89ACA73D-1287-49E3-995F-AF5934E3EA05">
+<p class="notep1">See Also:</p>
+<p><a class="olink BIGUG356" target="_blank" href="../BIGUG/admin.htm#BIGUG356"><span class="italic">Oracle Big Data Appliance Software User's Guide</span></a> for powering on and off gracefully when the software is installed and running.</p>
+</div>
+</div>
+<a id="BIGOG257"></a>
+<div class="props_rev_3"><a id="GUID-C26DC34D-4D75-481A-A675-46B553B3146A"></a>
+<h4 id="BIGOG-GUID-C26DC34D-4D75-481A-A675-46B553B3146A" class="sect4"><span class="enumeration_section">11.2.1.1</span> Powering On Oracle Big Data Appliance</h4>
+<div>
+<div class="section">
+<p>To turn on Oracle Big Data Appliance:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Turn on all 12 breakers on both PDUs.</p>
+</li>
+</ul>
+<p>Oracle ILOM and the Linux operating system start automatically.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG259"></a>
+<div class="props_rev_3"><a id="GUID-31A9F7C6-6DD1-4330-8A1C-EA90BD1FCF35"></a>
+<h4 id="BIGOG-GUID-31A9F7C6-6DD1-4330-8A1C-EA90BD1FCF35" class="sect4"><span class="enumeration_section">11.2.1.2</span> Powering Off Oracle Big Data Appliance</h4>
+<div>
+<div class="section">
+<p>To <a id="d49684e246" class="indexterm-anchor"></a><a id="d49684e248" class="indexterm-anchor"></a><a id="d49684e250" class="indexterm-anchor"></a>turn off Oracle Big Data Appliance:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Turn off the servers.</span></li>
+<li><span>Turn off all 12 breakers on both PDUs.</span></li>
+</ol>
+</div>
+<a id="BIGOG260"></a>
+<div class="props_rev_3"><a id="GUID-211DE4EC-147A-437C-B70A-3FC49FFC3752"></a>
+<h5 id="BIGOG-GUID-211DE4EC-147A-437C-B70A-3FC49FFC3752" class="sect5"><span class="enumeration_section">11.2.1.2.1</span> Powering Off the Servers</h5>
+<div>
+<div class="section">
+<p>Use the Linux <code class="codeph">shutdown</code> command to turn off or restart the <a id="d49684e284" class="indexterm-anchor"></a>servers. Enter this command as <code class="codeph">root</code> to shut down a server immediately:</p>
+<pre dir="ltr">
+# shutdown -hP now
+</pre>
+<p>The following command restarts a server immediately:</p>
+<pre dir="ltr">
+# shutdown -r now
+</pre>
+<div class="infoboxnotealso" id="GUID-211DE4EC-147A-437C-B70A-3FC49FFC3752__GUID-9D0E8114-544F-4AA0-B44E-834B50543727">
+<p class="notep1">See Also:</p>
+<p>Linux <code class="codeph">SHUTDOWN</code> manual page for details</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG261"></a>
+<div class="props_rev_3"><a id="GUID-ED4F6F13-72D7-471C-A1A1-F765AF10E44D"></a>
+<h5 id="BIGOG-GUID-ED4F6F13-72D7-471C-A1A1-F765AF10E44D" class="sect5"><span class="enumeration_section">11.2.1.2.2</span> Powering Off Multiple Servers at the Same Time</h5>
+<div>
+<div class="section">
+<p>Use the <code class="codeph">dcli</code> utility to run the <code class="codeph">shutdown</code> command on multiple servers at the same time. Do not run the <code class="codeph">dcli</code> utility from a server that will be shut down. Set up passwordless SSH for <code class="codeph">root</code>, as described in <span class="q">"<a href="dcli.htm#GUID-3E1D048B-3EDF-4E14-81E8-93741428708B">Setting Up Passwordless SSH</a>"</span>.</p>
+<p>The following command shows the syntax of the command:</p>
+<pre dir="ltr">
+# dcli -l root -g <span class="italic">group_name</span> shutdown -hP now
+</pre>
+<p>In this command, <span class="italic">group_name</span> is a file that contains a list of servers.</p>
+<p>The following example shuts down all Oracle Big Data Appliance servers listed in the server_group file:</p>
+<pre dir="ltr">
+# dcli -l root -g server_group shutdown -hP now
+</pre>
+<div class="infoboxnotealso" id="GUID-ED4F6F13-72D7-471C-A1A1-F765AF10E44D__GUID-E4F01812-23B9-4DCB-BF75-817689592895">
+<p class="notep1">See Also:</p>
+<p><a href="dcli.htm#GUID-ED09B97C-BAAE-41E1-A7D0-A65BF1E8AF8F">Executing Commands Across a Cluster Using the dcli Utility</a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG262"></a>
+<div class="props_rev_3"><a id="GUID-8EAD081A-9D2F-440D-A8CE-923B74537BA6"></a>
+<h4 id="BIGOG-GUID-8EAD081A-9D2F-440D-A8CE-923B74537BA6" class="sect4"><span class="enumeration_section">11.2.1.3</span> Powering On and Off Network Switches</h4>
+<div>
+<div class="section">
+<p>The network switches do not have power switches. They turn off when power is removed by turning off a PDU or a breaker in the data center.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG263"></a>
+<div class="props_rev_3"><a id="GUID-253E7068-178B-47DD-A06F-C019B2A6B9ED"></a>
+<h3 id="BIGOG-GUID-253E7068-178B-47DD-A06F-C019B2A6B9ED" class="sect3"><span class="enumeration_section">11.2.2</span> Emergency Power-Off Considerations</h3>
+<div>
+<p>In an emergency, halt power to Oracle Big Data Appliance immediately. The following emergencies may require powering off Oracle Big Data Appliance:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Natural disasters such as earthquake, flood, hurricane, tornado, or cyclone</p>
+</li>
+<li>
+<p>Abnormal noise, smell, or smoke coming from the system</p>
+</li>
+<li>
+<p>Threat to human safety</p>
+</li>
+</ul>
+</div>
+<a id="BIGOG264"></a>
+<div class="props_rev_3"><a id="GUID-F55DE34D-1D1D-4DAA-A274-71E9B3DC15CC"></a>
+<h4 id="BIGOG-GUID-F55DE34D-1D1D-4DAA-A274-71E9B3DC15CC" class="sect4"><span class="enumeration_section">11.2.2.1</span> Emergency Power-Off Procedure</h4>
+<div>
+<div class="section">
+<p>To perform an emergency power-off procedure for Oracle Big Data Appliance, turn off power at the circuit breaker or pull the emergency power-off switch in the computer room. After the emergency, contact Oracle Support Services to restore power to the system.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG265"></a>
+<div class="props_rev_3"><a id="GUID-E3D38A32-0489-4D8F-9C58-2E33BC477313"></a>
+<h4 id="BIGOG-GUID-E3D38A32-0489-4D8F-9C58-2E33BC477313" class="sect4"><span class="enumeration_section">11.2.2.2</span> Emergency Power-Off Switch</h4>
+<div>
+<p>Emergency power-off (EPO) switches are required when computer equipment contains batteries capable of supplying more than 750 volt-amperes for more than 5 minutes. Systems that have these batteries include internal EPO hardware for connection to a site EPO switch or relay. Use of the EPO switch removes power from Oracle Big Data Appliance.</p>
+</div>
+</div>
+</div>
+<a id="BIGOG266"></a>
+<div class="props_rev_3"><a id="GUID-226AF5FD-B8E9-4268-B413-21DBA678D74D"></a>
+<h3 id="BIGOG-GUID-226AF5FD-B8E9-4268-B413-21DBA678D74D" class="sect3"><span class="enumeration_section">11.2.3</span> Cautions and Warnings</h3>
+<div>
+<p><a id="d49684e484" class="indexterm-anchor"></a><a id="d49684e486" class="indexterm-anchor"></a><a id="d49684e488" class="indexterm-anchor"></a>The following cautions and warnings apply to Oracle Big Data Appliance:</p>
+<div class="infoboxnotewarn" id="GUID-226AF5FD-B8E9-4268-B413-21DBA678D74D__GUID-4CCFF939-7141-41C4-AF80-4FF890EF8FE9">
+<p class="notep1">WARNING:</p>
+<p>Do not touch the parts of this product that use high-voltage power. Touching them might result in serious injury.</p>
+</div>
+<div class="infobox-note" id="GUID-226AF5FD-B8E9-4268-B413-21DBA678D74D__GUID-A006FC24-7553-4A53-8CD1-C39521F7DBEA">
+<p class="notep1">Caution:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Do not turn off Oracle Big Data Appliance unless there is an emergency. In that case, follow the <span class="q">"<a href="maintenance.htm#GUID-F55DE34D-1D1D-4DAA-A274-71E9B3DC15CC">Emergency Power-Off Procedure</a>"</span>.</p>
+</li>
+<li>
+<p>Keep the front and rear cabinet doors closed. Failure to do so might cause system failure or result in damage to hardware components.</p>
+</li>
+<li>
+<p>Keep the top, front, and back of the cabinets clear to allow proper airflow and prevent overheating of components.</p>
+</li>
+<li>
+<p>Use only the supplied hardware.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<a id="BIGOG76830"></a>
+<div class="props_rev_3"><a id="GUID-35BF48BA-B8A5-48E5-AE20-80D7920CDA8B"></a>
+<h2 id="BIGOG-GUID-35BF48BA-B8A5-48E5-AE20-80D7920CDA8B" class="sect2"><span class="enumeration_section">11.3</span> Adding Memory to the Servers</h2>
+<div>
+<p>You can add memory to all servers in the cluster or to specific servers.</p>
+<div class="infoboxnotealso" id="GUID-35BF48BA-B8A5-48E5-AE20-80D7920CDA8B__GUID-4161C2F3-A2BB-4EAF-8C4F-DA98D92C5C38">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="app_fru.htm#GUID-1244F012-7851-4717-9B6C-A761355888E4">Parts for Oracle Big Data Appliance Servers</a>"</span></p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-0C3BEAC7-B9C4-44BC-84EA-05BC68C2D7D8"></a>
+<h3 id="BIGOG-GUID-0C3BEAC7-B9C4-44BC-84EA-05BC68C2D7D8" class="sect3"><span class="enumeration_section">11.3.1</span> Adding Memory to an Oracle Server X6-2L</h3>
+<div>
+<div class="section">
+<p>Oracle Big Data Appliance X6-2L ships from the factory with 256 GB of memory in each server. Eight of the 24 slots are populated with 32 GB DIMMs. Memory is expandable up to 768 GB (in the case of 32 GB DIMMs in all 24 slots).</p>
+<p>See the <a href="http://docs.oracle.com/cd/E62172_01/html/E62184/ceicjagi.html#scrolltoc" target="_blank">Oracle&reg; Server X6-2L Service Manual</a> for instruction on DIMM population scenarios and rules, installation, and other information.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76831"></a>
+<div class="props_rev_3"><a id="GUID-75A1F9DD-6A20-48DC-81DD-C6041F6719E0"></a>
+<h3 id="BIGOG-GUID-75A1F9DD-6A20-48DC-81DD-C6041F6719E0" class="sect3"><span class="enumeration_section">11.3.2</span> Adding Memory to an Oracle Server X5-2L, Sun Server X4-2L, or Sun Server X3-2L</h3>
+<div>
+<div class="section">
+<p>Oracle Big Data Appliance X5-2 ships from the factory with 128 GB of memory in each server. Eight of the 24 slots are populated with 16 GB DIMMs. Memory is expandable up to 768 GB (in the case of 32 GB DIMMs in all 24 slots).</p>
+<p>Oracle Big Data Appliance X4-2 and X3-2 servers are shipped with 64 GB of memory. The eight slots are populated with 8 GB DIMMs. These appliances support 8 GB, 16 GB, and 32 GB DIMMs. You can expand the amount of memory for a maximum of 512 GB (16 x 32 GB) in a server. You can use the 8 * 32 GB Memory Kit.</p>
+<p>You can mix DIMM sizes, but they must be installed in order from largest to smallest. You can achieve the best performance by preserving symmetry. For example, add four of the same size DIMMs, one for each memory channel, to each processor, and ensure that both processors have the same size DIMMs installed in the same order.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To add memory to an Oracle Server X5-2L, Sun Server X4-2L, or Sun Server X3-2L:</p>
+<ol>
+<li>
+<p>If you are mixing DIMM sizes, then review the DIMM population rules in the <span class="italic">Oracle Server X5-2L Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.gnvje.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.gnvje.html#scrolltoc</code></a></p>
+</li>
+<li>
+<p>Power down the server.</p>
+</li>
+<li>
+<p>Install the new DIMMs. If you are installing 16 or 32 GB DIMMs, then replace the existing 8 GB DIMMs first, and then replace the plastic fillers. You must install the largest DIMMs first, then the next largest, and so forth. You can reinstall the original DIMMs last.</p>
+<p>See the <span class="italic">Oracle Server X5-2L Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.ceiebfdg.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.ceiebfdg.html#scrolltoc</code></a></p>
+</li>
+<li>
+<p>Power on the server.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG267"></a>
+<div class="props_rev_3"><a id="GUID-A0B30636-C4D5-434E-B2BF-AA1B2B2A5D7A"></a>
+<h3 id="BIGOG-GUID-A0B30636-C4D5-434E-B2BF-AA1B2B2A5D7A" class="sect3"><span class="enumeration_section">11.3.3</span> Adding Memory to Sun Fire X4270 M2 Servers</h3>
+<div>
+<div class="section">
+<p>Oracle Big Data Appliance ships from the factory with 48 GB of memory in each server. Six of the 18 DIMM slots are populated with 8 GB DIMMs. You can populate the empty slots with 8 GB DIMMs to bring the total memory to either 96 GB (12 x 8 GB) or 144 GB (18 x 8 GB). An upgrade to 144 GB may slightly reduce performance because of lower memory bandwidth; memory frequency drops from 1333 MHz to 800 MHz.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To add memory to a Sun Fire X4270 M2 server:</p>
+<ol>
+<li>
+<p>Power down the server.</p>
+</li>
+<li>
+<p>Replace the plastic fillers with the DIMMs. See the <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/E21671/motherboard.html#50503715_71311" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/E21671/motherboard.html#50503715_71311</code></a></p>
+</li>
+<li>
+<p>Power on the server.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG268"></a>
+<div class="props_rev_3"><a id="GUID-5754F15B-A634-4DB0-83E8-028E2EA4A92C"></a>
+<h2 id="BIGOG-GUID-5754F15B-A634-4DB0-83E8-028E2EA4A92C" class="sect2"><span class="enumeration_section">11.4</span> Maintaining the Physical Disks of Servers</h2>
+<div>
+<p>Repair of the physical <a id="d49684e694" class="indexterm-anchor"></a>disks does not require shutting down Oracle Big Data Appliance. However, individual servers can be taken outside of the cluster temporarily and require downtime.</p>
+<div class="infoboxnotealso" id="GUID-5754F15B-A634-4DB0-83E8-028E2EA4A92C__GUID-A131C254-07BA-4B80-904C-3317FDAE9D23">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="app_fru.htm#GUID-1244F012-7851-4717-9B6C-A761355888E4">Parts for Oracle Big Data Appliance Servers</a>"</span> for the repair procedures</p>
+</div>
+</div>
+<a id="BIGOG269"></a>
+<div class="props_rev_3"><a id="GUID-C67D2144-E4B7-4F20-9201-CFAFDF28E52C"></a>
+<h3 id="BIGOG-GUID-C67D2144-E4B7-4F20-9201-CFAFDF28E52C" class="sect3"><span class="enumeration_section">11.4.1</span> Verifying the Server Configuration</h3>
+<div>
+<p><a id="d49684e724" class="indexterm-anchor"></a>The 12 disk drives in each Oracle Big Data Appliance server are controlled by an <a id="d49684e729" class="indexterm-anchor"></a>LSI MegaRAID SAS 92610-8i disk controller. Oracle recommends verifying the status of the RAID devices to avoid possible performance degradation or an outage. The effect on the server of validating the RAID devices is minimal. The corrective actions may affect operation of the server and can range from simple reconfiguration to an outage, depending on the specific issue uncovered.</p>
+</div>
+<a id="BIGOG270"></a>
+<div class="props_rev_3"><a id="GUID-704559D7-0F24-4E19-B1F3-8CB7EB205A8C"></a>
+<h4 id="BIGOG-GUID-704559D7-0F24-4E19-B1F3-8CB7EB205A8C" class="sect4"><span class="enumeration_section">11.4.1.1</span> Verifying Disk Controller Configuration</h4>
+<div>
+<div class="section">
+<p><a id="d49684e752" class="indexterm-anchor"></a><a id="d49684e754" class="indexterm-anchor"></a>Enter this command to verify the disk controller configuration:</p>
+<pre dir="ltr">
+# <a id="d49684e761" class="indexterm-anchor"></a>MegaCli64 -AdpAllInfo -a0 | grep "Device Present" -A 8
+</pre>
+<p>The following is an example of the output from the command. There should be 12 virtual drives, no degraded or offline drives, and 14 physical devices. The 14 devices are the controllers and the 12 disk drives.</p>
+<pre dir="ltr">
+                Device Present
+                ================
+Virtual Drives    : 12 
+  Degraded        : 0 
+  Offline         : 0 
+Physical Devices  : 14 
+  Disks           : 12 
+  Critical Disks  : 0 
+  Failed Disks    : 0 
+</pre>
+<p>If the output is different, then investigate and correct the problem.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG271"></a>
+<div class="props_rev_3"><a id="GUID-C1F90EBB-14AA-4462-B419-D6E16E39EC8D"></a>
+<h4 id="BIGOG-GUID-C1F90EBB-14AA-4462-B419-D6E16E39EC8D" class="sect4"><span class="enumeration_section">11.4.1.2</span> Verifying Virtual Drive Configuration</h4>
+<div>
+<div class="section">
+<p><a id="d49684e790" class="indexterm-anchor"></a><a id="d49684e792" class="indexterm-anchor"></a>Enter this command to verify the virtual drive configuration:</p>
+<pre dir="ltr">
+# MegaCli64 -LDInfo -lAll -a0
+</pre>
+<p>The following is an example of the output for Virtual Drive 0. Ensure that State is Optimal.</p>
+<pre dir="ltr">
+Adapter 0 -- Virtual Drive Information:
+Virtual Drive: 0 (Target Id: 0)
+Name                :
+RAID Level          : Primary-0, Secondary-0, RAID Level Qualifier-0
+Size                : 1.817 TB
+Parity Size         : 0
+State               : Optimal
+Strip Size          : 64 KB
+Number Of Drives    : 1
+Span Depth          : 1
+Default Cache Policy: WriteBack, ReadAheadNone, Cached, No Write Cache if Bad BBU
+Current Cache Policy: WriteBack, ReadAheadNone, Cached, No Write Cache if Bad BBU
+Access Policy       : Read/Write
+Disk Cache Policy   : Disk's Default
+Encryption Type     : None
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG272"></a>
+<div class="props_rev_3"><a id="GUID-3E24E3ED-6805-4978-88CB-DE88CA3A1BF0"></a>
+<h4 id="BIGOG-GUID-3E24E3ED-6805-4978-88CB-DE88CA3A1BF0" class="sect4"><span class="enumeration_section">11.4.1.3</span> Verifying Physical Drive Configuration</h4>
+<div>
+<div class="section">
+<p><a id="d49684e824" class="indexterm-anchor"></a><a id="d49684e826" class="indexterm-anchor"></a>Use the following command to verify the physical <a id="d49684e831" class="indexterm-anchor"></a><a id="d49684e833" class="indexterm-anchor"></a>drive configuration:</p>
+<pre dir="ltr">
+# MegaCli64 -PDList -a0 | grep Firmware
+</pre>
+<p>The following is an example of the output from the command. The 12 drives should be Online, Spun Up. If the output is different, then investigate and correct the problem.</p>
+<pre dir="ltr">
+Firmware state: Online, Spun Up
+Device Firmware Level: 061A
+Firmware state: Online, Spun Up
+Device Firmware Level: 061A
+Firmware state: Online, Spun Up
+Device Firmware Level: 061A
+     .
+     .
+     .
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+<a id="BIGOG280"></a>
+<div class="props_rev_3"><a id="GUID-3DBF29E1-0632-4505-A6F7-E0C4A27A1C4E"></a>
+<h2 id="BIGOG-GUID-3DBF29E1-0632-4505-A6F7-E0C4A27A1C4E" class="sect2"><span class="enumeration_section">11.5</span> Maintaining the InfiniBand Network</h2>
+<div>
+<p>The InfiniBand network connects the servers through the <a id="d49684e862" class="indexterm-anchor"></a>bondib0 interface to the InfiniBand switches in the rack. This section describes how to perform maintenance on the InfiniBand switches.</p>
+<p>This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="ilom.htm#GUID-183D0A47-E3C5-4E06-A8D0-19B8FAD17F28">Backing Up and Restoring Oracle ILOM Settings</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-CABDF02D-5671-4F4D-9BD2-2BF3F163840E">Replacing a Failed InfiniBand Switch</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-C481C465-65B2-445C-9DC3-E369B8DEAF63">Verifying InfiniBand Network Operation</a></p>
+</li>
+<li>
+<p><a href="maintenance.htm#GUID-2B473896-F163-4E82-B557-89B60BA7CA18">Understanding the Network Subnet Manager Master</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG284"></a>
+<div class="props_rev_3"><a id="GUID-CABDF02D-5671-4F4D-9BD2-2BF3F163840E"></a>
+<h3 id="BIGOG-GUID-CABDF02D-5671-4F4D-9BD2-2BF3F163840E" class="sect3"><span class="enumeration_section">11.5.1</span> Replacing a Failed InfiniBand Switch</h3>
+<div>
+<div class="section">
+<p><a id="d49684e914" class="indexterm-anchor"></a><a id="d49684e918" class="indexterm-anchor"></a><a id="d49684e922" class="indexterm-anchor"></a><a id="d49684e926" class="indexterm-anchor"></a>Complete these steps to replace a Sun Network QDR InfiniBand Gateway switch or a Sun Datacenter InfiniBand Switch 36.</p>
+<div class="infoboxnotealso" id="GUID-CABDF02D-5671-4F4D-9BD2-2BF3F163840E__GUID-78B41844-BDF1-45CC-AF44-2588CC051C67">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="q">"<a href="app_cablex2.htm#GUID-38248BD9-73BE-45ED-8527-423BEED67106">In-Rack InfiniBand Switch-to-Server Cable Connections</a>"</span> for information about cabling</p>
+</li>
+<li>
+<p><span class="italic">Sun Network QDR InfiniBand Gateway Switch Installation Guide</span> at</p>
+</li>
+<li>
+<p><a href="http://docs.oracle.com/cd/E26699_01/html/E26706/gentextid-125.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/html/E26706/gentextid-125.html#scrolltoc</code></a></p>
+</li>
+<li>
+<p><span class="italic">Sun Datacenter InfiniBand Switch 36 User's Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/gentextid-119.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/gentextid-119.html#scrolltoc</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To replace a failed InfiniBand switch:</p>
+<ol>
+<li>
+<p>Turn off both power supplies on the switch by removing the power plugs.</p>
+</li>
+<li>
+<p>Disconnect the cables from the switch. All InfiniBand cables have labels at both ends indicating their locations. If any cables do not have labels, then label them.</p>
+</li>
+<li>
+<p>Remove the switch from the rack.</p>
+</li>
+<li>
+<p>Install the new switch in the rack.</p>
+</li>
+<li>
+<p>Restore the switch settings using the backup file, as described in <span class="q">"<a href="ilom.htm#GUID-183D0A47-E3C5-4E06-A8D0-19B8FAD17F28">Backing Up and Restoring Oracle ILOM Settings</a>"</span>.</p>
+</li>
+<li>
+<p>Connect to the switch as <code class="codeph">ilom_admin</code> and open the Fabric Management shell:</p>
+<pre dir="ltr">
+-&gt; show /SYS/Fabric_Mgmt
+</pre>
+<p>The prompt changes from -&gt; to FabMan@<span class="italic">hostname</span>-&gt;</p>
+</li>
+<li>
+<p>Disable the Subnet Manager:</p>
+<pre dir="ltr">
+<a id="d49684e1000" class="indexterm-anchor"></a>FabMan@bda1sw-02-&gt; disablesm
+</pre></li>
+<li>
+<p>Connect the cables to the new switch, being careful to connect each cable to the correct port.</p>
+</li>
+<li>
+<p>Verify that there are no errors on any links in the fabric:</p>
+<pre dir="ltr">
+FabMan@bda1sw-02-&gt; ibdiagnet -c 1000 -r
+</pre></li>
+<li>
+<p>Enable the Subnet Manager:</p>
+<pre dir="ltr">
+FabMan@bda1sw-02-&gt; enablesm
+</pre>
+<div class="infobox-note" id="GUID-CABDF02D-5671-4F4D-9BD2-2BF3F163840E__GUID-6E321FDE-A03A-4CEA-A111-07BF95555ECA">
+<p class="notep1">Note:</p>
+<p>If the replaced switch was the Sun Datacenter InfiniBand Switch 36 spine switch, then manually fail the master Subnet Manager back to the switch by disabling the Subnet Managers on the other switches until the spine switch becomes the master. Then reenable the Subnet Manager on all the other switches.</p>
+</div>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG287"></a>
+<div class="props_rev_3"><a id="GUID-C481C465-65B2-445C-9DC3-E369B8DEAF63"></a>
+<h3 id="BIGOG-GUID-C481C465-65B2-445C-9DC3-E369B8DEAF63" class="sect3"><span class="enumeration_section">11.5.2</span> Verifying InfiniBand Network Operation</h3>
+<div>
+<div class="section">
+<p>I<a id="d49684e1040" class="indexterm-anchor"></a><a id="d49684e1042" class="indexterm-anchor"></a><a id="d49684e1044" class="indexterm-anchor"></a><a id="d49684e1048" class="indexterm-anchor"></a>f any component in the InfiniBand network has required maintenance, including replacing an InfiniBand Host Channel Adapter (HCA) on a server, an InfiniBand switch, or an InfiniBand cable, or if operation of the InfiniBand network is suspected to be substandard, then verify that the InfiniBand network is operating properly. The following procedure describes how to verify network operation:</p>
+<div class="infobox-note" id="GUID-C481C465-65B2-445C-9DC3-E369B8DEAF63__GUID-E9C76E3A-C0AC-44A2-9C4D-B14213EDC7D9">
+<p class="notep1">Note:</p>
+<p>Use this procedure any time the InfiniBand network is performing below expectations.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To verify InfiniBand network operation:</p>
+<ol>
+<li>
+<p>Enter the <code class="codeph">ibdiagnet</code> command to verify InfiniBand network quality:</p>
+<pre dir="ltr">
+# <a id="d49684e1068" class="indexterm-anchor"></a>ibdiagnet -c 1000
+</pre>
+<p>Investigate all errors reported by this command. It generates a small amount of network traffic and can run during a normal workload.</p>
+<div class="infoboxnotealso" id="GUID-C481C465-65B2-445C-9DC3-E369B8DEAF63__GUID-AF1662C4-3CD4-4EC1-AC97-127525DAA6A4">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Sun Network QDR InfiniBand Gateway Switch Command Reference</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26699_01/html/E26706/gentextid-28027.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/html/E26706/gentextid-28027.html#scrolltoc</code></a></p>
+</div>
+</li>
+<li>
+<p>Report switch port error counters and port configuration information. The <code class="codeph">LinkDowned</code>, <code class="codeph">RcvSwRelayErrors</code>, <code class="codeph">XmtDiscards</code>, and <code class="codeph">XmtWait</code> errors are ignored by this command:</p>
+<pre dir="ltr">
+#  <a id="d49684e1100" class="indexterm-anchor"></a>ibqueryerrors.pl -rR -s LinkDowned,RcvSwRelayErrors,XmtDiscards,XmtWait
+</pre>
+<div class="infoboxnotealso" id="GUID-C481C465-65B2-445C-9DC3-E369B8DEAF63__GUID-BF0A9E3C-6985-4236-BE9C-D84ACCCC3CA6">
+<p class="notep1">See Also:</p>
+<p>Linux <code class="codeph">man</code> page for <code class="codeph">ibqueryerrors</code>.S</p>
+</div>
+</li>
+<li>
+<p>Check the status of the hardware:</p>
+<pre dir="ltr">
+# <a id="d49684e1117" class="indexterm-anchor"></a>bdacheckhw
+</pre>
+<p>The following is an example of the output:</p>
+<pre dir="ltr">
+[SUCCESS: Correct system model : SUN FIRE X4270 M2 SERVER
+[SUCCESS: Correct processor info : Intel(R) Xeon(R) CPU X5675 @ 3.07GHz
+[SUCCESS: Correct number of types of CPU : 1
+[SUCCESS: Correct number of CPU cores : 24
+[SUCCESS: Sufficient GB of memory (&gt;=48): 48
+[SUCCESS: Correct GB of swap space : 24
+[SUCCESS: Correct BIOS vendor : American Megatrends Inc.
+[SUCCESS: Sufficient BIOS version (&gt;=08080102): 08080102
+[SUCCESS: Recent enough BIOS release date (&gt;=05/23/2011) : 05/23/2011
+[SUCCESS: Correct ILOM version : 3.0.16.10.a r68533
+[SUCCESS: Correct number of fans : 6
+[SUCCESS: Correct fan 0 status : ok
+[SUCCESS: Correct fan 1 status : ok
+[SUCCESS: Correct fan 2 status : ok
+[SUCCESS: Correct fan 3 status : ok
+[SUCCESS: Correct fan 4 status : ok
+[SUCCESS: Correct fan 5 status : ok
+[SUCCESS: Correct number of power supplies : 2
+[1m[34mINFO: Detected Santa Clara Factory, skipping power supply checks
+[SUCCESS: Correct disk controller model : LSI MegaRAID SAS 9261-8i
+[SUCCESS: Correct disk controller firmware version : 12.12.0-0048
+[SUCCESS: Correct disk controller PCI address : 13:00.0
+[SUCCESS: Correct disk controller PCI info : 0104: 1000:0079
+[SUCCESS: Correct disk controller PCIe slot width : x8
+[SUCCESS: Correct disk controller battery type : iBBU08
+[SUCCESS: Correct disk controller battery state : Operational
+[SUCCESS: Correct number of disks : 12
+[SUCCESS: Correct disk 0 model : SEAGATE ST32000SSSUN2.0
+[SUCCESS: Sufficient disk 0 firmware (&gt;=61A): 61A
+[SUCCESS: Correct disk 1 model : SEAGATE ST32000SSSUN2.0
+[SUCCESS: Sufficient disk 1 firmware (&gt;=61A): 61A
+          .
+          .
+          .
+[SUCCESS: Correct disk 10 status : Online, Spun Up No alert
+[SUCCESS: Correct disk 11 status : Online, Spun Up No alert
+[SUCCESS: Correct Host Channel Adapter model : Mellanox Technologies MT26428 ConnectX VPI PCIe 2.0
+[SUCCESS: Correct Host Channel Adapter firmware version : 2.9.1000
+[SUCCESS: Correct Host Channel Adapter PCI address : 0d:00.0
+[SUCCESS: Correct Host Channel Adapter PCI info : 0c06: 15b3:673c
+[SUCCESS: Correct Host Channel Adapter PCIe slot width : x8
+[SUCCESS: Big Data Appliance hardware validation checks succeeded
+</pre></li>
+<li>
+<p>Check the status of the software:</p>
+<pre dir="ltr">
+# <a id="d49684e1129" class="indexterm-anchor"></a>bdachecksw
+</pre>
+<pre dir="ltr">
+[SUCCESS: Correct OS disk sda partition info : 1 ext3 raid 2 ext3 raid 3 linux-swap 4 ext3 primary
+[SUCCESS: Correct OS disk sdb partition info : 1 ext3 raid 2 ext3 raid 3 linux-swap 4 ext3 primary
+[SUCCESS: Correct data disk sdc partition info : 1 ext3 primary
+[SUCCESS: Correct data disk sdd partition info : 1 ext3 primary
+[SUCCESS: Correct data disk sde partition info : 1 ext3 primary
+[SUCCESS: Correct data disk sdf partition info : 1 ext3 primary
+[SUCCESS: Correct data disk sdg partition info : 1 ext3 primary
+[SUCCESS: Correct data disk sdh partition info : 1 ext3 primary
+[SUCCESS: Correct data disk sdi partition info : 1 ext3 primary
+[SUCCESS: Correct data disk sdj partition info : 1 ext3 primary
+[SUCCESS: Correct data disk sdk partition info : 1 ext3 primary
+[SUCCESS: Correct data disk sdl partition info : 1 ext3 primary
+[SUCCESS: Correct software RAID info : /dev/md2 level=raid1 num-devices=2 /dev/md0 level=raid1 num-devices=2
+[SUCCESS: Correct mounted partitions : /dev/md0 /boot ext3 /dev/md2 / ext3 /dev/sda4 /u01 ext4 /dev/sdb4 /u02 ext4 /dev/sdc1 /u03 ext4 /dev/sdd1 /u04 ext4 /dev/sde1 /u05 ext4 /dev/sdf1 /u06 ext4 /dev/sdg1 /u07 ext4 /dev/sdh1 /u08 ext4 /dev/sdi1 /u09 ext4 /dev/sdj1 /u10 ext4 /dev/sdk1 /u11 ext4 /dev/sdl1 /u12 ext4
+[SUCCESS: Correct swap partitions : /dev/sdb3 partition /dev/sda3 partition
+[SUCCESS: Correct Linux kernel version : Linux 2.6.32-200.21.1.el5uek
+[SUCCESS: Correct Java Virtual Machine version : HotSpot(TM) 64-Bit Server 1.6.0_29
+[SUCCESS: Correct puppet version : 2.6.11
+[SUCCESS: Correct MySQL version : 5.6
+[SUCCESS: All required programs are accessible in $PATH
+[SUCCESS: All required RPMs are installed and valid
+[SUCCESS: Big Data Appliance software validation checks succeeded
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG288"></a>
+<div class="props_rev_3"><a id="GUID-2B473896-F163-4E82-B557-89B60BA7CA18"></a>
+<h3 id="BIGOG-GUID-2B473896-F163-4E82-B557-89B60BA7CA18" class="sect3"><span class="enumeration_section">11.5.3</span> Understanding the Network Subnet Manager Master</h3>
+<div>
+<p>The <a id="d49684e1155" class="indexterm-anchor"></a><a id="d49684e1157" class="indexterm-anchor"></a>Subnet Manager manages all operational characteristics of the InfiniBand network, such as the ability to:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Discover the <a id="d49684e1164" class="indexterm-anchor"></a>network topology</p>
+</li>
+<li>
+<p>Assign a local identifier to all ports connected to the network</p>
+</li>
+<li>
+<p>Calculate and program switch forwarding tables</p>
+</li>
+<li>
+<p>Monitor changes in the fabric</p>
+</li>
+</ul>
+<p>The InfiniBand network can have multiple <a id="d49684e1178" class="indexterm-anchor"></a>Subnet Managers, but only one Subnet Manager is active at a time. The active Subnet Manager is the Master Subnet Manager. The other Subnet Managers are the Standby Subnet Managers. If a Master Subnet Manager is shut down or fails, then a Standby Subnet Manager automatically becomes the Master Subnet Manager.</p>
+<p>Each Subnet Manager has a configurable priority. When multiple Subnet Managers are on the InfiniBand network, the Subnet Manager with the highest priority becomes the master Subnet Manager. On Oracle Big Data Appliance, the Subnet Managers on the leaf switches are configured as priority 5, and the Subnet Managers on the spine switches are configured as priority 8.</p>
+<p>The following guidelines determine where the Subnet Managers run on Oracle Big Data Appliance:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Run the Subnet Managers only on the switches in Oracle Big Data Appliance. Running a Subnet Manager on any other device is not supported.</p>
+</li>
+<li>
+<p>When the InfiniBand network consists of one, two, or three racks cabled together, all switches must run a Subnet Manager. The master Subnet Manager runs on a spine switch.</p>
+</li>
+<li>
+<p>For multirack configurations joining different types of racks, such a Oracle Big Data Appliance and Exalogic, see My Oracle Support note <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?id=1682501.1" target="_blank">1682501.1</a>.</p>
+</li>
+<li>
+<p>When the InfiniBand network consists of four or more racks cabled together, then only the spine switches run a Subnet Manager. The leaf switches must disable the Subnet Manager.</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-2B473896-F163-4E82-B557-89B60BA7CA18__GUID-4F9686A0-6B11-45CF-BEBB-B65563E83F10">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Sun Network QDR InfiniBand Gateway Switch library at</p>
+<p><a href="http://docs.oracle.com/cd/E26699_01/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/index.html</code></a></p>
+</li>
+<li>
+<p>Sun Datacenter InfiniBand Switch 36 library at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/index.html</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<a id="BIGOG76778"></a>
+<div class="props_rev_3"><a id="GUID-A321B1D6-55A3-47E8-BF27-B76661082C31"></a>
+<h2 id="BIGOG-GUID-A321B1D6-55A3-47E8-BF27-B76661082C31" class="sect2"><span class="enumeration_section">11.6</span> Changing the Number of Connections to a Gateway Switch</h2>
+<div>
+<div class="section">
+<p>If you change the number of 10 GbE connections to a <a id="d49684e1242" class="indexterm-anchor"></a>Sun Network QDR InfiniBand Gateway switch, then you must run the <code class="codeph">bdaredoclientnet</code> utility. See <span class="q">"<a href="utilities.htm#GUID-223C44A0-0ABA-4212-A6B4-55A0C4EAEA43">bdaredoclientnet</a>."</span></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To re-create the VNICs in a rack:</p>
+<ol>
+<li>
+<p>Verify that /opt/oracle/bda/network.json exists on all servers and correctly describes the custom network settings. This command identifies files that are missing or have different date stamps:</p>
+<pre dir="ltr">
+dcli ls -l /opt/oracle/bda/network.json
+</pre></li>
+<li>
+<p>Connect to node01 (bottom of rack) using the administrative network. The <code class="codeph">bdaredoclientnet</code> utility shuts down the client network, so you cannot use it in this procedure.</p>
+</li>
+<li>
+<p>Remove passwordless SSH:</p>
+<pre dir="ltr">
+/opt/oracle/bda/bin/remove-root-ssh
+</pre>
+<p>See <span class="q">"<a href="dcli.htm#GUID-3E1D048B-3EDF-4E14-81E8-93741428708B">Setting Up Passwordless SSH</a>"</span> for more information about this command.</p>
+</li>
+<li>
+<p>Change directories:</p>
+<pre dir="ltr">
+cd /opt/oracle/bda/network
+</pre></li>
+<li>
+<p>Run the utility:</p>
+<pre dir="ltr">
+bdaredoclientnet
+</pre>
+<p>The output is similar to that shown in <a href="configure.htm#GUID-11ACD53C-8FA5-486F-89F4-A42F273F8762__CACGFJEF">Example 7-2</a>.</p>
+</li>
+<li>
+<p>Restore passwordless SSH (optional):</p>
+<pre dir="ltr">
+/opt/oracle/bda/bin/<a id="d49684e1297" class="indexterm-anchor"></a>setup-root-ssh
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG289"></a>
+<div class="props_rev_3"><a id="GUID-6A52A5B7-A792-4693-9B2F-548B5ED34DEF"></a>
+<h2 id="BIGOG-GUID-6A52A5B7-A792-4693-9B2F-548B5ED34DEF" class="sect2"><span class="enumeration_section">11.7</span> Changing the NTP Servers</h2>
+<div>
+<div class="section">
+<p>The configuration information for <a id="d49684e1321" class="indexterm-anchor"></a><a id="d49684e1323" class="indexterm-anchor"></a>Network Time Protocol (NTP) servers can be changed after the initial setup. The following procedure describes how to change the NTP configuration information for InfiniBand switches, Cisco switches, and Sun servers. Oracle recommends changing each server individually.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To update the Oracle Big Data Appliance servers:</p>
+<ol>
+<li>
+<p>Stop NTP services on the server.</p>
+</li>
+<li>
+<p>Update the <a id="d49684e1336" class="indexterm-anchor"></a><a id="d49684e1338" class="indexterm-anchor"></a>/etc/ntp.conf file with the IP address of the new NTP server.</p>
+</li>
+<li>
+<p>Repeat these steps for each server.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To update the InfiniBand switches:</p>
+<ol>
+<li>
+<p>Log in to the switch as the <code class="codeph">ilom-admin</code> user.</p>
+</li>
+<li>
+<p>Follow the instructions in <span class="q">"<a href="configure.htm#GUID-3CD0F5F9-4A88-4733-9613-2D7FF977F95C">Setting the Time Zone and Clock on an InfiniBand Switch</a>"</span>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To update the Cisco Ethernet switch:</p>
+<ol>
+<li>
+<p>Use telnet to connect to the Cisco Ethernet switch.</p>
+</li>
+<li>
+<p>Delete the current setting:</p>
+<pre dir="ltr">
+# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+(config)# <span class="bold">no ntp server</span> <span class="italic"><span class="bold">current_IPaddress</span></span>
+</pre></li>
+<li>
+<p>Enter the new IP address:</p>
+<pre dir="ltr">
+# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+(config)# <span class="bold">ntp server</span> <span class="italic"><span class="bold">new_IPaddress</span></span>
+</pre></li>
+<li>
+<p>Save the current configuration:</p>
+<pre dir="ltr">
+# <span class="bold">copy running-config startup-config</span>
+</pre></li>
+<li>
+<p>Exit from the session:</p>
+<pre dir="ltr">
+# <span class="bold">exit</span>
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-6A52A5B7-A792-4693-9B2F-548B5ED34DEF__GUID-18A48B97-B936-4F13-AF3B-10C922DFBFC1">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="configure.htm#GUID-638C8CCB-9A50-43A6-95CF-04B626FD658D">Configuring the Cisco Ethernet Switch</a>"</span></p>
+</div>
+<p>Restart Oracle Big Data Appliance after changing the servers and switches.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG233"></a><a id="BIGOG234"></a><a id="BIGOG235"></a><a id="BIGOG236"></a><a id="BIGOG232"></a>
+<div class="props_rev_3"><a id="GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0"></a>
+<h2 id="BIGOG-GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0" class="sect2"><span class="enumeration_section">11.8</span> Monitoring the PDU Current</h2>
+<div>
+<p>The PDU current can be monitored directly. Configure threshold settings as a way to monitor the PDUs. The configurable threshold values for each metering unit module and phase are <code class="codeph">Info low</code>, <code class="codeph">Pre Warning</code>, and <code class="codeph">Alarm</code>.</p>
+<div class="infoboxnotealso" id="GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0__GUID-CB985243-93BD-4566-9D85-5D9CAC6B8635">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Sun Rack II Power Distribution Units User's Guide</span> for information about configuring and monitoring PDUs at</p>
+<p><a href="http://docs.oracle.com/cd/E19844-01/html/E23956/index.html" target="_blank">http://docs.oracle.com/cd/E19844-01/html/E23956/index.html</a></p>
+</div>
+<p><a href="maintenance.htm#GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0__CACBDGEB" title="PDU thresholds for single phase, low voltage PDU.">Table 11-1</a> lists the threshold values for the Oracle Big Data Appliance rack using a <a id="d49684e1479" class="indexterm-anchor"></a><a id="d49684e1481" class="indexterm-anchor"></a>single-phase, low-voltage PDU.</p>
+<div class="tblformal" id="GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0__CACBDGEB">
+<p class="titleintable">Table 11-1 Threshold Values for Single-Phase, Low-Voltage PDU</p>
+<table class="cellalignment184" title="Threshold Values for Single-Phase, Low-Voltage PDU" summary="PDU thresholds for single phase, low voltage PDU.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment196" id="d49684e1497">PDU</th>
+<th class="cellalignment197" id="d49684e1500">Module/Phase</th>
+<th class="cellalignment180" id="d49684e1503">Info Low Threshold</th>
+<th class="cellalignment197" id="d49684e1506">Pre Warning Threshold</th>
+<th class="cellalignment180" id="d49684e1509">Alarm Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d49684e1514" headers="d49684e1497">
+<p>A</p>
+</td>
+<td class="cellalignment199" headers="d49684e1514 d49684e1500">
+<p>Module 1, phase 1</p>
+</td>
+<td class="cellalignment182" headers="d49684e1514 d49684e1503">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1514 d49684e1506">
+<p>18</p>
+</td>
+<td class="cellalignment182" headers="d49684e1514 d49684e1509">
+<p>23</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d49684e1530" headers="d49684e1497">
+<p>A</p>
+</td>
+<td class="cellalignment199" headers="d49684e1530 d49684e1500">
+<p>Module 1, phase 2</p>
+</td>
+<td class="cellalignment182" headers="d49684e1530 d49684e1503">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1530 d49684e1506">
+<p>22</p>
+</td>
+<td class="cellalignment182" headers="d49684e1530 d49684e1509">
+<p>24</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d49684e1546" headers="d49684e1497">
+<p>A</p>
+</td>
+<td class="cellalignment199" headers="d49684e1546 d49684e1500">
+<p>Module 1, phase 3</p>
+</td>
+<td class="cellalignment182" headers="d49684e1546 d49684e1503">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1546 d49684e1506">
+<p>18</p>
+</td>
+<td class="cellalignment182" headers="d49684e1546 d49684e1509">
+<p>23</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d49684e1562" headers="d49684e1497">
+<p>B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1562 d49684e1500">
+<p>Module 1, phase 1</p>
+</td>
+<td class="cellalignment182" headers="d49684e1562 d49684e1503">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1562 d49684e1506">
+<p>18</p>
+</td>
+<td class="cellalignment182" headers="d49684e1562 d49684e1509">
+<p>23</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d49684e1578" headers="d49684e1497">
+<p>B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1578 d49684e1500">
+<p>Module 1, phase 2</p>
+</td>
+<td class="cellalignment182" headers="d49684e1578 d49684e1503">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1578 d49684e1506">
+<p>22</p>
+</td>
+<td class="cellalignment182" headers="d49684e1578 d49684e1509">
+<p>24</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d49684e1594" headers="d49684e1497">
+<p>B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1594 d49684e1500">
+<p>Module 1, phase 3</p>
+</td>
+<td class="cellalignment182" headers="d49684e1594 d49684e1503">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1594 d49684e1506">
+<p>18</p>
+</td>
+<td class="cellalignment182" headers="d49684e1594 d49684e1509">
+<p>23</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p><a href="maintenance.htm#GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0__CACHBCFF" title="PDU thresholds for three phase, low voltage PDU.">Table 11-2</a> lists the threshold values for the Oracle Big Data Appliance rack using a <a id="d49684e1615" class="indexterm-anchor"></a><a id="d49684e1617" class="indexterm-anchor"></a>three-phase, low-voltage PDU.</p>
+<div class="tblformal" id="GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0__CACHBCFF">
+<p class="titleintable">Table 11-2 Threshold Values for Three-Phase, Low-Voltage PDU</p>
+<table class="cellalignment184" title="Threshold Values for Three-Phase, Low-Voltage PDU" summary="PDU thresholds for three phase, low voltage PDU.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment200" id="d49684e1633">PDU</th>
+<th class="cellalignment197" id="d49684e1636">Module/Phase</th>
+<th class="cellalignment180" id="d49684e1639">Info Low Threshold</th>
+<th class="cellalignment197" id="d49684e1642">Pre Warning Threshold</th>
+<th class="cellalignment180" id="d49684e1645">Alarm Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment201" id="d49684e1650" headers="d49684e1633">
+<p>A and B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1650 d49684e1636">
+<p>Module 1, phase 1</p>
+</td>
+<td class="cellalignment182" headers="d49684e1650 d49684e1639">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1650 d49684e1642">
+<p>32</p>
+</td>
+<td class="cellalignment182" headers="d49684e1650 d49684e1645">
+<p>40</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment201" id="d49684e1666" headers="d49684e1633">
+<p>A and B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1666 d49684e1636">
+<p>Module 1, phase 2</p>
+</td>
+<td class="cellalignment182" headers="d49684e1666 d49684e1639">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1666 d49684e1642">
+<p>34</p>
+</td>
+<td class="cellalignment182" headers="d49684e1666 d49684e1645">
+<p>43</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment201" id="d49684e1682" headers="d49684e1633">
+<p>A and B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1682 d49684e1636">
+<p>Module 1, phase 3</p>
+</td>
+<td class="cellalignment182" headers="d49684e1682 d49684e1639">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1682 d49684e1642">
+<p>33</p>
+</td>
+<td class="cellalignment182" headers="d49684e1682 d49684e1645">
+<p>42</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p><a href="maintenance.htm#GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0__CACDDGBJ" title="PDU thresholds for single phase, low voltage PDU">Table 11-3</a> lists the threshold values for the Oracle Big Data Appliance rack using a <a id="d49684e1703" class="indexterm-anchor"></a><a id="d49684e1705" class="indexterm-anchor"></a>single-phase, high-voltage PDU.</p>
+<div class="tblformal" id="GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0__CACDDGBJ">
+<p class="titleintable">Table 11-3 Threshold Values for Single-Phase, High-Voltage PDU</p>
+<table class="cellalignment184" title="Threshold Values for Single-Phase, High-Voltage PDU" summary="PDU thresholds for single phase, low voltage PDU">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment200" id="d49684e1721">PDU</th>
+<th class="cellalignment197" id="d49684e1724">Module/Phase</th>
+<th class="cellalignment180" id="d49684e1727">Info Low Threshold</th>
+<th class="cellalignment197" id="d49684e1730">Pre Warning Threshold</th>
+<th class="cellalignment180" id="d49684e1733">Alarm Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment201" id="d49684e1738" headers="d49684e1721">
+<p>A</p>
+</td>
+<td class="cellalignment199" headers="d49684e1738 d49684e1724">
+<p>Module 1, phase 1</p>
+</td>
+<td class="cellalignment182" headers="d49684e1738 d49684e1727">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1738 d49684e1730">
+<p>16</p>
+</td>
+<td class="cellalignment182" headers="d49684e1738 d49684e1733">
+<p>20</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment201" id="d49684e1754" headers="d49684e1721">
+<p>A</p>
+</td>
+<td class="cellalignment199" headers="d49684e1754 d49684e1724">
+<p>Module 1, phase 2</p>
+</td>
+<td class="cellalignment182" headers="d49684e1754 d49684e1727">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1754 d49684e1730">
+<p>20</p>
+</td>
+<td class="cellalignment182" headers="d49684e1754 d49684e1733">
+<p>21</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment201" id="d49684e1770" headers="d49684e1721">
+<p>A</p>
+</td>
+<td class="cellalignment199" headers="d49684e1770 d49684e1724">
+<p>Module 1, phase 3</p>
+</td>
+<td class="cellalignment182" headers="d49684e1770 d49684e1727">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1770 d49684e1730">
+<p>16</p>
+</td>
+<td class="cellalignment182" headers="d49684e1770 d49684e1733">
+<p>20</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment201" id="d49684e1786" headers="d49684e1721">
+<p>B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1786 d49684e1724">
+<p>Module 1, phase 1</p>
+</td>
+<td class="cellalignment182" headers="d49684e1786 d49684e1727">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1786 d49684e1730">
+<p>16</p>
+</td>
+<td class="cellalignment182" headers="d49684e1786 d49684e1733">
+<p>20</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment201" id="d49684e1802" headers="d49684e1721">
+<p>B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1802 d49684e1724">
+<p>Module 1, phase 2</p>
+</td>
+<td class="cellalignment182" headers="d49684e1802 d49684e1727">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1802 d49684e1730">
+<p>20</p>
+</td>
+<td class="cellalignment182" headers="d49684e1802 d49684e1733">
+<p>21</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment201" id="d49684e1818" headers="d49684e1721">
+<p>B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1818 d49684e1724">
+<p>Module 1, phase 3</p>
+</td>
+<td class="cellalignment182" headers="d49684e1818 d49684e1727">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1818 d49684e1730">
+<p>16</p>
+</td>
+<td class="cellalignment182" headers="d49684e1818 d49684e1733">
+<p>20</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p><a href="maintenance.htm#GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0__CACGJCAD" title="PDU thresholds for three phase, low voltage PDU">Table 11-4</a> lists the threshold values for the Oracle Big Data Appliance rack using a <a id="d49684e1839" class="indexterm-anchor"></a><a id="d49684e1841" class="indexterm-anchor"></a>three-phase, high-voltage PDU.</p>
+<div class="tblformal" id="GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0__CACGJCAD">
+<p class="titleintable">Table 11-4 Threshold Values for Three-Phase, High-Voltage PDU</p>
+<table class="cellalignment184" title="Threshold Values for Three-Phase, High-Voltage PDU" summary="PDU thresholds for three phase, low voltage PDU">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment196" id="d49684e1857">PDU</th>
+<th class="cellalignment197" id="d49684e1860">Module/Phase</th>
+<th class="cellalignment180" id="d49684e1863">Info Low Threshold</th>
+<th class="cellalignment197" id="d49684e1866">Pre Warning Threshold</th>
+<th class="cellalignment180" id="d49684e1869">Alarm Threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d49684e1874" headers="d49684e1857">
+<p>A and B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1874 d49684e1860">
+<p>Module 1, phase 1</p>
+</td>
+<td class="cellalignment182" headers="d49684e1874 d49684e1863">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1874 d49684e1866">
+<p>18</p>
+</td>
+<td class="cellalignment182" headers="d49684e1874 d49684e1869">
+<p>21</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d49684e1890" headers="d49684e1857">
+<p>A and B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1890 d49684e1860">
+<p>Module 1, phase 2</p>
+</td>
+<td class="cellalignment182" headers="d49684e1890 d49684e1863">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1890 d49684e1866">
+<p>18</p>
+</td>
+<td class="cellalignment182" headers="d49684e1890 d49684e1869">
+<p>21</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d49684e1906" headers="d49684e1857">
+<p>A and B</p>
+</td>
+<td class="cellalignment199" headers="d49684e1906 d49684e1860">
+<p>Module 1, phase 3</p>
+</td>
+<td class="cellalignment182" headers="d49684e1906 d49684e1863">
+<p>0</p>
+</td>
+<td class="cellalignment199" headers="d49684e1906 d49684e1866">
+<p>17</p>
+</td>
+<td class="cellalignment182" headers="d49684e1906 d49684e1869">
+<p>21</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<div class="sect2"><a id="GUID-8C49FD54-7911-49A0-9818-675FE578B2D2"></a>
+<h2 id="BIGOG-GUID-8C49FD54-7911-49A0-9818-675FE578B2D2" class="sect2"><span class="enumeration_section">11.9</span> Node Migration</h2>
+<div>
+<p>&nbsp;There is no automated failover for the cluster nodes. You must perform the recovery process manually and the process differs for critical and non-critical nodes.</p>
+<p>Nodes 1 through &nbsp;4 &nbsp;host services that are essential to Oracle Big Data Appliance. Therefore, these are critical nodes. Recover from a critical node failure by migrating all of its services to another node. Nodes 5 and above are generally DataNodes. Since data is replicated across three nodes, the failure of a single DataNode is non-critical.&nbsp; To recover from a non-critical node failure, attempt to restart the node and if that fails, replace it.</p>
+<p>Use the <a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C">bdacli admin_cluster</a> command to decommission, commission, and migrate nodes.</p>
+<div class="infoboxnotealso" id="GUID-8C49FD54-7911-49A0-9818-675FE578B2D2__GUID-E9EBC85A-D127-42FB-8A2C-12E9448CDB78">
+<p class="notep1">See Also:</p>
+See <a class="olink BIGUG-GUID-9AB38E1B-624E-4648-8621-BBA5F7E38F8B" target="_blank" href="../BIGUG/admin.htm#BIGUG-GUID-9AB38E1B-624E-4648-8621-BBA5F7E38F8B">Managing a Hardware Failure</a> in the <span class="italic">Oracle Big Data Appliance Software User&rsquo;s Guide</span> for instructions how to replace a failing CDH or NoSQL cluster node.</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment160">
+<tr>
+<td class="cellalignment193">
+<table class="cellalignment165">
+<tr>
+<td class="cellalignment164"><a href="part-maintenance.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment164"><a href="disks.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment195">
+<table class="cellalignment163">
+<tr>
+<td class="cellalignment164"><a href="http://docs.oracle.com/bigdata/bda48/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment164"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment164"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment164"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

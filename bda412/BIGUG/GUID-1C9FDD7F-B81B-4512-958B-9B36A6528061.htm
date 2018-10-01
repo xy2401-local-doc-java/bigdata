@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Reading the Job Analyzer Report</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-07-17T10:57:32Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Software User's Guide" />
+<meta name="dcterms.identifier" content="E94259-04" />
+<meta name="dcterms.isVersionOf" content="BIGUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="GUID-8753E2D7-F618-43F0-888B-556641698726.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-68A678B1-DC49-4C43-B978-9295EF0CA277.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"322179",ustr:"",originlat:"0",clientrtt:"1",ghostip:"23.212.3.15",ipv6:false,pct:"10",clientip:"45.78.37.67",requestid:"1f8ab5f",region:"32996",protocol:"",blver:14,akM:"dsca",akN:"ae",akTT:"O",akTX:"1",akTI:"1f8ab5f",ai:"206465",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061"></a> <span id="PAGE" style="display:none;">25/42</span> <!-- End Header -->
+<h1 id="BIGUG-GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061" class="sect1"><span class="enumeration_section">5.4.4</span> Reading the Job Analyzer Report</h1>
+<div>
+<div class="section">
+<p>Job Analyzer writes its report in two formats: HTML for you, and XML for Perfect Balance. You can open the report in a browser, either directly in HDFS or after copying it to the local file system</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">To open a Job Analyzer report in HDFS in a browser:</p>
+<ol>
+<li>
+<p>Open the HDFS web interface on port 50070 of a NameNode node (node01 or node02), using a URL like the following:</p>
+<pre dir="ltr">
+http://bda1node01.example.com:50070
+</pre></li>
+<li>
+<p>From the Utilities menu, choose <span class="bold">Browse the File System</span>.</p>
+</li>
+<li>
+<p>Navigate to the <code class="codeph">job_output_dir/_balancer</code> directory.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">To open a Job Analyzer report in the local file system in a browser:</p>
+<ol>
+<li>
+<p>Copy the report from HDFS to the local file system:</p>
+<pre dir="ltr">
+$ hadoop fs -get <span class="italic">job_output_dir</span>/_balancer/jobanalyzer-report.html /home/jdoe
+</pre></li>
+<li>
+<p>Switch to the local directory:</p>
+<pre dir="ltr">
+$ cd /home/jdoe
+</pre></li>
+<li>
+<p>Open the file in a browser:</p>
+<pre dir="ltr">
+$ firefox jobanalyzer-report.html
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>When inspecting the Job Analyzer report, look for indicators of skew such as:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The execution time of some reducers is longer than others.</p>
+</li>
+<li>
+<p>Some reducers process more records or bytes than others.</p>
+</li>
+<li>
+<p>Some map output keys have more records than others.</p>
+</li>
+<li>
+<p>Some map output records have more bytes than others.</p>
+</li>
+</ul>
+<p>The following figure shows the beginning of the analyzer report for the inverted index (<code class="codeph">invindx</code>) example. It displays the key load coefficient recommendations, because this job ran with the appropriate configuration settings. See <span class="q">"<a href="GUID-8753E2D7-F618-43F0-888B-556641698726.htm">Collecting Additional Metrics</a>."</span></p>
+<p>The task IDs are links to tables that show the analysis of specific tasks, enabling you to drill down for more details from the first, summary table.</p>
+<p>This example uses an extremely small data set, but notice the differences between tasks 7 and 8: The input records range from 3% to 29%, and their corresponding elapsed times range from 5 to 15 seconds. This variation indicates skew.</p>
+<div class="figure" id="GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061__BBABHFIG">
+<p class="titleinfigure">Figure 5-1 Job Analyzer Report for Unbalanced Inverted Index Job</p>
+<img width="957" height="886" src="img/GUID-0AB8B860-5905-4678-AC6B-1BB5E3BE0F9B-default.png" alt="Description of Figure 5-1 follows" title="Description of Figure 5-1 follows" /><br />
+<a href="img_text/GUID-0AB8B860-5905-4678-AC6B-1BB5E3BE0F9B-default.htm">Description of "Figure 5-1 Job Analyzer Report for Unbalanced Inverted Index Job"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment126">
+<tr>
+<td class="cellalignment133">
+<table class="cellalignment131">
+<tr>
+<td class="cellalignment130"><a href="GUID-8753E2D7-F618-43F0-888B-556641698726.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment130"><a href="GUID-68A678B1-DC49-4C43-B978-9295EF0CA277.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment135">
+<table class="cellalignment129">
+<tr>
+<td class="cellalignment130"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment130"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment130"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment130"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment130"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

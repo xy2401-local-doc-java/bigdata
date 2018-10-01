@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Configuring Property Graph Support</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="This chapter explains how to configure the support for property graphs in a Big Data environment." />
+<meta name="dcterms.created" content="2017-10-02T15:13:12Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Spatial and Graph User&rsquo;s Guide and Reference" />
+<meta name="dcterms.identifier" content="E67958-14" />
+<meta name="dcterms.isVersionOf" content="BDSPA" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://www.docs.oracle.com/bigdata/411/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="integrating-big-data-spatial-graph-with-oracle-database.htm" title="Previous" type="text/html" />
+<link rel="Next" href="using-property-graphs-big-data.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDSPA.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-270DD1FC-AAEE-4FAA-BE63-4D7DD52504E5"></a> <span id="PAGE" style="display:none;">10/15</span> <!-- End Header -->
+<a id="BDSPA182"></a><a id="BDSPA181"></a>
+<h1 id="BDSPA-GUID-270DD1FC-AAEE-4FAA-BE63-4D7DD52504E5" class="sect1"><span class="enumeration_chapter">4</span> Configuring Property Graph Support</h1>
+<div>
+<div><span>This chapter explains how to configure the support for property graphs in a Big Data environment.</span></div>
+<p>It assumes that you have already performed the installation on a Big Data Appliance (see <a href="big-data-spatial-overview.htm#GUID-637F22DB-9327-41EC-8FD9-D6A523F14225" title="The Mammoth command-line utility for installing and configuring the Oracle Big Data Appliance software also installs the Oracle Big Data Spatial and Graph option, including the spatial, property graph, and multimedia capabilities.">Installing Oracle Big Data Spatial and Graph on an Oracle Big Data Appliance</a>), an Apache Hadoop system (see <a href="big-data-spatial-overview.htm#GUID-BDF9368E-C271-414D-9779-9F534977879F" title="You can use property graphs on either Oracle Big Data Appliance or commodity hardware.">Installing Property Graph Support on a CDH Cluster or Other Hardware</a>), or an Oracle NoSQL Database.</p>
+<p>You might be able to improve the performance of property graph support by altering the database and Java configuration settings. The suggestions provided are guidelines, which you should follow only after carefully and thoroughly evaluating your system.</p>
+</div>
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><a href="configuring-property-graph-support.htm#GUID-0A3800AF-211F-42F1-9A40-58A54E9D60B3">Tuning Apache HBase for Use with Property Graphs</a><br />
+Modifications to the default Apache HBase and Java Virtual Machine configurations can improve performance.</li>
+<li class="ulchildlink"><a href="configuring-property-graph-support.htm#GUID-FFEA9615-E1A3-46A0-9EF3-07DF1350D03E">Tuning Oracle NoSQL Database for Use with Property Graphs</a><br />
+To obtain the best performance from Oracle NoSQL Database, do the following.</li>
+</ul>
+</div>
+<a id="BDSPA184"></a>
+<div class="props_rev_3"><a id="GUID-0A3800AF-211F-42F1-9A40-58A54E9D60B3"></a>
+<h2 id="BDSPA-GUID-0A3800AF-211F-42F1-9A40-58A54E9D60B3" class="sect2"><span class="enumeration_section">4.1</span> Tuning Apache HBase for Use with Property Graphs</h2>
+<div>
+<p>Modifications to the default Apache HBase and Java Virtual Machine configurations can improve performance.</p>
+</div>
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><a href="configuring-property-graph-support.htm#GUID-F1D86DFC-683C-464A-B0A2-4C5B1530D954">Modifying the Apache HBase Configuration</a><br /></li>
+<li class="ulchildlink"><a href="configuring-property-graph-support.htm#GUID-08886C32-1DCD-4CDC-BF2B-0D71EE3106ED">Modifying the Java Memory Settings</a><br /></li>
+</ul>
+</div>
+<a id="BDSPA185"></a>
+<div class="props_rev_3"><a id="GUID-F1D86DFC-683C-464A-B0A2-4C5B1530D954"></a>
+<h3 id="BDSPA-GUID-F1D86DFC-683C-464A-B0A2-4C5B1530D954" class="sect3"><span class="enumeration_section">4.1.1</span> Modifying the Apache HBase Configuration</h3>
+<div>
+<p>To modify the Apache HBase configuration, follow the steps in this section for your CDH release. (Note that specific steps might change from one CDH release to the next.)</p>
+<p>For CDH 5.2.x, CDH 5.3.x, and CDH 5.4.x:</p>
+<ol>
+<li>
+<p>Log in to Cloudera Manager as the <code class="codeph">admin</code> user.</p>
+</li>
+<li>
+<p>On the Home page, click <span class="bold">HBase</span> in the list of services on the left.</p>
+</li>
+<li>
+<p>On the HBase page, click the <span class="bold">Configuration</span> tab.</p>
+</li>
+<li>
+<p>In the Category panel on the left, expand Service-Wide, and then choose <span class="bold">Advanced</span>.</p>
+</li>
+<li>
+<p>Edit the value of HBase Service Advanced Configuration Snippet (Safety Valve) for <code class="codeph">hbase-site.xml</code> as follows:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;hbase.regionserver.handler.count&lt;/name&gt;
+  &lt;value&gt;32&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+  &lt;name&gt;hbase.hregion.max.filesize&lt;/name&gt;
+  &lt;value&gt;1610612736&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+  &lt;name&gt;hbase.hregion.memstore.block.multiplier&lt;/name&gt;
+  &lt;value&gt;4&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+   &lt;name&gt;hbase.hregion.memstore.flush.size&lt;/name&gt;
+   &lt;value&gt;134217728&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+   &lt;name&gt;hbase.hstore.blockingStoreFiles&lt;/name&gt;
+   &lt;value&gt;200&lt;/value&gt;&lt;/property&gt;
+&lt;property&gt;
+  &lt;name&gt;hbase.hstore.flusher.count&lt;/name&gt;
+  &lt;value&gt;1&lt;/value&gt;
+&lt;/property&gt;
+</pre>
+<p>If the property already exists, then replace the value as required. Otherwise, add the XML property description.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>Expand the Actions menu, and then choose <span class="bold">Restart</span> or <span class="bold">Rolling Restart</span>, whichever option better suits your situation.</p>
+</li>
+</ol>
+<p>For CDH 5.4.x:</p>
+<ol>
+<li>
+<p>Log in to Cloudera Manager as the <code class="codeph">admin</code> user.</p>
+</li>
+<li>
+<p>On the Home page, click <span class="bold">HBase</span> in the list of services on the left.</p>
+</li>
+<li>
+<p>On the HBase page, click the <span class="bold">Configuration</span> tab.</p>
+</li>
+<li>
+<p>Expand <span class="bold">SCOPE</span>.</p>
+</li>
+<li>
+<p>Click <span class="bold">HBase (Service-wide)</span>, scroll to the bottom of the page, and select <span class="bold">Display All Entries</span> (<span class="italic">not</span> Display 25 Entries).</p>
+</li>
+<li>
+<p>On this page, locate <span class="bold">HBase Service Advanced Configuration Snippet (Safety Valve)</span> for <code class="codeph">hbase-site.xml</code>, and enter the following value for the <code class="codeph">&lt;property&gt;</code> element:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;hbase.regionserver.handler.count&lt;/name&gt;
+  &lt;value&gt;32&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+  &lt;name&gt;hbase.hregion.max.filesize&lt;/name&gt;
+  &lt;value&gt;1610612736&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+  &lt;name&gt;hbase.hregion.memstore.block.multiplier&lt;/name&gt;
+  &lt;value&gt;4&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+   &lt;name&gt;hbase.hregion.memstore.flush.size&lt;/name&gt;
+   &lt;value&gt;134217728&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+   &lt;name&gt;hbase.hstore.blockingStoreFiles&lt;/name&gt;
+   &lt;value&gt;200&lt;/value&gt;&lt;/property&gt;
+&lt;property&gt;
+  &lt;name&gt;hbase.hstore.flusher.count&lt;/name&gt;
+  &lt;value&gt;1&lt;/value&gt;
+&lt;/property&gt;
+</pre>
+<p>If the property already exists, then replace the value as required. Otherwise, add the XML property description.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>Expand the Actions menu, and then choose <span class="bold">Restart</span> or <span class="bold">Rolling Restart</span>, whichever option better suits your situation.</p>
+</li>
+</ol>
+</div>
+</div>
+<a id="BDSPA186"></a>
+<div class="props_rev_3"><a id="GUID-08886C32-1DCD-4CDC-BF2B-0D71EE3106ED"></a>
+<h3 id="BDSPA-GUID-08886C32-1DCD-4CDC-BF2B-0D71EE3106ED" class="sect3"><span class="enumeration_section">4.1.2</span> Modifying the Java Memory Settings</h3>
+<div>
+<p>To modify the Java memory settings, follow the steps in this section for your CDH release. (Note that specific steps might change from one CDH release to the next.)</p>
+<p>For CDH 5.2.x and CDH 5.3.x:</p>
+<ol>
+<li>
+<p>Log in to Cloudera Manager as the <code class="codeph">admin</code> user.</p>
+</li>
+<li>
+<p>On the Home page, click <span class="bold">HBase</span> in the list of services on the left.</p>
+</li>
+<li>
+<p>On the HBase page, click the <span class="bold">Configuration</span> tab.</p>
+</li>
+<li>
+<p>For <span class="bold">RegionServer Group</span> (default and others), click <span class="bold">Advanced</span>, and use the following for <span class="bold">Java Configuration Options</span> for HBase RegionServer:</p>
+<pre dir="ltr">
+-Xmn256m -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:+UseCMSInitiatingOccupancyOnly
+</pre></li>
+<li>
+<p>Click <span class="bold">Resource Management</span>, and enter an appropriate value (for example, <code class="codeph">18G</code>) for <span class="bold">Java Heap Size</span> of HBase RegionServer.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>Expand the Actions menu, and then choose <span class="bold">Restart</span> or <span class="bold">Rolling Restart</span>, whichever option better suits your situation.</p>
+</li>
+</ol>
+<p>For CDH 5.4.x:</p>
+<ol>
+<li>
+<p>Log in to Cloudera Manager as the <code class="codeph">admin</code> user.</p>
+</li>
+<li>
+<p>On the Home page, click <span class="bold">HBase</span> in the list of services on the left.</p>
+</li>
+<li>
+<p>On the HBase page, click the <span class="bold">Configuration</span> tab.</p>
+</li>
+<li>
+<p>Expand <span class="bold">SCOPE</span>.</p>
+</li>
+<li>
+<p>Click <span class="bold">RegionServer</span>, scroll to the bottom of the page, and select <span class="bold">Display All Entries</span> (<span class="italic">not</span> Display 25 Entries).</p>
+</li>
+<li>
+<p>On this page, for <span class="bold">Java Configuration Options for HBase RegionServer,</span> enter the following value:</p>
+<pre dir="ltr">
+-Xmn256m -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:+UseCMSInitiatingOccupancyOnly
+</pre></li>
+<li>
+<p>For <span class="bold">Java Heap Size of HBase RegionServer in Bytes</span>, enter an appropriate value (for example, <code class="codeph">18G</code>).</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>Expand the Actions menu, and then choose <span class="bold">Restart</span> or <span class="bold">Rolling Restart</span>, whichever option better suits your situation.</p>
+</li>
+</ol>
+<div class="infoboxnotealso" id="GUID-08886C32-1DCD-4CDC-BF2B-0D71EE3106ED__GUID-AB4A7913-6DCD-426D-9577-5EFD0C747E04">
+<p class="notep1">See Also:</p>
+<p>For detailed information about Java garbage collection, see:</p>
+<p><a href="http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/" target="_blank"><code class="codeph">http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/</code></a></p>
+<p>For descriptions of all settings, see the Java <span class="italic">Tools Reference</span>:</p>
+<p><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html" target="_blank"><code class="codeph">https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html</code></a></p>
+</div>
+</div>
+</div>
+</div>
+<a id="BDSPA187"></a>
+<div class="props_rev_3"><a id="GUID-FFEA9615-E1A3-46A0-9EF3-07DF1350D03E"></a>
+<h2 id="BDSPA-GUID-FFEA9615-E1A3-46A0-9EF3-07DF1350D03E" class="sect2"><span class="enumeration_section">4.2</span> Tuning Oracle NoSQL Database for Use with Property Graphs</h2>
+<div>
+<p>To obtain the best performance from Oracle NoSQL Database, do the following.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Ensure that the replication groups (shards) are balanced.</p>
+</li>
+<li>
+<p>Adjust the user process resource limit setting (<code class="codeph">ulimit</code>). For example:</p>
+<pre dir="ltr">
+ulimit -u 131072
+</pre></li>
+<li>
+<p>Set the heap size of the Java Virtual Machines (JVMs) on the replication nodes to enable the B-tree indexes to fit in memory.</p>
+<p>To set the heap size, use either the <code class="codeph">-memory_mb</code> option of the <code class="codeph">makebookconfig</code> command or the <code class="codeph">memory_mb</code> parameter for the storage node.</p>
+<p>Oracle NoSQL Database uses 85% of <code class="codeph">memory_mb</code> as the heap size for processes running on the storage node. If the storage node hosts multiple replication nodes, then the heap is divided equally among them. Each replication node uses a cache that is 70% of the heap.</p>
+<p>For example, if you set <code class="codeph">memory_mb</code> to 3000 MB on a storage node that hosts two replication nodes, then each replication node has the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>1275 MB heap, calculated as (3000 MB * .85)/2</p>
+</li>
+<li>
+<p>892 MB cache, calculated as 1275 MB * .70</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-FFEA9615-E1A3-46A0-9EF3-07DF1350D03E__GUID-4BAA2923-8D2C-4FC5-8213-1E2E136142E9">
+<p class="notep1">See Also:</p>
+<p>Oracle NoSQL Database FAQ at</p>
+<p><a href="http://www.oracle.com/technetwork/products/nosqldb/learnmore/nosqldb-faq-518364.html#HowdoesNoSQLDBbudgetmemory" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/products/nosqldb/learnmore/nosqldb-faq-518364.html#HowdoesNoSQLDBbudgetmemory</code></a></p>
+</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment323">
+<tr>
+<td class="cellalignment360">
+<table class="cellalignment328">
+<tr>
+<td class="cellalignment327"><a href="integrating-big-data-spatial-graph-with-oracle-database.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment327"><a href="using-property-graphs-big-data.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment362">
+<table class="cellalignment326">
+<tr>
+<td class="cellalignment327"><a href="http://www.docs.oracle.com/bigdata/411/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment327"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment327"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

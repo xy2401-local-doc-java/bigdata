@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using Oracle Big Data SQL for Data Access</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="ORACLE_HIVE examples, TYPE clause, DEFAULT DIRECTORY clause, LOCATION clause, REJECT LIMIT clause, ACCESS PARAMETERS clause, Oracle Big Data SQL, data type conversion, data type conversion (Big Data SQL), common directory" />
+<meta name="dcterms.created" content="2016-06-27T14:31:41Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User's Guide" />
+<meta name="dcterms.identifier" content="E76071-02" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="installing.htm" title="Previous" type="text/html" />
+<link rel="Next" href="copy2bda.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E76071-02.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-60F61D46-EAF7-463E-A62C-C1E08EA58726"></a> <span id="PAGE" style="display:none;">6/11</span> <!-- End Header --><a id="BIGUG21115"></a>
+<h1 id="BDSUG-GUID-60F61D46-EAF7-463E-A62C-C1E08EA58726" class="sect1"><span class="enumeration_chapter">3</span> Using Oracle Big Data SQL for Data Access</h1>
+<div>
+<p>This chapter describes how to use Oracle Big Data SQL to create external tables and access data from Hadoop data sources as well as Oracle NoSQL Database.</p>
+<p>It also describes some of the changes that Oracle Big Data SQL makes on the Oracle Database server.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bigsql.htm#GUID-CB8FE0F7-C4B1-4CAF-9540-19A50826531A">Creating an Oracle External Table for Hive Data</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-0628EC5B-E013-40DF-A025-908019F4E681">Creating an Oracle External Table for Oracle NoSQL Database</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-1BA05F2A-609B-4560-B751-1E590ACE0993">Creating an Oracle External Table for Apache HBase</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-C564C1F2-706B-4C20-8E5C-8E4335A9D0D1">Creating an Oracle External Table for HDFS Files</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-52CB4932-13DE-474C-B3FB-D645BE83303F">About the SQL CREATE TABLE Statement</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-44E9399A-698B-4F8E-BAC9-6178839876BC">About Data Type Conversions</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-5C3E2799-637A-4B21-A02D-212E3024D84D">Querying External Tables</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-74BD99A7-EDE8-4959-B635-D4B97FC5EFAF" title="This section explains the changes that the Oracle Big Data SQL installation makes to the Oracle Database system (which may or may not be an Oracle Exadata Machine).">About Oracle Big Data SQL on the Database Server (Oracle Exadata Machine or Other)</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76629"></a>
+<div class="props_rev_3"><a id="GUID-CB8FE0F7-C4B1-4CAF-9540-19A50826531A"></a>
+<h2 id="BDSUG-GUID-CB8FE0F7-C4B1-4CAF-9540-19A50826531A" class="sect2"><span class="enumeration_section">3.1</span> Creating an Oracle External Table for Hive Data</h2>
+<div>
+<p><a id="d7518e71" class="indexterm-anchor"></a><a id="d7518e75" class="indexterm-anchor"></a>You can easily create an Oracle external table for data in Apache Hive. Because the metadata is available to Oracle Database, you can query the data dictionary for information about Hive tables. Then you can use a PL/SQL function to generate a basic SQL <code>CREATE TABLE EXTERNAL ORGANIZATION</code> statement. You can modify the statement before execution to customize the external table.</p>
+</div>
+<a id="BIGUG76677"></a>
+<div class="props_rev_3"><a id="GUID-4A0D005B-9157-4A1E-8B0A-2F08695FA3B7"></a>
+<h3 id="BDSUG-GUID-4A0D005B-9157-4A1E-8B0A-2F08695FA3B7" class="sect3"><span class="enumeration_section">3.1.1</span> Obtaining Information About a Hive Table</h3>
+<div>
+<div class="section">
+<p>The <code>DBMS_HADOOP</code> PL/SQL package contains a function named <code>CREATE_EXTDDL_FOR_HIVE</code>. It returns the data dictionary language (DDL) to create an external table for accessing a Hive table. This function requires you to provide basic information about the Hive table:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Name of the Hadoop cluster</p>
+</li>
+<li>
+<p>Name of the Hive database</p>
+</li>
+<li>
+<p>Name of the Hive table</p>
+</li>
+<li>
+<p>Whether the Hive table is partitioned</p>
+</li>
+</ul>
+<p>You can obtain this information by querying the <a id="d7518e124" class="indexterm-anchor"></a><code>ALL_HIVE_TABLES</code> data dictionary view. It displays information about all Hive tables that you can access from Oracle Database.</p>
+<p>This example shows that the current user has access to an unpartitioned Hive table named <code>RATINGS_HIVE_TABLE</code> in the default database. A user named <code>JDOE</code> is the owner.</p>
+<pre dir="ltr">
+SQL&gt; SELECT cluster_id, database_name, owner, table_name, partitioned FROM all_hive_tables;
+CLUSTER_ID   DATABASE_NAME  OWNER    TABLE_NAME         PARTITIONED
+------------ -------------- -------- ------------------ --------------
+hadoop1      default        jdoe     ratings_hive_table  UN-PARTITIONED
+</pre>
+<div class="infoboxnotealso" id="GUID-4A0D005B-9157-4A1E-8B0A-2F08695FA3B7__GUID-7159B886-5B06-4296-8447-5544F39EB7B5">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-E7A9C252-9C5F-449D-98E8-F42AECD8A4C3">Static Data Dictionary Views for Hive</a>"</span></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76678"></a>
+<div class="props_rev_3"><a id="GUID-146AD9AF-2829-4407-91E5-0FD78FC6FC67"></a>
+<h3 id="BDSUG-GUID-146AD9AF-2829-4407-91E5-0FD78FC6FC67" class="sect3"><span class="enumeration_section">3.1.2</span> Using the CREATE_EXTDDL_FOR_HIVE Function</h3>
+<div>
+<p>With the information from the data dictionary, you can use the <code>CREATE_EXTDDL_FOR_HIVE</code> function of <code>DBMS_HADOOP</code>. This example specifies a database table name of <code>RATINGS_DB_TABLE</code> in the current schema. The function returns the text of the <code>CREATE TABLE</code> command in a local variable named <code>DDLout</code>, but does not execute it.</p>
+<pre dir="ltr">
+DECLARE 
+   DDLout VARCHAR2(4000);
+BEGIN
+   dbms_hadoop.create_extddl_for_hive(
+      CLUSTER_ID=&gt;'hadoop1',
+      DB_NAME=&gt;'default',
+      HIVE_TABLE_NAME=&gt;'ratings_hive_table',
+      HIVE_PARTITION=&gt;FALSE,
+      TABLE_NAME=&gt;'ratings_db_table',
+      PERFORM_DDL=&gt;FALSE,
+      TEXT_OF_DDL=&gt;DDLout
+   );
+   dbms_output<a id="d7518e179" class="indexterm-anchor"></a><a id="d7518e181" class="indexterm-anchor"></a>.put_line(DDLout);
+END;
+/
+</pre>
+<p>When this procedure runs, the <code>PUT_LINE</code> function displays the <code>CREATE TABLE</code> command:</p>
+<pre dir="ltr">
+CREATE TABLE ratings_db_table (   
+   c0 VARCHAR2(4000),
+   c1 VARCHAR2(4000),
+   c2 VARCHAR2(4000),
+   c3 VARCHAR2(4000),
+   c4 VARCHAR2(4000),
+   c5 VARCHAR2(4000),
+   c6 VARCHAR2(4000),
+   c7 VARCHAR2(4000))
+ORGANIZATION EXTERNAL
+   (TYPE ORACLE_HIVE DEFAULT DIRECTORY DEFAULT_DIR 
+   ACCESS PARAMETERS
+      (
+       com.oracle.bigdata.cluster=hadoop1
+       com.oracle.bigdata.tablename=default.ratings_hive_table
+      )
+   ) PARALLEL 2 REJECT LIMIT UNLIMITED
+</pre>
+<p>You can capture this information in a SQL script, and use the access parameters to change the Oracle table name, the column names, and the data types as desired before executing it. You might also use access parameters to specify a date format mask.</p>
+<p>The <code>ALL_HIVE_COLUMNS</code> view shows how the default column names and data types are derived. This example shows that the Hive column names are C0 to C7, and that the Hive <code>STRING</code> data type maps to <code>VARCHAR2(4000)</code>:</p>
+<pre dir="ltr">
+SQL&gt; SELECT table_name, column_name, hive_column_type, oracle_column_type FROM all_hive_columns;
+ 
+TABLE_NAME            COLUMN_NAME  HIVE_COLUMN_TYPE ORACLE_COLUMN_TYPE
+--------------------- ------------ ---------------- ------------------
+ratings_hive_table    c0           string           VARCHAR2(4000)
+ratings_hive_table    c1           string           VARCHAR2(4000)
+ratings_hive_table    c2           string           VARCHAR2(4000)
+ratings_hive_table    c3           string           VARCHAR2(4000)
+ratings_hive_table    c4           string           VARCHAR2(4000)
+ratings_hive_table    c5           string           VARCHAR2(4000)
+ratings_hive_table    c6           string           VARCHAR2(4000)
+ratings_hive_table    c7           string           VARCHAR2(4000)
+ 
+8 rows selected.
+</pre>
+<div class="infoboxnotealso" id="GUID-146AD9AF-2829-4407-91E5-0FD78FC6FC67__GUID-565AC47D-051B-4AA1-9306-309AE4E7B20E">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-7B05D8E1-25A2-40CF-AE76-274D4BEF0776">DBMS_HADOOP PL/SQL Package</a>"</span></p>
+</div>
+</div>
+</div>
+<a id="BIGUG21132"></a>
+<div class="props_rev_3"><a id="GUID-19D94CBA-299F-4CA4-9B82-E75679E0FD61"></a>
+<h3 id="BDSUG-GUID-19D94CBA-299F-4CA4-9B82-E75679E0FD61" class="sect3"><span class="enumeration_section">3.1.3</span> Developing a CREATE TABLE Statement for ORACLE_HIVE</h3>
+<div>
+<p>You can choose between using <code>DBMS_HADOOP</code> and developing a <code>CREATE TABLE</code> statement from scratch. In either case, you may need to set some access parameters to modify the default behavior of <code>ORACLE_HIVE</code>.</p>
+</div>
+<a id="BIGUG76702"></a>
+<div class="props_rev_3"><a id="GUID-1434FCCD-D095-4D2D-B43E-25AB2DAC891B"></a>
+<h4 id="BDSUG-GUID-1434FCCD-D095-4D2D-B43E-25AB2DAC891B" class="sect4"><span class="enumeration_section">3.1.3.1</span> Using the Default ORACLE_HIVE Settings</h4>
+<div>
+<p>The following statement creates an external table named <code>ORDER</code> to access Hive data:</p>
+<pre dir="ltr">
+CREATE TABLE order (cust_num    VARCHAR2(10), 
+                    order_num   VARCHAR2(20), 
+                    description VARCHAR2(100),
+                    order_total NUMBER (8,2)) 
+   ORGANIZATION EXTERNAL (TYPE  oracle_hive);
+</pre>
+<p>Because no access parameters are set in the statement, the <code>ORACLE_HIVE</code> access driver uses the default settings to do the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Connects to the default Hadoop cluster.</p>
+</li>
+<li>
+<p>Uses a Hive table named <code>order</code>. An error results if the Hive table does not have fields named <code>CUST_NUM</code>, <code>ORDER_NUM</code>, <code>DESCRIPTION</code>, and <code>ORDER_TOTAL</code>.</p>
+</li>
+<li>
+<p>Sets the value of a field to <code>NULL</code> if there is a conversion error, such as a <code>CUST_NUM</code> value longer than 10 bytes.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGUG76703"></a>
+<div class="props_rev_3"><a id="GUID-B4AF3E27-3846-4E4D-AE98-908E7EA9E2B4"></a>
+<h4 id="BDSUG-GUID-B4AF3E27-3846-4E4D-AE98-908E7EA9E2B4" class="sect4"><span class="enumeration_section">3.1.3.2</span> Overriding the Default ORACLE_HIVE Settings</h4>
+<div>
+<p>You can set properties in the <code>ACCESS PARAMETERS</code> clause of the external table clause, which override the default behavior of the access driver. The following clause includes the <code>com.oracle.bigdata.overflow</code> access parameter. When this clause is used in the previous example, it truncates the data for the <code>DESCRIPTION</code> column that is longer than 100 characters, instead of throwing an error:</p>
+<pre dir="ltr">
+(TYPE oracle_hive
+ ACCESS PARAMETERS (
+    com.oracle.bigdata.overflow={"action:"truncate", "col":"DESCRIPTION""} ))
+</pre>
+<p>The next example sets most of the available parameters for <code>ORACLE_HIVE</code>:</p>
+<pre dir="ltr">
+CREATE TABLE order (cust_num VARCHAR2(10), 
+                    order_num VARCHAR2(20), 
+                    order_date DATE,
+                    item_cnt NUMBER,
+                    description VARCHAR2(100),
+                    order_total (NUMBER(8,2)) ORGANIZATION EXTERNAL 
+  (TYPE oracle_hive
+     ACCESS PARAMETERS (
+        com.oracle.bigdata.tablename:  order_db.order_summary
+        com.oracle.bigdata.colmap:     {"col":"ITEM_CNT", \
+                                        "field":"order_line_item_count"}
+        com.oracle.bigdata.overflow:   {"action":"TRUNCATE", \
+                                        "col":"DESCRIPTION"}
+        com.oracle.bigdata.erroropt:   [{"action":"replace", \
+                                         "value":"INVALID_NUM" , \
+                                         "col":["CUST_NUM","ORDER_NUM"]} ,\
+                                        {"action":"reject", \
+                                         "col":"ORDER_TOTAL}
+))
+</pre>
+<p>The parameters make the following changes in the way that the <code>ORACLE_HIVE</code> access driver locates the data and handles error conditions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>com.oracle.bigdata.tablename</code>: Handles differences in table names. <code>ORACLE_HIVE</code> looks for a Hive table named <code>ORDER_SUMMARY</code> in the <code>ORDER.DB</code> database.</p>
+</li>
+<li>
+<p><code>com.oracle.bigdata.colmap</code>: Handles differences in column names. The Hive <code>ORDER_LINE_ITEM_COUNT</code> field maps to the Oracle <code>ITEM_CNT</code> column.</p>
+</li>
+<li>
+<p><code>com.oracle.bigdata.overflow</code>: Truncates string data. Values longer than 100 characters for the <code>DESCRIPTION</code> column are truncated.</p>
+</li>
+<li>
+<p><code>com.oracle.bigdata.erroropt</code>: Replaces bad data. Errors in the data for <code>CUST_NUM</code> or <code>ORDER_NUM</code> set the value to <code>INVALID_NUM</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<a id="BIGUG76723"></a>
+<div class="props_rev_3"><a id="GUID-0628EC5B-E013-40DF-A025-908019F4E681"></a>
+<h2 id="BDSUG-GUID-0628EC5B-E013-40DF-A025-908019F4E681" class="sect2"><span class="enumeration_section">3.2</span> Creating an Oracle External Table for Oracle NoSQL Database</h2>
+<div>
+<p>You can use the <code>ORACLE_HIVE</code> access driver to access data stored in Oracle NoSQL Database. However, you must first create a Hive external table that accesses the KVStore. Then you can create an external table in Oracle Database over it, similar to the process described in <span class="q">"<a href="bigsql.htm#GUID-CB8FE0F7-C4B1-4CAF-9540-19A50826531A">Creating an Oracle External Table for Hive Data</a>"</span>.</p>
+<p>This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bigsql.htm#GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3">Creating a Hive External Table for Oracle NoSQL Database</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-7C5585EF-83FF-46DB-819B-2DC5E520BE82">Creating the Oracle Database Table for Oracle NoSQL Data</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-2F0DCF34-3D70-4EE8-852C-B84E431CC12A">About Column Data Type Mappings</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-9B0D7583-AA1E-4E7E-A793-3B21A7C23C61">Example of Accessing Data in Oracle NoSQL Database</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76724"></a>
+<div class="props_rev_3"><a id="GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3"></a>
+<h3 id="BDSUG-GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3" class="sect3"><span class="enumeration_section">3.2.1</span> Creating a Hive External Table for Oracle NoSQL Database</h3>
+<div>
+<p>To provide access to the data in Oracle NoSQL Database, you create a Hive external table over the Oracle NoSQL table. Oracle Big Data SQL provides a StorageHandler named <code>oracle.kv.hadoop.hive.table.TableStorageHandler</code> that enables Hive to read the Oracle NoSQL Database table format.</p>
+<p>The following is the basic syntax of a Hive <code>CREATE TABLE</code> statement for a Hive external table over an Oracle NoSQL table:</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE <span class="italic">tablename</span> <span class="italic">colname</span> <span class="italic">coltype</span>[, <span class="italic">colname</span> <span class="italic">coltype</span>,...] 
+STORED BY 'oracle.kv.hadoop.hive.table.TableStorageHandler' 
+TBLPROPERTIES (
+           "oracle.kv.kvstore" = "<span class="italic">database</span>", 
+   "oracle.kv.hosts" = "<span class="italic">nosql_node1:port</span>[, <span class="italic">nosql_node2:port</span>...]", 
+   "oracle.kv.hadoop.hosts" = "<span class="italic">hadoop_node1</span>[<span class="italic">,hadoop_node2</span>...]", 
+   "oracle.kv.tableName" = "<span class="italic">table_name</span>");
+</pre>
+<div class="section">
+<p class="subhead3">Hive CREATE TABLE Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3__GUID-DB6978F4-70A6-4482-A71E-2ABC6C7C7C6B"><!-- --></a>tablename</dt>
+<dd>
+<p>The name of the Hive external table being created.</p>
+<p>This table name will be used in SQL queries issued in Oracle Database, so choose a name that is appropriate for users. The name of the external table that you create in Oracle Database must be identical to the name of this Hive table.</p>
+<p>Table, column, and field names are case insensitive in Oracle NoSQL Database, Apache Hive, and Oracle Database.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3__GUID-A86ED5C3-5749-4C50-95FA-2510218D77BC"><!-- --></a>colname coltype</dt>
+<dd>
+<p>The names and data types of the columns in the Hive external table. See <a href="bigsql.htm#GUID-2F0DCF34-3D70-4EE8-852C-B84E431CC12A__BJEEFCFA" title="NoSQL data type mappings">Table 3-1</a> for the data type mappings between Oracle NoSQL Database and Hive.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Hive CREATE TABLE TBLPROPERTIES Clause</p>
+<dl>
+<dt class="dlterm"><a id="GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3__GUID-229AE863-2042-465C-9DE8-A8D4045F4EE6"><!-- --></a>oracle.kv.kvstore</dt>
+<dd>
+<p>The name of the KVStore. Only upper- and lowercase letters and digits are valid in the name.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3__GUID-EE934E65-B1E2-4AD4-8F69-257F32F0042D"><!-- --></a>oracle.kv.hosts</dt>
+<dd>
+<p>A comma-delimited list of host names and port numbers in the Oracle NoSQL Database cluster. Each string has the format <span class="italic">hostname:port</span>. Enter multiple names to provide redundancy in the event that a host fails.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3__GUID-5315347B-331E-4520-970D-BEB948887C13"><!-- --></a>oracle.kv.hadoop.hosts</dt>
+<dd>
+<p>A comma-delimited list of all host names in the Hadoop cluster with Oracle Big Data SQL enabled.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3__GUID-352486DE-EAC6-4DBD-9897-D612AFD98266"><!-- --></a>oracle.kv.tableName</dt>
+<dd>
+<p>The name of the table in Oracle NoSQL Database that stores the data for this Hive external table.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3__GUID-DFD012FE-20E7-422B-9570-150412028886">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Apache Hive Language Manual DDL</span> at</p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/TruncateTable" target="_blank"><code>https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/TruncateTable</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76725"></a>
+<div class="props_rev_3"><a id="GUID-7C5585EF-83FF-46DB-819B-2DC5E520BE82"></a>
+<h3 id="BDSUG-GUID-7C5585EF-83FF-46DB-819B-2DC5E520BE82" class="sect3"><span class="enumeration_section">3.2.2</span> Creating the Oracle Database Table for Oracle NoSQL Data</h3>
+<div>
+<div class="section">
+<p>Use the following syntax to create an external table in Oracle Database that can access the Oracle NoSQL data through a Hive external table:</p>
+<pre dir="ltr">
+CREATE TABLE tablename(colname colType[, colname colType...]) 
+  ORGANIZATION EXTERNAL 
+    (TYPE ORACLE_HIVE DEFAULT DIRECTORY <span class="italic">directory</span> 
+     ACCESS PARAMETERS 
+         (<span class="italic">access parameters</span>)
+    ) 
+    REJECT LIMIT UNLIMITED;
+</pre>
+<p>In this syntax, you identify the column names and data types. For more about this syntax, see <span class="q">"<a href="bigsql.htm#GUID-52CB4932-13DE-474C-B3FB-D645BE83303F">About the SQL CREATE TABLE Statement</a>"</span>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76727"></a><a id="BIGUG76726"></a>
+<div class="props_rev_3"><a id="GUID-2F0DCF34-3D70-4EE8-852C-B84E431CC12A"></a>
+<h3 id="BDSUG-GUID-2F0DCF34-3D70-4EE8-852C-B84E431CC12A" class="sect3"><span class="enumeration_section">3.2.3</span> About Column Data Type Mappings</h3>
+<div>
+<p>When Oracle Big Data SQL retrieves data from Oracle NoSQL Database, the data is converted twice to another data type:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To a Hive data type when the data is read into the columns of the Hive external table.</p>
+</li>
+<li>
+<p>To an Oracle data type when the data is read into the columns of an Oracle Database external table.</p>
+</li>
+</ul>
+<p><a href="bigsql.htm#GUID-2F0DCF34-3D70-4EE8-852C-B84E431CC12A__BJEEFCFA" title="NoSQL data type mappings">Table 3-1</a> identifies the supported Oracle NoSQL data types and their mappings to Hive and Oracle Database data types. Oracle Big Data SQL does not support the Oracle NoSQL complex data types Array, Map, and Record.</p>
+<div class="tblformal" id="GUID-2F0DCF34-3D70-4EE8-852C-B84E431CC12A__BJEEFCFA">
+<hr />
+<p class="titleintable">Table 3-1 Oracle NoSQL Database Data Type Mappings</p>
+<table class="cellalignment301" title="Oracle NoSQL Database Data Type Mappings" summary="NoSQL data type mappings">
+<thead align="left">
+<tr>
+<th class="cellalignment304" id="d7518e650">Oracle NoSQL Database Data Type</th>
+<th class="cellalignment304" id="d7518e653">Apache Hive Data Type</th>
+<th class="cellalignment304" id="d7518e656">Oracle Database Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment304" id="d7518e661" headers="d7518e650">
+<p>String</p>
+</td>
+<td class="cellalignment304" headers="d7518e661 d7518e653">
+<p>STRING</p>
+</td>
+<td class="cellalignment304" headers="d7518e661 d7518e656">
+<p>VARCHAR2</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment304" id="d7518e671" headers="d7518e650">
+<p>Boolean</p>
+</td>
+<td class="cellalignment304" headers="d7518e671 d7518e653">
+<p>BOOLEAN</p>
+</td>
+<td class="cellalignment304" headers="d7518e671 d7518e656">
+<p>NUMBER<a href="#fntarg_1" id="fnsrc_1"><sup>1</sup></a></p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment304" id="d7518e684" headers="d7518e650">
+<p>Integer</p>
+</td>
+<td class="cellalignment304" headers="d7518e684 d7518e653">
+<p>INT</p>
+</td>
+<td class="cellalignment304" headers="d7518e684 d7518e656">
+<p>NUMBER</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment304" id="d7518e694" headers="d7518e650">
+<p>Long</p>
+</td>
+<td class="cellalignment304" headers="d7518e694 d7518e653">
+<p>INT</p>
+</td>
+<td class="cellalignment304" headers="d7518e694 d7518e656">
+<p>NUMBER</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment304" id="d7518e704" headers="d7518e650">
+<p>Double</p>
+</td>
+<td class="cellalignment304" headers="d7518e704 d7518e653">
+<p>DOUBLE</p>
+</td>
+<td class="cellalignment304" headers="d7518e704 d7518e656">
+<p>NUMBER(<span class="italic">p,s</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment304" id="d7518e717" headers="d7518e650">
+<p>Float</p>
+</td>
+<td class="cellalignment304" headers="d7518e717 d7518e653">
+<p>FLOAT</p>
+</td>
+<td class="cellalignment304" headers="d7518e717 d7518e656">
+<p>NUMBER(<span class="italic">p,s</span>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGUG76728"></a>
+<div class="props_rev_3"><a id="GUID-9B0D7583-AA1E-4E7E-A793-3B21A7C23C61"></a>
+<h3 id="BDSUG-GUID-9B0D7583-AA1E-4E7E-A793-3B21A7C23C61" class="sect3"><span class="enumeration_section">3.2.4</span> Example of Accessing Data in Oracle NoSQL Database</h3>
+<div>
+<p>This example uses the sample data provided with the Oracle NoSQL Database software:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bigsql.htm#GUID-83103C68-14E5-4EB1-9F38-4BDC0C022875">Creating the Oracle NoSQL Database Example Table</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-72BDD628-8D96-4898-B83B-A8D09A7DBEE5">Creating the Example Hive Table for vehicleTable</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-B8EFEDF6-7C54-40C5-81B1-59DEA135A235">Creating the Oracle Table for VEHICLES</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76729"></a>
+<div class="props_rev_3"><a id="GUID-83103C68-14E5-4EB1-9F38-4BDC0C022875"></a>
+<h4 id="BDSUG-GUID-83103C68-14E5-4EB1-9F38-4BDC0C022875" class="sect4"><span class="enumeration_section">3.2.4.1</span> Creating the Oracle NoSQL Database Example Table</h4>
+<div>
+<div class="section">
+<p>Verify that the following files reside in the <code>examples/hadoop/table</code> directory:</p>
+<pre dir="ltr">
+create_vehicle_table.kvs
+CountTableRows.java
+LoadVehicleTable.java
+</pre>
+<p>This example runs on a Hadoop cluster node named some1node07 and uses a KVStore named SOME1KV.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To create and populate the sample table in Oracle NoSQL Database:</p>
+<ol>
+<li>
+<p>Open a connection to an Oracle NoSQL Database node on your Hadoop cluster.</p>
+</li>
+<li>
+<p>Create a table named <code>vehicleTable</code>. The following example uses the <code>load</code> command to run the commands in <code>create_vehicle_table.kvs</code>:</p>
+<pre dir="ltr">
+$ cd <span class="italic">NOSQL_HOME</span>
+$ java -jar lib/kvcli.jar -host some1node07 -port 5000 \
+  load -file examples/hadoop/table/create_vehicle_table.kvs
+</pre></li>
+<li>
+<p>Compile <code>LoadVehicleTable.java</code>:</p>
+<pre dir="ltr">
+$ javac -cp examples:lib/kvclient.jar examples/hadoop/table/LoadVehicleTable.java
+</pre></li>
+<li>
+<p>Execute the <code>LoadVehicleTable</code> class to populate the table:</p>
+<pre dir="ltr">
+$ <span class="bold">java -cp examples:lib/kvclient.jar hadoop.table.LoadVehicleTable -host some1node07 -port 5000 -store SOME1KV</span>
+{"type":"auto","make":"Chrysler","model":"PTCruiser","class":"4WheelDrive","colo
+r":"white","price":20743.240234375,"count":30}
+{"type":"suv","make":"Ford","model":"Escape","class":"FrontWheelDrive","color":"
+     .
+     .
+     .
+10 new records added
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The <code>vehicleTable</code> table contains the following fields:</p>
+<div class="tblformal" id="GUID-83103C68-14E5-4EB1-9F38-4BDC0C022875__GUID-3FE8A2C1-58CC-42A5-AC77-E53B45BA58D1">
+<hr />
+<table class="cellalignment291" summary="example table column descriptions">
+<thead align="left">
+<tr>
+<th class="cellalignment305" id="d7518e843">Field Name</th>
+<th class="cellalignment305" id="d7518e846">Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment305" id="d7518e851" headers="d7518e843">
+<p>type</p>
+</td>
+<td class="cellalignment305" headers="d7518e851 d7518e846">
+<p>STRING</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment305" id="d7518e858" headers="d7518e843">
+<p>make</p>
+</td>
+<td class="cellalignment305" headers="d7518e858 d7518e846">
+<p>STRING</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment305" id="d7518e865" headers="d7518e843">
+<p>model</p>
+</td>
+<td class="cellalignment305" headers="d7518e865 d7518e846">
+<p>STRING</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment305" id="d7518e872" headers="d7518e843">
+<p>class</p>
+</td>
+<td class="cellalignment305" headers="d7518e872 d7518e846">
+<p>STRING</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment305" id="d7518e879" headers="d7518e843">
+<p>color</p>
+</td>
+<td class="cellalignment305" headers="d7518e879 d7518e846">
+<p>STRING</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment305" id="d7518e886" headers="d7518e843">
+<p>price</p>
+</td>
+<td class="cellalignment305" headers="d7518e886 d7518e846">
+<p>DOUBLE</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment305" id="d7518e893" headers="d7518e843">
+<p>count</p>
+</td>
+<td class="cellalignment305" headers="d7518e893 d7518e846">
+<p>INTEGER</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76730"></a>
+<div class="props_rev_3"><a id="GUID-72BDD628-8D96-4898-B83B-A8D09A7DBEE5"></a>
+<h4 id="BDSUG-GUID-72BDD628-8D96-4898-B83B-A8D09A7DBEE5" class="sect4"><span class="enumeration_section">3.2.4.2</span> Creating the Example Hive Table for vehicleTable</h4>
+<div>
+<div class="section">
+<p>The following example creates a Hive table named <code>VEHICLES</code> that accesses <code>vehicleTable</code> in the SOME1KV KVStore. In this example, the system is configured with a Hadoop cluster in the first six servers (some1node01 to some1node06) and an Oracle NoSQL Database cluster in the next three servers (some1node07 to some1node09).</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE IF NOT EXISTS vehicles 
+   (type STRING, 
+    make STRING, 
+    model STRING, 
+    class STRING, 
+    color STRING, 
+    price DOUBLE, 
+    count INT) 
+COMMENT 'Accesses data in vehicleTable in the SOME1KV KVStore' 
+STORED BY 'oracle.kv.hadoop.hive.table.TableStorageHandler' 
+TBLPROPERTIES
+  ("oracle.kv.kvstore" = "SOME1KV", 
+   "oracle.kv.hosts" = "some1node07.example.com:5000,some1node08.example.com:5000",
+   "oracle.kv.hadoop.hosts" = "some1node01.example.com,some1node02.example.com,some1node03.example.com,some1node04.example.com,some1node05.example.com,some1node06.example.com", 
+   "oracle.kv.tableName" = "vehicleTable");
+</pre>
+<p>The <code>DESCRIBE</code> command lists the columns in the <code>VEHICLES</code> table:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">DESCRIBE vehicles</span>;
+OK
+type                    string                  from deserializer
+make                    string                  from deserializer
+model                   string                  from deserializer
+class                   string                  from deserializer
+color                   string                  from deserializer
+price                   double                  from deserializer
+count                   int                     from deserializer
+</pre>
+<p>A query against the Hive <code>VEHICLES</code> table returns data from the Oracle NoSQL <code>vehicleTable</code> table:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT make, model, class</span>
+      <span class="bold">FROM vehicletable</span>
+      <span class="bold">WHERE type='truck' AND color='red'</span>
+      <span class="bold">ORDER BY make, model;</span>
+Total MapReduce jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+     .
+     .
+     .
+Chrysler       Ram1500         RearWheelDrive
+Chrysler       Ram2500         FrontWheelDrive
+Ford           F150            FrontWheelDrive
+Ford           F250            RearWheelDrive
+Ford           F250            AllWheelDrive
+Ford           F350            RearWheelDrive
+GM             Sierra          AllWheelDrive
+GM             Silverado1500   RearWheelDrive
+GM             Silverado1500   AllWheelDrive
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76731"></a>
+<div class="props_rev_3"><a id="GUID-B8EFEDF6-7C54-40C5-81B1-59DEA135A235"></a>
+<h4 id="BDSUG-GUID-B8EFEDF6-7C54-40C5-81B1-59DEA135A235" class="sect4"><span class="enumeration_section">3.2.4.3</span> Creating the Oracle Table for VEHICLES</h4>
+<div>
+<div class="section">
+<p>After you create the Hive table, the metadata is available in the Oracle Database static data dictionary views. The following SQL <code>SELECT</code> statement returns information about the Hive table created in the previous topic:</p>
+<pre dir="ltr">
+SQL&gt; <span class="bold">SELECT table_name, column_name, hive_column_type </span>
+     <span class="bold">FROM all_hive_columns </span>
+     <span class="bold">WHERE table_name='vehicles';</span>
+TABLE_NAME      COLUMN_NAME  HIVE_COLUMN_TYPE
+--------------- ------------ ----------------
+vehicles        type         string
+vehicles        make         string
+vehicles        model        string
+vehicles        class        string
+vehicles        color        string
+vehicles        price        double
+vehicles        count        int
+</pre>
+<p>The next SQL <code>CREATE TABLE</code> statement generates an external table named <code>VEHICLES</code> over the Hive <code>VEHICLES</code> table, using the <code>ORACLE_HIVE</code> access driver. The name of the table in Oracle Database must be identical to the name of the table in Hive. However, both Oracle NoSQL Database and Oracle Database are case insensitive.</p>
+<pre dir="ltr">
+CREATE TABLE vehicles
+  (type  VARCHAR2(10), make  VARCHAR2(12), model VARCHAR2(20), 
+   class VARCHAR2(40), color VARCHAR2(20), price NUMBER(8,2), 
+   count NUMBER) 
+  ORGANIZATION EXTERNAL 
+    (TYPE ORACLE_HIVE DEFAULT DIRECTORY DEFAULT_DIR 
+       ACCESS PARAMETERS 
+         (com.oracle.bigdata.debug=true com.oracle.bigdata.log.opt=normal)) 
+    REJECT LIMIT UNLIMITED;
+</pre>
+<p>This SQL <code>SELECT</code> statement retrieves all rows for red trucks from <code>vehicleTable</code> in Oracle NoSQL Database:</p>
+<pre dir="ltr">
+SQL&gt; <span class="bold">SELECT make, model, class</span> 
+     <span class="bold">FROM vehicles</span>
+     <span class="bold">WHERE type='truck' AND color='red'</span>
+     <span class="bold">ORDER BY make, model;</span>
+MAKE         MODEL                CLASS
+------------ -------------------- ---------------------
+Chrysler     Ram1500              RearWheelDrive
+Chrysler     Ram2500              FrontWheelDrive
+Ford         F150                 FrontWheelDrive
+Ford         F250                 AllWheelDrive
+Ford         F250                 RearWheelDrive
+Ford         F350                 RearWheelDrive
+GM           Sierra               AllWheelDrive
+GM           Silverado1500        RearWheelDrive
+GM           Silverado1500        4WheelDrive
+GM           Silverado1500        AllWheelDrive
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+<a id="BIGUG76732"></a>
+<div class="props_rev_3"><a id="GUID-1BA05F2A-609B-4560-B751-1E590ACE0993"></a>
+<h2 id="BDSUG-GUID-1BA05F2A-609B-4560-B751-1E590ACE0993" class="sect2"><span class="enumeration_section">3.3</span> Creating an Oracle External Table for Apache HBase</h2>
+<div>
+<p>You can also use the <code>ORACLE_HIVE</code> access driver to access data stored in Apache HBase. However, you must first create a Hive external table that accesses the HBase table. Then you can create an external table in Oracle Database over it. The basic steps are the same as those described in <span class="q">"<a href="bigsql.htm#GUID-0628EC5B-E013-40DF-A025-908019F4E681">Creating an Oracle External Table for Oracle NoSQL Database</a>"</span>.</p>
+</div>
+<a id="BIGUG76733"></a>
+<div class="props_rev_3"><a id="GUID-64113B59-263A-46B4-8569-8E881CDC310B"></a>
+<h3 id="BDSUG-GUID-64113B59-263A-46B4-8569-8E881CDC310B" class="sect3"><span class="enumeration_section">3.3.1</span> Creating a Hive External Table for HBase</h3>
+<div>
+<div class="section">
+<p>To provide access to the data in an HBase table, you create a Hive external table over it. Apache provides a storage handler and a SerDe that enable Hive to read the HBase table format.</p>
+<p>The following is the basic syntax of a Hive <code>CREATE TABLE</code> statement for an external table over an HBase table:</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE <span class="italic">tablename</span> <span class="italic">colname</span> <span class="italic">coltype</span>[, <span class="italic">colname</span> <span class="italic">coltype</span>,...] 
+ROW FORMAT
+   SERDE 'org.apache.hadoop.hive.hbase.HBaseSerDe'
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler' 
+WITH SERDEPROPERTIES (
+   'serialization.format'='1',
+   'hbase.columns.mapping'=':key,value:key,value:
+</pre>
+<div class="infoboxnotealso" id="GUID-64113B59-263A-46B4-8569-8E881CDC310B__GUID-6015B5FE-AF61-4F3D-9AEF-D1B7FE03B30A">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="italic">Apache Hive Language Manual DDL</span> at</p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/TruncateTable" target="_blank"><code>https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/TruncateTable</code></a></p>
+</li>
+<li>
+<p><span class="italic">Hive HBase Integration</span> at</p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/HBaseIntegration#HBaseIntegration-StorageHandlers" target="_blank"><code>https://cwiki.apache.org/confluence/display/Hive/HBaseIntegration#HBaseIntegration-StorageHandlers</code></a></p>
+</li>
+<li>
+<p><code>Class HBaseSerDe</code> in the Hive API reference at</p>
+<p><a href="http://hive.apache.org/javadocs/r0.13.1/api/hbase-handler/index.html" target="_blank"><code>http://hive.apache.org/javadocs/r0.13.1/api/hbase-handler/index.html</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76734"></a>
+<div class="props_rev_3"><a id="GUID-419955CE-9070-429F-8E2B-EE68BD6FB241"></a>
+<h3 id="BDSUG-GUID-419955CE-9070-429F-8E2B-EE68BD6FB241" class="sect3"><span class="enumeration_section">3.3.2</span> Creating the Oracle Database Table for HBase</h3>
+<div>
+<div class="section">
+<p>Use the following syntax to create an external table in Oracle Database that can access the HBase data through a Hive external table:</p>
+<pre dir="ltr">
+CREATE TABLE tablename(colname colType[, colname colType...]) 
+  ORGANIZATION EXTERNAL 
+    (TYPE ORACLE_HIVE DEFAULT DIRECTORY DEFAULT_DIR 
+     ACCESS PARAMETERS 
+         (<span class="italic">access parameters</span>)
+    ) 
+    REJECT LIMIT UNLIMITED;
+</pre>
+<p>In this syntax, you identify the column names and data types. To specify the access parameters, see <span class="q">"<a href="bigsql.htm#GUID-52CB4932-13DE-474C-B3FB-D645BE83303F">About the SQL CREATE TABLE Statement</a>"</span>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG76679"></a>
+<div class="props_rev_3"><a id="GUID-C564C1F2-706B-4C20-8E5C-8E4335A9D0D1"></a>
+<h2 id="BDSUG-GUID-C564C1F2-706B-4C20-8E5C-8E4335A9D0D1" class="sect2"><span class="enumeration_section">3.4</span> Creating an Oracle External Table for HDFS Files</h2>
+<div>
+<p>The <code>ORACLE_HDFS</code> access driver enables you to access many types of data that are stored in HDFS, but which do not have Hive metadata. You can define the record format of text data, or you can specify a SerDe for a particular data format.</p>
+<p>You must create the external table for HDFS files manually, and provide all the information the access driver needs to locate the data, and parse the records and fields. The following are some examples of <code>CREATE TABLE ORGANIZATION EXTERNAL</code> statements.</p>
+</div>
+<a id="BIGUG76704"></a>
+<div class="props_rev_3"><a id="GUID-90B60D7E-F131-4C94-83BD-3E79629463B3"></a>
+<h3 id="BDSUG-GUID-90B60D7E-F131-4C94-83BD-3E79629463B3" class="sect3"><span class="enumeration_section">3.4.1</span> Using the Default Access Parameters with ORACLE_HDFS</h3>
+<div>
+<div class="section">
+<p><a id="d7518e1213" class="indexterm-anchor"></a>The following statement creates a table named <code>ORDER</code> to access the data in all files stored in the <code>/usr/cust/summary</code> directory in HDFS:</p>
+<pre dir="ltr">
+CREATE TABLE ORDER (cust_num VARCHAR2(10), 
+                    order_num VARCHAR2(20), 
+                    order_total NUMBER (8,2))
+  ORGANIZATION EXTERNAL 
+  ( TYPE oracle_hdfs
+    DEFAULT DIRECTORY DEFAULT_DIR 
+  )
+  LOCATION ('hdfs:/usr/cust/summary/*');
+</pre>
+<p>Because no access parameters are set in the statement, the <code>ORACLE_HDFS</code> access driver uses the default settings to do the following:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Connects to the default Hadoop cluster.</p>
+</li>
+<li>
+<p>Reads the files as delimited text, and the fields as type <code>STRING</code>.</p>
+</li>
+<li>
+<p>Assumes that the number of fields in the HDFS files match the number of columns (three in this example).</p>
+</li>
+<li>
+<p>Assumes the fields are in the same order as the columns, so that <code>CUST_NUM</code> data is in the first field, <code>ORDER_NUM</code> data is in the second field, and <code>ORDER_TOTAL</code> data is in the third field.</p>
+</li>
+<li>
+<p>Rejects any records in which the value causes a data conversion error: If the value for <code>CUST_NUM</code> exceeds 10 characters, the value for <code>ORDER_NUM</code> exceeds 20 characters, or the value of <code>ORDER_TOTAL</code> cannot be converted to <code>NUMBER</code>.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76705"></a>
+<div class="props_rev_3"><a id="GUID-2651824F-3382-4A4A-930D-8DF804324CC6"></a>
+<h3 id="BDSUG-GUID-2651824F-3382-4A4A-930D-8DF804324CC6" class="sect3"><span class="enumeration_section">3.4.2</span> Overriding the Default ORACLE_HDFS Settings</h3>
+<div>
+<p>You can use many of the same access parameters with <code>ORACLE_HDFS</code> as <code>ORACLE_HIVE</code>.</p>
+</div>
+<a id="BIGUG76706"></a>
+<div class="props_rev_3"><a id="GUID-2A0FE292-6DC7-4A2B-A84D-3300192CC68D"></a>
+<h4 id="BDSUG-GUID-2A0FE292-6DC7-4A2B-A84D-3300192CC68D" class="sect4"><span class="enumeration_section">3.4.2.1</span> Accessing a Delimited Text File</h4>
+<div>
+<div class="section">
+<p>The following example is equivalent to the one shown in <span class="q">"<a href="bigsql.htm#GUID-B4AF3E27-3846-4E4D-AE98-908E7EA9E2B4">Overriding the Default ORACLE_HIVE Settings</a>"</span>. The external table access a delimited text file stored in HDFS.</p>
+<pre dir="ltr">
+CREATE TABLE order (cust_num VARCHAR2(10), 
+                    order_num VARCHAR2(20), 
+                    order_date DATE,
+                    item_cnt NUMBER,
+                    description VARCHAR2(100),
+                    order_total NUMBER(8,2)) 
+   ORGANIZATION EXTERNAL 
+   (
+     TYPE oracle_hdfs
+     DEFAULT DIRECTORY DEFAULT_DIR  
+           ACCESS PARAMETERS 
+                 (
+        com.oracle.bigdata.colmap: {"col":"item_cnt", "field":"order_line_item_count"}
+        com.oracle.bigdata.overflow: {"action":"TRUNCATE", "col":"DESCRIPTION"}
+        com.oracle.bigdata.erroropt: [{"action":"replace", \
+                                         "value":"INVALID NUM", \
+                                         "col":["CUST_NUM","ORDER_NUM"]} , \
+                                         {"action":"reject", "col":"ORDER_TOTAL}]
+     )
+ LOCATION ('hdfs:/usr/cust/summary/*'));
+</pre>
+<p>The parameters make the following changes in the way that the <code>ORACLE_HDFS</code> access driver locates the data and handles error conditions:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p><code>com.oracle.bigdata.colmap</code>: Handles differences in column names. <code>ORDER_LINE_ITEM_COUNT</code> in the HDFS files matches the <code>ITEM_CNT</code> column in the external table.</p>
+</li>
+<li>
+<p><code>com.oracle.bigdata.overflow</code>: Truncates string data. Values longer than 100 characters for the <code>DESCRIPTION</code> column are truncated.</p>
+</li>
+<li>
+<p><code>com.oracle.bigdata.erroropt</code>: Replaces bad data. Errors in the data for <code>CUST_NUM</code> or <code>ORDER_NUM</code> set the value to <code>INVALID_NUM</code>.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76707"></a>
+<div class="props_rev_3"><a id="GUID-AE8D7463-C7BC-4841-9151-15BCD993E296"></a>
+<h4 id="BDSUG-GUID-AE8D7463-C7BC-4841-9151-15BCD993E296" class="sect4"><span class="enumeration_section">3.4.2.2</span> Accessing Avro Container Files</h4>
+<div>
+<p>The next example uses a SerDe to access Avro container files.</p>
+<pre dir="ltr">
+CREATE TABLE order (cust_num VARCHAR2(10), 
+                    order_num VARCHAR2(20), 
+                    order_date DATE,
+                    item_cnt NUMBER,
+                    description VARCHAR2(100),
+                    order_total NUMBER(8,2)) 
+   ORGANIZATION EXTERNAL 
+   (
+      TYPE oracle_hdfs              
+      DEFAULT DIRECTORY DEFAULT_DIR 
+      ACCESS PARAMETERS (
+         com.oracle.bigdata.rowformat: \
+         SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+         com.oracle.bigdata.fileformat: \
+         INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'\ 
+         OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+         com.oracle.bigdata.colmap: {  "col":"item_cnt", \
+                 "field":"order_line_item_count"}
+         com.oracle.bigdata.overflow: {"action":"TRUNCATE", \
+                  "col":"DESCRIPTION"}
+      )
+      LOCATION ('hdfs:/usr/cust/summary/*'));
+</pre>
+<p>The access parameters provide the following information to the <code>ORACLE_HDFS</code> access driver:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>com.oracle.bigdata.rowformat</code>: Identifies the SerDe that the access driver needs to use to parse the records and fields. The files are not in delimited text format.</p>
+</li>
+<li>
+<p><code>com.oracle.bigdata.fileformat</code>: Identifies the Java classes that can extract records and output them in the desired format.</p>
+</li>
+<li>
+<p><code>com.oracle.bigdata.colmap</code>: Handles differences in column names. <code>ORACLE_HDFS</code> matches <code>ORDER_LINE_ITEM_COUNT</code> in the HDFS files with the <code>ITEM_CNT</code> column in the external table.</p>
+</li>
+<li>
+<p><code>com.oracle.bigdata.overflow</code>: Truncates string data. Values longer than 100 characters for the <code>DESCRIPTION</code> column are truncated.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<a id="BIGUG76680"></a>
+<div class="props_rev_3"><a id="GUID-52CB4932-13DE-474C-B3FB-D645BE83303F"></a>
+<h2 id="BDSUG-GUID-52CB4932-13DE-474C-B3FB-D645BE83303F" class="sect2"><span class="enumeration_section">3.5</span> About the SQL CREATE TABLE Statement</h2>
+<div>
+<p>The SQL <code>CREATE TABLE</code> statement has a clause specifically for creating external tables. The information that you provide in this clause enables the access driver to read data from an external source and prepare the data for the external table.</p>
+</div>
+<a id="BIGUG76735"></a>
+<div class="props_rev_3"><a id="GUID-9DB18515-4160-4851-9D74-56F556A0AA6F"></a>
+<h3 id="BDSUG-GUID-9DB18515-4160-4851-9D74-56F556A0AA6F" class="sect3"><span class="enumeration_section">3.5.1</span> Basic Syntax</h3>
+<div>
+<div class="section">
+<p><a id="d7518e1456" class="indexterm-anchor"></a>The following is the basic syntax of the <code>CREATE TABLE</code> statement for external tables:</p>
+<pre dir="ltr">
+CREATE TABLE <span class="italic">table_name</span> (<span class="italic">column_name datatype</span>, 
+                         <span class="italic">column_name datatype</span>[,...]) 
+   ORGANIZATION EXTERNAL (<span class="italic">external_table_clause</span>);
+</pre>
+<p>You specify the column names and data types the same as for any other table. <code>ORGANIZATION EXTERNAL</code> identifies the table as an external table.</p>
+<p>The <span class="italic">external_table_clause</span> identifies the access driver and provides the information that it needs to load the data. See <span class="q">"<a href="bigsql.htm#GUID-7B1B3E63-903E-4ADD-B2E1-6AA794D684CA">About the External Table Clause</a>"</span>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG21133"></a>
+<div class="props_rev_3"><a id="GUID-7B1B3E63-903E-4ADD-B2E1-6AA794D684CA"></a>
+<h3 id="BDSUG-GUID-7B1B3E63-903E-4ADD-B2E1-6AA794D684CA" class="sect3"><span class="enumeration_section">3.5.2</span> About the External Table Clause</h3>
+<div>
+<div class="section">
+<p><code>CREATE TABLE ORGANIZATION EXTERNAL</code> takes the <span class="italic">external_table_clause</span> as its argument. It has the following subclauses:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bigsql.htm#GUID-A251FA10-8E14-4B54-9CBD-5367C196DD67">TYPE Clause</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-BBA7E62E-6A96-4D8E-9F66-895978979AAA">DEFAULT DIRECTORY Clause</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-1837E290-4FD2-4C6E-956E-5906CF237EB5">LOCATION Clause</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-794DA7D1-8A0D-4DD0-B48E-BE76C0BF2AF0">REJECT LIMIT Clause</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-9CC9807E-44F5-4A54-A8B9-D3D9D293A9B4">ORACLE_HIVE Access Parameters</a></p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-7B1B3E63-903E-4ADD-B2E1-6AA794D684CA__GUID-91FC8164-6D58-4A89-B43E-F6396C6AD6B3">
+<p class="notep1">See Also:</p>
+<p><a class="olink SQLRF54502" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E73350-01&amp;id=SQLRF54502"><span class="italic">Oracle Database SQL Language Reference</span></a> for the <span class="italic">external_table_clause</span></p>
+</div>
+</div>
+<!-- class="section" --></div>
+<a id="BIGUG21134"></a>
+<div class="props_rev_3"><a id="GUID-A251FA10-8E14-4B54-9CBD-5367C196DD67"></a>
+<h4 id="BDSUG-GUID-A251FA10-8E14-4B54-9CBD-5367C196DD67" class="sect4"><span class="enumeration_section">3.5.2.1</span> TYPE Clause</h4>
+<div>
+<div class="section">
+<p>The <code>TYPE</code> clause identifies the access driver. The type of access driver determines how the other parts of the external table definition are interpreted.</p>
+<p>Specify one of the following values for Oracle Big Data SQL:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>ORACLE_HDFS</code>: Accesses files in an HDFS directory.</p>
+</li>
+<li>
+<p><code>ORACLE_HIVE</code>: Accesses a Hive table.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-A251FA10-8E14-4B54-9CBD-5367C196DD67__GUID-7BA840EA-FDBB-48EE-B287-20DAF818BF8B">
+<p class="notep1">Note:</p>
+<p>The <code>ORACLE_DATAPUMP</code> and <code>ORACLE_LOADER</code> access drivers are not associated with Oracle Big Data SQL.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG21135"></a>
+<div class="props_rev_3"><a id="GUID-BBA7E62E-6A96-4D8E-9F66-895978979AAA"></a>
+<h4 id="BDSUG-GUID-BBA7E62E-6A96-4D8E-9F66-895978979AAA" class="sect4"><span class="enumeration_section">3.5.2.2</span> DEFAULT DIRECTORY Clause</h4>
+<div>
+<div class="section">
+<p>The <code>DEFAULT DIRECTORY</code> clause identifies an Oracle Database directory object. The directory object identifies an operating system directory with files that the external table reads and writes.</p>
+<p><code>ORACLE_HDFS</code> and <code>ORACLE_HIVE</code> use the default directory solely to write log files on the Oracle Database system.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG21136"></a>
+<div class="props_rev_3"><a id="GUID-1837E290-4FD2-4C6E-956E-5906CF237EB5"></a>
+<h4 id="BDSUG-GUID-1837E290-4FD2-4C6E-956E-5906CF237EB5" class="sect4"><span class="enumeration_section">3.5.2.3</span> LOCATION Clause</h4>
+<div>
+<div class="section">
+<p>The <code>LOCATION</code> clause identifies the data source.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76708"></a><a id="BIGUG21137"></a>
+<div class="props_rev_3"><a id="GUID-A876D6A0-D431-4E4A-9CEF-8E6F9E07A5FF"></a>
+<h4 id="BDSUG-GUID-A876D6A0-D431-4E4A-9CEF-8E6F9E07A5FF" class="sect4"><span class="enumeration_section">3.5.2.4</span> ORACLE_HDFS LOCATION Clause</h4>
+<div>
+<div class="section">
+<p>The <code>LOCATION</code> clause for <code>ORACLE_HDFS</code> contains a comma-separated list of file locations. The files must reside in the HDFS file system on the default cluster.</p>
+<p>A location can be any of the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A fully qualified HDFS name, such as <code>/user/hive/warehouse/hive_seed/hive_types</code>. <code>ORACLE_HDFS</code> uses all files in the directory.</p>
+</li>
+<li>
+<p>A fully qualified HDFS file name, such as <code>/user/hive/warehouse/hive_seed/hive_types/hive_types.csv</code></p>
+</li>
+<li>
+<p>A URL for an HDFS file or a set of files, such as <code>hdfs:/user/hive/warehouse/hive_seed/hive_types/*</code>. Just a directory name is invalid.</p>
+</li>
+</ul>
+<p>The file names can contain any pattern-matching character described in <a href="bigsql.htm#GUID-A876D6A0-D431-4E4A-9CEF-8E6F9E07A5FF__CIHFHJCH" title="Pattern matching characters">Table 3-2</a>.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-A876D6A0-D431-4E4A-9CEF-8E6F9E07A5FF__CIHFHJCH">
+<hr />
+<p class="titleintable">Table 3-2 Pattern-Matching Characters</p>
+<table class="cellalignment291" title="Pattern-Matching Characters" summary="Pattern matching characters">
+<thead align="left">
+<tr>
+<th class="cellalignment306" id="d7518e1718">Character</th>
+<th class="cellalignment307" id="d7518e1721">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment306" id="d7518e1726" headers="d7518e1718">
+<p>?</p>
+</td>
+<td class="cellalignment307" headers="d7518e1726 d7518e1721">
+<p>Matches any one character</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment306" id="d7518e1733" headers="d7518e1718">
+<p>*</p>
+</td>
+<td class="cellalignment307" headers="d7518e1733 d7518e1721">
+<p>Matches zero or more characters</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment306" id="d7518e1740" headers="d7518e1718">
+<p>[<span class="italic">abc</span>]</p>
+</td>
+<td class="cellalignment307" headers="d7518e1740 d7518e1721">
+<p>Matches one character in the set {<span class="italic">a</span>, <span class="italic">b</span>, <span class="italic">c</span>}</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment306" id="d7518e1759" headers="d7518e1718">
+<p>[<span class="italic">a</span>-<span class="italic">b]</span></p>
+</td>
+<td class="cellalignment307" headers="d7518e1759 d7518e1721">
+<p>Matches one character in the range {<span class="italic">a</span>...<span class="italic">b</span>}. The character must be less than or equal to <span class="italic">b</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment306" id="d7518e1780" headers="d7518e1718">
+<p>[^<span class="italic">a</span>]</p>
+</td>
+<td class="cellalignment307" headers="d7518e1780 d7518e1721">
+<p>Matches one character that is not in the character set or range {<span class="italic">a</span>}. The carat (^) must immediately follow the left bracket, with no spaces.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment306" id="d7518e1793" headers="d7518e1718">
+<p>\<span class="italic">c</span></p>
+</td>
+<td class="cellalignment307" headers="d7518e1793 d7518e1721">
+<p>Removes any special meaning of <span class="italic">c</span>. The backslash is the escape character.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment306" id="d7518e1805" headers="d7518e1718">
+<p>{ab\,cd}</p>
+</td>
+<td class="cellalignment307" headers="d7518e1805 d7518e1721">
+<p>Matches a string from the set {<span class="italic">ab</span>, <span class="italic">cd</span>}. The escape character (\) removes the meaning of the comma as a path separator.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment306" id="d7518e1818" headers="d7518e1718">
+<p>{ab\,c{de\,fh}</p>
+</td>
+<td class="cellalignment307" headers="d7518e1818 d7518e1721">
+<p>Matches a string from the set {<span class="italic">ab</span>, <span class="italic">cde</span>, <span class="italic">cfh</span>}. The escape character (\) removes the meaning of the comma as a path separator.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGUG21138"></a>
+<div class="props_rev_3"><a id="GUID-3C37BA5B-6C31-4DF8-A998-9A56BA14BB9C"></a>
+<h4 id="BDSUG-GUID-3C37BA5B-6C31-4DF8-A998-9A56BA14BB9C" class="sect4"><span class="enumeration_section">3.5.2.5</span> ORACLE_HIVE LOCATION Clause</h4>
+<div>
+<div class="section">
+<p>Do not specify the <code>LOCATION</code> clause for <code>ORACLE_HIVE</code>; it raises an error. The data is stored in Hive, and the access parameters and the metadata store provide the necessary information.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG21139"></a>
+<div class="props_rev_3"><a id="GUID-794DA7D1-8A0D-4DD0-B48E-BE76C0BF2AF0"></a>
+<h4 id="BDSUG-GUID-794DA7D1-8A0D-4DD0-B48E-BE76C0BF2AF0" class="sect4"><span class="enumeration_section">3.5.2.6</span> REJECT LIMIT Clause</h4>
+<div>
+<div class="section">
+<p>Limits the number of conversion errors permitted during a query of the external table before Oracle Database stops the query and returns an error.</p>
+<p>Any processing error that causes a row to be rejected counts against the limit. The reject limit applies individually to each parallel query (PQ) process. It is not the total of all rejected rows for all PQ processes.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG21140"></a>
+<div class="props_rev_3"><a id="GUID-1D69C0E3-1DAD-44CD-BFAE-9BB15F2BB79D"></a>
+<h4 id="BDSUG-GUID-1D69C0E3-1DAD-44CD-BFAE-9BB15F2BB79D" class="sect4"><span class="enumeration_section">3.5.2.7</span> ACCESS PARAMETERS Clause</h4>
+<div>
+<div class="section">
+<p>The <code>ACCESS PARAMETERS</code> clause provides information that the access driver needs to load the data correctly into the external table. See <span class="q">"<a href="bigsqlref.htm#GUID-5DFBDFFC-CCC0-44C4-9EA1-2DF0554526E4">CREATE TABLE ACCESS PARAMETERS Clause</a>"</span>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+<a id="BIGUG21142"></a><a id="BIGUG21141"></a>
+<div class="props_rev_3"><a id="GUID-44E9399A-698B-4F8E-BAC9-6178839876BC"></a>
+<h2 id="BDSUG-GUID-44E9399A-698B-4F8E-BAC9-6178839876BC" class="sect2"><span class="enumeration_section">3.6</span> About Data Type Conversions</h2>
+<div>
+<p>When the access driver loads data into an external table, it verifies that the Hive data can be converted to the data type of the target column. If they are incompatible, then the access driver returns an error. Otherwise, it makes the appropriate data conversion.</p>
+<p>Hive typically provides a table abstraction layer over data stored elsewhere, such as in HDFS files. Hive uses a serializer/deserializer (SerDe) to convert the data as needed from its stored format into a Hive data type. The access driver then converts the data from its Hive data type to an Oracle data type. For example, if a Hive table over a text file has a <code>BIGINT</code> column, then the SerDe converts the data from text to <code>BIGINT</code>. The access driver then converts the data from <code>BIGINT</code> (a Hive data type) to <code>NUMBER</code> (an Oracle data type).</p>
+<p>Performance is better when one data type conversion is performed instead of two. The data types for the fields in the HDFS files should therefore indicate the data that is actually stored on disk. For example, JSON is a clear text format, therefore all data in a JSON file is text. If the Hive type for a field is <code>DATE</code>, then the SerDe converts the data from string (in the data file) to a Hive date. Then the access driver converts the data from a Hive date to an Oracle date. However, if the Hive type for the field is string, then the SerDe does not perform a conversion, and the access driver converts the data from string to an oracle date. Queries against the external table are faster in the second example, because the access driver performs the only data conversion.</p>
+<p><a href="bigsql.htm#GUID-44E9399A-698B-4F8E-BAC9-6178839876BC__CIHEDBCC" title="Hive to Oracle data type conversions">Table 3-3</a> identifies the data type conversions that <code>ORACLE_HIVE</code> can make when loading data into an external table.</p>
+<div class="tblformalwide" id="GUID-44E9399A-698B-4F8E-BAC9-6178839876BC__CIHEDBCC">
+<hr />
+<p class="titleintable">Table 3-3 Supported Hive to Oracle Data Type Conversions</p>
+<table class="cellalignment300" title="Supported Hive to Oracle Data Type Conversions" summary="Hive to Oracle data type conversions">
+<thead align="left">
+<tr>
+<th class="cellalignment298" id="d7518e1985">Hive Data Type</th>
+<th class="cellalignment308" id="d7518e1988">VARCHAR2, CHAR, NCHAR2, NCHAR, CLOB</th>
+<th class="cellalignment298" id="d7518e1991">NUMBER, FLOAT, BINARY_NUMBER, BINARY_FLOAT</th>
+<th class="cellalignment309" id="d7518e1994">BLOB</th>
+<th class="cellalignment310" id="d7518e1997">RAW</th>
+<th class="cellalignment311" id="d7518e2000">DATE, TIMESTAMP, TIMESTAMP WITH TZ, TIMESTAMP WITH LOCAL TZ</th>
+<th class="cellalignment296" id="d7518e2003">INTERVAL YEAR TO MONTH, INTERVAL DAY TO SECOND</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment298" id="d7518e2008" headers="d7518e1985">
+<p>INT</p>
+<p>SMALLINT</p>
+<p>TINYINT</p>
+<p>BIGINT</p>
+</td>
+<td class="cellalignment308" headers="d7518e2008 d7518e1988">
+<p>yes</p>
+</td>
+<td class="cellalignment298" headers="d7518e2008 d7518e1991">
+<p>yes</p>
+</td>
+<td class="cellalignment309" headers="d7518e2008 d7518e1994">
+<p>yes</p>
+</td>
+<td class="cellalignment310" headers="d7518e2008 d7518e1997">
+<p>yes</p>
+</td>
+<td class="cellalignment311" headers="d7518e2008 d7518e2000">
+<p>no</p>
+</td>
+<td class="cellalignment296" headers="d7518e2008 d7518e2003">
+<p>no</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment298" id="d7518e2036" headers="d7518e1985">
+<p>DOUBLE</p>
+<p>FLOAT</p>
+</td>
+<td class="cellalignment308" headers="d7518e2036 d7518e1988">
+<p>yes</p>
+</td>
+<td class="cellalignment298" headers="d7518e2036 d7518e1991">
+<p>yes</p>
+</td>
+<td class="cellalignment309" headers="d7518e2036 d7518e1994">
+<p>yes</p>
+</td>
+<td class="cellalignment310" headers="d7518e2036 d7518e1997">
+<p>yes</p>
+</td>
+<td class="cellalignment311" headers="d7518e2036 d7518e2000">
+<p>no</p>
+</td>
+<td class="cellalignment296" headers="d7518e2036 d7518e2003">
+<p>no</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment298" id="d7518e2060" headers="d7518e1985">
+<p>DECIMAL</p>
+</td>
+<td class="cellalignment308" headers="d7518e2060 d7518e1988">
+<p>yes</p>
+</td>
+<td class="cellalignment298" headers="d7518e2060 d7518e1991">
+<p>yes</p>
+</td>
+<td class="cellalignment309" headers="d7518e2060 d7518e1994">
+<p>no</p>
+</td>
+<td class="cellalignment310" headers="d7518e2060 d7518e1997">
+<p>no</p>
+</td>
+<td class="cellalignment311" headers="d7518e2060 d7518e2000">
+<p>no</p>
+</td>
+<td class="cellalignment296" headers="d7518e2060 d7518e2003">
+<p>no</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment298" id="d7518e2082" headers="d7518e1985">
+<p>BOOLEAN</p>
+</td>
+<td class="cellalignment308" headers="d7518e2082 d7518e1988">
+<p>yes<a href="#fntarg_2" id="fnsrc_2"><sup>2</sup></a></p>
+</td>
+<td class="cellalignment298" headers="d7518e2082 d7518e1991">
+<p>yes</p>
+</td>
+<td class="cellalignment309" headers="d7518e2082 d7518e1994">
+<p>yes<a href="bigsql.htm#GUID-44E9399A-698B-4F8E-BAC9-6178839876BC__CIHEEIAG"><sup>3</sup></a></p>
+</td>
+<td class="cellalignment310" headers="d7518e2082 d7518e1997">
+<p>yes</p>
+</td>
+<td class="cellalignment311" headers="d7518e2082 d7518e2000">
+<p>no</p>
+</td>
+<td class="cellalignment296" headers="d7518e2082 d7518e2003">
+<p>no</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment298" id="d7518e2118" headers="d7518e1985">
+<p>BINARY</p>
+</td>
+<td class="cellalignment308" headers="d7518e2118 d7518e1988">
+<p>yes</p>
+</td>
+<td class="cellalignment298" headers="d7518e2118 d7518e1991">
+<p>no</p>
+</td>
+<td class="cellalignment309" headers="d7518e2118 d7518e1994">
+<p>yes</p>
+</td>
+<td class="cellalignment310" headers="d7518e2118 d7518e1997">
+<p>yes</p>
+</td>
+<td class="cellalignment311" headers="d7518e2118 d7518e2000">
+<p>no</p>
+</td>
+<td class="cellalignment296" headers="d7518e2118 d7518e2003">
+<p>no</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment298" id="d7518e2140" headers="d7518e1985">
+<p>STRING</p>
+</td>
+<td class="cellalignment308" headers="d7518e2140 d7518e1988">
+<p>yes</p>
+</td>
+<td class="cellalignment298" headers="d7518e2140 d7518e1991">
+<p>yes</p>
+</td>
+<td class="cellalignment309" headers="d7518e2140 d7518e1994">
+<p>yes</p>
+</td>
+<td class="cellalignment310" headers="d7518e2140 d7518e1997">
+<p>yes</p>
+</td>
+<td class="cellalignment311" headers="d7518e2140 d7518e2000">
+<p>yes</p>
+</td>
+<td class="cellalignment296" headers="d7518e2140 d7518e2003">
+<p>yes</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment298" id="d7518e2162" headers="d7518e1985">
+<p>TIMESTAMP</p>
+</td>
+<td class="cellalignment308" headers="d7518e2162 d7518e1988">
+<p>yes</p>
+</td>
+<td class="cellalignment298" headers="d7518e2162 d7518e1991">
+<p>no</p>
+</td>
+<td class="cellalignment309" headers="d7518e2162 d7518e1994">
+<p>no</p>
+</td>
+<td class="cellalignment310" headers="d7518e2162 d7518e1997">
+<p>no</p>
+</td>
+<td class="cellalignment311" headers="d7518e2162 d7518e2000">
+<p>yes</p>
+</td>
+<td class="cellalignment296" headers="d7518e2162 d7518e2003">
+<p>no</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment298" id="d7518e2184" headers="d7518e1985">
+<p>STRUCT</p>
+<p>ARRAY</p>
+<p>UNIONTYPE</p>
+<p>MAP</p>
+</td>
+<td class="cellalignment308" headers="d7518e2184 d7518e1988">
+<p>yes</p>
+</td>
+<td class="cellalignment298" headers="d7518e2184 d7518e1991">
+<p>no</p>
+</td>
+<td class="cellalignment309" headers="d7518e2184 d7518e1994">
+<p>no</p>
+</td>
+<td class="cellalignment310" headers="d7518e2184 d7518e1997">
+<p>no</p>
+</td>
+<td class="cellalignment311" headers="d7518e2184 d7518e2000">
+<p>no</p>
+</td>
+<td class="cellalignment296" headers="d7518e2184 d7518e2003">
+<p>no</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGUG21146"></a>
+<div class="props_rev_3"><a id="GUID-5C3E2799-637A-4B21-A02D-212E3024D84D"></a>
+<h2 id="BDSUG-GUID-5C3E2799-637A-4B21-A02D-212E3024D84D" class="sect2"><span class="enumeration_section">3.7</span> Querying External Tables</h2>
+<div>
+<p><a id="d7518e2228" class="indexterm-anchor"></a>Users can query external tables using the SQL <code>SELECT</code> statement, the same as they query any other table.</p>
+</div>
+<a id="BIGUG21147"></a>
+<div class="props_rev_3"><a id="GUID-DDEAA78F-D032-4344-B210-A533A2CEA5DC"></a>
+<h3 id="BDSUG-GUID-DDEAA78F-D032-4344-B210-A533A2CEA5DC" class="sect3"><span class="enumeration_section">3.7.1</span> Granting User Access</h3>
+<div>
+<p>Users who query the data on a Hadoop cluster must have <code>READ</code> access in Oracle Database to the external table and to the database directory object that points to the cluster directory. See <span class="q">"<a href="bigsql.htm#GUID-DF428D53-B3CD-4E90-9DE6-3A3F201ED34C">About the Cluster Directory</a>"</span>.</p>
+</div>
+</div>
+<a id="BIGUG21148"></a>
+<div class="props_rev_3"><a id="GUID-FA0589E2-E03A-4815-B5B3-230A1E2F40C1"></a>
+<h3 id="BDSUG-GUID-FA0589E2-E03A-4815-B5B3-230A1E2F40C1" class="sect3"><span class="enumeration_section">3.7.2</span> About Error Handling</h3>
+<div>
+<p><a id="d7518e2276" class="indexterm-anchor"></a>By default, a query returns no data if an error occurs while the value of a column is calculated. Processing continues after most errors, particularly those thrown while the column values are calculated.</p>
+<p>Use the <code><a href="bigsqlref.htm#GUID-EE402B2A-42F3-4BE9-904A-423E1AB26E55">com.oracle.bigdata.erroropt</a></code> parameter to determine how errors are handled.</p>
+</div>
+</div>
+<a id="BIGUG21149"></a>
+<div class="props_rev_3"><a id="GUID-C51E3EE0-ECBE-4821-B4D9-2F89126BAAB6"></a>
+<h3 id="BDSUG-GUID-C51E3EE0-ECBE-4821-B4D9-2F89126BAAB6" class="sect3"><span class="enumeration_section">3.7.3</span> About the Log Files</h3>
+<div>
+<p>You can use these access parameters to customize the log files:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="bigsqlref.htm#GUID-066A4568-9F95-4305-A1A5-7BC3E5DF35AF">com.oracle.bigdata.log.exec</a></code></p>
+</li>
+<li>
+<p><code><a href="bigsqlref.htm#GUID-DD3F4F5D-CA97-43A6-B7B5-3ED51CE4644C">com.oracle.bigdata.log.qc</a></code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGUG21119"></a>
+<div class="props_rev_3"><a id="GUID-74BD99A7-EDE8-4959-B635-D4B97FC5EFAF"></a>
+<h2 id="BDSUG-GUID-74BD99A7-EDE8-4959-B635-D4B97FC5EFAF" class="sect2"><span class="enumeration_section">3.8</span> About Oracle Big Data SQL on the Database Server (Oracle Exadata Machine or Other)</h2>
+<div>
+<p>This section explains the changes that the Oracle Big Data SQL installation makes to the Oracle Database system (which may or may not be an Oracle Exadata Machine).</p>
+<p>The section contains the following topics:<a id="d7518e2335" class="indexterm-anchor"></a><a id="d7518e2339" class="indexterm-anchor"></a></p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bigsql.htm#GUID-6F23C063-81C0-4331-963F-F2E9EE72B951">About the Common Directory</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-CAD9D627-C923-4A01-82B5-5936950C8F15">Common Configuration Properties</a></p>
+</li>
+<li>
+<p><a href="bigsql.htm#GUID-DF428D53-B3CD-4E90-9DE6-3A3F201ED34C">About the Cluster Directory</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG21121"></a>
+<div class="props_rev_3"><a id="GUID-6F23C063-81C0-4331-963F-F2E9EE72B951"></a>
+<h3 id="BDSUG-GUID-6F23C063-81C0-4331-963F-F2E9EE72B951" class="sect3"><span class="enumeration_section">3.8.1</span> About the Common Directory</h3>
+<div>
+<p>The directory <code>common</code> directory contains configuration information that is common to all Hadoop clusters. This directory is located on the Oracle Database system under the Oracle <code>home</code> directory. The <code>oracle</code> file system user (or whichever user owns the Oracle Database instance) owns the common directory. A database directory named <code>ORACLE_BIGDATA_CONFIG</code> points to <code>common</code>.</p>
+</div>
+</div>
+<a id="BIGUG21122"></a>
+<div class="props_rev_3"><a id="GUID-CAD9D627-C923-4A01-82B5-5936950C8F15"></a>
+<h3 id="BDSUG-GUID-CAD9D627-C923-4A01-82B5-5936950C8F15" class="sect3"><span class="enumeration_section">3.8.2</span> Common Configuration Properties</h3>
+<div>
+<div class="section">
+<p>The installation store these files in the <code>common</code> directory under <code>/home/oracle</code> :</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="bigsql.htm#GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4">bigdata.properties</a></code></p>
+</li>
+<li>
+<p><code><a href="bigsql.htm#GUID-A5782C5E-AB11-46CA-A91D-78EDEC5CD28E">bigdata-log4j.properties</a></code></p>
+</li>
+</ul>
+<p>The Oracle DBA can edit these configuration files as necessary.</p>
+</div>
+<!-- class="section" --></div>
+<a id="BIGUG21124"></a><a id="BIGUG21123"></a>
+<div class="props_rev_3"><a id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4"></a>
+<h4 id="BDSUG-GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4" class="sect4"><span class="enumeration_section">3.8.2.1</span> bigdata.properties</h4>
+<div>
+<div class="section">
+<p>The <code>bigdata.properties</code> file in the common directory contains property-value pairs that define the Java class paths and native library paths required for accessing data in HDFS.</p>
+<p>These properties must be set:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="bigsql.htm#GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJEBHDDB">bigdata.cluster.default</a></code></p>
+</li>
+<li>
+<p><code><a href="bigsql.htm#GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJEHEGAD">java.classpath.hadoop</a></code></p>
+</li>
+<li>
+<p><code><a href="bigsql.htm#GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJEFJIBD">java.classpath.hive</a></code></p>
+</li>
+<li>
+<p><code><a href="bigsql.htm#GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJECJJIF">java.classpath.oracle</a></code></p>
+</li>
+</ul>
+<p>The following list describes all properties permitted in <code>bigdata.properties</code>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">bigdata.properties</p>
+<div class="tblformal" id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__GUID-7ED4063D-E5F7-47E6-84B2-17883003D7CF">
+<table class="cellalignment301" summary="Describes property-value pairs in the bigdata.properties file.">
+<thead align="left">
+<tr>
+<th class="cellalignment303" id="d7518e2498">Property</th>
+<th class="cellalignment303" id="d7518e2500">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJEBHDDB">
+<td class="cellalignment303" id="d7518e2504" headers="d7518e2498">
+<p><span class="bold">bigdata.cluster.default</span></p>
+</td>
+<td class="cellalignment303" headers="d7518e2504 d7518e2500">
+<p>The name of the default Hadoop cluster. The access driver uses this name when the access parameters do not specify a cluster. Required.</p>
+<p>Changing the default cluster name might break external tables that were created previously without an explicit cluster name.</p>
+</td>
+</tr>
+<tr id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__GUID-3E5515A9-B06D-4F64-A6B5-946FA0017D53">
+<td class="cellalignment303" id="d7518e2514" headers="d7518e2498">
+<p><span class="bold">bigdata.cluster.list</span></p>
+</td>
+<td class="cellalignment303" headers="d7518e2514 d7518e2500">
+<p>A comma-separated list of Hadoop cluster names. Optional.</p>
+</td>
+</tr>
+<tr id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJEHEGAD">
+<td class="cellalignment303" id="d7518e2522" headers="d7518e2498">
+<p><span class="bold">java.classpath.hadoop</span></p>
+</td>
+<td class="cellalignment303" headers="d7518e2522 d7518e2500">
+<p>The Hadoop class path. Required.</p>
+</td>
+</tr>
+<tr id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJEFJIBD">
+<td class="cellalignment303" id="d7518e2530" headers="d7518e2498">
+<p><span class="bold">java.classpath.hive</span></p>
+</td>
+<td class="cellalignment303" headers="d7518e2530 d7518e2500">
+<p>The Hive class path. Required.</p>
+</td>
+</tr>
+<tr id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJECJJIF">
+<td class="cellalignment303" id="d7518e2538" headers="d7518e2498">
+<p><span class="bold">java.classpath.oracle</span></p>
+</td>
+<td class="cellalignment303" headers="d7518e2538 d7518e2500">
+<p>The path to the Oracle JXAD Java JAR file. Required.</p>
+</td>
+</tr>
+<tr id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__GUID-E71579FC-C057-41E3-B829-645033E049FC">
+<td class="cellalignment303" id="d7518e2546" headers="d7518e2498">
+<p><span class="bold">java.classpath.user</span></p>
+</td>
+<td class="cellalignment303" headers="d7518e2546 d7518e2500">
+<p>The path to user JAR files. Optional.</p>
+</td>
+</tr>
+<tr id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__GUID-F4671EA1-07C0-43DA-BB18-75ED79C67DCB">
+<td class="cellalignment303" id="d7518e2554" headers="d7518e2498">
+<p><span class="bold">java.libjvm.file</span></p>
+</td>
+<td class="cellalignment303" headers="d7518e2554 d7518e2500">
+<p>The full file path to the JVM shared library (such as <code>libjvm.so</code>). Required.</p>
+</td>
+</tr>
+<tr id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJEHIIJG">
+<td class="cellalignment303" id="d7518e2565" headers="d7518e2498">
+<p><span class="bold">java.options</span></p>
+</td>
+<td class="cellalignment303" headers="d7518e2565 d7518e2500">
+<p>A comma-separated list of options to pass to the JVM. Optional.</p>
+<p>This example sets the maximum heap size to 2 GB, and verbose logging for Java Native Interface (JNI) calls:</p>
+<pre dir="ltr">
+Xmx2048m,-verbose=jni
+</pre></td>
+</tr>
+<tr id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__GUID-F6187521-871B-4ECA-A569-75475956788D">
+<td class="cellalignment303" id="d7518e2577" headers="d7518e2498">
+<p><span class="bold">LD_LIBRARY_PATH</span></p>
+</td>
+<td class="cellalignment303" headers="d7518e2577 d7518e2500">
+<p>A colon separated (:) list of directory paths to search for the Hadoop native libraries. Recommended.</p>
+<p>If you set this option, then do not set <span class="italic">java.library</span> path in <code><a href="bigsql.htm#GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJEHIIJG">java.options</a></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="bigsql.htm#GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJEGDDFH">Example 3-1</a> shows a sample <code>bigdata.properties</code> file.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4__BJEGDDFH">
+<p class="titleinexample">Example 3-1 Sample bigdata.properties File</p>
+<pre dir="ltr">
+# bigdata.properties
+#
+# Copyright (c) 2014, Oracle and/or its affiliates. All rights reserved.
+#
+#    NAME
+#      bigdata.properties - Big Data Properties File
+#
+#    DESCRIPTION
+#      Properties file containing parameters for allowing access to Big Data
+#      Fixed value properties can be added here 
+#
+ 
+java.libjvm.file=$ORACLE_HOME/jdk/jre/lib/amd64/server/libjvm.so
+java.classpath.oracle=$ORACLE_HOME/hadoopcore/jlib/*:$ORACLE_HOME/hadoop/jlib/hver-2/*:$ORACLE_HOME/dbjava/lib/*
+java.classpath.hadoop=$HADOOP_HOME/*:$HADOOP_HOME/lib/*
+java.classpath.hive=$HIVE_HOME/lib/*
+LD_LIBRARY_PATH=$ORACLE_HOME/jdk/jre/lib
+bigdata.cluster.default=hadoop_cl_1
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BIGUG21127"></a><a id="BIGUG21126"></a>
+<div class="props_rev_3"><a id="GUID-A5782C5E-AB11-46CA-A91D-78EDEC5CD28E"></a>
+<h4 id="BDSUG-GUID-A5782C5E-AB11-46CA-A91D-78EDEC5CD28E" class="sect4"><span class="enumeration_section">3.8.2.2</span> bigdata-log4j.properties</h4>
+<div>
+<div class="section">
+<p>The <code>bigdata-log4j.properties</code> file in the common directory defines the logging behavior of queries against external tables in the Java code. Any <code>log4j</code> properties are allowed in this file.</p>
+<p><a href="bigsql.htm#GUID-A5782C5E-AB11-46CA-A91D-78EDEC5CD28E__BJEGJHJJ">Example 3-2</a> shows a sample <code>bigdata-log4j.properties</code> file with the relevant <code>log4j</code> properties.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-A5782C5E-AB11-46CA-A91D-78EDEC5CD28E__BJEGJHJJ">
+<p class="titleinexample">Example 3-2 Sample bigdata-log4j.properties File</p>
+<pre dir="ltr">
+# bigdata-log4j.properties
+#
+# Copyright (c) 2014, Oracle and/or its affiliates. All rights reserved.
+#
+#    NAME
+#      bigdata-log4j.properties - Big Data Logging Properties File
+#
+#    DESCRIPTION
+#      Properties file containing logging parameters for Big Data
+#      Fixed value properties can be added here
+ 
+bigsql.rootlogger=INFO,console
+log4j.rootlogger=DEBUG, file
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.target=System.err
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=%d{yy/MM/dd HH:mm:ss} %p %c{2}: %m%n
+log4j.appender.file=org.apache.log4j.RollingFileAppender
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%d{yy/MM/dd HH:mm:ss} %p %c{2}: %m%n
+log4j.logger.oracle.hadoop.sql=ALL, file
+ 
+bigsql.log.dir=.
+bigsql.log.file=bigsql.log
+log4j.appender.file.File=$ORACLE_HOME/bigdatalogs/bigdata-log4j.log
+</pre></div>
+<!-- class="example" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-A5782C5E-AB11-46CA-A91D-78EDEC5CD28E__GUID-70D68A15-9428-4E7C-ACAB-64367A899A62">
+<p class="notep1">See Also:</p>
+<p>Apache Logging Services documentation at</p>
+<p><a href="http://logging.apache.org/log4j/1.2/manual.html" target="_blank"><code>http://logging.apache.org/log4j/1.2/manual.html</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG21128"></a>
+<div class="props_rev_3"><a id="GUID-DF428D53-B3CD-4E90-9DE6-3A3F201ED34C"></a>
+<h3 id="BDSUG-GUID-DF428D53-B3CD-4E90-9DE6-3A3F201ED34C" class="sect3"><span class="enumeration_section">3.8.3</span> About the Cluster Directory</h3>
+<div>
+<div class="section">
+<p>The cluster directory contains configuration information for a Hadoop cluster. Each cluster that Oracle Database will access using Oracle Big Data SQL has a cluster directory. This directory is located on the Oracle Database system under the common directory. For example, a cluster named bda1_cl_1 would have a directory by the same name (<code>bda1_cl_1</code>) in the common directory.</p>
+<p>The cluster directory contains the client configuration files for accessing the cluster, such as the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>core-site.xml</code></p>
+</li>
+<li>
+<p><code>hdfs-site.xml</code></p>
+</li>
+<li>
+<p><code>hive-site.xml</code></p>
+</li>
+<li>
+<p><code>mapred-site.xml</code> (optional)</p>
+</li>
+<li>
+<p><code>log4j</code> property files (such as <code>hive-log4j.properties</code>)</p>
+</li>
+</ul>
+<p>A database directory object points to the cluster directory. Users who want to access the data in a cluster must have read access to the directory object.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76681"></a>
+<div class="props_rev_3"><a id="GUID-55F9B5C2-726A-4ECB-8CB4-448ADE4982A6"></a>
+<h3 id="BDSUG-GUID-55F9B5C2-726A-4ECB-8CB4-448ADE4982A6" class="sect3"><span class="enumeration_section">3.8.4</span> About Permissions</h3>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>On the Oracle database server, the <code>oracle</code> user (or whatever user owns the Oracle Database installation directory) requires READ/WRITE access to the database directory that points to the log directory.</p>
+</li>
+<li>
+<p>There must also be a corresponding <code>oracle</code> user defined in the Hadoop cluster. The <code>oracle</code> user requires READ access to HDFS on all DataNodes in the cluster.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="p"><a href="#fnsrc_1" id="fntarg_1"><sup>1</sup></a>
+<p>0 for false, and 1 for true</p>
+</div>
+<div class="p"><a href="#fnsrc_2" id="fntarg_2"><sup>2</sup></a>
+<p>FALSE maps to the string <code>FALSE</code>, and TRUE maps to the string <code>TRUE</code>.</p>
+</div>
+<div class="p"><a id="GUID-44E9399A-698B-4F8E-BAC9-6178839876BC__CIHEEIAG"><sup>3</sup></a>
+<p>FALSE maps to 0, and TRUE maps to 1.</p>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment279">
+<tr>
+<td class="cellalignment286">
+<table class="cellalignment290">
+<tr>
+<td class="cellalignment283"><a href="installing.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment283"><a href="copy2bda.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment288">
+<table class="cellalignment289">
+<tr>
+<td class="cellalignment283"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment283"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment283"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment283"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment283"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

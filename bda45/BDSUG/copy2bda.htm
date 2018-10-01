@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Copying Oracle Tables to Hadoop</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="This chapter describes how to use Copy to Hadoop to copy tables in an Oracle database to Hadoop. It contains the following sections:" />
+<meta name="keywords" content="external tables, about, access drivers, Oracle Shell for Hadoop Loaders Setup, installing, installation" />
+<meta name="dcterms.created" content="2016-06-27T14:31:41Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User's Guide" />
+<meta name="dcterms.identifier" content="E76071-02" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="bigsql.htm" title="Previous" type="text/html" />
+<link rel="Next" href="bigsqlref.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E76071-02.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"322179",ustr:"",originlat:"0",clientrtt:"2",ghostip:"23.212.3.15",ipv6:false,pct:"10",clientip:"45.78.37.67",requestid:"2056d90",region:"32996",protocol:"",blver:14,akM:"dsca",akN:"ae",akTT:"O",akTX:"1",akTI:"2056d90",ai:"206465",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-B897FD6B-2BFE-4C86-AE53-08EA181F92F2"></a> <span id="PAGE" style="display:none;">7/11</span> <!-- End Header --><a id="BIGUG76737"></a><a id="BIGUG76736"></a>
+<h1 id="BDSUG-GUID-B897FD6B-2BFE-4C86-AE53-08EA181F92F2" class="sect1"><span class="enumeration_chapter">4</span> Copying Oracle Tables to Hadoop</h1>
+<div>
+<div><span>This chapter describes how to use Copy to Hadoop to copy tables in an Oracle database to Hadoop. It contains the following sections:</span></div>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="copy2bda.htm#GUID-C4544F9A-E779-4380-BEAD-5E9B6BCD32F4">What Is Copy to Hadoop?</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-41C9CFA3-B2BC-44E6-B974-E99CBAE0CB3A">Getting Started Using Copy to Hadoop</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-82BFB573-1991-406E-8C09-DA9C7630142B">Installing Copy to Hadoop</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-9A6D9F3F-BF74-4CD0-B237-5EAE85159267">Generating the Data Pump Files</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA">Creating a Hive Table</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-BCAC514F-33AA-40EB-A4D3-C1BE71EDFBA6">Example Using the Sample Schemas</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76738"></a>
+<div class="props_rev_3"><a id="GUID-C4544F9A-E779-4380-BEAD-5E9B6BCD32F4"></a>
+<h2 id="BDSUG-GUID-C4544F9A-E779-4380-BEAD-5E9B6BCD32F4" class="sect2"><span class="enumeration_section">4.1</span> What Is Copy to Hadoop?</h2>
+<div>
+<p>Oracle Big Data SQL includes the Oracle Copy to Hadoop utility. This utility makes it simple to identify and copy Oracle data to the Hadoop Distributed File System. It can be accessed either through a command-line interface or via Oracle SQL Developer. Data exported to the Hadoop cluster by Copy to Hadoop is stored in Oracle Data Pump format. This format optimizes queries thru Big Data SQL:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The data is stored as Oracle data types &ndash; eliminating data type conversions</p>
+</li>
+<li>
+<p>The data is queried directly &ndash; without requiring the overhead associated with Java SerDes</p>
+</li>
+</ul>
+<p>After generating Data Pump format files from the tables and copying the files to HDFS, you can use Apache Hive to query the data. Hive can process the data locally without accessing Oracle Database. When the Oracle table changes, you can refresh the copy in Hadoop. Copy to Hadoop is primarily useful for Oracle tables that are relatively static, and thus do not require frequent refreshes.</p>
+<p>Copy to Hadoop is licensed under Oracle Big Data SQL. You must have an Oracle Big Data SQL license in order to use utility</p>
+</div>
+</div>
+<a id="BIGUG76739"></a>
+<div class="props_rev_3"><a id="GUID-41C9CFA3-B2BC-44E6-B974-E99CBAE0CB3A"></a>
+<h2 id="BDSUG-GUID-41C9CFA3-B2BC-44E6-B974-E99CBAE0CB3A" class="sect2"><span class="enumeration_section">4.2</span> Getting Started Using Copy to Hadoop</h2>
+<div>
+<div class="section">
+<p>Take the following steps to use Copy to Hadoop:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Ensure that your system meets the prerequisites, and that the required software is installed on both the Hadoop cluster (on Oracle Big Data Appliance or another Hadoop system) and on the Oracle Database server (Oracle Exadata Database Machine or other).</span>
+<div>
+<p>See <span class="q">"<a href="copy2bda.htm#GUID-82BFB573-1991-406E-8C09-DA9C7630142B">Installing Copy to Hadoop</a>"</span>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>On the Oracle Database server, connect to Oracle Database and generate Data Pump format files containing the table data and metadata.</span>
+<div>
+<p>See <span class="q">"<a href="copy2bda.htm#GUID-9A6D9F3F-BF74-4CD0-B237-5EAE85159267">Generating the Data Pump Files</a>"</span>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Copy the files to HDFS on the Hadoop cluster.</span>
+<div>
+<p>See <span class="q">"<a href="copy2bda.htm#GUID-F4F247BE-6081-469F-84EC-8DA5A5EDB539">Copying the Files to HDFS</a>"</span>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Connect to Apache Hive and create an external table from the files.</span>
+<div>
+<p>See <span class="q">"<a href="copy2bda.htm#GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA">Creating a Hive Table</a>"</span>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Query this Hive table the same as you would any other Hive table.</span></li>
+</ol>
+</div>
+</div>
+<a id="BIGUG76740"></a>
+<div class="props_rev_3"><a id="GUID-82BFB573-1991-406E-8C09-DA9C7630142B"></a>
+<h2 id="BDSUG-GUID-82BFB573-1991-406E-8C09-DA9C7630142B" class="sect2"><span class="enumeration_section">4.3</span> Installing Copy to Hadoop</h2>
+<div>
+<p>Where Oracle Big Data SQL is installed, Copy to Hadoop is available on the Oracle Database server that is connected to Hadoop cluster.</p>
+</div>
+<a id="BIGUG76741"></a>
+<div class="props_rev_3"><a id="GUID-B1E9363B-CFE9-45EB-A04F-B7F71AEFB323"></a>
+<h3 id="BDSUG-GUID-B1E9363B-CFE9-45EB-A04F-B7F71AEFB323" class="sect3"><span class="enumeration_section">4.3.1</span> Prerequisites for Copy to Hadoop</h3>
+<div>
+<div class="section">
+<p>For network connections, supported Oracle Database levels, and other requirements, see the general requirements for installing Oracle Big Data SQL on your platform: <a href="installing.htm#GUID-9761D895-54EE-45DD-A44E-340ECA81C376">Installing Oracle Big Data SQL</a>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-2173D424-A0ED-4596-888C-571E282846F9"></a>
+<h3 id="BDSUG-GUID-2173D424-A0ED-4596-888C-571E282846F9" class="sect3"><span class="enumeration_section">4.3.2</span> Installing Copy to Hadoop in an Oracle Big Data Appliance/Oracle Exadata Database Machine Environment</h3>
+<div>
+<p>If Oracle Big Data SQL is installed, Copy to Hadoop is available on the Oracle Exadata Database Machine connected to Oracle Big Data Appliance.</p>
+</div>
+<div class="props_rev_3"><a id="GUID-5AA53208-C4D6-4FC5-A456-5C6D2DEB6D6C"></a>
+<h4 id="BDSUG-GUID-5AA53208-C4D6-4FC5-A456-5C6D2DEB6D6C" class="sect4"><span class="enumeration_section">4.3.2.1</span> Installing Copy to Hadoop on Oracle Big Data Appliance</h4>
+<div>
+<p>Copy to Hadoop is a component of Oracle Big Data SQL, which is an installation option on Oracle Big Data Appliance. You can enable Oracle Big Data SQL either during the initial software installation or at a later time using the standard methods for enabling and disabling services. See <span class="q">"<a href="installing.htm#GUID-4BADF912-EE0E-4A98-A2E6-403E689B5098">Performing the Installation</a>"</span>.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-1463CF0B-B46F-4649-8450-20758D01FABC"></a>
+<h4 id="BDSUG-GUID-1463CF0B-B46F-4649-8450-20758D01FABC" class="sect4"><span class="enumeration_section">4.3.2.2</span> Installing Copy to Hadoop on Oracle Exadata Database Machine</h4>
+<div>
+<p>Copy to Hadoop only requires a Hadoop client on Oracle Exadata Database Machine. It does not employ the additional software required by Oracle Big Data SQL.</p>
+<p>If you plan to use Oracle Big Data SQL, then the Hadoop client is created automatically when you run the <code>bds-exa-install.sh</code> installation script. In this case, you do not need to take any additional steps. See <span class="q">"<a href="installing.htm#GUID-82C6C34A-D7F7-4E90-9457-8D01CC5DB657">Running the Post-Installation Script for Oracle Big Data SQL</a>"</span>.</p>
+<p>If you do not plan to use Oracle Big Data SQL at this time, then you can install the Hadoop client manually instead of running the script.</p>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-086BEFD7-05D3-4DDE-9103-7378137D7268"></a>
+<h3 id="BDSUG-GUID-086BEFD7-05D3-4DDE-9103-7378137D7268" class="sect3"><span class="enumeration_section">4.3.3</span> Installing Copy to Hadoop on Other Systems</h3>
+<div>
+<p>Where Oracle Big Data SQL is installed, Copy to Hadoop is available on the Oracle Database server that is connected to Hadoop cluster.</p>
+</div>
+<a id="BIGUG76742"></a>
+<div class="props_rev_3"><a id="GUID-998FEE60-4885-4A33-BA13-B03EBA79B44C"></a>
+<h4 id="BDSUG-GUID-998FEE60-4885-4A33-BA13-B03EBA79B44C" class="sect4"><span class="enumeration_section">4.3.3.1</span> Installing Copy to Hadoop on a Hadoop Cluster (Other than an Oracle Big Data Database Appliance Cluster)</h4>
+<div>
+<p>Copy to Hadoop is a component of Oracle Big Data SQL and requires some additional setups after the Oracle Big Data SQL installation. See the following MOS note for instructions &mdash; <span class="italic">Big Data SQL 3.0: Installing and Configuring Copy to Hadoop</span> (Doc ID 2115762.1). Contact Oracle Support if you have any questions.</p>
+</div>
+</div>
+<a id="BIGUG76771"></a>
+<div class="props_rev_3"><a id="GUID-9469E567-2374-44FB-9609-FC1880A6EFBD"></a>
+<h4 id="BDSUG-GUID-9469E567-2374-44FB-9609-FC1880A6EFBD" class="sect4"><span class="enumeration_section">4.3.3.2</span> Installing Copy to Hadoop on an Oracle Database Server (Other Than Oracle Exadata Database Machine)</h4>
+<div>
+<p>In order to use Copy to Hadoop, additional configuration steps are required after the Oracle Big Data SQL installation. See the following MOS note for instructions &mdash; <span class="italic">Big Data SQL 3.0: Installing and Configuring Copy to Hadoop</span> (Doc ID 2115762.1). Contact Oracle Support if you have any questions.</p>
+</div>
+</div>
+</div>
+</div>
+<a id="BIGUG76743"></a>
+<div class="props_rev_3"><a id="GUID-9A6D9F3F-BF74-4CD0-B237-5EAE85159267"></a>
+<h2 id="BDSUG-GUID-9A6D9F3F-BF74-4CD0-B237-5EAE85159267" class="sect2"><span class="enumeration_section">4.4</span> Generating the Data Pump Files</h2>
+<div>
+<p>The SQL <code>CREATE TABLE</code> statement has a clause specifically for creating external tables, in which you specify the <code>ORACLE_DATAPUMP</code> access driver. The information that you provide in this clause enables the access driver to generate a Data Pump format file that contains the data and metadata from the Oracle database table.</p>
+<p>This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="copy2bda.htm#GUID-4841DD91-1A90-4992-93C0-F0139270709F">About Data Pump Format Files</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-619CF941-8D7D-4B5C-A396-E4BED5DC62A9">Identifying the Target Directory</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-D0462F01-F726-4A1B-876B-C530C0007426">About the CREATE TABLE Syntax</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-F4F247BE-6081-469F-84EC-8DA5A5EDB539">Copying the Files to HDFS</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76744"></a>
+<div class="props_rev_3"><a id="GUID-4841DD91-1A90-4992-93C0-F0139270709F"></a>
+<h3 id="BDSUG-GUID-4841DD91-1A90-4992-93C0-F0139270709F" class="sect3"><span class="enumeration_section">4.4.1</span> About Data Pump Format Files</h3>
+<div>
+<p>Data Pump files are typically used to move data and metadata from one database to another. Copy to Hadoop uses this file format to copy data from an Oracle database to HDFS.</p>
+<p>To generate Data Pump format files, you create an external table from an existing Oracle table. An <span class="bold">external table</span> in Oracle Database is an object that identifies and describes the location of data outside of a database. External tables use <span class="bold">access drivers</span> to parse and format the data. For Copy to Hadoop, you use the <code>ORACLE_DATAPUMP</code> access driver. It copies the data and metadata from internal Oracle tables and populates the Data Pump format files of the external table.</p>
+</div>
+</div>
+<a id="BIGUG76746"></a>
+<div class="props_rev_3"><a id="GUID-619CF941-8D7D-4B5C-A396-E4BED5DC62A9"></a>
+<h3 id="BDSUG-GUID-619CF941-8D7D-4B5C-A396-E4BED5DC62A9" class="sect3"><span class="enumeration_section">4.4.2</span> Identifying the Target Directory</h3>
+<div>
+<div class="section">
+<p>You must have read and write access to a database directory in Oracle Database. Only Oracle Database users with the <code>CREATE ANY DIRECTORY</code> system privilege can create directories.</p>
+<p>This example creates a database directory named <code>EXPORTDIR</code> that points to the <code>/exportdir</code> directory on the Oracle Database server (Oracle Exadata Database Machine or other):</p>
+<pre dir="ltr">
+SQL&gt; CREATE DIRECTORY exportdir AS '/exportdir';
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76747"></a>
+<div class="props_rev_3"><a id="GUID-D0462F01-F726-4A1B-876B-C530C0007426"></a>
+<h3 id="BDSUG-GUID-D0462F01-F726-4A1B-876B-C530C0007426" class="sect3"><span class="enumeration_section">4.4.3</span> About the CREATE TABLE Syntax</h3>
+<div>
+<div class="section">
+<p><a id="d13151e436" class="indexterm-anchor"></a>The following is the basic syntax of the <code>CREATE TABLE</code> statement for Data Pump format files:</p>
+<pre dir="ltr">
+CREATE TABLE <span class="italic">table_name</span>
+   ORGANIZATION EXTERNAL (
+     TYPE oracle_datapump
+     DEFAULT DIRECTORY <span class="italic">database_directory</span>
+     LOCATION ('<span class="italic">filename1</span>.dmp','<span class="italic">filename2</span>.dmp'...)
+     ) PARALLEL <span class="italic">n</span>
+   AS SELECT * FROM <span class="italic">tablename</span>;
+</pre>
+<dl>
+<dt class="dlterm"><a id="GUID-D0462F01-F726-4A1B-876B-C530C0007426__GUID-8A1D9563-22DB-4998-B3B4-E9D3A613C004"><!-- --></a>DEFAULT DIRECTORY</dt>
+<dd>
+<p>Identifies the database directory that you created for this purpose. See <span class="q">"<a href="copy2bda.htm#GUID-619CF941-8D7D-4B5C-A396-E4BED5DC62A9">Identifying the Target Directory</a>"</span>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D0462F01-F726-4A1B-876B-C530C0007426__GUID-7066379F-0821-4FB1-B944-B92FD99FDB7B"><!-- --></a>LOCATION</dt>
+<dd>
+<p>Lists the names of the Data Pump files to be created. The number of names should match the degree of parallelism (DOP) specified by the <code>PARALLEL</code> clause. Otherwise, the DOP drops to the number of files.</p>
+<p>The number of files and the degree of parallelism affect the performance of Oracle Database when generating the Data Pump format files. They do not affect querying performance in Hive.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D0462F01-F726-4A1B-876B-C530C0007426__GUID-07D4F886-B810-45E9-BB8E-0D5FEAFCA0F0"><!-- --></a>PARALLEL</dt>
+<dd>
+<p>Sets the degree of parallelism (DOP). Use the maximum number that your Oracle DBA permits you to use. By default the DOP is 1, which is serial processing. Larger numbers enable parallel processing.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D0462F01-F726-4A1B-876B-C530C0007426__GUID-A6AF2EF2-94D1-4B70-9E03-51CE60B2FA27"><!-- --></a>AS SELECT</dt>
+<dd>
+<p>Use the full SQL <code>SELECT</code> syntax for this clause. It is not restricted. The <span class="italic">tablename</span> identifies the Oracle table to be copied to HDFS.</p>
+</dd>
+</dl>
+<div class="infoboxnotealso" id="GUID-D0462F01-F726-4A1B-876B-C530C0007426__GUID-A3455B04-A322-4950-9ACE-F199CF7070DD">
+<p class="notep1">See Also:</p>
+<p>For descriptions of these parameters:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a class="olink SQLRF54502" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E73350-01&amp;id=SQLRF54502"><span class="italic">Oracle Database SQL Language Reference</span></a></p>
+</li>
+<li>
+<p><a class="olink SUTIL1457" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E73350-01&amp;id=SUTIL1457"><span class="italic">Oracle Database Utilities</span></a></p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76748"></a>
+<div class="props_rev_3"><a id="GUID-F4F247BE-6081-469F-84EC-8DA5A5EDB539"></a>
+<h3 id="BDSUG-GUID-F4F247BE-6081-469F-84EC-8DA5A5EDB539" class="sect3"><span class="enumeration_section">4.4.4</span> Copying the Files to HDFS</h3>
+<div>
+<div class="section">
+<p>The Oracle Big Data SQL installation installs Hadoop client files on the Oracle Datatabase server (Oracle Exadata Database Machine or other). The Hadoop client installation enables you to use Hadoop commands to copy the Data Pump files to HDFS. You must have write privileges on the HDFS directory.</p>
+<p>To copy the <code>dmp</code> files into HDFS, use the <code>hadoop fs -put</code> command. This example copies the files into the HDFS <code>customers</code> directory owned by the <code>oracle</code> user:</p>
+<pre dir="ltr">
+$ hadoop fs -put customers*.dmp /user/oracle/customers
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG76749"></a>
+<div class="props_rev_3"><a id="GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA"></a>
+<h2 id="BDSUG-GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA" class="sect2"><span class="enumeration_section">4.5</span> Creating a Hive Table</h2>
+<div>
+<p>To provide access to the data in the Data Pump files, you create a Hive external table over the Data Pump files. Copy to Hadoop provides SerDes that enable Hive to read the files. These SerDes are read only, so you cannot use them to write to the files.</p>
+<div class="infoboxnotealso" id="GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA__GUID-C12C7AFC-CEC0-4A0F-B7FF-A8569F956982">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Apache Hive Language Manual DDL</span> at</p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/TruncateTable" target="_blank"><code>https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/TruncateTable</code></a></p>
+</div>
+</div>
+<a id="BIGUG76750"></a>
+<div class="props_rev_3"><a id="GUID-EE8E769D-7847-4487-828C-D8848EEE1ED4"></a>
+<h3 id="BDSUG-GUID-EE8E769D-7847-4487-828C-D8848EEE1ED4" class="sect3"><span class="enumeration_section">4.5.1</span> About Hive External Tables</h3>
+<div>
+<p>For external tables, Hive loads the table metadata into its metastore. The data remains in its original location, which you identify in the <code>LOCATION</code> clause. If you drop an external table using a HiveQL <code>DROP TABLE</code> statement, then only the metadata is discarded, while the external data remains unchanged. In this respect, Hive handles external tables in fundamentally the same way as Oracle Database.</p>
+<p>External tables support data sources that are shared by multiple programs. In this case, you use Oracle Database to update the data and then generate a new file. You can overwrite the old HDFS files with the updated files while leaving the Hive metadata intact.</p>
+<p>The following is the basic syntax of a Hive <code>CREATE TABLE</code> statement for creating a Hive external table for use with a Data Pump format file:</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE <span class="italic">tablename</span> 
+ROW FORMAT
+   SERDE 'oracle.hadoop.hive.datapump.DPSerDe'
+STORED AS
+   INPUTFORMAT  'oracle.hadoop.hive.datapump.DPInputFormat'
+   OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION '<span class="italic">hdfs_directory</span>'
+</pre></div>
+</div>
+<a id="BIGUG76752"></a>
+<div class="props_rev_3"><a id="GUID-327CADC1-B702-4A05-9D53-C0A0F3A47D8E"></a>
+<h3 id="BDSUG-GUID-327CADC1-B702-4A05-9D53-C0A0F3A47D8E" class="sect3"><span class="enumeration_section">4.5.2</span> About Column Mappings</h3>
+<div>
+<p>The Hive table columns automatically have the same names as the Oracle columns, which are provided by the metadata stored in the Data Pump files. Any user-specified column definitions are ignored.</p>
+</div>
+</div>
+<a id="BIGUG76754"></a><a id="BIGUG76753"></a>
+<div class="props_rev_3"><a id="GUID-9F4DE43A-BA88-4D59-861C-3ABC1A4C8F87"></a>
+<h3 id="BDSUG-GUID-9F4DE43A-BA88-4D59-861C-3ABC1A4C8F87" class="sect3"><span class="enumeration_section">4.5.3</span> About Data Type Conversions</h3>
+<div>
+<p>Copy to Hadoop automatically converts the data in an Oracle table to an appropriate Hive data type. <a href="copy2bda.htm#GUID-9F4DE43A-BA88-4D59-861C-3ABC1A4C8F87__CHDCEGAD" title="Copy to Hadoop data type mappings">Table 4-1</a> shows the default mappings between Oracle and Hive data types.</p>
+<div class="tblformal" id="GUID-9F4DE43A-BA88-4D59-861C-3ABC1A4C8F87__CHDCEGAD">
+<hr />
+<p class="titleintable">Table 4-1 Oracle to Hive Data Type Conversions</p>
+<table class="cellalignment291" title="Oracle to Hive Data Type Conversions" summary="Copy to Hadoop data type mappings">
+<thead align="left">
+<tr>
+<th class="cellalignment292" id="d13151e676">Oracle Data Type</th>
+<th class="cellalignment293" id="d13151e679">Hive Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment292" id="d13151e684" headers="d13151e676">
+<p>NUMBER</p>
+</td>
+<td class="cellalignment293" headers="d13151e684 d13151e679">
+<p>INT when the scale is 0 and the precision is less than 10</p>
+<p>BIGINT when the scale is 0 and the precision is less than 19</p>
+<p>DECIMAL when the scale is greater than 0 or the precision is greater than 19</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e695" headers="d13151e676">
+<p>CLOB</p>
+<p>NCLOB</p>
+</td>
+<td class="cellalignment293" headers="d13151e695 d13151e679">
+<p>STRING</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e704" headers="d13151e676">
+<p>BINARY_DOUBLE</p>
+</td>
+<td class="cellalignment293" headers="d13151e704 d13151e679">
+<p>DOUBLE</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e711" headers="d13151e676">
+<p>BINARY_FLOAT</p>
+</td>
+<td class="cellalignment293" headers="d13151e711 d13151e679">
+<p>FLOAT</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e718" headers="d13151e676">
+<p>BLOB</p>
+</td>
+<td class="cellalignment293" headers="d13151e718 d13151e679">
+<p>BINARY</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e725" headers="d13151e676">
+<p>CHAR</p>
+<p>NCHAR</p>
+</td>
+<td class="cellalignment293" headers="d13151e725 d13151e679">
+<p>CHAR</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e734" headers="d13151e676">
+<p>VARCHAR2</p>
+<p>NVARCHAR2</p>
+</td>
+<td class="cellalignment293" headers="d13151e734 d13151e679">
+<p>VARCHAR</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e743" headers="d13151e676">
+<p>ROWID</p>
+<p>UROWID</p>
+</td>
+<td class="cellalignment293" headers="d13151e743 d13151e679">
+<p>BINARY</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e752" headers="d13151e676">
+<p>DATE</p>
+</td>
+<td class="cellalignment293" headers="d13151e752 d13151e679">
+<p>TIMESTAMP</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e759" headers="d13151e676">
+<p>TIMESTAMP</p>
+</td>
+<td class="cellalignment293" headers="d13151e759 d13151e679">
+<p>TIMESTAMP</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e766" headers="d13151e676">
+<p>TIMESTAMPTZ<a href="#fntarg_1" id="fnsrc_1"><sup>1</sup></a></p>
+<p>TIMESTAMPLTZ</p>
+</td>
+<td class="cellalignment293" headers="d13151e766 d13151e679">
+<p>Unsupported</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment292" id="d13151e788" headers="d13151e676">
+<p>RAW</p>
+</td>
+<td class="cellalignment293" headers="d13151e788 d13151e679">
+<p>BINARY</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+</div>
+<a id="BIGUG76755"></a>
+<div class="props_rev_3"><a id="GUID-BCAC514F-33AA-40EB-A4D3-C1BE71EDFBA6"></a>
+<h2 id="BDSUG-GUID-BCAC514F-33AA-40EB-A4D3-C1BE71EDFBA6" class="sect2"><span class="enumeration_section">4.6</span> Example Using the Sample Schemas</h2>
+<div>
+<p>This example shows all steps in the process of creating a Hive table from an Oracle table using Copy to Hadoop.</p>
+</div>
+<a id="BIGUG76756"></a>
+<div class="props_rev_3"><a id="GUID-4103DE0C-3F36-4A92-8245-B3D3B797D24B"></a>
+<h3 id="BDSUG-GUID-4103DE0C-3F36-4A92-8245-B3D3B797D24B" class="sect3"><span class="enumeration_section">4.6.1</span> About the Sample Data</h3>
+<div>
+<p>The Oracle tables are from the Sales History (SH) sample schema. The <code>CUSTOMERS</code> table provides extensive information about individual customers, including names, addresses, telephone numbers, birth dates, and credit limits. The <code>COUNTRIES</code> table provides a list of countries, and identifies regions and subregions.</p>
+<p>This query shows a small selection of data in the <code>CUSTOMERS</code> table:</p>
+<pre dir="ltr">
+SELECT cust_first_name first_name,
+   cust_last_name last_name,
+   cust_gender gender, 
+   cust_year_of_birth birth
+FROM customers 
+ORDER BY cust_city, last_name 
+FETCH FIRST 10 ROWS ONLY;
+</pre>
+<p>The query returns the following rows:</p>
+<pre dir="ltr">
+FIRST_NAME      LAST_NAME            GENDER      BIRTH
+--------------- -------------------- ------ ----------
+Lise            Abbey                F            1963
+Lotus           Alden                M            1958
+Emmanuel        Aubrey               M            1933
+Phil            Ball                 M            1956
+Valentina       Bardwell             F            1965
+Lolita          Barkley              F            1966
+Heloise         Barnes               M            1980
+Royden          Barrett              M            1937
+Gilbert         Braun                M            1984
+Portia          Capp                 F            1948
+</pre>
+<p>To reproduce this example, install the sample schemas in Oracle Database and connect as the <code>SH</code> user.</p>
+<div class="infoboxnotealso" id="GUID-4103DE0C-3F36-4A92-8245-B3D3B797D24B__GUID-D24CF326-F835-413A-8F5F-CE779264878D">
+<p class="notep1">See Also:</p>
+<p><a class="olink COMSC00033" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E73350-01&amp;id=COMSC00033"><span class="italic">Oracle Database Sample Schemas</span></a> for descriptions of the tables and installation instructions for the schemas.</p>
+</div>
+</div>
+</div>
+<a id="BIGUG76757"></a>
+<div class="props_rev_3"><a id="GUID-255BF7DE-0F5B-4F16-9C49-CC3F6B08634D"></a>
+<h3 id="BDSUG-GUID-255BF7DE-0F5B-4F16-9C49-CC3F6B08634D" class="sect3"><span class="enumeration_section">4.6.2</span> Creating the EXPDIR Database Directory</h3>
+<div>
+<div class="section">
+<p>These SQL statements create a local database directory named <code>EXPDIR</code> and grant access to the <code>SH</code> user:</p>
+<pre dir="ltr">
+SQL&gt; <span class="bold">CREATE DIRECTORY expdir AS '/expdir';</span>
+Directory created.
+SQL&gt; <span class="bold">GRANT READ, WRITE ON DIRECTORY expdir TO SH;</span>
+Grant succeeded.
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76758"></a>
+<div class="props_rev_3"><a id="GUID-D9EB06FF-24D6-446E-8505-E0AB8A5B8A59"></a>
+<h3 id="BDSUG-GUID-D9EB06FF-24D6-446E-8505-E0AB8A5B8A59" class="sect3"><span class="enumeration_section">4.6.3</span> Creating Data Pump Format Files for Customer Data</h3>
+<div>
+<div class="section">
+<p>The following examples show how to create the Data Pump files and check their contents.</p>
+<p>Copy to Hadoop supports only the syntax shown in the examples. Data pump files created with the Export utility or Oracle Data Pump are not compatible.</p>
+</div>
+<!-- class="section" --></div>
+<a id="BIGUG76759"></a>
+<div class="props_rev_3"><a id="GUID-3CF438FB-767A-42EE-8EC0-14D091929A6E"></a>
+<h4 id="BDSUG-GUID-3CF438FB-767A-42EE-8EC0-14D091929A6E" class="sect4"><span class="enumeration_section">4.6.3.1</span> CREATE TABLE Example With a Simple SELECT Statement</h4>
+<div>
+<div class="section">
+<p>This example shows a very simple SQL command for creating a Data Pump format file from the <code>CUSTOMERS</code> table. It selects the entire table and generates a single output file named <code>customers.dmp</code> in the local <code>/expdir</code> directory.</p>
+<pre dir="ltr">
+CREATE TABLE export_customers 
+   ORGANIZATION EXTERNAL
+   (
+   TYPE oracle_datapump
+   DEFAULT DIRECTORY expdir
+   LOCATION('customers.dmp')
+   )
+AS SELECT * FROM customers;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76760"></a>
+<div class="props_rev_3"><a id="GUID-E209DF96-8E71-454E-93BC-13A9DD2A03AA"></a>
+<h4 id="BDSUG-GUID-E209DF96-8E71-454E-93BC-13A9DD2A03AA" class="sect4"><span class="enumeration_section">4.6.3.2</span> CREATE TABLE Example With a More Complex SQL SELECT Statement</h4>
+<div>
+<div class="section">
+<p>The next example shows more complexity in the syntax. It joins the <code>CUSTOMERS</code> and <code>COUNTRIES</code> tables on the <code>COUNTRY_ID</code> columns to provide the country names. It also limits the rows to customers in the Americas. The command generates two output files in parallel, named <code>americas1.dmp</code> and <code>americas2.dmp</code>, in the local <code>/expdir</code> directory.</p>
+<pre dir="ltr">
+CREATE TABLE export_americas 
+   ORGANIZATION EXTERNAL
+   (
+   TYPE oracle_datapump
+   DEFAULT DIRECTORY expdir
+   LOCATION('americas1.dmp', 'americas2.dmp')
+   )
+   PARALLEL 2
+AS SELECT a.cust_first_name first_name,
+   a.cust_last_name last_name,
+   a.cust_gender gender,
+   a.cust_year_of_birth birth, 
+   a.cust_email email, 
+   a.cust_postal_code postal_code, 
+   b.country_name country
+FROM customers a,
+     countries b
+WHERE a.country_id=b.country_id AND
+      b.country_region='Americas'
+ORDER BY a.country_id, a.cust_postal_code;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG76761"></a>
+<div class="props_rev_3"><a id="GUID-5E5D1332-46E6-4412-B3B4-1E0ABF4E81B7"></a>
+<h3 id="BDSUG-GUID-5E5D1332-46E6-4412-B3B4-1E0ABF4E81B7" class="sect3"><span class="enumeration_section">4.6.4</span> Verifying the Contents of the Data Files</h3>
+<div>
+<div class="section">
+<p>You can check the content of the output data files before copying them to Hadoop. The previous <code>CREATE TABLE</code> statement created an external table named <code>EXPORT_AMERICAS</code>, which you can describe and query the same as any other table.</p>
+<p>The <code>DESCRIBE</code> statement shows the selection of columns and the modified names:</p>
+<pre dir="ltr">
+SQL&gt; <span class="bold">DESCRIBE export_americas;</span>
+ Name                      Null?    Type
+ ------------------------- -------- -----------------
+ FIRST_NAME                NOT NULL VARCHAR2(20)
+ LAST_NAME                 NOT NULL VARCHAR2(40)
+ GENDER                    NOT NULL CHAR(1)
+ BIRTH                     NOT NULL NUMBER(4)
+ EMAIL                              VARCHAR2(50)
+ POSTAL_CODE               NOT NULL VARCHAR2(10)
+ COUNTRY                   NOT NULL VARCHAR2(40)
+</pre>
+<p>A <code>SELECT</code> statement like the following shows a sample of the data:</p>
+<pre dir="ltr">
+SELECT first_name, last_name, gender, birth, country 
+   FROM export_americas 
+   WHERE birth &gt; 1985 
+   ORDER BY last_name 
+   FETCH FIRST 5 ROWS ONLY;
+</pre>
+<pre dir="ltr">
+FIRST_NAME      LAST_NAME            GENDER      BIRTH COUNTRY
+--------------- -------------------- ------ ---------- ------------------------
+Opal            Aaron                M            1990 United States of America
+KaKit           Abeles               M            1986 United States of America
+Mitchel         Alambarati           M            1987 Canada
+Jade            Anderson             M            1986 United States of America
+Roderica        Austin               M            1986 United States of America
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76762"></a>
+<div class="props_rev_3"><a id="GUID-3DD8E38F-BBA9-4492-B6F6-CA01BB9F41E0"></a>
+<h3 id="BDSUG-GUID-3DD8E38F-BBA9-4492-B6F6-CA01BB9F41E0" class="sect3"><span class="enumeration_section">4.6.5</span> Copying the Files into Hadoop</h3>
+<div>
+<div class="section">
+<p>The following commands list the files in the local <code>expdir</code> directory, create a Hadoop subdirectory named <code>customers</code>, and copy the files to it. The user is connected to the Hadoop cluster (Oracle Big Data Appliance or other) as the <code>oracle</code> user.</p>
+<pre dir="ltr">
+$ <span class="bold">cd /expdir</span>
+$ <span class="bold">ls americas*.dmp</span>
+americas1.dmp  americas2.dmp
+$ <span class="bold">hadoop fs -mkdir customers</span>
+$ <span class="bold">hadoop fs -put *.dmp customers</span>
+$ <span class="bold">hadoop fs -ls customers</span>
+Found 2 items
+-rw-r--r--   1 oracle oracle     798720 2014-10-13 17:04 customers/americas1.dmp
+-rw-r--r--   1 oracle oracle     954368 2014-10-13 17:04 customers/americas2.dmp
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76763"></a>
+<div class="props_rev_3"><a id="GUID-9FB85387-4CB2-4F94-9FD8-7282EC2725AC"></a>
+<h3 id="BDSUG-GUID-9FB85387-4CB2-4F94-9FD8-7282EC2725AC" class="sect3"><span class="enumeration_section">4.6.6</span> Creating a Hive External Table</h3>
+<div>
+<div class="section">
+<p>This HiveQL statement creates an external table using the Copy to Hadoop SerDes. The <code>LOCATION</code> clause identifies the full path to the Hadoop directory containing the Data Pump files:</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE customers
+   ROW FORMAT SERDE 'oracle.hadoop.hive.datapump.DPSerDe'
+   STORED AS
+      INPUTFORMAT  'oracle.hadoop.hive.datapump.DPInputFormat'
+      OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+   LOCATION '/user/oracle/customers';
+</pre>
+<p>The <code>DESCRIBE</code> command shows the columns of the <code>CUSTOMERS</code> external table.</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">DESCRIBE customers;</span>
+OK
+first_name               varchar(20)              from deserializer   
+last_name                varchar(40)              from deserializer   
+gender                   char(1)                  from deserializer   
+birth                    int                      from deserializer   
+email                    varchar(50)              from deserializer   
+postal_code              varchar(10)              from deserializer   
+country                  varchar(40)              from deserializer   
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76764"></a>
+<div class="props_rev_3"><a id="GUID-3FB134B8-E3EE-401A-AA40-8B5EC06274AF"></a>
+<h3 id="BDSUG-GUID-3FB134B8-E3EE-401A-AA40-8B5EC06274AF" class="sect3"><span class="enumeration_section">4.6.7</span> Querying the Data in Hive</h3>
+<div>
+<div class="section">
+<p>The following HiveQL <code>SELECT</code> statement shows the same data as the SQL <code>SELECT</code> statement from Oracle Database shown in <span class="q">"<a href="copy2bda.htm#GUID-5E5D1332-46E6-4412-B3B4-1E0ABF4E81B7">Verifying the Contents of the Data Files</a>"</span>. The two queries access copies of the same Data Pump files.</p>
+<pre dir="ltr">
+SELECT first_name, last_name, gender, birth, country 
+  FROM customers 
+  WHERE birth &gt; 1985 
+  ORDER BY last_name LIMIT 5;
+
+Total MapReduce jobs = 1
+Launching Job 1 out of 1
+     .
+     .
+     .
+OK
+Opal      Aaron       M     1990     United States of America
+KaKit     Abeles      M     1986     United States of America
+Mitchel   Alambarati  M     1987     Canada
+Jade      Anderson    M     1986     United States of America
+Roderica  Austin      M     1986     United States of America
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-6BE23F64-C08A-40A7-95A9-11DBC3F9FAE2"></a>
+<h2 id="BDSUG-GUID-6BE23F64-C08A-40A7-95A9-11DBC3F9FAE2" class="sect2"><span class="enumeration_section">4.7</span> Using Oracle Shell for Hadoop Loaders With Copy to Hadoop</h2>
+<div class="sect3"><a id="GUID-0C1E45B7-7A5D-417C-98BC-006DA1CF3D8B"></a>
+<h3 id="BDSUG-GUID-0C1E45B7-7A5D-417C-98BC-006DA1CF3D8B" class="sect3"><span class="enumeration_section">4.7.1</span> Introduction to Oracle Shell for Hadoop Loaders</h3>
+<div>
+<div class="section">
+<p class="subhead3">What is Oracle Shell for Hadoop Loaders?</p>
+</div>
+<!-- class="section" -->
+<p>Oracle Shell for Hadoop Loaders is a helper shell that provides a simple to use command line interface to Oracle Loader for Hadoop, Oracle SQL Connector for HDFS, and Copy to Hadoop.&nbsp;It has basic shell features such as command line recall, history, inheriting environment variables from the parent process,&nbsp;setting new or existing environment variables, and performing environmental substitution in the command line.&nbsp;</p>
+<p>The core functionality of Oracle Shell for Hadoop Loaders includes the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Defining named external resources with which Oracle Shell for Hadoop Loaders interacts to perform loading tasks.</p>
+</li>
+<li>
+<p>Setting default values for load operations.</p>
+</li>
+<li>
+<p>Running load commands.</p>
+</li>
+<li>
+<p>Delegating simple pre and post load tasks to the Operating System, HDFS, Hive and Oracle.&nbsp;These tasks include viewing the data to be loaded, and viewing the data in the target table after loading.</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead3">Getting Started with Oracle Shell for Hadoop Loaders</p>
+</div>
+<!-- class="section" -->
+<p>The examples directory in the OHSH kit contains many examples that define resources and load data using Oracle Shell for Hadoop Loaders.&nbsp;See <code>&lt;OHSH_KIT&gt;/examples/README.txt</code> for a description of the examples and instructions for running them.</p>
+<div class="section">
+<p class="subhead3">Getting Help</p>
+</div>
+<!-- class="section" -->
+<p>The OHSH shell provides online help for all commands.</p>
+<p>To get a list of all possible OHSH commands:</p>
+<pre dir="ltr">
+ohsh&gt; help
+</pre>
+<p>To get help on a specific command, enter <code>help</code>, followed by the command:&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<pre dir="ltr">
+ohsh&gt; help show
+</pre></div>
+</div>
+<div class="props_rev_3"><a id="GUID-E1471E39-751C-4DE9-839C-E038661A1A64"></a>
+<h3 id="BDSUG-GUID-E1471E39-751C-4DE9-839C-E038661A1A64" class="sect3"><span class="enumeration_section">4.7.2</span> <span class="bold">Oracle Shell for Hadoop Loaders Setup</span></h3>
+<div>
+<div class="section">
+<p class="subhead3">Prerequisites</p>
+<p>The following are prerequisites on the Oracle Database server.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Copy to Hadoop is installed</p>
+</li>
+<li>
+<p>Hadoop and Hive client libraries are installed and configured</p>
+</li>
+<li>
+<p>SQL*Plus is installed</p>
+</li>
+<li>
+<p>There is JDBC access to Oracle Database.</p>
+</li>
+</ul>
+<p>Installation of the Oracle Big Data Connectors OLH and OSCH is optional.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3"><span class="bold">Installing Oracle Shell for Hadoop Loaders</span></p>
+<p>Follow the instructions in these sections for setting up Oracle Shell for Hadoop Loaders on the Oracle Database Server</p>
+<ol>
+<li>
+<p>After Oracle Big Data SQL is installed, find the Oracle Shell for Hadoop Loaders download package at <code>$ORACLE_HOME/bigdatasql/ohsh-&lt;<span class="variable">version</span>&gt;.zip</code></p>
+</li>
+<li>
+<p>Extract the contents of <code>ohsh-<span class="codeinlineitalic">&lt;version&gt;</span>.zip</code> to a directory of your choice on the database server.&nbsp;</p>
+<p>The extraction creates a directory named <code>ohsh-<span class="codeinlineitalic">&lt;version&gt;</span></code> with a <code>README.txt</code> file and the following subdirectories:</p>
+<pre dir="ltr">
+README.txt
+/bin
+/conf
+/doc
+/examples
+/jlib
+</pre></li>
+<li>
+<p>Follow the instructions in <code>README.txt</code> to configure Oracle Shell for Hadoop Loaders.</p>
+</li>
+</ol>
+<p>In the <code>/doc</code> directory, there are additional README files with instructions for installing the software on Hadoop nodes, database nodes, and edge nodes, a description of the security model for Hive table loads, and other useful information.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<div class="p"><a href="#fnsrc_1" id="fntarg_1"><sup>1</sup></a>
+<p>To copy <code>TIMESTAMPTZ</code> and <code>TIMESTAMPLTZ</code> data to Hive, cast the columns to <code>TIMESTAMP</code> when exporting them to the Data Pump files. Hive does not have a data type that supports time zones or time offsets.</p>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment279">
+<tr>
+<td class="cellalignment286">
+<table class="cellalignment290">
+<tr>
+<td class="cellalignment283"><a href="bigsql.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment283"><a href="bigsqlref.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment288">
+<table class="cellalignment289">
+<tr>
+<td class="cellalignment283"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment283"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment283"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment283"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment283"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

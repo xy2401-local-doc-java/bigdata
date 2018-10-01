@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Introduction</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-30T10:38:15Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E77165-10" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds31/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="preface.htm" title="Previous" type="text/html" />
+<link rel="Next" href="installhadoopside.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77165-10.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-29BAFB68-E852-4AD3-931B-30DF65BBCD44"></a> <span id="PAGE" style="display:none;">4/13</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-29BAFB68-E852-4AD3-931B-30DF65BBCD44" class="sect1"><span class="enumeration_chapter">1</span> Introduction</h1>
+<div>
+<p>Oracle Big Data SQL 3.1 can connect Oracle Database to the Hadoop environment on Oracle Big Data Appliance, or on other Hadoop systems based on CDH (Cloudera's Distribution including Apache Hadoop), HDP (Hortonworks Data Platform).</p>
+<p>In previous releases of Big Data SQL, the installations on different combinations of Hadoop server and Oracle Database server included some differences. In the current release, there is a common installation process for all supported Hadoop systems and Oracle Database systems.</p>
+<div class="infobox-note" id="GUID-29BAFB68-E852-4AD3-931B-30DF65BBCD44__GUID-176CBDF5-4097-4A36-A122-81871A826400">
+<p class="notep1">Note:</p>
+Oracle Big Data SQL 3.0.1 is the prior release and is included in the Oracle Big Data Appliance 4.7 installation bundle. Oracle Big Data SQL 3.0.1 can be enabled either in the Oracle Big Data Appliance 4.3 or higher Mammoth installation or post installation. If you choose to install Oracle Big Data SQL 3.0.1, do not use the instructions in this version of the guide. In that case, refer to the <a href="http://docs.oracle.com/bigdata/bda45/BDSUG/installing.htm#BIGUG76720" target="_blank">Installing On Oracle Big Data Appliance and the Oracle Exadata Database Machine</a> in the <span class="italic">Oracle Big Data SQL User&rsquo;s Guide for Release 3.0.1</span> .</div>
+</div>
+<div class="sect2"><a id="GUID-FD0216F4-B340-4056-ADC0-EAEA03C82EA1"></a>
+<h2 id="BDSIG-GUID-FD0216F4-B340-4056-ADC0-EAEA03C82EA1" class="sect2"><span class="enumeration_section">1.1</span> Oracle Big Data SQL Master Compatibility Matrix</h2>
+<div>
+<p>See the <span class="italic">Oracle Big Data SQL Master Compatibility Matrix</span> (Doc ID 2119369.1) in <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a> for up-to-date information on Big Data SQL compatibility with the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Engineered Systems.</p>
+</li>
+<li>
+<p>Other systems.</p>
+</li>
+<li>
+<p>Linux OS distributions and versions.</p>
+</li>
+<li>
+<p>Hadoop distributions.</p>
+</li>
+<li>
+<p>Oracle Database releases, including required patches.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2"><a id="GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9"></a>
+<h2 id="BDSIG-GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9" class="sect2"><span class="enumeration_section">1.2</span> Installation Overview</h2>
+<div>
+<p>The Oracle Big Data SQL software must be installed on all Hadoop cluster nodes and all Oracle Database compute nodes.</p>
+<div class="section">
+<p class="subhead2">Important: About Service Restarts</p>
+<p>On the Hadoop-side installation, the following restarts may occur.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Cloudera Configuration Manager (or Ambari) may be restarted. This in itself does not interrupt any services.</p>
+</li>
+<li>
+<p>Hive, YARN , and any other services that have a dependency on Hive or YARN (such as Impala) are restarted.</p>
+<p>The Hive libraries parameter is updated in order to include Oracle Big Data SQL JARs. On Cloudera installations, if the YARN Resource Manager is enabled, then it is restarted in order to set cgroup memory limit for Oracle Big Data SQL and the other Hadoop services. On Oracle Big Data Appliance, the YARN Resource Manager is always enabled and therefore always restarted.</p>
+<div class="infobox-note" id="GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9__GUID-5E0D0A72-313E-4DA1-9B18-7AD067645F68">
+<p class="notep1">Note:</p>
+The Oracle Big Data SQL installation script includes this message in its output:
+<pre dir="ltr">
+BigDataSQL: Restarting cluster...
+</pre>
+<p>The restart is limited to &ldquo;stale&rdquo; components of the cluster, which can include Hive, YARN, and their dependent services.</p>
+</div>
+</li>
+</ul>
+<p>On the Oracle Database server(s), the installation may require a database and/or Oracle Grid infrastructure restart in environments where updates are required to cell settings on the Grid nodes. See <a href="installdbside.htm#GUID-E3375284-C5C6-4FF3-8E11-1F70E2649F2A">Potential Requirement to Restart Grid Infrastructure</a> for details.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">How Long Does It Take?</p>
+<p>The installation on the Hadoop cluster may take approximately 30 minutes. The generation of the installation bundle for the database side requires a download Hadoop and Hive clients and other software. This may take 20 additional minutes, depending on Internet download speed. The average installation time for the database side can be estimated as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>15 minutes for a single node database if a restart is not required. If a restart is required, the time will vary, depending on the size of the database.</p>
+</li>
+<li>
+<p>On a RAC database, multiply the factors above by the number of nodes.</p>
+</li>
+<li>
+<p>If an Oracle Grid restart is required, factor that in as well.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Outline of the Installation Steps</p>
+<p>This is the sequence of tasks for installing Oracle Big Data SQL.</p>
+<ol>
+<li>
+<p>Before you start:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Check the <span class="italic">Oracle Big Data SQL Master Compatibility Matrix</span> (Document 2119369.1 in My Oracle Support) for general platform compatibility.</p>
+</li>
+<li>
+<p>Check <a href="installhadoopside.htm#GUID-BE75588A-626F-491C-9005-446FDB0408A5" title="You can check the DataNodes of the cluster for Oracle Big Data SQL installation prerequisites as follows.">Installation Prerequisites</a> in this guide for required software.</p>
+</li>
+<li>
+<p>Login credentials that you will need:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">root</code> credentials for both the Hadoop cluster and all Oracle Grid nodes.</p>
+<p>On the grid nodes you have the option of using passwordless SSH with the root user instead.</p>
+</li>
+<li>
+<p><code class="codeph">oracle</code> Linux user (or other, if the database owner is not <code class="codeph">oracle</code>)</p>
+</li>
+<li>
+<p>The Oracle Grid user (if this is not the same as the database owner).</p>
+</li>
+<li>
+<p>The Hadoop configuration management service (CM or Amabari) admin password.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>On the cluster management server (where CM or Ambari is running), download the software from Oracle. (See <a href="introduction.htm#GUID-5CDA332E-8CB8-42CC-8922-09295E22B0E5">Downloading Oracle Big Data SQL</a>.)</p>
+</li>
+<li>
+<p>On the cluster management server, check to see if Python 2.7 is installed, as described in <a href="installhadoopside.htm#GUID-BE75588A-626F-491C-9005-446FDB0408A5" title="You can check the DataNodes of the cluster for Oracle Big Data SQL installation prerequisites as follows.">Installation Prerequisites</a>.</p>
+</li>
+<li>
+<p>Perform the Hadoop-side installation described in <a href="installhadoopside.htm#GUID-CB4E25D4-B406-4CED-9097-D897C1AEAA58">Installing the Hadoop Side of Oracle Big Data SQL</a>.</p>
+<p>The Hadoop-side phase of the installation does the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Deploys Oracle Big Data SQL binaries along the cluster.</p>
+</li>
+<li>
+<p>Configures Linux and network settings for the service on each cluster node.</p>
+</li>
+<li>
+<p>Configures the BDS service on the cluster management server.</p>
+</li>
+<li>
+<p>Acquires information needed to configure Oracle Database connections to the cluster.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>On the Hadoop cluster management server, run the scripts to create the bundle that installs Oracle Big Data SQL on the Oracle Database side. (Described in <a href="installhadoopside.htm#GUID-DB114461-5B9F-4418-B258-23440D69682B" title="After installing Oracle Big Data SQL on the cluster management server, run the script BDSSetup/db/bds-database-create-bundle.sh. This script creates the corresponding Oracle Big Data SQL installation bundle for any Oracle Database servers that will query data on the Hadoop system.">Creating the Database-Side Installation Bundle</a>.)</p>
+</li>
+<li>
+<p>Perform the Oracle Database server-side installation. (See <a href="installdbside.htm#GUID-E0E62C0F-F4FA-436A-95E8-0EB3287802A4">Installing the Oracle Database Side of Oracle Big Data SQL</a>.)</p>
+<p>In this phase of the installation, you deploy the database-side installation bundle that you generated to the database nodes. Extract it from the zip file and run it.</p>
+<p>The database-side installer does the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Copies the Oracle Big Data SQL binaries to the database node.</p>
+</li>
+<li>
+<p>Configures network settings for the service.</p>
+</li>
+<li>
+<p>Inserts cluster metadata into Oracle Database.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9__GUID-58BC2954-4566-4E53-8257-035136FEE05E">
+<p class="notep1">Important:</p>
+<p>Be sure to install the bundle on each compute node. The Hadoop-side installation automatically propagates the Oracle Big Data SQL software to each DataNode of the Hadoop cluster. However, the database-side installation does not work this way. You must copy the software to each database compute node and install it directly.</p>
+<p>In Oracle Grid environments, if cell settings need to be updated then the installer will alert you if a grid restart will be needed. (Be sure to have the grid password because if the grid restart is required, then the installation will not complete without these credentials.)</p>
+</div>
+</li>
+</ol>
+<div class="p">This completes the basic installation.
+<div class="infobox-tip" id="GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9__GUID-447997B5-24A0-41AE-B1B8-D20DC86B7C3F">
+<p class="notep1">Tip:</p>
+See <a class="olink BDSUG-GUID-56DD3366-5CF6-4125-87FE-A64F6CE4448C" target="_blank" href="../BDSUG/diagnostic_tips.htm#BDSUG-GUID-56DD3366-5CF6-4125-87FE-A64F6CE4448C">How to do a Quick Test</a> in the <span class="italic">Oracle Big Data SQL User&rsquo;s Guide</span> for some simple functionality tests.</div>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Installation Log Files</p>
+<p>On the Hadoop cluster side:</p>
+<pre dir="ltr">
+/var/log/bigdatasql 
+/var/log/oracle
+</pre>
+<p>On the Oracle Database side:</p>
+<pre dir="ltr">
+$ORACLE_HOME/install/bds* (This is a set of files, not a directory) 
+$ORACLE_HOME/bigdatasql/logs 
+/var/log/bigdatasql
+</pre>
+<div class="infobox-tip" id="GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9__GUID-670D7111-E289-4802-9354-838A5726C591">
+<p class="notep1">Tip:</p>
+<p>If you make a support request, create a zip archive that includes all of these logs and include it in your email to Oracle Support.</p>
+</div>
+<div class="infoboxnotealso" id="GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9__GUID-ABB71864-74F8-41DE-9E38-AF9ED0CA55C7">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Read about measures you can take to secure the installation. (See <a href="securing.htm#GUID-4D61AACF-BEE7-497C-8CE0-14DF1F9DC204">Securing Big Data SQL</a>.)</p>
+</li>
+<li>
+<p>Learn how to modify the Oracle Big Data SQL configuration when changes occur on the Hadoop cluster and in the Oracle Database installation. (See <a href="adaptingtochange.htm#GUID-1C979747-3CAD-4C43-9A50-201C4494AAFF" title="Changes that occur to the Hadoop cluster over time, such as network reconfiguration or DataNode services added, moved, or removed, as well as changes on the Oracle Database server, can require corresponding changes to the Oracle Big Data SQL installation.">Adapting to Hadoop Cluster and Oracle Database Changes</a>.)</p>
+</li>
+<li>
+<p>If you have used Copy to Hadoop in earlier Oracle Big Data SQL releases, learn how Oracle Shell for Hadoop Loaders can simplify Copy to Hadoop tasks. (See <a href="additionaltools.htm#GUID-82BFB573-1991-406E-8C09-DA9C7630142B" title="The Oracle Big Data SQL installation automatically copies the OHSH installation kit to each node where Oracle Big Data SQL is installed. There are some manual steps you must perform to complete the installation.On the Hadoop cluster management server, Oracle Big Data SQL installs OHSH from an RPM to /opt/oracle/ohsh. Perform the steps below as root in order to complete the Hadoop side of the configuration.">Additional Tools Installed</a>.)</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-5CDA332E-8CB8-42CC-8922-09295E22B0E5"></a>
+<h2 id="BDSIG-GUID-5CDA332E-8CB8-42CC-8922-09295E22B0E5" class="sect2"><span class="enumeration_section">1.3</span> Downloading Oracle Big Data SQL</h2>
+<div>
+<div class="section">
+<p>You can download Oracle Big Data SQL from the <a href="https://edelivery.oracle.com/osdc/faces/Home.jspx?_afrLoop=529343431120485&amp;_afrWindowMode=0&amp;_adf.ctrl-state=4wf98vff_9" target="_blank">Oracle Software Delivery Cloud</a></p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>On the cluster management server, create a new directory or choose an existing one to be the installation source directory.</span></li>
+<li class="stepexpand"><span>Log in to the <a href="https://edelivery.oracle.com/osdc/faces/Home.jspx?_afrLoop=529343431120485&amp;_afrWindowMode=0&amp;_adf.ctrl-state=4wf98vff_9" target="_blank">Oracle Software Delivery Cloud</a>.</span></li>
+<li class="stepexpand"><span>Search for Oracle Big Data SQL.</span></li>
+<li class="stepexpand"><span>Select <code class="codeph">Oracle Big Data SQL 3.1.0.0.0 for Linux x86-64</code>.</span></li>
+<li class="stepexpand"><span>Read and agree to the Oracle Standard Terms and Restrictions.</span></li>
+<li class="stepexpand"><span>From the list, select the zip file that is appropriate for your Hadoop system:</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">Oracle Big Data SQL 3.1.0 installer for Hortonworks Data Platform</code></p>
+</li>
+<li>
+<p><code class="codeph">Oracle Big Data SQL 3.1.0 installer for Cloudera Enterprise</code></p>
+</li>
+</ul>
+<p>Each zip file contains the complete installation package.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Download the appropriate package for your Hadoop system. Currently packages are provided for Hortonworks HDP and for Cloudera Enterprise systems (including CDH-based Oracle Big Data Appliance and other CDH systems identified in the Oracle Big Data SQL Master Compatibility Matrix).</span>
+<div>If your Hadoop system is a supported version of Oracle Big Data Appliance, download the installer for Cloudera Enterprise.</div>
+</li>
+</ol>
+<div class="section">Your product bundle should include the significant files listed the table below, as well as other supporting files.
+<div class="tblformal" id="GUID-5CDA332E-8CB8-42CC-8922-09295E22B0E5__ORACLEBIGDATASQLPRODUCTBUNDLEINVENT-E8C4D3C5">
+<p class="titleintable">Table 1-1 Oracle Big Data SQL Product Bundle Inventory</p>
+<table class="cellalignment74" title="Oracle Big Data SQL Product Bundle Inventory" summary="Column one lists the significant files in product bundles. Column two describes each file.">
+<thead>
+<tr class="cellalignment54">
+<th class="cellalignment75" id="d1548e394"><span class="bold">File or Directory</span></th>
+<th class="cellalignment75" id="d1548e397"><span class="bold">Description</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d1548e402" headers="d1548e394"><code class="codeph">BDSSetup/setup-bds</code></td>
+<td class="cellalignment76" headers="d1548e402 d1548e397">Cluster-side installation script</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d1548e408" headers="d1548e394"><code class="codeph">BDSSetup/bds-config.json</code></td>
+<td class="cellalignment76" headers="d1548e408 d1548e397">Configuration template file</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d1548e414" headers="d1548e394"><code class="codeph">BDSSetup/deployment_manager/*</code></td>
+<td class="cellalignment76" headers="d1548e414 d1548e397">Deployment manager package</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d1548e420" headers="d1548e394"><code class="codeph">BDSSetup/db/hadoop-*-nativelib-*.tar.gz</code></td>
+<td class="cellalignment76" headers="d1548e420 d1548e397">Hadoop native libraries</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d1548e426" headers="d1548e394"><code class="codeph">BDSSetup/db/bds-database-create-bundle.sh</code></td>
+<td class="cellalignment76" headers="d1548e426 d1548e397">Script to create the database-side installation bundle</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d1548e432" headers="d1548e394"><code class="codeph">BDSSetup/db/database-install.zip</code></td>
+<td class="cellalignment76" headers="d1548e432 d1548e397">Database-side pre-bundle</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-389C27EA-A393-414F-BF4F-0AD60B85C35C"></a>
+<h2 id="BDSIG-GUID-389C27EA-A393-414F-BF4F-0AD60B85C35C" class="sect2"><span class="enumeration_section">1.4</span> Upgrading From a Prior Release of Oracle Big Data SQL</h2>
+<div>
+<p>As a prerequisite to upgrading to Release 3.1, you must remove earlier installations.</p>
+<ol>
+<li>
+<p>First, completely uninstall the earlier version of Oracle Big Data SQL from the Hadoop system as well as the Oracle Database system.</p>
+<p>See <a href="uninstall.htm#GUID-3634DD3B-5878-406D-BC08-8A4EE48CC406" title="If you want to completely uninstall Oracle Big Data SQL, the software must be removed from the Hadoop cluster management server and the Oracle Database nodes where it is currently installed.">Chapter 4</a> in this guide for instructions.</p>
+<p>The methods for uninstalling will differ, depending on whether the installation is on Oracle Engineered Systems or commodity servers.</p>
+</li>
+<li>
+<p>Then, proceed with the Release 3.1 installation on the Hadoop system and the Oracle Database system as described in <a href="installhadoopside.htm#GUID-CB4E25D4-B406-4CED-9097-D897C1AEAA58">Chapter 2</a> and <a href="installdbside.htm#GUID-E0E62C0F-F4FA-436A-95E8-0EB3287802A4">Chapter 3</a> of this guide.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="preface.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="installhadoopside.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds31/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

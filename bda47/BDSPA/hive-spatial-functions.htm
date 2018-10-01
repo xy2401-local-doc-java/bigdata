@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Hive Spatial Functions</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="This appendix provides reference information about the Hive spatial functions." />
+<meta name="keywords" content="Hive spatial functions, ST_AnyInteract, ST_AnyInteract function, ST_Area, ST_Area function, ST_AsWKB, ST_AsWKB function, ST_AsWKT, ST_AsWKT function, ST_Buffer, ST_Buffer function, ST_Contains, ST_Contains function, ST_ConvexHull, ST_ConvexHull function, ST_Distance, ST_Distance function, ST_Envelope, ST_Envelope function, ST_Geometry, ST_Geometry function, ST_Inside, ST_Inside function, ST_Length, ST_Length function, ST_LineString, ST_LineString function, ST_MultiLineString, ST_MultiLineString function, ST_MultiPoint, ST_MultiPoint function, ST_MultiPolygon, ST_MultiPolygon function, ST_Point, ST_Point function, ST_Polygon, ST_Polygon function, ST_Simplify, ST_Simplify function, ST_SimplifyVW, ST_SimplifyVW function, ST_Volume, ST_Volume function" />
+<meta name="dcterms.created" content="2017-01-19T11:36:36Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Spatial and Graph User&rsquo;s Guide and Reference" />
+<meta name="dcterms.identifier" content="E67958-07" />
+<meta name="dcterms.isVersionOf" content="BDSPA" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda47/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="big-data-spatial-third-party-licenses.htm" title="Previous" type="text/html" />
+<link rel="alternate" href="BDSPA.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-FFEED52D-AAA0-4251-9BB8-5F49D0A887B9"></a> <span id="PAGE" style="display:none;">15/15</span> <!-- End Header -->
+<h1 id="BDSPA-GUID-FFEED52D-AAA0-4251-9BB8-5F49D0A887B9" class="sect1"><span class="enumeration_chapter">B</span> Hive Spatial Functions</h1>
+<div>
+<div><span>This appendix provides reference information about the Hive spatial functions.</span></div>
+<p>To use these functions, you must understand the concepts and techniques described in <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a>, especially <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-DEBAB692-35D9-41AD-8044-DE916CDE6BCF">Using the Hive Spatial API</a>.</p>
+<p>The functions are presented alphabetically. However, they can be grouped into the following logical categories: types, single-geometry functions, and two-geometry functions.</p>
+<p>Types:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-CC45F814-247F-4632-94DA-9D9A21B97072">ST_Geometry</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-EB6A1FF2-3EE4-49F5-9875-9EAABAC96691">ST_LineString</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-9D6FAB2A-7B51-45E4-9F61-01B4CBB87428">ST_MultiLineString</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-175785F9-C51B-40C4-9E6E-75D162ADD71A">ST_MultiPoint</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-198781A4-A178-4A9B-B41B-EFD289862D50">ST_MultiPolygon</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-8AF179BD-808A-4EBA-9EFC-FC9E4F8E9F72">ST_Point</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-09F3C077-6179-4C58-A04B-59DD3DEAF1C7">ST_Polygon</a></p>
+</li>
+</ul>
+<p>Single-geometry functions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-6F19EAA1-77FE-4387-81CF-FFA35422089F">ST_Area</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-F1EB327E-D14A-4629-A49F-43BF1DCA33A8">ST_AsWKB</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-3A360E6C-3758-4F01-B8A2-58AF183824E1">ST_AsWKT</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-567E7E89-D4CC-483C-910A-42FE21778558">ST_Buffer</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-DFB6C2AD-9B63-4A2C-BCD5-9881180382E8">ST_ConvexHull</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-FD293C83-329B-4282-A78B-54DCC90D690E">ST_Envelope</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-ACD2D279-4485-4D78-AD7E-6FB03A0B15C4">ST_Length</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-4B9FEF79-4A9D-4CB2-B547-4FC993E72138">ST_Simplify</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-B3F6F03C-1780-418C-BA10-E0BDD12918BB">ST_SimplifyVW</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-65E97F1E-9808-40B7-A3E4-CEE7D957CFF6">ST_Volume</a></p>
+</li>
+</ul>
+<p>Two-geometry functions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-BCC33A37-C2F9-4819-AA26-049B07312D49">ST_AnyInteract</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-B888727D-B62F-472D-B368-6FBCD29FCA6D">ST_Contains</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-0A97B2EA-C876-4141-933B-E72265A8CC46">ST_Distance</a></p>
+</li>
+<li>
+<p><a href="hive-spatial-functions.htm#GUID-01550FE1-4576-4B54-A83B-5FD785B0A861">ST_Inside</a></p>
+</li>
+</ul>
+</div>
+<div class="props_rev_3"><a id="GUID-BCC33A37-C2F9-4819-AA26-049B07312D49"></a>
+<h2 id="BDSPA-GUID-BCC33A37-C2F9-4819-AA26-049B07312D49" class="sect2"><span class="enumeration_section">B.1</span> ST_AnyInteract</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_AnyInteract(
+  geometry1  ST_Geometry,
+  geometry1  ST_Geometry,
+  tolerance  NUMBER DEFAULT 0 (nongeodetic geometries) or 0.05 (geodetic geometries)); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Determines if <code>geometry1</code> has any spatial interaction with <code>geometry2</code>, returning <code>true</code> or <code>false</code>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-BCC33A37-C2F9-4819-AA26-049B07312D49__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry1</dt>
+<dd>
+<p>A 2D or 3D geometry object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-BCC33A37-C2F9-4819-AA26-049B07312D49__GUID-C179B210-6DDE-4E54-B667-211E528748CA"><!-- --></a>geometry2</dt>
+<dd>
+<p>Another 2D or 3D geometry object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-BCC33A37-C2F9-4819-AA26-049B07312D49__GUID-ADA64C27-CC5D-4247-BFEB-6BC296FBB779"><!-- --></a>tolerance</dt>
+<dd>
+<p>Tolerance at which <code>geometry2</code> is valid.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Both geometries must have the same number of dimensions (2 or 3) and the same spatial reference system (SRID, or coordinate system).</p>
+<p>See also <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_AnyInteract(
+  ST_Point('{ "type": "Point", "coordinates": [2, 3]}', 8307),
+  ST_Polygon('{"type": "Polygon","coordinates": [[[1, 2], [5, 2], [5, 6], [1, 6], [1, 2]]]}', 8307))
+from hivetable LIMIT 1; 
+-- return true
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-6F19EAA1-77FE-4387-81CF-FFA35422089F"></a>
+<h2 id="BDSPA-GUID-6F19EAA1-77FE-4387-81CF-FFA35422089F" class="sect2"><span class="enumeration_section">B.2</span> ST_Area</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Area(
+  geometry   ST_Geometry
+  tolerance  NUMBER DEFAULT 0 (nongeodetic geometries) or 0.05 (geodetic geometries)); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Returns the area of a polygon or multipolygon geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-6F19EAA1-77FE-4387-81CF-FFA35422089F__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>An ST_Geometry object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-6F19EAA1-77FE-4387-81CF-FFA35422089F__GUID-C179B210-6DDE-4E54-B667-211E528748CA"><!-- --></a>tolerance</dt>
+<dd>
+<p>Value reflecting the distance that two points can be apart and still be considered the same.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_Area(ST_Polygon('{"type": "Polygon","coordinates": [[[1, 2], [5, 2], [5, 7], [1, 7], [1, 2]]]}', 0))
+  from hivetable LIMIT 1;  -- return 20
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-F1EB327E-D14A-4629-A49F-43BF1DCA33A8"></a>
+<h2 id="BDSPA-GUID-F1EB327E-D14A-4629-A49F-43BF1DCA33A8" class="sect2"><span class="enumeration_section">B.3</span> ST_AsWKB</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_AsWKB(
+  geometry ST_Geometry); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Returns the well-known binary (WKB) representation of the geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-F1EB327E-D14A-4629-A49F-43BF1DCA33A8__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>An ST_Geometry object.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_AsWKB( ST_Point('{ "type": "Point", "coordinates": [0, 5]}', 8307))
+   from hivetable LIMIT 1;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-3A360E6C-3758-4F01-B8A2-58AF183824E1"></a>
+<h2 id="BDSPA-GUID-3A360E6C-3758-4F01-B8A2-58AF183824E1" class="sect2"><span class="enumeration_section">B.4</span> ST_AsWKT</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_AsWKT(
+  geometry ST_Geometry); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Returns the well-known text (WKT) representation of the geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-3A360E6C-3758-4F01-B8A2-58AF183824E1__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>An ST_Geometry object.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_AsWKT(ST_Point('{ "type": "Point", "coordinates": [0, 5]}', 8307)) 
+  from hivetable LIMIT 1;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-567E7E89-D4CC-483C-910A-42FE21778558"></a>
+<h2 id="BDSPA-GUID-567E7E89-D4CC-483C-910A-42FE21778558" class="sect2"><span class="enumeration_section">B.5</span> ST_Buffer</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Buffer(
+  geometry     ST_Geometry,
+  bufferWidth  NUMBER,
+  arcTol       NUMBER DEFAULT 0 (nongeodetic geometries) or 0.05 (geodetic geometries)); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Generates a new ST_Geometry object that is the buffered version of the input geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-567E7E89-D4CC-483C-910A-42FE21778558__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>Any 2D geometry object. If the geometry is geodetic, it is interpreted as longitude/latitude values in the WGS84 spatial reference system, and <code>bufferWidth</code> and <code>tolerance</code> are interpreted as meters.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-567E7E89-D4CC-483C-910A-42FE21778558__GUID-C179B210-6DDE-4E54-B667-211E528748CA"><!-- --></a>bufferWidth</dt>
+<dd>
+<p>The distance value used for the buffer.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-567E7E89-D4CC-483C-910A-42FE21778558__GUID-ADA64C27-CC5D-4247-BFEB-6BC296FBB779"><!-- --></a>arcTol</dt>
+<dd>
+<p>Tolerance used for geodetic arc densification. (Ignored for nongeodetic geometries.)</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_Buffer(ST_Point('{ "type": "Point", "coordinates": [0, 5]}', 0), 3)
+  from hivetable LIMIT 1; 
+-- return {"type":"Polygon", "coordinates":[[[-3,5],[0,2],[3,5]]],"crs":{"type":"name","properties":{"name":"EPSG:0"}}}
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-B888727D-B62F-472D-B368-6FBCD29FCA6D"></a>
+<h2 id="BDSPA-GUID-B888727D-B62F-472D-B368-6FBCD29FCA6D" class="sect2"><span class="enumeration_section">B.6</span> ST_Contains</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Contains(
+  geometry1  ST_Geometry,
+  geometry1  ST_Geometry,
+  tolerance  NUMBER DEFAULT 0 (nongeodetic geometries) or 0.05 (geodetic geometries)); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Determines if <code>geometry1</code> contains <code>geometry2</code>, returning <code>true</code> or <code>false</code>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-B888727D-B62F-472D-B368-6FBCD29FCA6D__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry1</dt>
+<dd>
+<p>A polygon or solid geometry object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-B888727D-B62F-472D-B368-6FBCD29FCA6D__GUID-C179B210-6DDE-4E54-B667-211E528748CA"><!-- --></a>geometry2</dt>
+<dd>
+<p>Another 2D or 3D geometry object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-B888727D-B62F-472D-B368-6FBCD29FCA6D__GUID-ADA64C27-CC5D-4247-BFEB-6BC296FBB779"><!-- --></a>tolerance</dt>
+<dd>
+<p>Tolerance at which <code>geometry2</code> is valid.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Both geometries must have the same number of dimensions (2 or 3) and the same spatial reference system (SRID, or coordinate system).</p>
+<p>See also <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_Contains(
+  ST_Polygon('{"type": "Polygon","coordinates": [[[1, 2], [5, 2], [5, 6], [1, 6], [1, 2]]]}', 8307),
+  ST_Point('{ "type": "Point", "coordinates": [2, 3]}', 8307))
+from hivetable LIMIT 1; 
+-- return true 
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-DFB6C2AD-9B63-4A2C-BCD5-9881180382E8"></a>
+<h2 id="BDSPA-GUID-DFB6C2AD-9B63-4A2C-BCD5-9881180382E8" class="sect2"><span class="enumeration_section">B.7</span> ST_ConvexHull</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_ConvexHull(
+  geometry ST_Geometry); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Returns the convex hull of the input geometry as an ST_Geometry object.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-DFB6C2AD-9B63-4A2C-BCD5-9881180382E8__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>A 2D ST_Geometry object.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_ConvexHull(
+  ST_MultiPoint(' { "type": "MultiPoint","coordinates": [ [1, 2], [-1, -2], [5, 6] ] }', 0))
+from hivetable LIMIT 1; 
+-- return {"type":"Polygon", "coordinates":[[[5,6],[1,2],[-1,-2],[5,6]]],"crs":{"type":"name","properties":{"name":"EPSG:0"}}} 
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-0A97B2EA-C876-4141-933B-E72265A8CC46"></a>
+<h2 id="BDSPA-GUID-0A97B2EA-C876-4141-933B-E72265A8CC46" class="sect2"><span class="enumeration_section">B.8</span> ST_Distance</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Distance(
+  geometry1  ST_Geometry,
+  geometry1  ST_Geometry,
+  tolerance  NUMBER DEFAULT 0 (nongeodetic geometries) or 0.05 (geodetic geometries)); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Determines the distance between two 2D geometries.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-0A97B2EA-C876-4141-933B-E72265A8CC46__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry1</dt>
+<dd>
+<p>A 2D geometry object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-0A97B2EA-C876-4141-933B-E72265A8CC46__GUID-C179B210-6DDE-4E54-B667-211E528748CA"><!-- --></a>geometry2</dt>
+<dd>
+<p>A 2D geometry object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-0A97B2EA-C876-4141-933B-E72265A8CC46__GUID-ADA64C27-CC5D-4247-BFEB-6BC296FBB779"><!-- --></a>tolerance</dt>
+<dd>
+<p>Tolerance at which <code>geometry2</code> is valid.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>This function returns thedistance between the two given geometries. For projected data, the distance is in the same unit as the unit of projection. For geodetic data, the distance is in meters.</p>
+<p>If an error occurs, the function returns -1.</p>
+<p>See also <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_Distance(
+  ST_Point('{ "type": "Point", "coordinates": [0, 0]}', 0),
+  ST_Point('{ "type": "Point", "coordinates": [6, 8]}', 0))
+from hivetable LIMIT 1; 
+-- return 10.0 
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-FD293C83-329B-4282-A78B-54DCC90D690E"></a>
+<h2 id="BDSPA-GUID-FD293C83-329B-4282-A78B-54DCC90D690E" class="sect2"><span class="enumeration_section">B.9</span> ST_Envelope</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Envelope(
+  geometry ST_Geometry); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Returns the envelope (bounding polygon) of the input geometry as an ST_Geometry object.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-FD293C83-329B-4282-A78B-54DCC90D690E__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>A 2D ST_Geometry object.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_Envelope(
+  ST_MultiPoint(' { "type": "MultiPoint","coordinates": [ [1, 2], [-1, -2], [5, 6] ] }', 0))  
+from hivetable LIMIT 1; 
+-- return {"type":"Polygon", "coordinates":[[[-1,-2],[5,-2],[5,6],[-1,6],[-1,-2]]],"crs":{"type":"name","properties":{"name":"EPSG:0"}}}
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-CC45F814-247F-4632-94DA-9D9A21B97072"></a>
+<h2 id="BDSPA-GUID-CC45F814-247F-4632-94DA-9D9A21B97072" class="sect2"><span class="enumeration_section">B.10</span> ST_Geometry</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_GEOMETRY(
+  geometry STRING
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_GEOMETRY(
+  geometry BINARY
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_GEOMETRY(
+  geometry Object
+  hiveRecordInfoProvider STRING); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Creates a GeoJSON string representation of the geometry, and returns a GeoJSON string representation of the geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-CC45F814-247F-4632-94DA-9D9A21B97072__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>To create a geometry from a GeoJSON or WKT string (first format): Geometry definition in GeoJSON or WKT format.</p>
+<p>To create a geometry from a WKB object (second format): Geometry definition in WKB format.</p>
+<p>To create a geometry using a Hive object (third format): Geometry definition in any Hive supported type.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-CC45F814-247F-4632-94DA-9D9A21B97072__GUID-42DD1229-0D58-4831-B060-9AA4B873CF9C"><!-- --></a>srid</dt>
+<dd>Spatial reference system (coordinate system) identifier.</dd>
+<dt class="dlterm"><a id="GUID-CC45F814-247F-4632-94DA-9D9A21B97072__GUID-4A12E66B-A0C1-4694-9C65-24BF19ED4880"><!-- --></a>HiveRecordProvider</dt>
+<dd>The fully qualified name of an implementation of the interface <code>oracle.spatial.hadoop.vector.hive.HiveRecordInfoProvider</code> to extract the geometry in GeoJSON format.</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+-- creates a point using GeoJSON
+select ST_Geometry (' { "type": "Point", "coordinates": [100.0, 0.0]}', 8307) from hivetable LIMIT 1;
+-- creates a point using WKT
+select ST_Geometry ('point(100.0 0.0)', 8307) from hivetable LIMIT 1;
+-- creates the geometries using a HiveRecordInfoProvider
+select ST_Geometry (geoColumn, &lsquo;hive.samples.SampleHiveRecordInfoProviderImpl&rsquo;) from hivetable;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-01550FE1-4576-4B54-A83B-5FD785B0A861"></a>
+<h2 id="BDSPA-GUID-01550FE1-4576-4B54-A83B-5FD785B0A861" class="sect2"><span class="enumeration_section">B.11</span> ST_Inside</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Inside(
+  geometry1  ST_Geometry,
+  geometry1  ST_Geometry,
+  tolerance  NUMBER DEFAULT 0 (nongeodetic geometries) or 0.05 (geodetic geometries)); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Determines if <code>geometry1</code> is inside <code>geometry2</code>, returning <code>true</code> or <code>false</code>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-01550FE1-4576-4B54-A83B-5FD785B0A861__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry1</dt>
+<dd>
+<p>A 2D or 3D geometry object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-01550FE1-4576-4B54-A83B-5FD785B0A861__GUID-C179B210-6DDE-4E54-B667-211E528748CA"><!-- --></a>geometry2</dt>
+<dd>
+<p>A polygon or solid geometry object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-01550FE1-4576-4B54-A83B-5FD785B0A861__GUID-ADA64C27-CC5D-4247-BFEB-6BC296FBB779"><!-- --></a>tolerance</dt>
+<dd>
+<p>Tolerance at which <code>geometry1</code> is valid.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Both geometries must have the same number of dimensions (2 or 3) and the same spatial reference system (SRID, or coordinate system).</p>
+<p>See also <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_Inside(
+  ST_Point('{ "type": "Point", "coordinates": [2, 3]}', 8307),
+  ST_Polygon('{"type": "Polygon","coordinates": [[[1, 2], [5, 2], [5, 6], [1, 6], [1, 2]]]}', 8307))
+from hivetable LIMIT 1; 
+-- return true 
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-ACD2D279-4485-4D78-AD7E-6FB03A0B15C4"></a>
+<h2 id="BDSPA-GUID-ACD2D279-4485-4D78-AD7E-6FB03A0B15C4" class="sect2"><span class="enumeration_section">B.12</span> ST_Length</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Length(
+  geometry   ST_Geometry
+  tolerance  NUMBER DEFAULT 0 (nongeodetic geometries) or 0.05 (geodetic geometries)); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Returns the length of a line or polygon geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-ACD2D279-4485-4D78-AD7E-6FB03A0B15C4__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>An ST_Geometry object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-ACD2D279-4485-4D78-AD7E-6FB03A0B15C4__GUID-C179B210-6DDE-4E54-B667-211E528748CA"><!-- --></a>tolerance</dt>
+<dd>
+<p>Value reflecting the distance that two points can be apart and still be considered the same.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_Length(ST_Polygon('{"type": "Polygon","coordinates": [[[1, 2], [5, 2], [5, 6], [1, 6], [1, 2]]]}', 0))
+  from hivetable LIMIT 1;  -- return 16
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-EB6A1FF2-3EE4-49F5-9875-9EAABAC96691"></a>
+<h2 id="BDSPA-GUID-EB6A1FF2-3EE4-49F5-9875-9EAABAC96691" class="sect2"><span class="enumeration_section">B.13</span> ST_LineString</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_LineString(
+  geometry STRING
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_LineString(
+  geometry BINARY
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_LineString(
+  geometry Object
+  hiveRecordInfoProvider STRING); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Creates a line string geometry in GeoJSON format, and returns a GeoJSON string representation of the geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-EB6A1FF2-3EE4-49F5-9875-9EAABAC96691__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>To create a geometry from a GeoJSON or WKT string (first format): Geometry definition in GeoJSON or WKT format.</p>
+<p>To create a geometry from a WKB object (second format): Geometry definition in WKB format.</p>
+<p>To create a geometry using a Hive object (third format): Geometry definition in any Hive supported type.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-EB6A1FF2-3EE4-49F5-9875-9EAABAC96691__GUID-42DD1229-0D58-4831-B060-9AA4B873CF9C"><!-- --></a>srid</dt>
+<dd>Spatial reference system (coordinate system) identifier.</dd>
+<dt class="dlterm"><a id="GUID-EB6A1FF2-3EE4-49F5-9875-9EAABAC96691__GUID-4A12E66B-A0C1-4694-9C65-24BF19ED4880"><!-- --></a>HiveRecordProvider</dt>
+<dd>The fully qualified name of an implementation of the interface <code>oracle.spatial.hadoop.vector.hive.HiveRecordInfoProvider</code> to extract the geometry in GeoJSON format.</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+-- creates a line using GeoJSON
+select ST_LineString (' { "type": "LineString","coordinates": [ [100.0, 0.0], [101.0, 1.0] ]} ', 8307) from hivetable LIMIT 1;
+-- creates a line using WKT
+select ST_LineString (' linestring(1 1, 5 5, 10 10, 20 20)', 8307) from hivetable LIMIT 1;
+-- creates the lines using a HiveRecordInfoProvider
+select ST_LineString (geoColumn, &lsquo;mypackage.hiveRecordInfoProviderImpl&rsquo;) from hivetable;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-9D6FAB2A-7B51-45E4-9F61-01B4CBB87428"></a>
+<h2 id="BDSPA-GUID-9D6FAB2A-7B51-45E4-9F61-01B4CBB87428" class="sect2"><span class="enumeration_section">B.14</span> ST_MultiLineString</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_MultiLineString(
+  geometry STRING
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_MultiLineString(
+  geometry BINARY
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_MultiLineString(
+  geometry Object
+  hiveRecordInfoProvider STRING); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Creates a multiline string geometry in GeoJSON format, and returns a GeoJSON string representation of the geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-9D6FAB2A-7B51-45E4-9F61-01B4CBB87428__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>To create a geometry from a GeoJSON or WKT string (first format): Geometry definition in GeoJSON or WKT format.</p>
+<p>To create a geometry from a WKB object (second format): Geometry definition in WKB format.</p>
+<p>To create a geometry using a Hive object (third format): Geometry definition in any Hive supported type.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-9D6FAB2A-7B51-45E4-9F61-01B4CBB87428__GUID-42DD1229-0D58-4831-B060-9AA4B873CF9C"><!-- --></a>srid</dt>
+<dd>Spatial reference system (coordinate system) identifier.</dd>
+<dt class="dlterm"><a id="GUID-9D6FAB2A-7B51-45E4-9F61-01B4CBB87428__GUID-4A12E66B-A0C1-4694-9C65-24BF19ED4880"><!-- --></a>HiveRecordProvider</dt>
+<dd>The fully qualified name of an implementation of the interface <code>oracle.spatial.hadoop.vector.hive.HiveRecordInfoProvider</code> to extract the geometry in GeoJSON format.</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+-- creates a MultiLineString using GeoJSON
+select ST_ MultiLineString (' { "type": "MultiLineString","coordinates": [ [ [100.0, 0.0], [101.0, 1.0] ], [ [102.0, 2.0], [103.0, 3.0] ]] }', 8307) from hivetable LIMIT 1;
+-- creates a MultiLineString using WKT
+select ST_ MultiLineString ('multilinestring ((10 10, 20 20, 10 40),
+(40 40, 30 30, 40 20, 30 10))', 8307) from hivetable LIMIT 1;
+-- creates MultiLineStrings using a HiveRecordInfoProvider
+select ST_ MultiLineString (geoColumn, &lsquo;mypackage.hiveRecordInfoProviderImpl&rsquo;) from hivetable;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-175785F9-C51B-40C4-9E6E-75D162ADD71A"></a>
+<h2 id="BDSPA-GUID-175785F9-C51B-40C4-9E6E-75D162ADD71A" class="sect2"><span class="enumeration_section">B.15</span> ST_MultiPoint</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_MultiPoint(
+  geometry STRING
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_MultiPoint(
+  geometry BINARY
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_MultiPoint(
+  geometry Object
+  hiveRecordInfoProvider STRING); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Creates a multipoint geometry in GeoJSON format, and returns a GeoJSON string representation of the geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-175785F9-C51B-40C4-9E6E-75D162ADD71A__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>To create a geometry from a GeoJSON or WKT string (first format): Geometry definition in GeoJSON or WKT format.</p>
+<p>To create a geometry from a WKB object (second format): Geometry definition in WKB format.</p>
+<p>To create a geometry using a Hive object (third format): Geometry definition in any Hive supported type.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-175785F9-C51B-40C4-9E6E-75D162ADD71A__GUID-42DD1229-0D58-4831-B060-9AA4B873CF9C"><!-- --></a>srid</dt>
+<dd>Spatial reference system (coordinate system) identifier.</dd>
+<dt class="dlterm"><a id="GUID-175785F9-C51B-40C4-9E6E-75D162ADD71A__GUID-4A12E66B-A0C1-4694-9C65-24BF19ED4880"><!-- --></a>HiveRecordProvider</dt>
+<dd>The fully qualified name of an implementation of the interface <code>oracle.spatial.hadoop.vector.hive.HiveRecordInfoProvider</code> to extract the geometry in GeoJSON format.</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+-- creates a MultiPoint using GeoJSON
+select ST_MultiPoint (' { "type": "MultiPoint","coordinates": [ [100.0, 0.0], [101.0, 1.0] ] }', 8307) from hivetable LIMIT 1;
+-- creates a MultiPoint using WKT
+select ST_ MultiPoint ('multipoint ((10 40), (40 30), (20 20), (30 10))', 8307) from hivetable LIMIT 1;
+-- creates MultiPoints using a HiveRecordInfoProvider
+select ST_ MultiPoint (geoColumn, &lsquo;mypackage.hiveRecordInfoProviderImpl&rsquo;) from hivetable;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-198781A4-A178-4A9B-B41B-EFD289862D50"></a>
+<h2 id="BDSPA-GUID-198781A4-A178-4A9B-B41B-EFD289862D50" class="sect2"><span class="enumeration_section">B.16</span> ST_MultiPolygon</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_MultiPolygon(
+  geometry STRING
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_MultiPolygon(
+  geometry BINARY
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_MultiPolygon(
+  geometry Object
+  hiveRecordInfoProvider STRING); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Creates a multipolygon geometry in GeoJSON format, and returns a GeoJSON string representation of the geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-198781A4-A178-4A9B-B41B-EFD289862D50__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>To create a geometry from a GeoJSON or WKT string (first format): Geometry definition in GeoJSON or WKT format.</p>
+<p>To create a geometry from a WKB object (second format): Geometry definition in WKB format.</p>
+<p>To create a geometry using a Hive object (third format): Geometry definition in any Hive supported type.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-198781A4-A178-4A9B-B41B-EFD289862D50__GUID-42DD1229-0D58-4831-B060-9AA4B873CF9C"><!-- --></a>srid</dt>
+<dd>Spatial reference system (coordinate system) identifier.</dd>
+<dt class="dlterm"><a id="GUID-198781A4-A178-4A9B-B41B-EFD289862D50__GUID-4A12E66B-A0C1-4694-9C65-24BF19ED4880"><!-- --></a>HiveRecordProvider</dt>
+<dd>The fully qualified name of an implementation of the interface <code>oracle.spatial.hadoop.vector.hive.HiveRecordInfoProvider</code> to extract the geometry in GeoJSON format.</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+-- creates a MultiPolygon using GeoJSON
+select ST_ MultiPolygon (' { "type": "MultiPolygon","coordinates": [[[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]], [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]], [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]] ] }', 8307) from hivetable LIMIT 1;
+-- creates a MultiPolygon using WKT
+select ST_ MultiPolygon ('multipolygon(((30 20, 45 40, 10 40, 30 20)),
+((15 5, 40 10, 10 20, 5 10, 15 5)))', 8307) from hivetable LIMIT 1;
+-- creates MultiPolygons using a HiveRecordInfoProvider
+select ST_ MultiPolygon (geoColumn, &lsquo;mypackage.hiveRecordInfoProviderImpl&rsquo;) from hivetable;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-8AF179BD-808A-4EBA-9EFC-FC9E4F8E9F72"></a>
+<h2 id="BDSPA-GUID-8AF179BD-808A-4EBA-9EFC-FC9E4F8E9F72" class="sect2"><span class="enumeration_section">B.17</span> ST_Point</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Point(
+  geometry STRING
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_Point(
+  geometry BINARY
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_Point(
+  geometry Object
+  hiveRecordInfoProvider STRING); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Creates a point geometry in GeoJSON format, and returns a GeoJSON string representation of the geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-8AF179BD-808A-4EBA-9EFC-FC9E4F8E9F72__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>To create a geometry from a GeoJSON or WKT string (first format): Geometry definition in GeoJSON or WKT format.</p>
+<p>To create a geometry from a WKB object (second format): Geometry definition in WKB format.</p>
+<p>To create a geometry using a Hive object (third format): Geometry definition in any Hive supported type.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-8AF179BD-808A-4EBA-9EFC-FC9E4F8E9F72__GUID-42DD1229-0D58-4831-B060-9AA4B873CF9C"><!-- --></a>srid</dt>
+<dd>Spatial reference system (coordinate system) identifier.</dd>
+<dt class="dlterm"><a id="GUID-8AF179BD-808A-4EBA-9EFC-FC9E4F8E9F72__GUID-4A12E66B-A0C1-4694-9C65-24BF19ED4880"><!-- --></a>HiveRecordProvider</dt>
+<dd>The fully qualified name of an implementation of the interface <code>oracle.spatial.hadoop.vector.hive.HiveRecordInfoProvider</code> to extract the geometry in GeoJSON format.</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+-- creates a point using GeoJSON
+select ST_Point (' { "type": "Point", "coordinates": [100.0, 0.0]}', 8307) from hivetable LIMIT 1;
+-- creates a point using WKT
+select ST_Point ('point(100.0 0.0)', 8307) from hivetable LIMIT 1;
+-- creates the points using a HiveRecordInfoProvider
+select ST_Point (geoColumn, &lsquo;hive.samples.SampleHiveRecordInfoProviderImpl&rsquo;) from hivetable;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-09F3C077-6179-4C58-A04B-59DD3DEAF1C7"></a>
+<h2 id="BDSPA-GUID-09F3C077-6179-4C58-A04B-59DD3DEAF1C7" class="sect2"><span class="enumeration_section">B.18</span> ST_Polygon</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Polygon(
+  geometry STRING
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_Polygon(
+  geometry BINARY
+  srid INT); 
+</pre>
+<p>or</p>
+<pre dir="ltr">
+ST_Polygon(
+  geometry Object
+  hiveRecordInfoProvider STRING); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Creates a polygon geometry in GeoJSON format, and returns a GeoJSON string representation of the geometry.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-09F3C077-6179-4C58-A04B-59DD3DEAF1C7__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>To create a geometry from a GeoJSON or WKT string (first format): Geometry definition in GeoJSON or WKT format.</p>
+<p>To create a geometry from a WKB object (second format): Geometry definition in WKB format.</p>
+<p>To create a geometry using a Hive object (third format): Geometry definition in any Hive supported type.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-09F3C077-6179-4C58-A04B-59DD3DEAF1C7__GUID-42DD1229-0D58-4831-B060-9AA4B873CF9C"><!-- --></a>srid</dt>
+<dd>Spatial reference system (coordinate system) identifier.</dd>
+<dt class="dlterm"><a id="GUID-09F3C077-6179-4C58-A04B-59DD3DEAF1C7__GUID-4A12E66B-A0C1-4694-9C65-24BF19ED4880"><!-- --></a>HiveRecordProvider</dt>
+<dd>The fully qualified name of an implementation of the interface <code>oracle.spatial.hadoop.vector.hive.HiveRecordInfoProvider</code> to extract the geometry in GeoJSON format.</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+-- creates a polygon using GeoJSON
+select ST_Polygon (' { "type": "Polygon","coordinates": [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]] }', 8307) from hivetable LIMIT 1;
+-- creates a polygon using WKT
+select ST_ Polygon ('polygon((0 0, 10 0, 10 10, 0 0))', 8307) from hivetable LIMIT 1;
+-- creates the polygons using a HiveRecordInfoProvider
+select ST_ Polygon (geoColumn, &lsquo;mypackage.hiveRecordInfoProviderImpl&rsquo;) from hivetable;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-4B9FEF79-4A9D-4CB2-B547-4FC993E72138"></a>
+<h2 id="BDSPA-GUID-4B9FEF79-4A9D-4CB2-B547-4FC993E72138" class="sect2"><span class="enumeration_section">B.19</span> ST_Simplify</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Simplify(
+  geometry   ST_Geometry,
+  threshold  NUMBER); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Generates a new ST_Geometry object by simplifying the input geometry using the Douglas-Peucker algorithm.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-4B9FEF79-4A9D-4CB2-B547-4FC993E72138__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>Any 2D geometry object. If the geometry is geodetic, it is interpreted as longitude/latitude values in the WGS84 spatial reference system, and <code>bufferWidth</code> and <code>tolerance</code> are interpreted as meters.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-4B9FEF79-4A9D-4CB2-B547-4FC993E72138__GUID-ADA64C27-CC5D-4247-BFEB-6BC296FBB779"><!-- --></a>threshold</dt>
+<dd>
+<p>Threshold value to be used for the geometry simplification. Should be a positive number. (Zero causes the input geometry to be returned.) If the input geometry is geodetic, the value is the number of meters; if the input geometry is non-geodetic, the value is the number of units associated with the data.</p>
+<p>As the threshold value is decreased, the generated geometry is likely to be closer to the input geometry; as the threshold value is increased, fewer vertices are likely to be in the returned geometry.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Depending on the threshold value, a polygon can simplify into a line or a point, and a line can simplify into a point. Therefore, the output object should be checked for type, because the output geometry type might be different from the input geometry type.</p>
+<p>See also <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_Simplify(
+  ST_Polygon('{"type": "Polygon","coordinates": [[[1, 2], [1.01, 2.01], [5, 2], [5, 6], [1, 6], [1, 2]]]}', 8307), 
+  1) 
+from hivetable LIMIT 1;
+-- return {"type":"Polygon", "coordinates":[[[1,2],[5,2],[5,6],[1,6],[1,2]]],"crs":{"type":"name","properties":{"name":"EPSG:8307"}}}
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-B3F6F03C-1780-418C-BA10-E0BDD12918BB"></a>
+<h2 id="BDSPA-GUID-B3F6F03C-1780-418C-BA10-E0BDD12918BB" class="sect2"><span class="enumeration_section">B.20</span> ST_SimplifyVW</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_SimplifyVW(
+  geometry   ST_Geometry,
+  threshold  NUMBER); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Generates a new ST_Geometry object by simplifying the input geometry using the Visvalingham-Whyatt algorithm.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-B3F6F03C-1780-418C-BA10-E0BDD12918BB__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>geometry</dt>
+<dd>
+<p>Any 2D geometry object. If the geometry is geodetic, it is interpreted as longitude/latitude values in the WGS84 spatial reference system, and <code>bufferWidth</code> and <code>tolerance</code> are interpreted as meters.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-B3F6F03C-1780-418C-BA10-E0BDD12918BB__GUID-ADA64C27-CC5D-4247-BFEB-6BC296FBB779"><!-- --></a>threshold</dt>
+<dd>
+<p>Threshold value to be used for the geometry simplification. Should be a positive number. (Zero causes the input geometry to be returned.) If the input geometry is geodetic, the value is the number of meters; if the input geometry is non-geodetic, the value is the number of units associated with the data.</p>
+<p>As the threshold value is decreased, the generated geometry is likely to be closer to the input geometry; as the threshold value is increased, fewer vertices are likely to be in the returned geometry.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Depending on the threshold value, a polygon can simplify into a line or a point, and a line can simplify into a point. Therefore, the output object should be checked for type, because the output geometry type might be different from the input geometry type.</p>
+<p>See also <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select ST_SimplifyVW(
+  ST_Polygon('{"type": "Polygon","coordinates": [[[1, 2], [1.01, 2.01], [5, 2], [5, 6], [1, 6], [1, 2]]]}', 8307), 
+  50) 
+from hivetable LIMIT 1; 
+-- return {"type":"Polygon", "coordinates":[[[1,2],[5,6],[1,6],[1,2]]],"crs":{"type":"name","properties":{"name":"EPSG:8307"}}}
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-65E97F1E-9808-40B7-A3E4-CEE7D957CFF6"></a>
+<h2 id="BDSPA-GUID-65E97F1E-9808-40B7-A3E4-CEE7D957CFF6" class="sect2"><span class="enumeration_section">B.21</span> ST_Volume</h2>
+<div>
+<div class="section">
+<p class="subhead2">Format</p>
+<pre dir="ltr">
+ST_Volume(
+  multipolygon  ST_MultiPolygon,
+  tolerance     NUMBER DEFAULT 0 (nongeodetic geometries) or 0.05 (geodetic geometries)); 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<p>Returns the area of a multipolygon 3D geometry. The multipolygon is handled as a solid.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-65E97F1E-9808-40B7-A3E4-CEE7D957CFF6__GUID-FB55957E-F0D9-4D78-A1A8-A813D821B8F4"><!-- --></a>multipolygon</dt>
+<dd>
+<p>An ST_Multipolygon object.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-65E97F1E-9808-40B7-A3E4-CEE7D957CFF6__GUID-C179B210-6DDE-4E54-B667-211E528748CA"><!-- --></a>tolerance</dt>
+<dd>
+<p>Value reflecting the distance that two points can be apart and still be considered the same.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>For projected data, the volume is in the same unit as the unit of projection. For geodetic data, the volume is in cubic meters.</p>
+<p>Returns -1 in case of an error.</p>
+<p>See also <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-04F31B8A-6F6B-4568-BA0B-845CD68316B2">Oracle Big Data Spatial Vector Hive Analysis</a> for conceptual and usage information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<pre dir="ltr">
+select select ST_Volume(
+  ST_MultiPolygon (' { "type": "MultiPolygon", "coordinates": 
+    [[[[0, 0, 0], [0, 0, 1], [0, 1, 1], [0, 1, 0], [0, 0, 0]]], 
+    [[[0, 0, 0], [0, 1, 0], [1, 1, 0], [1, 0, 0], [0, 0, 0]]], 
+    [[[0, 0, 0], [1, 0, 0], [1, 0, 1], [0, 0, 1], [0, 0, 0]]],
+    [[[1, 1, 0], [1, 1, 1], [1, 0, 1], [1, 0, 0], [1, 1, 0]]],
+    [[[0, 1, 0], [0, 1, 1], [1, 1, 1], [1, 1, 0], [0, 1, 0]]],
+    [[[0, 0, 1], [1, 0, 1], [1, 1, 1], [0, 1, 1], [0, 0, 1]]]]}', 
+    0))
+  from hivetable LIMIT 1; -- return 1.0
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment322">
+<tr>
+<td class="cellalignment359">
+<table class="cellalignment362">
+<tr>
+<td class="cellalignment326"><a href="big-data-spatial-third-party-licenses.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment361">
+<table class="cellalignment325">
+<tr>
+<td class="cellalignment326"><a href="http://docs.oracle.com/bigdata/bda47/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment326"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment326"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

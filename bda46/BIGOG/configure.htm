@@ -1,0 +1,2584 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Configuring an Oracle Big Data Appliance Full Rack or Starter Rack</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="Ethernet switch, configuration, configuring Ethernet switch, Cisco switch, configure terminal command, show command, running-config output, InfiniBand configuration, version command, showunhealthy command, env_test command, setsmpriority command, disablesm command, enablesm command, PDUs, network connections, ibstatus utility, InfiniBand switches, checking status" />
+<meta name="dcterms.created" content="2018-07-23T02:05:52Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E77517-03" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda46/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="unpack.htm" title="Previous" type="text/html" />
+<link rel="Next" href="configure_expansion.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77517-03.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-BD34C9EF-67C1-4871-A6AA-27E3534DE682"></a> <span id="PAGE" style="display:none;">13/31</span> <!-- End Header -->
+<a id="BIGOG223"></a>
+<h1 id="BIGOG-GUID-BD34C9EF-67C1-4871-A6AA-27E3534DE682" class="sect1"><span class="enumeration_chapter">7</span> Configuring an Oracle Big Data Appliance Full Rack or Starter Rack</h1>
+<div>
+<p><a id="d40284e17" class="indexterm-anchor"></a><a id="d40284e19" class="indexterm-anchor"></a><a id="d40284e23" class="indexterm-anchor"></a><a id="d40284e25" class="indexterm-anchor"></a>This chapter describes how to configure the system, accounts, and software for an Oracle Big Data Appliance full rack or starter rack.</p>
+<p>This chapter contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure.htm#GUID-9751FDED-9AA9-49A1-A055-E80E4CFC7176">Configuring the KVM Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-638C8CCB-9A50-43A6-95CF-04B626FD658D">Configuring the Cisco Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-6FB8396C-554B-4139-9425-2C4E9683193B">Configuring the InfiniBand Leaf and Spine Switches</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-8C6DE13D-4F5B-4313-923D-42D0C88EF2D7">Configuring the Power Distribution Units</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1">Configuring the Oracle Big Data Appliance Servers</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-0EFE7F4E-B14B-4D4F-A3A1-3C39C8ED39EF">Configuring the Network</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-FB0B6083-0C81-4919-8109-437A8D248EB1">Configuring Multiple Oracle Big Data Appliance Racks</a></p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-BD34C9EF-67C1-4871-A6AA-27E3534DE682__GUID-450EFEC7-4239-45E6-B576-ED6A263CB263">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure_expansion.htm#GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A">Expanding an Oracle Big Data Appliance Starter Rack</a></p>
+</li>
+<li>
+<p><a href="dcli.htm#GUID-ED09B97C-BAAE-41E1-A7D0-A65BF1E8AF8F">Executing Commands Across a Cluster Using the dcli Utility</a></p>
+</li>
+<li>
+<p><a href="ilom.htm#GUID-AB39F905-92FA-4571-9585-8F95FC04E99A">Using Oracle Integrated Lights Out Manager</a></p>
+</li>
+</ul>
+</div>
+<div class="infobox-note" id="GUID-BD34C9EF-67C1-4871-A6AA-27E3534DE682__GUID-2D583E35-5FB9-4072-AB48-C2F3C3A55202">
+<p class="notep1">Note:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle recommends that you have the <code class="codeph">bda-install-preview.html</code> file available while completing these procedures. See <span class="q">"<a href="configurator.htm#GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F">About the Configuration Files</a>."</span></p>
+</li>
+<li>
+<p>Oracle recommends that an Oracle field engineer performs the configuration steps described in this chapter.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGOG76755"></a>
+<div class="props_rev_3"><a id="GUID-9751FDED-9AA9-49A1-A055-E80E4CFC7176"></a>
+<h2 id="BIGOG-GUID-9751FDED-9AA9-49A1-A055-E80E4CFC7176" class="sect2"><span class="enumeration_section">7.1</span> Configuring the KVM Switch</h2>
+<div>
+<p>A KVM switch is provided only in Oracle Big Data Appliance racks with Sun Fire X4270 M2 servers.</p>
+<p>The <a id="d40284e112" class="indexterm-anchor"></a><a id="d40284e116" class="indexterm-anchor"></a>KVM configuration consists of these procedures:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure.htm#GUID-33272701-70D2-4716-9C1F-F6DE2D9C7AB8">Starting the KVM Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-85806E30-E7E8-4C01-87FB-DAE4BF6FBF3B">Connecting the KVM Switch to the Management Network</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-92444604-07B0-4D9A-AB75-DBDA13BDA243">Checking the KVM Firmware Version</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-8DE01173-254E-4F38-873C-DF038263A26D">Configuring the KVM Switch to Access the Servers</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-29EDB107-A958-4099-A804-56F4E5FAADA4">Accessing a Server by Using the KVM Switch</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76756"></a>
+<div class="props_rev_3"><a id="GUID-33272701-70D2-4716-9C1F-F6DE2D9C7AB8"></a>
+<h3 id="BIGOG-GUID-33272701-70D2-4716-9C1F-F6DE2D9C7AB8" class="sect3"><span class="enumeration_section">7.1.1</span> Starting the KVM Switch</h3>
+<div>
+<div class="section">
+<p>To start the <a id="d40284e161" class="indexterm-anchor"></a><a id="d40284e165" class="indexterm-anchor"></a>KVM switch:</p>
+<ol>
+<li>
+<p>Ensure that all connected components are powered off.</p>
+</li>
+<li>
+<p>Pull the KVM tray out from the front of the rack, and open it using the handle.</p>
+</li>
+<li>
+<p>Touch the touch pad.</p>
+</li>
+<li>
+<p>Toggle between the host and KVM interface by pressing the Ctrl key on the left side twice, similar to double-clicking with a mouse. You see the main user interface page.</p>
+</li>
+<li>
+<p>In the navigator on the left, select <span class="bold">Target Devices</span> under Unit View. In the main display area, verify that 18 target devices are listed with Action set to KVM Session.</p>
+<p>The sessions are numbered from the bottom of the rack to the top.</p>
+</li>
+<li>
+<p>If 18 sessions are not shown:</p>
+<ol>
+<li>
+<p>In the navigator under Appliances, expand Ports, and then select <span class="bold">IQ Adaptors</span>.</p>
+</li>
+<li>
+<p>In the main display area, choose the <span class="bold">Port</span> table heading to sort the sessions by port number.</p>
+</li>
+<li>
+<p>Note any missing sessions, so that you can fix them later.</p>
+</li>
+<li>
+<p>In the navigator, choose <span class="bold">Target Devices</span> to return to the Target Devices page.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76757"></a>
+<div class="props_rev_3"><a id="GUID-85806E30-E7E8-4C01-87FB-DAE4BF6FBF3B"></a>
+<h3 id="BIGOG-GUID-85806E30-E7E8-4C01-87FB-DAE4BF6FBF3B" class="sect3"><span class="enumeration_section">7.1.2</span> Connecting the KVM Switch to the Management Network</h3>
+<div>
+<div class="section">
+<p>To <a id="d40284e235" class="indexterm-anchor"></a>connect the <a id="d40284e238" class="indexterm-anchor"></a><a id="d40284e242" class="indexterm-anchor"></a><a id="d40284e246" class="indexterm-anchor"></a>KVM switch to the management network:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>In the navigator under User Accounts, select <span class="bold">Local</span>.</span></li>
+<li><span>Under Users, choose <span class="bold">Admin</span>.</span></li>
+<li><span>Set the password for the Admin account to <code class="codeph">welcome1</code>, and then choose <span class="bold">Save</span>. Do not modify any other parameters.</span></li>
+<li><span>Under Appliance Settings, expand Network, and then choose <span class="bold">IPv4</span>. The Network Information page appears.</span></li>
+<li><span>Enter values for Address, Subnet, and Gateway, and then choose <span class="bold">Save</span>.</span></li>
+<li><span>Under Appliance Settings, choose <span class="bold">DNS</span> to display the DNS Information page.</span></li>
+<li><span>Enter the IP addresses of the DNS servers, and then choose <span class="bold">Save</span>.</span></li>
+<li><span>Under Network, choose <span class="bold">General</span> to display the Appliance General Network Settings page.</span></li>
+<li><span>Connect the KVM LAN1 Ethernet port to the management network.</span></li>
+<li><span>To verify that the port has been configured correctly, ensure that the Media Access Control (<a id="d40284e309" class="indexterm-anchor"></a><a id="d40284e311" class="indexterm-anchor"></a>MAC) address on the Network Settings page matches the label next to the LAN1/LAN2 ports at the rear of the KVM switch.</span></li>
+<li><span>Under Users, select <span class="bold">Overview</span> to display the Unit Maintenance page.</span></li>
+<li><span>Enter a name for the <a id="d40284e326" class="indexterm-anchor"></a>KVM switch, and then choose <span class="bold">Save</span>.</span></li>
+<li><span>To restart the KVM switch, choose <span class="bold">Reboot</span> under Overview and <span class="bold">Yes</span> to confirm.</span></li>
+</ol>
+</div>
+</div>
+<a id="BIGOG76758"></a>
+<div class="props_rev_3"><a id="GUID-92444604-07B0-4D9A-AB75-DBDA13BDA243"></a>
+<h3 id="BIGOG-GUID-92444604-07B0-4D9A-AB75-DBDA13BDA243" class="sect3"><span class="enumeration_section">7.1.3</span> Checking the KVM Firmware Version</h3>
+<div>
+<div class="section">
+<p>You may need to upgrade the <a id="d40284e365" class="indexterm-anchor"></a><a id="d40284e369" class="indexterm-anchor"></a>KVM firmware to the recommended version.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To check the KVM firmware version:</p>
+<ol>
+<li>
+<p>In the navigator under Appliance Settings, select <span class="bold">Versions</span>. There are two version numbers, Application and Boot. Compare the displayed versions with these recommended versions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Application: 1.10.2.17762</p>
+</li>
+<li>
+<p>Boot: 1.9.16473</p>
+</li>
+</ul>
+<p>If the application firmware version is earlier than 1.10.2, then you should upgrade it. To upgrade the firmware, continue with this procedure. Otherwise, you are done.</p>
+</li>
+<li>
+<p>Download the firmware from this website to a USB flash drive:</p>
+<p><a href="http://www.avocent.com/Pages/GenericTwoColumn.aspx?id=12541" target="_blank"><code class="codeph">http://www.avocent.com/Pages/GenericTwoColumn.aspx?id=12541</code></a></p>
+</li>
+<li>
+<p>Plug the flash drive into the KVM USB port and open a browser session.</p>
+</li>
+<li>
+<p>Log in to the KVM as <code class="codeph">Admin</code> with password <code class="codeph">welcome1</code>.</p>
+</li>
+<li>
+<p>Under Appliance, select <span class="bold">Overview</span>.</p>
+</li>
+<li>
+<p>From the Tools list, select <span class="bold">Upgrade Firmware</span>.</p>
+</li>
+<li>
+<p>Select the connection method, such as <span class="bold">FTP</span> or <span class="bold">HTTP</span>.</p>
+</li>
+<li>
+<p>Enter the file name of the downloaded firmware.</p>
+</li>
+<li>
+<p>Click <span class="bold">Upgrade</span>.</p>
+<p>The upgrade process takes 5 to10 minutes, including an automatic restart.</p>
+</li>
+<li>
+<p>Confirm the firmware version by selecting <span class="bold">Versions</span> under Appliance Settings.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76759"></a>
+<div class="props_rev_3"><a id="GUID-8DE01173-254E-4F38-873C-DF038263A26D"></a>
+<h3 id="BIGOG-GUID-8DE01173-254E-4F38-873C-DF038263A26D" class="sect3"><span class="enumeration_section">7.1.4</span> Configuring the KVM Switch to Access the Servers</h3>
+<div>
+<div class="section">
+<p>To <a id="d40284e472" class="indexterm-anchor"></a>configure the <a id="d40284e475" class="indexterm-anchor"></a>KVM switch to access the servers:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Under Unit View, select <span class="bold">Target Devices</span> to display the Target Devices page.</span></li>
+<li id="GUID-8DE01173-254E-4F38-873C-DF038263A26D__CACHAEFD"><span>Start up the server. The power button is on the front panel.</span></li>
+<li><span>Click the server name in the Name column to display the Unit Overview page.</span></li>
+<li><span>Click <span class="bold">Overview</span> and overwrite the name with the Oracle standard naming format of customer prefix, node type, and number. For example, <code class="codeph">bda1node03</code> identifies the third server from the bottom of the bda1 rack.</span></li>
+<li id="GUID-8DE01173-254E-4F38-873C-DF038263A26D__CACGBEDH"><span>Click <span class="bold">Save</span>.</span></li>
+<li><span>Repeat Steps <a href="configure.htm#GUID-8DE01173-254E-4F38-873C-DF038263A26D__CACHAEFD">2</a> through <a href="configure.htm#GUID-8DE01173-254E-4F38-873C-DF038263A26D__CACGBEDH">5</a> for each server in the rack. Each server boots through BIOS, and boots the operating system with the default factory IP configuration.</span></li>
+</ol>
+</div>
+</div>
+<a id="BIGOG76760"></a>
+<div class="props_rev_3"><a id="GUID-29EDB107-A958-4099-A804-56F4E5FAADA4"></a>
+<h3 id="BIGOG-GUID-29EDB107-A958-4099-A804-56F4E5FAADA4" class="sect3"><span class="enumeration_section">7.1.5</span> Accessing a Server by Using the KVM Switch</h3>
+<div>
+<div class="section">
+<p>To <a id="d40284e538" class="indexterm-anchor"></a>access a server by using the KVM switch:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Under Unit View, select <span class="bold">Target Devices</span> to display the Target Devices page.</span></li>
+<li><span>Click the system name in the Name column.</span></li>
+<li><span>Click <span class="bold">KVM Session</span> to open a session with the server.</span></li>
+</ol>
+</div>
+</div>
+</div>
+<a id="BIGOG76695"></a>
+<div class="props_rev_3"><a id="GUID-638C8CCB-9A50-43A6-95CF-04B626FD658D"></a>
+<h2 id="BIGOG-GUID-638C8CCB-9A50-43A6-95CF-04B626FD658D" class="sect2"><span class="enumeration_section">7.2</span> Configuring the Cisco Ethernet Switch</h2>
+<div>
+<p>The Cisco Catalyst 4948 Ethernet switch supplied with Oracle Big Data Appliance has IPBASEK9-MZ firmware. The switch is minimally configured during installation. These procedures configure the Cisco Ethernet switch into one large virtual LAN.</p>
+<p>The Cisco Ethernet switch configuration consists of these topics and procedures:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure.htm#GUID-8CC1DBB0-21F8-4616-ADF0-55525B92AC30">Scope of the Configuration</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-4A18EDEB-40E3-4F7F-BEF7-D1B6148289F4">Prerequisites for Configuring the Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-2AFC5E5C-3707-458E-833F-C48877B007C1">Configuring the Ethernet Switch on the Customer Network</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-1F928FF3-A506-40F3-B27A-AB03D70270E9">Setting Up Telnet Access on the Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-46C0FDBD-4669-4268-8C31-7C912C452DC5">Configuring SSH on the Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-2082BA91-5A58-4EF9-8151-6904B94703DC">Setting the Clock and Time Zone on the Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-8EBB35C9-0B8D-4925-BB14-5258D03346BE">Configuring the NTP Servers for the Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-5764CBFD-00C1-47E4-8271-EC9675B3247C">Disabling the Spanning Tree</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-A0DB1B62-4083-439A-BDC7-67B67A1CFDF0">Verifying the Ethernet Configuration</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76696"></a>
+<div class="props_rev_3"><a id="GUID-8CC1DBB0-21F8-4616-ADF0-55525B92AC30"></a>
+<h3 id="BIGOG-GUID-8CC1DBB0-21F8-4616-ADF0-55525B92AC30" class="sect3"><span class="enumeration_section">7.2.1</span> Scope of the Configuration</h3>
+<div>
+<p>This configuration disables IP routing and sets the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Host name</p>
+</li>
+<li>
+<p>IP address</p>
+</li>
+<li>
+<p>Subnet mask</p>
+</li>
+<li>
+<p>Default gateway</p>
+</li>
+<li>
+<p>Domain name</p>
+</li>
+<li>
+<p>Name server</p>
+</li>
+<li>
+<p>NTP server</p>
+</li>
+<li>
+<p>Time</p>
+</li>
+<li>
+<p>Time zone</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGOG76697"></a>
+<div class="props_rev_3"><a id="GUID-4A18EDEB-40E3-4F7F-BEF7-D1B6148289F4"></a>
+<h3 id="BIGOG-GUID-4A18EDEB-40E3-4F7F-BEF7-D1B6148289F4" class="sect3"><span class="enumeration_section">7.2.2</span> Prerequisites for Configuring the Ethernet Switch</h3>
+<div>
+<p>To avoid disrupting the customer network, observe these prerequisites:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Do not connect the Cisco <a id="d40284e700" class="indexterm-anchor"></a>Ethernet switch until the network administrator has verified the running configuration and made any necessary changes.</p>
+</li>
+<li>
+<p>Do not connect the Cisco Ethernet switch to the customer network until the IP addresses on all components have been configured in Oracle Big Data Appliance. This sequence prevents any duplicate IP address conflicts, which are possible due to the default addresses set in the components when shipped.</p>
+</li>
+<li>
+<p>Configure the Cisco Ethernet switch with the network administrator.</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-4A18EDEB-40E3-4F7F-BEF7-D1B6148289F4__GUID-8993B108-8624-4A1D-9B41-BCDF2C33A940">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2">Understanding the Network Requirements</a></p>
+</li>
+<li>
+<p><a class="olink BIGCL" target="_blank" href="../BIGCL/toc.htm"><span class="italic">Oracle Big Data Appliance Site Checklists</span></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGOG76875"></a><a id="BIGOG76698"></a>
+<div class="props_rev_3"><a id="GUID-2AFC5E5C-3707-458E-833F-C48877B007C1"></a>
+<h3 id="BIGOG-GUID-2AFC5E5C-3707-458E-833F-C48877B007C1" class="sect3"><span class="enumeration_section">7.2.3</span> Configuring the Ethernet Switch on the Customer Network</h3>
+<div>
+<div class="section">
+<p>To configure the Ethernet switch on the customer network:</p>
+<ol>
+<li>
+<p>Connect a serial cable from the Cisco switch console to a laptop or similar device. An RJ45 to DB9 serial cable is included with the Cisco documentation package.</p>
+<p>The status lights turn on and this message is displayed:</p>
+<pre dir="ltr">
+Switch con0 is now available
+Press RETURN to get started.
+</pre></li>
+<li>
+<p>If the Ethernet switch displays status lights and a welcome message, then continue. If it does not, then go to <span class="q">"<a href="configure.htm#GUID-2AFC5E5C-3707-458E-833F-C48877B007C1__CACGACJA">Correcting the Autoboot Settings</a>."</span></p>
+</li>
+<li>
+<p>Ensure that the terminal session is recorded on the laptop by logging the output. You can use the output as a record that the switch has been configured correctly. The <a id="d40284e768" class="indexterm-anchor"></a><a id="d40284e770" class="indexterm-anchor"></a>default serial port speed is 9600 baud, 8 bits, no parity, 1 stop bit, and no handshake.</p>
+</li>
+<li>
+<p>Change to <code class="codeph">enable</code> mode using the following command. The default <a id="d40284e781" class="indexterm-anchor"></a>password is <code class="codeph">welcome1</code>.</p>
+<pre dir="ltr">
+Switch&gt; <span class="bold">enable</span>
+Password:
+</pre></li>
+<li>
+<p>Configure the network for a single <a id="d40284e797" class="indexterm-anchor"></a>VLAN. The following is an example of the configuration:</p>
+<pre dir="ltr">
+Switch# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)# <span class="bold">interface vlan 1</span>
+Switch(config-if)# <span class="bold">ip address 10.7.7.34 255.255.255.0</span>
+Switch(config-if)# <span class="bold">end</span>
+Switch# *Jan 23 15:54:00.506: %SYS-5-CONFIG_I:Configured from console by console
+Switch# <span class="bold">write memory</span>
+Building configuration...
+Compressed configuration from 2474 bytes to 1066 bytes [OK ]
+</pre></li>
+<li>
+<p>If the network does not require IP routing on the switch, then disable the default IP routing setting and configure the default <a id="d40284e822" class="indexterm-anchor"></a>gateway. This method is preferred. Consult the network administrator if in doubt.</p>
+<pre dir="ltr">
+Switch# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)# <span class="bold">no ip routing</span>
+Switch(config)# <span class="bold">ip default-gateway 10.17.7.1</span>
+Switch(config)# <span class="bold">end</span> 
+*Jan 23 15:54:00.506: %SYS-5-CONFIG_I:Configured from console by console
+Switch# <span class="bold">write memory</span>
+Building configuration...
+Compressed configuration from 3600 bytes to 1305 bytes[OK]]
+</pre></li>
+<li>
+<p>If the network requires <a id="d40284e847" class="indexterm-anchor"></a><a id="d40284e849" class="indexterm-anchor"></a><a id="d40284e851" class="indexterm-anchor"></a>IP routing on the switch, and then keep the default IP routing setting and configure the default gateway as follows:</p>
+<pre dir="ltr">
+Switch# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)# <span class="bold">ip route 0.0.0.0 0.0.0.0 10.7.7.1</span>
+Switch(config)# <span class="bold">end</span>
+*Jan 23 15:55:02.506: %SYS-5-CONFIG_I:Configured from console by console
+Switch# <span class="bold">write memory</span>
+Building configuration...
+Compressed configuration from 2502 bytes to 1085 bytes [OK ]
+</pre></li>
+<li>
+<p><a id="d40284e872" class="indexterm-anchor"></a>Set the host name of the switch to the name specified in the installation preview. This example uses the name bda1sw-ip.</p>
+<pre dir="ltr">
+Switch# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)# <span class="bold">hostname bda1sw-ip</span>
+bda1sw-ip(config)# <span class="bold">end</span>
+*Jan 23 15:57:50.886: %SYS-5-CONFIG_I: Configured from console by console
+bda1sw-ip# <span class="bold">write memory</span>
+Building configuration...
+Compressed configuration from 3604 bytes to 1308 bytes[OK]
+bda1sw-ip#
+</pre>
+<p>The system host name appears in the prompt.</p>
+</li>
+<li>
+<p>Configure up to three DNS servers, using the IP addresses specified in the installation preview instead of the examples shown here. If no DNS service is available, then set the domain name anyway, so that the SSH keys are configurable.</p>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+bda1sw-ip(config)# <span class="bold">ip domain-name mydomain.com</span>
+bda1sw-ip(config)# <span class="bold">ip name-server 10.7.7.3</span>
+bda1sw-ip(config)# <span class="bold">ip name-server 129.148.5.5</span>
+bda1sw-ip(config)# <span class="bold">ip name-server 10.8.160.1</span>
+bda1sw-ip(config)# <span class="bold">end</span>
+*Sep 15 14:26:37.045: %SYS-5-CONFIG_I: Configured from console by console
+bda1sw-ip# <span class="bold">write memory</span>
+Building configuration...
+Compressed configuration from 2603 bytes to 1158 bytes[OK]
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section" id="GUID-2AFC5E5C-3707-458E-833F-C48877B007C1__CACGACJA">
+<p class="subhead3">Correcting the Autoboot Settings</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>If the Cisco Ethernet switch does not display any link or status lights, then the incorrect autoboot settings may prevent it from starting. If the serial console port shows the rommon prompt, then complete the following procedure.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Correcting the autoboot settings of the Cisco switch:</p>
+<ol>
+<li>
+<p>Verify that the IPBASE and IPBASEK9 firmware reboot files are available:</p>
+<pre dir="ltr">
+rommon 1 &gt;<span class="bold">dir bootflash</span>:
+File Size (Bytes) File Name
+------------------------------
+25213107 cat4500e-ipbase-mz.150-2.SG2.bin
+32288280 cat4500e-ipbasek9-mz.151-1.SG.bin
+Total space = 128165888 bytes, Available = 60643328 bytes
+</pre></li>
+<li>
+<p>Restart the switch manually using the default image:</p>
+<pre dir="ltr">
+rommon 2 &gt;<span class="bold">boot</span>
+Rommon reg: 0x00004780
+Reset2Reg: 0x00009EFF
+##
+Fortooine controller 0x0B5A753B..0x0B70B6CD original
+size:0x001C3EA5
+##################
+diagsk5 version 5.0.1
+     .
+     .
+     .
+</pre></li>
+<li>
+<p>Press Enter to get the Switch prompt.</p>
+</li>
+<li>
+<p>Enter enable mode. Enter <code class="codeph">welcome1</code> for the password or just press Enter:</p>
+<pre dir="ltr">
+Switch&gt;<span class="bold">enable</span>
+Password: <span class="bold">welcome1</span>
+Switch#
+</pre></li>
+<li>
+<p>Verify that the boot variable is not set:</p>
+<pre dir="ltr">
+Switch# <span class="bold">show bootvar</span>
+BOOT variable =
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x2102
+</pre></li>
+<li>
+<p>Verify that IPBASEK9 is available in the boot file system:</p>
+<pre dir="ltr">
+Switch# <span class="bold">dir bootflash:</span>
+Directory of bootflash:/
+6 -rw- 25213107 Dec 3 2012 17:27:38 +00:00 cat4500eipbase-mz.150-2.SG2.bin
+7 -rw- 32288280 Apr 1 2013 11:41:54 +00:00 cat4500eipbasek9-mz.151-1.SG.bin
+128165888 bytes total (60643328 bytes free)
+</pre></li>
+<li>
+<p>If IPBASEK9 is not listed in the <code class="codeph">bootflash</code> directory, then you must install it before continuing. See My Oracle Support Document ID 1415044.1.</p>
+</li>
+<li>
+<p>Set the <code class="codeph">BOOT</code> variable as shown in this example:</p>
+<pre dir="ltr">
+Switch# <span class="bold">config term</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)# <span class="bold">config-register 0x2102</span>
+Switch(config)# <span class="bold">no boot system</span>
+Switch(config)# <span class="bold">boot system bootflash:cat4500e-ipbasek9-mz.151-1.SG.bin</span>
+Switch(config)# <span class="bold">end</span>
+</pre></li>
+<li>
+<p>Verify the new <code class="codeph">BOOT</code> setting:</p>
+<pre dir="ltr">
+Switch# <span class="bold">show running-config | include boot</span>
+boot-start-marker
+boot system bootflash:cat4500e-ipbasek9-mz.151-1.SG.bin
+boot-end-marker
+</pre></li>
+<li>
+<p>Save the changes to the startup configuration:</p>
+<pre dir="ltr">
+Switch# <span class="bold">copy running-config startup-config all</span>
+Destination filename [startup-config]? <span class="italic"><span class="bold">Enter</span></span>
+Switch# <span class="bold">write memory</span>
+Building configuration...
+Compressed configuration from 3628 bytes to 1281 bytes[OK]
+</pre></li>
+<li>
+<p>Reload the firmware.</p>
+<pre dir="ltr">
+Switch# <span class="bold">reload</span>
+Proceed with reload? [confirm] <span class="bold">y</span>
+*Apr 24 09:31:32.887: %SYS-5-RELOAD: Reload requested by console. Reload reason: Reload command
+</pre>
+<p>The switch automatically restarts and then continues the reload process.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76699"></a>
+<div class="props_rev_3"><a id="GUID-1F928FF3-A506-40F3-B27A-AB03D70270E9"></a>
+<h3 id="BIGOG-GUID-1F928FF3-A506-40F3-B27A-AB03D70270E9" class="sect3"><span class="enumeration_section">7.2.4</span> Setting Up Telnet Access on the Ethernet Switch</h3>
+<div>
+<div class="section">
+<p>Oracle Big Data Appliance ships with a version of the Cisco Ethernet switch software that supports both telnet and SSH. Telnet access is optional. The following procedure describes how to enable and disable remote telnet access.</p>
+<div class="infobox-note" id="GUID-1F928FF3-A506-40F3-B27A-AB03D70270E9__GUID-D4803059-AA1A-422F-88E3-9AB2232FB3C5">
+<p class="notep1">Note:</p>
+<p>Telnet access is not secure.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To set up telnet access to the Ethernet switch:</p>
+<ol>
+<li>
+<p><a id="d40284e1077" class="indexterm-anchor"></a><a id="d40284e1081" class="indexterm-anchor"></a>Set the password for telnet access if necessary; it should already be set when you receive Oracle Big Data Appliance.</p>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+bda1sw-ip(config)# <span class="bold">enable password welcome1</span>
+bda1sw-ip(config)# <span class="bold">enable secret welcome1</span> 
+The enable secret you have chosen is the same as your enable password.
+This is not recommended. Re-enter the enable secret.
+bda1sw-ip(config)# <span class="bold">end</span>
+bda1sw-ip# <span class="bold">write memory</span> 
+*Jan 23 15:57:50.886: %SYS-5-CONFIG_I:Configured from console by console
+Building configuration...
+Compressed configuration from 2502 bytes to 1085 bytes [OK ]
+</pre></li>
+<li>
+<p>Set up telnet access. In this example, the first <code class="codeph">login</code> output shows that the password is not set and telnet access is disabled. If the <code class="codeph">login</code> command returns nothing, then the password is set and telnet access is available.</p>
+<pre dir="ltr">
+Switch# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+bda1sw-ip(config)# <span class="bold">line vty 0 15</span>
+bda1sw-ip(config-line)# <span class="bold">login</span>
+%Login disabled on line 1,until 'password' is set
+%Login disabled on line 2,until 'password' is set
+%Login disabled on line 3,until 'password' is set
+...
+bda1sw-ip(config-line)# <span class="bold">password welcome1</span>
+bda1sw-ip(config-line)# <span class="bold">login</span>
+bda1sw-ip(config-line)# <span class="bold">end</span>
+bda1sw-ip# <span class="bold">write memory</span>
+*Jan 23 15:58:53.630: %SYS-5-CONFIG_I: Configured from console by console
+Building configuration...
+Compressed configuration from 3604 bytes to 1308 bytes[OK]
+</pre></li>
+<li>
+<p>To disable telnet access and prevent remote access, follow this example:</p>
+<pre dir="ltr">
+Switch# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+bda1sw-ip(config)# <span class="bold">line vty 0 15</span>
+bda1sw-ip(config-line)# <span class="bold">no password</span>
+bda1sw-ip(config-line)# <span class="bold">login</span>
+%Login disabled on line 1, until 'password' is set
+%Login disabled on line 2, until 'password' is set
+%Login disabled on line 3, until 'password' is set
+...
+bda1sw-ip(config-line)# <span class="bold">end</span>
+bda1sw-ip# <span class="bold">write memory</span>
+*Jan 23 15:58:53.630: %SYS-5-CONFIG_I: Configured from console by console
+Building configuration...
+Compressed configuration from 3786 bytes to 1468 bytes[OK]
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76825"></a>
+<div class="props_rev_3"><a id="GUID-46C0FDBD-4669-4268-8C31-7C912C452DC5"></a>
+<h3 id="BIGOG-GUID-46C0FDBD-4669-4268-8C31-7C912C452DC5" class="sect3"><span class="enumeration_section">7.2.5</span> Configuring SSH on the Ethernet Switch</h3>
+<div>
+<div class="section">
+<p>The current firmware supports remote connections using SSH. To set up SSH on the Cisco Ethernet switch, follow this example:</p>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+bda1sw-ip(config)# <span class="bold">crypto key generate rsa</span>
+% You already have RSA keys defined named bda1sw-ip.mydomain.com.
+% Do you really want to replace them? [yes/no]: <span class="bold">yes</span>
+Choose the size of the key modulus in the range of 360 to 2048 for
+your General Purpose Keys. Choosing a key modulus greater than 512
+may take a few minutes.
+How many bits in the modulus [512]: <span class="bold">768</span>
+% Generating 768 bit RSA keys, keys will be non-exportable...[<span class="bold">OK</span>]
+bda1sw-ip(config)# <span class="bold">username admin password 0 welcome1</span>
+bda1sw-ip(config)# <span class="bold">line vty 0 15</span>
+bda1sw-ip(config-line)# <span class="bold">transport input ssh</span>
+bda1sw-ip(config-line)# <span class="bold">exit</span>
+bda1sw-ip(config)# <span class="bold">aaa new-model</span>
+bda1sw-ip(config)# <span class="bold">ip ssh time-out 60</span>
+bda1sw-ip(config)# <span class="bold">ip ssh authentication-retries 3</span>
+Oracle Internal and Approved Partners Only Page 11 of 47 V 1.0 Created: 21. Dec. 2012
+Task Comment Check
+bda1sw-ip(config)# <span class="bold">ip ssh version 2</span>
+bda1sw-ip(config)# <span class="bold">end</span>
+*Sep 15 14:26:37.045: %SYS-5-CONFIG_I: Configured from console by console
+bda1sw-ip# <span class="bold">write memory</span>
+Building configuration...
+Compressed configuration from 2603 bytes to 1158 bytes[OK]
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76876"></a><a id="BIGOG76701"></a>
+<div class="props_rev_3"><a id="GUID-2082BA91-5A58-4EF9-8151-6904B94703DC"></a>
+<h3 id="BIGOG-GUID-2082BA91-5A58-4EF9-8151-6904B94703DC" class="sect3"><span class="enumeration_section">7.2.6</span> Setting the Clock and Time Zone on the Ethernet Switch</h3>
+<div>
+<div class="section">
+<p>The Cisco <a id="d40284e1251" class="indexterm-anchor"></a><a id="d40284e1255" class="indexterm-anchor"></a><a id="d40284e1259" class="indexterm-anchor"></a>Ethernet switch keeps internal time in coordinated universal time (UTC) format.</p>
+<p>To set the local time and time zone, ordering is important. The following is an example of setting the local time to the U.S. Eastern time zone:</p>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+bda1sw-ip(config)# <span class="bold">clock timezone EST -5</span>
+bda1sw-ip(config)# <span class="bold">clock summer-time EDT recurring</span>
+bda1sw-ip(config)# <span class="bold">end</span>
+bda1sw-ip# <span class="bold">clock set 15:00:00 January 23 2012</span>
+bda1sw-ip# <span class="bold">write memory</span>
+Building configuration...
+Compressed configuration from 3778 bytes to 1433 bytes[OK]
+bda1sw-ip# <span class="bold">show clock</span>
+15:00:18.819 EST Mon Jan 23 2012
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Clock Commands</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The following are descriptions of the commands for setting the clock and time zone:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To use UTC, enter this command:</p>
+<pre dir="ltr">
+no clock timezone global configuration
+</pre></li>
+<li>
+<p>To use a time zone:</p>
+<pre dir="ltr">
+clock timezone <span class="italic">zone</span> <span class="italic">hours-offset</span> [<span class="italic">minutes-offset</span>]
+</pre>
+<p>In this command, <span class="italic">zone</span> is the time zone to display when standard time is in effect, <span class="italic">hours-offset</span> is the hours offset from UTC, and <span class="italic">minutes-offset</span> is the minutes offset from UTC.</p>
+</li>
+<li>
+<p>To set <a id="d40284e1333" class="indexterm-anchor"></a>summer time hours:</p>
+<pre dir="ltr">
+clock summer-time <span class="italic">zone</span> recurring [<span class="italic">week day month hh:mm week day month</span> \
+<span class="italic">hh:mm </span>[<span class="italic">offset</span>]]
+</pre>
+<p>In this command, <span class="italic">zone</span> is the time zone to be displayed when summer time (daylight savings time) is in effect, <span class="italic">week</span> is the week of the month (1 to 5 or last), <span class="italic">day</span> is the day of the week, <span class="italic">month</span> is the month, <span class="italic">hh:mm</span> is the time in 24-hour format, and <span class="italic">offset</span> is the number of minutes to add during summer time. The default offset is 60 minutes. Summer time is disabled by default.</p>
+</li>
+<li>
+<p>To manually set the clock to any time:</p>
+<pre dir="ltr">
+clock set <span class="italic">hh:mm:ss month day year</span>
+</pre>
+<p>In this command, <span class="italic">hh:mm:ss</span> is the hour, month, and second in 24-hour format, <span class="italic">day</span> is the day of the month, <span class="italic">month</span> is the month, and <span class="italic">year</span> is the year. The time specified is relative to the configured time zone.</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-2082BA91-5A58-4EF9-8151-6904B94703DC__GUID-840DAACC-438D-490F-A096-FD26CF738826">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Cisco IOS Configuration Fundamentals Command Reference</span> at</p>
+<p><a href="http://www.cisco.com/en/US/docs/ios/12_2/configfun/command/reference/frf012.html" target="_blank"><code class="codeph">http://www.cisco.com/en/US/docs/ios/12_2/configfun/command/reference/frf012.html</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76702"></a>
+<div class="props_rev_3"><a id="GUID-8EBB35C9-0B8D-4925-BB14-5258D03346BE"></a>
+<h3 id="BIGOG-GUID-8EBB35C9-0B8D-4925-BB14-5258D03346BE" class="sect3"><span class="enumeration_section">7.2.7</span> Configuring the NTP Servers for the Ethernet Switch</h3>
+<div>
+<div class="section">
+<p>Configure up to two <a id="d40284e1431" class="indexterm-anchor"></a>NTP servers. Use IP addresses instead of names, which fail when the switch is not connected to the network. If you must use names, then configure the NTP servers after the switch is connected to the network and DNS is resolving names correctly.</p>
+<p>The following example shows the NTP server synchronized to local time when the Cisco switch is connected to the network and has access to NTP.</p>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+bda1sw-ip(config)# <span class="bold">ntp server 10.196.23.254 prefer</span>
+bda1sw-ip(config)# <span class="bold">ntp server 192.168.9.19</span>
+bda1sw-ip(config)# <span class="bold">end</span>
+Jan 23 20:00:41.235: %SYS-5-CONFIG_I:Configured from console by console
+bda1sw-ip# <span class="bold">write memory</span>
+Building configuration...
+Compressed configuration from 3870 bytes to 1487 bytes [OK ]
+bda1sw-ip# <span class="bold">show ntp status</span>
+<span class="italic">output varies by network</span>
+bda1sw-ip# <span class="bold">show clock</span>
+15:00:57.919 EST Mon Jan 23 2012
+</pre>
+<p>A symbol may precede the output of the show clock command:</p>
+<ul class="simple" style="list-style-type: none;padding-left:0;">
+<li>* (star): The time is not authoritative.</li>
+<li>. (dot) The time is authoritative, but NTP is not synchronized.</li>
+<li>(blank) The time is authoritative, as shown in the example.</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76703"></a>
+<div class="props_rev_3"><a id="GUID-5764CBFD-00C1-47E4-8271-EC9675B3247C"></a>
+<h3 id="BIGOG-GUID-5764CBFD-00C1-47E4-8271-EC9675B3247C" class="sect3"><span class="enumeration_section">7.2.8</span> Disabling the Spanning Tree</h3>
+<div>
+<div class="section">
+<p>By default, spanning tree is enabled on Cisco switches, but it is disabled in the factory on all the server connection ports 1 to 47.</p>
+<p>Adding a switch with spanning tree enabled can cause problems on networks where it is disabled intentionally. As a precaution, disable spanning tree on the uplink port's VLAN before connecting to the customer network.</p>
+<p>If spanning tree must be turned on before or after the connection, then the network administrator can specify the appropriate protocol settings, as described in the Cisco switch configuration documentation.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To disable the spanning tree:</p>
+<ol>
+<li>
+<p>If the port must be disabled, then enter these commands:</p>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)# <span class="bold">no spanning-tree vlan 1</span>
+Switch(config)# <span class="bold">end</span>
+Jan 23 20:01:15.083: %SYS-5-CONFIG_I: Configured from console by console
+bda1sw-ip# <span class="bold">write memory</span>
+Building configuration...
+Compressed configuration from 2654 bytes to 1163 bytes[OK]
+</pre></li>
+<li>
+<p>To verify the disabling of the spanning tree:</p>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">show spanning-tree vlan 1</span>
+Spanning tree instance(s) for vlan 1 does not exist.
+</pre></li>
+<li>
+<p>To re-enable the default protocol settings, if necessary:</p>
+<pre dir="ltr">
+Switch# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)# <span class="bold">spanning-tree vlan 1</span>
+Switch(config)# <span class="bold">end</span>
+Switch# <span class="bold">write memory</span>
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76704"></a>
+<div class="props_rev_3"><a id="GUID-A0DB1B62-4083-439A-BDC7-67B67A1CFDF0"></a>
+<h3 id="BIGOG-GUID-A0DB1B62-4083-439A-BDC7-67B67A1CFDF0" class="sect3"><span class="enumeration_section">7.2.9</span> Verifying the Ethernet Configuration</h3>
+<div>
+<div class="section">
+<p>To verify the Cisco <a id="d40284e1572" class="indexterm-anchor"></a>Ethernet switch configuration:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Verify the configuration by entering the following command:</span>
+<div>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">show running-config</span>
+</pre>
+<p>The following is an example of the output:</p>
+<pre dir="ltr">
+Building configuration...
+Current configuration :2654 bytes
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+.
+.
+.
+</pre></div>
+</li>
+<li class="stepexpand"><span>If any setting is incorrect, then repeat the appropriate step. To erase a setting, enter <code class="codeph">no</code> in front of the same command. For example, to erase the default gateway, enter these commands:</span>
+<div>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+bda1sw-ip# <span class="bold">no ip default-gateway 10.7.7.1</span>
+bda1sw-ip# <span class="bold">end</span>
+bda1sw-ip#
+*Sep 15 14:13:26.013: %SYS-5-CONFIG_I: Configured from console by console
+bda1sw-ip# <span class="bold">write memory</span>
+</pre></div>
+</li>
+<li class="stepexpand"><span>Save the current configuration by entering this command:</span>
+<div>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">copy running-config startup-config</span>
+Destination filename [startup-config]?
+Building configuration...
+Compressed configuration from 2654 bytes to 1189 bytes[OK]
+</pre></div>
+</li>
+<li class="stepexpand"><span>Exit from the session with this command:</span>
+<div>
+<pre dir="ltr">
+bda1sw-ip#<span class="bold">exit</span>
+bda1sw-ip con0 is now available
+Press RETURN to get started.
+</pre></div>
+</li>
+<li class="stepexpand"><span>Disconnect the cable from the Cisco console.</span></li>
+<li class="stepexpand"><span>To check the configuration, attach a laptop to port 48 and ping the IP address of the internal management network.</span></li>
+</ol>
+<div class="section">
+<div class="infobox-note" id="GUID-A0DB1B62-4083-439A-BDC7-67B67A1CFDF0__GUID-C5875000-CE38-475B-9CA1-0E290F0386BC">
+<p class="notep1">Caution:</p>
+<p>Do not connect the Cisco Ethernet switch to the management network until after the system is configured with the customer's IP addresses and the switch configuration is complete.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG76612"></a>
+<div class="props_rev_3"><a id="GUID-6FB8396C-554B-4139-9425-2C4E9683193B"></a>
+<h2 id="BIGOG-GUID-6FB8396C-554B-4139-9425-2C4E9683193B" class="sect2"><span class="enumeration_section">7.3</span> Configuring the InfiniBand Leaf and Spine Switches</h2>
+<div>
+<p>Oracle Big Data Appliance has two Sun Network QDR InfiniBand Gateway <a id="d40284e1665" class="indexterm-anchor"></a><a id="d40284e1669" class="indexterm-anchor"></a><a id="d40284e1673" class="indexterm-anchor"></a><a id="d40284e1677" class="indexterm-anchor"></a><a id="d40284e1681" class="indexterm-anchor"></a>leaf switches and one Sun Datacenter InfiniBand Switch 36 spine switch. To configure the switches, follow these procedures for each one:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure.htm#GUID-2ADC5AB6-4BF8-4EFE-B18C-8E75C28B442C">Configuring an InfiniBand Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-3CD0F5F9-4A88-4733-9613-2D7FF977F95C">Setting the Time Zone and Clock on an InfiniBand Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-EAE534A8-32FB-48E8-BDB2-C09B3E43B201">Checking the Health of an InfiniBand Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95">Checking the Sun Network QDR InfiniBand Gateway Switches</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76705"></a>
+<div class="props_rev_3"><a id="GUID-2ADC5AB6-4BF8-4EFE-B18C-8E75C28B442C"></a>
+<h3 id="BIGOG-GUID-2ADC5AB6-4BF8-4EFE-B18C-8E75C28B442C" class="sect3"><span class="enumeration_section">7.3.1</span> Configuring an InfiniBand Switch</h3>
+<div>
+<div class="section">
+<p>To configure an InfiniBand switch:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Connect to the switch using a serial or an Ethernet connection.</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>For a remote Ethernet connection to <code class="codeph">192.168.1.201</code>, <code class="codeph">192.168.1.202,</code> or <code class="codeph">192.168.1.203</code>, see <span class="q">"<a href="ilom.htm#GUID-B366C8F3-D134-4031-A061-BE35F6C9FAF0">Connecting to Oracle ILOM Using the Network</a>"</span>.</p>
+</li>
+<li>
+<p>For a local serial connection, see <span class="q">"<a href="ilom.htm#GUID-0BDA96BA-CD9D-446D-8136-0B34A08DF64C">Connecting to Oracle ILOM Using a Serial Connection</a>"</span>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="stepexpand"><span>Log in as <a id="d40284e1758" class="indexterm-anchor"></a><a id="d40284e1760" class="indexterm-anchor"></a><code class="codeph">ilom-admin</code> with password <code class="codeph">welcome1</code>.</span>
+<div>
+<p>The switch has a Linux-like operating system and an Oracle ILOM interface that is used for configuration.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Check the firmware version, which should be 2.1.3-4 or later:</span>
+<div>
+<pre dir="ltr">
+-&gt; <span class="bold">version</span>
+SP firmware 2.1.3-4
+SP firmware build number: 47111
+SP firmware date: Sat Aug 24
+16:59:14 IST 2013
+SP filesystem version: 0.1.22
+</pre></div>
+</li>
+<li class="stepexpand"><span>Change to the <code class="codeph">/SP/network</code> directory.</span>
+<div>
+<pre dir="ltr">
+cd /SP/network
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter these commands to configure the switch:</span>
+<div>
+<pre dir="ltr">
+set pendingipaddress=<span class="italic">ip_address</span> 
+set pendingipnetmask=<span class="italic">ip_netmask</span>
+set pendingipgateway=<span class="italic">ip_gateway</span>
+set pendingipdiscovery=static
+set commitpending=true
+</pre>
+<p>In these commands, <span class="italic">ip_address</span>, <span class="italic">ip_netmask</span>, and <span class="italic">ip_gateway</span> represent the appropriate settings on your network.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Enter a <code class="codeph">show</code> command to view the changes. If any values are wrong, reenter the <code class="codeph">set</code> commands ending with <code class="codeph">set</code> <code class="codeph">commitpending=true</code>.</span>
+<div>
+<pre dir="ltr">
+-&gt; <span class="bold">show</span>
+
+/SP/network
+   Targets:
+        interconnect
+        ipv6
+        test
+
+   Properties:
+        commitpending = (Cannot show property)
+        dhcp_ser_ip = none
+        ipaddress = 10.135.42.24
+        ipdiscovery = static
+        ipgateway = 10.135.40.1
+        ipnetmask = 255.255.255.0
+        macaddress = 00:21:28:E7:B3:34
+        managementport = SYS/SP/NET0
+        outofbandmacaddress = 00:21:28:E7:B3:33
+        pendingipaddress = 10.135.42.23
+        pendingipdiscovery = static
+        pendingipgateway = 10.135.42.1
+        pendingipnetmask = 255.255.248.0
+        pendingmanagementport = /SYS/SP/NET0
+        sidebandmacaddress = 00:21:28:E7:B3:35
+        state = enabled
+
+   Commands:
+        cd
+        set
+        show
+
+-&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Set and verify the <a id="d40284e1841" class="indexterm-anchor"></a>switch host name, replacing <span class="italic">hostname</span> with the valid name of the switch, such as bda1sw-ib2. Do not include the domain name.</span>
+<div>
+<pre dir="ltr">
+-&gt; <span class="bold">set /SP hostname=</span><span class="italic"><span class="bold">hostname</span></span>
+-&gt; <span class="bold">show /SP hostname</span>
+
+ /SP
+    Properties:
+        hostname = bda1sw-iba
+</pre></div>
+</li>
+<li class="stepexpand"><span>Set the DNS server name and the domain name:</span>
+<div>
+<pre dir="ltr">
+-&gt; set /SP/clients/dns auto_dns=enabled
+-&gt; set /SP/clients/dns nameserver=<span class="italic">ip_address</span>
+-&gt; set /SP/clients/dns searchpath=<span class="italic">domain_name</span>
+</pre>
+<p>In these commands, <span class="italic">ip_address</span> is one to three comma-separated IP addresses of the name servers in the preferred search order, and <span class="italic">domain_name</span> is the full DNS domain name, such as <code class="codeph">us.example.com</code>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Verify the settings:</span>
+<div>
+<pre dir="ltr">
+-&gt; <span class="bold">show /SP/clients/dns</span>
+ /SP/clients/dns
+    Targets:
+ 
+    Properties:
+        auto_dns = enabled
+        nameserver = 10.196.23.245, 172.32.202.15
+        retries = 1
+        searchpath = us.example.com
+        timeout = 5
+ 
+   Commands:
+        cd
+        set
+        show
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BIGOG76706"></a>
+<div class="props_rev_3"><a id="GUID-3CD0F5F9-4A88-4733-9613-2D7FF977F95C"></a>
+<h3 id="BIGOG-GUID-3CD0F5F9-4A88-4733-9613-2D7FF977F95C" class="sect3"><span class="enumeration_section">7.3.2</span> Setting the Time Zone and Clock on an InfiniBand Switch</h3>
+<div>
+<div class="section">
+<p>To set the <a id="d40284e1914" class="indexterm-anchor"></a><a id="d40284e1918" class="indexterm-anchor"></a><a id="d40284e1922" class="indexterm-anchor"></a>time zone on an InfiniBand switch:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Check the current time setting:</span>
+<div>
+<pre dir="ltr">
+-&gt; show /SP/clock
+</pre>
+<p>If the setting is not accurate, continue with these steps.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Set the time zone, replacing <span class="italic">zone_identifier</span> with the time zone in the Configuration Template, such as <code class="codeph">America/New_York</code>:</span>
+<div>
+<pre dir="ltr">
+-&gt; set /SP/clock timezone=<span class="italic">zone_identifier</span>
+</pre></div>
+</li>
+<li class="stepexpand"><span>Check the current time setting:</span>
+<div>
+<pre dir="ltr">
+-&gt; show /SP/clock
+</pre>
+<p>If the setting is not accurate, continue with these steps.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Set the SP clock manually, replacing <span class="italic">MMDDHHmmCCyy</span> with the month, day, hour, minute, century, and year.</span>
+<div>
+<pre dir="ltr">
+-&gt; set datetime=MMddHHmmCCyy
+</pre></div>
+</li>
+<li class="stepexpand"><span>Check the current time setting:</span>
+<div>
+<pre dir="ltr">
+-&gt; show /SP/clock
+</pre></div>
+</li>
+<li class="stepexpand"><span>Configure the Network Time Protocol (<a id="d40284e1977" class="indexterm-anchor"></a>NTP), replacing <span class="italic">ip_address</span> with the server address. Server 1 is the primary NTP server and Server 2 is the secondary server.</span>
+<div>
+<pre dir="ltr">
+-&gt; set /SP/clients/ntp/server/1 address=<span class="italic">ip_address</span>
+-&gt; set /SP/clients/ntp/server/2 address=<span class="italic">ip_address</span>
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enable the NTP servers:</span>
+<div>
+<pre dir="ltr">
+-&gt; set /SP/clock usentpserver=enabled
+</pre>
+<div class="infobox-note" id="GUID-3CD0F5F9-4A88-4733-9613-2D7FF977F95C__GUID-1390BB67-A823-4E0E-904F-953C38A32F57">
+<p class="notep1">Note:</p>
+<p>Properly synchronized clocks are required for the <a id="d40284e2003" class="indexterm-anchor"></a>Mammoth software installation to succeed. If no NTP server is available on the administrative network, then configure the first Oracle Big Data Appliance server as an NTP server.</p>
+</div>
+</div>
+</li>
+<li class="stepexpand"><span>Verify the settings:</span>
+<div>
+<pre dir="ltr">
+-&gt; show /SP/clients/ntp/server/1
+-&gt; show /SP/clients/ntp/server/2
+-&gt; show /SP/clock
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BIGOG76707"></a>
+<div class="props_rev_3"><a id="GUID-EAE534A8-32FB-48E8-BDB2-C09B3E43B201"></a>
+<h3 id="BIGOG-GUID-EAE534A8-32FB-48E8-BDB2-C09B3E43B201" class="sect3"><span class="enumeration_section">7.3.3</span> Checking the Health of an InfiniBand Switch</h3>
+<div>
+<div class="section">
+<p>To check the health of an <a id="d40284e2050" class="indexterm-anchor"></a><a id="d40284e2054" class="indexterm-anchor"></a>InfiniBand leaf or spine switch:</p>
+<ol>
+<li>
+<p>Open the <a id="d40284e2061" class="indexterm-anchor"></a>Fabric Management shell:</p>
+<pre dir="ltr">
+-&gt; show /SYS/Fabric_Mgmt
+</pre>
+<p>The prompt changes from -&gt; to FabMan@<span class="italic">hostname</span>-&gt;</p>
+</li>
+<li>
+<p>Check the firmware version, which for gateway switches should be 2.0.5-2 or later, and for the spine switch should be 2.1.3-4 or later. Check My Oracle Support ID 1474875.1 for the current version.</p>
+<pre dir="ltr">
+FabMan@bda1sw-02-&gt;<span class="bold">version</span>
+SUN DCS gw version: 2.0.5-2
+Build time: Nov 29 2011 16:05:05
+FPGA version: 0x34
+SP board info:
+Manufacturing Date: 2011.05.31
+Serial Number: "NCD6Q0126"
+Hardware Revision: 0x0006
+Firmware Revision: 0x0000
+BIOS version: SUN0R100
+BIOS date: 06/22/2010
+FabMan@bda1sw-02-&gt;
+</pre></li>
+<li>
+<p>Check the overall health of the switch and correct any issues:</p>
+<pre dir="ltr">
+FabMan@bda1sw-ib2-&gt; <span class="bold">showunhealthy</span>
+OK - No unhealthy sensors
+</pre></li>
+<li>
+<p>Check the environment. Ensure that all tests return OK and PASSED, and correct any issues before continuing. This example shows a problem with PSU1 caused by a loose power cord. See the line starting with WARNING PSU.</p>
+<pre dir="ltr">
+FabMan@bda1sw-ib2-&gt; <span class="bold">env_test</span>
+Environment test started:
+Starting Environment Daemon test:
+Environment daemon running
+Environment Daemon test returned OK
+Starting Voltage test
+Voltage ECB OK
+Measured 3.3V Main = 3.28 
+Measured 3.3V Standby = 3.39 V
+Measured 12V = 11.97 V
+Measured 5V = 4.99 V
+Measured VBAT = 3.09 V
+Measured 1.0V = 1.01 V
+Measured I4 1.2V = 1.22 V
+Measured 2.5V = 2.52 V
+Measured V1P2 DIG = 1.19 V
+Measured V1P2 ANG = 1.18 V
+Measured 1.2V BridgeX = 1.22 V
+Measured 1.8V = 1.78 V
+Measured 1.2V Standby = 1.20 V
+Voltage test returned OK
+Starting PSU test:
+PSU 0 present OK
+WARNING PSU 1 present AC Loss
+PSU test returned 1 faults
+Starting Temperature test:
+Back temperature 30
+Front temperature 29
+SP temperature 36
+Switch temperature 52,
+          .
+          .
+          .
+</pre></li>
+<li>
+<p>Verify a <a id="d40284e2098" class="indexterm-anchor"></a>priority setting of 5 for the InfiniBand Gateway leaf switches or 8 for the InfiniBand Switch 36 spine switch:</p>
+<pre dir="ltr">
+FabMan@bda1sw-ib2-&gt; <span class="bold">setsmpriority list</span>
+Current SM settings:
+smpriority 5
+controlled_handover TRUE
+subnet_prefix 0xfe80000000000000
+</pre>
+<p>If <code class="codeph">smpriority</code> is correct, then you can skip the next step.</p>
+</li>
+<li>
+<p>To correct the priority setting:</p>
+<ol>
+<li>
+<p>Stop the InfiniBand Subnet Manager:</p>
+<pre dir="ltr">
+FabMan@bda1sw-ib2-&gt; <span class="bold">disablesm</span>
+</pre></li>
+<li>
+<p>Set the priority to 5 for the InfiniBand Gateway leaf switches or 8 for the InfiniBand Switch 36 spine switch. This example is for a leaf switch:</p>
+<pre dir="ltr">
+FabMan@bda1sw-ib2-&gt; <span class="bold">setsmpriority 5</span>
+</pre></li>
+<li>
+<p>Restart the InfiniBand Subnet Manager:</p>
+<pre dir="ltr">
+FabMan@bda1sw-ib2-&gt; <span class="bold">enablesm</span>
+</pre></li>
+</ol>
+</li>
+<li>
+<p>Exit the Fabric Management shell:</p>
+<pre dir="ltr">
+FabMan@bda1sw-ib2-&gt; <span class="bold">exit</span>
+-&gt;
+</pre></li>
+<li>
+<p>Exit the Oracle ILOM shell:</p>
+<pre dir="ltr">
+-&gt; exit
+</pre></li>
+<li>
+<p>Log in to the switch as <code class="codeph">root</code> and restart it to ensure that all changes take effect:</p>
+<pre dir="ltr">
+# reboot
+</pre></li>
+<li>
+<p>Repeat these steps for the other InfiniBand switches.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76877"></a>
+<div class="props_rev_3"><a id="GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95"></a>
+<h3 id="BIGOG-GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95" class="sect3"><span class="enumeration_section">7.3.4</span> Checking the Sun Network QDR InfiniBand Gateway Switches</h3>
+<div>
+<div class="section">
+<p>You must check all gateway switch instance numbers (NM2-GW) in the fabric to ensure that the automatic setup assigned unique instance numbers to each switch, both within each rack and among all racks in a multirack environment.</p>
+<p>If two switches in the fabric share the same instance number, then the IB-10GbE ports might not work correctly.</p>
+<p>The switches must not use consecutive numbers. Oracle recommends even numbers only. From the factory, the Oracle Big Data Appliance gateway switches use the numbers 10 and 20.</p>
+<p>If Oracle Big Data Appliance racks are connected to Oracle Exalogic Elastic Cloud Machine racks, then verify that the instance numbers are even and unique to each switch in the fabric.</p>
+<div class="infobox-note" id="GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95__GUID-B5BD1D6E-E917-4F47-ACDB-F01B5566F10A">
+<p class="notep1">Note:</p>
+<p>All Sun Network QDR InfiniBand Gateway switches in the fabric must run firmware version 2.1.3-4 NM2 or later. Update the firmware as necessary.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To check the gateway switches:</p>
+<ol>
+<li id="GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95__CACJICHE">
+<p>Login as user <code class="codeph">ilom-admin</code> on rack 1 gateway switch 1:</p>
+<pre dir="ltr">
+localhost: <span class="bold">ilom-admin</span>
+password: <span class="bold">welcome1</span>
+</pre></li>
+<li>
+<p>Enter the Fabric Management shell:</p>
+<pre dir="ltr">
+-&gt; <span class="bold">show /SYS/Fabric_Mgmt</span>
+NOTE: show on Fabric_Mgmt will launch a restricted Linux shell.
+User can execute switch diagnosis, SM Configuration and IB
+monitoring commands in the shell. To view the list of commands,
+use "help" at rsh prompt.
+Use exit command at rsh prompt to revert back to
+ILOM shell.
+FabMan@hostname-&gt;
+</pre></li>
+<li>
+<p>Display the current number:</p>
+<pre dir="ltr">
+FabMan@bda1sw-iba-&gt;<span class="bold">setgwinstance --list</span>
+No BXM system name set, using 6 last bits of the ip-address, value: 24
+</pre>
+<p>If you see <code class="codeph">No BXM system name set</code> (as shown here), or a system name of 0, then you must set the instance number manually.</p>
+</li>
+<li id="GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95__CACBAAFE">
+<p>If rack 1 gateway switch 1 is not set to 10:</p>
+<pre dir="ltr">
+FabMan@bda1sw-iba-&gt;<span class="bold">setgwinstance 10</span>
+Stopping Bridge Manager..-. [ OK ]
+Starting Bridge Manager. [ OK ]
+FabMan@bda1sw-iba-&gt;<span class="bold">setgwinstance --list</span>
+BXM system name set to 10
+</pre></li>
+<li id="GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95__CACICBJC">
+<p>Repeat Steps <a href="configure.htm#GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95__CACJICHE">1</a> to <a href="configure.htm#GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95__CACBAAFE">4</a> for gateway switch 2. Set it to 20 instead of 10.</p>
+</li>
+<li>
+<p>If multiple racks are cabled together (Oracle Big Data Appliance racks and Oracle Exalogic Elastic Cloud Machine racks), then repeat Steps <a href="configure.htm#GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95__CACJICHE">1</a> to <a href="configure.htm#GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95__CACICBJC">5</a> on each rack. Increment the instance numbers from the previous rack by 2 to get a unique number:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Set rack 2 gateway switch 1 to 12 (10+2).</p>
+</li>
+<li>
+<p>Set rack 2 gateway switch 2 to 22 (20+2).</p>
+</li>
+</ul>
+<p>Continue in this way, assigning even numbers between 0 and 63.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG231"></a>
+<div class="props_rev_3"><a id="GUID-8C6DE13D-4F5B-4313-923D-42D0C88EF2D7"></a>
+<h2 id="BIGOG-GUID-8C6DE13D-4F5B-4313-923D-42D0C88EF2D7" class="sect2"><span class="enumeration_section">7.4</span> Configuring the Power Distribution Units</h2>
+<div>
+<p>The power distribution unit (PDU) configuration consists of these procedures:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure.htm#GUID-94F05B2D-57E7-4B95-B0AC-6001DFFF15B1">Connecting the PDUs to the Network</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-355C1142-00D2-4FAC-900A-34A7342B58E6">Updating the PDU Firmware Version</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76708"></a>
+<div class="props_rev_3"><a id="GUID-94F05B2D-57E7-4B95-B0AC-6001DFFF15B1"></a>
+<h3 id="BIGOG-GUID-94F05B2D-57E7-4B95-B0AC-6001DFFF15B1" class="sect3"><span class="enumeration_section">7.4.1</span> Connecting the PDUs to the Network</h3>
+<div>
+<div class="section">
+<p>The power distribution units (PDUs) are configured with a static IP address to connect to the network for monitoring. Ensure that you have the following network information before connecting the <a id="d40284e2328" class="indexterm-anchor"></a>PDUs:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Static IP address</p>
+</li>
+<li>
+<p>Subnet mask</p>
+</li>
+<li>
+<p>Default gateway</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To connect the PDUs to the network:</p>
+<ol>
+<li>
+<p>Use a web browser to access the PDU metering unit by entering the factory default IP address for the unit. The address of PDU A is <code class="codeph">192.168.1.210</code>, and the address of PDU B is <code class="codeph">192.168.1.211</code>.</p>
+<p>The Current Measurement page opens. If the PDUs do not respond, then they probably have different IP addresses:</p>
+<ol>
+<li>
+<p>Press and hold the red RESET button.</p>
+</li>
+<li>
+<p>When the display starts to count down in about 10 to 15 seconds, release the button and then press it again without holding it down.</p>
+</li>
+<li>
+<p>When the monitor is restarting, note the current IP setting, and whether it is a dynamic host configuration protocol (DHCP) or static address. Use those addresses to connect.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Log in as the <code class="codeph">admin</code> user on the <a id="d40284e2373" class="indexterm-anchor"></a><a id="d40284e2375" class="indexterm-anchor"></a>PDU metering unit. The default password is <code class="codeph">adm1n</code> or <code class="codeph">admin</code>. Change this password after configuring the network.</p>
+</li>
+<li>
+<p>To check the firmware version, select <span class="bold">Module Info</span>. The version should be 1.06. You can upgrade the firmware for a lower version. See <span class="q">"<a href="configure.htm#GUID-355C1142-00D2-4FAC-900A-34A7342B58E6">Updating the PDU Firmware Version</a>."</span></p>
+</li>
+<li>
+<p>Click <span class="bold">Net Configuration</span> in the upper left of the page.</p>
+</li>
+<li>
+<p>Confirm that the DHCP Enabled option is not selected.</p>
+</li>
+<li id="GUID-94F05B2D-57E7-4B95-B0AC-6001DFFF15B1__CACHIJAB">
+<p>Enter the following network settings for the PDU metering unit:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>IP address</p>
+</li>
+<li>
+<p>Subnet mask</p>
+</li>
+<li>
+<p>Default gateway</p>
+</li>
+</ul>
+</li>
+<li id="GUID-94F05B2D-57E7-4B95-B0AC-6001DFFF15B1__CACICEIF">
+<p>Click <span class="bold">Submit</span> to set the network settings and reset the PDU metering unit.</p>
+</li>
+<li>
+<p>Repeat Steps <a href="configure.htm#GUID-94F05B2D-57E7-4B95-B0AC-6001DFFF15B1__CACHIJAB">6</a> and <a href="configure.htm#GUID-94F05B2D-57E7-4B95-B0AC-6001DFFF15B1__CACICEIF">7</a> for the second PDU.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76709"></a>
+<div class="props_rev_3"><a id="GUID-355C1142-00D2-4FAC-900A-34A7342B58E6"></a>
+<h3 id="BIGOG-GUID-355C1142-00D2-4FAC-900A-34A7342B58E6" class="sect3"><span class="enumeration_section">7.4.2</span> Updating the PDU Firmware Version</h3>
+<div>
+<div class="section">
+<p>To update the PDU firmware version:</p>
+<ol>
+<li>
+<p>Download the latest firmware version from My Oracle Support:</p>
+<ol>
+<li>
+<p>Log in at <a href="http://support.oracle.com" target="_blank"><code class="codeph">http://support.oracle.com</code></a>.</p>
+</li>
+<li>
+<p>Select the <span class="bold">Patches &amp; Updates</span> tab.</p>
+</li>
+<li>
+<p>For Patch Search, click <span class="bold">Product or Family (Advanced)</span>.</p>
+</li>
+<li>
+<p>For Product, select Sun Rack II PDU.</p>
+</li>
+<li>
+<p>For Release, select Sun Rack II PDU 1.0.6.</p>
+</li>
+<li>
+<p>Click <span class="bold">Search</span> to see the Patch Search Results page.</p>
+</li>
+<li>
+<p>Click the patch name, such as <span class="bold">16523441</span>.</p>
+</li>
+<li>
+<p>Download the file.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Unzip the file on your local system. It has a name such as p16523441_1060_Generic.zip. Then unzip the PDU file, which has a name like OraclePDU_v1.0.6.zip.</p>
+</li>
+<li>
+<p>In the PDU web interface, select <span class="bold">Net Configuration</span> and log in as <code class="codeph">admin</code> with password <code class="codeph">adm1n</code>.</p>
+</li>
+<li>
+<p>Scroll down to Firmware Update.</p>
+</li>
+<li>
+<p>Click <span class="bold">Browse</span>, select the MKAPP_V1.06.DL file, and click <span class="bold">Submit</span>.</p>
+</li>
+<li>
+<p>Click <span class="bold">Browse</span>, select the HTML_V1.06.DL file, and click <span class="bold">Submit</span>.</p>
+</li>
+<li>
+<p>Click <span class="bold">Module Info</span> to verify the firmware version number.</p>
+</li>
+<li>
+<p>Click <span class="bold">Net Configuration</span>, and then click <span class="bold">Logout</span>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG237"></a>
+<div class="props_rev_3"><a id="GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1"></a>
+<h2 id="BIGOG-GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1" class="sect2"><span class="enumeration_section">7.5</span> Configuring the Oracle Big Data Appliance Servers</h2>
+<div>
+<div class="section">
+<p>Before <a id="d40284e2580" class="indexterm-anchor"></a><a id="d40284e2582" class="indexterm-anchor"></a>configuring the network, ensure that the Oracle Big Data Appliance servers are set up correctly.</p>
+<div class="infobox-note" id="GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1__GUID-09B68277-AEBD-4E9C-8379-84082947DB58">
+<p class="notep1">Note:</p>
+<p>If you must connect to the Oracle ILOM serial management port, then the baud rate setting on the servers changes from the default Oracle ILOM setting of 9600 to 115200 baud, 8 bits, no parity, and 1 stop bit. To display the server console, use this command:</p>
+<pre dir="ltr">
+start HOST/console
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To check the Oracle Big Data Appliance servers:</p>
+<ol>
+<li>
+<p>Power on all servers by pressing the power button on the front panel of each server. The servers take 5 to 10 minutes to run through the normal startup tests.</p>
+</li>
+<li>
+<p>Use a laptop to connect to a server:</p>
+<ol>
+<li>
+<p>Open an SSH connection using PuTTY or a similar utility.</p>
+</li>
+<li>
+<p>Enter the default IP address of the server.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Log in as the <code class="codeph">root</code> user to the first <a id="d40284e2613" class="indexterm-anchor"></a><a id="d40284e2617" class="indexterm-anchor"></a>server. The password is <code class="codeph">welcome1</code>.</p>
+</li>
+<li>
+<p>Set up passwordless SSH for <code class="codeph">root</code> by entering the <code class="codeph">setup-root-ssh</code> command, as described in <span class="q">"<a href="dcli.htm#GUID-3E1D048B-3EDF-4E14-81E8-93741428708B">Setting Up Passwordless SSH</a>"</span>.</p>
+<p>For starter racks, with or without expansion, you must use the <code class="codeph">-j</code> parameter. See <code class="codeph"><a href="utilities.htm#GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8">setup-root-ssh</a></code>.</p>
+<pre dir="ltr">
+# setup-root-ssh -j "etho0_ips[<span class="italic">range</span>]"
+</pre></li>
+<li id="GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1__CACFJFAA">
+<p>Verify that <a id="d40284e2655" class="indexterm-anchor"></a>SSH keys are distributed across the rack:</p>
+<pre dir="ltr">
+# cd /opt/oracle/bda
+# dcli "hostname ; date"
+</pre></li>
+<li>
+<p>If prompted for a password, enter Ctrl+C several times. This prompt confirms distribution of the keys, so that you can continue to the next step. Otherwise, generate the root SSH keys across the rack, replacing <span class="italic">password</span> with a valid password and using the <code class="codeph">-j</code> parameter for a starter rack:</p>
+<pre dir="ltr">
+# setup-root-ssh -p <span class="italic">password</span> [-j "eth0_ips<span class="bold">[</span><span class="italic">range</span><span class="bold">]</span>"]
+</pre>
+<p>Enter the <code class="codeph">dcli</code> command in Step <a href="configure.htm#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1__CACFJFAA">5</a> again to verify the keys.</p>
+</li>
+<li>
+<p>Compare the system serial numbers (S/N) on the front sticker to the server assignments from the bottom (1) to the top (18) of the rack, to ensure that they match:</p>
+<pre dir="ltr">
+# <span class="bold">dcli "dmidecode -s "chassis-serial-number"</span>
+192.168.10.1: 1143FMM064
+     .
+     .
+     .
+192.168.10.18: 1144FMM1A0
+</pre></li>
+<li>
+<p>Compare the rack master serial number on the rack front sticker to the rack assignment, to ensure that they match:</p>
+<pre dir="ltr">
+# <span class="bold">dcli "ipmitool sunoem cli 'show /SP system_identifier'" | grep =</span>
+192.168.10.1: system_identifier = Oracle Big Data Appliance AK00024695
+     .
+     .
+     .
+192.168.10.18: system_identifier = Oracle Big Data Appliance AK00024695
+</pre></li>
+<li>
+<p>If the rack master serial number is incorrect, then reset it in the ILOM on every system. Enter the following command on one line, with no breaks, replacing <span class="italic">R-MSN</span> with the rack master serial number (such as AK00024695):</p>
+<pre dir="ltr">
+# dcli -l root \"ipmitool sunoem cli' set /SP system_identifier=\"\"Oracle Big Data Appliance <span class="italic">R-MSN</span>\""'" \&gt; /tmp/set-rack-csn.out
+</pre>
+<p>In the previous syntax, the <code class="codeph">system_identifier</code> has a 40-character limit.</p>
+</li>
+<li id="GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1__CACJGHDA">
+<p>Verify that the InfiniBand ports are up, two on each server (36 total for a full rack of 18 servers).</p>
+<pre dir="ltr">
+# <span class="bold">dcli ibstatus | grep phys</span>
+192.168.10.1: phys state: 5: LinkUp
+192.168.10.1: phys state: 5: LinkUp
+..
+192.168.10.18: phys state: 5: LinkUp
+192.168.10.18: phys state: 5: LinkUp
+</pre></li>
+<li>
+<p>Verify that the InfiniBand ports are running at 40 Gbps (4X QDR):</p>
+<pre dir="ltr">
+# <span class="bold">dcli ibstatus | grep rate | more</span>
+192.168.10.1: rate: 40 Gb/sec (4X QDR)
+192.168.10.1: rate: 40 Gb/sec (4X QDR)
+..
+192.168.10.18: rate: 40 Gb/sec (4X QDR)
+192.168.10.18: rate: 40 Gb/sec (4X QDR)
+</pre></li>
+<li>
+<p>Verify that Oracle ILOM does not detect any faults:</p>
+<pre dir="ltr">
+# dcli '<a id="d40284e2743" class="indexterm-anchor"></a>ipmitool sunoem cli "show faulty"'
+</pre>
+<p>The output should appear as follows for each server:</p>
+<pre dir="ltr">
+bda1node02-adm.example.com: Connected. Use ^D to exit.
+bda1node02-adm.example.com: -&gt; show faulty
+bda1node02-adm.example.com: Target      | Property        | Value
+bda1node02-adm.example.com:-------------+---------------------+-----------
+bda1node02-adm.example.com:
+bda1node02-adm.example.com: -&gt; Session closed
+bda1node02-adm.example.com: Disconnected
+</pre></li>
+<li>
+<p>Power up each server and verify that <code class="codeph">BDA_IMAGING_SUCCEEDED</code> and <code class="codeph">BDA_REBOOT_SUCCEEDED</code> are in the <code class="codeph">/root</code> directory of every server:</p>
+<pre dir="ltr">
+# dcli 'ls /root/BDA*'
+</pre></li>
+<li>
+<p>Save the <a id="d40284e2767" class="indexterm-anchor"></a>hardware profile output from each system in a file for review, replacing <span class="italic">filename</span> with a file name of your choice:</p>
+<pre dir="ltr">
+# dcli <a id="d40284e2775" class="indexterm-anchor"></a>bdacheckhw &gt; <span class="italic">filename</span>
+</pre></li>
+<li>
+<p>Check the hardware profile output file using commands like the following. In these example, the file name is <code class="codeph">all-bdahwcheck.out.</code></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To verify that there are no failures in the hardware profile:</p>
+<pre dir="ltr">
+grep -vi SUCCESS ~/all-bdahwcheck.out
+</pre>
+<p>This command returns all lines that do not show <code class="codeph">SUCCESS</code>, so no returned lines means no failures.</p>
+</li>
+<li>
+<p>To verify 32 cores:</p>
+<pre dir="ltr">
+grep cores  ~/all-bdahwcheck.out 
+</pre></li>
+<li>
+<p>To verify 63 GB of memory:</p>
+<pre dir="ltr">
+grep memory ~/all-bdahwcheck.out
+</pre></li>
+<li>
+<p>To verify four fans:</p>
+<pre dir="ltr">
+grep fans ~/all-bdahwcheck.out
+</pre></li>
+<li>
+<p>To verify that the status is OK for both power supplies:</p>
+<pre dir="ltr">
+grep supply ~/all-bdahwcheck.out
+</pre></li>
+<li>
+<p>To verify that disks 0 to 11 are all the same model, online, spun up, and no alert:</p>
+<pre dir="ltr">
+grep disk ~/all-bdahwcheck.out | grep "model\|status" | more
+</pre></li>
+<li>
+<p>To verify that the host channel adapter model is Mellanox Technologies MT26428 ConnectX VPI PCIe 2.0:</p>
+<pre dir="ltr">
+grep Host ~/all-bdahwcheck.out | grep model | more
+</pre></li>
+</ul>
+</li>
+<li>
+<p><a id="d40284e2829" class="indexterm-anchor"></a><a id="d40284e2831" class="indexterm-anchor"></a>Save the RAID configuration in a file, replacing <span class="italic">filename</span> with a file name of your choice:</p>
+<pre dir="ltr">
+dcli <a id="d40284e2839" class="indexterm-anchor"></a>MegaCli64 -ldinfo -lall -a0 | grep "Virtual Drive\|State" &gt; <span class="italic">filename</span>
+</pre></li>
+<li>
+<p>Verify that 12 virtual drives (0 to 11) are listed for each server. In this example, the <a id="d40284e2848" class="indexterm-anchor"></a>RAID configuration is stored in a file named <code class="codeph">all-ldstate.out</code>.</p>
+<pre dir="ltr">
+less ~/all-ldstate.out
+</pre></li>
+<li>
+<p>Save the <a id="d40284e2859" class="indexterm-anchor"></a>software profile output from each system into a file for review, replacing <span class="italic">filename</span> with a file name of your choice:</p>
+<pre dir="ltr">
+dcli <a id="d40284e2867" class="indexterm-anchor"></a>bdachecksw &gt; <span class="italic">filename</span>
+</pre></li>
+<li>
+<p>Verify that the partition setup and software versions are correct. In this example, the software profile is stored in a file named all-bdaswcheck.out.</p>
+<pre dir="ltr">
+less ~/all-bdaswcheck.out
+</pre></li>
+<li>
+<p>Verify the system boots in this order: USB, RAID Slot 0, PXE:</p>
+<pre dir="ltr">
+# dcli "ubiosconfig export all -x /tmp/bios.xml"
+[# dcli "grep -m1 -A20 boot_order /tmp/bios.xml" | more
+[root@bda01 bda]# dcli "ubiosconfig export all -x /tmp/bios.xml"
+[root@bda01 bda]# dcli "grep -m1 -A20 boot_order /tmp/bios.xml" | more
+&lt;boot_order&gt;
+  &lt;boot_device&gt;
+    &lt;description&gt;USB:USBIN:ORACLE UNIGEN-UFD PMAP&lt;/description&gt;
+    &lt;instance&gt;1&lt;/instance&gt;
+  &lt;/boot_device&gt;
+  &lt;boot_device&gt;
+    &lt;description&gt;RAID:PCIE6:(Bus 50 Dev 00)PCI RAID Adapter&lt;/description&gt;
+    &lt;instance&gt;1&lt;/instance&gt;
+  &lt;/boot_device&gt;
+  &lt;boot_device&gt;
+    &lt;description&gt;PXE:NET0:IBA XE Slot 4000 v2196&lt;/description&gt;
+    &lt;instance&gt;1&lt;/instance&gt;
+  &lt;/boot_device&gt;
+  &lt;boot_device&gt;
+    &lt;description&gt;PXE:NET1:IBA XE Slot 4001 v2196&lt;/description&gt;
+    &lt;instance&gt;1&lt;/instance&gt;
+  &lt;/boot_device&gt;
+  &lt;boot_device&gt;
+    &lt;description&gt;PXE:NET2:IBA XE Slot 8800 v2196&lt;/description&gt;
+    &lt;instance&gt;1&lt;/instance&gt;
+  &lt;/boot_device&gt;
+</pre></li>
+<li>
+<p>If the boot order is incorrect:</p>
+<ol>
+<li>
+<p>Log in to the ILOM for that server and force the next restart into BIOS setup:</p>
+<pre dir="ltr">
+# set /HOST boot_device=bios
+</pre></li>
+<li>
+<p>Restart the server and correct the BIOS.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG239"></a>
+<div class="props_rev_3"><a id="GUID-0EFE7F4E-B14B-4D4F-A3A1-3C39C8ED39EF"></a>
+<h2 id="BIGOG-GUID-0EFE7F4E-B14B-4D4F-A3A1-3C39C8ED39EF" class="sect2"><span class="enumeration_section">7.6</span> Configuring the Network</h2>
+<div>
+<p>Oracle Big Data Appliance Configuration Generation Utility generates the cluster-network.json and rack-network.json files, which are used to configure all three network interfaces and all Oracle ILOMs. See <span class="q">"<a href="configurator.htm#GUID-92C6E1FE-6107-4170-BC08-66C4CF9FEE41">Generating the Configuration Files</a>"</span> if you do not have this file.</p>
+<p>The network configuration consists of these procedures:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure.htm#GUID-5C52B962-A412-43C4-957A-949B5946A0E1">Copying the Configuration Files to Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-C2A21E1A-4243-4466-830E-9A0DFAF8F1AE">Starting the Network Configuration</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-83E92C8A-C7FE-4F80-8AE0-2EDBF1843390">Connecting to the Administrative Network</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-11ACD53C-8FA5-486F-89F4-A42F273F8762">Completing the Network Configuration</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-AEC18A84-BA8E-4D88-A4AE-3F1E2F4AE608">Checking the Virtual Interface Cards (VNICs)</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-05F03EA1-3C97-4E34-B2A1-39CD1909521E">Verifying Access to the Network Services</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG240"></a>
+<div class="props_rev_3"><a id="GUID-5C52B962-A412-43C4-957A-949B5946A0E1"></a>
+<h3 id="BIGOG-GUID-5C52B962-A412-43C4-957A-949B5946A0E1" class="sect3"><span class="enumeration_section">7.6.1</span> Copying the Configuration Files to Oracle Big Data Appliance</h3>
+<div>
+<div class="section">
+<p>To copy the configuration files to Oracle Big Data Appliance:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Copy the configuration files to a <a id="d40284e2972" class="indexterm-anchor"></a>USB flash drive.</span></li>
+<li class="stepexpand"><span>Use a laptop or the KVM switch to open a console session to the first server. The <a id="d40284e2978" class="indexterm-anchor"></a><a id="d40284e2980" class="indexterm-anchor"></a>first server is the lowest server in the rack. See <a href="app_cablex2.htm#GUID-19484EBD-B9B1-40A6-954F-5AE3561753AB__CIAHFHBG">Figure E-1</a>.</span></li>
+<li class="stepexpand"><span>Log in as the <code class="codeph">root</code> user on the first server. The initial password is <code class="codeph">welcome1</code>.</span></li>
+<li class="stepexpand"><span>Plug the USB drive into the USB port of the first server. The port is on the right front of the server. Information like the following is displayed on the console:</span>
+<div>
+<pre dir="ltr">
+# scsi 0:0:0:0: Direct-Access     CBM      USB 2.0
+Q: 0 ANSI:2
+sd 0:0:0:0: Attached scsi generic sg14 type 0
+sd 0:0:0:0: [sdn] 7954432 512-byte logical blocks: (4.07 GB/3.79 GiB)
+sd 0:0:0:0: [sdn] Write Protect is off
+sd 0:0:0:0: [sdn] Assuming drive cache: write through
+sd 0:0:0:0: [sdn] Assuming drive cache: write through
+sd 0:0:0:0: [sdn] Assuming drive cache: write through
+sd 0:0:0:0: [sdn] Attached SCSI removable disk
+</pre></div>
+</li>
+<li class="stepexpand" id="GUID-5C52B962-A412-43C4-957A-949B5946A0E1__CACDABDC"><span>Enter the <code class="codeph">showusb</code> command to locate the USB drive. The command returns with the mapped device or, if no USB drive is connected, with no output.</span>
+<div>
+<pre dir="ltr">
+# <a id="d40284e3009" class="indexterm-anchor"></a>showusb
+/dev/sdn1
+</pre></div>
+</li>
+<li class="stepexpand"><span>Create a directory on the server:</span>
+<div>
+<pre dir="ltr">
+# mkdir /mnt/usb
+</pre></div>
+</li>
+<li class="stepexpand"><span>Mount the <a id="d40284e3021" class="indexterm-anchor"></a>device using the device name given in Step <a href="configure.htm#GUID-5C52B962-A412-43C4-957A-949B5946A0E1__CACDABDC">5</a>. The following is an example of the command.</span>
+<div>
+<pre dir="ltr">
+# mount -t vfat /dev/sdn1 /mnt/usb
+</pre></div>
+</li>
+<li class="stepexpand"><span>Verify the location of the file on the USB flash drive:</span>
+<div>
+<pre dir="ltr">
+# ls /mnt/usb
+network.json
+bin
+boot
+.
+.
+.
+</pre></div>
+</li>
+<li class="stepexpand"><span>Copy <code class="codeph">network.json</code> or <code class="codeph">networkexpansion.json</code> from the USB flash drive to the <code class="codeph">/opt/oracle/bda</code> directory on the server:</span>
+<div>
+<pre dir="ltr">
+# cd /mnt/usb
+# cp network.json /opt/oracle/bda
+</pre>
+<div class="infobox-note" id="GUID-5C52B962-A412-43C4-957A-949B5946A0E1__GUID-15367135-9DB2-4EC9-B431-A4790733D936">
+<p class="notep1">Note:</p>
+<p>If <span class="italic"><code class="codeph">cluster_name</code></span><code class="codeph">-config.json</code> is also on the drive, you can copy it to the server for use in <a href="mammoth.htm#GUID-2D0DC456-2DD1-4894-A5FA-3CC612CD9C5A" title="Oracle one-off patches for Oracle Big Data Appliance software are by definition supported.&nbsp;Parcel upgrades that are not part of a one-off patch are unsupported unless affirmed by Oracle Support.Oracle Big Data Appliance 4.6 supports both the 1.2.2 and 1.3.2 versions of Oracle Big Data Discovery.">Installing the Oracle Big Data Appliance Software</a>.</p>
+</div>
+</div>
+</li>
+<li class="stepexpand"><span>Dismount the USB flash drive and remove the device:</span>
+<div>
+<pre dir="ltr">
+# umount /mnt/usb
+# rmdir /mnt/usb
+</pre></div>
+</li>
+<li class="stepexpand"><span>Remove the USB flash drive from the server.</span></li>
+</ol>
+</div>
+</div>
+<a id="BIGOG76628"></a><a id="BIGOG76627"></a>
+<div class="props_rev_3"><a id="GUID-C2A21E1A-4243-4466-830E-9A0DFAF8F1AE"></a>
+<h3 id="BIGOG-GUID-C2A21E1A-4243-4466-830E-9A0DFAF8F1AE" class="sect3"><span class="enumeration_section">7.6.2</span> Starting the Network Configuration</h3>
+<div>
+<div class="section">
+<p>The <code class="codeph">networksetup-one</code> script sets up the host names and Oracle ILOM names for all servers and configures the administrative network and the private InfiniBand network. The procedure varies slightly depending on whether you are configuring a new rack&mdash;either a full rack or a starter rack&mdash;or configuring additional servers after deploying the starter rack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To start the network configuration on a new rack:</p>
+<ol>
+<li>
+<p>Log in as the <code class="codeph">root</code> user on the first server. The initial password is <code class="codeph">welcome1</code>. For example:</p>
+<pre dir="ltr">
+# ssh root@192.168.10.1
+</pre></li>
+<li>
+<p>For a new rack, verify that /opt/oracle/bda contains the new <code class="codeph">network.json</code> file.</p>
+<p>For the additional servers over the starter rack, verify that <code class="codeph">/opt/oracle/bda</code> contains both <code class="codeph">network.json</code> from an existing node and the new <code class="codeph">networkexpansion.json</code> file.</p>
+</li>
+<li>
+<p>Verify that the InfiniBand network is healthy:</p>
+<pre dir="ltr">
+# <span class="bold">cd /opt/oracle/bda</span>
+# <span class="bold">bdacheckib -s</span>
+
+LINK bdasw-ib1.0B ... bdasw-ib3.8B UP
+LINK bdasw-ib1.1B ... bdasw-ib2.8B UP
+LINK bdasw-ib3.15A ... bda2.HCA-1.2 UP
+LINK bdasw-ib3.15B ... bda1.HCA-1.2 UP
+LINK bdasw-ib3.14A ... bda4.HCA-1.2 UP
+LINK bdasw-ib3.14B ... bda3.HCA-1.2 UP
+LINK bdasw-ib3.13A ... bda6.HCA-1.2 UP
+   .
+   .
+   .
+</pre>
+<p>The InfiniBand network is used extensively during software installation. To perform more in-depth checks of the fabric, run the <code class="codeph">iblinkinfo</code> utility.</p>
+</li>
+<li>
+<p>Remove passwordless SSH. See <span class="q">"<a href="utilities.htm#GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186">remove-root-ssh</a>."</span></p>
+</li>
+<li>
+<p>Reconnect to the server using its ILOM instead of SSH:</p>
+<pre dir="ltr">
+# <span class="bold">ssh root@192.168.1.101</span>
+Password: <span class="bold">welcome1</span>
+-&gt; <span class="bold">start -f /HOST/console</span>
+bda1 login:
+User: <span class="bold">root</span>
+Password: <span class="bold">welcome1</span>
+</pre>
+<p>The networksetup-one script restarts the network services, so you do not see all of the output using an ssh connection.</p>
+</li>
+<li>
+<p>Begin the network configuration:</p>
+<pre dir="ltr">
+# cd /opt/oracle/bda/network
+# ./networksetup-one
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="configure.htm#GUID-C2A21E1A-4243-4466-830E-9A0DFAF8F1AE__CACGJJBD">Example 7-1</a> shows sample output from the <code class="codeph">networksetup-one</code> script.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-C2A21E1A-4243-4466-830E-9A0DFAF8F1AE__CACGJJBD">
+<p class="titleinexample">Example 7-1 Sample Output from networksetup-one</p>
+<pre dir="ltr">
+# <span class="bold">./networksetup-one</span>
+networksetup-one: check syntax and static semantics of /opt/oracle/bda/network.json
+networksetup-one: passed
+networksetup-one: ping servers on ship admin network
+networksetup-one: passed
+networksetup-one: test ssh to servers on ship admin network
+hello from node02
+hello from node03
+     .
+     .
+     .
+networksetup-one: passed
+networksetup-one: copy /opt/oracle/bda/network.json to servers
+network.json  0% 0  0.0KB/s   --:-- ETAnetwork.json 100% 4304  4.2KB/s 00:00
+network.json  0% 0  0.0KB/s   --:-- ETAnetwork.json 100% 4304  4.2KB/s 00:00
+     .
+     .
+     .
+networksetup-one: passed
+networksetup-one: executing network settings on all servers
+networksetup-one: wait a few seconds for the network to restart on 192.168.1.2
+     .
+     .
+     .
+bda1node02.example.com BdaUserConfigNetwork: reset network
+bda1node03.example.com BdaUserConfigNetwork: reset network
+bda1node04.example.com BdaUserConfigNetwork: reset network
+     .
+     .
+     .
+networksetup-one: deploying this server
+networksetup-one: network will restart momentarily, pardon our dust
+bda1node01.example.com BdaUserConfigNetwork: reset network
+networksetup-one: generate dcli bda host file lists
+networksetup-one: ping server ips on admin network
+networksetup-one: passed
+networksetup-one: passed
+networksetup-one: test ssh server ips on admin network
+hello from bda1node02.example.com
+hello from bda1node03.example.com
+hello from bda1node04.example.com
+     .
+     .
+     .
+networksetup-one: passed
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BIGOG76629"></a>
+<div class="props_rev_3"><a id="GUID-83E92C8A-C7FE-4F80-8AE0-2EDBF1843390"></a>
+<h3 id="BIGOG-GUID-83E92C8A-C7FE-4F80-8AE0-2EDBF1843390" class="sect3"><span class="enumeration_section">7.6.3</span> Connecting to the Administrative Network</h3>
+<div>
+<div class="section">
+<p><a id="d40284e3218" class="indexterm-anchor"></a>Before completing the network configuration, you must connect Oracle Big Data Appliance to the 1 GbE administrative (management) network.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To connect Oracle Big Data Appliance to the administrative network:</p>
+<ol>
+<li>
+<p>Connect port 48 of the Cisco Ethernet switch to the administrative network.</p>
+</li>
+<li>
+<p>To use the small form-factor pluggable (SFP) ports for a fiber uplink in port 48 (optional), reconfigure the port:</p>
+<pre dir="ltr">
+bda1sw-ip# <span class="bold">configure terminal</span>
+Enter configuration commands, one per line. End with CNTL/Z.
+
+bda1sw-ip(config)# <span class="bold">interface gigabitEthernet 1/48</span>
+bda1sw-ip(config-if)# <span class="bold">media-type sfp</span>
+bda1sw-ip(config-if)# <span class="bold">end</span>
+bda1sw-ip#
+*Sep 15 14:12:06.309: %SYS-5-CONFIG_I: Configured from console by console
+bda1sw-ip# <span class="bold">write memory</span>
+bda1sw-ip# <span class="bold">copy running-config startup-config</span>
+</pre>
+<div class="infoboxnotealso" id="GUID-83E92C8A-C7FE-4F80-8AE0-2EDBF1843390__GUID-6CBD2D44-87BA-4F93-8B85-13BDACF530C7">
+<p class="notep1">See Also:</p>
+<p>For SFP port configuration details, the <span class="italic">Cisco Catalyst 4948 Install Guide</span> at</p>
+<p><a href="http://www.cisco.com/en/US/docs/switches/lan/catalyst4900/4948/05modcfg.html" target="_blank"><code class="codeph">http://www.cisco.com/en/US/docs/switches/lan/catalyst4900/4948/05modcfg.html</code></a></p>
+</div>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76878"></a>
+<div class="props_rev_3"><a id="GUID-77D3178E-183F-441D-AC86-896D7FA37652"></a>
+<h3 id="BIGOG-GUID-77D3178E-183F-441D-AC86-896D7FA37652" class="sect3"><span class="enumeration_section">7.6.4</span> Connecting to the Client Network</h3>
+<div>
+<div class="section">
+<p>You must also connect Oracle Big Data Appliance to the 10 GbE client network.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To connect Oracle Big Data Appliance to the client network:</p>
+<ol>
+<li>
+<p>Connect the two Sun Network QDR InfiniBand Gateway leaf switches to the data center.</p>
+</li>
+<li>
+<p>After the cables are routed, the network administrator may need to alter the network switch end configuration to recognize the links.</p>
+</li>
+<li id="GUID-77D3178E-183F-441D-AC86-896D7FA37652__CACBIFAC">
+<p>Use SSH to connect to a Sun Network QDR InfiniBand Gateway switch, and log in as the <code class="codeph">ilom-admin</code> user.</p>
+</li>
+<li>
+<p>Enter the Fabric Management shell:</p>
+<pre dir="ltr">
+-&gt; show /SYS/Fabric_Mgmt
+</pre></li>
+<li id="GUID-77D3178E-183F-441D-AC86-896D7FA37652__CACJEDBJ">
+<p>Ensure that the Bridge entries have active links from the leaf switches to the customer network switch:</p>
+<pre dir="ltr">
+FabMan@bda1sw-iba-&gt; <span class="bold">listlinkup</span>
+</pre>
+<p>This output shows four ports connected to each switch:</p>
+<pre dir="ltr">
+Connector 0A-ETH Present
+Bridge-0 Port 0A-ETH-1 (Bridge-0-2) up (Enabled)
+Bridge-0 Port 0A-ETH-2 (Bridge-0-2) down (Enabled)
+Bridge-0 Port 0A-ETH-3 (Bridge-0-1) up (Enabled)
+Bridge-0 Port 0A-ETH-4 (Bridge-0-1) down (Enabled)
+Connector 1A-ETH Present
+Bridge-1 Port 1A-ETH-1 (Bridge-1-2) up (Enabled)
+Bridge-1 Port 1A-ETH-2 (Bridge-1-2) down (Enabled)
+Bridge-1 Port 1A-ETH-3 (Bridge-1-1) up (Enabled)
+Bridge-1 Port 1A-ETH-4 (Bridge-1-1) down (Enabled)
+</pre></li>
+<li>
+<p>Repeat Steps <a href="configure.htm#GUID-77D3178E-183F-441D-AC86-896D7FA37652__CACBIFAC">3</a> to <a href="configure.htm#GUID-77D3178E-183F-441D-AC86-896D7FA37652__CACJEDBJ">5</a> on the second gateway switch (<code class="codeph">-ib3</code>).</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76630"></a><a id="BIGOG241"></a>
+<div class="props_rev_3"><a id="GUID-11ACD53C-8FA5-486F-89F4-A42F273F8762"></a>
+<h3 id="BIGOG-GUID-11ACD53C-8FA5-486F-89F4-A42F273F8762" class="sect3"><span class="enumeration_section">7.6.5</span> Completing the Network Configuration</h3>
+<div>
+<div class="section">
+<p>The <code class="codeph">networksetup-two</code> script completes some steps started by <code class="codeph">networksetup-one</code> that require a network connection. It also configures the default VLAN and all required VNICs for the 10 GbE client network. It then verifies all network connections and displays a message if it discovers any unexpected ones, including those caused by cabling mistakes.</p>
+<p>The 10 GbE ports of the Sun Network QDR InfiniBand Gateway switches must be connected to the data center.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To complete the network configuration:</p>
+<ol>
+<li>
+<p>Ensure that both the administrative network and the client network are connected to Oracle Big Data Appliance.</p>
+<div class="infobox-note" id="GUID-11ACD53C-8FA5-486F-89F4-A42F273F8762__GUID-DB6D50C9-F875-4F36-BDCB-60E8748C93C6">
+<p class="notep1">Note:</p>
+<p>This procedure fails if the networks are not connected. See <span class="q">"<a href="configure.htm#GUID-83E92C8A-C7FE-4F80-8AE0-2EDBF1843390">Connecting to the Administrative Network</a>"</span>.</p>
+</div>
+</li>
+<li>
+<p>Run the following script to complete the network setup:</p>
+<pre dir="ltr">
+./networksetup-two | tee /tmp/network-conf.out
+</pre>
+<p>The previous command captures the output in a file named <code class="codeph">/tmp/network-conf.out</code>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="configure.htm#GUID-11ACD53C-8FA5-486F-89F4-A42F273F8762__CACGFJEF">Example 7-2</a> shows sample output from the script.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-11ACD53C-8FA5-486F-89F4-A42F273F8762__CACGFJEF">
+<p class="titleinexample">Example 7-2 Sample Output from networksetup-two</p>
+<pre dir="ltr">
+# <span class="bold">./networksetup-two</span>
+networksetup-two: check syntax and static semantics of /opt/oracle/bda/network.json
+networksetup-two: passed
+networksetup-two: ping server ips on admin network
+networksetup-two: passed
+networksetup-two: test ssh server ips on admin network
+hello from bda1node02.example.com
+hello from bda1node03.example.com
+hello from bda1node04.example.com
+.
+.
+.
+networksetup-two: passed
+networksetup-two: run connected network post script on each server
+networksetup-two: post network setup for 10.133.42.253
+networksetup-two: post network setup for 10.133.42.254
+networksetup-two: post network setup for 10.133.43.1
+.
+.
+.
+networksetup-two: post network setup for this node
+networksetup-two: ping admin servers by name on admin network
+networksetup-two: passed
+networksetup-two: verify infiniband topology
+networksetup-two: passed
+networksetup-two: start setup client network (10gigE over Infiniband)
+networksetup-two: ping both gtw leaf switches
+networksetup-two: passed
+networksetup-two: verify existence of gateway ports
+networksetup-two: passed
+networksetup-two: ping server ips on admin network
+networksetup-two: passed
+networksetup-two: ping servers by name on admin network
+networksetup-two: passed
+networksetup-two: test ssh server ips on admin network
+hello from bda1node02.example.com
+hello from bda1node03.example.com
+.
+.
+.
+networksetup-two: passed
+networksetup-two: check existence of default vlan for port 0A-ETH-1 on bda1sw-ib2
+networksetup-two: no default vlan for port, create it
+spawn ssh root@10.133.43.36 createvlan 0A-ETH-1 -vlan -1 -pkey default
+networksetup-two: verify default vlan for port 0A-ETH-1 for bda1sw-ib2
+.
+.
+.
+networksetup-two: passed
+networksetup-two: apply eoib on each server
+networksetup-two: wait a few seconds for the network to restart on 10.133.42.253
+networksetup-two: wait a few seconds for the network to restart on 10.133.42.254
+.
+.
+.
+check and delete vNIC for bda1node02 eth9 on switch bda1sw-ib2
+check and delete vNIC for bda1node02 eth9 on switch bda1sw-ib3
+create vNIC eth9 bda1node02 using switch bda1sw-ib3
+vNIC created
+check and delete vNIC for bda1node02 eth8 on switch bda1sw-ib2
+.
+.
+.
+networksetup-two: ping server ips on client network
+networksetup-two: passed
+networksetup-two: test ssh server ips on client network
+hello from bda1node02.example.com
+hello from bda1node03.example.com
+     .
+     .
+     .
+networksetup-two: passed
+networksetup-two: end setup client network
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BIGOG76879"></a>
+<div class="props_rev_3"><a id="GUID-AEC18A84-BA8E-4D88-A4AE-3F1E2F4AE608"></a>
+<h3 id="BIGOG-GUID-AEC18A84-BA8E-4D88-A4AE-3F1E2F4AE608" class="sect3"><span class="enumeration_section">7.6.6</span> Checking the Virtual Interface Cards (VNICs)</h3>
+<div>
+<div class="section">
+<p>Verify that the VNICs were created correctly on both gateway switches.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To check the VNICs:</p>
+<ol>
+<li>
+<p>Use SSH to connect to a Sun Network QDR InfiniBand Gateway switch, and log in as the <code class="codeph">ilom-admin</code> user.</p>
+</li>
+<li>
+<p>Enter the Fabric Management shell:</p>
+<pre dir="ltr">
+-&gt; show /SYS/Fabric_Mgmt
+</pre></li>
+<li>
+<p>Verify that the active ports are assigned to the default VLAN (0):</p>
+<pre dir="ltr">
+FabMan@bda1sw-ib2-&gt; <span class="bold">showvlan</span>
+Connector/LAG VLN PKEY
+------------- --- ----
+0A-ETH-1       0  ffff
+0A-ETH-3       0  ffff
+1A-ETH-1       0  ffff
+1A-ETH-3       0  ffff
+</pre></li>
+<li>
+<p>Verify that the VNICs were created round-robin on each server and 10 GbE interface:</p>
+<pre dir="ltr">
+FabMan@hostname-&gt; showvnics
+ID STATE FLG IOA_GUID NODE
+IID MAC VLN PKEY GW
+--- -------- --- ----------------------- --------------------------------
+---- ----------------- --- ---- --------
+561 UP N 0021280001CF4C23 bda1node12 BDA 192.168.41.31 0000
+CE:4C:23:85:2B:0A NO ffff 0A-ETH-1
+     .
+     .
+     .
+</pre></li>
+<li>
+<p>Ensure that you can ping in to and out from the 10 GB interfaces.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76880"></a>
+<div class="props_rev_3"><a id="GUID-05F03EA1-3C97-4E34-B2A1-39CD1909521E"></a>
+<h3 id="BIGOG-GUID-05F03EA1-3C97-4E34-B2A1-39CD1909521E" class="sect3"><span class="enumeration_section">7.6.7</span> Verifying Access to the Network Services</h3>
+<div>
+<div class="section">
+<p>Ensure that all network services are running correctly.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To verify access to the network services:</p>
+<ol>
+<li>
+<p>Verify that the dcli command is working:</p>
+<pre dir="ltr">
+# cd /opt/oracle/bda
+# dcli "hostname ; date"
+</pre></li>
+<li>
+<p>If you are prompted for a password, then enter Ctrl+c several times. Otherwise, generate new SSH keys with the setup-root-ssh utility. See <span class="q">"<a href="utilities.htm#GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8">setup-root-ssh</a>."</span></p>
+</li>
+<li>
+<p>Use the output from the <code class="codeph">date</code> command to check that the servers are synchronized within a few seconds. If they are not, then restart each device. Time differences can cause the software installation to fail.</p>
+<p>You can also check the NTP clients:</p>
+<pre dir="ltr">
+# ntpq -p 127.0.0.1
+</pre></li>
+<li>
+<p>Verify network connectivity:</p>
+<pre dir="ltr">
+# <span class="bold">bdachecknet | tee -a /tmp/bdachecknet_exp.out</span>
+bdachecknet: check syntax and static semantics of /opt/oracle/bda/network.json
+bdachecknet: passed
+bdachecknet: ping test private infiniband ips (bondib0 40gbs)
+bdachecknet: passed
+bdachecknet: ping test admin ips (eth0 1gbs)
+bdachecknet: passed
+bdachecknet: ping test client access ips (bondeth0 10gbs Eoib)
+bdachecknet: passed
+bdachecknet: test admin network resolve and reverse resolve
+bdachecknet: passed
+bdachecknet: test admin name array matches ip array
+bdachecknet: passed
+bdachecknet: test client network (eoib) resolve and reverse resolve
+bdachecknet: passed
+bdachecknet: test client name array matches ip array
+bdachecknet: passed
+bdachecknet: test ntp servers
+bdachecknet: passed
+bdachecknet: test arp -a
+bdachecknet: passed
+</pre></li>
+<li>
+<p>If the network is not able to resolve both DNS names and IP addresses, then correct the /etc/resolv.conf files. Otherwise, the software installation will fail.</p>
+</li>
+<li>
+<p>Check the accessibility of the PDUs by entering the IP address or host name as the address in a browser.</p>
+<p>If the connection is successful, you see the Current Measurement page.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG76881"></a>
+<div class="props_rev_3"><a id="GUID-FB0B6083-0C81-4919-8109-437A8D248EB1"></a>
+<h2 id="BIGOG-GUID-FB0B6083-0C81-4919-8109-437A8D248EB1" class="sect2"><span class="enumeration_section">7.7</span> Configuring Multiple Oracle Big Data Appliance Racks</h2>
+<div>
+<p>The general process when installing multiple racks is to configure the individual racks, cable the racks together, and validate the multirack network.</p>
+</div>
+<a id="BIGOG76882"></a>
+<div class="props_rev_3"><a id="GUID-520881D9-314A-43ED-ABCE-D05573F0A9CA"></a>
+<h3 id="BIGOG-GUID-520881D9-314A-43ED-ABCE-D05573F0A9CA" class="sect3"><span class="enumeration_section">7.7.1</span> Configuring and Cabling Multiple Racks</h3>
+<div>
+<div class="section">
+<p>Complete one of the following procedures. They differ depending on whether you are setting up a new installation or adding racks to an operational installation, and whether there are other engineered systems, such as Oracle Exadata Database Machine.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To install multiple racks:</p>
+<ol>
+<li>
+<p>Complete the configuration steps for each rack individually:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure.htm#GUID-9751FDED-9AA9-49A1-A055-E80E4CFC7176">Configuring the KVM Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-638C8CCB-9A50-43A6-95CF-04B626FD658D">Configuring the Cisco Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-6FB8396C-554B-4139-9425-2C4E9683193B">Configuring the InfiniBand Leaf and Spine Switches</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-8C6DE13D-4F5B-4313-923D-42D0C88EF2D7">Configuring the Power Distribution Units</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1">Configuring the Oracle Big Data Appliance Servers</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-0EFE7F4E-B14B-4D4F-A3A1-3C39C8ED39EF">Configuring the Network</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cable the Oracle Big Data Appliance racks together. See <a href="hardware.htm#GUID-621F1684-9BC9-41B0-9BE8-E5F88F5782CA">Connecting Multiple Oracle Big Data Appliance Racks</a>.</p>
+</li>
+<li>
+<p>Revalidate the InfiniBand network. See <span class="q">"<a href="configure.htm#GUID-EB85A6AD-52B0-4825-8D71-B01EB6B79939">Validating a Multirack InfiniBand Network</a>."</span></p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To add one or more racks to an operational Oracle Big Data Appliance rack:</p>
+<ol>
+<li>
+<p>Complete the configuration steps for each new Oracle Big Data Appliance rack individually:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure.htm#GUID-9751FDED-9AA9-49A1-A055-E80E4CFC7176">Configuring the KVM Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-638C8CCB-9A50-43A6-95CF-04B626FD658D">Configuring the Cisco Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-6FB8396C-554B-4139-9425-2C4E9683193B">Configuring the InfiniBand Leaf and Spine Switches</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-8C6DE13D-4F5B-4313-923D-42D0C88EF2D7">Configuring the Power Distribution Units</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1">Configuring the Oracle Big Data Appliance Servers</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-0EFE7F4E-B14B-4D4F-A3A1-3C39C8ED39EF">Configuring the Network</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Unplug the power to the InfiniBand switches on the new racks.</p>
+</li>
+<li>
+<p>Cable the Oracle Big Data Appliance racks together. See <a href="hardware.htm#GUID-621F1684-9BC9-41B0-9BE8-E5F88F5782CA">Connecting Multiple Oracle Big Data Appliance Racks</a>.</p>
+</li>
+<li>
+<p>Plug in power to the InfiniBand switches. Wait five minutes between switches while the subnet manager fabric is updated.</p>
+</li>
+<li>
+<p>Revalidate the InfiniBand network. See <span class="q">"<a href="configure.htm#GUID-EB85A6AD-52B0-4825-8D71-B01EB6B79939">Validating a Multirack InfiniBand Network</a>."</span></p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To connect Oracle Big Data Appliance racks to a new Oracle Exadata Database Machine or Oracle Exalogic Elastic Cloud Machine rack:</p>
+<ol>
+<li>
+<p>Complete the configuration steps for each Oracle Big Data Appliance rack individually:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure.htm#GUID-9751FDED-9AA9-49A1-A055-E80E4CFC7176">Configuring the KVM Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-638C8CCB-9A50-43A6-95CF-04B626FD658D">Configuring the Cisco Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-6FB8396C-554B-4139-9425-2C4E9683193B">Configuring the InfiniBand Leaf and Spine Switches</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-8C6DE13D-4F5B-4313-923D-42D0C88EF2D7">Configuring the Power Distribution Units</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1">Configuring the Oracle Big Data Appliance Servers</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-0EFE7F4E-B14B-4D4F-A3A1-3C39C8ED39EF">Configuring the Network</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cable the Oracle Big Data Appliance racks together. See <a href="hardware.htm#GUID-621F1684-9BC9-41B0-9BE8-E5F88F5782CA">Connecting Multiple Oracle Big Data Appliance Racks</a>.</p>
+</li>
+<li>
+<p>Revalidate the InfiniBand network. See <span class="q">"<a href="configure.htm#GUID-EB85A6AD-52B0-4825-8D71-B01EB6B79939">Validating a Multirack InfiniBand Network</a>."</span></p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To add one or more racks to an operational Oracle Exadata Database Machine or Oracle Exalogic Elastic Cloud Machine rack:</p>
+<ol>
+<li>
+<p>Complete the configuration steps for each new Oracle Big Data Appliance rack individually:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configure.htm#GUID-9751FDED-9AA9-49A1-A055-E80E4CFC7176">Configuring the KVM Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-638C8CCB-9A50-43A6-95CF-04B626FD658D">Configuring the Cisco Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-6FB8396C-554B-4139-9425-2C4E9683193B">Configuring the InfiniBand Leaf and Spine Switches</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-8C6DE13D-4F5B-4313-923D-42D0C88EF2D7">Configuring the Power Distribution Units</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1">Configuring the Oracle Big Data Appliance Servers</a></p>
+</li>
+<li>
+<p><a href="configure.htm#GUID-0EFE7F4E-B14B-4D4F-A3A1-3C39C8ED39EF">Configuring the Network</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Unplug the power to the InfiniBand switches on the new racks.</p>
+</li>
+<li>
+<p>Cable the Oracle Big Data Appliance, Oracle Exadata Database Machine, or Oracle Exalogic Elastic Cloud Machine racks together. See <a href="hardware.htm#GUID-621F1684-9BC9-41B0-9BE8-E5F88F5782CA">Connecting Multiple Oracle Big Data Appliance Racks</a>.</p>
+</li>
+<li>
+<p>Plug in power to the InfiniBand switches. Wait five minutes between switches while the subnet manager fabric is updated.</p>
+</li>
+<li>
+<p>Ensure that the subnet manager only runs on the switches with the highest firmware versions:</p>
+<p>For example, if Oracle Big Data Appliance has the highest firmware version, then make its spine switch the master and its gateway switches the failover. On the racks that have lower firmware versions than the Oracle Big Data Appliance InfiniBand switches (both spine and gateway), disable the subnet manager.</p>
+<ol>
+<li>
+<p>Log into the Exadata master switch as <code class="codeph">root</code>.</p>
+</li>
+<li>
+<p>Verify that the Oracle Big Data Appliance switches are visible:</p>
+<pre dir="ltr">
+# ibswitches
+</pre></li>
+<li>
+<p>Disable the subnet manager on Oracle Exadata Database Machine:</p>
+<pre dir="ltr">
+# disablesm
+</pre></li>
+<li>
+<p>Log in to each additional lower-version InfiniBand switch and verify that the master switch changes to the Oracle Big Data Appliance spine switch:</p>
+<pre dir="ltr">
+# getmaster
+</pre></li>
+<li>
+<p>Disable subnet manager on each lower-version InfiniBand switch:</p>
+<pre dir="ltr">
+# disablesm
+</pre></li>
+</ol>
+</li>
+<li>
+<p>Revalidate the InfiniBand network. See <span class="q">"<a href="configure.htm#GUID-EB85A6AD-52B0-4825-8D71-B01EB6B79939">Validating a Multirack InfiniBand Network</a>."</span></p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76884"></a><a id="BIGOG76883"></a>
+<div class="props_rev_3"><a id="GUID-EB85A6AD-52B0-4825-8D71-B01EB6B79939"></a>
+<h3 id="BIGOG-GUID-EB85A6AD-52B0-4825-8D71-B01EB6B79939" class="sect3"><span class="enumeration_section">7.7.2</span> Validating a Multirack InfiniBand Network</h3>
+<div>
+<div class="section">
+<p>After cabling the racks together, verify that the InfiniBand network is operating correctly.</p>
+<div class="infobox-note" id="GUID-EB85A6AD-52B0-4825-8D71-B01EB6B79939__GUID-E6CBED06-BFDB-4855-9356-12B3965EE05F">
+<p class="notep1">Note:</p>
+<p>The bdacheckib utility validates connections among Oracle Big Data Appliance and Oracle Exadata Database Machine racks. It does not check other types of racks, such as Oracle Exalogic Elastic Cloud Machine.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To validate the InfiniBand network:</p>
+<ol>
+<li>
+<p>Generate a topology file for the network:</p>
+<pre dir="ltr">
+# bdacheckib -g
+</pre>
+<p>The name of the generated file is sample-multi-rack.json</p>
+</li>
+<li>
+<p>Open sample-multi-rack.json in a text editor.</p>
+</li>
+<li>
+<p>Reorder the elements to start with the rack at the left and end with the rack on the right. Save the file.</p>
+</li>
+<li>
+<p>Validate the configuration:</p>
+<pre dir="ltr">
+# bdacheckib sample-multi-rack.json
+Verifing rack #1
+leaf: bda1sw-ib2
+LINK ... to rack2 UP
+LINK ... to rack2 UP
+LINK ... to rack1 UP
+LINK ... to rack2 UP
+LINK ... to rack3 UP
+LINK ... to rack3 UP
+LINK ... to rack1 UP
+LINK ... to rack1 UP
+leaf: bda1sw-ib3
+LINK ... to rack2 UP
+LINK ... to rack2 UP
+LINK ... to rack1 UP
+     .
+     .
+     .
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="configure.htm#GUID-EB85A6AD-52B0-4825-8D71-B01EB6B79939__CACDIFDC">Example 7-3</a> shows a sample configuration file.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-EB85A6AD-52B0-4825-8D71-B01EB6B79939__CACDIFDC">
+<p class="titleinexample">Example 7-3 Multirack Configuration File sample-multi-rack.json</p>
+<pre dir="ltr">
+# cat sample-multi-rack.json
+# This json multirack spec is generated. The array elements are sorted
+# alphabetically. A proper arranged json spec representing racks from left to right
+# can be used as input mr.json to bdacheckib (bdacheckib mr.json)
+# Commas separating rack elements are optional.
+[{"SPINE_NAME": "bda1sw-ib1", "LEAF1_NAME": "bda1sw-ib2", "LEAF2_NAME": "bda1sw-ib3"}
+{"SPINE_NAME": "bda2sw-ib1", "LEAF1_NAME": "bda2sw-ib2", "LEAF2_NAME": "bda2sw-ib3"}
+{"SPINE_NAME": "exa1sw-ib1", "LEAF1_NAME": "exa1sw-ib2", "LEAF2_NAME": "exa01sw-ib3"}]
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment106">
+<tr>
+<td class="cellalignment139">
+<table class="cellalignment111">
+<tr>
+<td class="cellalignment110"><a href="unpack.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment110"><a href="configure_expansion.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment141">
+<table class="cellalignment109">
+<tr>
+<td class="cellalignment110"><a href="http://docs.oracle.com/bigdata/bda46/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment110"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment110"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment110"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment110"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Big Data SQL User's Guide - Contents</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Describes the Oracle Big Data SQL software available to administrators and software developers." />
+<meta name="dcterms.created" content="2018-08-03T19:40:42Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User's Guide" />
+<meta name="dcterms.identifier" content="E99050-01" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds32/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"   src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"   src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Next" href="title.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E99050-01.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript"  src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript"  src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript"  src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript"  src="../dcommon/js/foundation.min.js"></script>
+<script type="application/javascript"  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript"  src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript"  src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">1/13</span> <!-- End Header -->
+<h1 class="toc">Contents</h1>
+<h2 class="tocheader"><a href="title.htm">Title and Copyright Information</a></h2>
+<h2 class="tocheader"><a href="preface.htm#GUID-1870FB3D-84BF-4FBB-B10D-4CA49B3ACCC5">Preface</a></h2>
+<ul style="list-style-type: none">
+<li><a href="preface.htm#GUID-C5DBC506-CB69-47A4-BC38-77B603408C46">Audience</a></li>
+<li><a href="preface.htm#GUID-35D8979E-2409-43F4-894D-4E488842E7C7">Related Documents</a></li>
+<li><a href="preface.htm#GUID-6EF8BEA8-A885-4C67-83B6-676A00501B17">Conventions</a></li>
+<li><a href="preface.htm#GUID-88E10D63-C959-42BB-986B-128FA34AA7A9">Backus-Naur Form Syntax</a></li>
+<li><a href="preface.htm#GUID-FF8C8A1B-E752-4998-AAB6-C0EF68C7C312">Changes in Oracle Big Data SQL 3.2</a></li>
+</ul>
+<h2 class="tocheader"><a href="concepts.htm#GUID-ECF201F6-24F1-4937-A524-80F9FC1EA46C"><span class="secnum">1</span> Introducing Oracle Big Data SQL</a></h2>
+<ul style="list-style-type: none">
+<li><a href="concepts.htm#GUID-24A1FF10-EDAD-454C-B02F-5CFC89A36F51"><span class="secnum">1.1</span> What Is Oracle Big Data SQL?</a>
+<ul style="list-style-type: none">
+<li><a href="concepts.htm#GUID-F5F71283-1E85-4AD5-ABCD-E6A70C6BE03E"><span class="secnum">1.1.1</span> About Oracle External Tables</a></li>
+<li><a href="concepts.htm#GUID-60CE9B2C-91E1-4F0A-88EE-8C14F4AEBDE6"><span class="secnum">1.1.2</span> About the Access Drivers for Oracle Big Data SQL</a></li>
+<li><a href="concepts.htm#GUID-C0AACB97-1BC4-447F-87C8-305AE744853E"><span class="secnum">1.1.3</span> About Smart Scan for HDFS</a></li>
+<li><a href="concepts.htm#GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926"><span class="secnum">1.1.4</span> About Storage Indexes</a></li>
+<li><a href="concepts.htm#GUID-5F5D41D3-24B0-4528-B7F3-26C1E57BDE35"><span class="secnum">1.1.5</span> About Predicate Push Down</a></li>
+<li><a href="concepts.htm#GUID-40460C65-EF5D-4EB0-8C64-43FF84B134EE"><span class="secnum">1.1.6</span> Predicate Pushdown Issue with Parquet Files Created From Hive Source</a>
+<ul style="list-style-type: none">
+<li><a href="concepts.htm#GUID-1A02E1E2-3AEA-4DCB-9BC5-A20738802F1E"><span class="secnum">1.1.6.1</span> Other Issues With Parquet Statistics</a></li>
+</ul>
+</li>
+<li><a href="concepts.htm#GUID-3508EC59-D251-469B-A968-91FC40CD6C88"><span class="secnum">1.1.7</span> About Pushdown of Character Large Object (CLOB) Processing</a></li>
+<li><a href="concepts.htm#GUID-6D36AE78-D33B-4923-B680-8B7E43242D7B"><span class="secnum">1.1.8</span> About Oracle Big Data SQL Statistics</a></li>
+</ul>
+</li>
+<li><a href="concepts.htm#GUID-2C4F2B56-A23F-4E0D-9B17-99F439F8ECA5"><span class="secnum">1.2</span> Installation</a></li>
+</ul>
+<h2 class="tocheader"><a href="bigsql.htm#GUID-60F61D46-EAF7-463E-A62C-C1E08EA58726"><span class="secnum">2</span> Using Oracle Big Data SQL for Data Access</a></h2>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-CB8FE0F7-C4B1-4CAF-9540-19A50826531A"><span class="secnum">2.1</span> Creating an Oracle External Table for Hive Data</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-4A0D005B-9157-4A1E-8B0A-2F08695FA3B7"><span class="secnum">2.1.1</span> Obtaining Information About a Hive Table</a></li>
+<li><a href="bigsql.htm#GUID-146AD9AF-2829-4407-91E5-0FD78FC6FC67"><span class="secnum">2.1.2</span> Using the CREATE_EXTDDL_FOR_HIVE Function</a></li>
+<li><a href="bigsql.htm#GUID-E6E5F4CF-3F31-46B1-9D61-A70E8FBAA407"><span class="secnum">2.1.3</span> Using Oracle SQL Developer to Connect to Hive</a></li>
+<li><a href="bigsql.htm#GUID-19D94CBA-299F-4CA4-9B82-E75679E0FD61"><span class="secnum">2.1.4</span> Developing a CREATE TABLE Statement for ORACLE_HIVE</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-1434FCCD-D095-4D2D-B43E-25AB2DAC891B"><span class="secnum">2.1.4.1</span> Using the Default ORACLE_HIVE Settings</a></li>
+<li><a href="bigsql.htm#GUID-B4AF3E27-3846-4E4D-AE98-908E7EA9E2B4"><span class="secnum">2.1.4.2</span> Overriding the Default ORACLE_HIVE Settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="bigsql.htm#GUID-0628EC5B-E013-40DF-A025-908019F4E681"><span class="secnum">2.2</span> Creating an Oracle External Table for Oracle NoSQL Database</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-EE087157-97D8-4F74-BBDD-096B6DFA5AC3"><span class="secnum">2.2.1</span> Creating a Hive External Table for Oracle NoSQL Database</a></li>
+<li><a href="bigsql.htm#GUID-7C5585EF-83FF-46DB-819B-2DC5E520BE82"><span class="secnum">2.2.2</span> Creating the Oracle Database Table for Oracle NoSQL Data</a></li>
+<li><a href="bigsql.htm#GUID-2F0DCF34-3D70-4EE8-852C-B84E431CC12A"><span class="secnum">2.2.3</span> About Column Data Type Mappings</a></li>
+<li><a href="bigsql.htm#GUID-9B0D7583-AA1E-4E7E-A793-3B21A7C23C61"><span class="secnum">2.2.4</span> Example of Accessing Data in Oracle NoSQL Database</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-83103C68-14E5-4EB1-9F38-4BDC0C022875"><span class="secnum">2.2.4.1</span> Creating the Oracle NoSQL Database Example Table</a></li>
+<li><a href="bigsql.htm#GUID-72BDD628-8D96-4898-B83B-A8D09A7DBEE5"><span class="secnum">2.2.4.2</span> Creating the Example Hive Table for vehicleTable</a></li>
+<li><a href="bigsql.htm#GUID-B8EFEDF6-7C54-40C5-81B1-59DEA135A235"><span class="secnum">2.2.4.3</span> Creating the Oracle Table for VEHICLES</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="bigsql.htm#GUID-1BA05F2A-609B-4560-B751-1E590ACE0993"><span class="secnum">2.3</span> Creating an Oracle External Table for Apache HBase</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-64113B59-263A-46B4-8569-8E881CDC310B"><span class="secnum">2.3.1</span> Creating a Hive External Table for HBase</a></li>
+<li><a href="bigsql.htm#GUID-419955CE-9070-429F-8E2B-EE68BD6FB241"><span class="secnum">2.3.2</span> Creating the Oracle Database Table for HBase</a></li>
+</ul>
+</li>
+<li><a href="bigsql.htm#GUID-C564C1F2-706B-4C20-8E5C-8E4335A9D0D1"><span class="secnum">2.4</span> Creating an Oracle External Table for HDFS Files</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-90B60D7E-F131-4C94-83BD-3E79629463B3"><span class="secnum">2.4.1</span> Using the Default Access Parameters with ORACLE_HDFS</a></li>
+<li><a href="bigsql.htm#GUID-2651824F-3382-4A4A-930D-8DF804324CC6"><span class="secnum">2.4.2</span> Overriding the Default ORACLE_HDFS Settings</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-2A0FE292-6DC7-4A2B-A84D-3300192CC68D"><span class="secnum">2.4.2.1</span> Accessing a Delimited Text File</a></li>
+<li><a href="bigsql.htm#GUID-AE8D7463-C7BC-4841-9151-15BCD993E296"><span class="secnum">2.4.2.2</span> Accessing Avro Container Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="bigsql.htm#GUID-A6F9F7E3-B275-4DC9-B13C-DC4C7E668513"><span class="secnum">2.5</span> Creating an Oracle External Table for Kafka Topics</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-3FC57D6E-415B-4412-AE14-E103D5097944"><span class="secnum">2.5.1</span> Using Oracle's Hive Storage Handler for Kafka to Create a Hive External Table for Kafka Topics</a></li>
+<li><a href="bigsql.htm#GUID-580238A4-AC1F-49AF-8AA6-1E61540FA616"><span class="secnum">2.5.2</span> Creating an Oracle Big Data SQL Table for Kafka Topics</a></li>
+</ul>
+</li>
+<li><a href="bigsql.htm#GUID-DE1D0757-C256-4F26-A1EA-EDC0004DE666"><span class="secnum">2.6</span> Using the Custom Parquet Reader for Oracle Big Data SQL</a></li>
+<li><a href="bigsql.htm#GUID-52CB4932-13DE-474C-B3FB-D645BE83303F"><span class="secnum">2.7</span> About the SQL CREATE TABLE Statement</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-9DB18515-4160-4851-9D74-56F556A0AA6F"><span class="secnum">2.7.1</span> Basic Syntax</a></li>
+<li><a href="bigsql.htm#GUID-7B1B3E63-903E-4ADD-B2E1-6AA794D684CA"><span class="secnum">2.7.2</span> About the External Table Clause</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-A251FA10-8E14-4B54-9CBD-5367C196DD67"><span class="secnum">2.7.2.1</span> TYPE Clause</a></li>
+<li><a href="bigsql.htm#GUID-BBA7E62E-6A96-4D8E-9F66-895978979AAA"><span class="secnum">2.7.2.2</span> DEFAULT DIRECTORY Clause</a></li>
+<li><a href="bigsql.htm#GUID-1837E290-4FD2-4C6E-956E-5906CF237EB5"><span class="secnum">2.7.2.3</span> LOCATION Clause</a></li>
+<li><a href="bigsql.htm#GUID-A876D6A0-D431-4E4A-9CEF-8E6F9E07A5FF"><span class="secnum">2.7.2.4</span> ORACLE_HDFS LOCATION Clause</a></li>
+<li><a href="bigsql.htm#GUID-3C37BA5B-6C31-4DF8-A998-9A56BA14BB9C"><span class="secnum">2.7.2.5</span> ORACLE_HIVE LOCATION Clause</a></li>
+<li><a href="bigsql.htm#GUID-794DA7D1-8A0D-4DD0-B48E-BE76C0BF2AF0"><span class="secnum">2.7.2.6</span> REJECT LIMIT Clause</a></li>
+<li><a href="bigsql.htm#GUID-1D69C0E3-1DAD-44CD-BFAE-9BB15F2BB79D"><span class="secnum">2.7.2.7</span> ACCESS PARAMETERS Clause</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="bigsql.htm#GUID-44E9399A-698B-4F8E-BAC9-6178839876BC"><span class="secnum">2.8</span> About Data Type Conversions</a></li>
+<li><a href="bigsql.htm#GUID-5C3E2799-637A-4B21-A02D-212E3024D84D"><span class="secnum">2.9</span> Querying External Tables</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-DDEAA78F-D032-4344-B210-A533A2CEA5DC"><span class="secnum">2.9.1</span> Granting User Access</a></li>
+<li><a href="bigsql.htm#GUID-FA0589E2-E03A-4815-B5B3-230A1E2F40C1"><span class="secnum">2.9.2</span> About Error Handling</a></li>
+<li><a href="bigsql.htm#GUID-C51E3EE0-ECBE-4821-B4D9-2F89126BAAB6"><span class="secnum">2.9.3</span> About the Log Files</a></li>
+</ul>
+</li>
+<li><a href="bigsql.htm#GUID-74BD99A7-EDE8-4959-B635-D4B97FC5EFAF"><span class="secnum">2.10</span> About Oracle Big Data SQL on the Database Server (Oracle Exadata Machine or Other)</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-6F23C063-81C0-4331-963F-F2E9EE72B951"><span class="secnum">2.10.1</span> About the bigdata_config Directory</a></li>
+<li><a href="bigsql.htm#GUID-CAD9D627-C923-4A01-82B5-5936950C8F15"><span class="secnum">2.10.2</span> Common Configuration Properties</a>
+<ul style="list-style-type: none">
+<li><a href="bigsql.htm#GUID-C77C0CAF-3D9D-4D9E-AC33-F8A8978A2CC4"><span class="secnum">2.10.2.1</span> bigdata.properties</a></li>
+<li><a href="bigsql.htm#GUID-A5782C5E-AB11-46CA-A91D-78EDEC5CD28E"><span class="secnum">2.10.2.2</span> bigdata-log4j.properties</a></li>
+</ul>
+</li>
+<li><a href="bigsql.htm#GUID-DF428D53-B3CD-4E90-9DE6-3A3F201ED34C"><span class="secnum">2.10.3</span> About the Cluster Directory</a></li>
+<li><a href="bigsql.htm#GUID-55F9B5C2-726A-4ECB-8CB4-448ADE4982A6"><span class="secnum">2.10.4</span> About Permissions</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="copy2bda.htm#GUID-B897FD6B-2BFE-4C86-AE53-08EA181F92F2"><span class="secnum">3</span> Storing Oracle Data in Hadoop</a></h2>
+<ul style="list-style-type: none">
+<li><a href="copy2bda.htm#GUID-E5610B1C-9A27-4DF2-8761-BBDD6E23027E"><span class="secnum">3.1</span> Using Copy to Hadoop</a>
+<ul style="list-style-type: none">
+<li><a href="copy2bda.htm#GUID-C4544F9A-E779-4380-BEAD-5E9B6BCD32F4"><span class="secnum">3.1.1</span> What Is Copy to Hadoop?</a></li>
+<li><a href="copy2bda.htm#GUID-41C9CFA3-B2BC-44E6-B974-E99CBAE0CB3A"><span class="secnum">3.1.2</span> Getting Started Using Copy to Hadoop</a>
+<ul style="list-style-type: none">
+<li><a href="copy2bda.htm#GUID-A54345A9-D762-4F96-B0B8-3A96F739FC3C"><span class="secnum">3.1.2.1</span> Table Access Requirements for Copy to Hadoop</a></li>
+</ul>
+</li>
+<li><a href="copy2bda.htm#GUID-6BE23F64-C08A-40A7-95A9-11DBC3F9FAE2"><span class="secnum">3.1.3</span> Using Oracle Shell for Hadoop Loaders With Copy to Hadoop</a>
+<ul style="list-style-type: none">
+<li><a href="copy2bda.htm#GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A"><span class="secnum">3.1.3.1</span> Introducing Oracle Shell for Hadoop Loaders</a></li>
+</ul>
+</li>
+<li><a href="copy2bda.htm#GUID-3181F1F5-7125-4DB6-9178-0D5BF906CBEC"><span class="secnum">3.1.4</span> Using Copy to Hadoop to do Direct Copies</a></li>
+<li><a href="copy2bda.htm#GUID-300C3ED0-2BFD-40E4-8FE5-750403E96A30"><span class="secnum">3.1.5</span> Using Copy to Hadoop to do Staged Copies</a></li>
+<li><a href="copy2bda.htm#GUID-3FB134B8-E3EE-401A-AA40-8B5EC06274AF"><span class="secnum">3.1.6</span> Querying the Data in Hive</a></li>
+<li><a href="copy2bda.htm#GUID-92B3095C-207C-4054-AB2F-98C64FD12C31"><span class="secnum">3.1.7</span> About Column Mappings and Data Type Conversions</a>
+<ul style="list-style-type: none">
+<li><a href="copy2bda.htm#GUID-327CADC1-B702-4A05-9D53-C0A0F3A47D8E"><span class="secnum">3.1.7.1</span> About Column Mappings</a></li>
+<li><a href="copy2bda.htm#GUID-9F4DE43A-BA88-4D59-861C-3ABC1A4C8F87"><span class="secnum">3.1.7.2</span> About Data Type Conversions</a></li>
+</ul>
+</li>
+<li><a href="copy2bda.htm#GUID-A5277847-21F3-4553-8BB0-FA4B2732E96A"><span class="secnum">3.1.8</span> Working With Spark</a></li>
+<li><a href="copy2bda.htm#GUID-727C1F75-2748-4FE1-9ED4-540D41C97DA2"><span class="secnum">3.1.9</span> Using Oracle SQL Developer with Copy to Hadoop</a></li>
+</ul>
+</li>
+<li><a href="copy2bda.htm#GUID-D5907C17-ABA1-487A-8D34-C81A46A9035C"><span class="secnum">3.2</span> Storing Oracle Tablespaces in HDFS</a>
+<ul style="list-style-type: none">
+<li><a href="copy2bda.htm#GUID-3600AA1D-8E5D-44AB-9025-B68BCD80E2CE"><span class="secnum">3.2.1</span> Advantages and Limitations of Tablespaces in HDFS</a></li>
+<li><a href="copy2bda.htm#GUID-99907CE0-F0BE-417E-A4C0-1262ADB098C9"><span class="secnum">3.2.2</span> About Tablespaces in HDFS and Data Encryption</a></li>
+<li><a href="copy2bda.htm#GUID-528AA4D3-8BB2-4E7C-8096-14C53E2DE130"><span class="secnum">3.2.3</span> Moving Tablespaces to HDFS</a>
+<ul style="list-style-type: none">
+<li><a href="copy2bda.htm#GUID-A9671C78-4C30-4B42-AAA7-7B9F2ACFCD51"><span class="secnum">3.2.3.1</span> Using bds-copy-tbs-to-hdfs</a></li>
+<li><a href="copy2bda.htm#GUID-790CB0C3-D5D2-4F94-AFF3-9B46A0735492"><span class="secnum">3.2.3.2</span> Manually Moving Tablespaces to HDFS</a></li>
+</ul>
+</li>
+<li><a href="copy2bda.htm#GUID-8250CF1C-6899-429C-AC40-3B152CEDDDA1"><span class="secnum">3.2.4</span> Smart Scan for TableSpaces in HDFS</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="bigsqlref.htm#GUID-8C8770D4-559A-4161-BC74-F97CC5F2AB89"><span class="secnum">4</span> Oracle Big Data SQL Reference</a></h2>
+<ul style="list-style-type: none">
+<li><a href="bigsqlref.htm#GUID-7B05D8E1-25A2-40CF-AE76-274D4BEF0776"><span class="secnum">4.1</span> DBMS_HADOOP PL/SQL Package</a>
+<ul style="list-style-type: none">
+<li><a href="bigsqlref.htm#GUID-550576B6-4E57-4B75-A98F-59B78E009995"><span class="secnum">4.1.1</span> CREATE_EXTDDL_FOR_HIVE</a>
+<ul style="list-style-type: none">
+<li><a href="bigsqlref.htm#GUID-EC281F15-515A-410E-AC6B-D7BCB113C456"><span class="secnum">4.1.1.1</span> Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="bigsqlref.htm#GUID-0CAD2118-8953-4CFD-B0E4-540F3CE94BC8"><span class="secnum">4.2</span> DBMS_BDSQL PL/SQL Package</a>
+<ul style="list-style-type: none">
+<li><a href="bigsqlref.htm#GUID-E2B8E4D0-1D21-41C2-BB29-327D4ABE1E62"><span class="secnum">4.2.1</span> ADD_USER_MAP</a></li>
+<li><a href="bigsqlref.htm#GUID-0B9F8493-A373-4B48-AAC6-CB29BBACDC63"><span class="secnum">4.2.2</span> REMOVE_USER_MAP</a></li>
+<li><a href="bigsqlref.htm#GUID-07F93786-FB4B-423F-AE73-B0012234A6C2"><span class="secnum">4.2.3</span> Multi-User Authorization Security Table</a></li>
+</ul>
+</li>
+<li><a href="bigsqlref.htm#GUID-5DFBDFFC-CCC0-44C4-9EA1-2DF0554526E4"><span class="secnum">4.3</span> CREATE TABLE ACCESS PARAMETERS Clause</a>
+<ul style="list-style-type: none">
+<li><a href="bigsqlref.htm#GUID-C4A2AC9E-8815-42C6-A166-553351316408"><span class="secnum">4.3.1</span> Syntax Rules for Specifying Properties</a></li>
+<li><a href="bigsqlref.htm#GUID-5D2D356A-AD9B-4E8B-BB6D-E7620D04909E"><span class="secnum">4.3.2</span> ORACLE_HDFS Access Parameters</a>
+<ul style="list-style-type: none">
+<li><a href="bigsqlref.htm#GUID-61CD4F39-357F-4643-A10F-76C9AB2FB65A"><span class="secnum">4.3.2.1</span> Default Parameter Settings for ORACLE_HDFS</a></li>
+<li><a href="bigsqlref.htm#GUID-372EB1C6-7F2C-43AE-A296-28BB8F2C93EF"><span class="secnum">4.3.2.2</span> Optional Parameter Settings for ORACLE_HDFS</a></li>
+</ul>
+</li>
+<li><a href="bigsqlref.htm#GUID-9CC9807E-44F5-4A54-A8B9-D3D9D293A9B4"><span class="secnum">4.3.3</span> ORACLE_HIVE Access Parameters</a>
+<ul style="list-style-type: none">
+<li><a href="bigsqlref.htm#GUID-A1D301CE-9DDC-4EF0-8D61-BBCED17A12A1"><span class="secnum">4.3.3.1</span> Default Parameter Settings for ORACLE_HIVE</a></li>
+<li><a href="bigsqlref.htm#GUID-B64F75DC-33EA-4473-BE7C-AD327548F773"><span class="secnum">4.3.3.2</span> Optional Parameter Values for ORACLE_HIVE</a></li>
+</ul>
+</li>
+<li><a href="bigsqlref.htm#GUID-417133FF-135C-4BA8-ACF0-BC2E35D46B91"><span class="secnum">4.3.4</span> com.oracle.bigdata.buffersize</a></li>
+<li><a href="bigsqlref.htm#GUID-417D485A-A5DB-46AB-8495-3FD8C6615CE7"><span class="secnum">4.3.5</span> com.oracle.bigdata.colmap</a></li>
+<li><a href="bigsqlref.htm#GUID-F4F86E41-FF0D-4309-B8CA-E05104F3B996"><span class="secnum">4.3.6</span> com.oracle.bigdata.datamode</a></li>
+<li><a href="bigsqlref.htm#GUID-EE402B2A-42F3-4BE9-904A-423E1AB26E55"><span class="secnum">4.3.7</span> com.oracle.bigdata.erroropt</a></li>
+<li><a href="bigsqlref.htm#GUID-6E0915DC-E80C-4233-A82B-095F8881F6F0"><span class="secnum">4.3.8</span> com.oracle.bigdata.fields</a></li>
+<li><a href="bigsqlref.htm#GUID-D9612150-D79A-40D0-A6C9-B101322C1F2D"><span class="secnum">4.3.9</span> com.oracle.bigdata.fileformat</a></li>
+<li><a href="bigsqlref.htm#GUID-066A4568-9F95-4305-A1A5-7BC3E5DF35AF"><span class="secnum">4.3.10</span> com.oracle.bigdata.log.exec</a></li>
+<li><a href="bigsqlref.htm#GUID-DD3F4F5D-CA97-43A6-B7B5-3ED51CE4644C"><span class="secnum">4.3.11</span> com.oracle.bigdata.log.qc</a></li>
+<li><a href="bigsqlref.htm#GUID-3DF2757C-A210-41ED-A0E3-44D5BAC9C5CD"><span class="secnum">4.3.12</span> com.oracle.bigdata.overflow</a></li>
+<li><a href="bigsqlref.htm#GUID-149DB6CD-E19E-4ECC-A0B6-CF844E6ACFAA"><span class="secnum">4.3.13</span> com.oracle.bigdata.rowformat</a></li>
+<li><a href="bigsqlref.htm#GUID-34A7BD3E-655B-4032-8343-1A63F7DA7A18"><span class="secnum">4.3.14</span> com.oracle.bigdata.tablename</a></li>
+</ul>
+</li>
+<li><a href="bigsqlref.htm#GUID-E7A9C252-9C5F-449D-98E8-F42AECD8A4C3"><span class="secnum">4.4</span> Static Data Dictionary Views for Hive</a>
+<ul style="list-style-type: none">
+<li><a href="bigsqlref.htm#GUID-6E06D786-548D-4478-922F-A52AE69909F9"><span class="secnum">4.4.1</span> ALL_HIVE_DATABASES</a></li>
+<li><a href="bigsqlref.htm#GUID-AFB5BA78-7137-43D2-8EEB-E12389B2D78B"><span class="secnum">4.4.2</span> ALL_HIVE_TABLES</a></li>
+<li><a href="bigsqlref.htm#GUID-1772A9D6-01FE-4964-9FAB-BCB09ACB9EDC"><span class="secnum">4.4.3</span> ALL_HIVE_COLUMNS</a></li>
+<li><a href="bigsqlref.htm#GUID-5BC4B6B0-D0DB-4275-90BF-EE31C6CA1EA1"><span class="secnum">4.4.4</span> DBA_HIVE_DATABASES</a></li>
+<li><a href="bigsqlref.htm#GUID-FABA8D8E-5541-46CA-9918-75E49F416156"><span class="secnum">4.4.5</span> DBA_HIVE_TABLES</a></li>
+<li><a href="bigsqlref.htm#GUID-21D48E6B-B6ED-407D-9621-7BE39E7F870B"><span class="secnum">4.4.6</span> DBA_HIVE_COLUMNS</a></li>
+<li><a href="bigsqlref.htm#GUID-473F9841-4F38-47ED-878B-05A704E80A30"><span class="secnum">4.4.7</span> USER_HIVE_DATABASES</a></li>
+<li><a href="bigsqlref.htm#GUID-ECC8F72E-656C-4FB1-BC68-70BB222D2DEF"><span class="secnum">4.4.8</span> USER_HIVE_TABLES</a></li>
+<li><a href="bigsqlref.htm#GUID-73D57505-2DC6-4645-B720-905BB7D2FB3D"><span class="secnum">4.4.9</span> USER_HIVE_COLUMNS</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="appendixes.htm#GUID-03247E43-D2AF-406B-9E82-AA5E45DF5AD7">Appendices</a></h2>
+<h2 class="tocheader"><a href="generate_data_pump_file.htm#GUID-E25F810B-5D75-4FC4-9C5E-9E7B8B5DDAA3"><span class="secnum">A</span> Manual Steps for Using Copy to Hadoop for Staged Copies</a></h2>
+<ul style="list-style-type: none">
+<li><a href="generate_data_pump_file.htm#GUID-9A6D9F3F-BF74-4CD0-B237-5EAE85159267"><span class="secnum">A.1</span> Generating the Data Pump Files</a>
+<ul style="list-style-type: none">
+<li><a href="generate_data_pump_file.htm#GUID-4841DD91-1A90-4992-93C0-F0139270709F"><span class="secnum">A.1.1</span> About Data Pump Format Files</a></li>
+<li><a href="generate_data_pump_file.htm#GUID-619CF941-8D7D-4B5C-A396-E4BED5DC62A9"><span class="secnum">A.1.2</span> Identifying the Target Directory</a></li>
+<li><a href="generate_data_pump_file.htm#GUID-D0462F01-F726-4A1B-876B-C530C0007426"><span class="secnum">A.1.3</span> About the CREATE TABLE Syntax</a></li>
+</ul>
+</li>
+<li><a href="generate_data_pump_file.htm#GUID-F4F247BE-6081-469F-84EC-8DA5A5EDB539"><span class="secnum">A.2</span> Copying the Files to HDFS</a></li>
+<li><a href="generate_data_pump_file.htm#GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA"><span class="secnum">A.3</span> Creating a Hive Table</a>
+<ul style="list-style-type: none">
+<li><a href="generate_data_pump_file.htm#GUID-EE8E769D-7847-4487-828C-D8848EEE1ED4"><span class="secnum">A.3.1</span> About Hive External Tables</a></li>
+</ul>
+</li>
+<li><a href="generate_data_pump_file.htm#GUID-BCAC514F-33AA-40EB-A4D3-C1BE71EDFBA6"><span class="secnum">A.4</span> Example Using the Sample Schemas</a>
+<ul style="list-style-type: none">
+<li><a href="generate_data_pump_file.htm#GUID-4103DE0C-3F36-4A92-8245-B3D3B797D24B"><span class="secnum">A.4.1</span> About the Sample Data</a></li>
+<li><a href="generate_data_pump_file.htm#GUID-255BF7DE-0F5B-4F16-9C49-CC3F6B08634D"><span class="secnum">A.4.2</span> Creating the EXPDIR Database Directory</a></li>
+<li><a href="generate_data_pump_file.htm#GUID-D9EB06FF-24D6-446E-8505-E0AB8A5B8A59"><span class="secnum">A.4.3</span> Creating Data Pump Format Files for Customer Data</a>
+<ul style="list-style-type: none">
+<li><a href="generate_data_pump_file.htm#GUID-3CF438FB-767A-42EE-8EC0-14D091929A6E"><span class="secnum">A.4.3.1</span> CREATE TABLE Example With a Simple SELECT Statement</a></li>
+<li><a href="generate_data_pump_file.htm#GUID-E209DF96-8E71-454E-93BC-13A9DD2A03AA"><span class="secnum">A.4.3.2</span> CREATE TABLE Example With a More Complex SQL SELECT Statement</a></li>
+</ul>
+</li>
+<li><a href="generate_data_pump_file.htm#GUID-5E5D1332-46E6-4412-B3B4-1E0ABF4E81B7"><span class="secnum">A.4.4</span> Verifying the Contents of the Data Files</a></li>
+<li><a href="generate_data_pump_file.htm#GUID-3DD8E38F-BBA9-4492-B6F6-CA01BB9F41E0"><span class="secnum">A.4.5</span> Copying the Files into Hadoop</a></li>
+<li><a href="generate_data_pump_file.htm#GUID-9FB85387-4CB2-4F94-9FD8-7282EC2725AC"><span class="secnum">A.4.6</span> Creating a Hive External Table</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="using_copy_to_hadoop_direct_copy.htm#GUID-030DDEF6-1C20-41A1-B73C-36A7203CBC96"><span class="secnum">B</span> Using Copy to Hadoop With Direct Copy</a></h2>
+<ul style="list-style-type: none">
+<li><a href="using_copy_to_hadoop_direct_copy.htm#GUID-954CE487-C588-4A58-B238-6505761DBF06"><span class="secnum">B.1</span> Manual Steps for Using Copy to Hadoop for Direct Copies</a></li>
+<li><a href="using_copy_to_hadoop_direct_copy.htm#GUID-9072109C-9073-400B-8D8F-FB8ACA6D76F3"><span class="secnum">B.2</span> Copy to Hadoop Property Reference</a></li>
+</ul>
+<h2 class="tocheader"><a href="appendixes.htm#GUID-865A85FD-67F3-4146-8ACE-4BBC779C9B61"><span class="secnum">C</span> Using mtactl to Manage the MTA extproc</a></h2>
+<h2 class="tocheader"><a href="diagnostic_tips.htm#GUID-06CA49FF-39AF-45B3-85D9-C3EB65B971CC"><span class="secnum">D</span> Diagnostic Tips and Details</a></h2>
+<ul style="list-style-type: none">
+<li><a href="diagnostic_tips.htm#GUID-F77B1873-9347-464E-B3A0-26F8F9F6DCD2"><span class="secnum">D.1</span> Running Diagnostics with bdschecksw</a></li>
+<li><a href="diagnostic_tips.htm#GUID-56DD3366-5CF6-4125-87FE-A64F6CE4448C"><span class="secnum">D.2</span> How to do a Quick Test</a></li>
+<li><a href="diagnostic_tips.htm#GUID-E603434A-F1DB-44F4-9B2B-9F3210160586"><span class="secnum">D.3</span> Oracle Big Data SQL Database Objects</a></li>
+<li><a href="diagnostic_tips.htm#GUID-551B309A-AD65-4690-AD04-DFBDB8378217"><span class="secnum">D.4</span> Other Database-Side Artifacts</a></li>
+<li><a href="diagnostic_tips.htm#GUID-29E767A8-8975-4328-9369-D7B6BD6CB67C"><span class="secnum">D.5</span> Hadoop Datanode Artifacts</a></li>
+<li><a href="diagnostic_tips.htm#GUID-E3BF2376-0A97-4634-A6AB-7A46CA077042"><span class="secnum">D.6</span> Step-by-Step Process for Querying an External Table</a></li>
+<li><a href="diagnostic_tips.htm#GUID-3D8A368C-4FBA-43CC-92B7-1C1616B39B82"><span class="secnum">D.7</span> Step-by-Step for a Hive Data Dictionary Query</a></li>
+<li><a href="diagnostic_tips.htm#GUID-E4C6E3FF-132D-44F1-8F3A-2E22167D35C1"><span class="secnum">D.8</span> Key Adminstration Tasks for Oracle Big Data SQL</a></li>
+<li><a href="diagnostic_tips.htm#GUID-368AA518-6347-4CDA-939A-1D5C6BBD34BD"><span class="secnum">D.9</span> Additional Java Diagnostics</a></li>
+<li><a href="diagnostic_tips.htm#GUID-10F47126-A0B8-4631-9ACE-5F40E822A17B"><span class="secnum">D.10</span> Checking for Correct Oracle Big Data SQL Patches</a></li>
+</ul>
+<h2 class="tocheader"><a href="licensing_info.htm#GUID-38FC50C3-0396-40C0-8853-AF005F8E183D"><span class="secnum">E</span> Licensing Information</a></h2>
+<ul style="list-style-type: none">
+<li><a href="licensing_info.htm#GUID-8E911C46-3FAA-44BA-BCEE-FB9EF94E494E"><span class="secnum">E.1</span> Oracle Big Data SQL Licensing</a>
+<ul style="list-style-type: none">
+<li><a href="licensing_info.htm#GUID-0404C893-4DE4-4D34-A9E9-16DC40DE32D4"><span class="secnum">E.1.1</span> ANTLR 4.7</a></li>
+<li><a href="licensing_info.htm#GUID-427926CF-809F-4E58-9500-D5D98F6267A6"><span class="secnum">E.1.2</span> JLine 2.13</a></li>
+<li><a href="licensing_info.htm#GUID-F8A636AB-8B51-4900-A299-DA0B88E99780"><span class="secnum">E.1.3</span> Apache Commons Exec 1.3</a></li>
+<li><a href="licensing_info.htm#GUID-9320A8D4-1D32-4E7E-B9B3-9D9F85B490D3"><span class="secnum">E.1.4</span> Apache Licensed Code</a></li>
+<li><a href="licensing_info.htm#GUID-6AE555DE-5B16-42C9-9AF6-5BDB555497C5"><span class="secnum">E.1.5</span> Apache License</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="appendixes.htm#GUID-3756BDC3-98EA-4BE7-A91E-28B5B72E1CC7"><span class="secnum">F</span> Change History for Previous Releases</a></h2>
+<ul style="list-style-type: none">
+<li><a href="appendixes.htm#GUID-012827C4-FE2A-4946-9588-D5D210C19661"><span class="secnum">F.1</span> Changes in Oracle Big Data SQL 3.1</a></li>
+<li><a href="appendixes.htm#GUID-3FB3E7BA-399B-4016-9E27-4237AFB61642"><span class="secnum">F.2</span> Changes in Oracle Big Data SQL 3.0.1</a></li>
+</ul>
+<h2 class="tocheader"><a href="index.htm">Index</a></h2>
+</div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment12">
+<tr>
+<td class="cellalignment5"><a href="title.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment11">
+<tr>
+<td class="cellalignment5"><a href="http://docs.oracle.com/bigdata/bds32/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

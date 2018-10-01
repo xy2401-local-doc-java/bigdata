@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using Oracle XQuery for Hadoop</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="Oracle XQuery for Hadoop, XQuery, description, Oracle XQuery for Hadoop modules, overview, basic transformation examples, queries, running locally in Oracle XQuery for Hadoop, running queries locally, oracle.hadoop.xquery.lib.share property, pattern matching, wildcards, HDFS directory, directories, default HDFS for XQuery, oracle.hadoop.xquery.* properties, xquery.output property, output directory for Oracle XQuery for Hadoop, output directory, configuration properties, xquery.scratch property, temp directory, setting for Oracle XQuery for Hadoop, temp directory, xquery.timezone property, timezone property for Oracle XQuery for Hadoop, time zone, xquery.skiperrors property, skiperrors property for Oracle XQuery for Hadoop, error recovery setting, xquery.skiperrors.counters property, skiperrors.counters property, xquery.skiperrors.max property, skiperrors.max property, xquery.skiperrors.log.max property, skiperrors.log.max property, log4j.logger.oracle.hadoop.xquery property, error logging levels, licenses, third-party licenses" />
+<meta name="dcterms.created" content="2017-10-10T14:24:14Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Connectors User's Guide" />
+<meta name="dcterms.identifier" content="E89802-02" />
+<meta name="dcterms.isVersionOf" content="BDCUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda49/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="xquery-part.htm" title="Previous" type="text/html" />
+<link rel="Next" href="oxh_ref.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDCUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-D8F344D0-48CA-42B7-98A1-3D644686A058"></a> <span id="PAGE" style="display:none;">11/31</span> <!-- End Header -->
+<a id="BDCUG526"></a>
+<h1 id="BDCUG-GUID-D8F344D0-48CA-42B7-98A1-3D644686A058" class="sect1"><span class="enumeration_chapter">5</span> Using Oracle XQuery for Hadoop</h1>
+<div>
+<p>This chapter explains how to use Oracle XQuery for Hadoop to extract and transform large volumes of semistructured data. It contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="oxh.htm#GUID-7E5A2BB0-DAAA-4188-A990-1826FD5CEF00">What Is Oracle XQuery for Hadoop?</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-B7018472-74E5-4499-AAF3-B4CB3A312015">Getting Started With Oracle XQuery for Hadoop</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-AA060012-974A-43AC-81D8-96CCC2B6723C">About the Oracle XQuery for Hadoop Functions</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-AC9E88E4-CC2E-4FA2-B029-5C917F0D75CB">Creating an XQuery Transformation</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-43ECAEB3-176F-413C-BFA5-BE35F2692E54">Running Queries</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-2A58FB5A-3B92-45B9-9246-CA925703D744">Running Queries from Apache Oozie</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-A98B2F83-05B1-487C-B1C5-580D675155C2">Oracle XQuery for Hadoop Configuration Properties</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-408B921E-ED14-435E-9D80-87A2843BB245">Third-Party Licenses for Bundled Software</a></p>
+</li>
+</ul>
+</div>
+<a id="BDCUG528"></a><a id="BDCUG527"></a>
+<div class="props_rev_3"><a id="GUID-7E5A2BB0-DAAA-4188-A990-1826FD5CEF00"></a>
+<h2 id="BDCUG-GUID-7E5A2BB0-DAAA-4188-A990-1826FD5CEF00" class="sect2"><span class="enumeration_section">5.1</span> What Is Oracle XQuery for Hadoop?</h2>
+<div>
+<p>Oracle XQuery for Hadoop is a transformation engine for semistructured big data. Oracle XQuery for Hadoop runs transformations expressed in the XQuery language by translating them into a series of MapReduce jobs, which are executed in parallel on an Apache Hadoop cluster. You can focus on data movement and transformation logic, instead of the complexities of Java and MapReduce, without sacrificing scalability or performance.</p>
+<p>The input data can be located in a file system accessible through the Hadoop File System API, such as the Hadoop Distributed File System (HDFS), or stored in Oracle NoSQL Database. Oracle XQuery for Hadoop can write the transformation results to Hadoop files, Oracle NoSQL Database, or Oracle Database.</p>
+<p>Oracle XQuery for Hadoop also provides extensions to Apache Hive to support massive XML files.</p>
+<p>Oracle XQuery for Hadoop is based on mature industry standards including XPath, XQuery, and XQuery Update Facility. It is fully integrated with other Oracle products, which enables Oracle XQuery for Hadoop to:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Load data efficiently into Oracle Database using Oracle Loader for Hadoop.</p>
+</li>
+<li>
+<p>Provide read and write support to Oracle NoSQL Database.</p>
+</li>
+</ul>
+<p>The following figure provides an overview of the data flow using Oracle XQuery for Hadoop.</p>
+<div class="figure" id="GUID-7E5A2BB0-DAAA-4188-A990-1826FD5CEF00__CBACIIFB">
+<p class="titleinfigure">Figure 5-1 Oracle XQuery for Hadoop Data Flow</p>
+<img width="626" height="876" src="img/GUID-23FD8041-AAFD-4848-AA6A-A3280A90F034-default.png" alt="Description of Figure 5-1 follows" title="Description of Figure 5-1 follows" /><br />
+<a href="img_text/GUID-23FD8041-AAFD-4848-AA6A-A3280A90F034-print.htm">Description of "Figure 5-1 Oracle XQuery for Hadoop Data Flow"</a></div>
+<!-- class="figure" --></div>
+</div>
+<a id="BDCUG529"></a>
+<div class="props_rev_3"><a id="GUID-B7018472-74E5-4499-AAF3-B4CB3A312015"></a>
+<h2 id="BDCUG-GUID-B7018472-74E5-4499-AAF3-B4CB3A312015" class="sect2"><span class="enumeration_section">5.2</span> Getting Started With Oracle XQuery for Hadoop</h2>
+<div>
+<p>Oracle XQuery for Hadoop is designed for use by XQuery developers. If you are already familiar with XQuery, then you are ready to begin. However, if you are new to XQuery, then you must first acquire the basics of the language. This guide does not attempt to cover this information.</p>
+<div class="infoboxnotealso" id="GUID-B7018472-74E5-4499-AAF3-B4CB3A312015__GUID-52561F7F-57C0-4E08-B2FE-C3EAD41B6827">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span><cite>XQuery Tutorial</cite> at <a href="http://www.w3schools.com/xml/xquery_intro.asp" target="_blank"><code class="codeph">http://www.w3schools.com/xml/xquery_intro.asp</code></a></span></p>
+</li>
+<li>
+<p><span><cite>XQuery 3.1: An XML Query Language</cite> at <a href="https://www.w3.org/TR/xquery-31/" target="_blank"><code class="codeph">https://www.w3.org/TR/xquery-31/</code></a></span></p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDCUG740"></a>
+<div class="props_rev_3"><a id="GUID-47D02551-9D8F-4162-95BD-E2503C97F442"></a>
+<h3 id="BDCUG-GUID-47D02551-9D8F-4162-95BD-E2503C97F442" class="sect3"><span class="enumeration_section">5.2.1</span> Basic Steps</h3>
+<div>
+<div class="section">
+<p>Take the following basic steps when using Oracle XQuery for Hadoop:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>The first time you use Oracle XQuery for Hadoop, ensure that the software is installed and configured.</span>
+<div>
+<p>See <span class="q">"<a href="start.htm#GUID-1E70571A-EAF2-43BE-895E-F9A57AC37C04">Oracle XQuery for Hadoop Setup</a>."</span></p>
+</div>
+</li>
+<li class="stepexpand"><span>Log in to either a node in the Hadoop cluster or a system set up as a Hadoop client for the cluster.</span></li>
+<li class="stepexpand"><span>Create an XQuery transformation that uses the Oracle XQuery for Hadoop functions. It can use various adapters for input and output.</span>
+<div>
+<p>See <span class="q">"<a href="oxh.htm#GUID-AA060012-974A-43AC-81D8-96CCC2B6723C">About the Oracle XQuery for Hadoop Functions</a>"</span> and <span class="q">"<a href="oxh.htm#GUID-AC9E88E4-CC2E-4FA2-B029-5C917F0D75CB">Creating an XQuery Transformation</a>."</span></p>
+</div>
+</li>
+<li class="stepexpand"><span>Execute the XQuery transformation.</span>
+<div>
+<p>See <span class="q">"<a href="oxh.htm#GUID-43ECAEB3-176F-413C-BFA5-BE35F2692E54">Running Queries</a>."</span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BDCUG741"></a>
+<div class="props_rev_3"><a id="GUID-B861A415-6D77-4074-8464-5E7923925219"></a>
+<h3 id="BDCUG-GUID-B861A415-6D77-4074-8464-5E7923925219" class="sect3"><span class="enumeration_section">5.2.2</span> Example: Hello World!</h3>
+<div>
+<p>Follow these steps to create and run a simple query using Oracle XQuery for Hadoop:</p>
+<ol>
+<li>
+<p>Create a text file named <code class="codeph">hello.txt</code> in the current directory that contains the line <code class="codeph">Hello</code>.</p>
+<pre dir="ltr">
+$ echo "Hello" &gt; hello.txt
+</pre></li>
+<li>
+<p>Copy the file to HDFS:</p>
+<pre dir="ltr">
+$ hdfs dfs -copyFromLocal hello.txt
+ 
+</pre></li>
+<li>
+<p>Create a query file named <code class="codeph">hello.xq</code> in the current directory with the following content:</p>
+<pre dir="ltr">
+import module "oxh:text";
+for $line in text:collection("hello.txt")
+return text:put($line || " World!")
+ 
+</pre></li>
+<li>
+<p>Run the query:</p>
+<pre dir="ltr">
+$ <span class="bold">hadoop jar $OXH_HOME/lib/oxh.jar hello.xq -output ./myout -print</span>
+13/11/21 02:41:57 INFO hadoop.xquery: OXH: Oracle XQuery for Hadoop 4.2.0 ((build 4.2.0-cdh5.0.0-mr1 @mr2). Copyright (c) 2014, Oracle.  All rights reserved.
+13/11/21 02:42:01 INFO hadoop.xquery: Submitting map-reduce job "oxh:hello.xq#0" id="3593921f-c50c-4bb8-88c0-6b63b439572b.0", inputs=[hdfs://bigdatalite.localdomain:8020/user/oracle/hello.txt], output=myout
+     .
+     .
+     .
+ 
+</pre></li>
+<li>
+<p>Check the output file:</p>
+<pre dir="ltr">
+$ <span class="bold">hdfs dfs -cat ./myout/part-m-00000</span>
+Hello World!
+</pre></li>
+</ol>
+</div>
+</div>
+</div>
+<a id="BDCUG530"></a>
+<div class="props_rev_3"><a id="GUID-AA060012-974A-43AC-81D8-96CCC2B6723C"></a>
+<h2 id="BDCUG-GUID-AA060012-974A-43AC-81D8-96CCC2B6723C" class="sect2"><span class="enumeration_section">5.3</span> About the Oracle XQuery for Hadoop Functions</h2>
+<div>
+<p>Oracle XQuery for Hadoop reads from and writes to big data sets using collection and put functions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A <a id="d32903e291" class="indexterm-anchor"></a><span class="bold">collection function</span> reads data from Hadoop files or Oracle NoSQL Database as a collection of items. A Hadoop file is one that is accessible through the Hadoop File System API. On <span>Oracle Big Data Appliance</span> and most Hadoop clusters, this file system is Hadoop Distributed File System (HDFS).</p>
+</li>
+<li>
+<p>A <a id="d32903e304" class="indexterm-anchor"></a><span class="bold">put function</span> adds a single item to a data set stored in Oracle Database, Oracle NoSQL Database, or a Hadoop file.</p>
+</li>
+</ul>
+<p>The following is a simple example of an Oracle XQuery for Hadoop query that reads items from one source and writes to another:</p>
+<pre dir="ltr">
+for $x in collection(...)
+return put($x)
+</pre>
+<p>Oracle XQuery for Hadoop comes with a set of adapters that you can use to define put and collection functions for specific formats and sources. Each adapter has two components:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A set of built-in put and collection functions that are predefined for your convenience.</p>
+</li>
+<li>
+<p>A set of XQuery function annotations that you can use to define custom put and collection functions.</p>
+</li>
+</ul>
+<p>Other commonly used functions are also included in Oracle XQuery for Hadoop.</p>
+</div>
+<a id="BDCUG770"></a>
+<div class="props_rev_3"><a id="GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC"></a>
+<h3 id="BDCUG-GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC" class="sect3"><span class="enumeration_section">5.3.1</span> About the Adapters</h3>
+<div>
+<p>Following are brief descriptions of the <a id="d32903e346" class="indexterm-anchor"></a>Oracle XQuery for Hadoop adapters.</p>
+<dl>
+<dt class="dlterm"><a id="GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC__GUID-526225B9-04ED-4C61-B69B-0AEB92B155B0"><!-- --></a>Avro File Adapter</dt>
+<dd>
+<p>The Avro file adapter provides access to Avro container files stored in HDFS. It includes collection and put functions for reading from and writing to Avro container files.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC__GUID-8FC9314F-2B39-42EC-BAD9-E1B6FDF25004"><!-- --></a>JSON File Adapter</dt>
+<dd>
+<p>The JSON file adapter provides access to JSON files stored in HDFS. It contains a collection function for reading JSON files, and a group of helper functions for parsing JSON data directly. You must use another adapter to write the output.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC__GUID-06405620-887E-4FDE-BBD0-82EBC1C0836D"><!-- --></a>Oracle Database Adapter</dt>
+<dd>
+<p>The Oracle Database adapter loads data into Oracle Database. This adapter supports a custom put function for direct output to a table in an Oracle database using JDBC or OCI. If a live connection to the database is not available, the adapter also supports output to Data Pump or delimited text files in HDFS; the files can be loaded into the Oracle database with a different utility, such as SQL*Loader, or using external tables. This adapter does not move data out of the database, and therefore does not have collection or get functions.</p>
+<p>See <span class="q">"<a href="start.htm#GUID-7C8CCFD8-E8A9-42EF-8659-B550012B25EE">Software Requirements</a>"</span> for the supported versions of Oracle Database.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC__GUID-6096962F-1A3A-4EC0-9D4F-31D9AF0FEDA9"><!-- --></a>Oracle NoSQL Database Adapter</dt>
+<dd>
+<p>The Oracle NoSQL Database adapter provides access to data stored in Oracle NoSQL Database. The data can be read from or written as Table, Avro, XML, binary XML, or text. This adapter includes collection, get, and put functions.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC__GUID-F12E5982-6260-4A15-BB99-601B6DF21D61"><!-- --></a>Sequence File Adapter</dt>
+<dd>
+<p>The sequence file adapter provides access to Hadoop sequence files. A sequence file is a Hadoop format composed of key-value pairs.</p>
+<p>This adapter includes collection and put functions for reading from and writing to HDFS sequence files that contain text, XML, or binary XML.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC__GUID-E2024174-E9F0-45BE-804D-2B81E2538191"><!-- --></a>Solr Adapter</dt>
+<dd>
+<p>The Solr adapter provides functions to create full-text indexes and load them into Apache Solr servers.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC__GUID-A911E0B3-B20B-4061-9D89-C9694F7104B9"><!-- --></a>Text File Adapter</dt>
+<dd>
+<p>The text file adapter provides access to text files, such as CSV files. It contains collection and put functions for reading from and writing to text files.</p>
+<p>The JSON file adapter extends the support for JSON objects stored in text files.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC__GUID-9AC7F381-108F-4273-85F4-048B5E05B323"><!-- --></a>XML File Adapter</dt>
+<dd>
+<p>The XML file adapter provides access to XML files stored in HDFS. It contains collection functions for reading large XML files. You must use another adapter to write the output.</p>
+</dd>
+</dl>
+</div>
+<div>
+<div class="relinfo">
+<p><strong>Related Topics</strong></p>
+<ul>
+<li><a href="oxh_ref.htm#GUID-2E501DE7-621C-4A69-A8A1-E5C4213A694D">Avro File Adapter</a></li>
+<li><a href="oxh_ref.htm#GUID-6F6BE3C3-B944-4B84-895A-00EF0CB7DE89">JSON File Adapter</a></li>
+<li><a href="oxh_ref.htm#GUID-45EAD813-5A24-4D95-9B7D-DA343A572EE9">Oracle Database Adapter</a></li>
+<li><a href="oxh_ref.htm#GUID-0FECDBE2-DA61-43DB-B2FD-F02C63EE4DF8">Oracle NoSQL Database Adapter</a></li>
+<li><a href="oxh_ref.htm#GUID-214695C5-3584-4058-BA2B-CC55401DF845">Sequence File Adapter</a></li>
+<li><a href="oxh_ref.htm#GUID-77FBEE8B-F850-4DF2-B618-CBD6B67E73DE">Solr Adapter</a></li>
+<li><a href="oxh_ref.htm#GUID-9E0B8917-D101-49A8-9EC9-00786B01C24C">Text File Adapter</a></li>
+<li><a href="oxh_ref.htm#GUID-C8085B84-9570-4F53-BA5E-E7EE13010130">XML File Adapter</a></li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BDCUG742"></a>
+<div class="props_rev_3"><a id="GUID-D090195C-D62D-4313-881B-61012EC857E7"></a>
+<h3 id="BDCUG-GUID-D090195C-D62D-4313-881B-61012EC857E7" class="sect3"><span class="enumeration_section">5.3.2</span> About Other Modules for Use With Oracle XQuery for Hadoop</h3>
+<div>
+<p>You can use functions from these additional modules in your queries:</p>
+<dl>
+<dt class="dlterm"><a id="GUID-D090195C-D62D-4313-881B-61012EC857E7__GUID-A553C944-025B-4604-9EA2-BC240DB13239"><!-- --></a>Standard XQuery Functions</dt>
+<dd>
+<p>The standard XQuery math functions are available.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D090195C-D62D-4313-881B-61012EC857E7__GUID-80E43EF6-8AA8-4B64-8E79-7DEA5CE487CB"><!-- --></a>Hadoop Functions</dt>
+<dd>
+<p>The Hadoop module is a group of functions that are specific to Hadoop.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D090195C-D62D-4313-881B-61012EC857E7__GUID-83CACD99-25D8-4249-A91B-D77DF9AE56C0"><!-- --></a>Duration, Date, and Time Functions</dt>
+<dd>
+<p>This group of functions parse duration, date, and time values.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D090195C-D62D-4313-881B-61012EC857E7__GUID-40F99A1E-0982-492B-897C-AC77BD89DBE0"><!-- --></a>String-Processing Functions</dt>
+<dd>
+<p>These functions add and remove white space that surrounds data values.</p>
+</dd>
+</dl>
+</div>
+<div>
+<div class="relinfo">
+<p><strong>Related Topics</strong></p>
+<ul>
+<li><a href="oxh.htm#GUID-529C3622-82A2-44A9-9C7B-94468B085D0D">About XQuery Language Support</a></li>
+<li><a href="oxh_ref.htm#GUID-969E3FF3-02E9-410E-80C6-746F5BBA7173">Hadoop Module</a></li>
+<li><a href="oxh_ref.htm#GUID-65FBF15D-D1FA-4648-89E4-C613295F2787" title="You can manipulate durations, dates, and times in XQuery using Oracle XQuery functions.">Oracle XQuery Functions for Duration, Date, and Time</a></li>
+<li><a href="oxh_ref.htm#GUID-F8F59CE8-C172-4C5E-BBC9-208332B96CC2" title="You can manipulate strings in XQuery using Oracle XQuery functions.">Oracle XQuery Functions for Strings</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<a id="BDCUG539"></a>
+<div class="props_rev_3"><a id="GUID-AC9E88E4-CC2E-4FA2-B029-5C917F0D75CB"></a>
+<h2 id="BDCUG-GUID-AC9E88E4-CC2E-4FA2-B029-5C917F0D75CB" class="sect2"><span class="enumeration_section">5.4</span> Creating an XQuery Transformation</h2>
+<div>
+<p>This chapter describes how to create XQuery transformations using Oracle XQuery for Hadoop. It contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="oxh.htm#GUID-B93E00B7-28D8-4CAB-9D63-821EFC0FEBA3">XQuery Transformation Requirements</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-529C3622-82A2-44A9-9C7B-94468B085D0D">About XQuery Language Support</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-A5520B53-50FB-424F-A382-1A5D49B05247">Accessing Data in the Hadoop Distributed Cache</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-3967C81E-8567-49EC-8989-9176C8C30D67">Calling Custom Java Functions from XQuery</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-162C16BC-6B06-459B-82C0-E58523489324">Accessing User-Defined XQuery Library Modules and XML Schemas</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A">XQuery Transformation Examples</a></p>
+</li>
+</ul>
+</div>
+<a id="BDCUG540"></a>
+<div class="props_rev_3"><a id="GUID-B93E00B7-28D8-4CAB-9D63-821EFC0FEBA3"></a>
+<h3 id="BDCUG-GUID-B93E00B7-28D8-4CAB-9D63-821EFC0FEBA3" class="sect3"><span class="enumeration_section">5.4.1</span> XQuery Transformation Requirements</h3>
+<div>
+<div class="section">
+<p><a id="d32903e608" class="indexterm-anchor"></a>You create a transformation for Oracle XQuery for Hadoop the same way as any other XQuery transformation, except that you must comply with these additional requirements:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The main XQuery expression (the query body) must be in one of the following forms:</p>
+<pre dir="ltr">
+FLWOR<sub>1</sub>
+</pre>
+<p><span class="italic">or</span></p>
+<pre dir="ltr">
+(FLWOR<sub>1</sub>, FLWOR<sub>2</sub>,... , FLWOR<sub>N</sub>)
+</pre>
+<p>In this syntax <a id="d32903e638" class="indexterm-anchor"></a>FLWOR is a top-level XQuery FLWOR expression "For, Let, Where, Order by, Return" expression.</p>
+</li>
+<li>
+<p>Each top-level FLWOR expression must have a <code class="codeph">for</code> clause that iterates over an Oracle XQuery for Hadoop <code class="codeph">collection</code> function. This <code class="codeph">for</code> clause cannot have a positional variable.</p>
+<p>See <a href="oxh_ref.htm#GUID-F84626F5-E1F9-4A2C-8369-2B426D7D7904" title="You can manipulate durations, dates, and times in XQuery using Oracle XQuery functions.The $format argument identifies the various fields that compose a date or time value. The $locale represents a specific geographic, political, or cultural region. You can manipulate strings in XQuery using Oracle XQuery functions.Adds padding characters to the left of a string to create a fixed-length string. If the input string exceeds the specified size, then it is truncated to return a substring of the specified length. The default padding character is a space (ASCII 32).Adds padding characters to the right of a string to create a fixed-length string. If the input string exceeds the specified size, then it is truncated to return a substring of the specified length. The default padding character is a space (ASCII 32).Removes any leading or trailing white space from a string.Removes any leading white space.Removes any trailing white space.">Oracle XQuery for Hadoop Reference</a> for the <code class="codeph">collection</code> functions.</p>
+</li>
+<li>
+<p>Each top-level FLWOR expression can have optional <code class="codeph">let</code>, <code class="codeph">where</code>, and <code class="codeph">group by</code> clauses. Other types of clauses are invalid, such as <code class="codeph">order by</code>, <code class="codeph">count</code>, and <code class="codeph">window</code> clauses.</p>
+</li>
+<li>
+<p>Each top-level FLWOR expression must return one or more results from calling an Oracle XQuery for Hadoop <code class="codeph">put</code> function. See <a href="oxh_ref.htm#GUID-F84626F5-E1F9-4A2C-8369-2B426D7D7904" title="You can manipulate durations, dates, and times in XQuery using Oracle XQuery functions.The $format argument identifies the various fields that compose a date or time value. The $locale represents a specific geographic, political, or cultural region. You can manipulate strings in XQuery using Oracle XQuery functions.Adds padding characters to the left of a string to create a fixed-length string. If the input string exceeds the specified size, then it is truncated to return a substring of the specified length. The default padding character is a space (ASCII 32).Adds padding characters to the right of a string to create a fixed-length string. If the input string exceeds the specified size, then it is truncated to return a substring of the specified length. The default padding character is a space (ASCII 32).Removes any leading or trailing white space from a string.Removes any leading white space.Removes any trailing white space.">Oracle XQuery for Hadoop Reference</a> for the <code class="codeph">put</code> functions.</p>
+</li>
+<li>
+<p>The query body must be an updating expression. Because all <code class="codeph">put</code> functions are classified as <a id="d32903e719" class="indexterm-anchor"></a>updating functions, all Oracle XQuery for Hadoop queries are updating queries.</p>
+<p>In Oracle XQuery for Hadoop, a <a id="d32903e724" class="indexterm-anchor"></a><a id="d32903e728" class="indexterm-anchor"></a><a id="d32903e730" class="indexterm-anchor"></a><code class="codeph">%*:put</code> annotation indicates that the function is updating. The <code class="codeph">%updating</code> annotation or <code class="codeph">updating</code> keyword is not required with it.</p>
+<div class="infoboxnotealso" id="GUID-B93E00B7-28D8-4CAB-9D63-821EFC0FEBA3__GUID-33226F9B-38BE-4233-8CAF-7673735EDF58">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>"FLWOR Expressions" in <span><cite>XQuery 3.1: An XML Query Language</cite> at <a href="https://www.w3.org/TR/xquery-31/#id-flwor-expressions" target="_blank"><code class="codeph">https://www.w3.org/TR/xquery-31/#id-flwor-expressions</code></a></span></p>
+</li>
+<li>
+<p>For a description of updating expressions, "Extensions to XQuery 1.0" in <span><cite>W3C XQuery Update Facility 1.0</cite> at <a href="http://www.w3.org/TR/xquery-update-10/#dt-updating-expression" target="_blank"><code class="codeph">http://www.w3.org/TR/xquery-update-10/#dt-updating-expression</code></a></span></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG541"></a>
+<div class="props_rev_3"><a id="GUID-529C3622-82A2-44A9-9C7B-94468B085D0D"></a>
+<h3 id="BDCUG-GUID-529C3622-82A2-44A9-9C7B-94468B085D0D" class="sect3"><span class="enumeration_section">5.4.2</span> About XQuery Language Support</h3>
+<div>
+<p><a id="d32903e784" class="indexterm-anchor"></a>Oracle XQuery for Hadoop supports W3C XQuery 3.1, except for the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>FLWOR window clause</p>
+</li>
+<li>
+<p>FLWOR count clause</p>
+</li>
+<li>
+<p>namespace constructors</p>
+</li>
+<li>
+<p>fn:parse-ietf-date</p>
+</li>
+<li>
+<p>fn:transform</p>
+</li>
+<li>
+<p>higher order XQuery functions</p>
+</li>
+</ul>
+<p>For the language, see W3C <span><cite>XQuery 3.1: An XML Query Language</cite> at <a href="https://www.w3.org/TR/xquery-31/" target="_blank"><code class="codeph">https://www.w3.org/TR/xquery-31/</code></a></span>.</p>
+<p>For the functions, see <span class="italic">W3C</span> <span><cite>XPath and XQuery Functions and Operators</cite> at <a href="https://www.w3.org/TR/xpath-functions-31/" target="_blank"><code class="codeph">https://www.w3.org/TR/xpath-functions-31/</code></a></span>.</p>
+</div>
+</div>
+<a id="BDCUG542"></a>
+<div class="props_rev_3"><a id="GUID-A5520B53-50FB-424F-A382-1A5D49B05247"></a>
+<h3 id="BDCUG-GUID-A5520B53-50FB-424F-A382-1A5D49B05247" class="sect3"><span class="enumeration_section">5.4.3</span> Accessing Data in the Hadoop Distributed Cache</h3>
+<div>
+<p>You can use the Hadoop <a id="d32903e852" class="indexterm-anchor"></a><a id="d32903e856" class="indexterm-anchor"></a>distributed cache facility to access auxiliary job data. This mechanism can be useful in a join query when one side is a relatively small file. The query might execute faster if the smaller file is accessed from the distributed cache.</p>
+<p>To place a file into the distributed cache, use the <code class="codeph">-files</code> Hadoop command line option when calling Oracle XQuery for Hadoop. For a query to read a file from the distributed cache, it must call the <code class="codeph">fn:doc</code> function for XML, and either <code class="codeph">fn:unparsed-text</code> or <code class="codeph">fn:unparsed-text-lines</code> for text files. See <a href="oxh.htm#GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__BHBGJJIA">Example 5-7</a>.</p>
+</div>
+</div>
+<a id="BDCUG543"></a>
+<div class="props_rev_3"><a id="GUID-3967C81E-8567-49EC-8989-9176C8C30D67"></a>
+<h3 id="BDCUG-GUID-3967C81E-8567-49EC-8989-9176C8C30D67" class="sect3"><span class="enumeration_section">5.4.4</span> Calling Custom Java Functions from XQuery</h3>
+<div>
+<p><a id="d32903e896" class="indexterm-anchor"></a>Oracle XQuery for Hadoop is extensible with custom external functions implemented in the Java language. A Java implementation must be a static method with the parameter and return types as defined by the <span class="italic">XQuery API for Java (XQJ)</span> specification.</p>
+<p>A custom Java function binding is defined in Oracle XQuery for Hadoop by annotating an external function definition with the <a id="d32903e906" class="indexterm-anchor"></a><a id="d32903e910" class="indexterm-anchor"></a><code class="codeph">%ora-java:binding</code> annotation. This annotation has the following syntax:</p>
+<pre dir="ltr">
+%ora-java:binding("<span class="italic">java.class.name</span><span class="italic">[#method]</span>")
+</pre>
+<dl>
+<dt class="dlterm"><a id="GUID-3967C81E-8567-49EC-8989-9176C8C30D67__GUID-1E64D9D9-414A-4B74-BE68-2164213F0257"><!-- --></a>java.class.name</dt>
+<dd>
+<p>The fully qualified name of a Java class that contains the implementation method.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-3967C81E-8567-49EC-8989-9176C8C30D67__GUID-EB863630-3B38-4404-A808-E0BE131FF096"><!-- --></a>method</dt>
+<dd>
+<p>A Java method name. It defaults to the XQuery function name. Optional.</p>
+</dd>
+</dl>
+<p>See <a href="oxh.htm#GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__BHBJDDEB">Example 5-8</a> for an example of <code class="codeph">%ora-java:binding</code>.</p>
+<p>All JAR files that contain custom Java functions must be listed in the <code class="codeph">-libjars</code> command line option. For example:</p>
+<pre dir="ltr">
+hadoop jar $OXH_HOME/lib/oxh.jar -libjars myfunctions.jar query.xq
+</pre>
+<div class="infoboxnotealso" id="GUID-3967C81E-8567-49EC-8989-9176C8C30D67__GUID-9FE762B7-4605-48F4-96D3-86567220D47F">
+<p class="notep1">See Also:</p>
+<p>"XQuery API for Java (XQJ)" at</p>
+<p><a href="http://www.jcp.org/en/jsr/detail?id=225" target="_blank"><code class="codeph">http://www.jcp.org/en/jsr/detail?id=225</code></a></p>
+</div>
+</div>
+</div>
+<a id="BDCUG544"></a>
+<div class="props_rev_3"><a id="GUID-162C16BC-6B06-459B-82C0-E58523489324"></a>
+<h3 id="BDCUG-GUID-162C16BC-6B06-459B-82C0-E58523489324" class="sect3"><span class="enumeration_section">5.4.5</span> Accessing User-Defined XQuery Library Modules and XML Schemas</h3>
+<div>
+<div class="section">
+<p>Oracle XQuery for Hadoop supports <a id="d32903e980" class="indexterm-anchor"></a><a id="d32903e984" class="indexterm-anchor"></a><a id="d32903e988" class="indexterm-anchor"></a>user-defined XQuery library modules and XML schemas when you comply with these criteria:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Locate the library module or XML schema file in the same directory where the main query resides on the client calling Oracle XQuery for Hadoop.</p>
+</li>
+<li>
+<p>Import the library module or XML schema from the main query using the location URI parameter of the <code class="codeph">import module</code> or <code class="codeph">import schema</code> statement.</p>
+</li>
+<li>
+<p>Specify the library module or XML schema file in the <code class="codeph">-files</code> command line option when calling Oracle XQuery for Hadoop.</p>
+</li>
+</ul>
+<p>For an example of using user-defined XQuery library modules and XML schemas, see <a href="oxh.htm#GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__BHBJAJEH">Example 5-9</a>.</p>
+<div class="infoboxnotealso" id="GUID-162C16BC-6B06-459B-82C0-E58523489324__GUID-CD483409-2900-46E7-B7EE-A3457A66FB44">
+<p class="notep1">See Also:</p>
+<p>"Location URIs" in <span><cite>XQuery 3.1: An XML Query Language</cite> at <a href="https://www.w3.org/TR/xquery-31/" target="_blank"><code class="codeph">https://www.w3.org/TR/xquery-31/</code></a></span></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG1048"></a><a id="BDCUG1049"></a><a id="BDCUG1050"></a><a id="BDCUG1051"></a><a id="BDCUG1052"></a><a id="BDCUG1053"></a><a id="BDCUG1054"></a><a id="BDCUG1055"></a><a id="BDCUG1056"></a><a id="BDCUG545"></a>
+<div class="props_rev_3"><a id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A"></a>
+<h3 id="BDCUG-GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A" class="sect3"><span class="enumeration_section">5.4.6</span> XQuery Transformation Examples</h3>
+<div>
+<div class="section">
+<p>For these examples, the following text files are in HDFS. The files contain a log of visits to different web pages. Each line represents a visit to a web page and contains the time, user name, page visited, and the status code.</p>
+<pre dir="ltr">
+mydata/visits1.log  
+ 
+2013-10-28T06:00:00, john, index.html, 200
+2013-10-28T08:30:02, kelly, index.html, 200
+2013-10-28T08:32:50, kelly, about.html, 200
+2013-10-30T10:00:10, mike, index.html, 401
+ 
+mydata/visits2.log  
+ 
+2013-10-30T10:00:01, john, index.html, 200
+2013-10-30T10:05:20, john, about.html, 200
+2013-11-01T08:00:08, laura, index.html, 200
+2013-11-04T06:12:51, kelly, index.html, 200
+2013-11-04T06:12:40, kelly, contact.html, 200
+</pre></div>
+<!-- class="section" -->
+<div class="example" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__GUID-0B6F770B-B238-4A34-BDCB-307F60B622CE">
+<p class="titleinexample">Example 5-1 Basic Filtering</p>
+<p>This query filters out pages visited by user <code class="codeph">kelly</code> and writes those files into a text file:</p>
+<pre dir="ltr">
+import module "oxh:text";
+
+for $line in text:collection("mydata/visits*.log")
+let $split := fn:tokenize($line, "\s*,\s*")
+where $split[2] eq "kelly"
+return text:put($line)
+</pre>
+<p>The query creates text files in the output directory that contain the following lines:</p>
+<pre dir="ltr">
+2013-11-04T06:12:51, kelly, index.html, 200
+2013-11-04T06:12:40, kelly, contact.html, 200
+2013-10-28T08:30:02, kelly, index.html, 200
+2013-10-28T08:32:50, kelly, about.html, 200
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__GUID-CEC67174-ED56-4F18-BC3E-70335819203A">
+<p class="titleinexample">Example 5-2 Group By and Aggregation</p>
+<p>The next query computes the number of page visits per day:</p>
+<pre dir="ltr">
+import module "oxh:text";
+ 
+for $line in text:collection("mydata/visits*.log")
+let $split := fn:tokenize($line, "\s*,\s*")
+let $time := xs:dateTime($split[1])
+let $day := xs:date($time)
+group by $day
+return text:put($day || " =&gt; " || fn:count($line))
+ 
+</pre>
+<p>The query creates text files that contain the following lines:</p>
+<pre dir="ltr">
+2013-10-28 =&gt; 3
+2013-10-30 =&gt; 3
+2013-11-01 =&gt; 1
+2013-11-04 =&gt; 2
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__BHBEAIBG">
+<p class="titleinexample">Example 5-3 Inner Joins</p>
+<p>This example queries the following text file in HDFS, in addition to the other files. The file contains user profile information such as user ID, full name, and age, separated by colons (:).</p>
+<pre dir="ltr">
+mydata/users.txt  
+ 
+john:John Doe:45
+kelly:Kelly Johnson:32
+laura:Laura Smith:
+phil:Phil Johnson:27
+</pre>
+<p>The following query performs a join between <code class="codeph">users.txt</code> and the log files. It computes how many times users older than 30 visited each page.</p>
+<pre dir="ltr">
+import module "oxh:text";
+ 
+for $userLine in text:collection("mydata/users.txt")
+let $userSplit := fn:tokenize($userLine, "\s*:\s*")
+let $userId := $userSplit[1]
+let $userAge := xs:integer($userSplit[3][. castable as xs:integer])
+ 
+for $visitLine in text:collection("mydata/visits*.log")
+let $visitSplit := fn:tokenize($visitLine, "\s*,\s*")
+let $visitUserId := $visitSplit[2]
+where $userId eq $visitUserId and $userAge gt 30
+group by $page := $visitSplit[3]
+return text:put($page || " " || fn:count($userLine))
+ 
+</pre>
+<p>The query creates text files that contain the following lines:</p>
+<pre dir="ltr">
+about.html 2
+contact.html 1
+index.html 4
+</pre>
+<p>The next query computes the number of visits for each user who visited any page; it omits users who never visited any page.</p>
+<pre dir="ltr">
+import module "oxh:text";
+ 
+for $userLine in text:collection("mydata/users.txt")
+let $userSplit := fn:tokenize($userLine, "\s*:\s*")
+let $userId := $userSplit[1]
+ 
+for $visitLine in text:collection("mydata/visits*.log")
+   [$userId eq fn:tokenize(., "\s*,\s*")[2]]
+ 
+group by $userId
+return text:put($userId || " " || fn:count($visitLine))
+ 
+</pre>
+<p>The query creates text files that contain the following lines:</p>
+<pre dir="ltr">
+john 3
+kelly 4
+laura 1
+</pre></div>
+<!-- class="example" -->
+<div class="section">
+<div class="infobox-note" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__GUID-A30A5C1E-FA3F-455B-BD1A-32EFF2ECF946">
+<p class="notep1">Note:</p>
+<p>When the results of two collection functions are joined, only equijoins are supported. If one or both sources are not from a <code class="codeph">collection</code> function, then any join condition is allowed.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__GUID-646A8D03-7A07-4472-B13D-D66428469D06">
+<p class="titleinexample">Example 5-4 Left Outer Joins</p>
+<p>This example is similar to the second query in <a href="oxh.htm#GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__BHBEAIBG">Example 5-3</a>, but also counts users who did not visit any page.</p>
+<pre dir="ltr">
+import module "oxh:text";
+ 
+for $userLine in text:collection("mydata/users.txt")
+let $userSplit := fn:tokenize($userLine, "\s*:\s*")
+let $userId := $userSplit[1]
+ 
+for $visitLine allowing empty in text:collection("mydata/visits*.log")
+   [$userId eq fn:tokenize(., "\s*,\s*")[2]]
+ 
+group by $userId
+return text:put($userId || " " || fn:count($visitLine))
+</pre>
+<p>The query creates text files that contain the following lines:</p>
+<pre dir="ltr">
+john 3
+kelly 4
+laura 1
+phil 0
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__GUID-5CBEC732-BAF9-45B2-837C-6328A15D2E44">
+<p class="titleinexample">Example 5-5 Semijoins</p>
+<p>The next query finds users who have ever visited a page:</p>
+<pre dir="ltr">
+import module "oxh:text";
+ 
+for $userLine in text:collection("mydata/users.txt")
+let $userId := fn:tokenize($userLine, "\s*:\s*")[1]
+ 
+where some $visitLine in text:collection("mydata/visits*.log")
+satisfies $userId eq fn:tokenize($visitLine, "\s*,\s*")[2]
+ 
+return text:put($userId)
+ 
+</pre>
+<p>The query creates text files that contain the following lines:</p>
+<pre dir="ltr">
+john
+kelly
+laura
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__GUID-0E1C07B4-6889-4F60-A40C-F0FA4982DFFC">
+<p class="titleinexample">Example 5-6 Multiple Outputs</p>
+<p>The next query finds web page visits with a 401 code and writes them to <code class="codeph">trace*</code> files using the XQuery <code class="codeph">text:trace()</code> function. It writes the remaining visit records into the default output files.</p>
+<pre dir="ltr">
+import module "oxh:text";
+ 
+for $visitLine in text:collection("mydata/visits*.log")
+let $visitCode := xs:integer(fn:tokenize($visitLine, "\s*,\s*")[4])
+return if ($visitCode eq 401) then text:trace($visitLine) else text:put($visitLine)
+ 
+</pre>
+<p>The query generates a <code class="codeph">trace*</code> text file that contains the following line:</p>
+<pre dir="ltr">
+2013-10-30T10:00:10, mike, index.html, 401
+</pre>
+<p>The query also generates default output files that contain the following lines:</p>
+<pre dir="ltr">
+2013-10-30T10:00:01, john, index.html, 200
+2013-10-30T10:05:20, john, about.html, 200
+2013-11-01T08:00:08, laura, index.html, 200
+2013-11-04T06:12:51, kelly, index.html, 200
+2013-11-04T06:12:40, kelly, contact.html, 200
+2013-10-28T06:00:00, john, index.html, 200
+2013-10-28T08:30:02, kelly, index.html, 200
+2013-10-28T08:32:50, kelly, about.html, 200
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__BHBGJJIA">
+<p class="titleinexample">Example 5-7 Accessing Auxiliary Input Data</p>
+<p>The next query is an alternative version of the second query in <a href="oxh.htm#GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__BHBEAIBG">Example 5-3</a>, but it uses the <code class="codeph">fn:unparsed-text-lines</code> function to access a file in the Hadoop distributed cache:</p>
+<pre dir="ltr">
+import module "oxh:text";
+ 
+for $visitLine in text:collection("mydata/visits*.log")
+let $visitUserId := fn:tokenize($visitLine, "\s*,\s*")[2]
+ 
+for $userLine in fn:unparsed-text-lines("users.txt")
+let $userSplit := fn:tokenize($userLine, "\s*:\s*")
+let $userId := $userSplit[1]
+ 
+where $userId eq $visitUserId
+ 
+group by $userId
+return text:put($userId || " " || fn:count($visitLine))
+ 
+</pre>
+<p>The <code class="codeph">hadoop</code> command to run the query must use the Hadoop <code class="codeph">-files</code> option. See <span class="q">"<a href="oxh.htm#GUID-A5520B53-50FB-424F-A382-1A5D49B05247">Accessing Data in the Hadoop Distributed Cache</a>."</span></p>
+<pre dir="ltr">
+hadoop jar $OXH_HOME/lib/oxh.jar -files users.txt query.xq
+</pre>
+<p>The query creates text files that contain the following lines:</p>
+<pre dir="ltr">
+john 3
+kelly 4
+laura 1
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__BHBJDDEB">
+<p class="titleinexample">Example 5-8 Calling a Custom Java Function from XQuery</p>
+<p>The next query formats input data using the <code class="codeph">java.lang.String#format</code> method.</p>
+<pre dir="ltr">
+import module "oxh:text";
+ 
+declare %ora-java:binding("java.lang.String#format")
+   function local:string-format($pattern as xs:string, $data as xs:anyAtomicType*) as xs:string external;
+ 
+for $line in text:collection("mydata/users*.txt")
+let $split := fn:tokenize($line, "\s*:\s*")
+return text:put(local:string-format("%s,%s,%s", $split))
+ 
+</pre>
+<p>The query creates text files that contain the following lines:</p>
+<pre dir="ltr">
+john,John Doe,45
+kelly,Kelly Johnson,32
+laura,Laura Smith,
+phil,Phil Johnson,27
+</pre></div>
+<!-- class="example" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__GUID-6FE8F73F-947B-414D-9721-698F3DC6F2B2">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Java Platform Standard Edition 7 API Specification</span> for <span><cite>Class String</cite> at <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#format(java.lang.String,%20java.lang.Object...)" target="_blank"><code class="codeph">http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#format(java.lang.String, java.lang.Object...)</code></a></span></p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__BHBJAJEH">
+<p class="titleinexample">Example 5-9 Using User-Defined XQuery Library Modules and XML Schemas</p>
+<p>This example uses a library module named <code class="codeph">mytools.xq</code>:</p>
+<pre dir="ltr">
+module namespace mytools = "urn:mytools";
+ 
+declare %ora-java:binding("java.lang.String#format")
+   function mytools:string-format($pattern as xs:string, $data as xs:anyAtomicType*) as xs:string external;
+ 
+</pre>
+<p>The next query is equivalent to the previous one, but it calls a string-format function from the <code class="codeph">mytools.xq</code> library module:</p>
+<pre dir="ltr">
+import module namespace mytools = "urn:mytools" at "mytools.xq";
+import module "oxh:text";
+ 
+for $line in text:collection("mydata/users*.txt")
+let $split := fn:tokenize($line, "\s*:\s*")
+return text:put(mytools:string-format("%s,%s,%s", $split))
+ 
+</pre>
+<p>The query creates text files that contain the following lines:</p>
+<pre dir="ltr">
+john,John Doe,45
+kelly,Kelly Johnson,32
+laura,Laura Smith,
+phil,Phil Johnson,27
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A__FILTERINGDIRTYDATAUSINGATRYCATCHEXP-07CEC98B">
+<p class="titleinexample">Example 5-10 Filtering Dirty Data Using a Try/Catch Expression</p>
+<p>The XQuery try/catch expression can be used to broadly handle cases where input data is in an unexpected form, corrupted, or missing. &nbsp;The next query finds reads an input file, ages.txt, that contains a username followed by the user&rsquo;s age. &nbsp;</p>
+<pre dir="ltr">
+USER      AGE
+------------------
+john    45
+kelly
+laura   36
+phil    OLD!
+</pre>
+<p>Notice that the first two lines of this file contain header text and that the entries for Kelly and Phil have missing and dirty age values. &nbsp;For each user in this file, the query writes out the user name and whether the user is over 40 or not.&nbsp;</p>
+<pre dir="ltr">
+import module "oxh:text";
+
+for $line in text:collection("ages.txt")
+let $split := fn:tokenize($line, "\s+")
+return
+   try {
+
+      let $user := $split[1]
+      let $age := $split[2] cast as xs:integer
+      return
+        if ($age gt 40) then
+          text:put($user || " is over 40")
+        else 
+          text:put($user || " is not over 40")
+
+   } catch * {
+      text:trace($err:code || " : " || $line)
+   }
+</pre>
+<p>The query generates an output&nbsp;text file that contains the following lines:</p>
+<pre dir="ltr">
+john is over 40
+laura is not over 40
+</pre>
+<p>The query also generates a&nbsp;trace*&nbsp;file that contains the following lines:</p>
+<pre dir="ltr">
+err:FORG0001 : USER        AGE
+err:XPTY0004 : ------------------
+err:XPTY0004 : kelly
+err:FORG0001 : phil        OLD!
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<a id="BDCUG555"></a>
+<div class="props_rev_3"><a id="GUID-43ECAEB3-176F-413C-BFA5-BE35F2692E54"></a>
+<h2 id="BDCUG-GUID-43ECAEB3-176F-413C-BFA5-BE35F2692E54" class="sect2"><span class="enumeration_section">5.5</span> Running Queries</h2>
+<div>
+<p><a id="d32903e1295" class="indexterm-anchor"></a><a id="d32903e1299" class="indexterm-anchor"></a><a id="d32903e1303" class="indexterm-anchor"></a>To run a query, call the <code class="codeph">oxh</code> utility using the <code class="codeph">hadoop jar</code> command. The following is the basic syntax:</p>
+<pre dir="ltr">
+hadoop jar $OXH_HOME/lib/oxh.jar [<span class="italic">generic options</span>] <span class="italic">query</span>.xq -output <span class="italic">directory</span> [-clean] [-ls] [-print] [<span class="italic">-sharelib</span> hdfs_dir][-skiperrors] [-version]
+</pre></div>
+<a id="BDCUG743"></a>
+<div class="props_rev_3"><a id="GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B"></a>
+<h3 id="BDCUG-GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B" class="sect3"><span class="enumeration_section">5.5.1</span> Oracle XQuery for Hadoop Options</h3>
+<div>
+<dl>
+<dt class="dlterm"><a id="GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B__GUID-C458F8E7-DB35-4BDC-BF21-AC861681A750"><!-- --></a><span class="italic">query</span>.xq</dt>
+<dd>
+<p>Identifies the XQuery file. See <span class="q">"<a href="oxh.htm#GUID-AC9E88E4-CC2E-4FA2-B029-5C917F0D75CB">Creating an XQuery Transformation</a>."</span></p>
+</dd>
+<dt class="dlterm"><a id="GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B__GUID-9903854B-CFFF-4FA8-9D5E-910055D1D463"><!-- --></a>-clean</dt>
+<dd>
+<p>Deletes all files from the output directory before running the query. If you use the default directory, Oracle XQuery for Hadoop always cleans the directory, even when this option is omitted.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B__GUID-BCF3C891-C672-41B3-903C-AE7395781E28"><!-- --></a>-exportliboozie <span class="italic">directory</span></dt>
+<dd>
+<p>Copies Oracle XQuery for Hadoop dependencies to the specified directory. Use this option to add Oracle XQuery for Hadoop to the Hadoop distributed cache and the Oozie shared library. External dependencies are also copied, so ensure that environment variables such as <code class="codeph">KVHOME</code>, <code class="codeph">OLH_HOME</code>, and <code class="codeph">OXH_SOLR_MR_HOME</code> are set for use by the related adapters (Oracle NoSQL Database, Oracle Database, and Solr).</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B__GUID-66503D96-716A-494C-A63F-B9BA21B2647A"><!-- --></a>-ls</dt>
+<dd>
+<p>Lists the contents of the output directory after the query executes.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B__GUID-98427091-9A40-4119-B05B-9A827BC10397"><!-- --></a>-output <span class="italic">directory</span></dt>
+<dd>
+<p>Specifies the output directory of the query. The put functions of the file adapters create files in this directory. Written values are spread across one or more files. The number of files created depends on how the query is distributed among tasks. The default output directory is <code class="codeph">/tmp/oxh-</code><span class="italic"><code class="codeph">user_name</code></span><code class="codeph">/output</code>.</p>
+<p>See <span class="q">"<a href="oxh.htm#GUID-AA060012-974A-43AC-81D8-96CCC2B6723C">About the Oracle XQuery for Hadoop Functions</a>"</span> for a description of put functions.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B__GUID-C3DA9157-3D01-4EFB-84C8-CFE6700FD749"><!-- --></a>-print</dt>
+<dd>
+<p>Prints the contents of all files in the output directory to the standard output (your screen). When printing Avro files, each record prints as JSON text.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B__GUID-13C13195-E9FE-41F9-BE0A-B5F3EF7A8DF9"><!-- --></a>-sharelib hdfs_dir</dt>
+<dd>
+<p>Specifies the HDFS folder location containing Oracle XQuery for Hadoop and third-party libraries.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B__GUID-9CC8895F-BB56-48CC-B4B4-A82FC6799F0F"><!-- --></a>-skiperrors</dt>
+<dd>
+<p>Turns on error recovery, so that an error does not halt processing.</p>
+<p>All errors that occur during query processing are counted, and the total is logged at the end of the query. The error messages of the first 20 errors per task are also logged. See these configuration properties:</p>
+<ul class="simple" style="list-style-type: none;padding-left:0;">
+<li><code class="codeph"><a href="oxh.htm#GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__BABJIDDA">oracle.hadoop.xquery.skiperrors.counters</a></code></li>
+<li><code class="codeph"><a href="oxh.htm#GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__BABIBEEG">oracle.hadoop.xquery.skiperrors.max</a></code></li>
+<li><code class="codeph"><a href="oxh.htm#GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__BABDDAEB">oracle.hadoop.xquery.skiperrors.log.max</a></code></li>
+</ul>
+</dd>
+<dt class="dlterm"><a id="GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B__GUID-C5058F88-6E54-4269-855A-7E97313D3E38"><!-- --></a>-version</dt>
+<dd>
+<p>Displays the Oracle XQuery for Hadoop version and exits without running a query.</p>
+</dd>
+</dl>
+</div>
+</div>
+<a id="BDCUG744"></a>
+<div class="props_rev_3"><a id="GUID-6F7FDEB0-B55F-468A-B103-08C39BB3998C"></a>
+<h3 id="BDCUG-GUID-6F7FDEB0-B55F-468A-B103-08C39BB3998C" class="sect3"><span class="enumeration_section">5.5.2</span> Generic Options</h3>
+<div>
+<p>You can include any generic <code class="codeph">hadoop</code> command-line option. Oracle XQuery for Hadoop implements the <code class="codeph">org.apache.hadoop.util.Tool</code> interface and follows the standard Hadoop methods for building MapReduce applications.</p>
+<p>The following generic options are commonly used with Oracle XQuery for Hadoop:</p>
+<dl>
+<dt class="dlterm"><a id="GUID-6F7FDEB0-B55F-468A-B103-08C39BB3998C__GUID-A423686B-605D-479C-9D64-B20A20DC78DA"><!-- --></a>-conf <span class="italic">job_config</span>.xml</dt>
+<dd>
+<p>Identifies the job configuration file. See <span class="q">"<a href="oxh.htm#GUID-A98B2F83-05B1-487C-B1C5-580D675155C2">Oracle XQuery for Hadoop Configuration Properties</a>."</span></p>
+<p>When you work with the Oracle Database or Oracle NoSQL Database adapters, you can set various job properties in this file. See <span class="q">"<a href="oxh_ref.htm#GUID-FFF7CD75-28B6-4AEE-BEDC-293026CE7626">Oracle Loader for Hadoop Configuration Properties and Corresponding %oracle-property Annotations</a>"</span> and <span class="q">"<a href="oxh_ref.htm#GUID-E5F0D118-6BC8-4F16-A15A-0EC93D29A148">Oracle NoSQL Database Adapter Configuration Properties</a>"</span>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-6F7FDEB0-B55F-468A-B103-08C39BB3998C__GUID-130799A9-6937-461A-8B81-D2FE73CDB651"><!-- --></a>-D <span class="italic">property</span>=<span class="italic">value</span></dt>
+<dd>
+<p>Identifies a configuration property. See <span class="q">"<a href="oxh.htm#GUID-A98B2F83-05B1-487C-B1C5-580D675155C2">Oracle XQuery for Hadoop Configuration Properties</a>."</span></p>
+</dd>
+<dt class="dlterm"><a id="GUID-6F7FDEB0-B55F-468A-B103-08C39BB3998C__GUID-381C27D2-F886-422B-B7B3-B4802950A6A2"><!-- --></a>-files</dt>
+<dd>
+<p>Specifies a comma-delimited list of files that are added to the distributed cache. See <span class="q">"<a href="oxh.htm#GUID-A5520B53-50FB-424F-A382-1A5D49B05247">Accessing Data in the Hadoop Distributed Cache</a>."</span></p>
+</dd>
+</dl>
+<div class="infoboxnotealso" id="GUID-6F7FDEB0-B55F-468A-B103-08C39BB3998C__GUID-2D09A58D-8414-4FD7-A95F-22ECEC231CD2">
+<p class="notep1">See Also:</p>
+<p>For full descriptions of the generic options, go to</p>
+<p><a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html#Generic_Options" target="_blank"><code class="codeph">http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html#Generic_Options</code></a></p>
+</div>
+</div>
+</div>
+<a id="BDCUG745"></a>
+<div class="props_rev_3"><a id="GUID-7336FA45-F220-4895-8005-617716D805C8"></a>
+<h3 id="BDCUG-GUID-7336FA45-F220-4895-8005-617716D805C8" class="sect3"><span class="enumeration_section">5.5.3</span> About Running Queries Locally</h3>
+<div>
+<p>When developing queries, you can run them locally before submitting them to the cluster. A local run enables you to see how the query behaves on small data sets and diagnose potential problems quickly.</p>
+<p>In local mode, relative URIs resolve against the local file system instead of HDFS, and the query runs in a single process.</p>
+<div class="section">
+<p class="subhead3">To run a query in local mode:</p>
+<ol>
+<li>
+<p>Set the Hadoop <code class="codeph">-jt</code> and <code class="codeph">-fs</code> generic arguments to <code class="codeph">local</code>. This example runs the query described in <span class="q">"<a href="oxh.htm#GUID-B861A415-6D77-4074-8464-5E7923925219">Example: Hello World!</a>"</span> in local mode:</p>
+<pre dir="ltr">
+$ hadoop jar $OXH_HOME/lib/oxh.jar -jt local -fs local ./hello.xq -output ./myoutput -print
+</pre></li>
+<li>
+<p>Check the result file in the local output directory of the query, as shown in this example:</p>
+<pre dir="ltr">
+$ <span class="bold">cat ./myoutput/part-m-00000</span>
+Hello World!
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDCUG771"></a>
+<div class="props_rev_3"><a id="GUID-2A58FB5A-3B92-45B9-9246-CA925703D744"></a>
+<h2 id="BDCUG-GUID-2A58FB5A-3B92-45B9-9246-CA925703D744" class="sect2"><span class="enumeration_section">5.6</span> Running Queries from Apache Oozie</h2>
+<div>
+<p>Apache Oozie is a workflow tool that enables you to run multiple MapReduce jobs in a specified order and, optionally, at a scheduled time. Oracle XQuery for Hadoop provides an Oozie action node that you can use to run Oracle XQuery for Hadoop queries from an Oozie workflow.</p>
+</div>
+<a id="BDCUG772"></a>
+<div class="props_rev_3"><a id="GUID-130CF5EE-E0ED-4A06-A736-7B8BEC809EC3"></a>
+<h3 id="BDCUG-GUID-130CF5EE-E0ED-4A06-A736-7B8BEC809EC3" class="sect3"><span class="enumeration_section">5.6.1</span> Getting Started Using the Oracle XQuery for Hadoop Oozie Action</h3>
+<div>
+<div class="section">
+<p>Follow these steps to execute your queries in an Oozie workflow:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>The first time you use Oozie with Oracle XQuery for Hadoop, ensure that Oozie is configured correctly. See <span class="q">"<a href="start.htm#GUID-91F4FDCA-1FFD-40D8-8CC2-13A761355819">Configuring Oozie for the Oracle XQuery for Hadoop Action</a>"</span>.</span></li>
+<li class="stepexpand"><span>Develop your queries in Oracle XQuery for Hadoop the same as always.</span></li>
+<li class="stepexpand"><span>Create a workflow XML file like the one shown in <a href="oxh.htm#GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44__BHBHGAJD">Example 5-11</a>. You can use the XML elements listed in <span class="q">"<a href="oxh.htm#GUID-9EDAACCE-C09F-46F3-8262-FDE29621A00B">Supported XML Elements</a>"</span>.</span></li>
+<li class="stepexpand"><span>Set the Oozie job parameters. The following parameter is required:</span>
+<div>
+<pre dir="ltr">
+oozie.use.system.libpath=true
+</pre>
+<p>See <a href="oxh.htm#GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44__BHBDDCAB">Example 5-13</a>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Run the job using syntax like the following:</span>
+<div>
+<pre dir="ltr">
+oozie job -<span class="italic">name</span> http://example.com:11000/oozie -config <span class="italic">filename</span> -run
+</pre>
+<div class="infoboxnotealso" id="GUID-130CF5EE-E0ED-4A06-A736-7B8BEC809EC3__GUID-87465545-44BD-4DD8-985C-24AA1A7E2846">
+<p class="notep1">See Also:</p>
+<p>"Oozie Command Line Usage" in the <span class="italic">Apache Oozie Command Line Interface Utilities</span> at</p>
+<p><a href="https://oozie.apache.org/docs/4.0.0/DG_CommandLineTool.html#Oozie_Command_Line_Usage" target="_blank"><code class="codeph">https://oozie.apache.org/docs/4.0.0/DG_CommandLineTool.html#Oozie_Command_Line_Usage</code></a></p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BDCUG773"></a>
+<div class="props_rev_3"><a id="GUID-9EDAACCE-C09F-46F3-8262-FDE29621A00B"></a>
+<h3 id="BDCUG-GUID-9EDAACCE-C09F-46F3-8262-FDE29621A00B" class="sect3"><span class="enumeration_section">5.6.2</span> Supported XML Elements</h3>
+<div>
+<div class="section">
+<p>The Oracle XQuery for Hadoop action extends Oozie's Java action. It supports the following optional child XML elements with the same syntax and semantics as the Java action:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">archive</code></p>
+</li>
+<li>
+<p><code class="codeph">configuration</code></p>
+</li>
+<li>
+<p><code class="codeph">file</code></p>
+</li>
+<li>
+<p><code class="codeph">job-tracker</code></p>
+</li>
+<li>
+<p><code class="codeph">job-xml</code></p>
+</li>
+<li>
+<p><code class="codeph">name-node</code></p>
+</li>
+<li>
+<p><code class="codeph">prepare</code></p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-9EDAACCE-C09F-46F3-8262-FDE29621A00B__GUID-841ABC13-7E7C-4E7C-B47D-450A2FFC0248">
+<p class="notep1">See Also:</p>
+<p>The Java action description in the Oozie Specification at</p>
+<p><a href="https://oozie.apache.org/docs/4.0.0/WorkflowFunctionalSpec.html#a3.2.7_Java_Action" target="_blank"><code class="codeph">https://oozie.apache.org/docs/4.0.0/WorkflowFunctionalSpec.html#a3.2.7_Java_Action</code></a></p>
+</div>
+<p>In addition, the Oracle XQuery for Hadoop action supports the following elements:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">script</code>: The location of the Oracle XQuery for Hadoop query file. Required.</p>
+<p>The query file must be in the workflow application directory. A relative path is resolved against the application directory.</p>
+<p>Example: <code class="codeph">&lt;script&gt;myquery.xq&lt;/script&gt;</code></p>
+</li>
+<li>
+<p><code class="codeph">output</code>: The output directory of the query. Required.</p>
+<p>The <code class="codeph">output</code> element has an optional <code class="codeph">clean</code> attribute. Set this attribute to <code class="codeph">true</code> to delete the output directory before the query is run. If the output directory already exists and the <code class="codeph">clean</code> attribute is either not set or set to <code class="codeph">false</code>, an error occurs. The output directory cannot exist when the job runs.</p>
+<p>Example: <code class="codeph">&lt;output clean="true"&gt;/user/jdoe/myoutput&lt;/output&gt;</code></p>
+</li>
+</ul>
+<p>Any error raised while running the query causes Oozie to perform the error transition for the action.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG775"></a><a id="BDCUG776"></a><a id="BDCUG777"></a><a id="BDCUG774"></a>
+<div class="props_rev_3"><a id="GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44"></a>
+<h3 id="BDCUG-GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44" class="sect3"><span class="enumeration_section">5.6.3</span> Example: Hello World</h3>
+<div>
+<div class="section">
+<p>This example uses the following files:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">workflow.xml</code>: Describes an Oozie action that sets two configuration values for the query in <code class="codeph">hello.xq</code>: an HDFS file and the string <code class="codeph">World!</code></p>
+<p>The HDFS input file is <code class="codeph">/user/jdoe/data/hello.txt</code> and contains this string:</p>
+<pre dir="ltr">
+Hello
+</pre>
+<p>See <a href="oxh.htm#GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44__BHBHGAJD">Example 5-11</a>.</p>
+</li>
+<li>
+<p><code class="codeph">hello.xq</code>: Runs a query using Oracle XQuery for Hadoop.</p>
+<p>See <a href="oxh.htm#GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44__BHBJCJDD">Example 5-12</a>.</p>
+</li>
+<li>
+<p><code class="codeph">job.properties</code>: Lists the job properties for Oozie. See <a href="oxh.htm#GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44__BHBDDCAB">Example 5-13</a>.</p>
+</li>
+</ul>
+<p>To run the example, use this command:</p>
+<pre dir="ltr">
+oozie job -oozie http://example.com:11000/oozie -config job.properties -run
+</pre>
+<p>After the job runs, the <code class="codeph">/user/jdoe/myoutput</code> output directory contains a file with the text "Hello World!"</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44__BHBHGAJD">
+<p class="titleinexample">Example 5-11 The workflow.xml File for Hello World</p>
+<p>This file is named <code class="codeph">/user/jdoe/hello-oozie-oxh/workflow.xml</code>. It uses variables that are defined in the <code class="codeph">job.properties</code> file.</p>
+<pre dir="ltr">
+&lt;workflow-app xmlns="uri:oozie:workflow:0.4" name="oxh-helloworld-wf"&gt;
+  &lt;start to="hello-node"/&gt;
+  &lt;action name="hello-node"&gt;
+    &lt;oxh xmlns="oxh:oozie-action:v1"&gt;
+      &lt;job-tracker&gt;${jobTracker}&lt;/job-tracker&gt;
+      &lt;name-node&gt;${nameNode}&lt;/name-node&gt;
+
+      &lt;!-- 
+        The configuration can be used to parameterize the query.
+      --&gt;
+      &lt;configuration&gt;
+        &lt;property&gt;
+          &lt;name&gt;myinput&lt;/name&gt;
+          &lt;value&gt;${nameNode}/user/jdoe/data/src.txt&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;property&gt;
+          &lt;name&gt;mysuffix&lt;/name&gt;
+          &lt;value&gt; World!&lt;/value&gt;
+        &lt;/property&gt;
+      &lt;/configuration&gt;
+ 
+      &lt;script&gt;hello.xq&lt;/script&gt;
+
+      &lt;output clean="true"&gt;${nameNode}/user/jdoe/myoutput&lt;/output&gt;
+
+    &lt;/oxh&gt;
+    &lt;ok to="end"/&gt;
+    &lt;error to="fail"/&gt;
+  &lt;/action&gt;
+  &lt;kill name="fail"&gt;
+    &lt;message&gt;OXH failed: [${wf:errorMessage(wf:lastErrorNode())}]&lt;/message&gt;
+  &lt;/kill&gt;
+  &lt;end name="end"/&gt;
+&lt;/workflow-app&gt;
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44__BHBJCJDD">
+<p class="titleinexample">Example 5-12 The hello.xq File for Hello World</p>
+<p>This file is named <code class="codeph">/user/jdoe/hello-oozie-oxh/hello.xq</code>.</p>
+<pre dir="ltr">
+import module "oxh:text";
+
+declare variable $input := oxh:property("myinput");
+declare variable $suffix := oxh:property("mysuffix");
+
+for $line in text:collection($input)
+return
+  text:put($line || $suffix)
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44__BHBDDCAB">
+<p class="titleinexample">Example 5-13 The job.properties File for Hello World</p>
+<pre dir="ltr">
+oozie.wf.application.path=hdfs://example.com:8020/user/jdoe/hello-oozie-oxh
+nameNode=hdfs://example.com:8020
+jobTracker=hdfs://example.com:8032
+oozie.use.system.libpath=true
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<a id="BDCUG556"></a>
+<div class="props_rev_3"><a id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2"></a>
+<h2 id="BDCUG-GUID-A98B2F83-05B1-487C-B1C5-580D675155C2" class="sect2"><span class="enumeration_section">5.7</span> Oracle XQuery for Hadoop Configuration Properties</h2>
+<div>
+<div class="section">
+<p>Oracle XQuery for Hadoop uses the generic methods of specifying configuration properties in the <code class="codeph">hadoop</code> command. You can use the <code class="codeph">-conf</code> option to identify configuration files, and the <code class="codeph">-D</code> option to specify individual properties. See <span class="q">"<a href="oxh.htm#GUID-43ECAEB3-176F-413C-BFA5-BE35F2692E54">Running Queries</a>."</span></p>
+<div class="infoboxnotealso" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__GUID-2212F08E-CE8E-444D-A2A7-7D869ED1FB33">
+<p class="notep1">See Also:</p>
+<p>Hadoop documentation for job configuration files at</p>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E87334-01&amp;id=apache_hadoop_config" target="_blank"><code class="codeph">http://wiki.apache.org/hadoop/JobConfFile</code></a></p>
+</div>
+<div class="tblformalwide" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__GUID-7B4DAB6C-8A6F-4FFD-8E69-9A11F03F291F">
+<table class="cellalignment23" summary="Describes Oracle Xquery for Hadoop configuration properties.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment40" id="d32903e2025">Property</th>
+<th class="cellalignment40" id="d32903e2027">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__BABCJADD">
+<td class="cellalignment2" id="d32903e2031" headers="d32903e2025">
+<p><span class="bold">oracle.hadoop.xquery.lib.share</span></p>
+</td>
+<td class="cellalignment2" headers="d32903e2031 d32903e2027">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Not defined.</p>
+<p><span class="bold">Description</span>: Identifies an HDFS directory that contains the libraries for Oracle XQuery for Hadoop and third-party software. For example:</p>
+<pre dir="ltr">
+http://path/to/shared/folder
+</pre>
+<p>All HDFS files must be in the same directory.</p>
+<p>Alternatively, use the <code class="codeph">-sharelib</code> option on the command line.</p>
+<p><span class="bold">Pattern Matching</span>: You can use pattern matching characters in a directory name. If multiple directories match the pattern, then the directory with the most recent modification timestamp is used.</p>
+<p>To specify a directory name, use alphanumeric characters and, optionally, any of the following special, pattern matching characters:</p>
+<div class="p">
+<div class="tblformal" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__GUID-05D09462-C19E-4109-8A90-368EFA3259BA">
+<table class="cellalignment41" summary="Describes pattern matches for oracle.hadoop.xquery.lib.share">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment13" id="d32903e2072">Pattern</th>
+<th class="cellalignment13" id="d32903e2074">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d32903e2078" headers="d32903e2072">?</td>
+<td class="cellalignment16" headers="d32903e2078 d32903e2074">
+<p>Matches any one character.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d32903e2084" headers="d32903e2072">*</td>
+<td class="cellalignment16" headers="d32903e2084 d32903e2074">
+<p>Matches zero or more characters.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d32903e2090" headers="d32903e2072">[<span class="italic">abc</span>]</td>
+<td class="cellalignment16" headers="d32903e2090 d32903e2074">
+<p>Matches one character from character set {<span class="italic">a,b,c</span>}.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d32903e2102" headers="d32903e2072">[<span class="italic">a-b</span>]</td>
+<td class="cellalignment16" headers="d32903e2102 d32903e2074">
+<p>Matches one character from the character range from <span class="italic">a</span> to <span class="italic">b</span>. Character <span class="italic">a</span> must be less than or equal to character <span class="italic">b</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d32903e2123" headers="d32903e2072">[^<span class="italic">a</span>]</td>
+<td class="cellalignment16" headers="d32903e2123 d32903e2074">
+<p>Matches one character that is not from the <span class="italic">a</span> character set or range. The carat (^) must follow the opening bracket immediately (no spaces).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d32903e2135" headers="d32903e2072">\<span class="italic">c</span></td>
+<td class="cellalignment16" headers="d32903e2135 d32903e2074">
+<p>Removes (escapes) any special meaning of character <span class="italic">c</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d32903e2146" headers="d32903e2072">{<span class="italic">ab,cd</span>}</td>
+<td class="cellalignment16" headers="d32903e2146 d32903e2074">
+<p>Matches a string from the string set {<span class="italic">ab, cd</span>}.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d32903e2158" headers="d32903e2072">{<span class="italic">ab,c{de,fh</span>}}</td>
+<td class="cellalignment16" headers="d32903e2158 d32903e2074">
+<p>Matches a string from the string set {<span class="italic">ab, cde, cfh</span>}.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<p><span class="bold">Oozie libraries</span>: The value <code class="codeph">oxh:oozie</code> expands automatically to <code class="codeph">/user/{oozie,</code><span class="italic"><code class="codeph">user</code></span><code class="codeph">}/share/lib/{oxh,*/oxh*}</code>, which is a common search path for supported Oozie versions. The <span class="italic">user</span> is the current user name. However, the Oracle XQuery for Hadoop Oozie action ignores this setting when running queries, because all libraries are preinstalled in HDFS.</p>
+</td>
+</tr>
+<tr class="cellalignment2" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__ABC64F98">
+<td class="cellalignment2" id="d32903e2188" headers="d32903e2025">
+<p><span class="bold">oracle.hadoop.xquery.output</span></p>
+</td>
+<td class="cellalignment2" headers="d32903e2188 d32903e2027">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">/tmp/oxh-</code><span class="italic"><code class="codeph">user_name</code></span><code class="codeph">/output</code>. The <span class="italic">user_name</span> is the name of the user running Oracle XQuery for Hadoop.</p>
+<p><span class="bold">Description</span>: Sets the output directory for the query. This property is equivalent to the <code class="codeph">-output</code> command line option. See <span class="q">"<a href="oxh.htm#GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B">Oracle XQuery for Hadoop Options</a>."</span></p>
+</td>
+</tr>
+<tr class="cellalignment2" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__GUID-A156137E-77BF-435F-BF50-E008F050718A">
+<td class="cellalignment2" id="d32903e2224" headers="d32903e2025">
+<p><span class="bold">oracle.hadoop.xquery.scratch</span></p>
+</td>
+<td class="cellalignment2" headers="d32903e2224 d32903e2027">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">/tmp/oxh-</code><span class="italic"><code class="codeph">user_name</code></span><code class="codeph">/scratch</code>. The <span class="italic">user_name</span> is the name of the user running Oracle XQuery for Hadoop.</p>
+<p><span class="bold">Description</span>: Sets the HDFS temp directory for Oracle XQuery for Hadoop to store temporary files.</p>
+</td>
+</tr>
+<tr class="cellalignment2" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__GUID-B587F29E-9FD4-435C-A2FE-938B9B607D2E">
+<td class="cellalignment2" id="d32903e2253" headers="d32903e2025">
+<p><span class="bold">oracle.hadoop.xquery.timezone</span></p>
+</td>
+<td class="cellalignment2" headers="d32903e2253 d32903e2027">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Client system time zone</p>
+<p><span class="bold">Description</span>: The XQuery implicit time zone, which is used in a comparison or arithmetic operation when a date, time, or datetime value does not have a time zone. The value must be in the format described by the Java <code class="codeph">TimeZone</code> class. See the TimeZone class description in <span class="italic">Java 7 API Specification</span> at</p>
+<p><a href="http://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html" target="_blank"><code class="codeph">http://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment2" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__GUID-5AC7A2FC-8C3C-4CDB-98B7-A1385F4DB4AA">
+<td class="cellalignment2" id="d32903e2282" headers="d32903e2025">
+<p><span class="bold">oracle.hadoop.xquery.skiperrors</span></p>
+</td>
+<td class="cellalignment2" headers="d32903e2282 d32903e2027">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">false</code></p>
+<p><span class="bold">Description</span>: Set to <code class="codeph">true</code> to turn on error recovery, or set to <code class="codeph">false</code> to stop processing when an error occurs. This property is equivalent to the <code class="codeph">-skiperrors</code> command line option.</p>
+</td>
+</tr>
+<tr class="cellalignment2" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__BABJIDDA">
+<td class="cellalignment2" id="d32903e2311" headers="d32903e2025">
+<p><span class="bold">oracle.hadoop.xquery.skiperrors.counters</span></p>
+</td>
+<td class="cellalignment2" headers="d32903e2311 d32903e2027">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">true</code></p>
+<p><span class="bold">Description</span>: Set to <code class="codeph">true</code> to group errors by error code, or set to <code class="codeph">false</code> to report all errors in a single counter.</p>
+</td>
+</tr>
+<tr class="cellalignment2" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__BABIBEEG">
+<td class="cellalignment2" id="d32903e2337" headers="d32903e2025">
+<p><span class="bold">oracle.hadoop.xquery.skiperrors.max</span></p>
+</td>
+<td class="cellalignment2" headers="d32903e2337 d32903e2027">
+<p><span class="bold">Type</span>: Integer</p>
+<p><span class="bold">Default Value</span>: Unlimited</p>
+<p><span class="bold">Description</span>: Sets the maximum number of errors that a single MapReduce task can recover from.</p>
+</td>
+</tr>
+<tr class="cellalignment2" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__BABDDAEB">
+<td class="cellalignment2" id="d32903e2355" headers="d32903e2025">
+<p><span class="bold">oracle.hadoop.xquery.skiperrors.log.max</span></p>
+</td>
+<td class="cellalignment2" headers="d32903e2355 d32903e2027">
+<p><span class="bold">Type</span>: Integer</p>
+<p><span class="bold">Default Value</span>: 20</p>
+<p><span class="bold">Description</span>: Sets the maximum number of errors that a single MapReduce task logs.</p>
+</td>
+</tr>
+<tr class="cellalignment2" id="GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__GUID-ABBABF31-7654-4781-87BB-0750D153E93E">
+<td class="cellalignment2" id="d32903e2373" headers="d32903e2025">
+<p><span class="bold">log4j.logger.oracle.hadoop.xquery</span></p>
+</td>
+<td class="cellalignment2" headers="d32903e2373 d32903e2027">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Not defined</p>
+<p><span class="bold">Description</span>: Configures the <code class="codeph">log4j</code> logger for each task with the specified threshold level. Set the property to one of these values: <code class="codeph">OFF</code>, <code class="codeph">FATAL</code>, <code class="codeph">ERROR</code>, <code class="codeph">WARN</code>, <code class="codeph">INFO</code>, <code class="codeph">DEBUG</code>, or <code class="codeph">ALL</code>. If this property is not set, then Oracle XQuery for Hadoop does not configure <code class="codeph">log4j</code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-408B921E-ED14-435E-9D80-87A2843BB245"></a>
+<h2 id="BDCUG-GUID-408B921E-ED14-435E-9D80-87A2843BB245" class="sect2"><span class="enumeration_section">5.8</span> Third-Party Licenses for Bundled Software</h2>
+<div>
+<div class="section">
+<p>Oracle XQuery for Hadoop depends on the following third-party products:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="oxh.htm#GUID-0859B014-8523-4072-B5B3-7F8D0C8A78FE">ANTLR 3.2</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-648F57D2-9AA4-4861-AC74-4E0349A552C8">Apache Ant 1.9.8</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-9BDA4EF2-03A1-475B-AA68-648099161857">Apache Xerces 2.11</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-EDF146E2-3D95-4516-B20A-5A3035B0B87D">Stax2 API 3.1.4</a></p>
+</li>
+<li>
+<p><a href="oxh.htm#GUID-EC0BE913-34A4-46AF-805C-8E6A2A3BC802">Woodstox XML Parser 5.0.2</a></p>
+</li>
+</ul>
+<p><span class="bold">Unless otherwise specifically noted, or as required under the terms of the third party license (e.g., LGPL), the licenses and statements herein, including all statements regarding Apache-licensed code, are intended as notices only.</span></p>
+</div>
+<!-- class="section" --></div>
+<div class="props_rev_3"><a id="GUID-9320A8D4-1D32-4E7E-B9B3-9D9F85B490D3"></a>
+<h3 id="BDCUG-GUID-9320A8D4-1D32-4E7E-B9B3-9D9F85B490D3" class="sect3"><span class="enumeration_section">5.8.1</span> Apache Licensed Code</h3>
+<div>
+<div class="section">
+<p>The following is included as a notice in compliance with the terms of the Apache 2.0 License, and applies to all programs licensed under the Apache 2.0 license:</p>
+<p>You may not use the identified files except in compliance with the Apache License, Version 2.0 (the "License.")</p>
+<p>You may obtain a copy of the License at</p>
+<p><a href="http://www.oracle.com/pls/lookup?ctx=E71937-01&amp;id=apache_licenses_2.0" target="_blank"><code class="codeph">http://www.apache.org/licenses/LICENSE-2.0</code></a></p>
+<p>A copy of the license is also reproduced below.</p>
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p>
+<p>See the License for the specific language governing permissions and limitations under the License.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-6AE555DE-5B16-42C9-9AF6-5BDB555497C5"></a>
+<h3 id="BDCUG-GUID-6AE555DE-5B16-42C9-9AF6-5BDB555497C5" class="sect3"><span class="enumeration_section">5.8.2</span> Apache License</h3>
+<div>
+<div class="section">
+<ul class="simple" style="list-style-type: none;padding-left:0;">
+<li>Version 2.0, January 2004</li>
+<li><a href="http://www.apache.org/licenses/" target="_blank"><code class="codeph">http://www.apache.org/licenses/</code></a></li>
+</ul>
+<p>TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION</p>
+<ol>
+<li>
+<p><span class="bold">Definitions</span></p>
+<p>"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.</p>
+<p>"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.</p>
+<p>"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.</p>
+<p>"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.</p>
+<p>"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.</p>
+<p>"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.</p>
+<p>"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).</p>
+<p>"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.</p>
+<p>"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."</p>
+<p>"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.</p>
+</li>
+<li>
+<p><span class="bold">Grant of Copyright License</span>. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.</p>
+</li>
+<li>
+<p><span class="bold">Grant of Patent License</span>. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.</p>
+</li>
+<li>
+<p><span class="bold">Redistribution</span>. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:</p>
+<ol>
+<li>
+<p>You must give any other recipients of the Work or Derivative Works a copy of this License; and</p>
+</li>
+<li>
+<p>You must cause any modified files to carry prominent notices stating that You changed the files; and</p>
+</li>
+<li>
+<p>You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and</p>
+</li>
+<li>
+<p>If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.</p>
+</li>
+</ol>
+<p>You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.</p>
+</li>
+<li>
+<p><span class="bold">Submission of Contributions</span>. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.</p>
+</li>
+<li>
+<p><span class="bold">Trademarks</span>. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.</p>
+</li>
+<li>
+<p><span class="bold">Disclaimer of Warranty</span>. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.</p>
+</li>
+<li>
+<p><span class="bold">Limitation of Liability</span>. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.</p>
+</li>
+<li>
+<p><span class="bold">Accepting Warranty or Additional Liability</span>. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.</p>
+</li>
+</ol>
+<p>END OF TERMS AND CONDITIONS</p>
+<p><span class="bold">APPENDIX: How to apply the Apache License to your work</span></p>
+<p>To apply the Apache License to your work, attach the following boilerplate notice, with the fields enclosed by brackets "[]" replaced with your own identifying information. (Don't include the brackets!) The text should be enclosed in the appropriate comment syntax for the file format. We also recommend that a file or class name and description of purpose be included on the same "printed page" as the copyright notice for easier identification within third-party archives.</p>
+<p>Copyright [yyyy] [name of copyright owner]</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank"><code class="codeph">http://www.apache.org/licenses/LICENSE-2.0</code></a></p>
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+This product includes software developed by The Apache Software Foundation (<a href="http://www.apache.org/" target="_blank"><span class="bold">http://www.apache.org/</span></a>) (listed below):</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-0859B014-8523-4072-B5B3-7F8D0C8A78FE"></a>
+<h3 id="BDCUG-GUID-0859B014-8523-4072-B5B3-7F8D0C8A78FE" class="sect3"><span class="enumeration_section">5.8.3</span> ANTLR 3.2</h3>
+<div>
+<div class="section">
+<p><span class="italic">[The BSD License]</span></p>
+<p>Copyright &copy; 2010 Terence Parr</p>
+<p>All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+</li>
+<li>
+<p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
+</li>
+<li>
+<p>Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
+</li>
+</ul>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-648F57D2-9AA4-4861-AC74-4E0349A552C8"></a>
+<h3 id="BDCUG-GUID-648F57D2-9AA4-4861-AC74-4E0349A552C8" class="sect3"><span class="enumeration_section">5.8.4</span> Apache Ant 1.9.8</h3>
+<div>
+<div class="section">
+<p>Copyright 1999-2008 The Apache Software Foundation</p>
+<p>This product includes software developed by The Apache Software Foundation (<a href="http://www.apache.org" target="_blank"><code class="codeph">http://www.apache.org</code></a>).</p>
+<p>This product includes also software developed by:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>the W3C consortium (<a href="http://www.w3c.org" target="_blank"><code class="codeph">http://www.w3c.org</code></a>)</p>
+</li>
+<li>
+<p>the SAX project (<a href="http://www.saxproject.org" target="_blank"><code class="codeph">http://www.saxproject.org</code></a>)</p>
+</li>
+</ul>
+<p>The &lt;sync&gt; task is based on code Copyright (c) 2002, Landmark Graphics Corp that has been kindly donated to the Apache Software Foundation.</p>
+<p>Portions of this software were originally based on the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>software copyright (c) 1999, IBM Corporation, http://www.ibm.com.</p>
+</li>
+<li>
+<p>software copyright (c) 1999, Sun Microsystems, http://www.sun.com.</p>
+</li>
+<li>
+<p>voluntary contributions made by Paul Eng on behalf of the Apache Software Foundation that were originally developed at iClick, Inc., software copyright (c) 1999</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">W3C&reg; SOFTWARE NOTICE AND LICENSE</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231</p>
+<p>This work (and included software, documentation such as READMEs, or other related items) is being provided by the copyright holders under the following license. By obtaining, using and/or copying this work, you (the licensee) agree that you have read, understood, and will comply with the following terms and conditions.</p>
+<p>Permission to copy, modify, and distribute this software and its documentation, with or without modification, for any purpose and without fee or royalty is hereby granted, provided that you include the following on ALL copies of the software and documentation or portions thereof, including modifications:</p>
+<ol>
+<li>
+<p>The full text of this NOTICE in a location viewable to users of the redistributed or derivative work.</p>
+</li>
+<li>
+<p>Any pre-existing intellectual property disclaimers, notices, or terms and conditions. If none exist, the W3C Software Short Notice should be included (hypertext is preferred, text is permitted) within the body of any redistributed or derivative code.</p>
+</li>
+<li>
+<p>Notice of any changes or modifications to the files, including the date changes were made. (We recommend you provide URIs to the location from which the code is derived.)</p>
+</li>
+</ol>
+<p>THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.</p>
+<p>COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENTATION.</p>
+<p>The name and trademarks of copyright holders may NOT be used in advertising or publicity pertaining to the software without specific, written prior permission. Title to copyright in this software and any associated documentation will at all times remain with copyright holders.</p>
+<p>This formulation of W3C's notice and license became active on December 31 2002. This version removes the copyright ownership notice such that this license can be used with materials other than those owned by the W3C, reflects that ERCIM is now a host of the W3C, includes references to this specific dated version of the license, and removes the ambiguous grant of "use". Otherwise, this version is the same as the previous version and is written so as to preserve the Free Software Foundation's assessment of GPL compatibility and OSI's certification under the Open Source Definition. Please see our Copyright FAQ for common questions about using materials from our site, including specific terms and conditions for packages like libwww, Amaya, and Jigsaw. Other questions about this notice can be directed to site-policy@w3.org.</p>
+<p>Joseph Reagle &lt;site-policy@w3.org&gt;</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">This license came from: http://www.megginson.com/SAX/copying.html</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>However please note future versions of SAX may be covered under http://saxproject.org/?selected=pd</p>
+<p>SAX2 is Free!</p>
+<p>I hereby abandon any property rights to SAX 2.0 (the Simple API for XML), and release all of the SAX 2.0 source code, compiled code, and documentation contained in this distribution into the Public Domain. SAX comes with NO WARRANTY or guarantee of fitness for any purpose.</p>
+<p>David Megginson, david@megginson.com</p>
+<p>2000-05-05</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-9BDA4EF2-03A1-475B-AA68-648099161857"></a>
+<h3 id="BDCUG-GUID-9BDA4EF2-03A1-475B-AA68-648099161857" class="sect3"><span class="enumeration_section">5.8.5</span> Apache Xerces 2.11</h3>
+<div>
+<div class="section">
+<p>Xerces Copyright &copy; 1999-2016 The Apache Software Foundation. All rights reserved. Licensed under the Apache 1.1 License Agreement.</p>
+<p>The names "Xerces" and "Apache Software Foundation must not be used to endorse or promote products derived from this software or be used in a product name without prior written permission. For written permission, please contact <a href="mailto:apache@apache.org" target="_blank">apache@apache.org</a> email address.</p>
+<p>This software consists of voluntary contributions made by many individuals on behalf of the Apache Software Foundation. For more information on the Apache Software Foundation, please see <a href="http://www.apache.org" target="_blank"><code class="codeph">http://www.apache.org</code></a> website.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">The Apache Software License, Version 1.1</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ol>
+<li>
+<p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+</li>
+<li>
+<p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
+</li>
+<li>
+<p>The end-user documentation included with the redistribution, if any, must include the acknowledgements set forth above in connection with the software (&ldquo;This product includes software developed by the &hellip;.) Alternately, this acknowledgement may appear in the software itself, if and wherever such third-party acknowledgements normally appear.</p>
+</li>
+<li>
+<p>The names identified above with the specific software must not be used to endorse or promote products derived from this software without prior written permission. For written permission, please contact <a href="mailto:apache@apache.org" target="_blank">apache@apache.org</a> email address.</p>
+</li>
+<li>
+<p>Products derived from this software may not be called "Apache" nor may "Apache" appear in their names without prior written permission of the Apache Group.</p>
+</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE APACHE SOFTWARE FOUNDATION OR ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-EDF146E2-3D95-4516-B20A-5A3035B0B87D"></a>
+<h3 id="BDCUG-GUID-EDF146E2-3D95-4516-B20A-5A3035B0B87D" class="sect3"><span class="enumeration_section">5.8.6</span> Stax2 API 3.1.4</h3>
+<div>
+<p>Copyright &copy; 2004&ndash;2010, Woodstox Project (<code class="codeph" id="GUID-EDF146E2-3D95-4516-B20A-5A3035B0B87D__HTTPWOODSTOX.CODEHAUS.ORG-806885BF">http://woodstox.codehaus.org/</code>)</p>
+<p>All rights reserved.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS," AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-EC0BE913-34A4-46AF-805C-8E6A2A3BC802"></a>
+<h3 id="BDCUG-GUID-EC0BE913-34A4-46AF-805C-8E6A2A3BC802" class="sect3"><span class="enumeration_section">5.8.7</span> Woodstox XML Parser 5.0.2</h3>
+<div>
+<div class="section">
+<p>This copy of Woodstox XML processor is licensed under the Apache (Software) License, version 2.0 ("the License"). See the License for details about distribution rights, and the specific rights regarding derivate works.</p>
+<p>You may obtain a copy of the License at:</p>
+<p><a href="http://www.apache.org/licenses/" target="_blank"><code class="codeph">http://www.apache.org/licenses/</code></a></p>
+<p>A copy is also included with both the downloadable source code package and jar that contains class bytecodes, as file "ASL 2.0". In both cases, that file should be located next to this file: in source distribution the location should be "release-notes/asl"; and in jar "META-INF/"</p>
+<p>This product currently only contains code developed by authors of specific components, as identified by the source code files.</p>
+<p>Since product implements StAX API, it has dependencies to StAX API classes.</p>
+<p>For additional credits (generally to people who reported problems) see CREDITS file.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment42">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="xquery-part.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="oxh_ref.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment44">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="http://docs.oracle.com/bigdata/bda49/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

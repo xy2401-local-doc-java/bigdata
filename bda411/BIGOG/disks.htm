@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Replacing a Server Disk</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="disks, replacing, server disks, slot numbers (disk drives), RAID arrays, repairing logical" />
+<meta name="dcterms.created" content="2018-07-23T20:06:30Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E89801-07" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://www.docs.oracle.com/bigdata/411/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="maintenance.htm" title="Previous" type="text/html" />
+<link rel="Next" href="dcli.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-56941B7D-591A-4712-8343-EA1E04DA34D8"></a> <span id="PAGE" style="display:none;">21/38</span> <!-- End Header -->
+<a id="BIGOG76981"></a>
+<h1 id="BIGOG-GUID-56941B7D-591A-4712-8343-EA1E04DA34D8" class="sect1"><span class="enumeration_chapter">13</span> Replacing a Server Disk</h1>
+<div>
+<p>This chapter contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="disks.htm#GUID-C67D2144-E4B7-4F20-9201-CFAFDF28E52C">Verifying the Server Configuration</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-DEC2D076-AEAA-4806-BFCC-19DC8946CB30">Overview of the Disk Replacement Process</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-798B0173-E39B-49AC-86F7-6A1AEA981AEB">About Disk Drive Identifiers</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-E67330A5-D074-4BCA-A31B-307C82EEA168">Prerequisites for Replacing a Failing Disk</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-E248BD24-0D44-4677-8948-7FD81927ECD0">What If a Server Fails to Restart?</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF">Replacing a Disk Drive</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-72CE2025-BA5B-4651-B02B-D09591864415">Correcting a Mounted Partitions Error</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-05A09114-48C4-4971-838F-8B3A8F5F9B7C">Identifying the Function of a Disk Drive</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-0BC64E2D-7D25-4C6A-B42F-B56DA6B75ACE">Configuring an Operating System Disk</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-4243728C-1BD2-4810-BC08-8AB3B6D6BCE7">Configuring an HDFS or Oracle NoSQL Database Disk</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-823EE679-6F24-455D-94A9-8FB11FA7D72B">Verifying the Disk Configuration</a></p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-56941B7D-591A-4712-8343-EA1E04DA34D8__GUID-8732A98C-D92F-4DE7-883C-350851CBC5C3">
+<p class="notep1">Note:</p>
+<p>The failure of a disk is never catastrophic on Oracle Big Data Appliance. No user data is lost. Data stored in HDFS or Oracle NoSQL Database is automatically replicated.</p>
+<p>Repair of the physical <a id="d62173e78" class="indexterm-anchor"></a>disks does not require shutting down Oracle Big Data Appliance. However, individual servers can be taken outside of the cluster temporarily and require downtime.</p>
+</div>
+<div class="infoboxnotealso" id="GUID-56941B7D-591A-4712-8343-EA1E04DA34D8__GUID-1F23D03E-B8DB-45F3-A796-083592E975D1">
+<p class="notep1">See Also:</p>
+<p>My Oracle Support Doc ID 1581331.1 <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=324130126696496&amp;id=1581331.1&amp;_adf.ctrl-state=hczcn1zjy_77" target="_blank">My Oracle Support Doc ID 1581331.1</a></p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="q">"<a href="app_fru.htm#GUID-1244F012-7851-4717-9B6C-A761355888E4" title="The following are replaceable parts for the X7&ndash;2L server.">Parts for Oracle Big Data Appliance Servers</a>"</span> for disk repair procedures</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGOG269"></a>
+<div class="props_rev_3"><a id="GUID-C67D2144-E4B7-4F20-9201-CFAFDF28E52C"></a>
+<h2 id="BIGOG-GUID-C67D2144-E4B7-4F20-9201-CFAFDF28E52C" class="sect2"><span class="enumeration_section">13.1</span> Verifying the Server Configuration</h2>
+<div>
+<p><a id="d62173e118" class="indexterm-anchor"></a>The 12 disk drives in each Oracle Big Data Appliance server are controlled by an <a id="d62173e123" class="indexterm-anchor"></a>LSI MegaRAID SAS 92610-8i disk controller. Oracle recommends verifying the status of the RAID devices to avoid possible performance degradation or an outage. The effect on the server of validating the RAID devices is minimal. The corrective actions may affect operation of the server and can range from simple reconfiguration to an outage, depending on the specific issue uncovered.</p>
+</div>
+<a id="BIGOG270"></a>
+<div class="props_rev_3"><a id="GUID-704559D7-0F24-4E19-B1F3-8CB7EB205A8C"></a>
+<h3 id="BIGOG-GUID-704559D7-0F24-4E19-B1F3-8CB7EB205A8C" class="sect3"><span class="enumeration_section">13.1.1</span> Verifying Disk Controller Configuration</h3>
+<div>
+<div class="section">
+<p><a id="d62173e146" class="indexterm-anchor"></a><a id="d62173e148" class="indexterm-anchor"></a>Enter this command to verify the disk controller configuration:</p>
+<pre dir="ltr">
+# <a id="d62173e155" class="indexterm-anchor"></a>MegaCli64 -AdpAllInfo -a0 | grep "Device Present" -A 8
+</pre>
+<p>The following is an example of the output from the command. There should be 12 virtual drives, no degraded or offline drives, and 14 physical devices. The 14 devices are the controllers and the 12 disk drives.</p>
+<pre dir="ltr">
+                Device Present
+                ================
+Virtual Drives    : 12 
+  Degraded        : 0 
+  Offline         : 0 
+Physical Devices  : 14 
+  Disks           : 12 
+  Critical Disks  : 0 
+  Failed Disks    : 0 
+</pre>
+<p>If the output is different, then investigate and correct the problem.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG271"></a>
+<div class="props_rev_3"><a id="GUID-C1F90EBB-14AA-4462-B419-D6E16E39EC8D"></a>
+<h3 id="BIGOG-GUID-C1F90EBB-14AA-4462-B419-D6E16E39EC8D" class="sect3"><span class="enumeration_section">13.1.2</span> Verifying Virtual Drive Configuration</h3>
+<div>
+<div class="section">
+<p><a id="d62173e184" class="indexterm-anchor"></a><a id="d62173e186" class="indexterm-anchor"></a>Enter this command to verify the virtual drive configuration:</p>
+<pre dir="ltr">
+# MegaCli64 -LDInfo -lAll -a0
+</pre>
+<p>The following is an example of the output for Virtual Drive 0. Ensure that State is Optimal.</p>
+<pre dir="ltr">
+Adapter 0 -- Virtual Drive Information:
+Virtual Drive: 0 (Target Id: 0)
+Name                :
+RAID Level          : Primary-0, Secondary-0, RAID Level Qualifier-0
+Size                : 1.817 TB
+Parity Size         : 0
+State               : Optimal
+Strip Size          : 64 KB
+Number Of Drives    : 1
+Span Depth          : 1
+Default Cache Policy: WriteBack, ReadAheadNone, Cached, No Write Cache if Bad BBU
+Current Cache Policy: WriteBack, ReadAheadNone, Cached, No Write Cache if Bad BBU
+Access Policy       : Read/Write
+Disk Cache Policy   : Disk's Default
+Encryption Type     : None
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG272"></a>
+<div class="props_rev_3"><a id="GUID-3E24E3ED-6805-4978-88CB-DE88CA3A1BF0"></a>
+<h3 id="BIGOG-GUID-3E24E3ED-6805-4978-88CB-DE88CA3A1BF0" class="sect3"><span class="enumeration_section">13.1.3</span> Verifying Physical Drive Configuration</h3>
+<div>
+<div class="section">
+<p><a id="d62173e218" class="indexterm-anchor"></a><a id="d62173e220" class="indexterm-anchor"></a>Use the following command to verify the physical <a id="d62173e225" class="indexterm-anchor"></a><a id="d62173e227" class="indexterm-anchor"></a>drive configuration:</p>
+<pre dir="ltr">
+# MegaCli64 -PDList -a0 | grep Firmware
+</pre>
+<p>The following is an example of the output from the command. The 12 drives should be Online, Spun Up. If the output is different, then investigate and correct the problem.</p>
+<pre dir="ltr">
+Firmware state: Online, Spun Up
+Device Firmware Level: 061A
+Firmware state: Online, Spun Up
+Device Firmware Level: 061A
+Firmware state: Online, Spun Up
+Device Firmware Level: 061A
+     .
+     .
+     .
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG76809"></a>
+<div class="props_rev_3"><a id="GUID-DEC2D076-AEAA-4806-BFCC-19DC8946CB30"></a>
+<h2 id="BIGOG-GUID-DEC2D076-AEAA-4806-BFCC-19DC8946CB30" class="sect2"><span class="enumeration_section">13.2</span> Overview of the Disk Replacement Process</h2>
+<div>
+<div class="section">
+<p>The following are the basic steps for replacing a server disk drive:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Replace the failed disk drive.</span></li>
+<li><span>Perform the basic configuration steps for the new disk.</span></li>
+<li><span>Identify the dedicated function of the failed disk, as an operating system disk, or as either an HDFS disk or an Oracle NoSQL Database disk.</span></li>
+<li><span>Configure the disk for its dedicated function.</span></li>
+<li><span>Verify that the configuration is correct.</span></li>
+<li><span>Install the Oracle Big Data Appliance software.</span></li>
+</ol>
+<div class="section">
+<div class="infoboxnotealso" id="GUID-DEC2D076-AEAA-4806-BFCC-19DC8946CB30__GUID-C1C61722-9BC6-472C-BC0B-2AF3B5B666F9">
+<p class="notep1">See Also:</p>
+<p>"Servicing Storage Drives" in the <span class="italic">Oracle Server X7-2L Service Manual</span> at</p>
+<p><a href="https://docs.oracle.com/cd/E72463_01/html/E72474/gqtcs.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E62172_01/html/E62184/z400001c165586.html#scrolltoc</code></a></p>
+<p>"Servicing Storage Drives and Rear Drives" in the <span class="italic">Oracle Server X6-2L Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E62172_01/html/E62184/z400001c165586.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E62172_01/html/E62184/z400001c165586.html#scrolltoc</code></a></p>
+<p>"Servicing Storage Drives and Rear Drives" in the <span class="italic">Oracle Server X5-2L Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000091011460.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000091011460.html#scrolltoc</code></a></p>
+<p>"Servicing Storage Drives and Boot Drives" in the <span class="italic">Sun Fire X4270M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/E21671/hotswap.html#50503714_61628" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/E21671/hotswap.html#50503714_61628</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76775"></a>
+<div class="props_rev_3"><a id="GUID-798B0173-E39B-49AC-86F7-6A1AEA981AEB"></a>
+<h2 id="BIGOG-GUID-798B0173-E39B-49AC-86F7-6A1AEA981AEB" class="sect2"><span class="enumeration_section">13.3</span> About Disk Drive Identifiers</h2>
+<div>
+<p>The Oracle Big Data Appliance servers contain a disk enclosure cage that is controlled by the host bus adapter (HBA). The enclosure holds 12 disk drives that are identified by slot numbers 0 to 11. The drives can be dedicated to specific functions, as shown in <a href="disks.htm#GUID-C307A9CB-5CFE-439D-BF94-3A4C4446FE0C__CHDDFHCG" title="Maps RAID drives to operating system identifiers">Table 13-1</a>.</p>
+<p>Oracle Big Data Appliance uses symbolic links, which are defined in <code class="codeph">/dev/disk/by_hba_slot</code>, to identify the slot number of a disk. The links have the form s<span class="italic">n</span>p<span class="italic">m</span>, where <span class="italic">n</span> is the slot number and <span class="italic">m</span> is the partition number. For example, <code class="codeph">/dev/disk/by_hba_slot/s0p1</code> initially corresponds to <code class="codeph">/dev/sda1</code>.</p>
+<p>When a disk is hot swapped, the operating system cannot reuse the kernel device name. Instead, it allocates a new device name. For example, if you hot swap <code class="codeph">/dev/sda</code>, then the disk corresponding <code class="codeph">/dev/disk/by-hba-slot/s0</code> might link to <code class="codeph">/dev/sdn</code> instead of <code class="codeph">/dev/sda</code>. Therefore, the links in <code class="codeph">/dev/disk/by-hba-slot/</code> are automatically updated when devices are added or removed.</p>
+<p>The command output lists device names as <a id="d62173e387" class="indexterm-anchor"></a>kernel device names instead of <a id="d62173e390" class="indexterm-anchor"></a>symbolic link names. Thus, <code class="codeph">/dev/disk/by-hba-slot/s0</code> might be identified as <code class="codeph">/dev/sda</code> in the output of a command.</p>
+</div>
+<a id="BIGOG76776"></a><a id="BIGOG76810"></a>
+<div class="props_rev_3"><a id="GUID-C307A9CB-5CFE-439D-BF94-3A4C4446FE0C"></a>
+<h3 id="BIGOG-GUID-C307A9CB-5CFE-439D-BF94-3A4C4446FE0C" class="sect3"><span class="enumeration_section">13.3.1</span> Standard Disk Drive Mappings</h3>
+<div>
+<div class="section">
+<p><a href="disks.htm#GUID-C307A9CB-5CFE-439D-BF94-3A4C4446FE0C__CHDDFHCG" title="Maps RAID drives to operating system identifiers">Table 13-1</a> shows typical initial mappings between the <a id="d62173e425" class="indexterm-anchor"></a><a id="d62173e427" class="indexterm-anchor"></a><a id="d62173e431" class="indexterm-anchor"></a><a id="d62173e435" class="indexterm-anchor"></a>RAID logical drives and the operating system identifiers. Nonetheless, you must use the mappings that exist for your system, which might be different from the ones listed here. The table also identifies the dedicated function of each drive in an Oracle Big Data Appliance server. The server with the failed drive is part of either a CDH cluster (HDFS) or an Oracle NoSQL Database cluster.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-C307A9CB-5CFE-439D-BF94-3A4C4446FE0C__CHDDFHCG">
+<p class="titleintable">Table 13-1 Disk Drive Identifiers</p>
+<table class="cellalignment188" title="Disk Drive Identifiers" summary="Maps RAID drives to operating system identifiers">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment227" id="d62173e449">Symbolic Link to Physical Slot</th>
+<th class="cellalignment207" id="d62173e452">Typical Initial Kernel Device Name</th>
+<th class="cellalignment241" id="d62173e455">Dedicated Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e460" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s0</p>
+</td>
+<td class="cellalignment210" headers="d62173e460 d62173e452">
+<p>/dev/sda</p>
+</td>
+<td class="cellalignment242" headers="d62173e460 d62173e455">
+<p>Operating system</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e470" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s1</p>
+</td>
+<td class="cellalignment210" headers="d62173e470 d62173e452">
+<p>/dev/sdb</p>
+</td>
+<td class="cellalignment242" headers="d62173e470 d62173e455">
+<p>Operating system</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e480" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s2</p>
+</td>
+<td class="cellalignment210" headers="d62173e480 d62173e452">
+<p>/dev/sdc</p>
+</td>
+<td class="cellalignment242" headers="d62173e480 d62173e455">
+<p>HDFS or Oracle NoSQL Database</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e490" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s3</p>
+</td>
+<td class="cellalignment210" headers="d62173e490 d62173e452">
+<p>/dev/sdd</p>
+</td>
+<td class="cellalignment242" headers="d62173e490 d62173e455">
+<p>HDFS or Oracle NoSQL Database</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e500" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s4</p>
+</td>
+<td class="cellalignment210" headers="d62173e500 d62173e452">
+<p>/dev/sde</p>
+</td>
+<td class="cellalignment242" headers="d62173e500 d62173e455">
+<p>HDFS or Oracle NoSQL Database</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e510" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s5</p>
+</td>
+<td class="cellalignment210" headers="d62173e510 d62173e452">
+<p>/dev/sdf</p>
+</td>
+<td class="cellalignment242" headers="d62173e510 d62173e455">
+<p>HDFS or Oracle NoSQL Database</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e520" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s6</p>
+</td>
+<td class="cellalignment210" headers="d62173e520 d62173e452">
+<p>/dev/sdg</p>
+</td>
+<td class="cellalignment242" headers="d62173e520 d62173e455">
+<p>HDFS or Oracle NoSQL Database</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e530" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s7</p>
+</td>
+<td class="cellalignment210" headers="d62173e530 d62173e452">
+<p>/dev/sdh</p>
+</td>
+<td class="cellalignment242" headers="d62173e530 d62173e455">
+<p>HDFS or Oracle NoSQL Database</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e540" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s8</p>
+</td>
+<td class="cellalignment210" headers="d62173e540 d62173e452">
+<p>/dev/sdi</p>
+</td>
+<td class="cellalignment242" headers="d62173e540 d62173e455">
+<p>HDFS or Oracle NoSQL Database</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e550" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s9</p>
+</td>
+<td class="cellalignment210" headers="d62173e550 d62173e452">
+<p>/dev/sdj</p>
+</td>
+<td class="cellalignment242" headers="d62173e550 d62173e455">
+<p>HDFS or Oracle NoSQL Database</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e560" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s10</p>
+</td>
+<td class="cellalignment210" headers="d62173e560 d62173e452">
+<p>/dev/sdk</p>
+</td>
+<td class="cellalignment242" headers="d62173e560 d62173e455">
+<p>HDFS or Oracle NoSQL Database</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment229" id="d62173e571" headers="d62173e449">
+<p>/dev/disk/by-hba-slot/s11</p>
+</td>
+<td class="cellalignment210" headers="d62173e571 d62173e452">
+<p>/dev/sdl</p>
+</td>
+<td class="cellalignment242" headers="d62173e571 d62173e455">
+<p>HDFS or Oracle NoSQL Database</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76812"></a><a id="BIGOG76811"></a>
+<div class="props_rev_3"><a id="GUID-E0232BC1-DBEF-4282-9506-1E81CC8BA891"></a>
+<h3 id="BIGOG-GUID-E0232BC1-DBEF-4282-9506-1E81CC8BA891" class="sect3"><span class="enumeration_section">13.3.2</span> Standard Mount Points</h3>
+<div>
+<div class="section">
+<p><a href="disks.htm#GUID-E0232BC1-DBEF-4282-9506-1E81CC8BA891__CHDEJGGA" title="Mount points for HDFS partitions">Table 13-2</a> show the mappings between <a id="d62173e606" class="indexterm-anchor"></a><a id="d62173e608" class="indexterm-anchor"></a>HDFS partitions and mount points.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-E0232BC1-DBEF-4282-9506-1E81CC8BA891__CHDEJGGA">
+<p class="titleintable">Table 13-2 Mount Points</p>
+<table class="cellalignment188" title="Mount Points" summary="Mount points for HDFS partitions">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment243" id="d62173e622">Symbolic Link to Physical Slot and Partition</th>
+<th class="cellalignment244" id="d62173e625">HDFS Partition</th>
+<th class="cellalignment235" id="d62173e628">Mount Point</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e633" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s0p4</p>
+</td>
+<td class="cellalignment246" headers="d62173e633 d62173e625">
+<p>/dev/sda4</p>
+</td>
+<td class="cellalignment236" headers="d62173e633 d62173e628">
+<p>/u01</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e643" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s1p4</p>
+</td>
+<td class="cellalignment246" headers="d62173e643 d62173e625">
+<p>/dev/sdb4</p>
+</td>
+<td class="cellalignment236" headers="d62173e643 d62173e628">
+<p>/u02</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e653" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s2p1</p>
+</td>
+<td class="cellalignment246" headers="d62173e653 d62173e625">
+<p>/dev/sdc1</p>
+</td>
+<td class="cellalignment236" headers="d62173e653 d62173e628">
+<p>/u03</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e663" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s3p1</p>
+</td>
+<td class="cellalignment246" headers="d62173e663 d62173e625">
+<p>/dev/sdd1</p>
+</td>
+<td class="cellalignment236" headers="d62173e663 d62173e628">
+<p>/u04</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e673" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s4p1</p>
+</td>
+<td class="cellalignment246" headers="d62173e673 d62173e625">
+<p>/dev/sde1</p>
+</td>
+<td class="cellalignment236" headers="d62173e673 d62173e628">
+<p>/u05</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e683" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s5p1</p>
+</td>
+<td class="cellalignment246" headers="d62173e683 d62173e625">
+<p>/dev/sdf1</p>
+</td>
+<td class="cellalignment236" headers="d62173e683 d62173e628">
+<p>/u06</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e693" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s6p1</p>
+</td>
+<td class="cellalignment246" headers="d62173e693 d62173e625">
+<p>/dev/sdg1</p>
+</td>
+<td class="cellalignment236" headers="d62173e693 d62173e628">
+<p>/u07</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e703" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s7p1</p>
+</td>
+<td class="cellalignment246" headers="d62173e703 d62173e625">
+<p>/dev/sdh1</p>
+</td>
+<td class="cellalignment236" headers="d62173e703 d62173e628">
+<p>/u08</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e713" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s8p1</p>
+</td>
+<td class="cellalignment246" headers="d62173e713 d62173e625">
+<p>/dev/sdi1</p>
+</td>
+<td class="cellalignment236" headers="d62173e713 d62173e628">
+<p>/u09</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e723" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s9p1</p>
+</td>
+<td class="cellalignment246" headers="d62173e723 d62173e625">
+<p>/dev/sdj1</p>
+</td>
+<td class="cellalignment236" headers="d62173e723 d62173e628">
+<p>/u10</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e733" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s10p1</p>
+</td>
+<td class="cellalignment246" headers="d62173e733 d62173e625">
+<p>/dev/sdk1</p>
+</td>
+<td class="cellalignment236" headers="d62173e733 d62173e628">
+<p>/u11</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment245" id="d62173e744" headers="d62173e622">
+<p>/dev/disk/by-hba-slot/s11p1</p>
+</td>
+<td class="cellalignment246" headers="d62173e744 d62173e625">
+<p>/dev/sdl1</p>
+</td>
+<td class="cellalignment236" headers="d62173e744 d62173e628">
+<p>/u12</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76813"></a>
+<div class="props_rev_3"><a id="GUID-644F7749-E073-403C-BE93-5D7766AB021B"></a>
+<h3 id="BIGOG-GUID-644F7749-E073-403C-BE93-5D7766AB021B" class="sect3"><span class="enumeration_section">13.3.3</span> Obtaining the Physical Slot Number of a Disk Drive</h3>
+<div>
+<div class="section">
+<p>Use the following <code class="codeph">MegaCli64</code> command to verify the mapping of virtual drive numbers to physical slot numbers. See <span class="q">"<a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF">Replacing a Disk Drive</a>."</span></p>
+<pre dir="ltr">
+# MegaCli64 LdPdInfo a0 | more 
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG76814"></a>
+<div class="props_rev_3"><a id="GUID-E67330A5-D074-4BCA-A31B-307C82EEA168"></a>
+<h2 id="BIGOG-GUID-E67330A5-D074-4BCA-A31B-307C82EEA168" class="sect2"><span class="enumeration_section">13.4</span> Prerequisites for Replacing a Failing Disk</h2>
+<div>
+<div class="section">
+<p>To replace an HDFS disk or an operating system disk that is in a state of predictive failure, you must first dismount the HDFS <a id="d62173e809" class="indexterm-anchor"></a>partitions. You must also turn off <a id="d62173e814" class="indexterm-anchor"></a>swapping before replacing an operating system disk.</p>
+<div class="infobox-note" id="GUID-E67330A5-D074-4BCA-A31B-307C82EEA168__GUID-6075881A-A0D1-4F9F-9400-BAD87E826B7D">
+<p class="notep1">Note:</p>
+<p>Only dismount HDFS partitions. For an operating system disk, ensure that you do not dismount operating system partitions. Only partition 4 (sda4 or sdb4) of an operating system disk is used for HDFS.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To dismount HDFS partitions:</p>
+<ol>
+<li>
+<p>Log in to the server with the failing drive.</p>
+</li>
+<li>
+<p>If the failing drive supported the operating system, then turn off <a id="d62173e830" class="indexterm-anchor"></a>swapping:</p>
+<pre dir="ltr">
+# bdaswapoff
+</pre>
+<p>Removing a disk with active swapping crashes the kernel.</p>
+</li>
+<li>
+<p>List the mounted HDFS partitions:</p>
+<pre dir="ltr">
+# <span class="bold">mount -l</span>
+
+/dev/md2 on / type ext4 (rw,noatime)
+proc on /proc type proc (rw)
+sysfs on /sys type sysfs (rw)
+devpts on /dev/pts type devpts (rw,gid=5,mode=620)
+/dev/md0 on /boot type ext4 (rw)
+tmpfs on /dev/shm type tmpfs (rw)
+/dev/sda4 on /u01 type ext4 (rw,nodev,noatime) [/u01]
+/dev/sdb4 on /u02 type ext4 (rw,nodev,noatime) [/u02]
+/dev/sdc1 on /u03 type ext4 (rw,nodev,noatime) [/u03]
+/dev/sdd1 on /u04 type ext4 (rw,nodev,noatime) [/u04]
+     .
+     .
+     .
+</pre></li>
+<li>
+<p>Check the list of mounted partitions for the failing disk. If the disk has no partitions listed, then proceed to <span class="q">"<a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF">Replacing a Disk Drive</a>."</span> Otherwise, continue to the next step.</p>
+<div class="infobox-note" id="GUID-E67330A5-D074-4BCA-A31B-307C82EEA168__GUID-209B3B63-31B3-4B93-8043-C4ED7F8B95D5">
+<p class="notep1">Caution:</p>
+<p>For operating system disks, look for partition 4 (sda4 or sdb4). Do not dismount an operating system partition.</p>
+</div>
+</li>
+<li>
+<p>Dismount the HDFS mount points for the failed disk:</p>
+<pre dir="ltr">
+# umount <span class="italic">mountpoint</span>
+</pre>
+<p>For example, <code class="codeph">umount /u11</code> removes the mount point for partition <code class="codeph">/dev/sdk1</code>.</p>
+<p>If the <code class="codeph">umount</code> commands succeed, then proceed to <span class="q">"<a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF">Replacing a Disk Drive</a>."</span> If a <code class="codeph">umount</code> command fails with a device busy message, then the partition is still in use. Continue to the next step.</p>
+</li>
+<li>
+<p>Open a browser window to Cloudera Manager. For example:</p>
+<p><code class="codeph">http://bda1node03.example.com:7180</code></p>
+</li>
+<li>
+<p>Complete these steps in Cloudera Manager:</p>
+<div class="infobox-note" id="GUID-E67330A5-D074-4BCA-A31B-307C82EEA168__GUID-D9764370-401B-4F86-8A5D-6A3D68C41FCC">
+<p class="notep1">Note:</p>
+<p>If you remove mount points in Cloudera Manager as described in the following steps, then you must restore these mount points in Cloudera Manager after finishing all other configuration procedures.</p>
+</div>
+<ol>
+<li>
+<p>Log in as <code class="codeph">admin</code>.</p>
+</li>
+<li>
+<p>On the Services page, click <span class="bold">hdfs</span></p>
+</li>
+<li>
+<p>Click the <span class="bold">Instances</span> subtab.</p>
+</li>
+<li>
+<p>In the Host column, locate the server with the failing disk. Then click the service in the Name column, such as <span class="bold">datanode</span>, to open its page.</p>
+</li>
+<li>
+<p>Click the <span class="bold">Configuration</span> subtab.</p>
+</li>
+<li>
+<p>Remove the mount point from the Directory field.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>From the Actions list, choose <span class="bold">Restart this DataNode</span>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>In Cloudera Manager, remove the mount point from <code class="codeph">NodeManager Local Directories</code>:</p>
+<ol>
+<li>
+<p>On the Services page, click <span class="bold">Yarn</span>.</p>
+</li>
+<li>
+<p>In the Status Summary, click <span class="bold">NodeManager</span>.</p>
+</li>
+<li>
+<p>From the list, click to select the NodeManager that is on the host with the failed disk.</p>
+</li>
+<li>
+<p>Click the <span class="bold">Configuration</span> subtab.</p>
+</li>
+<li>
+<p>Remove the mount point from the NodeManager.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>Restart the NodeManager.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>If you have added any other roles that store data on the same HDFS mount point (such as HBase Region Server), then remove and restore the mount points for these roles in the same way.</p>
+</li>
+<li>
+<p>Return to your session on the server with the failed drive.</p>
+</li>
+<li>
+<p>Reissue the <code class="codeph">umount</code> command:</p>
+<pre dir="ltr">
+# umount <span class="italic">mountpoint</span>
+</pre>
+<p>If the <code class="codeph">umount</code> still fails, run <code class="codeph">lsof</code> to list open files under the HDFS mount point and the processes that opened them. This may help you to identify the process that is preventing the unmount. For example:</p>
+<pre dir="ltr">
+# lsof | grep /u11
+</pre></li>
+<li>
+<p>Bring the disk offline:</p>
+<pre dir="ltr">
+# MegaCli64 PDoffline "physdrv[<span class="italic">enclosure</span>:<span class="italic">slot</span>]" a0
+</pre>
+<p>For example, <code class="codeph">"physdrv[20:10]"</code> identifies disk s11, which is located in slot 10 of enclosure 20.</p>
+</li>
+<li>
+<p>Delete the disk from the controller configuration table:</p>
+<pre dir="ltr">
+MegaCli64 CfgLDDel L<span class="italic">slot</span> a0 
+</pre>
+<p>For example, L10 identifies slot 10.</p>
+</li>
+<li>
+<p>Complete the steps in <span class="q">"<a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF">Replacing a Disk Drive</a>."</span></p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76815"></a>
+<div class="props_rev_3"><a id="GUID-E248BD24-0D44-4677-8948-7FD81927ECD0"></a>
+<h2 id="BIGOG-GUID-E248BD24-0D44-4677-8948-7FD81927ECD0" class="sect2"><span class="enumeration_section">13.5</span> What If a Server Fails to Restart?</h2>
+<div>
+<div class="section">
+<p>The server may restart during the disk replacement procedures, either because you issued a <code class="codeph">reboot</code> command or made an error in a MegaCli64 command. In most cases, the server restarts successfully, and you can continue working. However, in other cases, an error occurs so that you cannot reconnect using ssh. In this case, you must complete the reboot using Oracle ILOM.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To restart a server using Oracle ILOM:</p>
+<ol>
+<li>
+<p>Use your browser to open a connection to the server using Oracle ILOM. For example:</p>
+<p><code class="codeph">http://bda1node12-c.example.com</code></p>
+<div class="infobox-note" id="GUID-E248BD24-0D44-4677-8948-7FD81927ECD0__GUID-3063CFD1-EF38-4B31-BAF9-0DF23B6CB55E">
+<p class="notep1">Note:</p>
+<p>Your browser must have a JDK plug-in installed. If you do not see the Java coffee cup on the log-in page, then you must install the plug-in before continuing.</p>
+</div>
+</li>
+<li>
+<p>Log in using your Oracle ILOM credentials.</p>
+</li>
+<li>
+<p>Select the <span class="bold">Remote Control</span> tab.</p>
+</li>
+<li>
+<p>Click the <span class="bold">Launch Remote Console</span> button.</p>
+</li>
+<li>
+<p>Enter Ctrl+d to continue rebooting.</p>
+</li>
+<li>
+<p>If the reboot fails, then enter the server <code class="codeph">root</code> password at the prompt and attempt to fix the problem.</p>
+</li>
+<li>
+<p>After the server restarts successfully, open the Redirection menu and choose <span class="bold">Quit</span> to close the console window.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-E248BD24-0D44-4677-8948-7FD81927ECD0__GUID-738F2180-B79E-4606-AB92-F81EC3BDCFA2">
+<p class="notep1">See Also:</p>
+<p>Oracle Integrated Lights Out Manager (ILOM) 3.0 documentation at</p>
+<p><a href="http://docs.oracle.com/cd/E19860-01/" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19860-01/</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76712"></a>
+<div class="props_rev_3"><a id="GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF"></a>
+<h2 id="BIGOG-GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF" class="sect2"><span class="enumeration_section">13.6</span> Replacing a Disk Drive</h2>
+<div>
+<div class="section">
+<p><a id="d62173e1140" class="indexterm-anchor"></a><a id="d62173e1144" class="indexterm-anchor"></a><a id="d62173e1148" class="indexterm-anchor"></a>Complete this procedure to replace a failed or failing disk drives.</p>
+<ol>
+<li>
+<p>Before replacing a failing disk, see <span class="q">"<a href="disks.htm#GUID-E67330A5-D074-4BCA-A31B-307C82EEA168">Prerequisites for Replacing a Failing Disk</a>."</span></p>
+</li>
+<li>
+<p>Replace the failed disk drive.</p>
+<p>See <span class="q">"<a href="app_fru.htm#GUID-1244F012-7851-4717-9B6C-A761355888E4" title="The following are replaceable parts for the X7&ndash;2L server.">Parts for Oracle Big Data Appliance Servers</a>"</span>.</p>
+</li>
+<li>
+<p>Power on the server if you powered it off to replace the failed disk.</p>
+</li>
+<li>
+<p>Connect to the server as <code class="codeph">root</code> using either the KVM or an SSL connection to a laptop.</p>
+</li>
+<li id="GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF__CHDIJBGF">
+<p>Store the physical drive information in a file:</p>
+<pre dir="ltr">
+# MegaCli64 pdlist a0 &gt; pdinfo.tmp
+</pre>
+<p><span class="bold">Note</span>: This command redirects the output to a file so that you can perform several searches using a text editor. If you prefer, you can pipe the output through the <code class="codeph">more</code> or <code class="codeph">grep</code> commands.</p>
+<p>The utility returns the following information for each slot. This example shows a Firmware State of <code class="codeph">Unconfigured(good), Spun Up</code>.</p>
+<pre dir="ltr">
+Enclosure Device ID: 20
+Slot Number: 8
+Drive's postion: DiskGroup: 8, Span: 0, Arm: 0
+Enclosure position: 0
+Device Id: 11
+WWN: 5000C5003487075C
+Sequence Number: 2
+Media Error Count: 0
+Other Error Count: 0
+Predictive Failure Count: 0
+Last Predictive Failure Event Seq Number: 0
+PD Type: SAS
+Raw Size: 1.819 TB [0xe8e088b0 Sectors]
+Non Coerced Size: 1.818 TB [0xe8d088b0 Sectors]
+Coerced Size: 1.817 TB [0xe8b6d000 Sectors]
+<span class="bold">Firmware state</span>: Unconfigured(good), Spun Up
+Is Commissioned Spare : NO
+Device Firmware Level: 061A
+Shield Counter: 0
+Successful diagnostics completion on :  N/A
+SAS Address(0): 0x5000c5003487075d
+SAS Address(1): 0x0
+Connected Port Number: 0(path0)
+Inquiry Data: SEAGATE ST32000SSSUN2.0T061A1126L6M3WX
+FDE Enable: Disable
+Secured: Unsecured
+Locked: Unlocked
+Needs EKM Attention: No
+<span class="bold">Foreign State</span>: None
+Device Speed: 6.0Gb/s
+Link Speed: 6.0Gb/s
+Media Type: Hard Disk Device
+.
+.
+.
+</pre></li>
+<li>
+<p>Open the file you created in Step <a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF__CHDIJBGF">5</a> in a text editor and search for the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Disks that have a <a id="d62173e1218" class="indexterm-anchor"></a>Foreign State of Foreign</p>
+</li>
+<li>
+<p>Disks that have a Firmware State of Unconfigured</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For disks that have a Foreign State of Foreign, clear that status:</p>
+<pre dir="ltr">
+# MegaCli64 CfgForeign clear a0
+</pre>
+<p>A foreign disk is one that the controller saw previously, such as a reinserted disk.</p>
+</li>
+<li>
+<p>For disks that have a <a id="d62173e1234" class="indexterm-anchor"></a>Firmware State of Unconfigured (Bad), complete these steps:</p>
+<ol>
+<li>
+<p>Note the enclosure device ID number and the slot number.</p>
+</li>
+<li>
+<p>Enter a command in this format:</p>
+<pre dir="ltr">
+# MegaCli64 pdmakegood physdrv[<span class="italic">enclosure:slot</span>] a0
+</pre>
+<p>For example, [20:10] repairs the disk identified by enclosure 20 in slot 10.</p>
+</li>
+<li>
+<p>Check the current status of Foreign State again:</p>
+<pre dir="ltr">
+# MegaCli64 pdlist a0 | grep foreign
+</pre></li>
+<li>
+<p>If the Foreign State is still Foreign, then repeat the <code class="codeph">clear</code> command:</p>
+<pre dir="ltr">
+# MegaCli64 CfgForeign clear a0
+</pre></li>
+</ol>
+</li>
+<li id="GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF__CHDFHGDC">
+<p>For disks that have a Firmware State of Unconfigured (Good), use the following command. If multiple disks are unconfigured, then configure them in order from the lowest to the highest slot number:</p>
+<pre dir="ltr">
+# <span class="bold">MegaCli64 CfgLdAdd r0</span>[<span class="italic"><span class="bold">enclosure:slot</span></span>] <span class="bold">a0</span>
+ 
+Adapter 0: Created VD 1
+ 
+Adapter 0: Configured the Adapter!!
+ 
+Exit Code: 0x00
+</pre>
+<p>For example, [20:5] repairs the disk identified by enclosure 20 in slot 5.</p>
+</li>
+<li>
+<p>If the <code class="codeph">CfgLdAdd</code> command in Step <a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF__CHDFHGDC">9</a> fails because of cached data, then clear the cache:</p>
+<pre dir="ltr">
+# MegaCli64 discardpreservedcache l1 a0 
+</pre></li>
+<li id="GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF__CHDFEJAE">
+<p>Verify that the disk is recognized by the operating system:</p>
+<pre dir="ltr">
+# lsscsi
+</pre>
+<p>The disk may appear with its original device name (such as <code class="codeph">/dev/sdc</code>) or under a new device name (such as <code class="codeph">/dev/sdn</code>). If the operating system does not recognize the disk, then the disk is missing from the list generated by the <code class="codeph">lsscsi</code> command.</p>
+<p>The <code class="codeph">lssci</code> output might not show the correct order, but you can continue with the configuration. While the same physical to logical disk mapping is required, the same disk to device mapping for the kernel is not required. The disk configuration is based on <code class="codeph">/dev/disks/by-hba-slot</code> device names.</p>
+<p>This example output shows two disks with new device names: <code class="codeph">/dev/sdn</code> in slot 5, and <code class="codeph">/dev/sdo</code> in slot 10.</p>
+<pre dir="ltr">
+[0:0:20:0]   enclosu ORACLE  CONCORD14        0960  -
+[0:2:0:0]    disk    LSI      MR9261-8i        2.12  /dev/sda
+[0:2:1:0]    disk    LSI      MR9261-8i        2.12  /dev/sdb
+[0:2:2:0]    disk    LSI      MR9261-8i        2.12  /dev/sdc
+[0:2:3:0]    disk    LSI      MR9261-8i        2.12  /dev/sdd
+[0:2:4:0]    disk    LSI      MR9261-8i        2.12  /dev/sde
+[0:2:5:0]    disk    LSI      MR9261-8i        2.12  /dev/sdn
+[0:2:6:0]    disk    LSI      MR9261-8i        2.12  /dev/sdg
+[0:2:7:0]    disk    LSI      MR9261-8i        2.12  /dev/sdh
+[0:2:8:0]    disk    LSI      MR9261-8i        2.12  /dev/sdi
+[0:2:9:0]    disk    LSI      MR9261-8i        2.12  /dev/sdj
+[0:2:10:0]   disk    LSI      MR9261-8i        2.12  /dev/sdo
+[0:2:11:0]   disk    LSI      MR9261-8i        2.12  /dev/sdl
+[7:0:0:0]    disk    ORACLE   UNIGEN-UFD       PMAP  /dev/sdm
+[
+</pre></li>
+<li>
+<p>Check the hardware profile of the server, and correct any errors:</p>
+<pre dir="ltr">
+# bdacheckhw
+</pre></li>
+<li>
+<p>Check the software profile of the server, and correct any errors:</p>
+<pre dir="ltr">
+# bdachecksw
+</pre>
+<p>If you see a "Wrong mounted partitions" error and the device is missing from the list, then you can ignore the error and continue. However, if you see a "Duplicate mount points" error or the slot numbers are switched, then see <span class="q">"<a href="disks.htm#GUID-72CE2025-BA5B-4651-B02B-D09591864415">Correcting a Mounted Partitions Error</a>"</span>.</p>
+</li>
+<li>
+<p>Identify the function of the drive, so you configure it properly. See <span class="q">"<a href="disks.htm#GUID-05A09114-48C4-4971-838F-8B3A8F5F9B7C">Identifying the Function of a Disk Drive</a>"</span>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76967"></a>
+<div class="props_rev_3"><a id="GUID-72CE2025-BA5B-4651-B02B-D09591864415"></a>
+<h2 id="BIGOG-GUID-72CE2025-BA5B-4651-B02B-D09591864415" class="sect2"><span class="enumeration_section">13.7</span> Correcting a Mounted Partitions Error</h2>
+<div>
+<div class="section">
+<p>When the <code class="codeph">bdachecksw</code> utility finds a problem, it typically concerns the mounted partitions.</p>
+<p>An old mount point might appear in the <code class="codeph">mount</code> command output, so that the same mount point, such as /u03, appears twice.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To fix duplicate mount points:</p>
+<ol>
+<li>
+<p>Dismount both mount points by using the <code class="codeph">umount</code> command twice. This example dismounts two instances of/u03:</p>
+<pre dir="ltr">
+# umount /u03
+# umount /u03
+</pre></li>
+<li>
+<p>Remount the mount point. This example remounts /u03:</p>
+<pre dir="ltr">
+# mount /u03
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>If a disk is in the wrong slot (that is, the virtual drive number), then you can switch two drives.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To switch slots:</p>
+<ol>
+<li>
+<p>Remove the mappings for both drives. This example removes the drives from slots 4 and 10:</p>
+<pre dir="ltr">
+# MegaCli64 cfgLdDel L4 a0
+# MegaCli64 cfgLdDel L10 a0
+</pre></li>
+<li>
+<p>Add the drives in the order you want them to appear; the first command obtains the first available slot number:</p>
+<pre dir="ltr">
+# MegaCli64 cfgLdAdd [20:4] a0
+# MegaCli64 cfgLdAdd [20:5] a0
+</pre></li>
+<li>
+<p>If mount errors persist even when the slot numbers are correct, then you can restart the server.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76777"></a>
+<div class="props_rev_3"><a id="GUID-05A09114-48C4-4971-838F-8B3A8F5F9B7C"></a>
+<h2 id="BIGOG-GUID-05A09114-48C4-4971-838F-8B3A8F5F9B7C" class="sect2"><span class="enumeration_section">13.8</span> Identifying the Function of a Disk Drive</h2>
+<div>
+<div class="section">
+<p>The server with the failed disk is configured to support either HDFS or Oracle NoSQL Database, and most disks are dedicated to that purpose. However, two disks are dedicated to the operating system. Before configuring the new disk, find out how the failed disk was configured.</p>
+<p>Oracle Big Data Appliance is configured with the operating system on the first two disks.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To confirm that a failed disk supported the operating system:</p>
+<ol>
+<li>
+<p>Check whether the replacement disk corresponds to <code class="codeph">/dev/sda</code> or <code class="codeph">/dev/sdb</code>, which are the operating system disks.</p>
+<pre dir="ltr">
+# lsscsi
+</pre>
+<p>See the output from Step <a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF__CHDFEJAE">11</a> of <span class="q">"<a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF">Replacing a Disk Drive</a>"</span>.</p>
+</li>
+<li>
+<p>Verify that <code class="codeph">/dev/sda</code> and <code class="codeph">/dev/sdb</code> are the operating system mirrored partitioned disks:</p>
+<pre dir="ltr">
+# <span class="bold">mdadm -Q &ndash;-detail /dev/md2</span>
+/dev/md2:
+        Version : 0.90
+  Creation Time : Mon Jul 22 22:56:19 2013
+     Raid Level : raid1
+     .
+     .
+     .
+    Number   Major   Minor   RaidDevice State
+       0       8        2        0      active sync   /dev/sda2
+       1       8       18        1      active sync   /dev/sdb2
+</pre></li>
+<li>
+<p>If the previous steps indicate that the failed disk is an operating system disk, then proceed to <span class="q">"<a href="disks.htm#GUID-0BC64E2D-7D25-4C6A-B42F-B56DA6B75ACE">Configuring an Operating System Disk</a>"</span> .</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76713"></a>
+<div class="props_rev_3"><a id="GUID-0BC64E2D-7D25-4C6A-B42F-B56DA6B75ACE"></a>
+<h2 id="BIGOG-GUID-0BC64E2D-7D25-4C6A-B42F-B56DA6B75ACE" class="sect2"><span class="enumeration_section">13.9</span> Configuring an Operating System Disk</h2>
+<div>
+<p><a id="d62173e1504" class="indexterm-anchor"></a>The first two disks support the Linux operating system. These disks store a copy of the mirrored operating system, a swap partition, a mirrored boot partition, and an HDFS data partition.</p>
+<p>To configure an operating system disk, you must copy the partition table from the surviving disk, create an HDFS partition (ext4 file system), and add the software raid partitions and boot partitions for the operating system.</p>
+<p><a id="d62173e1510" class="indexterm-anchor"></a>Complete these procedures after replacing the disk in either slot 0 or slot 1.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="disks.htm#GUID-BA3389F1-5489-472E-88E6-E8A03760E3DE">Partitioning the Operating System Disk</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-DFDF1896-DC75-4087-A8DF-E45522721155">Repairing the RAID Arrays</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-A519BB15-FB04-4FA2-A08E-ACD3FBA88F2A">Formatting the HDFS Partition of an Operating System Disk</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-11A40D21-5787-47E0-8FBA-49B7B8A6AFB1">Restoring the Swap Partition</a></p>
+</li>
+<li>
+<p><a href="disks.htm#GUID-7A7FE1EE-89D1-4913-A2C3-928715120C82">Restoring the GRUB Master Boot Records and HBA Boot Order</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG77017"></a>
+<div class="props_rev_3"><a id="GUID-BA3389F1-5489-472E-88E6-E8A03760E3DE"></a>
+<h3 id="BIGOG-GUID-BA3389F1-5489-472E-88E6-E8A03760E3DE" class="sect3"><span class="enumeration_section">13.9.1</span> Partitioning the Operating System Disk</h3>
+<a id="BIGOG77018"></a>
+<div class="props_rev_3"><a id="GUID-B11D6856-9FCE-448C-B11A-9073B2377A8C"></a>
+<h4 id="BIGOG-GUID-B11D6856-9FCE-448C-B11A-9073B2377A8C" class="sect4"><span class="enumeration_section">13.9.1.1</span> Partitioning for Oracle Linux 6</h4>
+<div>
+<div class="section">
+<p><a id="d62173e1572" class="indexterm-anchor"></a>To partition a logical drive for Oracle Linux 6:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Complete the steps in <span class="q">"<a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF">Replacing a Disk Drive</a>"</span>.</span></li>
+<li class="stepexpand"><span>Confirm that the new disk does not have a partition table:</span>
+<div>
+<pre dir="ltr">
+# parted /dev/disk/by-hba-slot/s<span class="italic">n</span> -s print
+</pre>
+<p>You should see a message about a missing partition table.</p>
+</div>
+</li>
+<li class="stepexpand"><span>If the <code class="codeph">parted</code> command displays a partition table, then clear it:</span>
+<div>
+<pre dir="ltr">
+# dd if=/dev/zero of=/dev/disk/by-hba-slot/s<span class="italic">n</span> bs=1M count=100
+</pre>
+<div class="infobox-tip" id="GUID-B11D6856-9FCE-448C-B11A-9073B2377A8C__GUID-19C9ABFB-A3A4-4DA6-90A5-D0BB686BC0DD">
+<p class="notep1">Tip:</p>
+<p>You can use this command to restart an operating system disk configuration, if you make a mistake.</p>
+</div>
+</div>
+</li>
+<li class="stepexpand"><span>Create the partition table:</span>
+<div>
+<pre dir="ltr">
+# parted /dev/disk/by-hba-slot/s<span class="italic">n</span> -s mklabel gpt print
+</pre></div>
+</li>
+<li class="stepexpand" id="GUID-B11D6856-9FCE-448C-B11A-9073B2377A8C__BEIFAIDC"><span>List the Cylinder, Head, Sector (CHS) partition information of the <span class="italic">surviving</span> disk. Thus, if you are partitioning <code class="codeph">/dev/disk/by-hba-slot/s0</code>, then enter <code class="codeph">/dev/disk/by-hba-slot/s1</code> for <code class="codeph">/dev/disk/by-hba-slot/s</code><span class="italic"><code class="codeph">m</code></span> in the following command:</span>
+<div>
+<pre dir="ltr">
+# <span class="bold">parted /dev/disk/by-hba-slot/s</span><span class="italic"><span class="bold">m</span></span><span class="bold"> -s unit chs print</span>
+ 
+Model: LSI MR9261-8i (scsi)
+Disk /dev/sda: 243031,30,6
+Sector size (logical/physical): 512B/512B
+BIOS cylinder,head,sector geometry: 243031,255,63.  Each cylinder is 8225kB.
+Partition Table: gpt
+ 
+Number  Start        End          File system    Name    Flags
+ 1      0,0,34       25,127,7     ext4           primary boot
+ 2      25,127,8     21697,116,20                primary raid
+ 3      21697,116,21 23227,61,35  linux-swap(v1) primary
+ 4      23227,61,36  243031,29,36 ext4           primary
+</pre></div>
+</li>
+<li class="stepexpand"><span>Create partitions 1 to 3 on the new drive by duplicating the partitions of the surviving disk. Issue three commands in this format:</span>
+<div>
+<pre dir="ltr">
+# parted /dev/disk/by-hba-slot/s<span class="italic">n</span> -s mkpart primary <span class="italic">file_system</span> <span class="italic">start</span> <span class="italic">end</span>
+</pre>
+<p>Use the start and end addresses that you obtained in Step <a href="disks.htm#GUID-B11D6856-9FCE-448C-B11A-9073B2377A8C__BEIFAIDC">5</a> instead of the addresses shown in the following example:</p>
+<pre dir="ltr">
+# parted /dev/disk/by-hba-slot/s<span class="italic">n</span> -s mkpart primary ext4 0,0,34 25,127,7
+# parted /dev/disk/by-hba-slot/s<span class="italic">n</span> -s mkpart primary ext4 25,127,8 21697,116,20
+# parted /dev/disk/by-hba-slot/s<span class="italic">n</span> -s mkpart primary linux-swap 21697,116,21 23227,61,35
+</pre></div>
+</li>
+<li class="stepexpand"><span>Create primary partition 4 using the start address obtained in Step <a href="disks.htm#GUID-B11D6856-9FCE-448C-B11A-9073B2377A8C__BEIFAIDC">5</a> and an end address of 100%:</span>
+<div>
+<pre dir="ltr">
+# parted /dev/disk/by-hba-slot/s<span class="italic">n</span> -s mkpart primary ext4 23227,61,36 100%
+</pre>
+<p>Partition 4 stores HDFS data, and this syntax makes the partition as large as possible.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Set the RAID flags:</span>
+<div>
+<pre dir="ltr">
+# parted -s /dev/disk/by-hba-slot/s<span class="italic">n</span> set 1 raid
+# parted -s /dev/disk/by-hba-slot/s<span class="italic">n</span> set 2 raid
+</pre></div>
+</li>
+<li class="stepexpand"><span>Set the boot flag:</span>
+<div>
+<pre dir="ltr">
+# parted -s /dev/disk/by-hba-slot/s<span class="italic">n</span> set 1 boot
+</pre></div>
+</li>
+<li class="stepexpand"><span>Verify that the boot flag is set:</span>
+<div>
+<pre dir="ltr">
+# parted /dev/disk/by-hba-slot/sn -s unit chs print
+</pre></div>
+<div>An example of the output is as follows:
+<pre dir="ltr">
+Model: LSI MR9261-8i (scsi)
+Disk /dev/sda: 243031,30,6
+Sector size (logical/physical): 512B/512B
+BIOS cylinder,head,sector geometry: 243031,255,63. Each cylinder is 8225kB.
+Partition Table: gpt
+Number Start         End           File system    Name    Flags 
+1      0,32,32       24,89,0       ext4           primary boot 
+2      24,89,1       60812,135,58                 primary raid 
+3      60812,135,59  65618,90,7    linux-swap(v1) primary 
+4      65618,90,8    243030,252,37 ext4           primary
+</pre></div>
+</li>
+<li class="stepexpand"><span>Complete the steps in <span class="q">"<a href="disks.htm#GUID-DFDF1896-DC75-4087-A8DF-E45522721155">Repairing the RAID Arrays</a>"</span>.</span></li>
+</ol>
+</div>
+</div>
+</div>
+<a id="BIGOG76715"></a>
+<div class="props_rev_3"><a id="GUID-DFDF1896-DC75-4087-A8DF-E45522721155"></a>
+<h3 id="BIGOG-GUID-DFDF1896-DC75-4087-A8DF-E45522721155" class="sect3"><span class="enumeration_section">13.9.2</span> Repairing the RAID Arrays</h3>
+<div>
+<div class="section">
+<p>After partitioning the disks, you can repair the two logical RAID arrays:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">/dev/md0</code> contains <code class="codeph">/dev/disk/by-hba-slot/s0p1</code> and <code class="codeph">/dev/disk/by-hba-slot/s1p1</code>. It is mounted as <code class="codeph">/boot</code>.</p>
+</li>
+<li>
+<p><code class="codeph">/dev/md2</code> contains <code class="codeph">/dev/disk/by-hba-slot/s0p2</code> and <code class="codeph">/dev/disk/by-hba-slot/s1p2</code>. It is mounted as <code class="codeph">/</code> (root).</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-DFDF1896-DC75-4087-A8DF-E45522721155__GUID-7EAFE2AF-806F-44CE-9498-59ED29A2636B">
+<p class="notep1">Caution:</p>
+<p>Do not dismount the <code class="codeph">/dev/md</code> devices, because that action shuts down the system.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To repair the RAID arrays:</p>
+<ol>
+<li>
+<p>Remove the partitions from the RAID arrays:</p>
+<pre dir="ltr">
+# mdadm /dev/md0 -r detached
+# mdadm /dev/md2 -r detached
+</pre></li>
+<li>
+<p>Verify that the RAID arrays are degraded:</p>
+<pre dir="ltr">
+# mdadm -Q &ndash;-detail /dev/md0
+# mdadm -Q &ndash;-detail /dev/md2
+</pre></li>
+<li>
+<p>Verify that the degraded file for each array is set to 1:</p>
+<pre dir="ltr">
+# cat /sys/block/md0/md/degraded
+1
+# cat /sys/block/md2/md/degraded
+1
+</pre></li>
+<li>
+<p>Restore the partitions to the RAID arrays:</p>
+<pre dir="ltr">
+# mdadm &ndash;-add /dev/md0 /dev/disk/by-hba-slot/s<span class="italic">n</span>p1
+# mdadm &ndash;-add /dev/md2 /dev/disk/by-hba-slot/s<span class="italic">n</span>p2
+</pre></li>
+<li>
+<p>Check that resynchronization is started, so that <code class="codeph">/dev/md2</code> is in a state of recovery and not idle:</p>
+<pre dir="ltr">
+# <span class="bold">cat /sys/block/md2/md/sync_action</span>
+repair
+</pre></li>
+<li>
+<p>To verify that resynchronization is proceeding, you can monitor the <code class="codeph">mdstat</code> file. A counter identifies the percentage complete.</p>
+<pre dir="ltr">
+# <span class="bold">cat /proc/mdstat</span>
+
+Personalities : [raid1]
+md0 : active raid1 sdb1[1] sda1[0]
+      204736 blocks [2/2] [UU]
+ 
+md2 : active raid1 sdb2[2] sda2[0]
+      174079936 blocks [2/1] [U_]
+      [============&gt;........]  recovery = 61.6% (107273216/174079936) finish=18.4min speed=60200K/sec
+</pre>
+<p>The following output shows that synchronization is complete:</p>
+<pre dir="ltr">
+Personalities : [raid1]
+md0 : active raid1 sdb1[1] sda1[0]
+      204736 blocks [2/2] [UU]
+ 
+md2 : active raid1 sdb2[1] sda2[0]
+      174079936 blocks [2/2] [UU]
+ 
+unused devices: &lt;none&gt;
+</pre></li>
+<li id="GUID-DFDF1896-DC75-4087-A8DF-E45522721155__CHDEJDJH">
+<p>Display the content of /etc/mdadm.conf:</p>
+<pre dir="ltr">
+# <span class="bold">cat /etc/mdadm.conf</span>
+
+# mdadm.conf written out by anaconda
+DEVICE partitions
+MAILADDR root
+ARRAY /dev/md0 level=raid1 num-devices=2 UUID=df1bd885:c1f0f9c2:25d6...
+ARRAY /dev/md2 level=raid1 num-devices=2 UUID=6c949a1a:1d45b778:a6da...
+</pre></li>
+<li>
+<p>Compare the output of the following command with the content of /etc/mdadm.conf from Step <a href="disks.htm#GUID-DFDF1896-DC75-4087-A8DF-E45522721155__CHDEJDJH">7</a>:</p>
+<pre dir="ltr">
+# mdadm --examine --brief --scan --config=partitions
+</pre></li>
+<li>
+<p>If the UUIDs in the file are different from UUIDs in the output of the <code class="codeph">mdadm</code> command:</p>
+<ol>
+<li>
+<p>Open /etc/mdadm.conf in a text editor.</p>
+</li>
+<li>
+<p>Select from ARRAY to the end of the file, and delete the selected lines.</p>
+</li>
+<li>
+<p>Copy the output of the command into the file where you deleted the old lines.</p>
+</li>
+<li>
+<p>Save the modified file and exit.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Complete the steps in <span class="q">"<a href="disks.htm#GUID-A519BB15-FB04-4FA2-A08E-ACD3FBA88F2A">Formatting the HDFS Partition of an Operating System Disk</a>"</span>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76716"></a>
+<div class="props_rev_3"><a id="GUID-A519BB15-FB04-4FA2-A08E-ACD3FBA88F2A"></a>
+<h3 id="BIGOG-GUID-A519BB15-FB04-4FA2-A08E-ACD3FBA88F2A" class="sect3"><span class="enumeration_section">13.9.3</span> Formatting the HDFS Partition of an Operating System Disk</h3>
+<div>
+<div class="section">
+<p>Partition 4 (sda4) on an operating system disk is used for HDFS. After you format the partition and set the correct label, HDFS rebalances the job load to use the partition if the disk space is needed.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To format the HDFS partition:</p>
+<ol>
+<li>
+<p>Format the HDFS partition as an <a id="d62173e1923" class="indexterm-anchor"></a>ext4 file system:</p>
+<pre dir="ltr">
+# mkfs -t ext4 /dev/disk/by-hba-slot/s<span class="italic">n</span>p4
+</pre>
+<div class="infobox-note" id="GUID-A519BB15-FB04-4FA2-A08E-ACD3FBA88F2A__GUID-15B9B6DB-EAD1-4FEE-AAAF-4ABFDE5CC394">
+<p class="notep1">Note:</p>
+<p>If this command fails because the device is mounted, then dismount the drive now and skip step <a href="disks.htm#GUID-A519BB15-FB04-4FA2-A08E-ACD3FBA88F2A__CHDJIJEB">3</a>. See <span class="q">"<a href="disks.htm#GUID-E67330A5-D074-4BCA-A31B-307C82EEA168">Prerequisites for Replacing a Failing Disk</a>"</span> for dismounting instructions.</p>
+</div>
+</li>
+<li>
+<p>Verify that the partition label (such as <code class="codeph">/u01</code> for <code class="codeph">s0p4</code>) is missing:</p>
+<pre dir="ltr">
+# ls -l /dev/disk/by-label
+</pre></li>
+<li id="GUID-A519BB15-FB04-4FA2-A08E-ACD3FBA88F2A__CHDJIJEB">
+<p>Dismount the appropriate HDFS partition, either <code class="codeph">/u01</code> for <code class="codeph">/dev/sda</code>, or <code class="codeph">/u02</code> for <code class="codeph">/dev/sdb</code>:</p>
+<pre dir="ltr">
+# umount /u0<span class="italic">n</span>
+</pre></li>
+<li>
+<p>Reset the partition label:</p>
+<pre dir="ltr">
+# tune2fs -c -1 -i 0 -m 0.2 -L /u0<span class="italic">n</span> /dev/disk/by-hba-slot/s<span class="italic">n</span>p4
+</pre></li>
+<li>
+<p>Mount the HDFS partition:</p>
+<pre dir="ltr">
+# mount /u0<span class="italic">n</span>
+</pre></li>
+<li>
+<p>Complete the steps in <span class="q">"<a href="disks.htm#GUID-11A40D21-5787-47E0-8FBA-49B7B8A6AFB1">Restoring the Swap Partition</a>"</span>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76717"></a>
+<div class="props_rev_3"><a id="GUID-11A40D21-5787-47E0-8FBA-49B7B8A6AFB1"></a>
+<h3 id="BIGOG-GUID-11A40D21-5787-47E0-8FBA-49B7B8A6AFB1" class="sect3"><span class="enumeration_section">13.9.4</span> Restoring the Swap Partition</h3>
+<div>
+<div class="section">
+<p>After formatting the HDFS partition, you can restore the <a id="d62173e2019" class="indexterm-anchor"></a>swap partition.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To restore the swap partition:</p>
+<ol>
+<li>
+<p>Set the swap label:</p>
+<pre dir="ltr">
+# <span class="bold">mkswap -L SWAP-sd</span><span class="italic"><span class="bold">n</span></span><span class="bold">3 /dev/disk/by-hba-slot/s</span><span class="italic"><span class="bold">n</span></span><span class="bold">p3</span>
+Setting up swapspace version 1, size = 12582907 kB
+LABEL=SWAP-sd<span class="italic">n</span>3, no uuid
+</pre></li>
+<li>
+<p>Verify that the swap partition is restored:</p>
+<pre dir="ltr">
+# <span class="bold">bdaswapon; bdaswapoff</span>
+Filename                          Type            Size    Used    Priority
+/dev/sda3                         partition       12287992        0       1
+/dev/sdb3                         partition       12287992        0       1
+</pre></li>
+<li id="GUID-11A40D21-5787-47E0-8FBA-49B7B8A6AFB1__CHDFICAC">
+<p>Verify that the replaced disk is recognized by the operating system:</p>
+<pre dir="ltr">
+$ <span class="bold">ls -l /dev/disk/by-label</span>
+total 0
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 BDAUSB -&gt; ../../sdn1
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 BDAUSBBOOT -&gt; ../../sdm1
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 SWAP-sda3 -&gt; ../../sda3
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 SWAP-sdb3 -&gt; ../../sdb3
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 u01 -&gt; ../../sda4
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 u02 -&gt; ../../sdb4
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 u03 -&gt; ../../sdc1
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 u04 -&gt; ../../sdd1
+     .
+     .
+     .
+</pre></li>
+<li>
+<p>If the output does not list the replaced disk:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>On Linux 6, run <code class="codeph">udevadm trigger</code>.</p>
+</li>
+</ul>
+<p>Then repeat step <a href="disks.htm#GUID-11A40D21-5787-47E0-8FBA-49B7B8A6AFB1__CHDFICAC">3</a>. The <code class="codeph">lsscsi</code> command should also report the correct order of the disks.</p>
+</li>
+<li>
+<p>Complete the steps in <span class="q">"<a href="disks.htm#GUID-7A7FE1EE-89D1-4913-A2C3-928715120C82">Restoring the GRUB Master Boot Records and HBA Boot Order</a>"</span>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76718"></a>
+<div class="props_rev_3"><a id="GUID-7A7FE1EE-89D1-4913-A2C3-928715120C82"></a>
+<h3 id="BIGOG-GUID-7A7FE1EE-89D1-4913-A2C3-928715120C82" class="sect3"><span class="enumeration_section">13.9.5</span> Restoring the GRUB Master Boot Records and HBA Boot Order</h3>
+<div>
+<div class="section">
+<p>After restoring the swap partition, you can restore the Grand Unified Bootloader (<a id="d62173e2109" class="indexterm-anchor"></a>GRUB) master boot record.</p>
+<p>The <code class="codeph">device.map</code> file maps the BIOS drives to operating system devices. The following is an example of a device map file:</p>
+<pre dir="ltr">
+# this device map was generated by anaconda
+(hd0)     /dev/sda
+(hd1)     /dev/sdb
+</pre>
+<p>However, the GRUB device map does not support symbolic links, and the mappings in the device map might not correspond to those used by <code class="codeph">/dev/disk/by-hba-slot</code>. The following procedure explains how you can correct the device map if necessary.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To restore the GRUB boot record:</p>
+<ol>
+<li id="GUID-7A7FE1EE-89D1-4913-A2C3-928715120C82__BEIBAABI">
+<p>Check which kernel device the drive is using in slot1</p>
+<pre dir="ltr">
+# ls -ld /dev/disk/by-hba-slot/s1
+lrwxrwxrwx 1 root root 9 Apr 22 12:54 /dev/disk/by-hba-slot/s1 -&gt; ../../sdb
+</pre></li>
+<li>
+<p>If the output displays<code class="codeph">/dev/sdb</code> as shown in step <a href="disks.htm#GUID-7A7FE1EE-89D1-4913-A2C3-928715120C82__BEIBAABI">1</a>, then proceed to the next step (open GRUB).</p>
+<p>If another device is displayed, such as <code class="codeph">/dev/sdn</code>, then you must first set <code class="codeph">hd1</code> to point to the correct device:</p>
+<ol>
+<li>
+<p>Make a copy of the <code class="codeph">device.map</code> file:</p>
+<pre dir="ltr">
+# <span class="bold">cd /boot/grub</span>
+# <span class="bold">cp device.map mydevice.map</span>
+# <span class="bold">ls -l *device*</span>
+-rw-r--r-- 1 root root 85 Apr 22 14:50 device.map
+-rw-r--r-- 1 root root 85 Apr 24 09:24 mydevice.map
+ 
+</pre></li>
+<li>
+<p>Edit <code class="codeph">mydevice.map</code> to point <code class="codeph">hd1</code> to the new device. In this example, <code class="codeph">s1</code> pointed to <code class="codeph">/deb/sdn</code> in step <a href="disks.htm#GUID-7A7FE1EE-89D1-4913-A2C3-928715120C82__BEIBAABI">1</a>.</p>
+<pre dir="ltr">
+# more /boot/grub/mydevice.map
+# this device map was generated by bda install
+(hd0)     /dev/sda
+(hd1)     /dev/sdn
+ 
+</pre></li>
+<li>
+<p>Use the edited device map (<code class="codeph">mydevice.map</code>) in the remaining steps.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Open GRUB, using either <code class="codeph">device.map</code> as shown, or the edited <code class="codeph">mydevice.map</code>:</p>
+<pre dir="ltr">
+# <span class="bold">grub --device-map=/boot/grub/device.map</span>
+
+    GNU GRUB  version 0.97  (640K lower / 3072K upper memory)
+ 
+ [ Minimal BASH-like line editing is supported.  For the first word, TAB
+   lists possible command completions.  Anywhere else TAB lists the possible
+   completions of a device/filename.
+]
+</pre></li>
+<li>
+<p>Set the root device, entering hd0 for <code class="codeph">/dev/sda</code>, or hd1 for <code class="codeph">/dev/sdb</code>:</p>
+<pre dir="ltr">
+grub&gt; <span class="bold">root (hd</span><span class="italic"><span class="bold">n</span></span><span class="bold">,0)</span>
+
+root (hd<span class="italic">n</span>,0)
+ Filesystem type is ext2fs, partition type 0x83
+</pre></li>
+<li>
+<p>Install GRUB, entering hd0 for <code class="codeph">/dev/sda</code>, or hd1 for <code class="codeph">/dev/sdb</code>:</p>
+<pre dir="ltr">
+grub&gt; <span class="bold">setup (hd</span><span class="italic"><span class="bold">n</span></span><span class="bold">)</span>
+
+setup (hd<span class="italic">n</span>)
+ Checking if "/boot/grub/stage1" exists... no
+ Checking if "/grub/stage1" exists... yes
+ Checking if "/grub/stage2" exists... yes
+ Checking if "/grub/e2fs_stage1_5" exists... yes
+ Running "embed /grub/e2fs_stage1_5 (hd<span class="italic">n</span>)"... failed (this is not fatal)
+ Running "embed /grub/e2fs_stage1_5 (hd<span class="italic">n</span>,0)"... failed (this is not fatal)
+ Running "install /grub/stage1 (hd<span class="italic">n</span>) /grub/stage2 p /grub/grub.conf "... succeeded
+Done.
+</pre></li>
+<li>
+<p>Close the GRUB command-line interface:</p>
+<pre dir="ltr">
+grub&gt; <span class="bold">quit</span>
+</pre></li>
+<li>
+<p>Ensure that the boot drive in the HBA is set correctly:</p>
+<pre dir="ltr">
+# <span class="bold">MegaCli64 /c0 show bootdrive</span>
+</pre>
+<p>If BootDrive VD:0 is set, the command output is as follows:</p>
+<pre dir="ltr">
+Controller = 0
+Status = Success
+Description = None
+Controller Properties :
+=====================
+----------------
+Ctrl_Prop Value
+----------------
+BootDrive VD:0 
+---------------- 
+</pre>
+<p>If BootDrive VD:0 is not set, the command output shows <code class="codeph">No Boot Drive</code>:</p>
+<pre dir="ltr">
+Controller = 0
+Status = Success
+Description = None
+Controller Properties :
+=====================
+----------------
+Ctrl_Prop Value
+----------------
+BootDrive No Boot Drive
+---------------- 
+</pre></li>
+<li>
+<p>If <code>MegaCli64 /c0 show bootdrive</code> reports that the boot drive is not set, then set it as follows:</p>
+<pre dir="ltr">
+# <span class="bold">MegaCli64 /c0/v0 set bootdrive=on</span>
+Controller = 0
+Status = Success
+Description = None
+Detailed Status :
+===============
+-----------------------------------------
+VD  Property   Value Status   ErrCd ErrMsg
+----------------------------------------- 
+0   Boot Drive On    Success  0     - 
+------------------------------------------
+</pre></li>
+<li>
+<p>Verify that the boot drive is now set:</p>
+<pre dir="ltr">
+# <span class="bold">MegaCli64 /c0 show bootdrive</span>
+Controller = 0
+Status = Success
+Description = None
+Controller Properties :
+=====================
+----------------
+Ctrl_Prop Value
+----------------
+BootDrive VD:0 
+----------------
+</pre></li>
+<li>
+<p>Ensure that the auto-select boot drive feature is enabled:</p>
+<pre dir="ltr">
+# <span class="bold">MegaCli64 adpBIOS EnblAutoSelectBootLd a0</span>
+Auto select Boot is already Enabled on Adapter 0.
+</pre></li>
+<li>
+<p>Check the configuration. See <span class="q">"<a href="disks.htm#GUID-823EE679-6F24-455D-94A9-8FB11FA7D72B">Verifying the Disk Configuration</a>"</span> .</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG76719"></a>
+<div class="props_rev_3"><a id="GUID-4243728C-1BD2-4810-BC08-8AB3B6D6BCE7"></a>
+<h2 id="BIGOG-GUID-4243728C-1BD2-4810-BC08-8AB3B6D6BCE7" class="sect2"><span class="enumeration_section">13.10</span> Configuring an HDFS or Oracle NoSQL Database Disk</h2>
+<div>
+<div class="section">
+<p>Complete the following instructions for any disk that is not used by the operating system. See <span class="q">"<a href="disks.htm#GUID-05A09114-48C4-4971-838F-8B3A8F5F9B7C">Identifying the Function of a Disk Drive</a>"</span>.</p>
+<p><a id="d62173e2349" class="indexterm-anchor"></a><a id="d62173e2351" class="indexterm-anchor"></a>To configure a disk, you must partition and format it.</p>
+<div class="infobox-note" id="GUID-4243728C-1BD2-4810-BC08-8AB3B6D6BCE7__GUID-971B4015-0060-46D0-97B0-9808B979E03E">
+<p class="notep1">Note:</p>
+<p>Replace s<span class="italic">n</span>p1 in the following commands with the appropriate symbolic name, such as s4p1.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To format a disk for use by HDFS or Oracle NoSQL Database:</p>
+<ol>
+<li>
+<p>Complete the steps in <span class="q">"<a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF">Replacing a Disk Drive</a>"</span>, if you have not done so already.</p>
+</li>
+<li>
+<p>Partition the drive:</p>
+<pre dir="ltr">
+# parted /dev/disk/by-hba-slot/s<span class="italic">n</span> -s mklabel gpt mkpart primary ext4 0% 100%
+</pre></li>
+<li>
+<p>Format the partition for an ext4 file system:</p>
+<pre dir="ltr">
+# mkfs -t ext4 /dev/disk/by-hba-slot/s<span class="italic">n</span>p1
+</pre></li>
+<li>
+<p>Reset the appropriate partition label to the missing device. See <a href="disks.htm#GUID-E0232BC1-DBEF-4282-9506-1E81CC8BA891__CHDEJGGA" title="Mount points for HDFS partitions">Table 13-2</a>.</p>
+<pre dir="ltr">
+# <span class="bold">tune2fs -c -1 -i 0 -m 0.2 -L /u</span><span class="italic"><span class="bold">nn</span></span><span class="bold"> /dev/disk/by-hba-slot/s</span><span class="italic"><span class="bold">n</span></span><span class="bold">p1</span>
+</pre>
+<p>For example, this command resets the label for <code class="codeph">/dev/disk/by-hba-slot/s2p1</code> to <code class="codeph">/u03</code>:</p>
+<pre dir="ltr">
+# tune2fs -c -1 -i 0 -m 0.2 -L /u03 /dev/disk/by-hba-slot/s2p1
+Setting maximal mount count to -1
+Setting interval between checks to 0 seconds
+Setting reserved blocks percentage to 0.2% (976073 blocks)
+</pre></li>
+<li id="GUID-4243728C-1BD2-4810-BC08-8AB3B6D6BCE7__CHDDHDBG">
+<p>Verify that the replaced disk is recognized by the operating system:</p>
+<pre dir="ltr">
+$ <span class="bold">ls -l /dev/disk/by-label</span>
+total 0
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 BDAUSB -&gt; ../../sdn1
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 BDAUSBBOOT -&gt; ../../sdm1
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 SWAP-sda3 -&gt; ../../sda3
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 SWAP-sdb3 -&gt; ../../sdb3
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 u01 -&gt; ../../sda4
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 u02 -&gt; ../../sdb4
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 u03 -&gt; ../../sdc1
+lrwxrwxrwx 1 root root 10 Aug  3 01:22 u04 -&gt; ../../sdd1
+     .
+     .
+     .
+</pre></li>
+<li>
+<p>If the output does not list the replaced disk:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>On Linux 6, run <code class="codeph">udevadm trigger</code>.</p>
+</li>
+</ul>
+<p>Then repeat step <a href="disks.htm#GUID-4243728C-1BD2-4810-BC08-8AB3B6D6BCE7__CHDDHDBG">5</a>. The <code class="codeph">lsscsi</code> command should also report the correct order of the disks.</p>
+</li>
+<li>
+<p>Mount the HDFS partition, entering the appropriate mount point:</p>
+<pre dir="ltr">
+# mount /u<span class="italic">nn</span>
+</pre>
+<p>For example, <code class="codeph">mount /u03</code>.</p>
+</li>
+<li>
+<p>If you are configuring multiple drives, then repeat the previous steps.</p>
+</li>
+<li>
+<p>If you previously removed a mount point in Cloudera Manager for an HDFS drive, then restore it to the list.</p>
+<ol>
+<li>
+<p>Open a browser window to Cloudera Manager. For example:</p>
+<p><code class="codeph">http://bda1node03.example.com:7180</code></p>
+</li>
+<li>
+<p>Open Cloudera Manager and log in as <code class="codeph">admin</code>.</p>
+</li>
+<li>
+<p>On the Services page, click <span class="bold">hdfs</span>.</p>
+</li>
+<li>
+<p>Click the <span class="bold">Instances</span> subtab.</p>
+</li>
+<li>
+<p>In the Host column, locate the server with the replaced disk. Then click the service in the Name column, such as <span class="bold">datanode</span>, to open its page.</p>
+</li>
+<li>
+<p>Click the <span class="bold">Configuration</span> subtab.</p>
+</li>
+<li>
+<p>If the mount point is missing from the Directory field, then add it to the list.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>From the Actions list, choose <span class="bold">Restart</span>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>If you previously removed a mount point from NodeManager Local Directories, then also restore it to the list using Cloudera Manager.</p>
+<ol>
+<li>
+<p>On the Services page, click <span class="bold">Yarn</span>.</p>
+</li>
+<li>
+<p>In the Status Summary, click <span class="bold">NodeManager</span>.</p>
+</li>
+<li>
+<p>From the list, click to select the NodeManager that is on the host with the failed disk.</p>
+</li>
+<li>
+<p>Click the Configuration sub-tab.</p>
+</li>
+<li>
+<p>If the mount point is missing from the NodeManager Local Directories field, then add it to the list.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>From the Actions list, choose <span class="bold">Restart</span>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Check the configuration. See <span class="q">"<a href="disks.htm#GUID-823EE679-6F24-455D-94A9-8FB11FA7D72B">Verifying the Disk Configuration</a>"</span> .</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76818"></a>
+<div class="props_rev_3"><a id="GUID-823EE679-6F24-455D-94A9-8FB11FA7D72B"></a>
+<h2 id="BIGOG-GUID-823EE679-6F24-455D-94A9-8FB11FA7D72B" class="sect2"><span class="enumeration_section">13.11</span> Verifying the Disk Configuration</h2>
+<div>
+<div class="section">
+<p>Before you can reinstall the Oracle Big Data Appliance software on the server, you must verify that the configuration is correct on the new disk drive.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To verify the disk configuration:</p>
+<ol>
+<li>
+<p>Check the software configuration:</p>
+<pre dir="ltr">
+# bdachecksw
+</pre></li>
+<li>
+<p>If there are errors, then redo the configuration steps as necessary to correct the problem.</p>
+</li>
+<li>
+<p>Check the <code class="codeph">/root</code> directory for a file named <code class="codeph">BDA_REBOOT_SUCCEEDED</code>.</p>
+</li>
+<li>
+<p>If you find a file named <code class="codeph">BDA_REBOOT_FAILED</code>, then read the file to identify and fix any additional problems.</p>
+</li>
+<li>
+<p>Use this script to generate a <code class="codeph">BDA_REBOOT_SUCCEEDED</code> file:</p>
+<pre dir="ltr">
+# /opt/oracle/bda/lib/bdastartup.sh
+</pre></li>
+<li>
+<p>Verify that <code class="codeph">BDA_REBOOT_SUCCEEDED</code> exists. If you still find a <code class="codeph">BDA_REBOOT_FAILED</code> file, then redo the previous steps.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment164">
+<tr>
+<td class="cellalignment197">
+<table class="cellalignment169">
+<tr>
+<td class="cellalignment168"><a href="maintenance.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment168"><a href="dcli.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment199">
+<table class="cellalignment167">
+<tr>
+<td class="cellalignment168"><a href="http://www.docs.oracle.com/bigdata/411/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment168"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment168"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment168"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

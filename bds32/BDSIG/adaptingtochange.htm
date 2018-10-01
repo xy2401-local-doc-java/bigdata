@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Expanding or Shrinking an Installation</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Changes that occur to the Hadoop cluster over time, such as network reconfiguration or DataNode services added, moved, or removed, as well as changes on the Oracle Database server, can require corresponding changes to the Oracle Big Data SQL installation." />
+<meta name="dcterms.created" content="2018-08-03T19:37:49Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E99049-01" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds32/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="installdbside.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-6C300932-B09F-4AE2-873E-3FCAED097511.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E99049-01.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-1C979747-3CAD-4C43-9A50-201C4494AAFF"></a> <span id="PAGE" style="display:none;">7/21</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-1C979747-3CAD-4C43-9A50-201C4494AAFF" class="sect1"><span class="enumeration_chapter">4</span> Expanding or Shrinking an Installation</h1>
+<div>
+<p>Changes that occur to the Hadoop cluster over time, such as network reconfiguration or DataNode services added, moved, or removed, as well as changes on the Oracle Database server, can require corresponding changes to the Oracle Big Data SQL installation.</p>
+</div>
+<div class="sect2"><a id="GUID-3FDEE25B-8CF2-4992-B1FF-71FBCBFC522E"></a>
+<h2 id="BDSIG-GUID-3FDEE25B-8CF2-4992-B1FF-71FBCBFC522E" class="sect2"><span class="enumeration_section">4.1</span> Adding or Removing Oracle Big Data SQL on Hadoop Cluster Nodes</h2>
+<div>
+<p>On the Hadoop side, Oracle Big Data SQL must be installed on every cluster node where the DataNode role is running and should not be installed on other nodes. Note that when you run <code class="codeph">jaguar updatenodes</code> as described below, you must also reconfigure the Oracle Database side of the installation.</p>
+<div class="section">
+<p>The Jaguar <code class="codeph">updatenodes</code> procedure uses the cluster management server to determine where the DataNode service is running and then installs or uninstalls Oracle Big Data SQL on each cluster node as needed.</p>
+<p>Run <code class="codeph">updatenodes</code> when the distribution of DataNode services has changed in the Hadoop cluster.</p>
+<pre dir="ltr">
+# cd &lt;Big Data SQL install directory&gt;/BDSJaguar
+# ./jaguar updatenodes &lt;bds-config.json&gt;
+</pre>
+<div class="p">When the update is done, this message is returned to the console:
+<pre dir="ltr">
+BigDataSQL: UPDATENODES workflow completed.
+</pre></div>
+<p>The following are situations where you should run <code class="codeph">updatenodes</code>:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>New nodes are added to the Hadoop cluster and some or all of them are provisioned with the DataNode role.</p>
+</li>
+<li>
+<p>Services and roles are redistributed in the cluster and some DataNode instances are moved.</p>
+</li>
+<li>
+<p>One or more nodes provisioned with the DataNode role, are removed from the cluster or deprovisioned.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-3FDEE25B-8CF2-4992-B1FF-71FBCBFC522E__GUID-590F400B-1B8A-4FE1-BF7A-AFC33DB76208">
+<p class="notep1">Important:</p>
+Be sure to run <code class="codeph">updatenodes</code> after a cluster expansion. This will enable local processing for data stored on the updated nodes.&nbsp;Also, the new DataNode instances in the cluster provide additional resource for query processing that is not utilized until Oracle Big Data SQL is installed on those nodes.
+<p>You must also run <code class="codeph">bds-database-install.sh --reconfigure</code> on the database side after you run <code class="codeph">updatenodes</code> on the Hadoop side.<a id="d8923e80" class="indexterm-anchor"></a><a id="d8923e82" class="indexterm-anchor"></a><a id="d8923e84" class="indexterm-anchor"></a><a id="d8923e86" class="indexterm-anchor"></a><a id="d8923e88" class="indexterm-anchor"></a></p>
+</div>
+<div class="infoboxnotealso" id="GUID-3FDEE25B-8CF2-4992-B1FF-71FBCBFC522E__GUID-EBB1793D-FE34-42DE-B49D-752BF2A21C39">
+<p class="notep1">See Also:</p>
+The <a href="installhadoopside.htm#GUID-91773A49-ABB4-4BC8-9068-3238DF50A108">Jaguar Configuration Parameter and Command Reference</a> provides a full description of the Jaguar <code class="codeph">updatenodes</code> and <code class="codeph">reconfigure</code> commands.</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Communicating DataNode Changes to Oracle Database</p>
+<p>The Oracle Database side of the installation maintains an inventory of the DataNodes where Oracle Big Data SQL is installed in the Hadoop cluster. This is a map that tells it which nodes to query. If you run <code class="codeph">updatenodes</code>, this updated DataNode inventory must be provided to the database compute nodes. The <code class="codeph">updatenodes</code> procedure generates a new database installation bundle that includes the new inventory. Install this updated bundle on the database compute nodes using the same method that you use in a full installation, with one difference &ndash; on the Oracle Database side, install the update using <code class="codeph">bds-database-install.sh --reconfigure</code></p>
+<ol>
+<li>
+<p>As the database owner, copy the bundle to temporary location on the database node.</p>
+</li>
+<li>
+<p>Extract the contents of the ZIP file.</p>
+</li>
+<li>
+<p>Execute the run file extracted from the ZIP file.</p>
+</li>
+<li>
+<p>Go to the installation directory under <code class="codeph">$ORACLE_HOME/BDSJaguar-3.2.0.</code></p>
+</li>
+<li>
+<p>Run the installer with the <code class="codeph">--reconfigure</code> command line parameter. For example:</p>
+<pre dir="ltr">
+$ cd $ORACLE_HOME/BDSJaguar-3.2.0/cdh510-6-node1.mydomain.com
+$ ./bds-database-install.sh --reconfigure
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-01F2C180-E367-4ED0-B5D8-26E6272A2C1E"></a>
+<h2 id="BDSIG-GUID-01F2C180-E367-4ED0-B5D8-26E6272A2C1E" class="sect2"><span class="enumeration_section">4.2</span> Adding or Removing Oracle Big Data SQL on Oracle Database Nodes</h2>
+<div>
+<p>Add or remove Oracle Big Data SQL from Oracle Database nodes by manually running the install or uninstall program on individual database nodes as needed.</p>
+<div class="section">
+<p><a id="d8923e160" class="indexterm-anchor"></a><a id="d8923e162" class="indexterm-anchor"></a><a id="d8923e164" class="indexterm-anchor"></a><a id="d8923e166" class="indexterm-anchor"></a>On the Oracle Database side, there is at this time no equivalent to the Hadoop-side Jaguar <code class="codeph">updatenodes</code> command, which detects changes in the Hadoop cluster and installs or uninstalls Oracle Big Data SQL on cluster nodes as required.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To Install Oracle Big Data SQL on Additional Nodes of Oracle Database RAC System</p>
+<p>If you want to extend Oracle Big Data SQL from a Hadoop cluster to additional Oracle Database nodes at any time after the initial installation of Oracle Big Data SQL, then install the database-side installation bundle for that cluster on these database nodes using the same configuration applied to other nodes of the database.</p>
+<div class="infobox-note" id="GUID-01F2C180-E367-4ED0-B5D8-26E6272A2C1E__GUID-72F68D3F-05C6-496C-9658-10953D4B05A6">
+<p class="notep1">Note:</p>
+The configuration for the connection between a Hadoop cluster and Oracle Database must be the same for all nodes of the database.</div>
+<ul style="list-style-type: disc;">
+<li>
+<p>You may find the bundle at &lt;<code class="codeph"><span class="codeinlineitalic">Big Data SQL Install Directory</span>&gt;/BDSJaguar/db-bundles</code> or at the temporary location on other database nodes where you copied the bundle in order to stage the installation. The bundle ZIP file should include the Hadoop cluster name and a time stamp: <code class="codeph">bds-3.2.0-db-&lt;<span class="codeinlineitalic">cluster</span>&gt;-&lt;<span class="codeinlineitalic">yymmdd.hhmi</span>&gt;.zip</code></p>
+</li>
+<li>
+<p>If you can no longer locate the original database-side installation bundle, but do have the configuration file that was used for other nodes of the database, then you can recreate the same bundle by running the Jaguar <code class="codeph">reconfigure</code> command.</p>
+<pre dir="ltr">
+[root@myclusteradminserver:BDSjaguar]# ./jaguar reconfigure my_original_configfile.json
+</pre></li>
+</ul>
+<p>Deploy and install the bundle on the new database nodes as described in <a href="installdbside.htm#GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59" title="To install the database side of Oracle Big Data SQL, copy over the ZIP file containing the database-side installation bundle that was created on the Hadoop cluster management server, unzip it, execute the run file it contains, then run the installer.">Steps for Installing on Oracle Database Nodes</a>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To Uninstall Oracle Big Data SQL from Oracle Database Nodes</p>
+<p>See <a href="uninstall.htm#GUID-FBF3B1B3-B6E7-4DED-8B7D-510091BEB2D4" title="On any database server where you want to uninstall the current version of Oracle Big Data SQL, run the commands below as the database owner (usually the oracle user). In the case of a RAC database, be sure to perform the uninstall on each instance of the RAC.">Uninstalling From an Oracle Database Server</a>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="installdbside.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="GUID-6C300932-B09F-4AE2-873E-3FCAED097511.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds32/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

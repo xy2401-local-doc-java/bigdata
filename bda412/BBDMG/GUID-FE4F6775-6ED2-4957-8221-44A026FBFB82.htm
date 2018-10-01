@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Working with Notes</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-07-02T14:42:41Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Manager User&rsquo;s Guide" />
+<meta name="dcterms.identifier" content="E96163-02" />
+<meta name="dcterms.isVersionOf" content="BBDMG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2018, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="GUID-FFB2E0DC-20E1-40D1-BA31-4D5D995F2E52.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-CFD05667-084C-4465-8FFE-2ABEF2517A37.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BBDMG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-FE4F6775-6ED2-4957-8221-44A026FBFB82"></a> <span id="PAGE" style="display:none;">31/45</span> <!-- End Header -->
+<h1 id="BBDMG-GUID-FE4F6775-6ED2-4957-8221-44A026FBFB82" class="sect1"><span class="enumeration_section">6.1</span> Working with Notes</h1>
+<div>
+<div>Import, create, and run notes in the Notebook section of the <span>Oracle Big Data Manager</span> console.</div>
+<p>The <span class="wintitle">Notebook Home</span> page lists your existing notes, along with controls for importing and creating new notes. When you open a note, it&rsquo;s displayed in its own <span class="wintitle">Note</span> page as a collection of <span class="italic">paragraphs</span> that contain snippets of code for accessing services, running jobs, and displaying results. You can define and run the code quickly and iteratively, which provides flexibility for analyzing and visualizing your data.</p>
+<p>Commands for performing actions on the entire note are on the toolbar at the top of each <span class="wintitle">Note</span> page.</p>
+<p>Commands for performing actions on individual paragraphs are on the toolbar on the right side of each paragraph on the Note page. Paragraphs contains a <span class="italic">code</span> section, where you enter your source code, and an <span class="italic">output</span> section, which displays the output from executing that code.</p>
+</div>
+<div class="sect2"><a id="GUID-CEA67D25-EDF2-48FA-94FD-8E6C6B58BBFC"></a>
+<h2 id="BBDMG-GUID-CEA67D25-EDF2-48FA-94FD-8E6C6B58BBFC" class="sect2"><span class="enumeration_section">6.1.1</span> Using the Commands on the Note Toolbar</h2>
+<div>
+<p>Use the toolbar at the top of the <span class="wintitle">Note</span> page to perform actions on the entire note.</p>
+<div class="tblformal" id="GUID-CEA67D25-EDF2-48FA-94FD-8E6C6B58BBFC__GUID-2055B5D2-A229-4123-941F-B8E597570034">
+<table class="cellalignment11" summary="The following table shows and describes the items on the toolbar for a note.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment12" id="d5217e74">Item</th>
+<th class="cellalignment12" id="d5217e76">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e80" headers="d5217e74"><span class="bold">Run all paragraphs</span> <img width="18" height="22" src="img/GUID-D5C2A5E0-67B0-4EA3-9C5E-63B512DC4815-default.png" alt="Run all paragraphs" title="Run all paragraphs" /></td>
+<td class="cellalignment13" headers="d5217e80 d5217e76">Executes all the paragraphs in the note sequentially, in the order they&rsquo;re displayed.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e90" headers="d5217e74"><span class="bold">Show/hide the code</span><img width="25" height="23" src="img/GUID-1D9A4D06-4436-45FF-B74C-BE6F01F66A5C-default.png" alt="Show/hide the code" title="Show/hide the code" /></td>
+<td class="cellalignment13" headers="d5217e90 d5217e76">Shows or hides the code sections of all paragraphs in the note.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e99" headers="d5217e74"><span class="bold">Show/hide the output</span> <img width="23" height="21" src="img/GUID-186C4212-DC91-44EF-9CD8-D23FDA450C4A-default.png" alt="Show/hide the output" title="Show/hide the output" /></td>
+<td class="cellalignment13" headers="d5217e99 d5217e76">Shows or hides the output sections of all paragraphs in the note.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e109" headers="d5217e74"><span class="bold">Clear output</span> <img width="24" height="21" src="img/GUID-3B16296D-CA47-4597-99A5-3ADAD1E11429-default.png" alt="Clear output" title="Clear output" /></td>
+<td class="cellalignment13" headers="d5217e109 d5217e76">Clears the output sections of all paragraphs in the note.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e119" headers="d5217e74"><span class="bold">Clone note</span><img width="28" height="26" src="img/GUID-0FF1DF8F-66DC-4FD0-B825-63C45E29615B-default.png" alt="Clone note" title="Clone note" /></td>
+<td class="cellalignment13" headers="d5217e119 d5217e76">Makes a copy of the note.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e128" headers="d5217e74"><span class="bold">Export this note</span> <img width="26" height="24" src="img/GUID-E0BCEFC1-932B-4151-BAC0-918373770FA8-default.png" alt="Export this note" title="Export this note" /></td>
+<td class="cellalignment13" headers="d5217e128 d5217e76">Exports the code and output sections of all the paragraphs in the note to a JSON file in your web browser&rsquo;s default download directory. If the output sections are very long, consider clearing the output before exporting the note, to save space.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e138" headers="d5217e74"><span class="bold">Version control</span><img width="25" height="26" src="img/GUID-07634C91-2E1B-4EBC-97C5-2613CA7EC56D-default.png" alt="Version control" title="Version control" /></td>
+<td class="cellalignment13" headers="d5217e138 d5217e76">Commits the content of the note to the current repository. When you click this button, you&rsquo;re prompted for a commit message. The message you enter here is displayed in the <span class="bold">Head</span> list, described below.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e150" headers="d5217e74"><span class="bold">Head</span> (revision) drop-down list</td>
+<td class="cellalignment13" headers="d5217e150 d5217e76">
+<p>Displays a list of previously committed revisions of the note, if any. By default, the head revision is selected. If you want to view a previous revision, select it from the list.</p>
+<p>Click <span class="bold">Set revision</span><img width="29" height="27" src="img/GUID-F4C88F08-EB97-403F-9371-2DDB070F5554-default.png" alt="Set revision" title="Set revision" /> to set the head to the current revision.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e167" headers="d5217e74"><span class="bold">Move note to trash</span><img width="27" height="24" src="img/GUID-648BF676-863B-45FE-8434-9276892E3B4C-default.png" alt="Move note to trash" title="Move note to trash" /></td>
+<td class="cellalignment13" headers="d5217e167 d5217e76">Deletes the note.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e176" headers="d5217e74"><span class="bold">Run scheduler</span><img width="28" height="24" src="img/GUID-9576F719-05C7-4902-9B40-84537C95CCF5-default.png" alt="Run scheduler" title="Run scheduler" /></td>
+<td class="cellalignment13" headers="d5217e176 d5217e76">Schedule the execution of all paragraphs in the note with a <code class="codeph">cron</code> scheduler. When you select this option, a pop-up window displays the following options::
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Preset</span> &mdash;A list of preset intervals. If one of the presets is adequate for your needs, click the link for the interval. It&rsquo;s added as an expression to the <span class="bold">cron expression</span> field. Options are <span class="bold">None</span> <span class="bold">1m</span>, <span class="bold">5m</span>, <span class="bold">1h</span>, <span class="bold">3h</span>, <span class="bold">6h</span>, <span class="bold">12h</span>, <span class="bold">1d</span>. Select <span class="bold">None</span> to remove any expressions that were added.</p>
+</li>
+<li>
+<p><span class="bold">Cron expression</span>&mdash;Enter a custom <code class="codeph">cron</code> expression, if you need something other than the above presets.</p>
+</li>
+<li>
+<p><span class="bold">Cron executing user</span>&mdash; Enter the name of the user for running the cron job, if other than <code class="codeph">root</code>.</p>
+</li>
+<li>
+<p><span class="bold">Auto-restart interpreter on cron execution</span> &mdash;Terminates the interpreter after the <code class="codeph">cron</code> job completes running. The interpreter restarts automatically the next time a paragraph is run.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<div class="sect2"><a id="GUID-689D3287-9E9A-4342-A765-5878224FEF59"></a>
+<h2 id="BBDMG-GUID-689D3287-9E9A-4342-A765-5878224FEF59" class="sect2"><span class="enumeration_section">6.1.2</span> Using the Commands on the Paragraph Toolbar</h2>
+<div>
+<p>Use the toolbar on the right side of a paragraph panel to perform actions on that paragraph only.</p>
+<div class="section">
+<div class="tblformal" id="GUID-689D3287-9E9A-4342-A765-5878224FEF59__GUID-2F1F8311-09A4-4257-A5EA-87DA19B02B0E">
+<table class="cellalignment11" summary="The following table describes the items on the drop-down menu on the toolbar for a paragraph.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment12" id="d5217e278">Item</th>
+<th class="cellalignment12" id="d5217e280">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e284" headers="d5217e278">Status</td>
+<td class="cellalignment13" headers="d5217e284 d5217e280">Shows the status of the paragraph. It can be one of the following:
+<ul style="list-style-type: disc;">
+<li>
+<p>READY</p>
+</li>
+<li>
+<p>FINISHED</p>
+</li>
+<li>
+<p>ABORT</p>
+</li>
+<li>
+<p>ERROR</p>
+</li>
+<li>
+<p>PENDING</p>
+</li>
+<li>
+<p>RUNNING</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e308" headers="d5217e278"><span class="bold">Run this paragaph (Shift+Enter)</span><img width="18" height="22" src="img/GUID-D5C2A5E0-67B0-4EA3-9C5E-63B512DC4815-default.png" alt="Run this paragraph" title="Run this paragraph" /></td>
+<td class="cellalignment13" headers="d5217e308 d5217e280">
+<p>Executes the code in the code section of the paragraph.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e318" headers="d5217e278"><span class="bold">Show/hide editor (Control+Option+E)</span> <img width="25" height="23" src="img/GUID-1D9A4D06-4436-45FF-B74C-BE6F01F66A5C-default.png" alt="Show/hide editor" title="Show/hide editor" /></td>
+<td class="cellalignment13" headers="d5217e318 d5217e280">
+<p>Shows or hides the code section of the paragraph.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e329" headers="d5217e278"><span class="bold">Show/hide output (Control+Option+O)</span> <img width="23" height="21" src="img/GUID-186C4212-DC91-44EF-9CD8-D23FDA450C4A-default.png" alt="Show/hide output" title="Show/hide output" /></td>
+<td class="cellalignment13" headers="d5217e329 d5217e280">
+<p>Shows or hides the output section of the paragraph.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment13" id="d5217e340" headers="d5217e278"><span class="bold">Menu</span> <img width="34" height="33" src="img/GUID-D7A4B2F1-C742-4A30-8B3A-E80A7AA4E7AF-default.png" alt="Gear" title="Gear" /></td>
+<td class="cellalignment13" headers="d5217e340 d5217e280">Opens a menu with the following options that apply to the current paragraph:
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold"><span class="variable">nnnnnnnnn-nnnnnn_nnnnnnnnnn</span></span>&mdash;The paragraph ID. Click the ID to copy it to the clipboard.</p>
+</li>
+<li>
+<p><span class="bold">Width</span>&mdash;Select a number from the drop-down list to set a width for the paragraph on a grid of 12 units. This allows you to organize the paragraphs in the grid.</p>
+</li>
+<li>
+<p><span class="bold">Move down</span>&mdash;Move the paragraph one level down.</p>
+</li>
+<li>
+<p><span class="bold">Insert new</span>&mdash;Insert a new paragraph below the current one.</p>
+</li>
+<li>
+<p><span class="bold">Clone paragraph</span>&mdash;Create and show a copy of the current paragraph.</p>
+</li>
+<li>
+<p><span class="bold">Show/Hide title</span>&mdash;Show or hide the title of the paragraph. You can edit the title when it&rsquo;s shown.</p>
+</li>
+<li>
+<p><span class="bold">Show/Hide line numbers</span>&mdash;Show or hide line numbers in the code section of the paragraph.</p>
+</li>
+<li>
+<p><span class="bold">Disable run</span>&mdash;Disable the <span class="bold">Run</span> button for this paragraph.</p>
+</li>
+<li>
+<p><span class="bold">Link this paragraph</span>&mdash;Export the paragraph as an <span class="bold">iframe</span> and open the <span class="bold">iframe</span> in a new window.</p>
+</li>
+<li>
+<p><span class="bold">Clear output</span>&mdash;Clear the output section for this paragraph.</p>
+</li>
+<li>
+<p><span class="bold">Remove</span>&mdash;Delete the paragraph.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="GUID-FFB2E0DC-20E1-40D1-BA31-4D5D995F2E52.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="GUID-CFD05667-084C-4465-8FFE-2ABEF2517A37.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2018, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

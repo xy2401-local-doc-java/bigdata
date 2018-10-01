@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Oracle Big Data SQL Reference</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="This chapter contains reference information for Oracle Big Data SQL:" />
+<meta name="keywords" content="DBMS_HADOOP package, PL/SQL packages, CREATE_EXTDDL_FOR_HIVE function, syntax, ACCESS PARAMETERS Clause, ACCESS PARAMETERS clause, syntax rules, ORACLE_HIVE, access parameters, com.oracle.bigdata.buffersize, Hadoop log files, com.oracle.bigdata.colmap, column mapping, com.oracle.bigdata.datamode, SmartScan mode, data mode, com.oracle.bigdata.erroropt, error handling, com.oracle.bigdata.fields, field names, data types (HDFS), com.oracle.bigdata.fileformat, row format description, sequence files, text files, RC files, ORC files, Parquet files, com.oracle.bigdata.log.exec, com.oracle.bigdata.log.qc, log files, com.oracle.bigdata.overflow, overflow handling, binary overflows, text overflows, character overflows, array overflows, struct overflows, union overflows, com.oracle.bigdata.rowformat, row formats, delimited text files, SerDe parsing, parsing HDFS files, field extraction, com.oracle.bigdata.tablename, data source name, source name, Hive table sources, catalog views, data dictionary views, static data dictionary views, Hive views, ALL_HIVE_DATABASES view, Hive databases, ALL_HIVE_TABLES view, Hive tables, ALL_HIVE_COLUMNS view, Hive columns, DBA_HIVE_DATABASES view, DBA_HIVE_TABLES view, DBA_HIVE_COLUMNS view, USER_HIVE_DATABASES view, USER_HIVE_TABLES view, USER_HIVE_COLUMNS view" />
+<meta name="dcterms.created" content="2018-05-01T12:27:20Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User&rsquo;s Guide" />
+<meta name="dcterms.identifier" content="E77162-12" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds31/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="copy2bda.htm" title="Previous" type="text/html" />
+<link rel="Next" href="appendixes.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77162-12.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-8C8770D4-559A-4161-BC74-F97CC5F2AB89"></a> <span id="PAGE" style="display:none;">7/13</span> <!-- End Header -->
+<a id="BIGUG76683"></a><a id="BIGUG76682"></a>
+<h1 id="BDSUG-GUID-8C8770D4-559A-4161-BC74-F97CC5F2AB89" class="sect1"><span class="enumeration_chapter">4</span> Oracle Big Data SQL Reference</h1>
+<div>
+<div><span>This chapter contains reference information for Oracle Big Data SQL:</span></div>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bigsqlref.htm#GUID-7B05D8E1-25A2-40CF-AE76-274D4BEF0776">DBMS_HADOOP PL/SQL Package</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-5DFBDFFC-CCC0-44C4-9EA1-2DF0554526E4">CREATE TABLE ACCESS PARAMETERS Clause</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-E7A9C252-9C5F-449D-98E8-F42AECD8A4C3">Static Data Dictionary Views for Hive</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76630"></a>
+<div class="sect2"><a id="GUID-7B05D8E1-25A2-40CF-AE76-274D4BEF0776"></a>
+<h2 id="BDSUG-GUID-7B05D8E1-25A2-40CF-AE76-274D4BEF0776" class="sect2"><span class="enumeration_section">4.1</span> DBMS_HADOOP PL/SQL Package</h2>
+<div>
+<p>The <code class="codeph">DBMS_HADOOP</code> package contains a function to generate the <code class="codeph">CREATE EXTERNAL TABLE</code> DDL for a Hive table:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bigsqlref.htm#GUID-550576B6-4E57-4B75-A98F-59B78E009995">CREATE_EXTDDL_FOR_HIVE</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76632"></a><a id="BIGUG76631"></a>
+<div class="sect3"><a id="GUID-550576B6-4E57-4B75-A98F-59B78E009995"></a>
+<h3 id="BDSUG-GUID-550576B6-4E57-4B75-A98F-59B78E009995" class="sect3"><span class="enumeration_section">4.1.1</span> CREATE_EXTDDL_FOR_HIVE</h3>
+<div>
+<p><a id="d13214e90" class="indexterm-anchor"></a>This function returns a SQL <code class="codeph">CREATE TABLE ORGANIZATION EXTERNAL</code> statement for a Hive table. It uses the <code class="codeph">ORACLE_HIVE</code> access driver.</p>
+<div class="section">
+<p class="subhead3">Syntax</p>
+<pre dir="ltr">
+DBMS_HADOOP.CREATE_EXTDDL_FOR_HIVE (
+   cluster_id        IN    VARCHAR2,
+   db_name           IN    VARCHAR2   := NULL,
+   hive_table_name   IN    VARCHAR2,
+   hive_partition    IN    BOOLEAN,
+   table_name        IN    VARCHAR2   := NULL,
+   perform_ddl       IN    BOOLEAN    DEFAULT FALSE,
+   text_of_ddl       OUT   VARCHAR2
+);
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Parameters</p>
+<div class="tblformal" id="GUID-550576B6-4E57-4B75-A98F-59B78E009995__GUID-CFAAF92F-A803-46BB-81C7-BE6DB27867C4">
+<p class="titleintable">Table 4-1 CREATE_EXTDDL_FOR_HIVE Function Parameters</p>
+<table class="cellalignment13" title="CREATE_EXTDDL_FOR_HIVE Function Parameters" summary="CREATE_EXTDDL_FOR_HIVE parameter descriptions">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment14" id="d13214e119">Parameter</th>
+<th class="cellalignment15" id="d13214e122">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d13214e127" headers="d13214e119">
+<p><code class="codeph">cluster_id</code></p>
+</td>
+<td class="cellalignment17" headers="d13214e127 d13214e122">
+<p>Hadoop cluster where the Hive metastore is located</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d13214e135" headers="d13214e119">
+<p><code class="codeph">db_name</code></p>
+</td>
+<td class="cellalignment17" headers="d13214e135 d13214e122">
+<p>Name of the Hive database</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d13214e143" headers="d13214e119">
+<p><code class="codeph">hive_table_name</code></p>
+</td>
+<td class="cellalignment17" headers="d13214e143 d13214e122">
+<p>Name of the Hive table</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d13214e151" headers="d13214e119">
+<p><code class="codeph">hive_partition</code></p>
+</td>
+<td class="cellalignment17" headers="d13214e151 d13214e122">
+<p>Whether the table is partitioned (<code class="codeph">TRUE</code>) or not (<code class="codeph">FALSE</code>)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d13214e165" headers="d13214e119">
+<p><code class="codeph">table_name</code></p>
+</td>
+<td class="cellalignment17" headers="d13214e165 d13214e122">
+<p>Name of the Oracle external table to be created. It cannot already exist.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d13214e173" headers="d13214e119">
+<p><code class="codeph">perform_ddl</code></p>
+</td>
+<td class="cellalignment17" headers="d13214e173 d13214e122">
+<p>Whether to execute the generated <code class="codeph">CREATE TABLE</code> statement (<code class="codeph">TRUE</code>) or just return the text of the command (<code class="codeph">FALSE</code>).</p>
+<p>Do not execute the command automatically if you want to review or modify it.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment16" id="d13214e192" headers="d13214e119">
+<p><code class="codeph">text_of_ddl</code></p>
+</td>
+<td class="cellalignment17" headers="d13214e192 d13214e122">
+<p>The generated <code class="codeph">CREATE TABLE ORGANIZATION EXTERNAL</code> statement.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Usage Notes</p>
+<p>The Oracle Database system must be configured for Oracle Big Data SQL. See <span class="q">"<a href="bigsql.htm#GUID-74BD99A7-EDE8-4959-B635-D4B97FC5EFAF" title="This section explains the changes that the Oracle Big Data SQL installation makes to the Oracle Database system (which may or may not be an Oracle Exadata Machine).">About Oracle Big Data SQL on the Database Server (Oracle Exadata Machine or Other)</a>"</span>.</p>
+<p>The data type conversions are based on the default mappings between Hive data types and Oracle data types. See <span class="q">"<a href="bigsql.htm#GUID-44E9399A-698B-4F8E-BAC9-6178839876BC">About Data Type Conversions</a>"</span>.</p>
+</div>
+<!-- class="section" --></div>
+<a id="BIGUG76633"></a>
+<div class="sect4"><a id="GUID-EC281F15-515A-410E-AC6B-D7BCB113C456"></a>
+<h4 id="BDSUG-GUID-EC281F15-515A-410E-AC6B-D7BCB113C456" class="sect4"><span class="enumeration_section">4.1.1.1</span> Example</h4>
+<div>
+<p>The following query returns the <code class="codeph">CREATE EXTERNAL TABLE</code> DDL for <code class="codeph">my_hive_table</code> from the default Hive database. The connection to Hive is established using the configuration files in the <code class="codeph">ORACLE_BIGDATA_CONFIG</code> directory, which identify the location of the HADOOP1 cluster.</p>
+<pre dir="ltr">
+DECLARE
+   DDLtxt VARCHAR2(4000);
+BEGIN
+   dbms_hadoop.create_extddl_for_hive(
+     CLUSTER_ID=&gt;'hadoop1',
+     DB_NAME=&gt;'default',
+     HIVE_TABLE_NAME=&gt;'my_hive_table',
+     HIVE_PARTITION=&gt;FALSE,
+     TABLE_NAME=&gt;'my_xt_oracle',
+     PERFORM_DDL=&gt;FALSE,
+     TEXT_OF_DDL=&gt;DDLtxt
+   );
+   dbms_output.put_line(DDLtxt);
+END;
+/
+</pre>
+<p>The query returns the text of the following SQL command:</p>
+<pre dir="ltr">
+CREATE TABLE my_xt_oracle
+(
+     c0 VARCHAR2(4000),
+     c1 VARCHAR2(4000),
+     c2 VARCHAR2(4000),
+     c3 VARCHAR2(4000))
+     ORGANIZATION EXTERNAL
+        (TYPE ORACLE_HIVE
+          DEFAULT DIRECTORY DEFAULT_DIR
+          ACCESS PARAMETERS (
+             com.oracle.bigdata.cluster=hadoop1
+             com.oracle.bigdata.tablename=default.my_hive_table
+          )
+)
+PARALLEL 2 REJECT LIMIT UNLIMITED
+</pre></div>
+</div>
+</div>
+</div>
+<a id="BIGUG21151"></a>
+<div class="sect2"><a id="GUID-5DFBDFFC-CCC0-44C4-9EA1-2DF0554526E4"></a>
+<h2 id="BDSUG-GUID-5DFBDFFC-CCC0-44C4-9EA1-2DF0554526E4" class="sect2"><span class="enumeration_section">4.2</span> CREATE TABLE ACCESS PARAMETERS Clause</h2>
+<div>
+<p>This section describes the properties that you use when creating an external table that uses the <code class="codeph">ORACLE_HDFS</code> or <code class="codeph">ORACLE_HIVE</code> access drivers. In a <code class="codeph">CREATE TABLE ORGANIZATION EXTERNAL</code> statement, specify the parameters in the <code class="codeph">opaque_format_spec</code> clause of <code class="codeph">ACCESS PARAMETERS</code>.</p>
+<p>This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bigsqlref.htm#GUID-C4A2AC9E-8815-42C6-A166-553351316408">Syntax Rules for Specifying Properties</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-5D2D356A-AD9B-4E8B-BB6D-E7620D04909E">ORACLE_HDFS Access Parameters</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-9CC9807E-44F5-4A54-A8B9-D3D9D293A9B4">ORACLE_HIVE Access Parameters</a></p>
+</li>
+<li>
+<p>Alphabetical list of properties</p>
+</li>
+</ul>
+</div>
+<a id="BIGUG21161"></a><a id="BIGUG21160"></a>
+<div class="sect3"><a id="GUID-C4A2AC9E-8815-42C6-A166-553351316408"></a>
+<h3 id="BDSUG-GUID-C4A2AC9E-8815-42C6-A166-553351316408" class="sect3"><span class="enumeration_section">4.2.1</span> Syntax Rules for Specifying Properties</h3>
+<div>
+<p>The properties are set using keyword-value pairs in the SQL <code class="codeph">CREATE TABLE</code> <code class="codeph">ACCESS PARAMETERS</code> clause and in the configuration files. The syntax must obey these rules:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The format of each keyword-value pair is a <span class="italic">keyword</span>, a colon or equal sign, and a <span class="italic">value</span>. The following are valid keyword-value pairs:</p>
+<pre dir="ltr">
+keyword=value
+keyword:value
+</pre>
+<p>The value is everything from the first non-whitespace character after the separator to the end of the line. Whitespace between the separator and the value is ignored. Trailing whitespace for the value is retained.</p>
+</li>
+<li>
+<p>A property definition can be on one line or multiple lines.</p>
+</li>
+<li>
+<p>A line terminator is a line feed, a carriage return, or a carriage return followed by line feeds.</p>
+</li>
+<li>
+<p>When a property definition spans multiple lines, then precede the line terminators with a backslash (escape character), except on the last line. In this example, the value of the <code class="codeph">Keyword1</code> property is <code class="codeph">Value part 1 Value part 2 Value part 3</code>.</p>
+<pre dir="ltr">
+Keyword1=  Value part 1 \
+           Value part 2 \
+           Value part 3
+</pre></li>
+<li>
+<p>You can create a <span class="italic">logical line</span> by stripping each physical line of leading whitespace and concatenating the lines. The parser extracts the property names and values from the logical line.</p>
+</li>
+<li>
+<p><a id="d13214e379" class="indexterm-anchor"></a>You can embed special characters in a property name or property value by preceding a character with a backslash (escape character), indicating the substitution. <a href="bigsqlref.htm#GUID-C4A2AC9E-8815-42C6-A166-553351316408__BGBGDAFA" title="Special characters used in properties">Table 4-2</a> describes the special characters.</p>
+</li>
+</ul>
+<div class="tblformal" id="GUID-C4A2AC9E-8815-42C6-A166-553351316408__BGBGDAFA">
+<p class="titleintable">Table 4-2 Special Characters in Properties</p>
+<table class="cellalignment13" title="Special Characters in Properties" summary="Special characters used in properties">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment18" id="d13214e399">Escape Sequence</th>
+<th class="cellalignment19" id="d13214e402">Character</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment20" id="d13214e407" headers="d13214e399">
+<p><code class="codeph">\b</code></p>
+</td>
+<td class="cellalignment21" headers="d13214e407 d13214e402">
+<p>Backspace (<code class="codeph">\u0008</code>)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment20" id="d13214e418" headers="d13214e399">
+<p><code class="codeph">\t</code></p>
+</td>
+<td class="cellalignment21" headers="d13214e418 d13214e402">
+<p>Horizontal tab (<code class="codeph">\u0009</code>)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment20" id="d13214e429" headers="d13214e399">
+<p><code class="codeph">\n</code></p>
+</td>
+<td class="cellalignment21" headers="d13214e429 d13214e402">
+<p>Line feed (<code class="codeph">\u000a)</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment20" id="d13214e439" headers="d13214e399">
+<p><code class="codeph">\f</code></p>
+</td>
+<td class="cellalignment21" headers="d13214e439 d13214e402">
+<p>Form feed (<code class="codeph">\u000c</code>)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment20" id="d13214e450" headers="d13214e399">
+<p><code class="codeph">\r</code></p>
+</td>
+<td class="cellalignment21" headers="d13214e450 d13214e402">
+<p>Carriage return (<code class="codeph">\u000d</code>)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment20" id="d13214e461" headers="d13214e399">
+<p><code class="codeph">\"</code></p>
+</td>
+<td class="cellalignment21" headers="d13214e461 d13214e402">
+<p>Double quote (<code class="codeph">\u0022</code>)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment20" id="d13214e472" headers="d13214e399">
+<p><code class="codeph">\'</code></p>
+</td>
+<td class="cellalignment21" headers="d13214e472 d13214e402">
+<p>Single quote (<code class="codeph">\u0027</code>)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment20" id="d13214e483" headers="d13214e399">
+<p><code class="codeph">\\</code></p>
+</td>
+<td class="cellalignment21" headers="d13214e483 d13214e402">
+<p>Backslash (<code class="codeph">\u005c</code>)</p>
+<p>When multiple backslashes are at the end of the line, the parser continues the value to the next line only for an odd number of backslashes.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment20" id="d13214e496" headers="d13214e399">
+<p><code class="codeph">\u</code><span class="italic"><code class="codeph">xxxx</code></span></p>
+</td>
+<td class="cellalignment21" headers="d13214e496 d13214e402">
+<p>2-byte, big-endian, Unicode code point.</p>
+<p>When a character requires two code points (4 bytes), the parser expects <code class="codeph">\u</code> for the second code point.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGUG21152"></a>
+<div class="sect3"><a id="GUID-5D2D356A-AD9B-4E8B-BB6D-E7620D04909E"></a>
+<h3 id="BDSUG-GUID-5D2D356A-AD9B-4E8B-BB6D-E7620D04909E" class="sect3"><span class="enumeration_section">4.2.2</span> ORACLE_HDFS Access Parameters</h3>
+<div>
+<p>The access parameters for the <code class="codeph">ORACLE_HDFS</code> access driver provide the metadata needed to locate the data in HDFS and generate a Hive table over it.</p>
+</div>
+<a id="BIGUG21153"></a>
+<div class="sect4"><a id="GUID-61CD4F39-357F-4643-A10F-76C9AB2FB65A"></a>
+<h4 id="BDSUG-GUID-61CD4F39-357F-4643-A10F-76C9AB2FB65A" class="sect4"><span class="enumeration_section">4.2.2.1</span> Default Parameter Settings for ORACLE_HDFS</h4>
+<div>
+<p>If you omit all access parameters from the <code class="codeph">CREATE TABLE</code> statement, then <code class="codeph">ORACLE_HDFS</code> uses the following default values:</p>
+<pre dir="ltr">
+com.oracle.bigdata.rowformat=DELIMITED
+com.oracle.bigdata.fileformat=TEXTFILE
+com.oracle.bigdata.overflow={"action":"error"}
+com.oracle.bigdata.erroropt={"action":"setnull"}
+</pre></div>
+</div>
+<a id="BIGUG21155"></a><a id="BIGUG21154"></a>
+<div class="sect4"><a id="GUID-372EB1C6-7F2C-43AE-A296-28BB8F2C93EF"></a>
+<h4 id="BDSUG-GUID-372EB1C6-7F2C-43AE-A296-28BB8F2C93EF" class="sect4"><span class="enumeration_section">4.2.2.2</span> Optional Parameter Settings for ORACLE_HDFS</h4>
+<div>
+<p><code class="codeph">ORACLE_HDFS</code> supports the following optional <code class="codeph">com.oracle.bigdata</code> parameters, which you can specify in the <code class="codeph">opaque_format_spec</code> clause:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-417D485A-A5DB-46AB-8495-3FD8C6615CE7">com.oracle.bigdata.colmap</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-EE402B2A-42F3-4BE9-904A-423E1AB26E55">com.oracle.bigdata.erroropt</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-6E0915DC-E80C-4233-A82B-095F8881F6F0">com.oracle.bigdata.fields</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-D9612150-D79A-40D0-A6C9-B101322C1F2D">com.oracle.bigdata.fileformat</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-066A4568-9F95-4305-A1A5-7BC3E5DF35AF">com.oracle.bigdata.log.exec</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-DD3F4F5D-CA97-43A6-B7B5-3ED51CE4644C">com.oracle.bigdata.log.qc</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-3DF2757C-A210-41ED-A0E3-44D5BAC9C5CD">com.oracle.bigdata.overflow</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-149DB6CD-E19E-4ECC-A0B6-CF844E6ACFAA">com.oracle.bigdata.rowformat</a></code></p>
+</li>
+</ul>
+<p><a href="bigsqlref.htm#GUID-372EB1C6-7F2C-43AE-A296-28BB8F2C93EF__BJEHAIIB">Example 4-1</a> shows a <code class="codeph">CREATE TABLE</code> statement in which multiple access parameters are set.</p>
+<div class="example" id="GUID-372EB1C6-7F2C-43AE-A296-28BB8F2C93EF__BJEHAIIB">
+<p class="titleinexample">Example 4-1 Setting Multiple Access Parameters for ORACLE_HDFS</p>
+<pre dir="ltr">
+CREATE TABLE ORDER (CUST_NUM VARCHAR2(10), 
+                    ORDER_NUM VARCHAR2(20), 
+                    ORDER_DATE DATE,
+                    ITEM_CNT NUMBER,
+                    DESCRIPTION VARCHAR2(100),
+                    ORDER_TOTAL (NUMBER8,2)) ORGANIZATION EXTERNAL 
+             (TYPE ORACLE_HDFS
+ ACCESS PARAMETERS (
+  com.oracle.bigdata.fields: (CUST_NUM,              \
+                              ORDER_NUM,             \
+                              ORDER_DATE,            \
+                              ORDER_LINE_ITEM_COUNT, \
+                              DESCRIPTION,           \
+                              ORDER_TOTAL)
+  com.oracle.bigdata.colMap:     {"col":"item_cnt", \
+                                  "field":"order_line_item_count"}
+  com.oracle.bigdata.overflow:   {"action":"TRUNCATE", \
+                                  "col":"DESCRIPTION"}
+  com.oracle.bigdata.errorOpt:  [{"action":"replace", \
+                                  "value":"INVALID NUM", \
+                                  "col":["CUST_NUM","ORDER_NUM"]} , \
+                                 {"action":"reject", \
+                                  "col":"ORDER_TOTAL}]
+ )
+ LOCATION ("hdfs:/usr/cust/summary/*"));
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<a id="BIGUG21156"></a>
+<div class="sect3"><a id="GUID-9CC9807E-44F5-4A54-A8B9-D3D9D293A9B4"></a>
+<h3 id="BDSUG-GUID-9CC9807E-44F5-4A54-A8B9-D3D9D293A9B4" class="sect3"><span class="enumeration_section">4.2.3</span> ORACLE_HIVE Access Parameters</h3>
+<div>
+<p><code class="codeph">ORACLE_HIVE</code> retrieves metadata about external data sources from the Hive catalog. The default mapping of Hive data to columns in the external table are usually appropriate. However, some circumstances require special parameter settings, or you might want to override the default values for reasons of your own.</p>
+</div>
+<a id="BIGUG21157"></a>
+<div class="sect4"><a id="GUID-A1D301CE-9DDC-4EF0-8D61-BBCED17A12A1"></a>
+<h4 id="BDSUG-GUID-A1D301CE-9DDC-4EF0-8D61-BBCED17A12A1" class="sect4"><span class="enumeration_section">4.2.3.1</span> Default Parameter Settings for ORACLE_HIVE</h4>
+<div>
+<p>If you omit all access parameters from the <code class="codeph">CREATE TABLE</code> statement, then <code class="codeph">ORACLE_HIVE</code> uses the following default values:</p>
+<pre dir="ltr">
+com.oracle.bigdata.tablename=<span class="italic">name of external table</span>
+com.oracle.bigdata.overflow={"action":"error"}
+com.oracle.bigdata.erroropt={"action":"setnull"}
+</pre></div>
+</div>
+<a id="BIGUG21159"></a><a id="BIGUG21158"></a>
+<div class="sect4"><a id="GUID-B64F75DC-33EA-4473-BE7C-AD327548F773"></a>
+<h4 id="BDSUG-GUID-B64F75DC-33EA-4473-BE7C-AD327548F773" class="sect4"><span class="enumeration_section">4.2.3.2</span> Optional Parameter Values for ORACLE_HIVE</h4>
+<div>
+<p><code class="codeph">ORACLE_HIVE</code> supports the following optional <code class="codeph">com.oracle.bigdata</code> parameters, which you can specify in the <code class="codeph">opaque_format_spec</code> clause:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-417D485A-A5DB-46AB-8495-3FD8C6615CE7">com.oracle.bigdata.colmap</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-EE402B2A-42F3-4BE9-904A-423E1AB26E55">com.oracle.bigdata.erroropt</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-066A4568-9F95-4305-A1A5-7BC3E5DF35AF">com.oracle.bigdata.log.exec</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-DD3F4F5D-CA97-43A6-B7B5-3ED51CE4644C">com.oracle.bigdata.log.qc</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-3DF2757C-A210-41ED-A0E3-44D5BAC9C5CD">com.oracle.bigdata.overflow</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="bigsqlref.htm#GUID-34A7BD3E-655B-4032-8343-1A63F7DA7A18">com.oracle.bigdata.tablename</a></code></p>
+</li>
+</ul>
+<p><a href="bigsqlref.htm#GUID-B64F75DC-33EA-4473-BE7C-AD327548F773__CCHIDJGG">Example 4-2</a> shows a <code class="codeph">CREATE TABLE</code> statement in which multiple access parameters are set.</p>
+<div class="example" id="GUID-B64F75DC-33EA-4473-BE7C-AD327548F773__CCHIDJGG">
+<p class="titleinexample">Example 4-2 Setting Multiple Access Parameters for ORACLE_HIVE</p>
+<pre dir="ltr">
+CREATE TABLE ORDER (cust_num VARCHAR2(10), 
+                    order_num VARCHAR2(20), 
+                    order_date DATE,
+                    item_cnt NUMBER,
+                    description VARCHAR2(100),
+                    order_total (NUMBER8,2)) ORGANIZATION EXTERNAL 
+(TYPE oracle_hive
+ ACCESS PARAMETERS (
+  com.oracle.bigdata.tableName:  order_db.order_summary
+  com.oracle.bigdata.colMap:     {"col":"ITEM_CNT", \
+                                  "field":"order_line_item_count"}
+  com.oracle.bigdata.overflow:   {"action":"ERROR", \
+                                  "col":"DESCRIPTION"}
+  com.oracle.bigdata.errorOpt:   [{"action":"replace", \
+                                   "value":"INV_NUM" , \
+                                   "col":["CUST_NUM","ORDER_NUM"]} ,\
+                                  {"action":"reject", \
+                                   "col":"ORDER_TOTAL}]
+));
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<div class="sect3"><a id="GUID-417133FF-135C-4BA8-ACF0-BC2E35D46B91"></a>
+<h3 id="BDSUG-GUID-417133FF-135C-4BA8-ACF0-BC2E35D46B91" class="sect3"><span class="enumeration_section">4.2.4</span> com.oracle.bigdata.buffersize</h3>
+<div>
+<p>Sets the buffer size in kilobytes for large record reads. Set this value if you need to read records that are greater than the default buffer size.&nbsp;</p>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p>1000 KB</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<p><span class="italic"><code class="codeph">com.oracle.bigdata.buffersize: n</code></span></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Example</p>
+<p>The following example sets the buffer size to 100 MB:</p>
+<pre dir="ltr">
+com.oracle.bigdata.buffersize: 100000
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76636"></a><a id="BIGUG76637"></a><a id="BIGUG21165"></a><a id="BIGUG21166"></a><a id="BIGUG21164"></a>
+<div class="sect3"><a id="GUID-417D485A-A5DB-46AB-8495-3FD8C6615CE7"></a>
+<h3 id="BDSUG-GUID-417D485A-A5DB-46AB-8495-3FD8C6615CE7" class="sect3"><span class="enumeration_section">4.2.5</span> com.oracle.bigdata.colmap</h3>
+<div>
+<p>Maps a column in the source data to a column in the Oracle external table. You can define one or multiple pairs of column mappings. Use this property when the source field names exceed the maximum length of Oracle column names, or when you want to use different column names in the external table.</p>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p>A column in the external table with the same name as the Hive column</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<p>A JSON document with the keyword-value pairs is shown in the following diagram:</p>
+<p>colmap:</p>
+<div class="figure" id="GUID-417D485A-A5DB-46AB-8495-3FD8C6615CE7__GUID-521C9B59-7EFE-4C45-8B4F-33547E158501"><img width="459" height="91" src="img/GUID-C05929CA-F411-4AA6-AF75-C8AB5D5A4415-default.gif" alt="Description of GUID-C05929CA-F411-4AA6-AF75-C8AB5D5A4415-print.eps follows" title="Description of GUID-C05929CA-F411-4AA6-AF75-C8AB5D5A4415-print.eps follows" /><br />
+<a href="img_text/GUID-C05929CA-F411-4AA6-AF75-C8AB5D5A4415-print.htm">Description of the illustration GUID-C05929CA-F411-4AA6-AF75-C8AB5D5A4415-print.eps</a></div>
+<!-- class="figure" -->
+<p>colmap_entry:</p>
+<div class="figure" id="GUID-417D485A-A5DB-46AB-8495-3FD8C6615CE7__GUID-C57AE9DE-EF61-4720-9DA9-284E46EAD9ED"><img width="378" height="27" src="img/GUID-F5297772-47C7-446F-A8A6-43EC0F184B06-default.gif" alt="Description of GUID-F5297772-47C7-446F-A8A6-43EC0F184B06-print.eps follows" title="Description of GUID-F5297772-47C7-446F-A8A6-43EC0F184B06-print.eps follows" /><br />
+<a href="img_text/GUID-F5297772-47C7-446F-A8A6-43EC0F184B06-print.htm">Description of the illustration GUID-F5297772-47C7-446F-A8A6-43EC0F184B06-print.eps</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Semantics</p>
+<p>"col":<span class="italic">name</span></p>
+<p><code class="codeph">"col"</code>: The keyword must be lowercase and enclosed in quotation marks.</p>
+<p><span class="italic"><code class="codeph">name</code></span>: The name of a column in the Oracle external table. It is case sensitive and must be enclosed in quotation marks.</p>
+<p>"field":<span class="italic">name</span></p>
+<p><code class="codeph">"field"</code>: The keyword must be lowercase and enclosed in quotation marks.</p>
+<p><span class="italic"><code class="codeph">name</code></span>: The name of a field in the data source. It is not case sensitive, but it must be enclosed in quotation marks. See <span class="q">"<a href="bigsqlref.htm#GUID-C4A2AC9E-8815-42C6-A166-553351316408">Syntax Rules for Specifying Properties</a>"</span>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Examples</p>
+<p>This example maps a Hive column named <code class="codeph">ORDER_LINE_ITEM_COUNT</code> to an Oracle column named <code class="codeph">ITEM_CNT</code>:</p>
+<pre dir="ltr">
+com.oracle.bigdata.colMap={"col":"ITEM_CNT", \
+                           "field":"order_line_item_count"}
+</pre>
+<p>The following example shows the mapping of multiple columns.</p>
+<pre dir="ltr">
+com.oracle.bigdata.colmap:[{"col":"KOL1", "field":"PROJECT_NAME"},{ "col":"KOL2","field":"wsdl_name"},{"col":"KOL3", "field":"method"}]
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76711"></a><a id="BIGUG76712"></a><a id="BIGUG76713"></a><a id="BIGUG76714"></a><a id="BIGUG76710"></a>
+<div class="sect3"><a id="GUID-F4F86E41-FF0D-4309-B8CA-E05104F3B996"></a>
+<h3 id="BDSUG-GUID-F4F86E41-FF0D-4309-B8CA-E05104F3B996" class="sect3"><span class="enumeration_section">4.2.6</span> com.oracle.bigdata.datamode</h3>
+<div>
+<p>Specifies the method that SmartScan uses to scan a Hadoop data source. The method can make a significant difference in performance.</p>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p><code class="codeph">automatic</code></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<p>A JSON document with the keyword-value pairs shown in the following diagram:</p>
+<p>datamode:</p>
+<div class="figure" id="GUID-F4F86E41-FF0D-4309-B8CA-E05104F3B996__GUID-FF6CA805-C8E9-41B4-8FE7-56A5DD653916"><img width="366" height="91" src="img/GUID-D083D311-F550-4175-A280-AD44A0CDD564-default.gif" alt="Description of GUID-D083D311-F550-4175-A280-AD44A0CDD564-print.eps follows" title="Description of GUID-D083D311-F550-4175-A280-AD44A0CDD564-print.eps follows" /><br />
+<a href="img_text/GUID-D083D311-F550-4175-A280-AD44A0CDD564-print.htm">Description of the illustration GUID-D083D311-F550-4175-A280-AD44A0CDD564-print.eps</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Semantics</p>
+<p>automatic</p>
+<p>Automatically selects the appropriate mode, based on the metadata. It selects <code class="codeph">c</code> mode if possible, or <code class="codeph">java</code> mode if the data contains formats that are not supported by <code class="codeph">c</code> mode.</p>
+<p>c</p>
+<p>Uses Java to read the file buffers, but C code to process the data and convert it to Oracle format. Specify this mode for delimited data.</p>
+<p>If the data contains formats that the C code does not support, then it returns an error.</p>
+<p>java</p>
+<p>Uses the Java SerDes and InputFormats to process the data and convert it to Oracle format. Specify this mode for Parquet, RCFile, and other data formats that require a SerDe.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76640"></a><a id="BIGUG76641"></a><a id="BIGUG21171"></a><a id="BIGUG21172"></a><a id="BIGUG21173"></a><a id="BIGUG21170"></a>
+<div class="sect3"><a id="GUID-EE402B2A-42F3-4BE9-904A-423E1AB26E55"></a>
+<h3 id="BDSUG-GUID-EE402B2A-42F3-4BE9-904A-423E1AB26E55" class="sect3"><span class="enumeration_section">4.2.7</span> com.oracle.bigdata.erroropt</h3>
+<div>
+<p>Describes how to handle errors that occur while the value of a column is calculated.</p>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p><code class="codeph">{"action":"setnull"}</code></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<p>A JSON document with the keyword-value pairs is shown in the following diagram:</p>
+<p>erroropt:</p>
+<div class="figure" id="GUID-EE402B2A-42F3-4BE9-904A-423E1AB26E55__GUID-65840783-D29B-4EF5-8081-2FA886B2E3CD"><img width="465" height="91" src="img/GUID-CA586EB8-2E8D-47D4-8018-DECC0662AE2B-default.gif" alt="Description of GUID-CA586EB8-2E8D-47D4-8018-DECC0662AE2B-print.eps follows" title="Description of GUID-CA586EB8-2E8D-47D4-8018-DECC0662AE2B-print.eps follows" /><br />
+<a href="img_text/GUID-CA586EB8-2E8D-47D4-8018-DECC0662AE2B-print.htm">Description of the illustration GUID-CA586EB8-2E8D-47D4-8018-DECC0662AE2B-print.eps</a></div>
+<!-- class="figure" -->
+<p>error_element:</p>
+<div class="figure" id="GUID-EE402B2A-42F3-4BE9-904A-423E1AB26E55__GUID-14DC920D-C08E-4CE1-8E7A-5CEC19992043"><img width="777" height="143" src="img/GUID-110FDB97-AA66-4097-9AD2-A11DAF2E7756-default.gif" alt="Description of GUID-110FDB97-AA66-4097-9AD2-A11DAF2E7756-print.eps follows" title="Description of GUID-110FDB97-AA66-4097-9AD2-A11DAF2E7756-print.eps follows" /><br />
+<a href="img_text/GUID-110FDB97-AA66-4097-9AD2-A11DAF2E7756-print.htm">Description of the illustration GUID-110FDB97-AA66-4097-9AD2-A11DAF2E7756-print.eps</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Semantics</p>
+<p>The <code class="codeph">"action"</code>, <code class="codeph">"reject"</code>, <code class="codeph">"setnull"</code>, <code class="codeph">"replace"</code>, <code class="codeph">"value"</code>, and <code class="codeph">"col"</code> keywords must be lowercase and enclosed in quotation marks. See <span class="q">"<a href="bigsqlref.htm#GUID-C4A2AC9E-8815-42C6-A166-553351316408">Syntax Rules for Specifying Properties</a>"</span>.</p>
+<p>"action":<span class="italic">value</span></p>
+<p><span class="italic"><code class="codeph">value</code></span>: One of these keywords:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">"reject"</code>: Does not load any rows.</p>
+</li>
+<li>
+<p><code class="codeph">"setnull"</code>: Sets the column to <code class="codeph">NULL</code>.</p>
+</li>
+<li>
+<p><code class="codeph">"replace"</code>: Sets the column to the specified value.</p>
+</li>
+</ul>
+<p>"value":<span class="italic">string</span></p>
+<p><span class="italic"><code class="codeph">string</code></span>: Replaces a bad value in the external table. It must be enclosed in quotation marks.</p>
+<p>"col":<span class="italic">name</span></p>
+<p><span class="italic"><code class="codeph">name</code></span>: Identifies a column in an external table. The column name is case sensitive, must be enclosed in quotation marks, and can be listed only once.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Example</p>
+<p>This example sets the value of the <code class="codeph">CUST_NUM</code> or <code class="codeph">ORDER_NUM</code> columns to <code class="codeph">INVALID</code> if the Hive value causes an error. For any other columns, an error just causes the Hive value to be rejected.</p>
+<pre dir="ltr">
+com.oracle.bigdata.errorOpt: {"action":"replace",\
+                              "value":"INVALID", \
+                              "col":["CUST_NUM","ORDER_NUM"]
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76642"></a><a id="BIGUG76643"></a><a id="BIGUG76644"></a><a id="BIGUG21176"></a><a id="BIGUG21177"></a><a id="BIGUG21178"></a><a id="BIGUG21179"></a><a id="BIGUG21180"></a><a id="BIGUG21175"></a>
+<div class="sect3"><a id="GUID-6E0915DC-E80C-4233-A82B-095F8881F6F0"></a>
+<h3 id="BDSUG-GUID-6E0915DC-E80C-4233-A82B-095F8881F6F0" class="sect3"><span class="enumeration_section">4.2.8</span> com.oracle.bigdata.fields</h3>
+<div>
+<p>Lists the field names and data types of the data source.</p>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p>Not defined</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<p>A JSON document with the keyword-value pairs is shown in the following diagram:</p>
+<p>fields:</p>
+<div class="figure" id="GUID-6E0915DC-E80C-4233-A82B-095F8881F6F0__GUID-DA5A488A-7189-4689-AC20-FAD9006AC5C0"><img width="708" height="95" src="img/GUID-2C1A06F9-2265-4791-BED0-1B4BFEB4869B-default.gif" alt="Description of GUID-2C1A06F9-2265-4791-BED0-1B4BFEB4869B-print.eps follows" title="Description of GUID-2C1A06F9-2265-4791-BED0-1B4BFEB4869B-print.eps follows" /><br />
+<a href="img_text/GUID-2C1A06F9-2265-4791-BED0-1B4BFEB4869B-print.htm">Description of the illustration GUID-2C1A06F9-2265-4791-BED0-1B4BFEB4869B-print.eps</a></div>
+<!-- class="figure" -->
+<p>data_type:</p>
+<div class="figure" id="GUID-6E0915DC-E80C-4233-A82B-095F8881F6F0__GUID-0F6E3BFD-6F01-4DA9-9B68-2B134B4CA090"><img width="602" height="239" src="img/GUID-A0274462-64B6-4681-81FE-0A3949C02932-default.gif" alt="Description of GUID-A0274462-64B6-4681-81FE-0A3949C02932-print.eps follows" title="Description of GUID-A0274462-64B6-4681-81FE-0A3949C02932-print.eps follows" /><br />
+<a href="img_text/GUID-A0274462-64B6-4681-81FE-0A3949C02932-print.htm">Description of the illustration GUID-A0274462-64B6-4681-81FE-0A3949C02932-print.eps</a></div>
+<!-- class="figure" -->
+<p>primitive_type:</p>
+<div class="figure" id="GUID-6E0915DC-E80C-4233-A82B-095F8881F6F0__GUID-05E61510-1644-400E-B83D-433A26459C57"><img width="142" height="348" src="img/GUID-871BD759-DF97-4775-9119-4AE7FC2E4567-default.gif" alt="Description of GUID-871BD759-DF97-4775-9119-4AE7FC2E4567-print.eps follows" title="Description of GUID-871BD759-DF97-4775-9119-4AE7FC2E4567-print.eps follows" /><br />
+<a href="img_text/GUID-871BD759-DF97-4775-9119-4AE7FC2E4567-print.htm">Description of the illustration GUID-871BD759-DF97-4775-9119-4AE7FC2E4567-print.eps</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Semantics</p>
+<p>The syntax is the same as a field list for a Hive table. If you split the field list across multiple lines, you must use a backslash to escape the new line characters.</p>
+<p>field_name</p>
+<p>The name of the Hive field. Use only alphanumeric characters and underscores (_). The maximum length is 128 characters. Field names are case-insensitive.</p>
+<p>data_type</p>
+<p>The data type of the Hive field. Optional; the default is <code class="codeph">STRING</code>. The character set must be UTF8.</p>
+<p>The data type can be complex or primitive:</p>
+<p>Hive Complex Data Types</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ARRAY</code>: Indexable list</p>
+</li>
+<li>
+<p><code class="codeph">MAP</code>: Key-value tuples</p>
+</li>
+<li>
+<p><code class="codeph">STRUCT</code>: List of elements</p>
+</li>
+<li>
+<p><code class="codeph">UNIONTYPE</code>: Multiple data types</p>
+</li>
+</ul>
+<p>Hive Primitive Data Types</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">INT</code>: 4 byte integer</p>
+</li>
+<li>
+<p><code class="codeph">BIGINT</code>: 8 byte integer</p>
+</li>
+<li>
+<p><code class="codeph">SMALLINT</code>: 2 byte integer</p>
+</li>
+<li>
+<p><code class="codeph">TINYINT</code>: 1 byte integer</p>
+</li>
+<li>
+<p><code class="codeph">BOOLEAN</code>: <code class="codeph">TRUE</code> or <code class="codeph">FALSE</code></p>
+</li>
+<li>
+<p><code class="codeph">FLOAT</code>: single precision</p>
+</li>
+<li>
+<p><code class="codeph">DOUBLE</code>: double precision</p>
+</li>
+<li>
+<p><code class="codeph">STRING</code>: character sequence</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-6E0915DC-E80C-4233-A82B-095F8881F6F0__GUID-DFAF8F67-883B-43DF-8C6C-18E5FAD51EBD">
+<p class="notep1">See Also:</p>
+<p>"Data Types" in the <span class="italic">Apache Hive Language Manual</span> at</p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types" target="_blank"><code class="codeph">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types</code></a></p>
+</div>
+<p>COMMENT <span class="italic">col_comment</span></p>
+<p>A string literal enclosed in single quotation marks, which is stored as metadata for the Hive table (<code class="codeph">comment</code> property of <code class="codeph">TBLPROPERTIES</code>).</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76645"></a><a id="BIGUG76684"></a><a id="BIGUG76685"></a><a id="BIGUG76686"></a><a id="BIGUG21182"></a><a id="BIGUG76687"></a><a id="BIGUG76688"></a><a id="BIGUG76689"></a><a id="BIGUG21181"></a>
+<div class="sect3"><a id="GUID-D9612150-D79A-40D0-A6C9-B101322C1F2D"></a>
+<h3 id="BDSUG-GUID-D9612150-D79A-40D0-A6C9-B101322C1F2D" class="sect3"><span class="enumeration_section">4.2.9</span> com.oracle.bigdata.fileformat</h3>
+<div>
+<p>Describes the row format of the data source, based on the <code class="codeph">ROW FORMAT</code> clause for a Hive table generated by <code class="codeph">ORACLE_HDFS</code>.</p>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p><code class="codeph">TEXTFILE</code></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<p>A JSON document with the keyword-value pairs is shown in the following diagram.</p>
+<p>fileformat:</p>
+<div class="figure" id="GUID-D9612150-D79A-40D0-A6C9-B101322C1F2D__GUID-DCF4BA63-E7E2-487D-AD05-8F4A43E4CED6"><img width="689" height="187" src="img/GUID-BF35CE98-E2AD-4207-87BD-6DDCD1596240-default.gif" alt="Description of GUID-BF35CE98-E2AD-4207-87BD-6DDCD1596240-print.eps follows" title="Description of GUID-BF35CE98-E2AD-4207-87BD-6DDCD1596240-print.eps follows" /><br />
+<a href="img_text/GUID-BF35CE98-E2AD-4207-87BD-6DDCD1596240-print.htm">Description of the illustration GUID-BF35CE98-E2AD-4207-87BD-6DDCD1596240-print.eps</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Semantics</p>
+<p>ORC</p>
+<p>Optimized row columnar file format</p>
+<p>PARQUET</p>
+<p>Column-oriented, binary file format</p>
+<p>RCFILE</p>
+<p>Record columnar file format</p>
+<p>SEQUENCEFILE</p>
+<p>Compressed file format</p>
+<p>TEXTFILE</p>
+<p>Plain text file format</p>
+<p>INPUTFORMAT</p>
+<p>Identifies a Java class that can extract records from the data file.</p>
+<p>OUTPUTFORMAT</p>
+<p>Identifies a Java class that can format the output records in the desired format</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG21184"></a><a id="BIGUG21185"></a><a id="BIGUG21186"></a><a id="BIGUG21183"></a>
+<div class="sect3"><a id="GUID-066A4568-9F95-4305-A1A5-7BC3E5DF35AF"></a>
+<h3 id="BDSUG-GUID-066A4568-9F95-4305-A1A5-7BC3E5DF35AF" class="sect3"><span class="enumeration_section">4.2.10</span> com.oracle.bigdata.log.exec</h3>
+<div>
+<p>Specifies how the access driver generates log files generated by the C code for a query, when it is running as parallel processes on CDH.</p>
+<p>The access driver does not create or write log files when executing on a Hadoop cluster node; the parallel query processes write them. The log files from the Java code are controlled by <code class="codeph">log4j</code> properties, which are specified in the configuration file or the access parameters. See <span class="q">"<a href="bigsql.htm#GUID-A5782C5E-AB11-46CA-A91D-78EDEC5CD28E">bigdata-log4j.properties</a>"</span>.</p>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p>Not defined (no logging)</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<p><span class="italic"><code class="codeph">[directory_object:]file_name_template</code></span></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Semantics</p>
+<p><span class="italic">directory_object</span></p>
+<p>The Oracle directory object for the HDFS path on the Hadoop cluster where the log file is created.</p>
+<p><span class="italic">file_name_template</span></p>
+<p>A string used to generate file names. <a href="bigsqlref.htm#GUID-C4A2AC9E-8815-42C6-A166-553351316408__BGBGDAFA" title="Special characters used in properties">Table 4-2</a> describes the optional variables that you can use in the template.</p>
+<div class="tblformal" id="GUID-066A4568-9F95-4305-A1A5-7BC3E5DF35AF__GUID-A0FAE7A8-836D-426A-9270-3F177EB99492">
+<p class="titleintable">Table 4-3 Variables for com.oracle.bigdata.log.exec</p>
+<table class="cellalignment13" title="Variables for com.oracle.bigdata.log.exec" summary="file_name_template optional variables">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment22" id="d13214e1460">Variable</th>
+<th class="cellalignment23" id="d13214e1463">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment24" id="d13214e1468" headers="d13214e1460">
+<p><code class="codeph">%p</code></p>
+</td>
+<td class="cellalignment25" headers="d13214e1468 d13214e1463">
+<p>Operating system process identifier (PID)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment24" id="d13214e1476" headers="d13214e1460">
+<p><code class="codeph">%a</code></p>
+</td>
+<td class="cellalignment25" headers="d13214e1476 d13214e1463">
+<p>A number that uniquely identifies the process.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment24" id="d13214e1484" headers="d13214e1460">
+<p><code class="codeph">%%</code></p>
+</td>
+<td class="cellalignment25" headers="d13214e1484 d13214e1463">
+<p>A percent sign (<code class="codeph">%</code>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Example</p>
+<p>The following example generates log file names that include the PID and a unique number, such as <code class="codeph">xtlogp_hive14_3413_57</code>:</p>
+<pre dir="ltr">
+com.oracle.bigdata.log.exec= xtlogp_hive14_%p_%a
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG21190"></a><a id="BIGUG21191"></a><a id="BIGUG21192"></a><a id="BIGUG21189"></a>
+<div class="sect3"><a id="GUID-DD3F4F5D-CA97-43A6-B7B5-3ED51CE4644C"></a>
+<h3 id="BDSUG-GUID-DD3F4F5D-CA97-43A6-B7B5-3ED51CE4644C" class="sect3"><span class="enumeration_section">4.2.11</span> com.oracle.bigdata.log.qc</h3>
+<div>
+<p>Specifies how the access driver generates log files for a query.</p>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p>Not defined (no logging)</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<pre dir="ltr">
+<span class="italic">[directory_object:]file_name_template</span>
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Semantics</p>
+<p><span class="italic">directory_object</span></p>
+<p>Name of an Oracle directory object that points to the path where the log files are written. If this value is omitted, then the logs are written to the default directory for the external table.</p>
+<p><span class="italic">file_name_template</span></p>
+<p>A string used to generate file names. <a href="bigsqlref.htm#GUID-DD3F4F5D-CA97-43A6-B7B5-3ED51CE4644C__CIHFICBJ" title="file_name_template variables">Table 4-4</a> describes the optional variables that you can use in the string.</p>
+<div class="tblformal" id="GUID-DD3F4F5D-CA97-43A6-B7B5-3ED51CE4644C__CIHFICBJ">
+<p class="titleintable">Table 4-4 Variables for com.oracle.bigdata.log.qc</p>
+<table class="cellalignment13" title="Variables for com.oracle.bigdata.log.qc" summary="file_name_template variables">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment22" id="d13214e1570">Variable</th>
+<th class="cellalignment23" id="d13214e1573">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment24" id="d13214e1578" headers="d13214e1570">
+<p><code class="codeph">%p</code></p>
+</td>
+<td class="cellalignment25" headers="d13214e1578 d13214e1573">
+<p>Operating system process identifier (PID)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment24" id="d13214e1586" headers="d13214e1570">
+<p><code class="codeph">%%</code></p>
+</td>
+<td class="cellalignment25" headers="d13214e1586 d13214e1573">
+<p>A percent sign (<code class="codeph">%</code>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Example</p>
+<p>This example creates log file names that include the PID and a percent sign, such as <code class="codeph">xtlogp_hive213459_%</code>:</p>
+<pre dir="ltr">
+com.oracle.bigdata.log.qc= xtlogp_hive21%p_%%
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76646"></a><a id="BIGUG76647"></a><a id="BIGUG21197"></a><a id="BIGUG21198"></a><a id="BIGUG21196"></a>
+<div class="sect3"><a id="GUID-3DF2757C-A210-41ED-A0E3-44D5BAC9C5CD"></a>
+<h3 id="BDSUG-GUID-3DF2757C-A210-41ED-A0E3-44D5BAC9C5CD" class="sect3"><span class="enumeration_section">4.2.12</span> com.oracle.bigdata.overflow</h3>
+<div>
+<p>Describes how to handle string data that is too long for the columns in the external table. The data source can be character or binary. For Hive, the data source can also be <code class="codeph">STRUCT</code>, <code class="codeph">UNIONTYPES</code>, <code class="codeph">MAP</code>, or <code class="codeph">ARRAY</code>.</p>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p><code class="codeph">{"action":"error"}</code></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<p>A JSON document with the keyword-value pairs is shown in the following diagram:</p>
+<p>overflow ::=</p>
+<div class="figure" id="GUID-3DF2757C-A210-41ED-A0E3-44D5BAC9C5CD__GUID-07EFE999-7BD2-4D34-AB14-BD9E984A896A"><img width="485" height="91" src="img/GUID-F90E50DA-90F5-4509-8A11-7E56A0E5941A-default.gif" alt="Description of GUID-F90E50DA-90F5-4509-8A11-7E56A0E5941A-print.eps follows" title="Description of GUID-F90E50DA-90F5-4509-8A11-7E56A0E5941A-print.eps follows" /><br />
+<a href="img_text/GUID-F90E50DA-90F5-4509-8A11-7E56A0E5941A-print.htm">Description of the illustration GUID-F90E50DA-90F5-4509-8A11-7E56A0E5941A-print.eps</a></div>
+<!-- class="figure" -->
+<p>overflow_element ::=</p>
+<div class="figure" id="GUID-3DF2757C-A210-41ED-A0E3-44D5BAC9C5CD__GUID-999F364B-FAB7-413B-B188-10BA28689CA8"><img width="607" height="128" src="img/GUID-2444400E-F7B3-4350-94BF-D4ABBAE0BE43-default.gif" alt="Description of GUID-2444400E-F7B3-4350-94BF-D4ABBAE0BE43-print.eps follows" title="Description of GUID-2444400E-F7B3-4350-94BF-D4ABBAE0BE43-print.eps follows" /><br />
+<a href="img_text/GUID-2444400E-F7B3-4350-94BF-D4ABBAE0BE43-print.htm">Description of the illustration GUID-2444400E-F7B3-4350-94BF-D4ABBAE0BE43-print.eps</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Semantics</p>
+<p>The <code class="codeph">"action"</code>, <code class="codeph">"truncate"</code>, <code class="codeph">"error"</code>, and <code class="codeph">"col"</code> tags must be lowercase and enclosed in quotation marks. See <span class="q">"<a href="bigsqlref.htm#GUID-C4A2AC9E-8815-42C6-A166-553351316408">Syntax Rules for Specifying Properties</a>"</span>.</p>
+<p>"action":<span class="italic">value</span></p>
+<p>The value of <code class="codeph">"action"</code> can be one of the following keywords:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">truncate</code>: Shortens the data to fit the column.</p>
+</li>
+<li>
+<p><code class="codeph">error</code>: Throws an error. The <code class="codeph"><a href="bigsqlref.htm#GUID-EE402B2A-42F3-4BE9-904A-423E1AB26E55">com.oracle.bigdata.erroropt</a></code> property controls the result of the error.</p>
+</li>
+</ul>
+<p>"col":<span class="italic">name</span></p>
+<p><span class="italic"><code class="codeph">name</code></span>: Identifies a column in the external table. The name is case sensitive and must be enclosed in quotation marks.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Example</p>
+<p>This example truncates the source data for the <code class="codeph">DESCRIPTION</code> column, if it exceeds the column width:</p>
+<pre dir="ltr">
+com.oracle.bigdata.overflow={"action":"truncate", \
+                             "col":"DESCRIPTION"}
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76648"></a><a id="BIGUG21200"></a><a id="BIGUG76715"></a><a id="BIGUG21199"></a>
+<div class="sect3"><a id="GUID-149DB6CD-E19E-4ECC-A0B6-CF844E6ACFAA"></a>
+<h3 id="BDSUG-GUID-149DB6CD-E19E-4ECC-A0B6-CF844E6ACFAA" class="sect3"><span class="enumeration_section">4.2.13</span> com.oracle.bigdata.rowformat</h3>
+<div>
+<p>Provides the information the access driver needs to extract fields from the records in a file.</p>
+<div class="infobox-note" id="GUID-149DB6CD-E19E-4ECC-A0B6-CF844E6ACFAA__GUID-D7AA2FBF-384E-4F5E-9E9C-EA9D4778F761">
+<p class="notep1">Important:</p>
+The <code class="codeph">com.oracle.bigdata.rowformat</code> is unrelated to the access parameter syntax of &nbsp;traditional external tables that use "type ORACLE_LOADER." There are keywords such as <code class="codeph">FIELDS</code>, <code class="codeph">TERMINATED</code>, and others that appear in both clauses, but the commonality in naming is coincidental and does not imply common functionality. The <code class="codeph">com.oracle.bigdata.rowformat</code> access parameter is passed without change to the default Hive serde. The Hive serde to extract columns from rows is deliberately limited. Complex cases are handled by specialized serdes.</div>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p><code class="codeph">DELIMITED</code></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<p>A JSON document with the keyword-value pairs is shown in the following diagram.</p>
+<p>rowformat:</p>
+<div class="figure" id="GUID-149DB6CD-E19E-4ECC-A0B6-CF844E6ACFAA__GUID-27C9478C-8C98-4DCA-8F52-4BA77157D6DB"><img width="617" height="267" src="img/GUID-11FC174B-0111-4392-B6D6-6BE0E869EF3E-default.gif" alt="Description of GUID-11FC174B-0111-4392-B6D6-6BE0E869EF3E-print.eps follows" title="Description of GUID-11FC174B-0111-4392-B6D6-6BE0E869EF3E-print.eps follows" /><br />
+<a href="img_text/GUID-11FC174B-0111-4392-B6D6-6BE0E869EF3E-print.htm">Description of the illustration GUID-11FC174B-0111-4392-B6D6-6BE0E869EF3E-print.eps</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Semantics</p>
+<p>DELIMITED</p>
+<p>Describes the characters used to delimit the fields in a record:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">FIELDS TERMINATED BY</code>: The character that delimits every field in the record. The optional ESCAPED BY character precedes the delimit character when it appears within a field value.</p>
+</li>
+<li>
+<p><code class="codeph">COLLECTION ITEMS TERMINATED BY</code>: The character that marks the end of an array element. Used when a column is a collection or a nested record. In this case the resulting value will be a JSON array.</p>
+</li>
+<li>
+<p><code class="codeph">MAP KEYS TERMINATED BY</code>: The character that marks the end of an entry in a MAP field. Used when a column is a collection or a nested record. The resulting value is a JSON object.</p>
+</li>
+<li>
+<p><code class="codeph">LINES TERMINATED BY</code>: The character that marks the end of a record.</p>
+</li>
+<li>
+<p><code class="codeph">NULL DEFINED AS</code>: The character that indicates a null value.</p>
+</li>
+</ul>
+<p>SERDE</p>
+<p>Identifies a SerDe that can parse the data and any properties of the SerDe that the access driver might need.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Example</p>
+<p>This example specifies a SerDe for an Avro container file:</p>
+<pre dir="ltr">
+com.oracle.bigdata.rowformat:
+   SERDE'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+</pre>
+<p>The next example specifies a SerDe for a file containing regular expressions:</p>
+<pre dir="ltr">
+com.oracle.bigdata.rowformat=\
+    SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe' \
+    WITH SERDEPROPERTIES \ 
+    ("input.regex" = "(\\\\d{6}) (\\\\d{5}) (.{29}) .*") 
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG21202"></a><a id="BIGUG21203"></a><a id="BIGUG21201"></a>
+<div class="sect3"><a id="GUID-34A7BD3E-655B-4032-8343-1A63F7DA7A18"></a>
+<h3 id="BDSUG-GUID-34A7BD3E-655B-4032-8343-1A63F7DA7A18" class="sect3"><span class="enumeration_section">4.2.14</span> com.oracle.bigdata.tablename</h3>
+<div>
+<p>Identifies the Hive table that contains the source data.</p>
+<div class="section">
+<p class="subhead3">Default Value</p>
+<p><code class="codeph">DEFAULT</code>.<span class="italic"><code class="codeph">external_table_name</code></span></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Syntax</p>
+<pre dir="ltr">
+<span class="italic">[hive_database_name.]table_name</span>
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Semantics</p>
+<p>The maximum length of <span class="italic">hive_database_name</span> and <span class="italic">table_name</span> is 128 UTF-8 characters (512 bytes).</p>
+<p>hive_database_name</p>
+<p>The Hive database where the source data resides. <code class="codeph">DEFAULT</code> is the name of the initial Hive database.</p>
+<p>table_name</p>
+<p>The Hive table with the data. If you omit <span class="italic">table_name</span>, then <code class="codeph">ORACLE_HIVE</code> searches for a Hive table with the same name as the external table. Table names are case-insensitive.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Example</p>
+<p>This setting indicates that the source data is in a table named <code class="codeph">ORDER_SUMMARY</code> in the Hive <code class="codeph">ORDER_DB</code> database:</p>
+<pre dir="ltr">
+com.oracle.bigdata.tablename ORDER_DB.ORDER_SUMMARY
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG76649"></a>
+<div class="sect2"><a id="GUID-E7A9C252-9C5F-449D-98E8-F42AECD8A4C3"></a>
+<h2 id="BDSUG-GUID-E7A9C252-9C5F-449D-98E8-F42AECD8A4C3" class="sect2"><span class="enumeration_section">4.3</span> Static Data Dictionary Views for Hive</h2>
+<div>
+<p>The Oracle Database catalog contains several static data dictionary views for Hive tables. You can query these data dictionary views to discover information about the Hive tables that you can access.</p>
+<p>For you to access any Hive databases from Oracle Database, you must have read privileges on the <code class="codeph">ORACLE_BIGDATA_CONFIG</code> directory object.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bigsqlref.htm#GUID-6E06D786-548D-4478-922F-A52AE69909F9">ALL_HIVE_DATABASES</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-AFB5BA78-7137-43D2-8EEB-E12389B2D78B">ALL_HIVE_TABLES</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-1772A9D6-01FE-4964-9FAB-BCB09ACB9EDC">ALL_HIVE_COLUMNS</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-5BC4B6B0-D0DB-4275-90BF-EE31C6CA1EA1">DBA_HIVE_DATABASES</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-FABA8D8E-5541-46CA-9918-75E49F416156">DBA_HIVE_TABLES</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-21D48E6B-B6ED-407D-9621-7BE39E7F870B">DBA_HIVE_COLUMNS</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-473F9841-4F38-47ED-878B-05A704E80A30">USER_HIVE_DATABASES</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-ECC8F72E-656C-4FB1-BC68-70BB222D2DEF">USER_HIVE_TABLES</a></p>
+</li>
+<li>
+<p><a href="bigsqlref.htm#GUID-73D57505-2DC6-4645-B720-905BB7D2FB3D">USER_HIVE_COLUMNS</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76651"></a><a id="BIGUG76650"></a>
+<div class="sect3"><a id="GUID-6E06D786-548D-4478-922F-A52AE69909F9"></a>
+<h3 id="BDSUG-GUID-6E06D786-548D-4478-922F-A52AE69909F9" class="sect3"><span class="enumeration_section">4.3.1</span> ALL_HIVE_DATABASES</h3>
+<div>
+<p><code class="codeph">ALL_HIVE_DATABASES</code> describes all databases in the Hive metastore accessible to the current user.</p>
+<div class="section">
+<p class="subhead3">Related Views</p>
+</div>
+<!-- class="section" -->
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">DBA_HIVE_DATABASES</code> describes all the databases in the Hive metastore.</p>
+</li>
+<li>
+<p><code class="codeph">USER_HIVE_DATABASES</code> describes the databases in the Hive metastore owned by the current user.</p>
+</li>
+</ul>
+<div class="tblformal" id="GUID-6E06D786-548D-4478-922F-A52AE69909F9__GUID-369B19CA-526E-4F3F-AA57-CD1BD60CB56A">
+<table class="cellalignment13" summary="ALL_HIVE_DATABASES columns">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment26" id="d13214e2065">Column</th>
+<th class="cellalignment26" id="d13214e2068">Datatype</th>
+<th class="cellalignment22" id="d13214e2071">NULL</th>
+<th class="cellalignment27" id="d13214e2074">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2079" headers="d13214e2065">
+<p><code class="codeph">CLUSTER_ID</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2079 d13214e2068">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2079 d13214e2071">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2079 d13214e2074">
+<p>Hadoop cluster where the Hive metastore is located</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2095" headers="d13214e2065">
+<p><code class="codeph">DATABASE_NAME</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2095 d13214e2068">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2095 d13214e2071">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2095 d13214e2074">
+<p>Hive database name</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2111" headers="d13214e2065">
+<p><code class="codeph">DESCRIPTION</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2111 d13214e2068">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2111 d13214e2071">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2111 d13214e2074">
+<p>Hive database description</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2125" headers="d13214e2065">
+<p><code class="codeph">DB_LOCATION</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2125 d13214e2068">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2125 d13214e2071">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2125 d13214e2074">&nbsp;</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2140" headers="d13214e2065">
+<p><code class="codeph">HIVE_URI</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2140 d13214e2068">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2140 d13214e2071">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2140 d13214e2074">
+<p>Hive database URI</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infoboxnotealso" id="GUID-6E06D786-548D-4478-922F-A52AE69909F9__GUID-1463959F-B22A-405E-B732-C7A3C53169F4">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-5BC4B6B0-D0DB-4275-90BF-EE31C6CA1EA1">DBA_HIVE_DATABASES</a>"</span></p>
+</li>
+<li>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-473F9841-4F38-47ED-878B-05A704E80A30">USER_HIVE_DATABASES</a>"</span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGUG76653"></a><a id="BIGUG76652"></a>
+<div class="sect3"><a id="GUID-AFB5BA78-7137-43D2-8EEB-E12389B2D78B"></a>
+<h3 id="BDSUG-GUID-AFB5BA78-7137-43D2-8EEB-E12389B2D78B" class="sect3"><span class="enumeration_section">4.3.2</span> ALL_HIVE_TABLES</h3>
+<div>
+<p><code class="codeph">ALL_HIVE_TABLES</code> describes all tables in the Hive metastore accessible to the current user.</p>
+<p>The Oracle Big Data SQL configuration must identify the default Hive database for the current user. The current user must also have <code class="codeph">READ</code> privileges on the <code class="codeph">ORA_BIGSQL_CONFIG</code> database directory. See <span class="q">"<a href="bigsql.htm#GUID-6F23C063-81C0-4331-963F-F2E9EE72B951">About the bigdata_config Directory</a>"</span>.</p>
+<div class="section">
+<p class="subhead3">Related Views</p>
+</div>
+<!-- class="section" -->
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">DBA_HIVE_TABLES</code> describes all tables in the Hive metastore.</p>
+</li>
+<li>
+<p><code class="codeph">USER_HIVE_TABLES</code> describes the tables in the database owned by the current user in the Hive metastore.</p>
+</li>
+</ul>
+<div class="tblformalwide" id="GUID-AFB5BA78-7137-43D2-8EEB-E12389B2D78B__GUID-884A6C99-BD76-401C-B197-69EB9C5446A6">
+<table class="cellalignment30" summary="ALL_HIVE_TABLES columns">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment26" id="d13214e2229">Column</th>
+<th class="cellalignment26" id="d13214e2232">Datatype</th>
+<th class="cellalignment22" id="d13214e2235">NULL</th>
+<th class="cellalignment27" id="d13214e2238">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2243" headers="d13214e2229">
+<p><code class="codeph">CLUSTER_ID</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2243 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2243 d13214e2235">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2243 d13214e2238">
+<p>Hadoop cluster where the Hive metastore is located</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2259" headers="d13214e2229">
+<p><code class="codeph">DATABASE_NAME</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2259 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2259 d13214e2235">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2259 d13214e2238">
+<p>Name of the Hive database</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2275" headers="d13214e2229">
+<p><code class="codeph">TABLE_NAME</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2275 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2275 d13214e2235">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2275 d13214e2238">
+<p>Name of the Hive table</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2291" headers="d13214e2229">
+<p><code class="codeph">LOCATION</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2291 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2291 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2291 d13214e2238">&nbsp;</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2304" headers="d13214e2229">
+<p><code class="codeph">NO_OF_COLS</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2304 d13214e2232">
+<p><code class="codeph">NUMBER</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2304 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2304 d13214e2238">
+<p>Number of columns in the Hive table</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2318" headers="d13214e2229">
+<p><code class="codeph">CREATION_TIME</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2318 d13214e2232">
+<p><code class="codeph">DATE</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2318 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2318 d13214e2238">
+<p>Time when the table was created</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2332" headers="d13214e2229">
+<p><code class="codeph">LAST_ACCESSED_TIME</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2332 d13214e2232">
+<p><code class="codeph">DATE</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2332 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2332 d13214e2238">
+<p>Time of most recent access</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2346" headers="d13214e2229">
+<p><code class="codeph">OWNER</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2346 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2346 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2346 d13214e2238">
+<p>Owner of the Hive table</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2360" headers="d13214e2229">
+<p><code class="codeph">TABLE_TYPE</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2360 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2360 d13214e2235">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2360 d13214e2238">
+<p>Type of Hive table, such as external or managed</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2376" headers="d13214e2229">
+<p><code class="codeph">PARTITIONED</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2376 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2376 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2376 d13214e2238">
+<p>Whether the table is partitioned (<code class="codeph">YES</code>) or not (<code class="codeph">NO</code>)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2396" headers="d13214e2229">
+<p><code class="codeph">NO_OF_PART_KEYS</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2396 d13214e2232">
+<p><code class="codeph">NUMBER</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2396 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2396 d13214e2238">
+<p>Number of partitions</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2411" headers="d13214e2229">
+<p><code class="codeph">INPUT_FORMAT</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2411 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2411 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2411 d13214e2238">
+<p>Input format</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2425" headers="d13214e2229">
+<p><code class="codeph">OUTPUT_FORMAT</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2425 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2425 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2425 d13214e2238">
+<p>Output format</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2439" headers="d13214e2229">
+<p><code class="codeph">SERIALIZATION</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2439 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2439 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2439 d13214e2238">
+<p>SerDe serialization information</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2453" headers="d13214e2229">
+<p><code class="codeph">COMPRESSED</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2453 d13214e2232">
+<p><code class="codeph">NUMBER</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2453 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2453 d13214e2238">
+<p>Whether the table is compressed (<code class="codeph">YES</code>) or not (<code class="codeph">NO</code>)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2473" headers="d13214e2229">
+<p><code class="codeph">HIVE_URI</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2473 d13214e2232">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2473 d13214e2235">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2473 d13214e2238">
+<p>Hive database URI</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infoboxnotealso" id="GUID-AFB5BA78-7137-43D2-8EEB-E12389B2D78B__GUID-12442C17-60BF-4BF7-8F88-1E2BD09992E7">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-FABA8D8E-5541-46CA-9918-75E49F416156">DBA_HIVE_TABLES</a>"</span></p>
+</li>
+<li>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-ECC8F72E-656C-4FB1-BC68-70BB222D2DEF">USER_HIVE_TABLES</a>"</span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGUG76655"></a><a id="BIGUG76654"></a>
+<div class="sect3"><a id="GUID-1772A9D6-01FE-4964-9FAB-BCB09ACB9EDC"></a>
+<h3 id="BDSUG-GUID-1772A9D6-01FE-4964-9FAB-BCB09ACB9EDC" class="sect3"><span class="enumeration_section">4.3.3</span> ALL_HIVE_COLUMNS</h3>
+<div>
+<p><code class="codeph">ALL_HIVE_COLUMNS</code> describes the columns of all Hive tables accessible to the current user.</p>
+<p>The Oracle Big Data SQL configuration must identify the default Hive database for the current user. The current user must also have <code class="codeph">READ</code> privileges on the <code class="codeph">ORA_BIGSQL_CONFIG</code> database directory. See <span class="q">"<a href="bigsql.htm#GUID-6F23C063-81C0-4331-963F-F2E9EE72B951">About the bigdata_config Directory</a>"</span>.</p>
+<div class="section">
+<p class="subhead3">Related Views</p>
+</div>
+<!-- class="section" -->
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">DBA_HIVE_COLUMNS</code> describes the columns of all tables in the Hive metastore.</p>
+</li>
+<li>
+<p><code class="codeph">USER_HIVE_COLUMNS</code> describes the columns of the tables in the Hive database owned by the current user.</p>
+</li>
+</ul>
+<div class="tblformalwide" id="GUID-1772A9D6-01FE-4964-9FAB-BCB09ACB9EDC__GUID-1DF36C0B-A570-4FBA-8951-5EC2B93DAB76">
+<table class="cellalignment30" summary="ALL_HIVE_COLUMNS columns">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment26" id="d13214e2563">Column</th>
+<th class="cellalignment26" id="d13214e2566">Datatype</th>
+<th class="cellalignment22" id="d13214e2569">NULL</th>
+<th class="cellalignment27" id="d13214e2572">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2577" headers="d13214e2563">
+<p><code class="codeph">CLUSTER_ID</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2577 d13214e2566">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2577 d13214e2569">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2577 d13214e2572">
+<p>Hadoop cluster where the Hive metastore is located</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2593" headers="d13214e2563">
+<p><code class="codeph">DATABASE_NAME</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2593 d13214e2566">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2593 d13214e2569">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2593 d13214e2572">
+<p>Name of the Hive database; if blank, then the default database</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2609" headers="d13214e2563">
+<p><code class="codeph">TABLE_NAME</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2609 d13214e2566">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2609 d13214e2569">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2609 d13214e2572">
+<p>Name of the Hive table</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2625" headers="d13214e2563">
+<p><code class="codeph">COLUMN_NAME</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2625 d13214e2566">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2625 d13214e2569">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2625 d13214e2572">
+<p>Name of the Hive column</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2641" headers="d13214e2563">
+<p><code class="codeph">HIVE_COLUMN_TYPE</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2641 d13214e2566">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2641 d13214e2569">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2641 d13214e2572">
+<p>Data type of the Hive column</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2657" headers="d13214e2563">
+<p><code class="codeph">ORACLE_COLUMN_TYPE</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2657 d13214e2566">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2657 d13214e2569">
+<p><code class="codeph">NOT NULL</code></p>
+</td>
+<td class="cellalignment29" headers="d13214e2657 d13214e2572">
+<p>Oracle data type equivalent to Hive data type</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2673" headers="d13214e2563">
+<p><code class="codeph">LOCATION</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2673 d13214e2566">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2673 d13214e2569">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2673 d13214e2572">&nbsp;</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2686" headers="d13214e2563">
+<p><code class="codeph">OWNER</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2686 d13214e2566">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2686 d13214e2569">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2686 d13214e2572">
+<p>Owner of the Hive table</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2700" headers="d13214e2563">
+<p><code class="codeph">CREATION_TIME</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2700 d13214e2566">
+<p><code class="codeph">DATE</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2700 d13214e2569">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2700 d13214e2572">
+<p>Time when the table was created</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d13214e2714" headers="d13214e2563">
+<p><code class="codeph">HIVE_URI</code></p>
+</td>
+<td class="cellalignment28" headers="d13214e2714 d13214e2566">
+<p><code class="codeph">VARCHAR2(4000)</code></p>
+</td>
+<td class="cellalignment24" headers="d13214e2714 d13214e2569">&nbsp;</td>
+<td class="cellalignment29" headers="d13214e2714 d13214e2572">
+<p>Hive database URI</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infoboxnotealso" id="GUID-1772A9D6-01FE-4964-9FAB-BCB09ACB9EDC__GUID-A03062C0-AE85-4B2F-8345-C12DE7D4F2DB">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-21D48E6B-B6ED-407D-9621-7BE39E7F870B">DBA_HIVE_COLUMNS</a>"</span></p>
+</li>
+<li>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-73D57505-2DC6-4645-B720-905BB7D2FB3D">USER_HIVE_COLUMNS</a>"</span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGUG76660"></a>
+<div class="sect3"><a id="GUID-5BC4B6B0-D0DB-4275-90BF-EE31C6CA1EA1"></a>
+<h3 id="BDSUG-GUID-5BC4B6B0-D0DB-4275-90BF-EE31C6CA1EA1" class="sect3"><span class="enumeration_section">4.3.4</span> DBA_HIVE_DATABASES</h3>
+<div>
+<p><code class="codeph">DBA_HIVE_DATABASES</code> describes all the databases in the Hive metastore. Its columns are the same as those in <code class="codeph">ALL_HIVE_DATABASES</code>.</p>
+<div class="infoboxnotealso" id="GUID-5BC4B6B0-D0DB-4275-90BF-EE31C6CA1EA1__GUID-8EBE971B-FEF3-49F2-96AC-F2EBABB17E9B">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-6E06D786-548D-4478-922F-A52AE69909F9">ALL_HIVE_DATABASES</a>"</span></p>
+</div>
+</div>
+</div>
+<a id="BIGUG76661"></a>
+<div class="sect3"><a id="GUID-FABA8D8E-5541-46CA-9918-75E49F416156"></a>
+<h3 id="BDSUG-GUID-FABA8D8E-5541-46CA-9918-75E49F416156" class="sect3"><span class="enumeration_section">4.3.5</span> DBA_HIVE_TABLES</h3>
+<div>
+<p><code class="codeph">DBA_HIVE_TABLES</code> describes all tables in the Hive metastore. Its columns are the same as those in <code class="codeph">ALL_HIVE_TABLES</code>.</p>
+<p>The Oracle Big Data SQL configuration must identify the default Hive database for the current user. See <span class="q">"<a href="bigsql.htm#GUID-6F23C063-81C0-4331-963F-F2E9EE72B951">About the bigdata_config Directory</a>"</span>.</p>
+<div class="infoboxnotealso" id="GUID-FABA8D8E-5541-46CA-9918-75E49F416156__GUID-9894552F-598B-401A-A622-E71E8D9E29AB">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-AFB5BA78-7137-43D2-8EEB-E12389B2D78B">ALL_HIVE_TABLES</a>"</span></p>
+</div>
+</div>
+</div>
+<a id="BIGUG76662"></a>
+<div class="sect3"><a id="GUID-21D48E6B-B6ED-407D-9621-7BE39E7F870B"></a>
+<h3 id="BDSUG-GUID-21D48E6B-B6ED-407D-9621-7BE39E7F870B" class="sect3"><span class="enumeration_section">4.3.6</span> DBA_HIVE_COLUMNS</h3>
+<div>
+<p><code class="codeph">DBA_HIVE_COLUMNS</code> describes the columns of all tables in the Hive metastore. Its columns are the same as those in <code class="codeph">ALL_HIVE_COLUMNS</code>.</p>
+<div class="infoboxnotealso" id="GUID-21D48E6B-B6ED-407D-9621-7BE39E7F870B__GUID-216C1F07-0379-4D06-B472-64D50AB57D4E">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-1772A9D6-01FE-4964-9FAB-BCB09ACB9EDC">ALL_HIVE_COLUMNS</a>"</span></p>
+</div>
+</div>
+</div>
+<a id="BIGUG76665"></a>
+<div class="sect3"><a id="GUID-473F9841-4F38-47ED-878B-05A704E80A30"></a>
+<h3 id="BDSUG-GUID-473F9841-4F38-47ED-878B-05A704E80A30" class="sect3"><span class="enumeration_section">4.3.7</span> USER_HIVE_DATABASES</h3>
+<div>
+<p><code class="codeph">USER_HIVE_DATABASES</code> describes the databases in the Hive metastore owned by the current user. Its columns (except for <code class="codeph">OWNER</code>) are the same as those in <code class="codeph">ALL_HIVE_DATABASES</code>.</p>
+<div class="infoboxnotealso" id="GUID-473F9841-4F38-47ED-878B-05A704E80A30__GUID-92794076-04DE-490C-A1E4-5CCB799BE5F6">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-6E06D786-548D-4478-922F-A52AE69909F9">ALL_HIVE_DATABASES</a>"</span></p>
+</div>
+</div>
+</div>
+<a id="BIGUG76666"></a>
+<div class="sect3"><a id="GUID-ECC8F72E-656C-4FB1-BC68-70BB222D2DEF"></a>
+<h3 id="BDSUG-GUID-ECC8F72E-656C-4FB1-BC68-70BB222D2DEF" class="sect3"><span class="enumeration_section">4.3.8</span> USER_HIVE_TABLES</h3>
+<div>
+<p><code class="codeph">USER_HIVE_TABLES</code> describes the tables in the database owned by the current user in the Hive metastore. Its columns (except for <code class="codeph">OWNER</code>) are the same as those in <code class="codeph">ALL_HIVE_TABLES</code>.</p>
+<p>The Oracle Big Data SQL configuration must identify the default Hive database for the current user. The current user must also have <code class="codeph">READ</code> privileges on the <code class="codeph">ORA_BIGSQL_CONFIG</code> database directory. See <span class="q">"<a href="bigsql.htm#GUID-6F23C063-81C0-4331-963F-F2E9EE72B951">About the bigdata_config Directory</a>"</span>.</p>
+<div class="infoboxnotealso" id="GUID-ECC8F72E-656C-4FB1-BC68-70BB222D2DEF__GUID-8290B3A6-5F80-4B24-8D11-77FDE89A7099">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-AFB5BA78-7137-43D2-8EEB-E12389B2D78B">ALL_HIVE_TABLES</a>"</span></p>
+</div>
+</div>
+</div>
+<a id="BIGUG76667"></a>
+<div class="sect3"><a id="GUID-73D57505-2DC6-4645-B720-905BB7D2FB3D"></a>
+<h3 id="BDSUG-GUID-73D57505-2DC6-4645-B720-905BB7D2FB3D" class="sect3"><span class="enumeration_section">4.3.9</span> USER_HIVE_COLUMNS</h3>
+<div>
+<p><code class="codeph">USER_HIVE_COLUMNS</code> describes the columns of the tables in the Hive database owned by the current user. Its columns (except for <code class="codeph">OWNER</code>) are the same as those in <code class="codeph">ALL_HIVE_COLUMNS</code>.</p>
+<p>The Oracle Big Data SQL configuration must identify the default Hive database for the current user. The current user must also have <code class="codeph">READ</code> privileges on the <code class="codeph">ORA_BIGSQL_CONFIG</code> database directory. See <span class="q">"<a href="bigsql.htm#GUID-6F23C063-81C0-4331-963F-F2E9EE72B951">About the bigdata_config Directory</a>"</span>.</p>
+<div class="infoboxnotealso" id="GUID-73D57505-2DC6-4645-B720-905BB7D2FB3D__GUID-E2FCE51E-34CD-4D22-84E1-853D9774F453">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="bigsqlref.htm#GUID-1772A9D6-01FE-4964-9FAB-BCB09ACB9EDC">ALL_HIVE_COLUMNS</a>"</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="copy2bda.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="appendixes.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="http://docs.oracle.com/bigdata/bds31/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

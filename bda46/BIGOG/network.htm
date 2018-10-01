@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Understanding the Network Requirements</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="network diagrams, cabling, client network, gateway switches, multirack clusters, client network connections, Oracle ILOM, factory IP addresses, InfiniBand network, factory IP addresses, management network, port assignments, software port assignments, CDH ports, Hadoop ports, network errors, checking for" />
+<meta name="dcterms.created" content="2018-07-23T02:05:52Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E77517-03" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda46/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="prep.htm" title="Previous" type="text/html" />
+<link rel="Next" href="configurator.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77517-03.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2"></a> <span id="PAGE" style="display:none;">8/31</span> <!-- End Header -->
+<script  >
+//<![CDATA[
+window.name='network'
+//]]>
+</script> <script  >
+    function footdisplay(footnum,footnote) {
+    var msg = window.open('about:blank', 'NewWindow' + footnum,
+        'directories=no,height=100,location=no,menubar=no,resizable=yes,' +
+        'scrollbars=yes,status=no,toolbar=no,width=598');
+    msg.document.open('text/html');
+    msg.document.write('<!DOCTYPE html ');
+    msg.document.write('PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" ');
+    msg.document.write('"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'); 
+    msg.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" ><head><title>');
+   
+    msg.document.write('Footnote&amp;nbsp; ' + footnum);
+    msg.document.write('<\/title><meta http-equiv="Content-Type" ');
+    msg.document.write('content="text/html; charset=utf-8" />');
+    msg.document.write('');
+    msg.document.write('<style> <![CDATA[ ');
+    msg.document.write('h1 {text-align: center; font-size: 14pt;}');
+    msg.document.write('fieldset {border: none;}');
+    msg.document.write('form {text-align: center;}');
+    msg.document.write(' ]]\u003e <\/style>');
+    msg.document.write('<\/head><body><div id="footnote"><h1>Footnote&nbsp; ' + footnum + '<\/h1><p>');
+    msg.document.write(footnote);
+    msg.document.write('<\/p><form action="" method="post"><fieldset>');
+    msg.document.write('<input type="button" value="OK" ');
+    msg.document.write('onclick="window.close();" />');
+    msg.document.write('<\/fieldset><\/form><\/div><\/body><\/html>');
+    msg.document.close();
+    setTimeout(function() {
+        var height = msg.document.getElementById('footnote').offsetHeight;
+        msg.resizeTo(598, height + 100);
+    }
+    , 100);
+    msg.focus();
+}
+</script><noscript>
+<p>The script content on this page is for navigation purposes only and does not alter the content in any way.</p>
+</noscript><a id="BIGOG191"></a>
+<h1 id="BIGOG-GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" class="sect1"><span class="enumeration_chapter">3</span> Understanding the Network Requirements</h1>
+<div>
+<p>This chapter describes the network requirements for Oracle Big Data Appliance. This chapter contains these sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="network.htm#GUID-7AF72A8D-4D65-4F3C-AFEF-95D269F0B155">Overview of Network Requirements</a></p>
+</li>
+<li>
+<p><a href="network.htm#GUID-2365E7B6-6213-4F90-95B9-BCD6468BB64F">Cabling the Client Network</a></p>
+</li>
+<li>
+<p><a href="network.htm#GUID-70BDE0E8-9478-4B80-888A-C28079B86336">Factory Network Settings</a></p>
+</li>
+<li>
+<p><a href="network.htm#GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3">Port Assignments for Oracle Big Data Appliance Software</a></p>
+</li>
+<li>
+<p><a href="network.htm#GUID-11B35927-3AE2-420C-B38C-4210190A507A">Preparing the Network for Oracle Big Data Appliance</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG192"></a>
+<div class="props_rev_3"><a id="GUID-7AF72A8D-4D65-4F3C-AFEF-95D269F0B155"></a>
+<h2 id="BIGOG-GUID-7AF72A8D-4D65-4F3C-AFEF-95D269F0B155" class="sect2"><span class="enumeration_section">3.1</span> Overview of Network Requirements</h2>
+<div>
+<p>Oracle Big Data Appliance includes five or more servers and the equipment to connect the servers to your network. The network connections enable the servers to be administered remotely and enable clients to connect to them. Use the information in this chapter to configure the environment for Oracle Big Data Appliance.</p>
+<p>Each server has the following network components and interfaces:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>1 Dual-port 4X QDR (40 Gbps) InfiniBand Host Channel Adapter <a id="d17811e65" class="indexterm-anchor"></a><a id="d17811e67" class="indexterm-anchor"></a>network interface card</p>
+</li>
+<li>
+<p>1 <a id="d17811e73" class="indexterm-anchor"></a><a id="d17811e75" class="indexterm-anchor"></a><a id="d17811e77" class="indexterm-anchor"></a><a id="d17811e81" class="indexterm-anchor"></a>Ethernet port for Oracle Integrated Lights Out Manager v3.1 for remote management (v3.0 for Sun Fire X4270 M2 servers)</p>
+</li>
+<li>
+<p>4 10-Gigabit Ethernet ports (1-Gigabit Ethernet ports for Sun Fire X4270 M2)</p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76582"></a>
+<div class="props_rev_3"><a id="GUID-DB6D6DBF-6A83-4FFA-AB6B-C700C3D62C78"></a>
+<h3 id="BIGOG-GUID-DB6D6DBF-6A83-4FFA-AB6B-C700C3D62C78" class="sect3"><span class="enumeration_section">3.1.1</span> Default Network Connections</h3>
+<div>
+<p>The installation process automatically discovers whether each Sun Network QDR InfiniBand Gateway switch has at least one 10 GbE connection. If they all do, then two virtual network interface cards (<a id="d17811e109" class="indexterm-anchor"></a><a id="d17811e113" class="indexterm-anchor"></a>VNICs) are configured for each server: one for each switch bonded as <a id="d17811e116" class="indexterm-anchor"></a>bondeth0 in active/passive <a id="d17811e121" class="indexterm-anchor"></a>failover mode. The VNICs are assigned automatically to the available 10 GbE connections in round-robin fashion. For example, if each switch has three available 10 GbE connections, then the VNIC on server 1 is assigned to 10 GbE port 1, server 2 to port 2, server 3 to port 3, server 4 to port 1, and so on.</p>
+<p>All VNICs are assigned to the same default virtual local area network (<a id="d17811e126" class="indexterm-anchor"></a>VLAN). To assign different VLANs to different VNICs, you must delete the initial VNICs and manually create your own.</p>
+</div>
+</div>
+<a id="BIGOG76583"></a>
+<div class="props_rev_3"><a id="GUID-2E7739D7-F036-4EAC-97DB-DA1577B18A4D"></a>
+<h3 id="BIGOG-GUID-2E7739D7-F036-4EAC-97DB-DA1577B18A4D" class="sect3"><span class="enumeration_section">3.1.2</span> Minimum Requirements for the Networks</h3>
+<div>
+<p>Additional configuration, such as defining multiple VLANs or enabling routing, may be required for the switch to operate properly in your environment. If additional configuration is needed, then your network administrator must perform the necessary configuration steps during installation of Oracle Big Data Appliance.</p>
+<p>To deploy Oracle Big Data Appliance, ensure that your network meets the minimum requirements. Oracle Big Data Appliance uses three <a id="d17811e153" class="indexterm-anchor"></a>networks.</p>
+<div class="infobox-note" id="GUID-2E7739D7-F036-4EAC-97DB-DA1577B18A4D__GUID-11DDFE3D-16C7-40C1-8D19-47110E4D553A">
+<p class="notep1">Note:</p>
+<p>Each network must be on a distinct and separate subnet from the other networks.</p>
+</div>
+<p>These are the network descriptions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a id="d17811e166" class="indexterm-anchor"></a><a id="d17811e168" class="indexterm-anchor"></a><a id="d17811e172" class="indexterm-anchor"></a><a id="d17811e174" class="indexterm-anchor"></a><a id="d17811e176" class="indexterm-anchor"></a><span class="bold">Administrative network</span>: This 1 gigabit Ethernet (GbE) network connects to your existing administrative network and is used to administer all components of Oracle Big Data Appliance. It connects the servers, Oracle ILOM, and InfiniBand switches connected to the Ethernet switch in the rack. This network is also called the management network.</p>
+<p>There are two uplinks to the administrative network:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>From the Ethernet switch in the rack</p>
+</li>
+<li>
+<p>From the KVM switch in the rack (Sun Fire X4270 M2-based racks only)</p>
+</li>
+</ul>
+<p>Each server has two network interfaces for administration. One provides administrative access to the operating system through the eth0 Ethernet interface, and the other provides access to the Integrated Lights Out Manager through the Oracle ILOM Ethernet interface. Oracle Big Data Appliance is delivered with the eth0 and ILOM interfaces connected to the Ethernet switch on the rack. Do not use the eth0 interface on the servers for client network traffic. Cabling or configuration changes to these interfaces are not permitted.</p>
+<p><a id="d17811e193" class="indexterm-anchor"></a>Domain Name System (DNS) servers are not required on the administrative network, although Oracle Big Data Appliance uses them if they are available. At least one <a id="d17811e196" class="indexterm-anchor"></a>Network Time Protocol (NTP) server must also be available. The NTP server for the administrative network can be different from the NTP server for the client network.</p>
+<p>All Oracle Big Data Appliance components on the administrative network must be on the same subnet; that is, the eth0 IP addresses for all servers, ILOMs, PDUs, InfiniBand switches, and the Cisco Ethernet switch must be on the same subnet.</p>
+</li>
+<li>
+<p><a id="d17811e203" class="indexterm-anchor"></a><a id="d17811e207" class="indexterm-anchor"></a><span class="bold">Client access network</span>: This 10 GbE network connects the servers though the gateway switches to your existing client network and is used for client access to the servers. Client applications access the software through this network by using the client network host names of the servers.</p>
+<p>There are two Sun Network QDR InfiniBand Gateway switches in the rack. Each switch supports 1 to 8 connections for client access for a total of up to 16 client network connections. For <a id="d17811e216" class="indexterm-anchor"></a>failover, you must have at least one connection from each switch and scale up according to your requirements for loading data and providing client access.</p>
+<p>At least one <a id="d17811e221" class="indexterm-anchor"></a>DNS server must be accessible on the client network. At least one <a id="d17811e224" class="indexterm-anchor"></a>NTP server must also be available. The NTP server for the client network can be different from the NTP server for the administrative network.</p>
+</li>
+<li>
+<p><a id="d17811e229" class="indexterm-anchor"></a><a id="d17811e231" class="indexterm-anchor"></a><a id="d17811e235" class="indexterm-anchor"></a><span class="bold">InfiniBand private network</span>: This network connects the servers by using the InfiniBand switches on the rack and the bondib0 interface. This nonroutable network is fully contained within Oracle Big Data Appliance and any other Oracle engineered systems that are connected to it with InfiniBand cables. This network does not connect to your existing network. It is automatically configured during installation.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGOG197"></a><a id="BIGOG76751"></a><a id="BIGOG76584"></a>
+<div class="props_rev_3"><a id="GUID-A88C5CB9-E25E-49C1-BAC8-2C73D7FB1E07"></a>
+<h3 id="BIGOG-GUID-A88C5CB9-E25E-49C1-BAC8-2C73D7FB1E07" class="sect3"><span class="enumeration_section">3.1.3</span> Network Diagram</h3>
+<div>
+<p><a id="d17811e268" class="indexterm-anchor"></a>The servers are configured on the network as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">eth0</code>: Provides access to the operating system using the administrative network.</p>
+</li>
+<li>
+<p><code class="codeph">bondeth0</code>: Provides access to the server using the client access network.</p>
+</li>
+<li>
+<p><code class="codeph">ILOM</code>: Provides access to Oracle Integrated Lights Out Manager (ILOM) using the administrative network.</p>
+</li>
+</ul>
+<p>Use the <code class="codeph">bda-preinstall-checkip.sh</code> script to verify the readiness of the network environment before cabling Oracle Big Data Appliance to the existing network. See <span class="q">"<a href="network.htm#GUID-11B35927-3AE2-420C-B38C-4210190A507A">Preparing the Network for Oracle Big Data Appliance</a>."</span></p>
+<p><a href="network.htm#GUID-A88C5CB9-E25E-49C1-BAC8-2C73D7FB1E07__CHDBIECF">Figure 3-1</a> shows the network connections for Oracle Server X5&ndash;2L, Sun Server X4-2L, and Sun Server X3-2L-based racks.</p>
+<div class="figure" id="GUID-A88C5CB9-E25E-49C1-BAC8-2C73D7FB1E07__CHDBIECF">
+<p class="titleinfigure">Figure 3-1 Network Diagram for Oracle Big Data Appliance X5&ndash;2L, X4-2L, X3&ndash;2L</p>
+<img width="498" height="524" src="img/GUID-B6D2907B-1F36-4FB7-95E9-9835D81E31D0-default.png" alt="Description of Figure 3-1 follows" title="Description of Figure 3-1 follows" /><br />
+<a href="img_text/GUID-B6D2907B-1F36-4FB7-95E9-9835D81E31D0-print.htm">Description of "Figure 3-1 Network Diagram for Oracle Big Data Appliance X5&ndash;2L, X4-2L, X3&ndash;2L"</a></div>
+<!-- class="figure" -->
+<p><a href="network.htm#GUID-A88C5CB9-E25E-49C1-BAC8-2C73D7FB1E07__CHDJCBBC">Figure 3-2</a> shows the network connections for a Sun Fire X4270 M2 -based rack, which includes a KVM.</p>
+<div class="figure" id="GUID-A88C5CB9-E25E-49C1-BAC8-2C73D7FB1E07__CHDJCBBC">
+<p class="titleinfigure">Figure 3-2 Network Diagram for Oracle Big Data Appliance (with KVM)</p>
+<img width="498" height="524" src="img/GUID-39BA6999-6AC3-4397-B236-B45797376243-default.png" alt="Description of Figure 3-2 follows" title="Description of Figure 3-2 follows" /><br />
+<a href="img_text/GUID-39BA6999-6AC3-4397-B236-B45797376243-print.htm">Description of "Figure 3-2 Network Diagram for Oracle Big Data Appliance (with KVM)"</a></div>
+<!-- class="figure" --></div>
+</div>
+</div>
+<a id="BIGOG76643"></a>
+<div class="props_rev_3"><a id="GUID-2365E7B6-6213-4F90-95B9-BCD6468BB64F"></a>
+<h2 id="BIGOG-GUID-2365E7B6-6213-4F90-95B9-BCD6468BB64F" class="sect2"><span class="enumeration_section">3.2</span> Cabling the Client Network</h2>
+<div>
+<p>Each of the two Sun Network QDR InfiniBand Gateway switches in Oracle Big Data Appliance has eight 10 GbE ports. The two switches enable you to create up to 16 10 GbE connections for each rack. You can determine how many connections to create based on the bandwidth needed for the client network. For proper functioning, at least one of the eight ports of each gateway switch must have an active connection to the site's 10 GbE network. Oracle recommends that the two switches have the same number of active 10 GbE connections, so that failover does not result in a loss of available client network bandwidth.</p>
+</div>
+<a id="BIGOG76687"></a>
+<div class="props_rev_3"><a id="GUID-B0572A90-4A97-48B7-AC4F-D2F6A3D85CD9"></a>
+<h3 id="BIGOG-GUID-B0572A90-4A97-48B7-AC4F-D2F6A3D85CD9" class="sect3"><span class="enumeration_section">3.2.1</span> How the Servers Connect to the Gateway Switches</h3>
+<div>
+<p>Physical <a id="d17811e367" class="indexterm-anchor"></a>Ethernet connections are created only between the site network and the gateway switches. The Oracle Big Data Appliance servers are connected only by InfiniBand to those switches. Each server has two InfiniBand connections, one to each gateway switch, in an active-passive backup mode; only the active InfiniBand connection is used for all InfiniBand traffic to that server. If that connection fails, it immediately fails over to the other <a id="d17811e370" class="indexterm-anchor"></a>connection.</p>
+<p>Half of the Oracle Big Data Appliance servers have active connections to one gateway switch, and the other half have active connections to the other gateway switch. Inside Oracle Big Data Appliance, the client network traffic is transported over those InfiniBand connections using the <a id="d17811e375" class="indexterm-anchor"></a>Ethernet over InfiniBand (EoIB) protocol. As a result, each Oracle Big Data Appliance server has two virtual NICs (VNICs) that are bonded in the same active-passive backup mode. Each VNIC is assigned a specific port on the gateway switch. If a switch has only one 10 GbE connection, then all <a id="d17811e378" class="indexterm-anchor"></a><a id="d17811e382" class="indexterm-anchor"></a><a id="d17811e386" class="indexterm-anchor"></a>VNICs for that switch point to the same port. If a switch has multiple connections, then the VNICs are spread across those ports in round-robin fashion.</p>
+<div class="p">For example, suppose a customer creates three 10 GbE uplinks from each gateway switch in order to connect the servers for two clusters, each of five nodes . In this scenario, it is known that the majority of the network I/O will be on Cluster1. Therefore, when the customer runs the <a href="configurator.htm#GUID-D33D4E8C-6714-4FE2-96BD-4F76D9982BFE">Oracle Big Data Appliance Configuration Utility</a>, she or he can choose to allocate more ports to Cluster1 than to Cluster2<a id="d17811e399" class="indexterm-anchor"></a>. Based on that customer-defined configuration, Mammoth determines which ports are assigned to the cluster. For clusters using multiple ports, it round-robins the server assignments among those ports, also alternating which switch is active as it loops through the servers. This is demonstrated in the table below.
+<div class="tblformal" id="GUID-B0572A90-4A97-48B7-AC4F-D2F6A3D85CD9__SERVERGATEWAYCONNECTIONSEXAMPLE-3EFE39D1">
+<p class="titleintable">Table 3-1 Server/Gateway Connections Example</p>
+<table class="cellalignment130" title="Server/Gateway Connections Example" summary="Shows VNIC round robin example. Column one lists the node for each cluster in the example. Column two shows the assigned port on the active switch. Column three shows the assigned port on the Backup switch.">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment148" id="d17811e414">Cluster, Node</th>
+<th class="cellalignment149" id="d17811e417">Active Link</th>
+<th class="cellalignment150" id="d17811e420">Backup Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment151" id="d17811e425" headers="d17811e414">
+<p>Cluster1, Node1</p>
+</td>
+<td class="cellalignment152" headers="d17811e425 d17811e417">
+<p>Switch 1, Link 1<a id="fn_1" href="#fn_1" onclick='footdisplay(1,"All switches in this table are Sun Network QDR InfiniBand Gateway Switches ")'><sup>Foot&nbsp;1</sup></a></p>
+</td>
+<td class="cellalignment153" headers="d17811e425 d17811e420">
+<p>Switch 2, Link 1</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment151" id="d17811e439" headers="d17811e414">
+<p>Cluster1, Node2</p>
+</td>
+<td class="cellalignment152" headers="d17811e439 d17811e417">
+<p>Switch 1, Link 2</p>
+</td>
+<td class="cellalignment153" headers="d17811e439 d17811e420">
+<p>Switch 2, Link 2</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment151" id="d17811e449" headers="d17811e414">
+<p>Cluster1, Node3</p>
+</td>
+<td class="cellalignment152" headers="d17811e449 d17811e417">
+<p>Switch 2, Link 1</p>
+</td>
+<td class="cellalignment153" headers="d17811e449 d17811e420">
+<p>Switch 1, Link 1</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment151" id="d17811e459" headers="d17811e414">
+<p>Cluster1, Node4</p>
+</td>
+<td class="cellalignment152" headers="d17811e459 d17811e417">
+<p>Switch 2, Link 2</p>
+</td>
+<td class="cellalignment153" headers="d17811e459 d17811e420">
+<p>Switch 1, Link 2</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment151" id="d17811e469" headers="d17811e414">
+<p>Cluster1, Node5</p>
+</td>
+<td class="cellalignment152" headers="d17811e469 d17811e417">
+<p>Switch 1, Link 1</p>
+</td>
+<td class="cellalignment153" headers="d17811e469 d17811e420">
+<p>Switch 2, Link1</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment151" id="d17811e479" headers="d17811e414">
+<p>Cluster2, Node1</p>
+</td>
+<td class="cellalignment152" headers="d17811e479 d17811e417">
+<p>Switch 1, Link 3</p>
+</td>
+<td class="cellalignment153" headers="d17811e479 d17811e420">
+<p>Switch 1, Link 3</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment151" id="d17811e489" headers="d17811e414">
+<p>Cluster2, Node2</p>
+</td>
+<td class="cellalignment152" headers="d17811e489 d17811e417">
+<p>Switch 1, Link 3</p>
+</td>
+<td class="cellalignment153" headers="d17811e489 d17811e420">
+<p>Switch 1, Link 3</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment151" id="d17811e499" headers="d17811e414">
+<p>Cluster2, Node3</p>
+</td>
+<td class="cellalignment152" headers="d17811e499 d17811e417">
+<p>Switch 1, Link 3</p>
+</td>
+<td class="cellalignment153" headers="d17811e499 d17811e420">
+<p>Switch 1, Link 3</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment151" id="d17811e509" headers="d17811e414">
+<p>Cluster2, Node4</p>
+</td>
+<td class="cellalignment152" headers="d17811e509 d17811e417">
+<p>Switch 1, Link 3</p>
+</td>
+<td class="cellalignment153" headers="d17811e509 d17811e420">
+<p>Switch 1, Link 3</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment151" id="d17811e519" headers="d17811e414">
+<p>Cluster2, Node5</p>
+</td>
+<td class="cellalignment152" headers="d17811e519 d17811e417">
+<p>Switch 1, Link 3</p>
+</td>
+<td class="cellalignment153" headers="d17811e519 d17811e420">
+<p>Switch 1, Link 3</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;1</sup></p>
+<p>All switches in this table are Sun Network QDR InfiniBand Gateway Switches</p>
+</div>
+<p>Depending on the number of 10 GbE connections, the client network traffic for multiple servers can be sent across the same physical 10 GbE connection. The maximum number of connections provides 160 gigabits per second (Gbps) of client <a id="d17811e530" class="indexterm-anchor"></a>network bandwidth to Oracle Big Data Appliance.</p>
+</div>
+</div>
+<a id="BIGOG76688"></a>
+<div class="props_rev_3"><a id="GUID-6B7FAB8E-5924-4981-B52D-F3ED9EAB6F87"></a>
+<h3 id="BIGOG-GUID-6B7FAB8E-5924-4981-B52D-F3ED9EAB6F87" class="sect3"><span class="enumeration_section">3.2.2</span> Using Splitter Cables for Connecting to the 40 Gbps Physical Ports</h3>
+<div>
+<p>Although you can create up to eight 10 GbE connections for each gateway switch, its physical ports are 40 Gbps quad small form-factor pluggable (<a id="d17811e555" class="indexterm-anchor"></a>QSFP) ports. Each gateway switch has two of these physical ports reserved for 10 GbE connectivity. The ports are equipped with QSFP transceivers that take an optical cable with an MTP/MPO connector. On the site network side are typically 10 Gbps ports with SFP+ transceivers that take LC connectors. For these connections, you can use splitter cables that have a single male MTP/MPO connector on one end and four pairs of LC connectors on the other end. Each 10 Gbps SFP+ transceiver takes a duplex LC connector for a total of four pairs. Thus, you can use a single splitter cable to create up to four 10 GbE connections. However, all four duplex LC connectors do not require a connection to the site network.</p>
+<p>The <a id="d17811e560" class="indexterm-anchor"></a><a id="d17811e562" class="indexterm-anchor"></a><a id="d17811e566" class="indexterm-anchor"></a>splitter cables are not provided with Oracle Big Data Appliance and must be ordered separately from Oracle. They are available in lengths of 10, 20, and 50 meters. Oracle recommends that you order the SFP+ transceivers used at the site end of the 10 GbE network from the same manufacturer as the 10 GbE switch.</p>
+</div>
+</div>
+<a id="BIGOG76689"></a>
+<div class="props_rev_3"><a id="GUID-4F9B43E4-97EC-471A-A186-BE64062D78DD"></a>
+<h3 id="BIGOG-GUID-4F9B43E4-97EC-471A-A186-BE64062D78DD" class="sect3"><span class="enumeration_section">3.2.3</span> What About Data Centers Without a 10 GbE Infrastructure?</h3>
+<div>
+<p>If your data center does not have a 10 GbE infrastructure, you can still connect Oracle Big Data Appliance to it by using an external switch that supports both 10 GbE (or 40 GbE) and 1 GbE. The <a id="d17811e592" class="indexterm-anchor"></a>Sun Network 10 GbE Switch 72p and numerous third-party switches provide this capability. You can connect the Sun Network QDR InfiniBand Gateway switches to a 10 GbE or 40 GbE port and connect the data center to a 1 GbE port in the external switch.<a id="d17811e595" class="indexterm-anchor"></a></p>
+</div>
+</div>
+<a id="BIGOG76905"></a>
+<div class="props_rev_3"><a id="GUID-778091C6-EAEE-45EC-A860-5D7AB2190F0A"></a>
+<h3 id="BIGOG-GUID-778091C6-EAEE-45EC-A860-5D7AB2190F0A" class="sect3"><span class="enumeration_section">3.2.4</span> Guidelines for Connecting to the Gateway Switches</h3>
+<div>
+<p>Oracle recommends that you follow these guidelines for making 10 GbE connections to the two <a id="d17811e619" class="indexterm-anchor"></a>gateway switches in Oracle Big Data Appliance:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Make the same number of 10 GbE connections to both gateway switches.</p>
+</li>
+<li>
+<p>To make 1 to 4 10-GbE connections to each switch, use a single QSFP splitter cable to the 0A-ETH port of both switches.</p>
+</li>
+<li>
+<p>To make 5 to 8 10-GbE connections to each switch, use two QSFP splitter cables to both 0A-ETH and 1A-ETH ports of both switches. Divide the connections as evenly as possible between the 2 splitter cables.</p>
+</li>
+<li>
+<p>To make multiple 10 GbE connections to a single QSFP splitter cable, start with the lowest number port and work upward. For example, for two connections, use 0A-ETH1 and 0A-ETH2.</p>
+</li>
+<li>
+<p>Make the10 GbE connections to the same ports on both NM2-GW switches. If you make connections to 0A-ETH1 and 0A-ETH2 on one switch, then make connections only to 0A-ETH1 and 0A-ETH2 on the other switch.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGOG76690"></a>
+<div class="props_rev_3"><a id="GUID-37714136-6F22-451F-9728-20F2852D1144"></a>
+<h3 id="BIGOG-GUID-37714136-6F22-451F-9728-20F2852D1144" class="sect3"><span class="enumeration_section">3.2.5</span> Configuring Multiple Racks into a Single Hadoop Cluster</h3>
+<div>
+<p>When multiple Oracle Big Data Appliance racks are connected to form a single Hadoop cluster, Oracle strongly recommends that you spread the 10 GbE connections across the switches in different racks. Every gateway switch in every rack must have at least one 10 GbE connection. Oracle does not support a configuration in which the 10 GbE connections to the switches in a single rack are used for all servers in all Oracle Big Data Appliance racks.</p>
+</div>
+</div>
+</div>
+<a id="BIGOG200"></a><a id="BIGOG199"></a>
+<div class="props_rev_3"><a id="GUID-70BDE0E8-9478-4B80-888A-C28079B86336"></a>
+<h2 id="BIGOG-GUID-70BDE0E8-9478-4B80-888A-C28079B86336" class="sect2"><span class="enumeration_section">3.3</span> Factory Network Settings</h2>
+<div>
+<div class="section">
+<p><a id="d17811e702" class="indexterm-anchor"></a><a id="d17811e706" class="indexterm-anchor"></a><a id="d17811e708" class="indexterm-anchor"></a><a id="d17811e710" class="indexterm-anchor"></a><a id="d17811e714" class="indexterm-anchor"></a><a id="d17811e716" class="indexterm-anchor"></a>This initial network configuration is set at the factory for Oracle Big Data Appliance:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Gateway</span>: 192.168.1.254 in all devices as required</p>
+</li>
+<li>
+<p><span class="bold">Subnet Mask</span>: 255.255.255.0 in all devices as required</p>
+</li>
+<li>
+<p>I<span class="bold">P Address Range</span>: 192.168.1.1 to 192.168.1.211</p>
+</li>
+</ul>
+<p><a href="network.htm#GUID-70BDE0E8-9478-4B80-888A-C28079B86336__CHDEGIDJ" title="default IP addresses">Table 3-2</a> lists the default IP addresses for Oracle Big Data Appliance.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-70BDE0E8-9478-4B80-888A-C28079B86336__CHDEGIDJ">
+<p class="titleintable">Table 3-2 Default IP Addresses for Oracle Big Data Appliance</p>
+<table class="cellalignment130" title="Default IP Addresses for Oracle Big Data Appliance" summary="default IP addresses">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment154" id="d17811e754">Host</th>
+<th class="cellalignment149" id="d17811e757">Administrative IP Addresses</th>
+<th class="cellalignment155" id="d17811e760">Oracle ILOM IP Addresses</th>
+<th class="cellalignment149" id="d17811e763">InfiniBand Bonded IP Addresses</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e768" headers="d17811e754">
+<p>bda18<a id="GUID-70BDE0E8-9478-4B80-888A-C28079B86336__CHDEAEBJ" href="#GUID-70BDE0E8-9478-4B80-888A-C28079B86336__CHDEAEBJ" onclick='footdisplay(2,"Full racks only ")'><sup>Foot&nbsp;2</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e768 d17811e757">
+<p><code class="codeph">192.168.1.18</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e768 d17811e760">
+<p><code class="codeph">192.168.1.118</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e768 d17811e763">
+<p><code class="codeph">192.168.10.18</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e787" headers="d17811e754">
+<p>bda17<a id="fnsrc_d17811e790" href="#fnsrc_d17811e790" onclick='footdisplay(2,"Full racks only ")'><sup>Footref&nbsp;2</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e787 d17811e757">
+<p><code class="codeph">192.168.1.17</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e787 d17811e760">
+<p><code class="codeph">192.168.1.117</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e787 d17811e763">
+<p><code class="codeph">192.168.10.17</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e805" headers="d17811e754">
+<p>bda16<a id="fnsrc_d17811e808" href="#fnsrc_d17811e808" onclick='footdisplay(2,"Full racks only ")'><sup>Footref&nbsp;2</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e805 d17811e757">
+<p><code class="codeph">192.168.1.16</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e805 d17811e760">
+<p><code class="codeph">192.168.1.116</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e805 d17811e763">
+<p><code class="codeph">192.168.10.16</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e823" headers="d17811e754">
+<p>bda15<a id="fnsrc_d17811e826" href="#fnsrc_d17811e826" onclick='footdisplay(2,"Full racks only ")'><sup>Footref&nbsp;2</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e823 d17811e757">
+<p><code class="codeph">192.168.1.15</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e823 d17811e760">
+<p><code class="codeph">192.168.1.115</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e823 d17811e763">
+<p><code class="codeph">192.168.10.15</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e841" headers="d17811e754">
+<p>bda14<a id="fnsrc_d17811e844" href="#fnsrc_d17811e844" onclick='footdisplay(2,"Full racks only ")'><sup>Footref&nbsp;2</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e841 d17811e757">
+<p><code class="codeph">192.168.1.14</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e841 d17811e760">
+<p><code class="codeph">192.168.1.114</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e841 d17811e763">
+<p><code class="codeph">192.168.10.14</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e859" headers="d17811e754">
+<p>bda13<a id="fnsrc_d17811e862" href="#fnsrc_d17811e862" onclick='footdisplay(2,"Full racks only ")'><sup>Footref&nbsp;2</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e859 d17811e757">
+<p><code class="codeph">192.168.1.13</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e859 d17811e760">
+<p><code class="codeph">192.168.1.113</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e859 d17811e763">
+<p><code class="codeph">192.168.10.13</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e877" headers="d17811e754">
+<p>bda12<a id="GUID-70BDE0E8-9478-4B80-888A-C28079B86336__CHDEDCHB" href="#GUID-70BDE0E8-9478-4B80-888A-C28079B86336__CHDEDCHB" onclick='footdisplay(3,"Full racks or starter racks with additional servers only ")'><sup>Foot&nbsp;3</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e877 d17811e757">
+<p><code class="codeph">192.168.1.12</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e877 d17811e760">
+<p><code class="codeph">192.168.1.112</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e877 d17811e763">
+<p><code class="codeph">192.168.10.12</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e896" headers="d17811e754">
+<p>bda11<a id="fnsrc_d17811e899" href="#fnsrc_d17811e899" onclick='footdisplay(3,"Full racks or starter racks with additional servers only ")'><sup>Footref&nbsp;3</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e896 d17811e757">
+<p><code class="codeph">192.168.1.11</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e896 d17811e760">
+<p><code class="codeph">192.168.1.111</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e896 d17811e763">
+<p><code class="codeph">192.168.10.11</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e914" headers="d17811e754">
+<p>bda10<a id="fnsrc_d17811e917" href="#fnsrc_d17811e917" onclick='footdisplay(3,"Full racks or starter racks with additional servers only ")'><sup>Footref&nbsp;3</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e914 d17811e757">
+<p><code class="codeph">192.168.1.10</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e914 d17811e760">
+<p><code class="codeph">192.168.1.110</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e914 d17811e763">
+<p><code class="codeph">192.168.10.10</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e932" headers="d17811e754">
+<p>bdasw-ib3</p>
+</td>
+<td class="cellalignment152" headers="d17811e932 d17811e757">
+<p><code class="codeph">192.168.1.203</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e932 d17811e760">&nbsp;</td>
+<td class="cellalignment152" headers="d17811e932 d17811e763">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e942" headers="d17811e754">
+<p>Cisco Switch</p>
+</td>
+<td class="cellalignment152" headers="d17811e942 d17811e757">
+<p><code class="codeph">192.168.1.200</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e942 d17811e760">&nbsp;</td>
+<td class="cellalignment152" headers="d17811e942 d17811e763">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e953" headers="d17811e754">
+<p>bdasw-ib2</p>
+</td>
+<td class="cellalignment152" headers="d17811e953 d17811e757">
+<p><code class="codeph">192.168.1.202</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e953 d17811e760">&nbsp;</td>
+<td class="cellalignment152" headers="d17811e953 d17811e763">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e963" headers="d17811e754">
+<p>bda9<a id="fnsrc_d17811e966" href="#fnsrc_d17811e966" onclick='footdisplay(3,"Full racks or starter racks with additional servers only ")'><sup>Footref&nbsp;3</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e963 d17811e757">
+<p><code class="codeph">192.168.1.9</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e963 d17811e760">
+<p><code class="codeph">192.168.1.109</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e963 d17811e763">
+<p><code class="codeph">192.168.10.9</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e981" headers="d17811e754">
+<p>bda8<a id="fnsrc_d17811e984" href="#fnsrc_d17811e984" onclick='footdisplay(3,"Full racks or starter racks with additional servers only ")'><sup>Footref&nbsp;3</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e981 d17811e757">
+<p><code class="codeph">192.168.1.8</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e981 d17811e760">
+<p><code class="codeph">192.168.1.108</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e981 d17811e763">
+<p><code class="codeph">192.168.10.8</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e999" headers="d17811e754">
+<p>bda7<a id="fnsrc_d17811e1002" href="#fnsrc_d17811e1002" onclick='footdisplay(3,"Full racks or starter racks with additional servers only ")'><sup>Footref&nbsp;3</sup></a></p>
+</td>
+<td class="cellalignment152" headers="d17811e999 d17811e757">
+<p><code class="codeph">192.168.1.7</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e999 d17811e760">
+<p><code class="codeph">192.168.1.107</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e999 d17811e763">
+<p><code class="codeph">192.168.10.7</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e1017" headers="d17811e754">
+<p>bda6</p>
+</td>
+<td class="cellalignment152" headers="d17811e1017 d17811e757">
+<p><code class="codeph">192.168.1.6</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e1017 d17811e760">
+<p><code class="codeph">192.168.1.106</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e1017 d17811e763">
+<p><code class="codeph">192.168.10.6</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e1033" headers="d17811e754">
+<p>bda5</p>
+</td>
+<td class="cellalignment152" headers="d17811e1033 d17811e757">
+<p><code class="codeph">192.168.1.5</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e1033 d17811e760">
+<p><code class="codeph">192.168.1.105</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e1033 d17811e763">
+<p><code class="codeph">192.168.10.5</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e1049" headers="d17811e754">
+<p>bda4</p>
+</td>
+<td class="cellalignment152" headers="d17811e1049 d17811e757">
+<p><code class="codeph">192.168.1.4</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e1049 d17811e760">
+<p><code class="codeph">192.168.1.104</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e1049 d17811e763">
+<p><code class="codeph">192.168.10.4</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e1065" headers="d17811e754">
+<p>bda3</p>
+</td>
+<td class="cellalignment152" headers="d17811e1065 d17811e757">
+<p><code class="codeph">192.168.1.3</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e1065 d17811e760">
+<p><code class="codeph">192.168.1.103</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e1065 d17811e763">
+<p><code class="codeph">192.168.10.3</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e1081" headers="d17811e754">
+<p>bda2</p>
+</td>
+<td class="cellalignment152" headers="d17811e1081 d17811e757">
+<p><code class="codeph">192.168.1.2</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e1081 d17811e760">
+<p><code class="codeph">192.168.1.102</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e1081 d17811e763">
+<p><code class="codeph">192.168.10.2</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e1097" headers="d17811e754">
+<p>bda1</p>
+</td>
+<td class="cellalignment152" headers="d17811e1097 d17811e757">
+<p><code class="codeph">192.168.1.1</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e1097 d17811e760">
+<p><code class="codeph">192.168.1.101</code></p>
+</td>
+<td class="cellalignment152" headers="d17811e1097 d17811e763">
+<p><code class="codeph">192.168.10.1</code></p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e1113" headers="d17811e754">
+<p>bdasw-ib1</p>
+</td>
+<td class="cellalignment152" headers="d17811e1113 d17811e757">
+<p><code class="codeph">196.168.1.201</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e1113 d17811e760">&nbsp;</td>
+<td class="cellalignment152" headers="d17811e1113 d17811e763">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e1124" headers="d17811e754">
+<p>PDU A</p>
+</td>
+<td class="cellalignment152" headers="d17811e1124 d17811e757">
+<p><code class="codeph">192.168.1.210</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e1124 d17811e760">&nbsp;</td>
+<td class="cellalignment152" headers="d17811e1124 d17811e763">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d17811e1134" headers="d17811e754">
+<p>PDU B</p>
+</td>
+<td class="cellalignment152" headers="d17811e1134 d17811e757">
+<p><code class="codeph">192.168.1.211</code></p>
+</td>
+<td class="cellalignment157" headers="d17811e1134 d17811e760">&nbsp;</td>
+<td class="cellalignment152" headers="d17811e1134 d17811e763">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;2</sup></p>
+<p>Full racks only</p>
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;3</sup></p>
+<p>Full racks or starter racks with additional servers only</p>
+</div>
+</div>
+<a id="BIGOG202"></a><a id="BIGOG76585"></a><a id="BIGOG201"></a>
+<div class="props_rev_3"><a id="GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3"></a>
+<h2 id="BIGOG-GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3" class="sect2"><span class="enumeration_section">3.4</span> Port Assignments for Oracle Big Data Appliance Software</h2>
+<div>
+<div class="section">
+<p><a href="network.htm#GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3__CHDJJDCC" title="Port numbers used by installed software">Table 3-3</a> identifies the port numbers used by Oracle Big Data Appliance software.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3__CHDJJDCC">
+<p class="titleintable">Table 3-3 Oracle Big Data Appliance Port Numbers</p>
+<table class="cellalignment130" title="Oracle Big Data Appliance Port Numbers" summary="Port numbers used by installed software">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment158" id="d17811e1190">Port</th>
+<th class="cellalignment159" id="d17811e1193">Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1198" headers="d17811e1190">
+<p>22</p>
+</td>
+<td class="cellalignment161" headers="d17811e1198 d17811e1193">
+<p>ssh</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1205" headers="d17811e1190">
+<p>80</p>
+</td>
+<td class="cellalignment161" headers="d17811e1205 d17811e1193">
+<p>yumrepos (only during installation)</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1212" headers="d17811e1190">
+<p>111</p>
+</td>
+<td class="cellalignment161" headers="d17811e1212 d17811e1193">
+<p>portmap</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1219" headers="d17811e1190">
+<p>162</p>
+</td>
+<td class="cellalignment161" headers="d17811e1219 d17811e1193">
+<p><a id="d17811e1224" class="indexterm-anchor"></a>Auto Service Request Manager (optional)</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1230" headers="d17811e1190">
+<p>443</p>
+</td>
+<td class="cellalignment161" headers="d17811e1230 d17811e1193">
+<p>Auto Service Request Manager (optional)</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1237" headers="d17811e1190">
+<p>668</p>
+</td>
+<td class="cellalignment161" headers="d17811e1237 d17811e1193">
+<p>rpc.statd</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1244" headers="d17811e1190">
+<p>3306</p>
+</td>
+<td class="cellalignment161" headers="d17811e1244 d17811e1193">
+<p>MySQL Database</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1251" headers="d17811e1190">
+<p>5000</p>
+</td>
+<td class="cellalignment161" headers="d17811e1251 d17811e1193">
+<p>Oracle NoSQL Database registration</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1258" headers="d17811e1190">
+<p>5001</p>
+</td>
+<td class="cellalignment161" headers="d17811e1258 d17811e1193">
+<p>Oracle NoSQL Database administration</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1265" headers="d17811e1190">
+<p>5010 to 5020</p>
+</td>
+<td class="cellalignment161" headers="d17811e1265 d17811e1193">
+<p>Oracle NoSQL Database processes</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1272" headers="d17811e1190">
+<p>5042</p>
+</td>
+<td class="cellalignment161" headers="d17811e1272 d17811e1193">
+<p>Oracle Big Data SQL</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1280" headers="d17811e1190">
+<p>6481</p>
+</td>
+<td class="cellalignment161" headers="d17811e1280 d17811e1193">
+<p>Auto Service Request Manager service tags listener (optional)</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1287" headers="d17811e1190">
+<p>8139</p>
+</td>
+<td class="cellalignment161" headers="d17811e1287 d17811e1193">
+<p>Puppet nodes</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1294" headers="d17811e1190">
+<p>8140</p>
+</td>
+<td class="cellalignment161" headers="d17811e1294 d17811e1193">
+<p>Puppet parent</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1301" headers="d17811e1190">
+<p>20910</p>
+</td>
+<td class="cellalignment161" headers="d17811e1301 d17811e1193">
+<p>Oracle Data Integrator agent</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment160" id="d17811e1308" headers="d17811e1190">
+<p>30920</p>
+</td>
+<td class="cellalignment161" headers="d17811e1308 d17811e1193">
+<p>Automated Service Monitor (ASM)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p><a href="network.htm#GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3__CHDHCGBJ" title="Cloudera external ports">Table 3-4</a> lists the ports used by Cloudera's Distribution including Apache Hadoop version 5 (CDH5). For additional details about these port assignments, go to the Cloudera website at</p>
+<p><a href="http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Installation-Guide/cm5ig_ports_cdh5.html" target="_blank"><code class="codeph">http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Installation-Guide/cm5ig_ports_cdh5.html</code></a></p>
+<p>For port assignments for Cloudera Manager and Cloudera Navigator, see <a href="http://www.cloudera.com/content/www/en-us/documentation/enterprise/latest/topics/cm_ig_ports_cm.html" target="_blank"><code class="codeph">http://www.cloudera.com/content/www/en-us/documentation/enterprise/latest/topics/cm_ig_ports_cm.html</code></a>. Note that the Oracle Big Data Appliance uses MySQL rather than PostreSQL as the Cloudera Manager database on port 7432 and does not enable the Navigator Audit Server debug web server (port 8089).</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3__CHDHCGBJ">
+<p class="titleintable">Table 3-4 CDH Port Numbers</p>
+<table class="cellalignment130" title="CDH Port Numbers" summary="Cloudera external ports">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment162" id="d17811e1345">Port</th>
+<th class="cellalignment118" id="d17811e1348">Component</th>
+<th class="cellalignment163" id="d17811e1351">Service</th>
+<th class="cellalignment149" id="d17811e1354">Access</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1359" headers="d17811e1345">
+<p>0</p>
+</td>
+<td class="cellalignment120" headers="d17811e1359 d17811e1348">
+<p>MapReduce 1</p>
+</td>
+<td class="cellalignment165" headers="d17811e1359 d17811e1351">
+<p>TaskTracker</p>
+</td>
+<td class="cellalignment152" headers="d17811e1359 d17811e1354">
+<p>Localhost</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1372" headers="d17811e1345">
+<p>1004</p>
+</td>
+<td class="cellalignment120" headers="d17811e1372 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e1372 d17811e1351">
+<p>Secure DataNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e1372 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1385" headers="d17811e1345">
+<p>1006</p>
+</td>
+<td class="cellalignment120" headers="d17811e1385 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e1385 d17811e1351">
+<p>Secure DataNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e1385 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1398" headers="d17811e1345">
+<p>12000</p>
+</td>
+<td class="cellalignment120" headers="d17811e1398 d17811e1348">
+<p>Sqoop 2</p>
+</td>
+<td class="cellalignment165" headers="d17811e1398 d17811e1351">
+<p>Sqoop 2 Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1398 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1411" headers="d17811e1345">
+<p>12001</p>
+</td>
+<td class="cellalignment120" headers="d17811e1411 d17811e1348">
+<p>Sqoop 2</p>
+</td>
+<td class="cellalignment165" headers="d17811e1411 d17811e1351">
+<p>Sqoop 2</p>
+</td>
+<td class="cellalignment152" headers="d17811e1411 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1424" headers="d17811e1345">
+<p>2181</p>
+</td>
+<td class="cellalignment120" headers="d17811e1424 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e1424 d17811e1351">
+<p>HQuorumPeer/ZooKeeper</p>
+</td>
+<td class="cellalignment152" headers="d17811e1424 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1435" headers="d17811e1345">
+<p>2181</p>
+</td>
+<td class="cellalignment120" headers="d17811e1435 d17811e1348">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment165" headers="d17811e1435 d17811e1351">
+<p>Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1435 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1448" headers="d17811e1345">
+<p>2888</p>
+</td>
+<td class="cellalignment120" headers="d17811e1448 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e1448 d17811e1351">
+<p>HQuorumPeer/ZooKeeper</p>
+</td>
+<td class="cellalignment152" headers="d17811e1448 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1459" headers="d17811e1345">
+<p>2888</p>
+</td>
+<td class="cellalignment120" headers="d17811e1459 d17811e1348">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment165" headers="d17811e1459 d17811e1351">
+<p>Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1459 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1472" headers="d17811e1345">
+<p>3181</p>
+</td>
+<td class="cellalignment120" headers="d17811e1472 d17811e1348">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment165" headers="d17811e1472 d17811e1351">
+<p>Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1472 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1485" headers="d17811e1345">
+<p>3888</p>
+</td>
+<td class="cellalignment120" headers="d17811e1485 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e1485 d17811e1351">
+<p>HQuorumPeer/ZooKeeper</p>
+</td>
+<td class="cellalignment152" headers="d17811e1485 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1497" headers="d17811e1345">
+<p>3888</p>
+</td>
+<td class="cellalignment120" headers="d17811e1497 d17811e1348">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment165" headers="d17811e1497 d17811e1351">
+<p>Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1497 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1510" headers="d17811e1345">
+<p>4181</p>
+</td>
+<td class="cellalignment120" headers="d17811e1510 d17811e1348">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment165" headers="d17811e1510 d17811e1351">
+<p>Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1510 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1523" headers="d17811e1345">
+<p>8002</p>
+</td>
+<td class="cellalignment120" headers="d17811e1523 d17811e1348">
+<p>Hue</p>
+</td>
+<td class="cellalignment165" headers="d17811e1523 d17811e1351">
+<p>Beeswax Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1523 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1536" headers="d17811e1345">
+<p>8003</p>
+</td>
+<td class="cellalignment120" headers="d17811e1536 d17811e1348">
+<p>Hue</p>
+</td>
+<td class="cellalignment165" headers="d17811e1536 d17811e1351">
+<p>Beeswax Metastore</p>
+</td>
+<td class="cellalignment152" headers="d17811e1536 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1549" headers="d17811e1345">
+<p>8019</p>
+</td>
+<td class="cellalignment120" headers="d17811e1549 d17811e1348">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment165" headers="d17811e1549 d17811e1351">
+<p>ZooKeeper Failover Controller</p>
+</td>
+<td class="cellalignment152" headers="d17811e1549 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1562" headers="d17811e1345">
+<p>8020</p>
+</td>
+<td class="cellalignment120" headers="d17811e1562 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e1562 d17811e1351">
+<p>NameNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e1562 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1575" headers="d17811e1345">
+<p>8021</p>
+</td>
+<td class="cellalignment120" headers="d17811e1575 d17811e1348">
+<p>MapReduce 1</p>
+</td>
+<td class="cellalignment165" headers="d17811e1575 d17811e1351">
+<p>JobTracker</p>
+</td>
+<td class="cellalignment152" headers="d17811e1575 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1588" headers="d17811e1345">
+<p>8030</p>
+</td>
+<td class="cellalignment120" headers="d17811e1588 d17811e1348">
+<p>YARN</p>
+</td>
+<td class="cellalignment165" headers="d17811e1588 d17811e1351">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment152" headers="d17811e1588 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1599" headers="d17811e1345">
+<p>8031</p>
+</td>
+<td class="cellalignment120" headers="d17811e1599 d17811e1348">
+<p>YARN</p>
+</td>
+<td class="cellalignment165" headers="d17811e1599 d17811e1351">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment152" headers="d17811e1599 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1610" headers="d17811e1345">
+<p>8032</p>
+</td>
+<td class="cellalignment120" headers="d17811e1610 d17811e1348">
+<p>YARN</p>
+</td>
+<td class="cellalignment165" headers="d17811e1610 d17811e1351">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment152" headers="d17811e1610 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1621" headers="d17811e1345">
+<p>8033</p>
+</td>
+<td class="cellalignment120" headers="d17811e1621 d17811e1348">
+<p>YARN</p>
+</td>
+<td class="cellalignment165" headers="d17811e1621 d17811e1351">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment152" headers="d17811e1621 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1633" headers="d17811e1345">
+<p>8040</p>
+</td>
+<td class="cellalignment120" headers="d17811e1633 d17811e1348">
+<p>YARN</p>
+</td>
+<td class="cellalignment165" headers="d17811e1633 d17811e1351">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment152" headers="d17811e1633 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1644" headers="d17811e1345">
+<p>8041</p>
+</td>
+<td class="cellalignment120" headers="d17811e1644 d17811e1348">
+<p>YARN</p>
+</td>
+<td class="cellalignment165" headers="d17811e1644 d17811e1351">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment152" headers="d17811e1644 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1655" headers="d17811e1345">
+<p>8042</p>
+</td>
+<td class="cellalignment120" headers="d17811e1655 d17811e1348">
+<p>YARN</p>
+</td>
+<td class="cellalignment165" headers="d17811e1655 d17811e1351">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment152" headers="d17811e1655 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1666" headers="d17811e1345">
+<p>8080</p>
+</td>
+<td class="cellalignment120" headers="d17811e1666 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e1666 d17811e1351">
+<p>REST Service</p>
+</td>
+<td class="cellalignment152" headers="d17811e1666 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1679" headers="d17811e1345">
+<p>8085</p>
+</td>
+<td class="cellalignment120" headers="d17811e1679 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e1679 d17811e1351">
+<p>REST UI</p>
+</td>
+<td class="cellalignment152" headers="d17811e1679 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1692" headers="d17811e1345">
+<p>8088</p>
+</td>
+<td class="cellalignment120" headers="d17811e1692 d17811e1348">
+<p>YARN</p>
+</td>
+<td class="cellalignment165" headers="d17811e1692 d17811e1351">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment152" headers="d17811e1692 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1705" headers="d17811e1345">
+<p>8480</p>
+</td>
+<td class="cellalignment120" headers="d17811e1705 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e1705 d17811e1351">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e1705 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1718" headers="d17811e1345">
+<p>8485</p>
+</td>
+<td class="cellalignment120" headers="d17811e1718 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e1718 d17811e1351">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e1718 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1731" headers="d17811e1345">
+<p>8888</p>
+</td>
+<td class="cellalignment120" headers="d17811e1731 d17811e1348">
+<p>Hue</p>
+</td>
+<td class="cellalignment165" headers="d17811e1731 d17811e1351">
+<p>Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1731 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1744" headers="d17811e1345">
+<p>9010</p>
+</td>
+<td class="cellalignment120" headers="d17811e1744 d17811e1348">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment165" headers="d17811e1744 d17811e1351">
+<p>ZooKeeper JMX</p>
+</td>
+<td class="cellalignment152" headers="d17811e1744 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1757" headers="d17811e1345">
+<p>9083</p>
+</td>
+<td class="cellalignment120" headers="d17811e1757 d17811e1348">
+<p>Hive</p>
+</td>
+<td class="cellalignment165" headers="d17811e1757 d17811e1351">
+<p>Metastore</p>
+</td>
+<td class="cellalignment152" headers="d17811e1757 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1771" headers="d17811e1345">
+<p>9090</p>
+</td>
+<td class="cellalignment120" headers="d17811e1771 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e1771 d17811e1351">
+<p>Thrift Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1771 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1784" headers="d17811e1345">
+<p>9090</p>
+</td>
+<td class="cellalignment120" headers="d17811e1784 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e1784 d17811e1351">
+<p>Avro Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1784 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1797" headers="d17811e1345">
+<p>9095</p>
+</td>
+<td class="cellalignment120" headers="d17811e1797 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e1797 d17811e1351">
+<p>Thrift Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1797 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1810" headers="d17811e1345">
+<p>9290</p>
+</td>
+<td class="cellalignment120" headers="d17811e1810 d17811e1348">
+<p>MapReduce 1</p>
+</td>
+<td class="cellalignment165" headers="d17811e1810 d17811e1351">
+<p>JobTracker Thrift Plug-in</p>
+</td>
+<td class="cellalignment152" headers="d17811e1810 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1823" headers="d17811e1345">
+<p>10000</p>
+</td>
+<td class="cellalignment120" headers="d17811e1823 d17811e1348">
+<p>Hive</p>
+</td>
+<td class="cellalignment165" headers="d17811e1823 d17811e1351">
+<p>HiveServer</p>
+</td>
+<td class="cellalignment152" headers="d17811e1823 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1836" headers="d17811e1345">
+<p>10020</p>
+</td>
+<td class="cellalignment120" headers="d17811e1836 d17811e1348">
+<p>YARN</p>
+</td>
+<td class="cellalignment165" headers="d17811e1836 d17811e1351">
+<p>Job History Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1836 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1847" headers="d17811e1345">
+<p>11000</p>
+</td>
+<td class="cellalignment120" headers="d17811e1847 d17811e1348">
+<p>Oozie</p>
+</td>
+<td class="cellalignment165" headers="d17811e1847 d17811e1351">
+<p>Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1847 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1860" headers="d17811e1345">
+<p>11371</p>
+</td>
+<td class="cellalignment120" headers="d17811e1860 d17811e1348">
+<p>Key Trustee Server</p>
+</td>
+<td class="cellalignment165" headers="d17811e1860 d17811e1351">
+<p>Key Trustee Server Port i</p>
+</td>
+<td class="cellalignment152" headers="d17811e1860 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1873" headers="d17811e1345">
+<p>11381</p>
+</td>
+<td class="cellalignment120" headers="d17811e1873 d17811e1348">
+<p>Key Trustee Server</p>
+</td>
+<td class="cellalignment165" headers="d17811e1873 d17811e1351">
+<p>Key Trustee Server Database Port</p>
+</td>
+<td class="cellalignment152" headers="d17811e1873 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1886" headers="d17811e1345">
+<p>11001</p>
+</td>
+<td class="cellalignment120" headers="d17811e1886 d17811e1348">
+<p>Oozie</p>
+</td>
+<td class="cellalignment165" headers="d17811e1886 d17811e1351">
+<p>Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1886 d17811e1354">
+<p>Localhost</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1899" headers="d17811e1345">
+<p>16000</p>
+</td>
+<td class="cellalignment120" headers="d17811e1899 d17811e1348">
+<p>Hive</p>
+</td>
+<td class="cellalignment165" headers="d17811e1899 d17811e1351">
+<p>Sqoop Metastore</p>
+</td>
+<td class="cellalignment152" headers="d17811e1899 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1913" headers="d17811e1345">
+<p>19888</p>
+</td>
+<td class="cellalignment120" headers="d17811e1913 d17811e1348">
+<p>YARN</p>
+</td>
+<td class="cellalignment165" headers="d17811e1913 d17811e1351">
+<p>MapReduce JobHistory Server</p>
+</td>
+<td class="cellalignment152" headers="d17811e1913 d17811e1354">&nbsp;</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1924" headers="d17811e1345">
+<p>50010</p>
+</td>
+<td class="cellalignment120" headers="d17811e1924 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e1924 d17811e1351">
+<p>DataNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e1924 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1937" headers="d17811e1345">
+<p>50020</p>
+</td>
+<td class="cellalignment120" headers="d17811e1937 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e1937 d17811e1351">
+<p>DataNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e1937 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1950" headers="d17811e1345">
+<p>50030</p>
+</td>
+<td class="cellalignment120" headers="d17811e1950 d17811e1348">
+<p>MapReduce 1</p>
+</td>
+<td class="cellalignment165" headers="d17811e1950 d17811e1351">
+<p>JobTracker</p>
+</td>
+<td class="cellalignment152" headers="d17811e1950 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1963" headers="d17811e1345">
+<p>50060</p>
+</td>
+<td class="cellalignment120" headers="d17811e1963 d17811e1348">
+<p>MapReduce 1</p>
+</td>
+<td class="cellalignment165" headers="d17811e1963 d17811e1351">
+<p>TaskTracker</p>
+</td>
+<td class="cellalignment152" headers="d17811e1963 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1976" headers="d17811e1345">
+<p>50070</p>
+</td>
+<td class="cellalignment120" headers="d17811e1976 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e1976 d17811e1351">
+<p>NameNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e1976 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e1989" headers="d17811e1345">
+<p>50075</p>
+</td>
+<td class="cellalignment120" headers="d17811e1989 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e1989 d17811e1351">
+<p>DataNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e1989 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2002" headers="d17811e1345">
+<p>50090</p>
+</td>
+<td class="cellalignment120" headers="d17811e2002 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e2002 d17811e1351">
+<p>Secondary NameNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e2002 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2015" headers="d17811e1345">
+<p>50470</p>
+</td>
+<td class="cellalignment120" headers="d17811e2015 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e2015 d17811e1351">
+<p>Secure NameNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e2015 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2028" headers="d17811e1345">
+<p>50495</p>
+</td>
+<td class="cellalignment120" headers="d17811e2028 d17811e1348">
+<p>HDFS</p>
+</td>
+<td class="cellalignment165" headers="d17811e2028 d17811e1351">
+<p>Secure Secondary NameNode</p>
+</td>
+<td class="cellalignment152" headers="d17811e2028 d17811e1354">
+<p>Internal</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2041" headers="d17811e1345">
+<p>60000</p>
+</td>
+<td class="cellalignment120" headers="d17811e2041 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e2041 d17811e1351">
+<p>Master</p>
+</td>
+<td class="cellalignment152" headers="d17811e2041 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2055" headers="d17811e1345">
+<p>60010</p>
+</td>
+<td class="cellalignment120" headers="d17811e2055 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e2055 d17811e1351">
+<p>Master</p>
+</td>
+<td class="cellalignment152" headers="d17811e2055 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2068" headers="d17811e1345">
+<p>60020</p>
+</td>
+<td class="cellalignment120" headers="d17811e2068 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e2068 d17811e1351">
+<p>RegionServer</p>
+</td>
+<td class="cellalignment152" headers="d17811e2068 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2081" headers="d17811e1345">
+<p>60030</p>
+</td>
+<td class="cellalignment120" headers="d17811e2081 d17811e1348">
+<p>HBase</p>
+</td>
+<td class="cellalignment165" headers="d17811e2081 d17811e1351">
+<p>RegionServer</p>
+</td>
+<td class="cellalignment152" headers="d17811e2081 d17811e1354">
+<p>External</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p><a href="network.htm#GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3__9A4A88AE" title="Port numbers used by Oracle Big Data Discovery">Table 3-5</a> identifies the port numbers used by Oracle Big Data Discovery software.</p>
+<div class="infobox-note" id="GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3__THEPORTASSIGNMENTSDESCRIBEDINEXISTO-A2DA63C0">
+<p class="notep1">Note:</p>
+The port assignments described in <a href="network.htm#GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3__9A4A88AE" title="Port numbers used by Oracle Big Data Discovery">Table 3-5</a> exist only on the 5th node of the primary cluster and only when Oracle Big Data Discovery is installed.</div>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3__9A4A88AE">
+<p class="titleintable">Table 3-5 Oracle Big Data Discovery Port Numbers</p>
+<table class="cellalignment130" title="Oracle Big Data Discovery Port Numbers" summary="Port numbers used by Oracle Big Data Discovery">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment162" id="d17811e2118">Port</th>
+<th class="cellalignment166" id="d17811e2121">Service</th>
+<th class="cellalignment166" id="d17811e2124">Configuration Property Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2128" headers="d17811e2118">
+<p>7001</p>
+</td>
+<td class="cellalignment167" headers="d17811e2128 d17811e2121">
+<p>WebLogic</p>
+</td>
+<td class="cellalignment167" headers="d17811e2128 d17811e2124">
+<p>ADMIN_SERVER_PORT</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2138" headers="d17811e2118">
+<p>7002</p>
+</td>
+<td class="cellalignment167" headers="d17811e2138 d17811e2121">
+<p>WebLogic</p>
+</td>
+<td class="cellalignment167" headers="d17811e2138 d17811e2124">
+<p>ADMIN_SERVER_SECURE_PORT</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2148" headers="d17811e2118">
+<p>7003</p>
+</td>
+<td class="cellalignment167" headers="d17811e2148 d17811e2121">
+<p>WebLogic</p>
+</td>
+<td class="cellalignment167" headers="d17811e2148 d17811e2124">
+<p>MANAGED_SERVER_PORT</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2158" headers="d17811e2118">
+<p>7004</p>
+</td>
+<td class="cellalignment167" headers="d17811e2158 d17811e2121">
+<p>WebLogic</p>
+</td>
+<td class="cellalignment167" headers="d17811e2158 d17811e2124">
+<p>MANAGED_SERVER_SECURE_PORT</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2168" headers="d17811e2118">
+<p>7010</p>
+</td>
+<td class="cellalignment167" headers="d17811e2168 d17811e2121">
+<p>Dgraph</p>
+</td>
+<td class="cellalignment167" headers="d17811e2168 d17811e2124">
+<p>DGRAPH_WS_PORT</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2178" headers="d17811e2118">
+<p>7019</p>
+</td>
+<td class="cellalignment167" headers="d17811e2178 d17811e2121">
+<p>Dgraph</p>
+</td>
+<td class="cellalignment167" headers="d17811e2178 d17811e2124">
+<p>DGRAPH_BULKLOAD_PORT</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2188" headers="d17811e2118">
+<p>7101</p>
+</td>
+<td class="cellalignment167" headers="d17811e2188 d17811e2121">
+<p>Dgraph</p>
+</td>
+<td class="cellalignment167" headers="d17811e2188 d17811e2124">
+<p>AGENT_EXPORT_PORT</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment164" id="d17811e2198" headers="d17811e2118">
+<p>7102</p>
+</td>
+<td class="cellalignment167" headers="d17811e2198 d17811e2121">
+<p>Dgraph</p>
+</td>
+<td class="cellalignment167" headers="d17811e2198 d17811e2124">
+<p>AGENT_PORT</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p>The following table describes Oracle Big Data Appliance port access required by the Oracle Management Service (OMS) and Management Agent in order to use the Oracle Enterprise Manager plug-in.</p>
+<div class="tblformal" id="GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3__GUID-6551301A-CB1E-4927-9F88-3C2444899EF2">
+<p class="titleintable">Table 3-6 Port Access Required by the Oracle Enterprise Manager Plug-In</p>
+<table class="cellalignment168" title="Port Access Required by the Oracle Enterprise Manager Plug-In" summary="Column one identifies the port number. Column two indicates which node the port number refers to. Column three describes the use of the port.">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment118" id="d17811e2221">Port Number</th>
+<th class="cellalignment118" id="d17811e2223">On Which Node</th>
+<th class="cellalignment118" id="d17811e2225">Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment120" id="d17811e2229" headers="d17811e2221">7183</td>
+<td class="cellalignment120" headers="d17811e2229 d17811e2223">Cloudera Manager Server host.</td>
+<td class="cellalignment120" headers="d17811e2229 d17811e2225">For discovery , if HTTPS access is enabled on Cloudera Manager.</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment120" id="d17811e2236" headers="d17811e2221">7180</td>
+<td class="cellalignment120" headers="d17811e2236 d17811e2223">Cloudera Manager Server host.</td>
+<td class="cellalignment120" headers="d17811e2236 d17811e2225">For discovery and monitoring, if HTTPS access is not enabled on Cloudera Manager.</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment120" id="d17811e2243" headers="d17811e2221">7187</td>
+<td class="cellalignment120" headers="d17811e2243 d17811e2223">Cloudera Manager Server host.</td>
+<td class="cellalignment120" headers="d17811e2243 d17811e2225">For monitoring, if HTTPS access is enabled on Cloudera Manager.</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment120" id="d17811e2250" headers="d17811e2221">22</td>
+<td class="cellalignment120" headers="d17811e2250 d17811e2223">All nodes</td>
+<td class="cellalignment120" headers="d17811e2250 d17811e2225">SSH for bdacli execution during discovery.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76753"></a><a id="BIGOG76752"></a>
+<div class="props_rev_3"><a id="GUID-11B35927-3AE2-420C-B38C-4210190A507A"></a>
+<h2 id="BIGOG-GUID-11B35927-3AE2-420C-B38C-4210190A507A" class="sect2"><span class="enumeration_section">3.5</span> Preparing the Network for Oracle Big Data Appliance</h2>
+<div>
+<p>Oracle Big Data Appliance Configuration Generation Utility generates these files for you to use before installation:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">bda-install-review.html</span>: Lists the host names and custom IP addresses for Oracle Big Data Appliance. Verify that the information is correct, and add the host names and IP addresses to a name server on the network. You can view this file in a browser.</p>
+</li>
+<li>
+<p><span class="bold">bda-preinstall-checkip.sh</span>: Performs validation checks on network configuration values, including host names and IP addresses.</p>
+</li>
+</ul>
+<p>See <span class="q">"<a href="configurator.htm#GUID-92C6E1FE-6107-4170-BC08-66C4CF9FEE41">Generating the Configuration Files</a>."</span></p>
+<p>Run the <code class="codeph">bda-preinstall-checkip.sh</code> script at these points in the installation process:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Before Oracle Big Data Appliance arrives at the site but after the network administrator has added the new names and IP addresses to the name server. This step ensures that the network configuration parameters are valid and the network is ready to accept Oracle Big Data Appliance connections.</p>
+</li>
+<li>
+<p>After Oracle Big Data Appliance arrives but before it is connected to the network. This step ensures that the network has not changed and is still ready to accept Oracle Big Data Appliance connections.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-11B35927-3AE2-420C-B38C-4210190A507A__GUID-31703678-B134-4F1D-A83F-9275966E71BC">
+<p class="notep1">Note:</p>
+<p>Running <code class="codeph">bda-preinstall-checkip.sh</code> is a critical pre-installation step. Network errors can cause extensive delays in the installation procedure.</p>
+</div>
+<div class="section">
+<p class="subhead2">To check the network for conflicts:</p>
+<ol>
+<li>
+<p>Copy the <a id="d17811e2324" class="indexterm-anchor"></a><code class="codeph">bda-preinstall-checkip.sh</code> script to any Linux system with a 10 GB Ethernet connection to the subnet on which Oracle Big Data Appliance will be deployed.</p>
+</li>
+<li>
+<p>Ensure that the script is executable:</p>
+<pre dir="ltr">
+chmod +x bda-preinstall-checkip.sh
+</pre></li>
+<li>
+<p>Execute the script:</p>
+<pre dir="ltr">
+./bda-preinstall-checkip.sh
+</pre></li>
+<li>
+<p>If the script identifies errors, open the <a id="d17811e2344" class="indexterm-anchor"></a><code class="codeph">bda-checkip.out</code> file for details. It contains information about every test the script performed. The output file is created in the same directory as the script.</p>
+</li>
+<li>
+<p>Resolve all reported errors before rerunning the script.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="network.htm#GUID-11B35927-3AE2-420C-B38C-4210190A507A__CHDGGEDH">Example 3-1</a> shows success and error messages from the <code class="codeph">bda-preinstall-checkip.sh</code> script.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-11B35927-3AE2-420C-B38C-4210190A507A__CHDGGEDH">
+<p class="titleinexample">Example 3-1 Output from bda-preinstall-checkip.sh</p>
+<pre dir="ltr">
+Big Data Appliance pre-installation network verification starting ...
+ 
+Using name server 198.51.100.21 for all DNS lookups
+ 
+Domain is example.com
+ 
+Processing DNS name servers : SUCCESS
+Processing NTP time servers : SUCCESS
+Processing gateways : SUCCESS
+Processing factory IP addresses : SUCCESS
+Processing public node names (bondeth0) : SUCCESS
+Processing private IP addresses (bondib0) : ERROR - see bda-checkip.out for details
+Processing admin node names (eth0) : SUCCESS
+Processing ILOM names : SUCCESS
+Processing switch and PDU IP addresses : SUCCESS
+Processing ASR hostname : SUCCESS
+ 
+One or more checks report ERROR. Review bda-checkip.out for details
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment106">
+<tr>
+<td class="cellalignment139">
+<table class="cellalignment111">
+<tr>
+<td class="cellalignment110"><a href="prep.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment110"><a href="configurator.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment141">
+<table class="cellalignment109">
+<tr>
+<td class="cellalignment110"><a href="http://docs.oracle.com/bigdata/bda46/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment110"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment110"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment110"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment110"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+</body>
+</html>

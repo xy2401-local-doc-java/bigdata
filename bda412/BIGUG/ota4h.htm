@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Oracle DataSource for Apache Hadoop (OD4H)</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Oracle DataSource for Apache Hadoop (OD4H) allows direct, fast, parallel, secure and consistent access to master data in Oracle Database using Spark SQL via Hive metastore. This chapter discusses Oracle DataSource for Apache Hadoop (OD4H) in the following sections:" />
+<meta name="dcterms.created" content="2018-07-17T10:57:32Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Software User's Guide" />
+<meta name="dcterms.identifier" content="E94259-04" />
+<meta name="dcterms.isVersionOf" content="BIGUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="part-oracle-table-access.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-C2A509A4-34CB-4B58-AC55-6CCCE51163A8"></a> <span id="PAGE" style="display:none;">40/42</span> <!-- End Header -->
+<a id="BIGUG76784"></a><a id="BIGUG76783"></a>
+<h1 id="BIGUG-GUID-C2A509A4-34CB-4B58-AC55-6CCCE51163A8" class="sect1"><span class="enumeration_chapter">6</span> Oracle DataSource for Apache Hadoop (OD4H)</h1>
+<div>
+<div><span>Oracle DataSource for Apache Hadoop (OD4H) allows direct, fast, parallel, secure and consistent access to master data in Oracle Database using Spark SQL via Hive metastore. This chapter discusses Oracle DataSource for Apache Hadoop (OD4H) in the following sections:</span></div>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="ota4h.htm#GUID-F85AEF3E-AFEF-4C07-A8BF-5CA6B2ECD913">Operational Data, Big Data and Requirements</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-9B0CBEB0-0FF0-454C-A465-41A32856F42B" title="Oracle DataSource for Apache Hadoop (OD4H) contains the following list of jars.">Overview of Oracle DataSource for Apache Hadoop (OD4H)</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-AB181626-4ABD-4255-A79C-5CB111978BB0">How Does OD4H Work?</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-DCBD2261-DD0B-4C6F-ABB5-E8CE4FAF0E0B">Features of OD4H</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-E0375007-D5C1-4CC9-A609-EEDDD9B8D543">Using Hive SQL with OD4H</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-620DA994-B8E2-4B5F-B566-626EEB905338">Using Spark SQL with OD4H</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-E5ED8E3B-70C3-4100-AB00-EAE52F656303">Writing Back To Oracle Database</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76785"></a>
+<div class="sect2"><a id="GUID-F85AEF3E-AFEF-4C07-A8BF-5CA6B2ECD913"></a>
+<h2 id="BIGUG-GUID-F85AEF3E-AFEF-4C07-A8BF-5CA6B2ECD913" class="sect2"><span class="enumeration_section">6.1</span> Operational Data, Big Data and Requirements</h2>
+<div>
+<p>The common data architecture in most companies nowadays generally comprises of the following components:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Database(s) for operational, transactional, and master data, that is shared business object such as customers, products, employees and so on</p>
+</li>
+<li>
+<p>Big Data</p>
+</li>
+</ul>
+<p>Hadoop applications such as Master Data Management (MDM), Events processing, and others, need access to data in both Hadoop storages (such as HDFS and NoSQL Database as a landing point for weblogs, and so on) and Oracle Database (as the reliable and auditable source of truth). There are two approaches to process such data that reside in both Hadoop storage and Oracle Database:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>ETL Copy using tools such as Oracle's Copy to BDA</p>
+</li>
+<li>
+<p>Direct Access using Oracle Big Data SQL and Oracle DataSource for Apache Hadoop (OD4H).</p>
+</li>
+</ul>
+<p>In this chapter, we will discuss Oracle DataSource for Apache Hadoop (OD4H).</p>
+</div>
+</div>
+<a id="BIGUG76786"></a>
+<div class="sect2"><a id="GUID-9B0CBEB0-0FF0-454C-A465-41A32856F42B"></a>
+<h2 id="BIGUG-GUID-9B0CBEB0-0FF0-454C-A465-41A32856F42B" class="sect2"><span class="enumeration_section">6.2</span> Overview of Oracle DataSource for Apache Hadoop (OD4H)</h2>
+<div>
+<p>Oracle DataSource for Apache Hadoop (OD4H) is the storage handler for Oracle Database that uses HCatalog and InputFormat.</p>
+<p>This section discusses the following concepts:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="ota4h.htm#GUID-8DDB2F47-AB02-4A01-B2A2-17862A8FB25C">Opportunity with Hadoop 2.x</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-2C278E55-0DF6-4126-8186-EC1EEDA24BFC">Oracle Tables as Hadoop Data Source</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-4A563F67-2644-4F49-A258-3103667EBD83">External Tables</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76816"></a><a id="BIGUG76787"></a>
+<div class="sect3"><a id="GUID-8DDB2F47-AB02-4A01-B2A2-17862A8FB25C"></a>
+<h3 id="BIGUG-GUID-8DDB2F47-AB02-4A01-B2A2-17862A8FB25C" class="sect3"><span class="enumeration_section">6.2.1</span> Opportunity with Hadoop 2.x</h3>
+<div>
+<p>Hadoop 2.x architecture decouples compute engines from cluster resources management and storages. It enables:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A variety of SQL query engines. For instance, Hive SQL, Spark SQL, Big Data SQL, and so on.</p>
+</li>
+<li>
+<p>A variety of programmatic compute engines. For instance, MapReduce, Pig, Storm, Solr, Cascading, and so on.</p>
+</li>
+<li>
+<p>Elastic allocation of compute resources (CPU, memory) through YARN.</p>
+</li>
+<li>
+<p>A variety of data stores such as HDFS, NoSQL, as well as remote storages through HCatalog, InputFormat, OutputFormat and StorageHandler interfaces.</p>
+</li>
+</ul>
+<p>Oracle DataSource for Apache Hadoop (OD4H) is the storage handler for Oracle Database that uses HCatalog and InputFormat.</p>
+<p>Following is an illustration of Hadoop 2.0 Architecture:</p>
+<div class="figure" id="GUID-8DDB2F47-AB02-4A01-B2A2-17862A8FB25C__GUID-D7C2A7A3-6E36-496A-96C9-7D6DEA3986E7">
+<p class="titleinfigure">Figure 6-1 Hadoop 2.0 Architecture</p>
+<img width="790" height="341" src="img/GUID-D87EA934-5956-4B7F-84BE-E4FF533BEB24-default.gif" alt="Description of Figure 6-1 follows" title="Description of Figure 6-1 follows" /><br />
+<a href="img_text/GUID-D87EA934-5956-4B7F-84BE-E4FF533BEB24-print.htm">Description of "Figure 6-1 Hadoop 2.0 Architecture"</a></div>
+<!-- class="figure" --></div>
+</div>
+<a id="BIGUG76795"></a>
+<div class="sect3"><a id="GUID-2C278E55-0DF6-4126-8186-EC1EEDA24BFC"></a>
+<h3 id="BIGUG-GUID-2C278E55-0DF6-4126-8186-EC1EEDA24BFC" class="sect3"><span class="enumeration_section">6.2.2</span> Oracle Tables as Hadoop Data Source</h3>
+<div>
+<p>OD4H enables current and ad-hoc querying. This makes querying data faster and more secure. You can query data directly and retrieve only the data that you need, when you need it.</p>
+<p>OD4H also provides Oracle&rsquo;s end-to-end security. This includes Identity Management, Column Masking, and Label and Row Security.</p>
+<p>OD4H also furnishes direct access for Hadoop and Spark APIs such as Pig, MapReduce and others.</p>
+</div>
+</div>
+<a id="BIGUG76797"></a>
+<div class="sect3"><a id="GUID-4A563F67-2644-4F49-A258-3103667EBD83"></a>
+<h3 id="BIGUG-GUID-4A563F67-2644-4F49-A258-3103667EBD83" class="sect3"><span class="enumeration_section">6.2.3</span> External Tables</h3>
+<div>
+<p>External Tables turn Oracle tables into Hadoop and/or Spark datasources. The DDL for declaring External Tables is as follows:</p>
+<pre dir="ltr">
+CREATE[TEMPORARY] EXTERNAL TABLE [IF NOT EXISTS]  [db_name.]table_name
+[(col_name data_type [COMMENTcol_comment],...)]
+[COMMENT table_comment]
+STORED BY 'oracle.hcat.osh.OracleStorageHandler' [WITHSERDEPROPERTIES(...)]
+[TBLPROPERTIES (property_name=property_value,...)]
+ 
+data_type
+|SMALLINT
+|INT
+|BIGINT
+|BOOLEAN
+|FLOAT
+|DOUBLE
+|STRING
+|BINARY
+|TIMESTAMP
+|DECIMAL
+|DECIMAL(precision,scale)
+|VARCHAR
+|CHAR
+</pre>
+<div class="infoboxnotealso" id="GUID-4A563F67-2644-4F49-A258-3103667EBD83__GUID-47A8A393-BC52-4F80-B39A-C955E12FADE2">
+<p class="notep1">See Also:</p>
+Refer the following link for Hive External Table syntax <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-CreateTable" target="_blank">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-CreateTable</a></div>
+<div class="infobox-note" id="GUID-4A563F67-2644-4F49-A258-3103667EBD83__GUID-BE094F52-FB9F-4D85-B342-139D9FBAE012">
+<p class="notep1">Note:</p>
+<p>Oracle supports only primitive types.</p>
+</div>
+<div class="p">The following table shows the mappings between Oracle and Hive types.
+<table class="cellalignment176">
+<tr>
+<td class="cellalignment177"><span class="bold">Oracle Data Type</span></td>
+<td class="cellalignment177"><span class="bold">Hive Data Type</span></td>
+</tr>
+<tr>
+<td class="cellalignment177">
+<p><code class="codeph">NUMBER</code></p>
+</td>
+<td class="cellalignment177">
+<p>INT when the scale is 0 and the precision is less than 10.</p>
+<p>BIGNIT when the scale is 0 and precision is less than 19.</p>
+<p>DECIMAL when the scale is greater than 0 or the precision is greater than 19.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment177">
+<p><code class="codeph">CLOB</code></p>
+<p><code class="codeph">NCLOB</code></p>
+</td>
+<td class="cellalignment177"><code class="codeph">STRING</code></td>
+</tr>
+<tr>
+<td class="cellalignment177">
+<p><code class="codeph">BINARY_DOUBLE</code></p>
+</td>
+<td class="cellalignment177"><code class="codeph">DOUBLE</code></td>
+</tr>
+<tr>
+<td class="cellalignment177">
+<p><code class="codeph">BINARY_FLOAT</code></p>
+</td>
+<td class="cellalignment177"><code class="codeph">FLOAT</code></td>
+</tr>
+<tr>
+<td class="cellalignment177">
+<p><code class="codeph">BLOB</code></p>
+</td>
+<td class="cellalignment177"><code class="codeph">BINARY</code></td>
+</tr>
+<tr>
+<td class="cellalignment177">
+<p><code class="codeph">CHAR</code></p>
+<p><code class="codeph">NCHAR</code></p>
+</td>
+<td class="cellalignment177"><code class="codeph">CHAR</code></td>
+</tr>
+<tr>
+<td class="cellalignment177">
+<p><code class="codeph">VARCHAR2</code></p>
+<p><code class="codeph">NVARCHAR2</code></p>
+</td>
+<td class="cellalignment177"><code class="codeph">VARCHAR</code></td>
+</tr>
+<tr>
+<td class="cellalignment177">
+<p><code class="codeph">ROWID</code></p>
+<p><code class="codeph">UROWID</code></p>
+</td>
+<td class="cellalignment177"><code class="codeph">BINARY</code></td>
+</tr>
+<tr>
+<td class="cellalignment177"><code class="codeph">DATE</code></td>
+<td class="cellalignment177"><code class="codeph">TIMESTAMP</code></td>
+</tr>
+<tr>
+<td class="cellalignment177"><code class="codeph">TIMESTAMP</code></td>
+<td class="cellalignment177"><code class="codeph">TIMESTAMP</code></td>
+</tr>
+<tr>
+<td class="cellalignment177">
+<p><code class="codeph">TIMESTAMPTZ</code></p>
+<p><code class="codeph">TIMESTAMPLTZ</code></p>
+</td>
+<td class="cellalignment177">Unsupported</td>
+</tr>
+<tr>
+<td class="cellalignment177"><code class="codeph">RAW</code></td>
+<td class="cellalignment177"><code class="codeph">BINARY</code></td>
+</tr>
+</table>
+</div>
+<p>The properties of external tables can be described as follows:</p>
+</div>
+<a id="BIGUG76798"></a>
+<div class="sect4"><a id="GUID-0F67B9A9-2819-4F3A-96D9-4534E36639A8"></a>
+<h4 id="BIGUG-GUID-0F67B9A9-2819-4F3A-96D9-4534E36639A8" class="sect4"><span class="enumeration_section">6.2.3.1</span> TBLPROPERTIES</h4>
+<div>
+<div class="tblformal" id="GUID-0F67B9A9-2819-4F3A-96D9-4534E36639A8__GUID-D3C4C018-0204-4B5E-B572-90C60E15D4B0">
+<table class="cellalignment159" summary="This table contains properties of external tables.">
+<thead>
+<tr class="cellalignment127">
+<th class="cellalignment178" id="d32968e386">Property</th>
+<th class="cellalignment179" id="d32968e389">Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e394" headers="d32968e386">
+<p>oracle.hcat.osh.columns.mapping</p>
+</td>
+<td class="cellalignment181" headers="d32968e394 d32968e389">
+<p>Comma separated list to specify mapping between Hive columns and Oracle table columns. All external tables using OracleStorageHandler must define this.</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e401" headers="d32968e386">
+<p>mapreduce.jdbc.url</p>
+</td>
+<td class="cellalignment181" headers="d32968e401 d32968e389">
+<p>Connection URL to connect to the database</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e408" headers="d32968e386">
+<p>mapreduce.jdbc.username</p>
+</td>
+<td class="cellalignment181" headers="d32968e408 d32968e389">
+<p>Connection user name to connect to the database</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e415" headers="d32968e386">
+<p>mapreduce.jdbc.password</p>
+</td>
+<td class="cellalignment181" headers="d32968e415 d32968e389">
+<p>Connection password to connect to the database</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e422" headers="d32968e386">
+<p>mapreduce.jdbc.input.table.name</p>
+</td>
+<td class="cellalignment181" headers="d32968e422 d32968e389">
+<p>Oracle table name</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e429" headers="d32968e386">
+<p>mapreduce.jdbc.input conditions</p>
+</td>
+<td class="cellalignment181" headers="d32968e429 d32968e389">
+<p>To be used for querying the database. Must be used for query pushdown.</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e436" headers="d32968e386">
+<p>mapreduce.jdbc.input.query</p>
+</td>
+<td class="cellalignment181" headers="d32968e436 d32968e389">
+<p>To be used for querying the database. Query should be used only when a subset of the columns is selected.</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e443" headers="d32968e386">
+<p>mapreduce.jdbc.input.orderby</p>
+</td>
+<td class="cellalignment181" headers="d32968e443 d32968e389">
+<p><code class="codeph">ORDER BY</code> clause to be specified for pushing ordering to the database.</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e452" headers="d32968e386">
+<p>oracle.hcat.osh.splitterKind</p>
+</td>
+<td class="cellalignment181" headers="d32968e452 d32968e389">
+<p>To be used to specify how OracleStorageHandler must create splits, so that they are a good match for the physical structure of the target table in Oracle Database. The splitter kind applicable could be <code class="codeph">SINGLE_SPLITTER</code>, <code class="codeph">PARTITION_SPLITTER</code>, <code class="codeph">ROW_SPLITTER</code>, <code class="codeph">BLOCK_SPLITTER</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e471" headers="d32968e386">
+<p>oracle.hcat.osh.rowsPerSplit</p>
+</td>
+<td class="cellalignment181" headers="d32968e471 d32968e389">
+<p>Used only when <code class="codeph">ROW_SPLITTER</code> splitterKind is applied on the table. Represents Number of rows per split for <code class="codeph">LIMIT_RANGE</code> splitter. Default is 1000</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e484" headers="d32968e386">
+<p>oracle.hcat.osh.authentication</p>
+</td>
+<td class="cellalignment181" headers="d32968e484 d32968e389">
+<p>Authentication method used to connect to Oracle Database. Can be <code class="codeph">SIMPLE</code> (default), <code class="codeph">ORACLE_WALLET</code>, <code class="codeph">KERBEROS</code></p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e500" headers="d32968e386">
+<p>sun.security.krb5.principal</p>
+</td>
+<td class="cellalignment181" headers="d32968e500 d32968e389">
+<p>Kerberos principal. Used only when <code class="codeph">KERBEROS</code> authentication is applied.</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e510" headers="d32968e386">
+<p>oracle.hcat.osh.kerb.callback</p>
+</td>
+<td class="cellalignment181" headers="d32968e510 d32968e389">
+<p>Callback for Kerberos authentication. Used only when Kerberos authentication is applied.</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e517" headers="d32968e386">
+<p>oracle.hcat.osh.maxSplits</p>
+</td>
+<td class="cellalignment181" headers="d32968e517 d32968e389">
+<p>Maximum number of splits for any splitter kind</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e524" headers="d32968e386">
+<p>oracle.hcat.osh.useChunkSplitter</p>
+</td>
+<td class="cellalignment181" headers="d32968e524 d32968e389">Use chunk based ROW_SPLITTER and BLOCK_SPLITTER that use DBMS_PARALLEL_EXECUTE package to divide table into chunks that will map to hadoop splits.The default value is set to &lsquo;true&rsquo;.</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e530" headers="d32968e386">
+<p>oracle.hcat.osh.chunkSQL</p>
+</td>
+<td class="cellalignment181" headers="d32968e530 d32968e389">Used by <code class="codeph">CUSTOM_SPLITTER</code>to create splits. The SQL string should be a SELECT statement that returns range of each chunk must have two columns: <code class="codeph">start_id</code> and <code class="codeph">end_id</code> The columns must be of <code class="codeph">ROWID</code> type.</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e548" headers="d32968e386">
+<p>oracle.hcat.osh.useOracleParallelism</p>
+</td>
+<td class="cellalignment181" headers="d32968e548 d32968e389">When configured, parallel queries will be executed while fetching rows from Oracle. Default value: &lsquo;<code class="codeph">false</code>&rsquo;</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment180" id="d32968e557" headers="d32968e386">
+<p>oracle.hcat.osh.fetchSize</p>
+</td>
+<td class="cellalignment181" headers="d32968e557 d32968e389">JDBC fetchsize for generated select queries used to fetch rows. Default value: 10 (set by Oracle JDBC Driver)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infobox-note" id="GUID-0F67B9A9-2819-4F3A-96D9-4534E36639A8__GUID-23005593-D00B-4180-8743-AD9D24FB2D8B">
+<p class="notep1">Note:</p>
+<p>In addition to the above, any JDBC connection properties (<code class="codeph">oracle.jdbc.*</code> and <code class="codeph">oracle.net.*</code>) can be specified as <code class="codeph">TBLPROPERTIES</code>. They will be used while establishing connection to Oracle Database using JDBC driver.</p>
+</div>
+<div class="infobox-note" id="GUID-0F67B9A9-2819-4F3A-96D9-4534E36639A8__GUID-2091FA7D-5C88-47A2-87CB-20B849D0F55E">
+<p class="notep1">Note:</p>
+<p>Oracle DataSource for Apache Hadoop (OD4H) works with Oracle View and Oracle Tables.</p>
+</div>
+</div>
+</div>
+<a id="BIGUG76799"></a>
+<div class="sect4"><a id="GUID-2BC417C8-21D9-4715-AF80-830EE8076542"></a>
+<h4 id="BIGUG-GUID-2BC417C8-21D9-4715-AF80-830EE8076542" class="sect4"><span class="enumeration_section">6.2.3.2</span> SERDE PROPERTIES</h4>
+<div>
+<div class="tblformal" id="GUID-2BC417C8-21D9-4715-AF80-830EE8076542__GUID-0D783E2B-B3EB-4BAA-8164-7AA9637F2E33">
+<table class="cellalignment159" summary="Serde Properties">
+<thead>
+<tr class="cellalignment127">
+<th class="cellalignment182" id="d32968e603">Property</th>
+<th class="cellalignment182" id="d32968e606">Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment127">
+<td class="cellalignment183" id="d32968e611" headers="d32968e603">
+<p>oracle.hcat.osh.columns.mapping</p>
+</td>
+<td class="cellalignment183" headers="d32968e611 d32968e606">
+<p>All external tables using OracleStorageHandler must define this. Its a comma separated list to specify mapping between hive columns (specified in create table) and oracle table columns. <code class="codeph">WITHSERDEPROPERTIES</code> also enables the external table definition to refer only to select columns in the actual Oracle table. In other words, not all columns from the Oracle table need to be part of the Hive external table. The ordering of oracle columns in the mapping is the same as ordering of hive columns specified in create table.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+</div>
+<div class="sect3"><a id="GUID-42950948-948E-4C9A-B6EA-0303AA3258F1"></a>
+<h3 id="BIGUG-GUID-42950948-948E-4C9A-B6EA-0303AA3258F1" class="sect3"><span class="enumeration_section">6.2.4</span> List of jars in the OD4H package</h3>
+<div>
+<p>Oracle DataSource for Apache Hadoop (OD4H) contains the following list of jars.</p>
+<p>OD4H consists of the following list of jars.</p>
+<div class="section">
+<div class="tblformal" id="GUID-42950948-948E-4C9A-B6EA-0303AA3258F1__GUID-B04CECBA-0CF4-460C-94DE-0AEA4B9C26E8">
+<p class="titleintable">Table 6-1 List of jars in OD4H</p>
+<table class="cellalignment136" title="List of jars in OD4H" summary="List JAR files in OD4H.">
+<thead>
+<tr class="cellalignment127">
+<th class="cellalignment137" id="d32968e654">Name of JAR</th>
+<th class="cellalignment137" id="d32968e656">Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment127">
+<td class="cellalignment127" id="d32968e660" headers="d32968e654">osh.jar</td>
+<td class="cellalignment127" headers="d32968e660 d32968e656">Contains OracleStorageHandler Implementation</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment127" id="d32968e665" headers="d32968e654">ojdbc7.jar</td>
+<td class="cellalignment127" headers="d32968e665 d32968e656">An OD4H specific JDBC driver (which is optimized with internal calls), used by Spark or Hadoop tasks to connect to the database.</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment127" id="d32968e670" headers="d32968e654">ucp.jar</td>
+<td class="cellalignment127" headers="d32968e670 d32968e656">For creating connection pools in OracleStorageHandler</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment127" id="d32968e675" headers="d32968e654">oraclepki103.jar, osdt_core.jar, osdt_cert.jar, osdt_jce.jar</td>
+<td class="cellalignment127" headers="d32968e675 d32968e656">For Oracle Wallet authentication</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment127" id="d32968e680" headers="d32968e654">orai18n.jar</td>
+<td class="cellalignment127" headers="d32968e680 d32968e656">Oracle Globalization Support</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment127" id="d32968e685" headers="d32968e654">xdb.jar</td>
+<td class="cellalignment127" headers="d32968e685 d32968e656">Oracle XDB jar</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG76817"></a>
+<div class="sect2"><a id="GUID-AB181626-4ABD-4255-A79C-5CB111978BB0"></a>
+<h2 id="BIGUG-GUID-AB181626-4ABD-4255-A79C-5CB111978BB0" class="sect2"><span class="enumeration_section">6.3</span> How does OD4H work?</h2>
+<div>
+<p>Oracle DataSource for Apache Hadoop (OD4H) does not require creating a new table. You can start working with OD4H using the following steps:</p>
+<ol>
+<li>
+<p>Create a new Oracle table, or, reuse an existing table.</p>
+</li>
+<li>
+<p>Create the Hive DDL for creating the external table referencing the Oracle Table.</p>
+</li>
+<li>
+<p>Issue HiveSQL, SparkSQL, or other Spark/Hadoop queries and API calls.</p>
+</li>
+</ol>
+<p>The following sections show how to create a new Oracle Database Table, and a Hive DDL:</p>
+<div class="p">
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="ota4h.htm#GUID-56B2C12D-C240-47F2-B2EE-9E1046C38378">Create a New Oracle Database Table</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-C2669060-4FE0-4AEC-BBBA-EFF0738C4932">Hive DDL</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-CC86EEB9-D2CB-40F3-93C7-FE733461DE1F">Creating External Table in Hive</a></p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGUG76818"></a>
+<div class="sect3"><a id="GUID-56B2C12D-C240-47F2-B2EE-9E1046C38378"></a>
+<h3 id="BIGUG-GUID-56B2C12D-C240-47F2-B2EE-9E1046C38378" class="sect3"><span class="enumeration_section">6.3.1</span> Create a new Oracle Database Table or Reuse an Existing Table</h3>
+<div>
+<p>Here is an illustration of a partitioned Oracle table that we will use to demo how partition pruning works:</p>
+<ol>
+<li>
+<pre dir="ltr">
+CREATE TABLE EmployeeData ( Emp_ID NUMBER,
+    First_Name VARCHAR2(20),
+    Last_Name VARCHAR2(20),
+    Job_Title VARCHAR2(40),
+    Salary NUMBER)
+PARTITION BY RANGE (Salary)
+ ( PARTITION salary_1 VALUES LESS THAN (60000)
+    TABLESPACE tsa
+ , PARTITION salary_2 VALUES LESS THAN (70000)
+    TABLESPACE tsb
+ , PARTITION salary_3 VALUES LESS THAN (80000)
+    TABLESPACE tsc
+ , PARTITION salary_4 VALUES LESS THAN (90000)
+    TABLESPACE tsd
+ , PARTITION salary_5 VALUES LESS THAN (100000)
+    TABLESPACE tse
+ );
+</pre>
+<div class="infobox-note" id="GUID-56B2C12D-C240-47F2-B2EE-9E1046C38378__GUID-65DEA6A3-3494-4720-9136-95D873CB77A7">
+<p class="notep1">Note:</p>
+<p>You can use this syntax for table creation, in the following examples listed in this Book.</p>
+</div>
+</li>
+<li>
+<p>Issue queries from Hive, Spark, or any other Hadoop models (including joins with local Hive Tables.)</p>
+</li>
+</ol>
+</div>
+</div>
+<a id="BIGUG76819"></a>
+<div class="sect3"><a id="GUID-C2669060-4FE0-4AEC-BBBA-EFF0738C4932"></a>
+<h3 id="BIGUG-GUID-C2669060-4FE0-4AEC-BBBA-EFF0738C4932" class="sect3"><span class="enumeration_section">6.3.2</span> Hive DDL</h3>
+<div>
+<p>In this example, we will associate two Hive external tables to the same Oracle table, using two different split patterns:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">SIMPLE_SPLITTER</code></p>
+</li>
+<li>
+<p><code class="codeph">PARTITION_SPLITTER</code></p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-C2669060-4FE0-4AEC-BBBA-EFF0738C4932__GUID-36101A19-95B9-4524-B8B0-FCBCE336D946">
+<p class="notep1">Note:</p>
+It is possible that the external table has fewer columns than the base Oracle table.
+<p>Since columns can have different names, use <code class="codeph">TBLPROPERTY</code> for mapping with the base table.</p>
+</div>
+<p>In the following examples, we are using the following variables:</p>
+<p><code class="codeph">connection_string = jdbc:oracle:thin:@localhost:1521/&lt;servicename&gt;</code></p>
+<p><code class="codeph">oracle_user=od4h</code></p>
+<p><code class="codeph">oracle_pwd=od4h</code></p>
+<p>The following command creates a Hive external table with the default split pattern, that is <code class="codeph">SIMPLE_SPLITTER</code>.</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE EmployeeDataSimple (
+ Emp_ID int,
+ First_Name string,
+ Last_Name string,
+ Job_Title string,
+ Salary int
+)
+STORED BY 'oracle.hcat.osh.OracleStorageHandler'
+WITH SERDEPROPERTIES (
+     'oracle.hcat.osh.columns.mapping' = 'Emp_ID,First_Name,Last_Name,Job_Title,Salary')
+TBLPROPERTIES (
+ 'mapreduce.jdbc.url' = '${hiveconf:jdbc:oracle:thin:@localhost:1521/&lt;servicename&gt;}',
+ 'mapreduce.jdbc.username' = '${hiveconf:od4h}',
+ 'mapreduce.jdbc.password' = '${hiveconf:od4h}',
+ 'mapreduce.jdbc.input.table.name' = 'EmployeeData'
+);
+</pre>
+<p>The following example creates a Hive external table using <code class="codeph">PARTITION_SPLITTER</code>.</p>
+<pre dir="ltr">
+DROP TABLE EmployeeDataPartitioned;
+CREATE EXTERNAL TABLE EmployeeDataPartitioned (
+ Emp_ID int,
+ First_Name string,
+ Last_Name string,
+ Job_Title string,
+ Salary int
+)
+STORED BY 'oracle.hcat.osh.OracleStorageHandler'
+WITH SERDEPROPERTIES (
+     'oracle.hcat.osh.columns.mapping' = 'Emp_ID,First_Name,Last_Name,Job_Title,Salary')
+TBLPROPERTIES (
+ 'mapreduce.jdbc.url' = '${hiveconf:jdbc:oracle:thin:@localhost:1521/&lt;servicename&gt;}',
+ 'mapreduce.jdbc.username' = '${hiveconf:od4h}',
+ 'mapreduce.jdbc.password' = '${hiveconf:od4h}',
+ 'mapreduce.jdbc.input.table.name' = 'EmployeeData',
+ 'oracle.hcat.osh.splitterKind' = 'PARTITIONED_TABLE'
+);
+</pre></div>
+</div>
+<div class="sect3"><a id="GUID-CC86EEB9-D2CB-40F3-93C7-FE733461DE1F"></a>
+<h3 id="BIGUG-GUID-CC86EEB9-D2CB-40F3-93C7-FE733461DE1F" class="sect3"><span class="enumeration_section">6.3.3</span> Creating External Tables in Hive</h3>
+<div>
+<p>You can create an external table in Hive in the following way:</p>
+<pre dir="ltr">
+DROP TABLE employees;
+ 
+CREATE EXTERNAL TABLE employees (
+  EMPLOYEE_ID INT,
+  FIRST_NAME  STRING,
+  LAST_NAME   STRING,
+  SALARY      DOUBLE,
+  HIRE_DATE   TIMESTAMP,
+  JOB_ID      STRING
+ )
+ 
+  STORED BY 'oracle.hcat.osh.OracleStorageHandler'
+ 
+WITH SERDEPROPERTIES (
+ 'oracle.hcat.osh.columns.mapping' = 'employee_id,first_name,last_name,salary,hire_date,job_id')
+ 
+  TBLPROPERTIES (
+    'mapreduce.jdbc.url' = 'jdbc:oracle:thin:@localhost:1521:orcl',
+    'mapreduce.jdbc.username' = 'hr',
+    'mapreduce.jdbc.password' = 'hr',
+    'mapreduce.jdbc.input.table.name' = 'EMPLOYEES'
+);
+</pre>
+<div class="infobox-note" id="GUID-CC86EEB9-D2CB-40F3-93C7-FE733461DE1F__GUID-549AB42A-27ED-4FA5-984F-CF0A6DC54EA7">
+<p class="notep1">Note:</p>
+Ensure that <code class="codeph">ucp.jar</code>, <code class="codeph">ojdbc8.jar</code> and <code class="codeph">osh.jar</code> are present in the Hive <code class="codeph">CLASSPATH</code>, for using OD4H. This is pre-configured on BDA. .
+<p>To learn more about <code class="codeph">CLASSPATH</code> and other Hive configuration properties, refer the following sources:</p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli" target="_blank">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli</a></p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties" target="_blank">https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties</a></p>
+</div>
+</div>
+</div>
+</div>
+<a id="BIGUG76802"></a>
+<div class="sect2"><a id="GUID-DCBD2261-DD0B-4C6F-ABB5-E8CE4FAF0E0B"></a>
+<h2 id="BIGUG-GUID-DCBD2261-DD0B-4C6F-ABB5-E8CE4FAF0E0B" class="sect2"><span class="enumeration_section">6.4</span> Features of OD4H</h2>
+<div>
+<p>The following topics discuss features of OD4H.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="ota4h.htm#GUID-F4A316AA-C1D3-4732-ADCA-55B251E39CA9">Performance and Scalability Features</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-8C363FE9-86E7-4C6A-854E-690C45DFEDB5">Security Features</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-E0375007-D5C1-4CC9-A609-EEDDD9B8D543">Using Hive SQL with OD4H</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-620DA994-B8E2-4B5F-B566-626EEB905338">Using Spark SQL with OD4H</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76804"></a><a id="BIGUG76803"></a>
+<div class="sect3"><a id="GUID-F4A316AA-C1D3-4732-ADCA-55B251E39CA9"></a>
+<h3 id="BIGUG-GUID-F4A316AA-C1D3-4732-ADCA-55B251E39CA9" class="sect3"><span class="enumeration_section">6.4.1</span> Performance And Scalability Features</h3>
+<div>
+<p>Following sections discuss the performance and scalability features of OD4H:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="ota4h.htm#GUID-EC811C94-8982-4165-8221-A43DBA3AA0C8">Splitters</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-367245D1-8EDE-4392-A5F6-90046F375BB4">Predicate Pushdown</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-216476F7-FB78-47D5-BE99-A89D25EBA21B">Projection Pushdown</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-CF0344DF-1DE5-495A-BE93-430D8099491F">Partition Pruning</a></p>
+</li>
+<li>
+<p><a href="ota4h.htm#GUID-A49A8B7F-34A2-4999-8610-9C3A1F1D453A">Smart Connection Management</a></p>
+</li>
+</ul>
+<p>HCatalog stores table metadata from Hive DDL. HiveSQl, Spark SQL and others, then use this metadata while submitting queries.</p>
+<p>The Oracle table is divided into granules determined by the <code class="codeph">splitterKind</code> property. These granules are then read into a split by <code class="codeph">OracleStorageHandler</code>, by submitting generated queries.</p>
+<p><code class="codeph">OracleStorageHandler</code> will not have to test all possible query types if the query plan determines which splits need to be scanned.</p>
+<div class="figure" id="GUID-F4A316AA-C1D3-4732-ADCA-55B251E39CA9__GUID-5FC5C8E8-8CB2-4469-99E3-F55716418FB3">
+<p class="titleinfigure">Figure 6-2 OD4H in a Nutshell</p>
+<img width="876" height="521" src="img/GUID-2F1E7562-D488-4FFC-ABCC-D59A395F0415-default.gif" alt="Description of Figure 6-2 follows" title="Description of Figure 6-2 follows" /><br />
+<a href="img_text/GUID-2F1E7562-D488-4FFC-ABCC-D59A395F0415-print.htm">Description of "Figure 6-2 OD4H in a Nutshell"</a></div>
+<!-- class="figure" --></div>
+<a id="BIGUG76805"></a>
+<div class="sect4"><a id="GUID-EC811C94-8982-4165-8221-A43DBA3AA0C8"></a>
+<h4 id="BIGUG-GUID-EC811C94-8982-4165-8221-A43DBA3AA0C8" class="sect4"><span class="enumeration_section">6.4.1.1</span> Splitters</h4>
+<div>
+<p>While executing a query on a Hive external table through OTD4H, the underlying Oracle table is dynamically divided into granules, which correspond to splits on the Hadoop side. Each split is processed by a single map task. With the help of the <code class="codeph">ORACLE_SPLITTER_KIND</code> property, you can specify how the splits are created. This ensures that the splits are a good match for the physical structure of the target table in Oracle Database.</p>
+<p>The different kinds of splitters available are:</p>
+<div class="section">
+<p class="subhead3">SINGLE_SPLITTER</p>
+<p>Creates one split for the table. Use <code class="codeph">SINGLE_SPLITTER</code>where a single task is sufficient to process the query against the entire table.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">ROW_SPLITTER</p>
+<p>Limits the number of rows per Split. The default number of rows is 1000. You can specify number of rows by setting the <code class="codeph">oracle.hcat.osh.rowsPerSplit</code> property. The default value of <code class="codeph">oracle.hcat.osh.maxSplits</code> is 1 when <code class="codeph">ROW_SPLITTER</code> is used. You can increase this value to enable parallel reads.</p>
+<div class="p">Based on the values provided in the <code class="codeph">rowsPerSplit</code> property, OD4H will divide tables into splits. If the number of splits obtained is higher than the <code class="codeph">maxSplits</code>, then <code class="codeph">maxSplits</code> property will be used. The rows per split will be divided accordingly.
+<div class="infobox-note" id="GUID-EC811C94-8982-4165-8221-A43DBA3AA0C8__GUID-AD7DD69E-BEA9-44F7-B3F0-8CB5F6A63265">
+<p class="notep1">Note:</p>
+<code class="codeph">oracle.hcat.osh.rowsPerSplit</code>is used only by <code class="codeph">ROW_SPLITTER</code> and not any other splitter kind.</div>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">BLOCK_SPLITTER</p>
+<div class="p">Creates splits based on underlying storage of data blocks. With Block Splitter, you can specify the maximum number of splits to be generated. The default value of <code class="codeph">oracle.hcat.osh.maxSplits</code> is 1, when <code class="codeph">BLOCK_SPLITTER</code> is used. You can increase this value to enable parallel reads. <code class="codeph">BLOCK_SPLITTER</code> requires <code class="codeph">SELECT</code> privilege on the <code class="codeph">SYS.DBA.EXTENTS</code> table, granted to the schema containing the Oracle target table. In the event that this permission does not exist, OD4H will use <code class="codeph">SINGLE_SPLITTER.</code>
+<div class="infobox-note" id="GUID-EC811C94-8982-4165-8221-A43DBA3AA0C8__GUID-A215CA27-C823-4B72-B247-14EA3F5D5094">
+<p class="notep1">Note:</p>
+The actual number of splits under <code class="codeph">BLOCK_SPLITTER</code> may be lesser than the value specified in the <code class="codeph">oracle.hcat.osh.maxSplits</code> property.
+<p>Do not use BLOCK_SPLITTER on partitioned tables or Index Organized tables.</p>
+</div>
+<div class="infobox-note" id="GUID-EC811C94-8982-4165-8221-A43DBA3AA0C8__GUID-3456BFCC-2051-4861-9C1B-7F773B13D4AC">
+<p class="notep1">Note:</p>
+For ROW_SPLITTER and BLOCK_SPLITTER types, use <code class="codeph">oracle.hcat.osh.useChunkSplitter</code> to specify splitting mechanism. The default property value is <code class="codeph">true</code>. This enables creating chunks corresponding to splits using the <code class="codeph">DBMS_PARALLEL_EXECUTE</code> package. When the property value is <code class="codeph">false</code>, custom SQL is generated for splitting.</div>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">PARTITION_SPLITTER</p>
+<p>Creates one split per partition. <code class="codeph">PARTITION_SPLITTER</code> is used by default when the table is partitioned. You can override this setting by specifying <code class="codeph">ROW_SPLITTER</code> in table properties. With <code class="codeph">PARTITION_SPLITTER</code>, the default value of <code class="codeph">oracle.hcat.osh.maxSplits</code> table property is 64.</p>
+</div>
+<!-- class="section" -->
+<p>Following is an illustration of <code class="codeph">ROW_SPLITTER</code>:</p>
+<pre dir="ltr">
+DROP TABLE employees;
+ 
+CREATE EXTERNAL TABLE employees (
+  EMPLOYEE_ID INT,
+  FIRST_NAME  STRING,
+  LAST_NAME   STRING,
+  SALARY      DOUBLE,
+  HIRE_DATE   TIMESTAMP,
+  JOB_ID      STRING
+ )
+ STORED BY 'oracle.hcat.osh.OracleStorageHandler'
+ 
+WITH SERDEPROPERTIES (
+ 'oracle.hcat.osh.columns.mapping' = 'employee_id,first_name,last_name,salary,hire_date,job_id')
+
+TBLPROPERTIES (
+'mapreduce.jdbc.url' = 'jdbc:oracle:thin:@localhost:1521:orcl',     
+'mapreduce.jdbc.username' = 'hr',
+'mapreduce.jdbc.password' = 'hr',
+'mapreduce.jdbc.input.table.name' = 'EMPLOYEES',     
+'oracle.hcat.osh.splitterKind' = 'ROW_SPLITTER',     
+'oracle.hcat.osh.rowsPerSplit' = '1500' 
+);  
+</pre>
+<div class="section">
+<p class="subhead3">CUSTOM_SPLITTER</p>
+<p>Use <code class="codeph">CUSTOM_SPLITTER</code> If you want to provide a custom split generation mechanism. You can do this using <code class="codeph">CUSTOM_SPLITTER</code> through <code class="codeph">oracle.hcat.osh.splitterKind</code> property and a <code class="codeph">SELECT</code> statement that emits ROWIDs corresponding to start and end of each split in <code class="codeph">oracle.hcat.osh.chunkSQL</code>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect4"><a id="GUID-A6AFEE73-CF08-4E96-A45A-C072967D6660"></a>
+<h4 id="BIGUG-GUID-A6AFEE73-CF08-4E96-A45A-C072967D6660" class="sect4"><span class="enumeration_section">6.4.1.2</span> Choosing a Splitter</h4>
+<div>
+<p><code class="codeph">SINGLE_SPLITTER</code> is used by default if no splitter is specified in the table properties for Hive external table, and the target Oracle table is not partitioned.</p>
+<p>For an unpartitioned table, the default value of <code class="codeph">oracle.hcat.osh.maxSplits</code> will be 1. For partitioned table, the default value of the same will be 64, and the default splitter will be <code class="codeph">PARTITION_SPLITTER</code>. The default for <code class="codeph">maxSplits</code> is set to limit the number of connections to the Oracle server. To increase this limit, you must increase the value of <code class="codeph">oracle.hcat.osh.maxSplits</code> explicitly in hive table properties.</p>
+<p>Use the following guidelines while choosing a splitter kind for a hive external table:</p>
+<div class="tblformal" id="GUID-A6AFEE73-CF08-4E96-A45A-C072967D6660__GUID-3633D8B9-0FAD-4C32-8262-2411C0CE51B9">
+<table class="cellalignment159" summary="How to choose a Splitter kind">
+<thead>
+<tr class="cellalignment127">
+<th class="cellalignment182" id="d32968e1188">Splitter Kind</th>
+<th class="cellalignment182" id="d32968e1191">Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment127">
+<td class="cellalignment183" id="d32968e1196" headers="d32968e1188">
+<p><code class="codeph">SINGLE_SPLITTER</code></p>
+</td>
+<td class="cellalignment183" headers="d32968e1196 d32968e1191">
+<p>When no parallelism is required.</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment183" id="d32968e1204" headers="d32968e1188">
+<p><code class="codeph">PARTITION_SPLITTER</code></p>
+</td>
+<td class="cellalignment183" headers="d32968e1204 d32968e1191">
+<p>Used by default when target table is partitioned</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment183" id="d32968e1212" headers="d32968e1188">
+<p><code class="codeph">BLOCK_SPLITTER</code></p>
+</td>
+<td class="cellalignment183" headers="d32968e1212 d32968e1191">
+<p>When Oracle user has <code class="codeph">SELECT</code> privilege on <code class="codeph">SYS.DBA_EXTENTS</code>, and target table is not partitioned.</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment183" id="d32968e1226" headers="d32968e1188">
+<p><code class="codeph">ROW_SPLITTER</code></p>
+</td>
+<td class="cellalignment183" headers="d32968e1226 d32968e1191">
+<p>When Oracle user does not have <code class="codeph">SELECT</code> privilege on <code class="codeph">SYS.DBA_EXTENTS</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment127">
+<td class="cellalignment183" id="d32968e1240" headers="d32968e1188">
+<p><code class="codeph">CUSTOM_SPLITTER</code></p>
+</td>
+<td class="cellalignment183" headers="d32968e1240 d32968e1191">
+<p>For fine grain control over generated splits.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGUG76806"></a>
+<div class="sect4"><a id="GUID-367245D1-8EDE-4392-A5F6-90046F375BB4"></a>
+<h4 id="BIGUG-GUID-367245D1-8EDE-4392-A5F6-90046F375BB4" class="sect4"><span class="enumeration_section">6.4.1.3</span> Predicate Pushdown</h4>
+<div>
+<p>Predicate Pushdown is an optimization technique, in which you push predicates (<code class="codeph">WHERE</code> condition) down to be evaluated by Oracle Database at the time of querying. This minimizes the amount of data fetched from Oracle Database to Hive, while performing a query.</p>
+<p>Set the configuration property <code class="codeph">hive.optimize.ppd</code> to either <code class="codeph">true</code> or <code class="codeph">false</code> for enabling Predicate Pushdown. The default value on hive-1.1.0 is set to <code class="codeph">true</code>. Hence, Predicate Pushdown is always performed, unless you want to disable it.</p>
+<div class="infobox-note" id="GUID-367245D1-8EDE-4392-A5F6-90046F375BB4__GUID-0BED23CC-F1FD-4903-A1AE-42607D728E45">
+<p class="notep1">Note:</p>
+<p>OD4H does not push down all possible predicates. It considers only the part of the execution plan pertaining to Oracle table declared as external table. OD4H also rewrites sub-queries for the Oracle SQL engine and each split task. At present conditions involving operators &gt;,=,&lt; and != in a single condition over a column (e.g. key &gt; 10) or a combination of multiple conditions separated by AND (e.g. key &gt; 10 AND key &lt; 20 AND key !=17) are pushed down.</p>
+</div>
+<p>Another option to reduce the amount of data fetched from the Oracle Database is to specify a condition at the time of table creation, using <code class="codeph">TBLPROPERTY</code> <code class="codeph">mapreduce.jdbc.input.conditions</code>. For instance:</p>
+<p><code class="codeph">mapreduce.jdbc.input.conditions = 'key &gt; 10 OR key = 0'.</code></p>
+<div class="p">This will restrict the rows fetched from Oracle Database whenever any query is performed based on the condition specified. The external table that gets created, is analogous to a view on Oracle Database. This approach is only useful when you want to push down complex predicates that cannot be analyzed and automatically pushed down by OD4H.
+<div class="infobox-note" id="GUID-367245D1-8EDE-4392-A5F6-90046F375BB4__GUID-6BA6E680-4A7D-4898-81EB-28D540545ABC">
+<p class="notep1">Note:</p>
+Due to incompatibilities between date and timestamp representation in Hive and Oracle, these columns are not pushed down by default in a query. You can enable this with certain limitations by setting the tableproperty <code class="codeph">oracle.hcat.datetime.pushdown</code> to <code class="codeph">true</code>. When set to <code class="codeph">true</code>, the date representation in the query should be in the form <code class="codeph">YYYY-MM-DD</code> and timetamp should be in the form &ldquo;<code class="codeph">YYYY-MM-DD HH:MM:SS</code>&rdquo; with no decimal places. No other date or timestamp representation is supported when <code class="codeph">oracle.hcat.datetime.pushdown</code> is set to <code class="codeph">true</code>.</div>
+</div>
+</div>
+</div>
+<a id="BIGUG76807"></a>
+<div class="sect4"><a id="GUID-216476F7-FB78-47D5-BE99-A89D25EBA21B"></a>
+<h4 id="BIGUG-GUID-216476F7-FB78-47D5-BE99-A89D25EBA21B" class="sect4"><span class="enumeration_section">6.4.1.4</span> Projection Pushdown</h4>
+<div>
+<p>Projection Pushdown is an optimization technique that fetches only the required columns from Oracle Database when a query is performed. If you want to fetch all columns during a query (not recommended), you can disable it by setting the <code class="codeph">hive.io.file.read.all.columns</code> connection property to <code class="codeph">true</code>. On Hive&ndash;1.1.0, this property is <code class="codeph">false</code> by default.</p>
+</div>
+</div>
+<a id="BIGUG76808"></a>
+<div class="sect4"><a id="GUID-CF0344DF-1DE5-495A-BE93-430D8099491F"></a>
+<h4 id="BIGUG-GUID-CF0344DF-1DE5-495A-BE93-430D8099491F" class="sect4"><span class="enumeration_section">6.4.1.5</span> Partition Pruning</h4>
+<div>
+<p>If you refer to Employee Data Partition table, the partitions irrelevant to the query are removed from the partition list. This is done by executing an explain plan on the query to obtain the list of partitions and sub-partitions that are relevant to the query.</p>
+<p>Table level partition pruning uses table level predicate pushdown, on the other hand partition pruning at the query level uses query level predicate pushdown.</p>
+<p>Partition pruning is active when a <code class="codeph">SELECT</code> query is run, in which the <code class="codeph">WHERE</code> clause uses the partitioning key. Following is an example of partition pruning:</p>
+<p>To query the partition, where salary is in the above range and prune other partitions, perform the following:</p>
+<p>Hive External Table:</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE EmployeeDataPartitioned (
+ Emp_ID int,
+ First_Name string,
+ Last_Name string,
+ Job_Title string,
+ Salary int
+)
+STORED BY 'oracle.hcat.osh.OracleStorageHandler'
+WITH SERDEPROPERTIES (
+     'oracle.hcat.osh.columns.mapping' = 'Emp_ID,First_Name,Last_Name,Job_Title,Salary')
+TBLPROPERTIES (
+ 'mapreduce.jdbc.url' = '${hiveconf:connection_string}',
+ 'mapreduce.jdbc.username' = '${hiveconf:oracle_user}',
+ 'mapreduce.jdbc.password' = '${hiveconf:oracle_pwd}',
+ 'mapreduce.jdbc.input.table.name' = 'EmployeeData',
+ 'oracle.hcat.osh.oosKind' = 'PARTITIONED_TABLE'
+);
+</pre>
+<p>The following <code class="codeph">SELECT</code> statement shows how to query the partition, where salary is between 72000 to 78000, and prunes other partitions:</p>
+<pre dir="ltr">
+select * from EmployeeDataPartitioned where salary &gt; 72000 and salary &lt; 78000;
+</pre></div>
+</div>
+</div>
+<div class="sect3"><a id="GUID-A49A8B7F-34A2-4999-8610-9C3A1F1D453A"></a>
+<h3 id="BIGUG-GUID-A49A8B7F-34A2-4999-8610-9C3A1F1D453A" class="sect3"><span class="enumeration_section">6.4.2</span> Smart Connection Management</h3>
+<div>
+<div class="section">
+<p class="subhead3">Connection Caching</p>
+<p>Each map task runs in its own JVM. Each JVM in turn caches a single connection to the Oracle database that you can reuse within the same query. The Mapper checks the cache before establishing a new connection and caching is not done once the query has completed executing.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Oracle RAC Awareness</p>
+<p>JDBC and UCP are aware of various Oracle RAC instances. This can be used to split queries submitted to JDBC. The StorageHandler will depend on listener for load balancing.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Handling Logon Storms</p>
+<p>Hadoop allows you to limit the number of mappers attempting to connect to the Database. Hadoop allows you to limit the number of mappers attempting to connect to the Database using <code class="codeph">oracle.hcat.osh.maxSplits</code>. This parameter controls the degree of concurrency. However, subsequent tasks of the same query are guaranteed to query their table granule as per the System Commit Number (SCN) of the query. This ensures consistency of the result sets.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Database Resident Connection Pooling (DRCP)</p>
+<p>It is recommended to configure DRCP for OD4H, and limit the maximum number of concurrent connections to the Oracle Database from OD4H.</p>
+<div>Configuring Database Resident Connection Pooling
+<p>To configure DRCP, use the following steps:</p>
+<div class="p">
+<ol>
+<li>
+<p>Login as <code class="codeph">SYSDBA</code>.</p>
+</li>
+<li>
+<p>Start the default pool, <code class="codeph">SYS_DEFAULT_CONNECTION_POOL</code> using <code class="codeph">DBMS_CONNECTION_POOL.START_POOL</code> with the default settings.</p>
+<p>You can use <code class="codeph">DBMS_CONNECTION_POOL.MINSIZE</code> and <code class="codeph">DBMS_CONNECTION_POOL.MAXSIZE</code> with the default settings.</p>
+</li>
+</ol>
+<div class="infobox-note" id="GUID-A49A8B7F-34A2-4999-8610-9C3A1F1D453A__GUID-BD71AF4E-CAD3-4B20-A2C9-B5F6FBCF1F2B">
+<p class="notep1">Note:</p>
+<span class="italic">Oracle Database Administrator&rsquo;s Guide for more information on Configuring DRCP.</span></div>
+</div>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76812"></a>
+<div class="sect3"><a id="GUID-8C363FE9-86E7-4C6A-854E-690C45DFEDB5"></a>
+<h3 id="BIGUG-GUID-8C363FE9-86E7-4C6A-854E-690C45DFEDB5" class="sect3"><span class="enumeration_section">6.4.3</span> Security Features</h3>
+<div>
+<p>Following are the security features of OD4H:</p>
+</div>
+<a id="BIGUG76813"></a>
+<div class="sect4"><a id="GUID-1EA37F0D-175B-429D-9B71-91B6DA5EC505"></a>
+<h4 id="BIGUG-GUID-1EA37F0D-175B-429D-9B71-91B6DA5EC505" class="sect4"><span class="enumeration_section">6.4.3.1</span> Improved Authentication</h4>
+<div>
+<p>OD4H uses Oracle JDBC driver for connecting to Oracle Database. It provides all authentication methods supported by Oracle JDBC. OD4H supports authentication through use of basic authentication (username and password), Oracle Wallet, and Kerberos. You can specify the authentication to be used for a table created in Hive, through the <code class="codeph">oracle.hcat.osh.authentication</code> table property. This is useful only for strong authentication.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Kerberos</p>
+</li>
+<li>
+<p>Oracle Wallet</p>
+</li>
+<li>
+<p>Basic Authentication</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-1EA37F0D-175B-429D-9B71-91B6DA5EC505__GUID-9EF278C1-09FF-4B97-A27F-1717EDC725CD">
+<p class="notep1">Note:</p>
+Oracle recommends using strong authentication such as Kerberos.</div>
+<p>The various authentication processes are described with examples as follows:</p>
+<ol>
+<li>
+<p>Kerberos</p>
+<p>Uses Kerberos credentials of the Hadoop engine process. This <code class="codeph">principal</code> should have access to the table.</p>
+<div class="infoboxnotealso" id="GUID-1EA37F0D-175B-429D-9B71-91B6DA5EC505__GUID-99F15DDB-E1C0-4BCF-880A-F684C5F7C802">
+<p class="notep1">See Also:</p>
+<p><a href="https://docs.oracle.com/database/121/JJDBC/clntsec.htm#JJDBC28339" target="_blank"><span class="italic">Oracle Database JDBC Developer's Guide</span></a> for information on configuring database for Kerberos and details of client parameters</p>
+</div>
+<p>You can enable Kerberos configuration on Hive, by adding to <code class="codeph">hive-env.sh</code> the following:</p>
+<div class="p">
+<pre dir="ltr">
+export HADOOP_OPTS="$HADOOP_OPTS -Djava.security.krb5.conf=&lt;path to kerberos configuration&gt;
+</pre></div>
+<p>To enable child JVMs to use Kerberos configuration, edit the <code class="codeph">mapred-site.xml</code> to include the following property on all nodes of the cluster:</p>
+<pre dir="ltr">
+&lt;property&gt;&lt;name&gt;mapred.child.java.opts&lt;/name&gt;  &lt;value&gt;-Djava.security.krb5.conf=&lt;path to kerberos configuration&gt;&gt;&lt;/value&gt;&lt;/property&gt;
+</pre>
+<p>Enable these configurations on BDA using Cloudera manager..</p>
+<p>Following is an illustration of Kerberos authentication:</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE kerb_example (
+id DECIMAL,
+name STRING,
+salary DECIMAL
+)
+STORED BY 'oracle.hcat.osh.OracleStorageHandler'
+WITH SERDEPROPERTIES (
+                'oracle.hcat.osh.columns.mapping' = 'id,name,salary')
+TBLPROPERTIES (
+'mapreduce.jdbc.url' = 'jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)
+(HOST=adc*******.xxxxxx.com)(PORT=5521))(CONNECT_DATA=
+(SERVICE_NAME=project_name.xxx.rdbms.xxxx.com)))',
+'mapreduce.jdbc.input.table.name' = 'kerb_example',
+'mapreduce.jdbc.username' = 'CLIENT@xxxxxx.COM',
+'oracle.hcat.osh.authentication' = 'KERBEROS',
+'oracle.net.kerberos5_cc_name' = '/tmp/krb5cc_xxxxx',
+'java.security.krb5.conf' = '/home/user/kerberos/krb5.conf',
+'oracle.hcat.osh.kerb.callback' = 'KrbCallbackHandler',
+'sun.security.krb5.principal' = 'CLIENT@xxxxx.COM'
+);
+</pre>
+<p>The path specified in <code class="codeph">oracle.security.krb5.conf</code> should be accessible to all nodes of the cluster. These paths should also match with the path of the corresponding properties in Oracle Database <code class="codeph">sqlnet.ora.</code>The <code class="codeph">keytab</code> path provided in <code class="codeph">sqlnet.ora</code> should also be accessible from all nodes of the cluster.</p>
+<p>If <code class="codeph">sun.security.krb5.principal</code> is not specified, OD4H will attempt to authenticate using default principal in Credential Cache specified by the <code class="codeph">oracle.net.kerberos5_cc_name</code> property.</p>
+<div class="infobox-note" id="GUID-1EA37F0D-175B-429D-9B71-91B6DA5EC505__GUID-36BDE349-49FC-490F-B3F9-8520C8076C32">
+<p class="notep1">Note:</p>
+<p>The <code class="codeph">callback</code> will be called only if the <code class="codeph">principal</code> cannot be authenticated using a ticket obtained from the credential cache specified in <code class="codeph">oracle.net.kerberos5_cc_nameproperty</code>.</p>
+</div>
+<p>A simple callback handler class is described as follows (The callback class must be available to the hive classpath):</p>
+<pre dir="ltr">
+class KrbCallbackHandler 
+                implements CallbackHandler{
+
+@Override
+public void handle(Callback[] callbacks) throws IOException,
+                UnsupportedCallbackException{
+for (int i = 0; i &lt; callbacks.length; i++){
+        if (callbacks[i] instanceof PasswordCallback){
+        PasswordCallback pc = (PasswordCallback)callbacks[i];
+        System.out.println("set password to 'welcome'");
+        pc.setPassword((new String("welcome")).toCharArray());
+} else if (callbacks[i] instanceof NameCallback) {
+        ((NameCallback)callbacks[i]).setName("client@xxxxx.COM");
+}else{
+        throw new UnsupportedCallbackException(callbacks[i],
+                        "Unrecognized Callback");
+                }
+        }
+}
+</pre></li>
+<li>
+<p>Oracle Wallet</p>
+<p>The wallet should be available in the OS environment of each engine process. Following is an illustration of how to add Wallet authentication:</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE wallet_example (
+        id DECIMAL,
+        name STRING,
+        salary DECIMAL
+)
+STORED BY 'oracle.hcat.osh.OracleStorageHandler'
+WITH SERDEPROPERTIES (
+                'oracle.hcat.osh.columns.mapping' = 'id,name,salary')
+TBLPROPERTIES (
+'mapreduce.jdbc.url' = 'jdbc:oracle:thin:/@inst1',
+'mapreduce.jdbc.input.table.name' = 'wallet_example',
+'oracle.hcat.osh.authentication' = 'ORACLE_WALLET',
+'oracle.net.tns_admin' = '/scratch/user/view_storage/user_project6/work',
+'oracle.net.wallet_location' = '/scratch/user/view_storage/user_project6/work'
+);
+</pre>
+<div class="infobox-note" id="GUID-1EA37F0D-175B-429D-9B71-91B6DA5EC505__GUID-4BC74168-0146-46F2-97E6-AFAD4421DB09">
+<p class="notep1">Note:</p>
+The paths specified in <code class="codeph">oracle.net.tns_admin</code> and <code class="codeph">oracle.net.wallet_location</code> should be accessible from all nodes of the cluster.</div>
+<div class="infoboxnotealso" id="GUID-1EA37F0D-175B-429D-9B71-91B6DA5EC505__GUID-ACD8F898-4653-414C-AA73-5654D8F64378">
+<p class="notep1">See Also:</p>
+<p>Managing the Secure External Password Store for Password Credentials section in the <span class="italic">Oracle Database Security Guide</span>.</p>
+</div>
+</li>
+<li>
+<p>Basic Authentication (for demo purposes only)</p>
+<p>This is stored in HCatalog <code class="codeph">TBLPROPERTIES</code> or supplied on HiveQL <code class="codeph">SELECT</code> statement.</p>
+<p>When Basic Authentication is used, the username and password for Oracle Schema is specified in Hive external Table properties.</p>
+<div class="infobox-note" id="GUID-1EA37F0D-175B-429D-9B71-91B6DA5EC505__GUID-E4F978BD-88C4-4222-B919-EBC45E5F648F">
+<p class="notep1">Note:</p>
+<p>Oracle does not recommend this in the production environment, since the password is stored in clear in HCatalog.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<a id="BIGUG76814"></a>
+<div class="sect2"><a id="GUID-E0375007-D5C1-4CC9-A609-EEDDD9B8D543"></a>
+<h2 id="BIGUG-GUID-E0375007-D5C1-4CC9-A609-EEDDD9B8D543" class="sect2"><span class="enumeration_section">6.5</span> Using HiveQL with OD4H</h2>
+<div>
+<p>HiveQL is a SQL like language provided by Hive. It can be used to query hive external tables created using OD4H.</p>
+<p>You can run the Resource Manager web interface in your browser (<code class="codeph">http://bigdatalite.localdomain:8088/cluster</code>), to track the status of a running query on BDA.</p>
+<p>You can also see the logs of a query in Cloudera Manager, which also indicates the actual query sent to Oracle Database corresponding to your query on HiveQL. Hive and OD4H use slf4j framework for logging. You can control logging level for OD4H related classes using logging configuration techniques of Hive.</p>
+</div>
+</div>
+<a id="BIGUG76815"></a>
+<div class="sect2"><a id="GUID-620DA994-B8E2-4B5F-B566-626EEB905338"></a>
+<h2 id="BIGUG-GUID-620DA994-B8E2-4B5F-B566-626EEB905338" class="sect2"><span class="enumeration_section">6.6</span> Using Spark SQL with OD4H</h2>
+<div>
+<p>Spark SQL enables relational queries expressed in SQL and HiveSQL to be executed using Spark. Spark SQL allows you to mix SQL queries with programmatic data manipulations supported by RDDs (Resilient Distributed Datasets) in Java, Python and Scala, with a single application.</p>
+<p>Spark SQL enables you to submit relational queries using SQL or HiveQL. You can also use it to query external tables created using OD4H.</p>
+<p>Perform the following steps to configure Spark-SQL on BigDataLite-4.2 VM, before running queries:</p>
+<ol>
+<li>
+<p>Add <code class="codeph">ojdbc7.jar</code> and <code class="codeph">osh.jar</code> to CLASSPATH in <code class="codeph">/usr/lib/spark/bin/compute-classpath.sh</code></p>
+<pre dir="ltr">
+CLASSPATH="$CLASSPATH:/opt/oracle/od4h/lib/osh.jar"
+CLASSPATH="$CLASSPATH:/opt/oracle/od4h/lib/ojdbc7.jar"
+</pre></li>
+<li>
+<p>Edit <code class="codeph">SPARK_HOME</code> in <code class="codeph">/usr/lib/spark/conf/spark-env.sh</code></p>
+<pre dir="ltr">
+export SPARK_HOME=/usr/lib/spark:/etc/hive/conf
+</pre></li>
+<li>
+<p>You will need to specify additional environment variables in <code class="codeph">/usr/lib/spark/conf/spark-env.sh</code>.</p>
+<p>The Hive related variables that need to be added are marked in bold. The file already contains Hadoop related environment variables.</p>
+<pre dir="ltr">
+export DEFAULT_HADOOP=/usr/lib/hadoop
+<span class="bold">export DEFAULT_HIVE=/usr/lib/hive</span>
+export DEFAULT_HADOOP_CONF=/etc/hadoop/conf
+<span class="bold">export DEFAULT_HIVE_CONF=/etc/hive/conf</span>
+export HADOOP_HOME=${HADOOP_HOME:-$DEFAULT_HADOOP}
+export HADOOP_HDFS_HOME=${HADOOP_HDFS_HOME:-${HADOOP_HOME}/../hadoop-hdfs}
+export HADOOP_MAPRED_HOME=${HADOOP_MAPRED_HOME:-${HADOOP_HOME}/../hadoop-mapreduce}
+export HADOOP_YARN_HOME=${HADOOP_YARN_HOME:-${HADOOP_HOME}/../hadoop-yarn}
+export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-$DEFAULT_HADOOP_CONF}
+<span class="bold">export HIVE_CONF_DIR=${HIVE_CONF_DIR:-$DEFAULT_HIVE_CONF}</span>
+ 
+<span class="bold">CLASSPATH="$CLASSPATH:$HIVE_CONF_DIR"</span>
+CLASSPATH="$CLASSPATH:$HADOOP_CONF_DIR"
+ 
+if [ "x" != "x$YARN_CONF_DIR" ]; then
+  CLASSPATH="$CLASSPATH:$YARN_CONF_DIR"
+fi
+ 
+# Let's make sure that all needed hadoop libs are added properly
+CLASSPATH="$CLASSPATH:$HADOOP_HOME/client/*"
+<span class="bold">CLASSPATH="$CLASSPATH:$HIVE_HOME/lib/*"</span>
+CLASSPATH="$CLASSPATH:$($HADOOP_HOME/bin/hadoop classpath)"
+</pre></li>
+</ol>
+<p>Once configured, you can run some sample queries on spark SQL using scripts included in demo:<code class="codeph">/shell/*QuerySpark.sh</code>. By default, Spark prints queries on the console. To modify this behavior you can edit the spark logging configuration file <code class="codeph">/usr/lib/spark/conf/log4j.properties</code>.</p>
+<p>The log printed by OracleRecordReader shows the actual query sent to Oracle Database, as follows:</p>
+<p>15/03/18 10:36:08 <code class="codeph">INFO</code> OracleRecordReader: Reading records from Oracle Table using Query: <code class="codeph">SELECT</code> <code class="codeph">FIRST_NAME</code>, <code class="codeph">LAST_NAME</code>, <code class="codeph">EMP_ID</code> <code class="codeph">FROM</code> EmployeeData</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-E5ED8E3B-70C3-4100-AB00-EAE52F656303"></a>
+<h2 id="BIGUG-GUID-E5ED8E3B-70C3-4100-AB00-EAE52F656303" class="sect2"><span class="enumeration_section">6.7</span> Writing Back to Oracle Database</h2>
+<div>
+<p>In the typical use case for OD4H, you store the result sets of Hive or Spark SQL queries back to Oracle Database. OD4H implements OutputFormat to enable you to write back to an Oracle Database table from Hadoop.</p>
+<p>After the data is inserted into an Oracle Database table, you can then use your favorite business intelligence tools for further data mining</p>
+<p>The following query is from the OD4H demo code samples. It demonstrates writing back to an external table called EmployeeBonusReport.</p>
+<div class="example" id="GUID-E5ED8E3B-70C3-4100-AB00-EAE52F656303__GUID-87A8D22F-4689-4393-9504-CA88B739D348">
+<p class="titleinexample">Example 6-1 Writing Hive or Spark Result Sets Back to Oracle Database</p>
+<pre dir="ltr">
+INSERT INTO EmployeeBonusReport 
+             SELECT EmployeeDataSimple.First_Name, EmployeeDataSimple.Last_Name,
+                    EmployeeBonus.bonus 
+             FROM EmployeeDataSimple JOIN EmployeeBonus ON
+                        (EmployeeDataSimple.Emp_ID=EmployeeBonus.Emp_ID)
+             WHERE salary &gt; 70000 and bonus &gt; 7000"
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment126">
+<tr>
+<td class="cellalignment133">
+<table class="cellalignment131">
+<tr>
+<td class="cellalignment130"><a href="part-oracle-table-access.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment130"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment135">
+<table class="cellalignment129">
+<tr>
+<td class="cellalignment130"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment130"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment130"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment130"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment130"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

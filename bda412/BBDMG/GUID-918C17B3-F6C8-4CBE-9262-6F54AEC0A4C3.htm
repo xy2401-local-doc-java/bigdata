@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Managing Oracle Big Data Manager Users, Roles, and Access</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="An administrator must create Oracle Big Data Manager users at the command line. Once they&rsquo;ve been created, you can edit user details and manage access in the Oracle Big Data Manager console." />
+<meta name="dcterms.created" content="2018-07-02T14:42:41Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Manager User&rsquo;s Guide" />
+<meta name="dcterms.identifier" content="E96163-02" />
+<meta name="dcterms.isVersionOf" content="BBDMG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2018, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="GUID-30071367-E33E-48D5-A0AC-E2092408569C.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-9B6985A4-EDF5-415E-B2C2-28DDA1994E14.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BBDMG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-918C17B3-F6C8-4CBE-9262-6F54AEC0A4C3"></a> <span id="PAGE" style="display:none;">10/45</span> <!-- End Header -->
+<h1 id="BBDMG-GUID-918C17B3-F6C8-4CBE-9262-6F54AEC0A4C3" class="sect1"><span class="enumeration_section">2.3</span> Managing <span>Oracle Big Data Manager</span> Users, Roles, and Access</h1>
+<div>
+<p>An administrator must create <span>Oracle Big Data Manager</span> users at the command line. Once they&rsquo;ve been created, you can edit user details and manage access in the <span>Oracle Big Data Manager</span> console.</p>
+<div class="infobox-note" id="GUID-918C17B3-F6C8-4CBE-9262-6F54AEC0A4C3__GUID-3D86B323-15BF-4F53-9950-7C2FCDFEB9C8">
+<p class="notep1">Note:</p>
+<p>By default, the <code class="codeph">bigdatamgr</code> user is created and granted the administrator role in <span>Oracle Big Data Manager</span>. This user should be used to grant roles and register providers. The <code class="codeph">bigdatamgr</code> user has the same password as the Cloudera Manager administrator that was defined in <span class="wintitle">Create Instance</span> wizard when creating the cluster.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-C8DBEE6B-350F-4BDA-A920-463999E51FB8"></a>
+<h2 id="BBDMG-GUID-C8DBEE6B-350F-4BDA-A920-463999E51FB8" class="sect2"><span class="enumeration_section">2.3.1</span> Adding Oracle Big Data Manager Users</h2>
+<div>
+<p>An administrator must create Oracle Big Data Manager user accounts on the Linux command line. After creating a user account, the administrator can use the Oracle Big Data Manager console to edit user details and manage access.</p>
+<div class="section">To add a user:</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Open a command shell and use SSH to connect to a cluster node as the <code class="codeph">bigdatamgr</code> user (or another user with administration privileges).</span></li>
+<li class="stepexpand"><span>Open a <code class="codeph">root</code> shell:</span>
+<div>
+<pre dir="ltr">
+su -
+</pre></div>
+</li>
+<li class="stepexpand"><span>Export the new user&rsquo;s password to a password file:</span>
+<div>
+<pre dir="ltr">
+<span class="variable">user_password</span> &gt; <span class="variable">user_password_file</span>
+chmod 600 <span class="variable">user_password_file</span>
+</pre>
+<p>where:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph"><span class="variable">user_password</span></code> is the password for the new user.</p>
+</li>
+<li>
+<p><code class="codeph"><span class="variable">user_password_file</span></code> is the password file for the new user. This file must have permissions <code class="codeph">600</code>.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-C8DBEE6B-350F-4BDA-A920-463999E51FB8__GUID-536ACFA8-34C6-4E38-814D-CD3C5AE3474F">
+<p class="notep1">Note:</p>
+<p>It is a safer practice to define the user password as an environment variable and then pass that value to the command. When the value is passed as the value of the environment variable, the actual value won't be visible in the bash history. In this case, use the following, instead of the commands listed above.</p>
+<pre dir="ltr">
+echo ${<span class="variable">USER_PASSWORD</span>}&gt;${<span class="variable">USER_PASSWORD_FILE</span>}
+chmod 600 ${<span class="variable">USER_PASSWORD_FILE</span>}
+</pre>
+<p>where:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph"><span class="variable">USER_PASSWORD</span></code> is the environment variable containing the value of the password for the new user. The name of the environment variable can be any valid environment variable name.</p>
+</li>
+<li>
+<p><code class="codeph"><span class="variable">USER_PASSWORD_FILE</span></code> is the environment variable containing the value of the password file for the new user. The name of the environment variable can be any valid environment variable name. This file has to have permissions <code class="codeph">600</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="stepexpand"><span>Add the user and create a home directory for the user in the cluster&rsquo;s HDFS file system:</span>
+<div>
+<pre dir="ltr">
+/usr/bin/bdm-add-user--create-hdfs-home <span class="variable">new_user</span> <span class="variable">user_password_file</span>
+</pre>
+<p>where <code class="codeph"><span class="variable">new_user</span></code> is the new user name.</p>
+</div>
+</li>
+<li class="stepexpand"><span>On the node where <span>Oracle Big Data Manager</span> runs, enter the following command to restart <span>Oracle Big Data Manager</span>. This reloads the user configuration from the database.</span>
+<div>
+<pre dir="ltr">
+service bigdatamanager restart
+</pre>
+<div class="infobox-note" id="GUID-C8DBEE6B-350F-4BDA-A920-463999E51FB8__GUID-DAB3E98D-D284-4FC1-B32D-6E2818607AD5">
+<p class="notep1">Note:</p>
+On Oracle Big Data Appliance, Oracle Big Data Manager is by default hosted on the same node as Cloudera Manager and is accessed on port <code class="codeph">8890</code>..</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2"><a id="GUID-DF02B11F-2388-40A5-946C-4C3185D616CE"></a>
+<h2 id="BBDMG-GUID-DF02B11F-2388-40A5-946C-4C3185D616CE" class="sect2"><span class="enumeration_section">2.3.2</span> Editing User Details and Managing Roles</h2>
+<div>
+<p>A user with administrator privileges can edit user details and manage roles in the <span>Oracle Big Data Manager</span> console.</p>
+<div class="section">To access and modify user details and manage user roles:</div>
+<!-- class="section" -->
+<ol>
+<li><span>Sign in to the <span>Oracle Big Data Manager</span> console as the <code class="codeph">bigdatamgr</code> user, or as another user with administrator privileges..</span></li>
+<li><span>Click <span class="bold">Administration</span> at the top of the page to open the <span class="wintitle">Administration</span> page.</span></li>
+<li><span>Click <span class="bold">Users</span> on the left of the page to show the list of users that have been added.</span></li>
+<li><span>Edit details as needed.</span></li>
+</ol>
+</div>
+</div>
+<div class="sect2"><a id="GUID-0E9D6104-AA4F-4ADF-A655-BB6BA3FBEFE0"></a>
+<h2 id="BBDMG-GUID-0E9D6104-AA4F-4ADF-A655-BB6BA3FBEFE0" class="sect2"><span class="enumeration_section">2.3.3</span> Controlling Access to Specific Providers</h2>
+<div>
+<p>A user with administrator privileges can control access to storage containers.</p>
+<div class="section">
+<div class="infobox-note" id="GUID-0E9D6104-AA4F-4ADF-A655-BB6BA3FBEFE0__GUID-8513F851-D98E-4B36-9C88-EEF74829BD46">
+<p class="notep1">Note:</p>
+When a new cluster is created, the <code class="codeph">bigdatamgr</code> user is created and granted the <span>Oracle Big Data Manager</span> Administrator role.</div>
+<p>To control access to storage containers:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Sign into the Oracle Big Data Manager console as the <code class="codeph">bigdatamgr</code> user, or another user with administrator privileges.</span></li>
+<li><span>Click <span class="bold">Administration</span> at the top of the page to open the <span class="wintitle">Administration</span> page.</span></li>
+<li><span>Click <span class="bold">Storages</span> on the left of the page to show a list of registered storage providers.</span></li>
+<li><span>Click the menu icon to the right of the provider you are providing access to, and select <span class="bold">Manage Users</span>.</span></li>
+<li><span>Use the arrows to move users from the left panel to the right panel to create an access list of users who will be able to see that provider in the web application. This doesn&rsquo;t give Write access to the storage. Users must have appropriate permissions to work with data in the provider.</span></li>
+</ol>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="GUID-30071367-E33E-48D5-A0AC-E2092408569C.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="GUID-9B6985A4-EDF5-415E-B2C2-28DDA1994E14.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2018, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,3760 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using the In-Memory Analyst (PGX)</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2017-04-07T08:21:39Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Spatial and Graph User&rsquo;s Guide and Reference" />
+<meta name="dcterms.identifier" content="E67958-10" />
+<meta name="dcterms.isVersionOf" content="BDSPA" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda48/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="using-property-graphs-big-data.htm" title="Previous" type="text/html" />
+<link rel="Next" href="using-multimedia-analytics.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDSPA.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-9270CEE3-9314-4724-BCFB-CCCF941D4230"></a> <span id="PAGE" style="display:none;">12/15</span> <!-- End Header -->
+<a id="BDSPA264"></a>
+<h1 id="BDSPA-GUID-9270CEE3-9314-4724-BCFB-CCCF941D4230" class="sect1"><span class="enumeration_chapter">6</span> Using the In-Memory Analyst (PGX)</h1>
+<div>
+<p>The in-memory analyst feature of Oracle Spatial and Graph supports a set of analytical functions.</p>
+<p>This chapter provides examples using the in-memory analyst (also referred to as Property Graph In-Memory Analytics, and often abbreviated as PGX in the Javadoc, command line, path descriptions, error messages, and examples). It contains the following major topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-78C0C625-D737-458E-9A7A-A1FA4169FF76">Reading a Graph into Memory</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-D94BB96B-D869-400E-ACD4-D90B42591F90">Configuring the In-Memory Analyst</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-9624C4F8-4169-4506-B84B-7DAAABDF0D56">Reading Custom Graph Data</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-298446DB-6397-48DF-BBE8-B1CEFCBB8C6C">Storing Graph Data on Disk</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-86A8173D-CD09-478B-B9D3-C0EB00A7374C">Executing Built-in Algorithms</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-066BC440-E42F-49E0-B605-8306F0801FA4">Creating Subgraphs</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-96D9C0AA-CE52-48E6-A09E-D97E872A79A1">Using Pattern-Matching Queries with Graphs</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-57ADFFAE-3520-4F6A-871D-5B8D2C31854B">Starting the In-Memory Analyst Server</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-A7FCA21B-F26A-4DF3-A906-C78E2274117B">Deploying to Jetty</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-FF212462-41EE-4003-B25B-26E6B9B055CF">Deploying to Apache Tomcat</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-B70BD7A8-C34C-4B12-B36F-DE2CD9A107C2">Deploying to Oracle WebLogic Server</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-D7A6A8E7-5C99-4495-A2A8-F4B36462183A">Connecting to the In-Memory Analyst Server</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-A8AABE4E-78A7-4555-8517-A15623D7D9F0">Using the In-Memory Analyst in Distributed Mode</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-3410C21E-DE4C-4620-93F4-E0FA068F74B2">Reading and Storing Data in HDFS</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-C9B538F8-D956-46F8-8714-3609C66CA802">Running the In-Memory Analyst as a YARN Application</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-F1275F1F-6FA8-4B37-ACD7-BDF6CFEF5E6F">Using Oracle Two-Tables Relational Format</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-286D11B2-5A66-4072-808D-8FA569DDCC4A">Using the In-Memory Analyst to Analyze Graph Data in Apache Spark</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-C46BBFC0-EDDB-43E9-B313-56472404483A">Using the In-Memory Analyst Zeppelin Interpreter</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-722CE294-EBB0-4893-8AF8-D5D3887C1A90">Using the In-Memory Analyst Enterprise Scheduler</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA265"></a>
+<div class="props_rev_3"><a id="GUID-78C0C625-D737-458E-9A7A-A1FA4169FF76"></a>
+<h2 id="BDSPA-GUID-78C0C625-D737-458E-9A7A-A1FA4169FF76" class="sect2"><span class="enumeration_section">6.1</span> Reading a Graph into Memory</h2>
+<div>
+<p>This topic provides an example of reading graph interactively into memory using the shell interface. These are the major steps:</p>
+<ol>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-336400CA-1316-4A78-BD3E-39F3084F4C1C">Connecting to an In-Memory Analyst Server Instance</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-EB130544-3489-4EA7-9552-B8F7B5AE7C8C">Using the Shell Help</a> (as needed)</p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF">Providing Graph Metadata in a Configuration File</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-147E545D-CB0B-479A-8D7F-D36CF2064A45">Reading Graph Data into Memory</a></p>
+</li>
+</ol>
+</div>
+<a id="BDSPA266"></a>
+<div class="props_rev_3"><a id="GUID-336400CA-1316-4A78-BD3E-39F3084F4C1C"></a>
+<h3 id="BDSPA-GUID-336400CA-1316-4A78-BD3E-39F3084F4C1C" class="sect3"><span class="enumeration_section">6.1.1</span> Connecting to an In-Memory Analyst Server Instance</h3>
+<div>
+<div class="section">
+<p>To start the in-memory analyst:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Open a terminal session on the system where property graph support is installed.</span></li>
+<li class="stepexpand"><span>In the shell, enter the following commands, but select only one of the commands to start or connect to the desired type of instance:</span>
+<div>
+<pre dir="ltr">
+cd $PGX_HOME
+./bin/pgx --help
+./bin/pgx --version
+ 
+# start embedded shell
+./bin/pgx
+ 
+# start remote shell
+./bin/pgx --base_url http://my-server.com:8080/pgx
+</pre>
+<p>For the embedded shell, the output should be similar to the following:</p>
+<pre dir="ltr">
+10:43:46,666 [main] INFO Ctrl$2 - &gt;&gt;&gt; PGX engine running.
+pgx&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Optionally, show the predefined variables:</span>
+<div>
+<pre dir="ltr">
+pgx&gt; instance
+==&gt; ServerInstance[embedded=true]
+pgx&gt; session
+==&gt; PgxSession[ID=ab9bdc1d-3401-460c-b1cf-5ef97ec5c5f9,source=pgxShell]
+pgx&gt; analyst
+==&gt; NamedArgumentAnalyst[session=ab9bdc1d-3401-460c-b1cf-5ef97ec5c5f9]
+pgx&gt;
+</pre>
+<p>Examples in some other topics assume that the instance and session variables have been set as shown here.</p>
+</div>
+</li>
+</ol>
+<div class="section">
+<p>If the in-memory analyst software is installed correctly, you will see an engine-running log message and the in-memory analyst shell prompt (<code class="codeph">pgx&gt;</code>):</p>
+<p>The variables <code class="codeph">instance</code>, <code class="codeph">session</code>, and <code class="codeph">analyst</code> are ready to use.</p>
+<p>In the preceding example in this topic, the shell started a local instance because the <code class="codeph">pgx</code> command did not specify a remote URL.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA267"></a>
+<div class="props_rev_3"><a id="GUID-EB130544-3489-4EA7-9552-B8F7B5AE7C8C"></a>
+<h3 id="BDSPA-GUID-EB130544-3489-4EA7-9552-B8F7B5AE7C8C" class="sect3"><span class="enumeration_section">6.1.2</span> Using the Shell Help</h3>
+<div>
+<p>The in-memory analyst shell provides a help system, which you access using the <code class="codeph">:help</code> command.</p>
+</div>
+</div>
+<a id="BDSPA269"></a><a id="BDSPA268"></a>
+<div class="props_rev_3"><a id="GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF"></a>
+<h3 id="BDSPA-GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF" class="sect3"><span class="enumeration_section">6.1.3</span> Providing Graph Metadata in a Configuration File</h3>
+<div>
+<p>An example graph is included in the installation directory, under <code class="codeph">/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/</code>. It uses a configuration file that describes how the in-memory analyst reads the graph.</p>
+<pre dir="ltr">
+pgx&gt; <span class="bold">cat /opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json</span> 
+===&gt; {
+  "uri": "sample.adj", 
+  "format": "adj_list",
+  "node_props": [{ 
+    "name": "prop", 
+    "type": "integer" 
+  }],
+  "edge_props": [{ 
+    "name": "cost", 
+    "type": "double" 
+  }],
+  "separator": " "
+}
+</pre>
+<p>The <code class="codeph">uri</code> field provides the location of the graph data. This path resolves relative to the parent directory of the configuration file. When the in-memory analyst loads the graph, it searches the <code class="codeph">examples/graphs</code> directory for a file named <code class="codeph">sample.adj</code>.</p>
+<p>The other fields indicate that the graph data is provided in adjacency list format, and consists of one node property of type <code class="codeph">integer</code> and one edge property of type <code class="codeph">double</code>.</p>
+<p>This is the graph data in adjacency list format:</p>
+<pre dir="ltr">
+pgx&gt; <span class="bold">cat /opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj</span>
+===&gt; 128 10 1908 27.03 99 8.51 
+99 2 333 338.0
+1908 889
+333 6 128 51.09
+</pre>
+<p><a href="using-in-memory-analyst.htm#GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF__BABFEEHB">Figure 6-1</a> shows a property graph created from the data:</p>
+<div class="figure" id="GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF__BABFEEHB">
+<p class="titleinfigure">Figure 6-1 Property Graph Rendered by sample.adj Data</p>
+<img width="444" height="368" src="img/GUID-BF24D79B-BA58-4F39-81ED-6131C142D046-default.png" alt="Description of Figure 6-1 follows" title="Description of Figure 6-1 follows" /><br />
+<a href="img_text/GUID-BF24D79B-BA58-4F39-81ED-6131C142D046-default.htm">Description of "Figure 6-1 Property Graph Rendered by sample.adj Data"</a></div>
+<!-- class="figure" --></div>
+</div>
+<a id="BDSPA270"></a>
+<div class="props_rev_3"><a id="GUID-147E545D-CB0B-479A-8D7F-D36CF2064A45"></a>
+<h3 id="BDSPA-GUID-147E545D-CB0B-479A-8D7F-D36CF2064A45" class="sect3"><span class="enumeration_section">6.1.4</span> Reading Graph Data into Memory</h3>
+<div>
+<p>To read a graph into memory, you must pass the following information:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The path to the graph configuration file that specifies the graph metadata</p>
+</li>
+<li>
+<p>A unique alphanumeric name that you can use to reference the graph</p>
+<p>An error results if you previously loaded a different graph with the same name.</p>
+</li>
+</ul>
+<p>To specify the path to the file:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If the vertices and edges are specified in one file, use <code class="codeph">uri</code>:</p>
+<pre dir="ltr">
+{ "uri": "path/to/file.format", ...}
+</pre></li>
+<li>
+<p>To specify multiple files (for example, ADJ_LIST, EDGE_LIST), use <code class="codeph">uris</code>:</p>
+<pre dir="ltr">
+{ "uris": ["file1.format", "file2.format"] ...}
+</pre>
+<p>Note that most plain-text formats can be parsed in parallel by thee in-memory analyst.</p>
+</li>
+<li>
+<p>If the file format is different depending on whether it contains vertices or edges (for example, FLAT_FILE, TWO_TABLES), use <code class="codeph">vertex_uris</code> and <code class="codeph">edge_uris</code>:</p>
+<pre dir="ltr">
+{ "vertex_uris": ["vertices1.format", "vertices2.format"], "edge_uris": ["edges1.format", "edges2.format"] ...}
+</pre></li>
+</ul>
+<p><span class="bold">Supported File System</span>s</p>
+<p>The in-memory analyst supports loading from graph configuration files and graph data files over various protocols and virtual file systems. The type of file system or protocol is determined by the scheme of the uniform resource identifier (URI):</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Local file system (<code class="codeph">file:</code>). This is also the default if the given URI does not contain any scheme.</p>
+</li>
+<li>
+<p>classpath (<code class="codeph">classpath:</code>&nbsp;or&nbsp;<code class="codeph">res:</code>)</p>
+</li>
+<li>
+<p>HDFS (<code class="codeph">hdfs:</code>)</p>
+</li>
+<li>
+<p>HTTP (<code class="codeph">http:</code>&nbsp;or&nbsp;<code class="codeph">https:</code>)</p>
+</li>
+<li>
+<p>Various archive formats (<code class="codeph">zip:</code>,&nbsp;<code class="codeph">jar:</code>,&nbsp;<code class="codeph">tar:</code>,&nbsp;<code class="codeph">tgz:</code>,&nbsp;<code class="codeph">tbz2:</code>,&nbsp;<code class="codeph">gz:</code>,&nbsp;and&nbsp;<code class="codeph">bz2:</code>)</p>
+<p>The URI format is <code class="codeph">scheme://arch-file-uri[!absolute-path]</code>. For example: <code class="codeph">jar:../lib/classes.jar!/META-INF/graph.json</code></p>
+<p>Paths may be nested. For example: <code class="codeph">tar:gz:http://anyhost/dir/mytar.tar.gz!/mytar.tar!/path/in/tar/graph.data</code></p>
+<p>To use the exclamation point (!) as a literal file-name character, it must be escaped using: <code class="codeph">%21;</code></p>
+</li>
+</ul>
+<p>Note that relative paths are always resolved relative to the parent directory of the configuration file.</p>
+<p><span class="bold">Example: Using the Shell to Read a Graph</span></p>
+<pre dir="ltr">
+pgx&gt; graph = session.readGraphWithProperties("/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json", "sample");
+==&gt; PgxGraph[name=sample,N=4,E=4,created=1476225669037]
+pgx&gt; graph.getNumVertices()
+==&gt; 4
+</pre>
+<p><span class="bold">Example: Using Java to Read a Graph</span></p>
+<pre dir="ltr">
+import oracle.pgx.api.*;
+
+ServerInstance instance = Pgx.getInstance(Pgx.EMBEDDED_URL); 
+// ServerInstance instance = Pgx.getInstance("http://my-server:7007"); // remote instance 
+PgxSession session = instance.createSession("my-session");
+PgxGraph graph = session.readGraphWithProperties("/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json");
+</pre>
+<p><span class="bold">Example: Using JavaScript to Read a Graph</span></p>
+<pre dir="ltr">
+const pgx = require('oracle-pgx-client');
+let p = pgx.connect("http://my-server:7007");
+let json = {
+  "uri": "sample.adj", 
+  "format": "adj_list",
+  "node_props": [{ 
+    "name": "prop", 
+    "type": "integer" 
+  }],
+  "edge_props": [{ 
+    "name": "cost", 
+    "type": "double" 
+  }],
+  "separator": " "
+}
+
+p.then(function(session) {
+  return session.readGraphWithProperties(json);
+}).then(function(graph) {       
+  // do something with graph
+});
+</pre>
+<p>The following topics contain additional examples of reading a property graph into memory:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-E5F36137-663D-46E4-94E0-0004B8D55733">Read a Graph Stored in Apache HBase into Memory</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-FF0CD115-90C1-4534-A25C-A78C3E94DA51">Read a Graph Stored in Oracle NoSQL Database into Memory</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-7408ACE8-2A0A-474D-9386-821CEB1C862E">Read a Graph Stored in the Local File System into Memory</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA375"></a>
+<div class="props_rev_3"><a id="GUID-E5F36137-663D-46E4-94E0-0004B8D55733"></a>
+<h4 id="BDSPA-GUID-E5F36137-663D-46E4-94E0-0004B8D55733" class="sect4"><span class="enumeration_section">6.1.4.1</span> Read a Graph Stored in Apache HBase into Memory</h4>
+<div>
+<p>To read a property graph stored in Apache HBase, you can create a JSON based configuration file as follows. Note that the quorum, client port, graph name, and other information must be customized for your own setup.</p>
+<pre dir="ltr">
+% cat /tmp/my_graph_hbase.json
+{
+  "format": "pg",
+  "db_engine": "hbase",
+  "zk_quorum": "scaj31bda07,scaj31bda08,scaj31bda09",
+  "zk_client_port": 2181,
+  "name": "connections",
+  "node_props": [{
+    "name": "country",
+    "type": "string"
+  }],
+
+  "edge_props": [{
+    "name": "label",
+    "type": "string"
+  }, {
+    "name": "weight",
+    "type": "float"
+  }],
+  "loading": {
+    "load_edge_label": true
+  }
+}
+EOF
+</pre>
+<p>With the following command, the property graph <code class="codeph">connections</code> will be read into memory:</p>
+<pre dir="ltr">
+pgx&gt; session.readGraphWithProperties("/tmp/my_graph_hbase.json", "connections")
+==&gt; PGX Graph named connections ...
+</pre>
+<p>Note that when dealing with a large graph, it may become necessary to tune parameters like number of IO workers, number of workers for analysis, task timeout, and others. See <a href="using-in-memory-analyst.htm#GUID-D94BB96B-D869-400E-ACD4-D90B42591F90">Configuring the In-Memory Analyst</a>.</p>
+</div>
+</div>
+<a id="BDSPA376"></a>
+<div class="props_rev_3"><a id="GUID-FF0CD115-90C1-4534-A25C-A78C3E94DA51"></a>
+<h4 id="BDSPA-GUID-FF0CD115-90C1-4534-A25C-A78C3E94DA51" class="sect4"><span class="enumeration_section">6.1.4.2</span> Read a Graph Stored in Oracle NoSQL Database into Memory</h4>
+<div>
+<p>To read a property graph stored in Oracle NoSQL Database, you can create a JSON based configuration file as follows. Note that the hosts, store name, graph name, and other information must be customized for your own setup.</p>
+<pre dir="ltr">
+% cat /tmp/my_graph_nosql.json
+{
+  "format": "pg",
+  "db_engine": "nosql",
+  "hosts": [
+    "zathras01:5000"
+  ],
+  "store_name": "kvstore",
+  "name": "connections",
+  "node_props": [{
+    "name": "country",
+    "type": "string"
+  }],
+  "loading": { 
+    "load_edge_label": true
+  },
+  "edge_props": [{
+    "name": "label",
+    "type": "string"
+  }, {
+    "name": "weight",
+    "type": "float"
+  }]
+}
+</pre>
+<p>Then, read the configuration file into memory. The following example snippet read the file into memory, generates an undirected graph (named <code class="codeph">U</code>) from the original data, and counts the number of triangles.</p>
+<pre dir="ltr">
+pgx&gt; g = session.readGraphWithProperties("/tmp/my_graph_nosql.json", "connections")
+pgx&gt; analyst.countTriangles(g, false)
+==&gt; 8
+</pre></div>
+</div>
+<a id="BDSPA377"></a>
+<div class="props_rev_3"><a id="GUID-7408ACE8-2A0A-474D-9386-821CEB1C862E"></a>
+<h4 id="BDSPA-GUID-7408ACE8-2A0A-474D-9386-821CEB1C862E" class="sect4"><span class="enumeration_section">6.1.4.3</span> Read a Graph Stored in the Local File System into Memory</h4>
+<div>
+<p>The following command uses the configuration file from <span class="q">"<a href="using-in-memory-analyst.htm#GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF">Providing Graph Metadata in a Configuration File</a>"</span> and the name <code class="codeph">my-graph</code>:</p>
+<pre dir="ltr">
+pgx&gt; g = session.readGraphWithProperties("/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json", "my-graph")
+</pre></div>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-D94BB96B-D869-400E-ACD4-D90B42591F90"></a>
+<h2 id="BDSPA-GUID-D94BB96B-D869-400E-ACD4-D90B42591F90" class="sect2"><span class="enumeration_section">6.2</span> Configuring the In-Memory Analyst</h2>
+<div>
+<p>You can configure the in-memory analyst engine and its run-time behavior by assigning a single JSON file to the in-memory analyst at startup. This file can include the parameters shown in the following table. Some examples follow the table.</p>
+<p>To specify the specify the configuration file, see <a href="using-in-memory-analyst.htm#GUID-E2B0CF5A-75D5-44CC-BDDC-40FAD21E3777">Specifying the Configuration File to the In-Memory Analyst</a>.</p>
+<div class="infobox-note" id="GUID-D94BB96B-D869-400E-ACD4-D90B42591F90__GUID-6CF9765E-78D8-433B-A273-253FFDAC4C2A">
+<p class="notep1">Note:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Relative paths in parameter values are always resolved relative to the configuration file in which they are specified. For example, if the configuration file is <code class="codeph">/pgx/conf/pgx.conf</code> and if a file in a parameter value is specified as <code class="codeph">graph-configs/my-graph.bin.json</code>, then the file path is resolved to <code class="codeph">/pgx/conf/graph-configs/my-graph.bin.json</code>.</p>
+</li>
+<li>
+<p>The parameter default values are optimized to deliver the best performance across a wide set of algorithms. Depending on your workload. you may be able to improve performance further by experimenting with different strategies, sizes, and thresholds.</p>
+</li>
+</ul>
+</div>
+<div class="tblformal" id="GUID-D94BB96B-D869-400E-ACD4-D90B42591F90__GUID-6F883788-CEF5-42AE-8CA1-34C8DE70BF75">
+<p class="titleintable">Table 6-1 Configuration Parameters for the In-Memory Analyst</p>
+<table class="cellalignment327" title="Configuration Parameters for the In-Memory Analyst" summary="Table of parameters for configuring the in-memory analyst. The columns are Parameter, Type, Description, and Default.">
+<thead>
+<tr class="cellalignment321">
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e875">Parameter</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e878">Type</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e881">Description</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e884">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e889" headers="d32131e875">
+<p>admin_request_cache_timeout</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e889 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e889 d32131e881">
+<p>After how many seconds admin request results get removed from the cache. Requests which are not done or not yet consumed are excluded from this timeout. Note: this is only relevant if PGX is deployed as a webapp.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e889 d32131e884">
+<p>60</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e902" headers="d32131e875">
+<p>allow_idle_timeout_overwrite</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e902 d32131e878">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e902 d32131e881">
+<p>If&nbsp;true, sessions can overwrite the default idle timeout.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e902 d32131e884">
+<p>true</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e915" headers="d32131e875">
+<p>allow_local_filesystem</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e915 d32131e878">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e915 d32131e881">
+<p><span class="italic">(This flag reduces security, enable it only if you know what you're doing!)</span>&nbsp;Allow loading from local filesystem, if in client/server mode. WARNING: This should only be enabled if you want to explicitly allow users of the PGX remote interface to access files on the local file system.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e915 d32131e884">
+<p>false</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e930" headers="d32131e875">
+<p>allow_task_timeout_overwrite</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e930 d32131e878">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e930 d32131e881">
+<p>If&nbsp;true, sessions can overwrite the default task timeout</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e930 d32131e884">
+<p>true</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e943" headers="d32131e875">
+<p>allow_user_auto_refresh</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e943 d32131e878">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e943 d32131e881">
+<p>If&nbsp;true,&nbsp;users may enable auto refresh for graphs they load. If&nbsp;false,&nbsp;only graphs mentioned in&nbsp;graphs&nbsp;can have auto refresh enabled.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e943 d32131e884">
+<p>false</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e956" headers="d32131e875">
+<p>bfs_iterate_que_task_size</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e956 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e956 d32131e881">
+<p>Task size for BFS iterate QUE phase.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e956 d32131e884">
+<p>128</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e969" headers="d32131e875">
+<p>bfs_threshold_read_based</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e969 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e969 d32131e881">
+<p>Threshold of BFS traversal level items to switch to read-based visiting strategy.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e969 d32131e884">
+<p>1024</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e982" headers="d32131e875">
+<p>bfs_threshold_single_threaded</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e982 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e982 d32131e881">
+<p>Until what number of BFS traversal level items vertices are visited single-threaded.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e982 d32131e884">
+<p>128</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e995" headers="d32131e875">
+<p>cctrace</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e995 d32131e878">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e995 d32131e881">
+<p>If&nbsp;true,&nbsp;log every call to a Control or Core interface.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e995 d32131e884">
+<p>false</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1008" headers="d32131e875">
+<p>cctrace_out</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1008 d32131e878">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1008 d32131e881">
+<p><span class="italic">[relevant for&nbsp;</span><span class="italic">cctrace</span><span class="italic">]</span>&nbsp;When cctrace is enabled, specifies a path to a file where cctrace should log to. If&nbsp;null,&nbsp;it will log to stderr. If it is the special value&nbsp;:log:&nbsp;it will use the default PGX logging facility</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1008 d32131e884">
+<p>null</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1027" headers="d32131e875">
+<p>character_set</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1027 d32131e878">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1027 d32131e881">
+<p>Standard character set to use throughout PGX. UTF-8 is the default. Note: Some formats may not be compatible.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1027 d32131e884">
+<p>utf-8</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1041" headers="d32131e875">
+<p>cni_diff_factor_default</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1041 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1041 d32131e881">
+<p>Default diff factor value used in the common neighbor iterator implementations.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1041 d32131e884">
+<p>8</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1054" headers="d32131e875">
+<p>cni_small_default</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1054 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1054 d32131e881">
+<p>Default value used in the common neighbor iterator implementations, to indicate below which threshold a subarray is considered small.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1054 d32131e884">
+<p>128</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1067" headers="d32131e875">
+<p>cni_stop_recursion_default</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1067 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1067 d32131e881">
+<p>Default value used in the common neighbor iterator implementations, to indicate the minimum size where the binary search approach is applied.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1067 d32131e884">
+<p>96</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1080" headers="d32131e875">
+<p>dfs_threshold_large</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1080 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1080 d32131e881">
+<p>Value that determines at which number of visited vertices the DFS implementation will switch to data structures that are optimized for larger numbers of vertices.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1080 d32131e884">
+<p>4096</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1093" headers="d32131e875">
+<p>enable_csrf_token_checks</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1093 d32131e878">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1093 d32131e881">
+<p>If true, the PGX webapp will verify the Cross-Site Request Forgery (CSRF) token cookie and request parameters sent by the client exist and match. This is to prevent CSRF attacks.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1093 d32131e884">
+<p>true</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1106" headers="d32131e875">
+<p>enable_solaris_studio_labeling</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1106 d32131e878">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1106 d32131e881">
+<p><span class="italic">[relevant when profiling with&nbsp;</span><span class="italic">solaris studio</span><span class="italic">]</span>&nbsp;When enabled, label experiments using the 'er_label' command.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1106 d32131e884">
+<p>false</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1125" headers="d32131e875">
+<p>explicit_spin_locks</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1125 d32131e878">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1125 d32131e881">
+<p>true&nbsp;means spin explicitly in a loop until lock becomes available.&nbsp;false&nbsp;means using JDK locks which rely on the JVM to decide whether to context switch or spin. Setting this value to&nbsp;true usually results in better performance.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1125 d32131e884">
+<p>true</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1138" headers="d32131e875">
+<p>graphs</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1138 d32131e878">
+<p>array of string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1138 d32131e881">
+<p>List of paths to graph configurations to be registered at startup.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1138 d32131e884">
+<p>[]</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1151" headers="d32131e875">
+<p>max_active_sessions</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1151 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1151 d32131e881">
+<p>Maximum number of sessions allowed to be active at a time.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1151 d32131e884">
+<p>1024</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1164" headers="d32131e875">
+<p>max_off_heap_size</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1164 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1164 d32131e881">
+<p>Maximum amount of off-heap memory (in megabytes) that PGX is allowed to allocate before an OutOfMemoryError will be thrown. Note: this limit is not guaranteed to never be exceeded, because of rounding and synchronization trade-offs. It only serves as threshold when PGX starts to reject new memory allocation requests.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1164 d32131e884">
+<p>&lt;available-physical-memory&gt;</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1177" headers="d32131e875">
+<p>max_queue_size_per_session</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1177 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1177 d32131e881">
+<p>The maximum number of pending tasks allowed to be in the queue, per session. If a session reaches the maximum, new incoming requests of that sesssion get rejected. A negative value means no limit.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1177 d32131e884">
+<p>-1</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1191" headers="d32131e875">
+<p>max_snapshot_count</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1191 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1191 d32131e881">
+<p>Number of snapshots that may be loaded in the engine at the same time. New snapshots can be created via auto or forced update. If the number of snapshots of a graph reaches this threshold, no more auto-updates will be performed, and a forced update will result in an exception until one or more snapshots are removed from memory. A value of zero indicates to support an unlimited amount of snapshots.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1191 d32131e884">
+<p>0</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1204" headers="d32131e875">
+<p>memory_cleanup_interval</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1204 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1204 d32131e881">
+<p>Memory cleanup interval in seconds.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1204 d32131e884">
+<p>600</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1217" headers="d32131e875">
+<p>ms_bfs_frontier_type_strategy</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1217 d32131e878">
+<p>enum[auto_grow, short, int]</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1217 d32131e881">
+<p>The type strategy to use for MS-BFS frontiers.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1217 d32131e884">
+<p>auto_grow</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1230" headers="d32131e875">
+<p>num_spin_locks</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1230 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1230 d32131e881">
+<p>Number of spin locks each generated app will create at instantiation. Trade-off: a small number implies less memory consumption; a large number implies faster execution (if algorithm uses spin locks).</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1230 d32131e884">
+<p>1024</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1243" headers="d32131e875">
+<p>num_workers_analysis</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1243 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1243 d32131e881">
+<p>Number of worker threads to use for analysis tasks.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1243 d32131e884">
+<p>&lt;no-of-cpus&gt;</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1256" headers="d32131e875">
+<p>num_workers_fast_track_analysis</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1256 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1256 d32131e881">
+<p>Number of worker threads to use for fast-track analysis tasks.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1256 d32131e884">
+<p>1</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1269" headers="d32131e875">
+<p>num_workers_io</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1269 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1269 d32131e881">
+<p>Number of worker threads to use for I/O tasks (load/refresh/write from/to disk). This value will not affect file-based loaders, because they are always single-threaded. Database loaders will open a new connection for each I/O worker.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1269 d32131e884">
+<p>&lt;no-of-cpus&gt;</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1282" headers="d32131e875">
+<p>pattern_matching_semantic</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1282 d32131e878">
+<p>enum[isomorphism, homomorphism]</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1282 d32131e881">
+<p>The graph pattern-matching semantic, which is either <span class="italic">homomorphism</span>&nbsp;or&nbsp;<span class="italic">isomorphism</span>.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1282 d32131e884">
+<p>homomorphism</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1301" headers="d32131e875">
+<p>parallelization_strategy</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1301 d32131e878">
+<p>enum[segmented, task_stealing, task_stealing_counted, rts]</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1301 d32131e881">
+<p>Parallelization strategy to use:&nbsp;<span class="italic">segmented</span>&nbsp;= split work into segments, use 1 thread per segment; <span class="italic">task_stealing</span>&nbsp;= F/J pool using recursive actions; <span class="italic">task_stealing_counted</span>&nbsp;= F/J pool using counted completers to reduce joins; <span class="italic">rts</span>&nbsp;= experimental run-time system.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1301 d32131e884">
+<p>task_stealing_counted</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1326" headers="d32131e875">
+<p>random_generator_strategy</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1326 d32131e878">
+<p>enum[non_deterministic, deterministic]</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1326 d32131e881">
+<p>Mmethod of generating random numbers in the in-memory analyst.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1326 d32131e884">
+<p>non_deterministic</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1339" headers="d32131e875">
+<p>random_seed</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1339 d32131e878">
+<p>long</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1339 d32131e881">
+<p><span class="italic">[relevant for&nbsp;</span><span class="italic">deterministic</span><span class="italic">&nbsp;random number generator only]</span>&nbsp;Seed for the deterministic random number generator used in the in-memory analyst. The default is -24466691093057031.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1339 d32131e884">
+<p>-24466691093057031</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1359" headers="d32131e875">
+<p>release_memory_threshold</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1359 d32131e878">
+<p>number</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1359 d32131e881">
+<p>Threshold percentage (decimal fraction) of used memory after which the engine starts freeing unused graphs. Examples: A value of&nbsp;0.0&nbsp;means graphs get freed as soon as their reference count becomes zero. That is, all sessions which loaded that graph were destroyed/timed out. A value of&nbsp;1.0&nbsp;means graphs never get freed, and the engine will throw OutOfMemoryErrors as soon as a graph is needed which does not fit in memory anymore. A value of&nbsp;0.7 means the engine keeps all graphs in memory as long as total memory consumption is below 70% of total available memory, even if there is currently no session using them. When consumption exceeds 70% and another graph needs to get loaded, unused graphs get freed until memory consumption is below 70% again.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1359 d32131e884">
+<p>0.85</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1372" headers="d32131e875">
+<p>session_idle_timeout_secs</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1372 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1372 d32131e881">
+<p>Timeout of idling sessions in seconds. Zero (0) means no timeout</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1372 d32131e884">
+<p>0</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1385" headers="d32131e875">
+<p>session_task_timeout_secs</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1385 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1385 d32131e881">
+<p>Timeout in seconds to interrupt long-running tasks submitted by sessions (algorithms, I/O tasks). Zero (0) means no timeout.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1385 d32131e884">
+<p>0</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1398" headers="d32131e875">
+<p>small_task_length</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1398 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1398 d32131e881">
+<p>Task length if the total amount of work is smaller than default task length (only relevant for task-stealing strategies).</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1398 d32131e884">
+<p>128</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1411" headers="d32131e875">
+<p>spark_streams_interface</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1411 d32131e878">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1411 d32131e881">
+<p>The name of an interface will be used for spark data communication.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1411 d32131e884">
+<p>null</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1424" headers="d32131e875">
+<p>strict_mode</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1424 d32131e878">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1424 d32131e881">
+<p>If&nbsp;true, exceptions are thrown and logged with&nbsp;ERROR level whenever the engine encounters configuration problems, such as invalid keys, mismatches, and other potential errors. If&nbsp;false, the engine logs problems with ERROR/WARN&nbsp;level (depending on severity) and makes best guesses and uses sensible defaults instead of throwing exceptions.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1424 d32131e884">
+<p>true</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1437" headers="d32131e875">
+<p>task_length</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1437 d32131e878">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1437 d32131e881">
+<p>Default task length (only relevant for task-stealing strategies). Should be between 100 and 10000. Trade-off: a small number implies more fine-grained tasks are generated, higher stealing throughput; a large number implies less memory consumption and GC activity.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1437 d32131e884">
+<p>4096</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1450" headers="d32131e875">
+<p>tmp_dir</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1450 d32131e878">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1450 d32131e881">
+<p>Temporary directory to store compilation artifacts and other temporary data. If set to&nbsp;&lt;system-tmp-dir&gt;, uses the standard tmp directory of the underlying system (/tmp&nbsp;on Linux).</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1450 d32131e884">
+<p>&lt;system-tmp-dir&gt;</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e1463" headers="d32131e875">
+<p>use_string_pool</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1463 d32131e878">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1463 d32131e881">
+<p>If&nbsp;true, the in-memory analyst will store string properties in a pool in order to consume less memory on string properties.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e1463 d32131e884">
+<p>true</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="example" id="GUID-D94BB96B-D869-400E-ACD4-D90B42591F90__GUID-D291807F-012C-421D-BEB2-94057AC7B1B1">
+<p class="titleinexample">Example 6-1 Minimal In-Memory Analyst Configuration</p>
+<p>The following example causes the in-memory analyst to initialize its analysis thread pool with 32 workers. (Default values are used for all other parameters.)</p>
+<pre dir="ltr">
+{ "num_workers_analysis": 32 }
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-D94BB96B-D869-400E-ACD4-D90B42591F90__GUID-BAA0D7A4-FFA4-4694-83B9-89C5DC3AFB16">
+<p class="titleinexample">Example 6-2 In-Memory Analyst Configuration with Two Fixed Graphs</p>
+<p>The following example specifies additional parameters, including the <code class="codeph">graphs</code> parameter to load two fixed graphs into memory during in-memory analyst startup. This feature helps to avoid redundancy when you need the same graph configuration pre-loaded and for standalone use later to reference the graph.</p>
+<pre dir="ltr">
+{ 
+  "num_workers_analysis": 32,
+  "num_workers_fast_track_analysis": 32,
+  "memory_cleanup_interval": 600,
+  "max_active_sessions": 1, 
+  "release_memory_threshold": 0.2, 
+  <span class="bold">"graphs": ["graph-configs/my-graph.bin.json", "graph-configs/my-other-graph.adj.json"]</span>
+}
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-D94BB96B-D869-400E-ACD4-D90B42591F90__GUID-771EE3CA-8942-4969-919F-EB01D4224550">
+<p class="titleinexample">Example 6-3 In-Memory Analyst Configuration with Non-Default Run-Time Values</p>
+<p>The following example specifies some parameters to configure in-memory analyst run-time behavior.</p>
+<pre dir="ltr">
+{ 
+  "num_workers_analysis": 32,
+  "num_spin_locks": 128,
+  "task_length": 1024,
+  "array_factory_strategy": "java_arrays"
+}
+</pre></div>
+<!-- class="example" --></div>
+<div class="props_rev_3"><a id="GUID-E2B0CF5A-75D5-44CC-BDDC-40FAD21E3777"></a>
+<h3 id="BDSPA-GUID-E2B0CF5A-75D5-44CC-BDDC-40FAD21E3777" class="sect3"><span class="enumeration_section">6.2.1</span> Specifying the Configuration File to the In-Memory Analyst</h3>
+<div>
+<p>The in-memory analyst configuration file is parsed by the in-memory analyst at startup-time whenever <code class="codeph">ServerInstance#startEngine</code> (or any of its variants) is called. You can write the path to your configuration file to the in-memory analyst or specify it programmatically. This topic identifies several ways to specify the file</p>
+<div class="section">
+<p class="subhead3">Programmatically</p>
+<p>All configuration fields exist as Java enums. Example:</p>
+<pre dir="ltr">
+Map&lt;PgxConfig.Field, Object&gt; pgxCfg = new HashMap&lt;&gt;();
+pgxCfg.put(PgxConfig.Field.NUM_WORKERS_ANALYSIS, 32);
+
+ServerInstance instance = ...
+instance.startEngine(pgxCfg);
+</pre>
+<p>All parameters not explicitly set will get default values.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Explicitly Using a File</p>
+<p>Instead of a map, you can write the path to an in-memory analyst configuration JSON file. Example:</p>
+<pre dir="ltr">
+instance.startEngine("path/to/pgx.conf"); // file on local file system
+instance.startEngine("hdfs:/path/to/pgx.conf"); // file on HDFS (required $HADOOP_CONF_DIR on the classpath)
+instance.startEngine("classpath:/path/to/pgx.conf"); // file on current classpath
+</pre>
+<p>For all other protocols, you can write directly in the input stream to a JSON file. Example:</p>
+<pre dir="ltr">
+InputStream is = ...
+instance.startEngine(is);
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Implicitly Using a File</p>
+<p>If&nbsp;<code class="codeph">startEngine()</code>&nbsp;is called without an argument, the in-memory analyst looks for a configuration file at the following places, stopping when it finds the file:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>File path found in the Java system property&nbsp;<code class="codeph">pgx_conf</code>. Example:&nbsp;<code class="codeph">java -Dpgx_conf=conf/my.pgx.config.json ...</code></p>
+</li>
+<li>
+<p>A file named&nbsp;<code class="codeph">pgx.conf</code>&nbsp;in the root directory of the current classpath</p>
+</li>
+<li>
+<p>A file named&nbsp;<code class="codeph">pgx.conf</code>&nbsp;in the root directory relative to the current&nbsp;<code class="codeph">System.getProperty("user.dir")</code>&nbsp;directory</p>
+</li>
+</ul>
+<p>Note: Providing a configuration is optional. A default value for each field will be used if the field cannot be found in the given configuration file, or if no configuration file is provided.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using the Local Shell</p>
+<p>To change how the shell configures the local in-memory analyst instance, edit&nbsp;<code class="codeph">$PGX_HOME/conf/pgx.conf</code>. Changes will be reflected the next time you invoke&nbsp;<code class="codeph">$PGX_HOME/bin/pgx</code>.</p>
+<p>You can also change the location of the configuration file as in the following example:</p>
+<pre dir="ltr">
+./bin/pgx --pgx_conf path/to/my/other/pgx.conf
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Setting System Properties</p>
+<p>Any parameter can be set using Java system properties by writing <code class="codeph">-Dpgx.<span class="codeinlineitalic">&lt;FIELD&gt;=&lt;VALUE&gt;</span></code> arguments to the JVM that the in-memory analyst is running on. Note that setting system properties will overwrite any other configuration. The following example sets the maximum off-heap size to 256 GB, regardless of what any other configuration says:</p>
+<pre dir="ltr">
+java -Dpgx.max_off_heap_size=256000 ...
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Setting Environment Variables</p>
+<p>Any parameter can also be set using environment variables by adding 'PGX_' to the environment variable for the JVM in which the in-memory analyst is executed. Note that setting environment variables will overwrite any other configuration; but if a system property and an environment variable are set for the same parameter, the system property value is used. The following example sets the maximum off-heap size to 256 GB using an environment variable:</p>
+<pre dir="ltr">
+PGX_MAX_OFF_HEAP_SIZE=256000 java ...
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA271"></a>
+<div class="props_rev_3"><a id="GUID-9624C4F8-4169-4506-B84B-7DAAABDF0D56"></a>
+<h2 id="BDSPA-GUID-9624C4F8-4169-4506-B84B-7DAAABDF0D56" class="sect2"><span class="enumeration_section">6.3</span> Reading Custom Graph Data</h2>
+<div>
+<p>You can read your own custom graph data. This example creates a graph, alters it, and shows how to read it properly. This graph uses the adjacency list format, but the in-memory analyst supports several graph formats.</p>
+<p>The main steps are:</p>
+<ol>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-8EFE353D-6084-4EFA-9620-D38A9639773B">Creating a Simple Graph File</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-52F53A1E-36AA-4939-B9A6-CF4A3C838959">Adding a Vertex Property</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-FF68108E-86FB-4C50-BE57-E5782A2E1F4C">Using Strings as Vertex Identifiers</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-7EDBE4DF-55F4-4756-97A8-6F8BA30B4BCD">Adding an Edge Property</a></p>
+</li>
+</ol>
+</div>
+<a id="BDSPA273"></a><a id="BDSPA274"></a><a id="BDSPA275"></a><a id="BDSPA272"></a>
+<div class="props_rev_3"><a id="GUID-8EFE353D-6084-4EFA-9620-D38A9639773B"></a>
+<h3 id="BDSPA-GUID-8EFE353D-6084-4EFA-9620-D38A9639773B" class="sect3"><span class="enumeration_section">6.3.1</span> Creating a Simple Graph File</h3>
+<div>
+<p>This example creates a small, simple graph in adjacency list format with no vertex or edge properties. Each line contains the vertex (node) ID, followed by the vertex IDs to which its outgoing edges point:</p>
+<pre dir="ltr">
+1 2
+2 3 4
+3 4
+4 2
+</pre>
+<p>In this list, a single space separates the individual tokens. The in-memory analyst supports other separators, which you can specify in the graph configuration file.</p>
+<p><a href="using-in-memory-analyst.htm#GUID-8EFE353D-6084-4EFA-9620-D38A9639773B__BABCGCGG">Figure 6-2</a> shows the data rendered as a property graph with 4 vertices and 5 edges. (There are two edges between vertex 2 and vertex 4, each pointing in a direction opposite form the other.)</p>
+<div class="figure" id="GUID-8EFE353D-6084-4EFA-9620-D38A9639773B__BABCGCGG">
+<p class="titleinfigure">Figure 6-2 Simple Custom Property Graph</p>
+<img width="394" height="325" src="img/GUID-1BEC6D65-DD39-4348-BF07-EA3FD92E5EA1-default.png" alt="Description of Figure 6-2 follows" title="Description of Figure 6-2 follows" /><br />
+<a href="img_text/GUID-1BEC6D65-DD39-4348-BF07-EA3FD92E5EA1-default.htm">Description of "Figure 6-2 Simple Custom Property Graph"</a></div>
+<!-- class="figure" -->
+<p>Reading a graph into the in-memory analyst requires a graph configuration. You can provide the graph configuration using either of these methods:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Write the configuration settings in JSON format into a file</p>
+</li>
+<li>
+<p>Using a Java <code class="codeph">GraphConfigBuilder</code> object.</p>
+</li>
+</ul>
+<p>The following examples show both methods.</p>
+<div class="section">
+<p class="subhead3">JSON Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+{
+    "uri": "graph.adj",
+    "format":"adj_list",
+    "separator":" "
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Java Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.config.FileGraphConfig;
+import oracle.pgx.config.Format;
+import oracle.pgx.config.GraphConfigBuilder;
+FileGraphConfig config = GraphConfigBuilder 
+   .forFileFormat(Format.ADJ_LIST) 
+   .setUri("graph.adj") 
+   .setSeparator(" ") 
+   .build();
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA277"></a><a id="BDSPA278"></a><a id="BDSPA276"></a>
+<div class="props_rev_3"><a id="GUID-52F53A1E-36AA-4939-B9A6-CF4A3C838959"></a>
+<h3 id="BDSPA-GUID-52F53A1E-36AA-4939-B9A6-CF4A3C838959" class="sect3"><span class="enumeration_section">6.3.2</span> Adding a Vertex Property</h3>
+<div>
+<p>The graph in <span class="q">"<a href="using-in-memory-analyst.htm#GUID-8EFE353D-6084-4EFA-9620-D38A9639773B">Creating a Simple Graph File</a>"</span> consists of vertices and edges, without vertex or edge properties. Vertex properties are positioned directly after the source vertex ID in each line. The graph data would look like this if you added a <code class="codeph">double</code> vertex (node) property with values 0.1, 2.0, 0.3, and 4.56789 to the graph:</p>
+<pre dir="ltr">
+1 0.1 2
+2 2.0 3 4
+3 0.3 4
+4 4.56789 2
+</pre>
+<div class="infobox-note" id="GUID-52F53A1E-36AA-4939-B9A6-CF4A3C838959__GUID-E1749BB1-E9E1-4713-AD9C-2BFE62D488F4">
+<p class="notep1">Note:</p>
+<p>The in-memory analyst supports only homogeneous graphs, in which all vertices have the same number and type of properties.</p>
+</div>
+<p>For the in-memory analyst to read the modified data file, you must add a vertex (node) property in the configuration file or the builder code. The following examples provide a descriptive name for the property and set the type to <code class="codeph">double</code>.</p>
+<div class="section">
+<p class="subhead3">JSON Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+{
+    "uri": "graph.adj",
+    "format":"adj_list",
+    "separator":" ",
+    "node_props":[{
+        "name":"double-prop",
+        "type":"double"
+    }]
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Java Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.common.types.PropertyType;
+import oracle.pgx.config.FileGraphConfig;
+import oracle.pgx.config.Format;
+import oracle.pgx.config.GraphConfigBuilder;
+
+FileGraphConfig config = GraphConfigBuilder.forFileFormat(Format.ADJ_LIST) 
+    .setUri("graph.adj") 
+    .setSeparator(" ") 
+    .addNodeProperty("double-prop", PropertyType.DOUBLE) 
+    .build();
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA280"></a><a id="BDSPA281"></a><a id="BDSPA279"></a>
+<div class="props_rev_3"><a id="GUID-FF68108E-86FB-4C50-BE57-E5782A2E1F4C"></a>
+<h3 id="BDSPA-GUID-FF68108E-86FB-4C50-BE57-E5782A2E1F4C" class="sect3"><span class="enumeration_section">6.3.3</span> Using Strings as Vertex Identifiers</h3>
+<div>
+<p>The previous examples used <code class="codeph">integer</code> vertex (node) IDs. The default in In-Memory Analytics is <code class="codeph">integer</code> vertex IDs, but you can define a graph to use <code class="codeph">string</code> vertex IDs instead.</p>
+<p>This data file uses "node 1", "node 2", and so forth instead of just the digit:</p>
+<pre dir="ltr">
+"node 1" 0.1 "node 2"
+"node 2" 2.0 "node 3" "node 4"
+"node 3" 0.3 "node 4"
+"node 4" 4.56789 "node 2"
+</pre>
+<p>Again, you must modify the graph configuration to match the data file:</p>
+<div class="section">
+<p class="subhead3">JSON Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+{
+    "uri": "graph.adj",
+    "format":"adj_list",
+    "separator":" ",
+    "node_props":[{
+        "name":"double-prop",
+        "type":"double"
+    }],
+    "node_id_type":"string"
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Java Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.common.types.IdType;
+import oracle.pgx.common.types.PropertyType;
+import oracle.pgx.config.FileGraphConfig;
+import oracle.pgx.config.Format;
+import oracle.pgx.config.GraphConfigBuilder;
+
+FileGraphConfig config = GraphConfigBuilder.forFileFormat(Format.ADJ_LIST) 
+    .setUri("graph.adj") 
+    .setSeparator(" ") 
+    .addNodeProperty("double-prop", PropertyType.DOUBLE) 
+    .setNodeIdType(IdType.STRING) 
+    .build();
+</pre>
+<div class="infobox-note" id="GUID-FF68108E-86FB-4C50-BE57-E5782A2E1F4C__GUID-4A343CCB-E55C-4F84-8B5E-CDEF540C55F4">
+<p class="notep1">Note:</p>
+<p><code class="codeph">string</code> vertex IDs consume much more memory than <code class="codeph">integer</code> vertex IDs.</p>
+<p>Any single or double quotes inside the string must be escaped with a backslash (\).</p>
+<p>Newlines (\n) inside strings are not supported.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA283"></a><a id="BDSPA284"></a><a id="BDSPA282"></a>
+<div class="props_rev_3"><a id="GUID-7EDBE4DF-55F4-4756-97A8-6F8BA30B4BCD"></a>
+<h3 id="BDSPA-GUID-7EDBE4DF-55F4-4756-97A8-6F8BA30B4BCD" class="sect3"><span class="enumeration_section">6.3.4</span> Adding an Edge Property</h3>
+<div>
+<p>This example adds an edge property of type <code class="codeph">string</code> to the graph. The edge properties are positioned after the destination vertex (node) ID.</p>
+<pre dir="ltr">
+"node1" 0.1 "node2" "edge_prop_1_2"
+"node2" 2.0 "node3" "edge_prop_2_3" "node4" "edge_prop_2_4"
+"node3" 0.3 "node4" "edge_prop_3_4"
+"node4" 4.56789 "node2" "edge_prop_4_2"
+</pre>
+<p>The graph configuration must match the data file:</p>
+<div class="section">
+<p class="subhead3">JSON Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+{
+    "uri": "graph.adj",
+    "format":"adj_list",
+    "separator":" ",
+    "node_props":[{
+        "name":"double-prop",
+        "type":"double"
+    }],
+    "node_id_type":"string",
+     "edge_props":[{
+        "name":"edge-prop",
+        "type":"string"
+    }]
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Java Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.common.types.IdType;
+import oracle.pgx.common.types.PropertyType;
+import oracle.pgx.config.FileGraphConfig;
+import oracle.pgx.config.Format;
+import oracle.pgx.config.GraphConfigBuilder;
+
+FileGraphConfig config = GraphConfigBuilder.forFileFormat(Format.ADJ_LIST) 
+    .setUri("graph.adj") 
+    .setSeparator(" ") 
+    .addNodeProperty("double-prop", PropertyType.DOUBLE) 
+    .setNodeIdType(IdType.STRING) 
+    .addEdgeProperty("edge-prop", PropertyType.STRING) 
+    .build();
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA285"></a>
+<div class="props_rev_3"><a id="GUID-298446DB-6397-48DF-BBE8-B1CEFCBB8C6C"></a>
+<h2 id="BDSPA-GUID-298446DB-6397-48DF-BBE8-B1CEFCBB8C6C" class="sect2"><span class="enumeration_section">6.4</span> Storing Graph Data on Disk</h2>
+<div>
+<p>After reading a graph into memory using either Java or the Shell, you can store it on disk in different formats. You can then use the stored graph data as input to the in-memory analyst at a later time.</p>
+<p>Storing graphs over HTTP/REST is currently not supported.</p>
+<p>The options include:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-016DFFE1-3D43-490D-8159-9B72ED534887">Storing the Results of Analysis in a Vertex Property</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-477E86A7-18B0-4A4A-8DD0-9E9D79E5CF42">Storing a Graph in Edge-List Format on Disk</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA287"></a><a id="BDSPA288"></a><a id="BDSPA286"></a>
+<div class="props_rev_3"><a id="GUID-016DFFE1-3D43-490D-8159-9B72ED534887"></a>
+<h3 id="BDSPA-GUID-016DFFE1-3D43-490D-8159-9B72ED534887" class="sect3"><span class="enumeration_section">6.4.1</span> Storing the Results of Analysis in a Vertex Property</h3>
+<div>
+<p>These examples read a graph into memory and analyze it using the Pagerank algorithm. This analysis creates a new vertex property to store the PageRank values.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Run PageRank</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+pgx&gt; g = session.readGraphWithProperties("/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json", "my-graph")
+==&gt; ...
+pgx&gt; rank = analyst.pagerank(g, 0.001, 0.85, 100)
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Run PageRank</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+PgxGraph g = session.readGraphWithProperties("/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json", "my-graph");
+VertexProperty&lt;Integer, Double&gt; rank = session.createAnalyst().pagerank(g, 0.001, 0.85, 100);
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using JavaScript to Run PageRank</p>
+<pre dir="ltr">
+let p = pgx.connect(url, options);
+p.then(function(session) {
+  return session.readGraphWithProperties(jsonContent);
+}).then(function(graph) {
+  return graph.session.analyst.pagerank(graph);
+});
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA290"></a><a id="BDSPA291"></a><a id="BDSPA289"></a>
+<div class="props_rev_3"><a id="GUID-477E86A7-18B0-4A4A-8DD0-9E9D79E5CF42"></a>
+<h3 id="BDSPA-GUID-477E86A7-18B0-4A4A-8DD0-9E9D79E5CF42" class="sect3"><span class="enumeration_section">6.4.2</span> Storing a Graph in Edge-List Format on Disk</h3>
+<div>
+<p>This example stores the graph, the result of the Pagerank analysis, and all original edge properties as a file in edge-list format on disk.</p>
+<p>To store a graph, you must specify:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The graph format</p>
+</li>
+<li>
+<p>A path where the file will be stored</p>
+</li>
+<li>
+<p>The properties to be stored. Specify VertexProperty.<code class="codeph">ALL</code> or EdgeProperty.<code class="codeph">ALL</code>&nbsp;to store all properties, or VertexProperty.<code class="codeph">NONE</code> or EdgePropery.<code class="codeph">NONE</code>&nbsp;to store no properties. To specify individual properties, pass in the VertexProperty or EdgeProperty objects you want to store.</p>
+</li>
+<li>
+<p>A flag that indicates whether to overwrite an existing file with the same name</p>
+</li>
+</ul>
+<p>The following examples store the graph data in <code class="codeph">/tmp/sample_pagerank.elist</code>, with the <code class="codeph">/tmp/sample_pagerank.elist.json</code> configuration file. The return value is the graph configuration for the stored file. You can use it to read the graph again.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Store a Graph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+pgx&gt; config = g.store(Format.EDGE_LIST, "/tmp/sample_pagerank.elist", [rank], EdgeProperty.ALL, false)
+==&gt; {"uri":"/tmp/sample_pagerank.elist","edge_props":[{"type":"double","name":"cost"}],"vertex_id_type":"integer","loading":{},"format":"edge_list","attributes":{},"vertex_props":[{"type":"double","name":"pagerank"}],"error_handling":{}}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Store a Graph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+import oracle.pgx.config.*;
+ 
+FileGraphConfig config = g.store(Format.EDGE_LIST, "/tmp/sample_pagerank.elist", Collections.singletonList(rank), EdgeProperty.ALL, false);
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using JavaScript to Store a Graph</p>
+<pre dir="ltr">
+let p = graph.store({format: 'EDGE_LIST', targetPath: '/tmp/sample_pagerank.elist'});
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA292"></a>
+<div class="props_rev_3"><a id="GUID-86A8173D-CD09-478B-B9D3-C0EB00A7374C"></a>
+<h2 id="BDSPA-GUID-86A8173D-CD09-478B-B9D3-C0EB00A7374C" class="sect2"><span class="enumeration_section">6.5</span> Executing Built-in Algorithms</h2>
+<div>
+<p>The in-memory analyst contains a set of built-in algorithms that are available as Java APIs. This section describes the use of the in-memory analyst using Triangle Counting and Pagerank analytics as examples.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-3EE1831C-779F-4674-9039-7B5C9267F59B">About the In-Memory Analyst</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-0DB504D7-2AF9-4BAB-8BB4-28FCD8DA754C">Running the Triangle Counting Algorithm</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-6DFBD476-03DB-4076-A7C4-0809BC64A2FF">Running the Pagerank Algorithm</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA294"></a><a id="BDSPA295"></a><a id="BDSPA293"></a>
+<div class="props_rev_3"><a id="GUID-3EE1831C-779F-4674-9039-7B5C9267F59B"></a>
+<h3 id="BDSPA-GUID-3EE1831C-779F-4674-9039-7B5C9267F59B" class="sect3"><span class="enumeration_section">6.5.1</span> About the In-Memory Analyst</h3>
+<div>
+<p>The in-memory analyst contains a set of built-in algorithms that are available as Java APIs. The details of the APIs are documented in the Javadoc that is included in the product documentation library. Specifically, see the <code class="codeph">Analyst</code> class Method Summary for a list of the supported in-memory analyst methods.</p>
+<p>For example, this is the Pagerank procedure signature:</p>
+<pre dir="ltr">
+/**
+   * Classic pagerank algorithm. Time complexity: O(E * K) with E = number of edges, K is a given constant (max
+   * iterations)
+   *
+   * @param graph
+   *          graph
+   * @param e
+   *          maximum error for terminating the iteration
+   * @param d
+   *          damping factor
+   * @param max
+   *          maximum number of iterations
+   * @return Vertex Property holding the result as a double
+   */
+  public &lt;ID&gt; VertexProperty&lt;ID, Double&gt; pagerank(PgxGraph graph, double e, double d, int max);
+</pre>
+<pre dir="ltr">
+</pre></div>
+</div>
+<a id="BDSPA302"></a><a id="BDSPA303"></a><a id="BDSPA301"></a>
+<div class="props_rev_3"><a id="GUID-0DB504D7-2AF9-4BAB-8BB4-28FCD8DA754C"></a>
+<h3 id="BDSPA-GUID-0DB504D7-2AF9-4BAB-8BB4-28FCD8DA754C" class="sect3"><span class="enumeration_section">6.5.2</span> Running the Triangle Counting Algorithm</h3>
+<div>
+<p>For triangle counting, the <code class="codeph">sortByDegree</code> boolean parameter of <code class="codeph">countTriangles()</code> allows you to control whether the graph should first be sorted by degree (<code class="codeph">true</code>) or not (<code class="codeph">false</code>). If <code class="codeph">true</code>, more memory will be used, but the algorithm will run faster; however, if your graph is very large, you might want to turn this optimization off to avoid running out of memory.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Run Triangle Counting</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+pgx&gt; analyst.countTriangles(graph, true)
+==&gt; 1
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Run Triangle Counting</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+ 
+Analyst analyst = session.createAnalyst();
+long triangles = analyst.countTriangles(graph, true);
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using JavaScript to Run Triangle Counting</p>
+<pre dir="ltr">
+p.then(function(graph) {
+  return graph.session.analyst.countTriangles(graph, true);
+})
+</pre>
+<p>The algorithm finds one triangle in the sample graph.</p>
+<div class="infoboxnotealso" id="GUID-0DB504D7-2AF9-4BAB-8BB4-28FCD8DA754C__GUID-09303ED3-A1D3-4655-AF28-69EC7B641678">
+<p class="notep1">Tip:</p>
+<p>When using the in-memory analyst shell, you can increase the amount of log output during execution by changing the logging level. See information about the <code class="codeph">:loglevel</code> command with <code class="codeph">:h :loglevel</code>.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA306"></a><a id="BDSPA307"></a><a id="BDSPA305"></a>
+<div class="props_rev_3"><a id="GUID-6DFBD476-03DB-4076-A7C4-0809BC64A2FF"></a>
+<h3 id="BDSPA-GUID-6DFBD476-03DB-4076-A7C4-0809BC64A2FF" class="sect3"><span class="enumeration_section">6.5.3</span> Running the Pagerank Algorithm</h3>
+<div>
+<p>Pagerank computes a rank value between <code class="codeph">0</code> and <code class="codeph">1</code> for each vertex (node) in the graph and stores the values in a <code class="codeph">double</code> property. The algorithm therefore creates a <span class="italic">vertex property</span> of type <code class="codeph">double</code> for the output.</p>
+<p>In the in-memory analyst, there are two types of vertex and edge properties:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Persistent Properties</span>: Properties that are loaded with the graph from a data source are fixed, in-memory copies of the data on disk, and are therefore persistent. Persistent properties are read-only, immutable and shared between sessions.</p>
+</li>
+<li>
+<p><span class="bold">Transient Properties</span>: Values can only be written to transient properties, which are session private. You can create transient properties by calling <code class="codeph">createVertexProperty</code> and <code class="codeph">createEdgeProperty</code> on <code class="codeph">PgxGraph</code> objects.</p>
+</li>
+</ul>
+<p>This example obtains the top three vertices with the highest Pagerank values. It uses a transient vertex property of type <code class="codeph">double</code> to hold the computed Pagerank values. The Pagerank algorithm uses the following default values for the input parameters: error (tolerance = 0.001, damping factor = 0.85, and maximum number of iterations = 100.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Run Pagerank</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+pgx&gt; rank = analyst.pagerank(graph, 0.001, 0.85, 100);
+==&gt; ...
+pgx&gt; rank.getTopKValues(3)
+==&gt; 128=0.1402019732468347
+==&gt; 333=0.12002296283541904
+==&gt; 99=0.09708583862990475
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Run Pagerank</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import java.util.Map.Entry;
+import oracle.pgx.api.*;
+ 
+Analyst analyst = session.createAnalyst();
+VertexProperty&lt;Integer, Double&gt; rank = analyst.pagerank(graph, 0.001, 0.85, 100);
+for (Entry&lt;Integer, Double&gt; entry : rank.getTopKValues(3)) {
+ System.out.println(entry.getKey() + "=" + entry.getValue());
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using JavaScript to Run Pagerank</p>
+<pre dir="ltr">
+p.then(function(graph) {
+  return graph.session.analyst.pagerank(graph, {e: 0.001, d: 0.85, max: 100});
+});
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA309"></a>
+<div class="props_rev_3"><a id="GUID-066BC440-E42F-49E0-B605-8306F0801FA4"></a>
+<h2 id="BDSPA-GUID-066BC440-E42F-49E0-B605-8306F0801FA4" class="sect2"><span class="enumeration_section">6.6</span> Creating Subgraphs</h2>
+<div>
+<p>You can create subgraphs based on a graph that has been loaded into memory. You can use filter expressions or create bipartite subgraphs based on a vertex (node) collection that specifies the left set of the bipartite graph.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-D8D24AA9-7B2A-4018-8626-76BA87888299">About Filter Expressions</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-CFEB793C-3674-4904-BBD4-B6A86BB1473A">Using a Simple Edge Filter to Create a Subgraph</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-98FFA7E3-8DC7-429C-9A77-B75E9046FECC">Using a Simple Vertex Filter to Create a Subgraph</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24">Using a Complex Filter to Create a Subgraph</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-743AD4CC-AA36-471B-9B2F-1B1AE7200440">Combining Expression Filters</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-4A449E11-B542-4DCD-A758-8CAFACE799E6">Using an Expression Filter to Create a Set of Vertices or Edges</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-A0003270-3B54-416F-8BC0-E37EA4F699AD">Using a Vertex Set to Create a Bipartite Subgraph</a></p>
+</li>
+</ul>
+<p>For information about reading a graph into memory, see <a href="using-in-memory-analyst.htm#GUID-147E545D-CB0B-479A-8D7F-D36CF2064A45">Reading Graph Data into Memory</a>.</p>
+</div>
+<a id="BDSPA315"></a><a id="BDSPA316"></a><a id="BDSPA314"></a>
+<div class="props_rev_3"><a id="GUID-D8D24AA9-7B2A-4018-8626-76BA87888299"></a>
+<h3 id="BDSPA-GUID-D8D24AA9-7B2A-4018-8626-76BA87888299" class="sect3"><span class="enumeration_section">6.6.1</span> About Filter Expressions</h3>
+<div>
+<p>Filter expressions are expressions that are evaluated for either each vertex or each edge. The expression can define predicates that an edge must fulfill to be contained in the result, in this case a subgraph.</p>
+<p>Consider the graph in <a href="using-in-memory-analyst.htm#GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF__BABFEEHB">Figure 6-1</a>, which consists of four vertices (nodes) and four edges. For an edge to match the filter expression <code class="codeph">src.prop1 == 10</code>, the source vertex <code class="codeph">prop</code> property must equal 10. Two edges match that filter expression, as shown in <a href="using-in-memory-analyst.htm#GUID-D8D24AA9-7B2A-4018-8626-76BA87888299__BABIGAAI">Figure 6-3</a>.</p>
+<div class="figure" id="GUID-D8D24AA9-7B2A-4018-8626-76BA87888299__BABIGAAI">
+<p class="titleinfigure">Figure 6-3 Sample Graph</p>
+<img width="383" height="323" src="img/GUID-FC0CAF47-E710-4AFC-BF4D-B6AF91FF7391-default.jpg" alt="Description of Figure 6-3 follows" title="Description of Figure 6-3 follows" /><br />
+<a href="img_text/GUID-FC0CAF47-E710-4AFC-BF4D-B6AF91FF7391-default.htm">Description of "Figure 6-3 Sample Graph"</a></div>
+<!-- class="figure" -->
+<p>The following <span class="italic">edge</span> filter expression:</p>
+<pre dir="ltr">
+src.prop1 == 10
+</pre>
+<p>specifies that each edge where the source vertex&rsquo;s property named <code class="codeph">prop1</code> has the value 10 will match the filter expression. In this case the following edges match the expression:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The edge across the top (<code class="codeph">cost</code>: 27.03) from vertex <code class="codeph">id</code>: 128 to vertex <code class="codeph">id</code>: 1908</p>
+</li>
+<li>
+<p>The edge on the left (<code class="codeph">cost</code>: 8.51) from vertex <code class="codeph">id</code>: 128 to vertex <code class="codeph">id</code>: 99</p>
+</li>
+</ul>
+<p><a href="using-in-memory-analyst.htm#GUID-D8D24AA9-7B2A-4018-8626-76BA87888299__BABEEDAE">Figure 6-4</a> shows the subgraph that results when the preceding filter expression is applied. This subgraph includes the vertex with id: 128, the left and top edges, and the destination vertex of each edge (vertices with <code class="codeph">id</code>: 1908 and <code class="codeph">id</code>: 99).</p>
+<div class="figure" id="GUID-D8D24AA9-7B2A-4018-8626-76BA87888299__BABEEDAE">
+<p class="titleinfigure">Figure 6-4 Subgraph Created by the Simple Edge Filter</p>
+<img width="383" height="323" src="img/GUID-D5FFB701-19BE-41D6-AC04-42F202A58035-default.jpg" alt="Description of Figure 6-4 follows" title="Description of Figure 6-4 follows" /><br />
+<a href="img_text/GUID-D5FFB701-19BE-41D6-AC04-42F202A58035-default.htm">Description of "Figure 6-4 Subgraph Created by the Simple Edge Filter"</a></div>
+<!-- class="figure" -->
+<p>The following <span class="italic">vertex</span> filter expression:</p>
+<pre dir="ltr">
+vertex.prop1 &lt; 10
+</pre>
+<p>specifies that each vertex where the property named <code class="codeph">prop1</code> has a value less than 10 will match the filter expression. In this case the following edge matches the expression:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The edge across the bottom (<code class="codeph">cost</code>: 338.0) from vertex <code class="codeph">id</code>: 99 to vertex <code class="codeph">id</code>: 333</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead3">Filter Expression Examples</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Date.&nbsp;The following expression accesses the property <code class="codeph">date</code> of an edge and checks if it is equal to <code class="codeph">03/27/2007 06:00</code>.</p>
+<pre dir="ltr">
+edge.date = date('2007-03-27 06:00:00')
+</pre></li>
+<li>
+<p>In/out degree. <code class="codeph">inDegree()</code> returns the number of incoming edges of a vertex, while <code class="codeph">outDegree()</code> returns the number of outgoing edges of the vertex. In the following examples, <span class="bold"><span class="italic">src</span></span> denotes the source (out) vertex of the current edge, while <span class="bold"><span class="italic">dst</span></span> denotes the destination (in) vertex.</p>
+<pre dir="ltr">
+src.inDegree() &gt; 3
+dst.outDegree() &lt; 5
+</pre></li>
+<li>
+<p>Label. <code class="codeph">hasLabel</code> returns <code class="codeph">true</code> if a vertex has a particular label. The following returns <code class="codeph">true</code> if a vertex has a <code class="codeph">city</code> label and if its population is greater than 10000.</p>
+<pre dir="ltr">
+vertex.hasLabel('city') &amp;&amp; (vertex.population &gt; 10000)
+</pre></li>
+<li>
+<p>Label. <code class="codeph">label</code> returns the label of an edge. The following example returns <code class="codeph">true</code> if an edge label is either <code class="codeph">friend_of</code> or <code class="codeph">clicked_by</code>.</p>
+<pre dir="ltr">
+edge.label() = 'friend_of' || edge.label() = 'clicked_by'
+</pre></li>
+<li>
+<p>Type Conversion: The following example converts the value of the cost property of the source vertex to an integer.</p>
+<pre dir="ltr">
+(int) src.cost
+</pre></li>
+<li>
+<p>Arithmetic Support: The following examples show arithmetic expressions that can be used in filter expressions.</p>
+<pre dir="ltr">
+1 + 5
+-vertex.degree()
+edge.cost * 2 &gt; 5
+src.value * 2.5 = (dst.inDegree() + 5) / dst.outDegree()
+</pre></li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA318"></a><a id="BDSPA319"></a><a id="BDSPA317"></a>
+<div class="props_rev_3"><a id="GUID-CFEB793C-3674-4904-BBD4-B6A86BB1473A"></a>
+<h3 id="BDSPA-GUID-CFEB793C-3674-4904-BBD4-B6A86BB1473A" class="sect3"><span class="enumeration_section">6.6.2</span> Using a Simple Edge Filter to Create a Subgraph</h3>
+<div>
+<p>The following examples create the first subgraph described in <a href="using-in-memory-analyst.htm#GUID-D8D24AA9-7B2A-4018-8626-76BA87888299">About Filter Expressions</a>.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Create a Subgraph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+subgraph = graph.filter(new EdgeFilter("src.prop1 == 10"))
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Create a Subgraph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+import oracle.pgx.api.filter.*;
+
+PgxGraph graph = session.readGraphWithProperties(...);
+PgxGraph subgraph = graph.filter(new EdgeFilter("src.prop1 == 10"));
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using JavaScript to create a Subgraph</p>
+<pre dir="ltr">
+return graph.filter(pgx.createEdgeFilter("src.prop1 == 10"));
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-98FFA7E3-8DC7-429C-9A77-B75E9046FECC"></a>
+<h3 id="BDSPA-GUID-98FFA7E3-8DC7-429C-9A77-B75E9046FECC" class="sect3"><span class="enumeration_section">6.6.3</span> Using a Simple Vertex Filter to Create a Subgraph</h3>
+<div>
+<p>The following examples create the second subgraph described in <a href="using-in-memory-analyst.htm#GUID-D8D24AA9-7B2A-4018-8626-76BA87888299">About Filter Expressions</a>.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Create a Subgraph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+subgraph = graph.filter(new VertexFilter("vertex.prop1 &lt; 10"))
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Create a Subgraph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+import oracle.pgx.api.filter.*;
+
+PgxGraph graph = session.readGraphWithProperties(...);
+PgxGraph subgraph = graph.filter(new VertexFilter("src.prop1 &lt; 10"));
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using JavaScript to create a Subgraph</p>
+<pre dir="ltr">
+return graph.filter(pgx.createVertexFilter("vertex.prop1 &lt; 10"));
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA322"></a><a id="BDSPA323"></a><a id="BDSPA321"></a>
+<div class="props_rev_3"><a id="GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24"></a>
+<h3 id="BDSPA-GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24" class="sect3"><span class="enumeration_section">6.6.4</span> Using a Complex Filter to Create a Subgraph</h3>
+<div>
+<p>This example uses a slightly more complex filter. It uses the <code class="codeph">outDegree</code> function, which calculates the number of outgoing edges for an identifier (source <code class="codeph">src</code> or destination <code class="codeph">dst</code>). The following filter expression matches all edges with a <code class="codeph">cost</code> property value greater than 50 and a destination vertex (node) with an <code class="codeph">outDegree</code> greater than 1.</p>
+<pre dir="ltr">
+dst.outDegree() &gt; 1 &amp;&amp; edge.cost &gt; 50
+</pre>
+<p>One edge in the sample graph matches this filter expression, as shown in <a href="using-in-memory-analyst.htm#GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24__BABEBGII">Figure 6-5</a>.</p>
+<div class="figure" id="GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24__BABEBGII">
+<p class="titleinfigure">Figure 6-5 Edges Matching the outDegree Filter</p>
+<img width="394" height="334" src="img/GUID-E27EB26D-A77B-45E9-877A-4BCA7C01A739-default.png" alt="Description of Figure 6-5 follows" title="Description of Figure 6-5 follows" /><br />
+<a href="img_text/GUID-E27EB26D-A77B-45E9-877A-4BCA7C01A739-default.htm">Description of "Figure 6-5 Edges Matching the outDegree Filter"</a></div>
+<!-- class="figure" -->
+<p><a href="using-in-memory-analyst.htm#GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24__BABCIGDF">Figure 6-6</a> shows the graph that results when the filter is applied. The filter excludes the edges associated with vertixes 99 and 1908, and so excludes those vertices also.</p>
+<div class="figure" id="GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24__BABCIGDF">
+<p class="titleinfigure">Figure 6-6 Graph Created by the outDegree Filter</p>
+<img width="398" height="334" src="img/GUID-6D967245-691B-4F81-BD22-7A6C0CAF8AA9-default.png" alt="Description of Figure 6-6 follows" title="Description of Figure 6-6 follows" /><br />
+<a href="img_text/GUID-6D967245-691B-4F81-BD22-7A6C0CAF8AA9-default.htm">Description of "Figure 6-6 Graph Created by the outDegree Filter"</a></div>
+<!-- class="figure" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-743AD4CC-AA36-471B-9B2F-1B1AE7200440"></a>
+<h3 id="BDSPA-GUID-743AD4CC-AA36-471B-9B2F-1B1AE7200440" class="sect3"><span class="enumeration_section">6.6.5</span> Combining Expression Filters</h3>
+<div>
+<p>You can combine vertex filters with edge filters.</p>
+<p>Both filters are evaluated separately and afterwards merged by creating either of the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A union of the results</p>
+</li>
+<li>
+<p>An intersection of the results</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead3">Creating a Union of Two Filters</p>
+<p>If you perform a union of the edge filter:</p>
+<pre dir="ltr">
+src.prop1 == 10
+</pre>
+<p>and the vertex filter:</p>
+<pre dir="ltr">
+vertex.prop1 &lt; 10
+</pre>
+<p>Then the result is shown in the following graph.</p>
+<div class="figure" id="GUID-743AD4CC-AA36-471B-9B2F-1B1AE7200440__GUID-2F188393-59D0-48DF-826D-875284829FE8">
+<p class="titleinfigure">Figure 6-7 Union of Two Filters</p>
+<img width="383" height="323" src="img/GUID-D7C04E75-8059-4F2C-A3EA-3689BF260F9C-default.jpg" alt="Description of Figure 6-7 follows" title="Description of Figure 6-7 follows" /><br />
+<a href="img_text/GUID-D7C04E75-8059-4F2C-A3EA-3689BF260F9C-default.htm">Description of "Figure 6-7 Union of Two Filters"</a></div>
+<!-- class="figure" -->
+<p><span class="bold">Shell Example:</span></p>
+<pre dir="ltr">
+edgeFilter = new EdgeFilter("src.prop1 == 10")
+vertexFilter = new VertexFilter("vertex.prop1 &lt; 10")
+filter = edgeFilter.union(vertexFilter)
+subgraph = g.filter(filter)
+</pre>
+<p><span class="bold">Java Example:</span></p>
+<pre dir="ltr">
+import oracle.pgx.api.filter.*;
+...
+EdgeFilter edgeFilter = new EdgeFilter("src.prop1 == 10");
+VertexFilter vertexFilter = new VertexFilter("vertex.prop1 &lt; 10");
+GraphFilter filter = edgeFilter.union(vertexFilter);
+
+PgxGraph subgraph = g.filter(filter);
+</pre>
+<p><span class="bold">JavaScript Example:</span></p>
+<pre dir="ltr">
+return p.then(function(graph) {
+  let edgeFilter = pgx.createEdgeFilter("src.prop1 == 10");
+  let vertexFilter = pgx.createVertexFilter("vertex.prop1 &lt; 10");
+  let filter = edgeFilter.union(vertexFilter);
+  return graph.filter(filter);
+});
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Creating an Intersection of Two Filters</p>
+<p>Creating the intersection of the filters mentioned in the union example will result in the following graph, which consists only of a single vertex.</p>
+<div class="figure" id="GUID-743AD4CC-AA36-471B-9B2F-1B1AE7200440__GUID-D3281352-1BCA-44CB-B6D0-373998B8C35B">
+<p class="titleinfigure">Figure 6-8 Intersection of Two Filters</p>
+<img width="83" height="83" src="img/GUID-977F7605-3CAF-4190-A6C0-0BDBBD48EE37-default.jpg" alt="Description of Figure 6-8 follows" title="Description of Figure 6-8 follows" /><br />
+<a href="img_text/GUID-977F7605-3CAF-4190-A6C0-0BDBBD48EE37-default.htm">Description of "Figure 6-8 Intersection of Two Filters"</a></div>
+<!-- class="figure" -->
+<p><span class="bold">Shell Example:</span></p>
+<pre dir="ltr">
+edgeFilter = new EdgeFilter("src.prop1 == 10")
+vertexFilter = new VertexFilter("vertex.prop1 &lt; 10")
+filter = edgeFilter.intersect(vertexFilter)
+subgraph = g.filter(filter)
+</pre>
+<p><span class="bold">Java Example:</span></p>
+<pre dir="ltr">
+import oracle.pgx.filter.expressions.*;
+...
+EdgeFilter edgeFilter = new EdgeFilter("src.prop1 == 10");
+VertexFilter vertexFilter = new VertexFilter("vertex.prop1 &lt; 10");
+GraphFilter filter = edgeFilter.intersect(vertexFilter);
+
+PgxGraph subgraph = g.filter(filter);
+</pre>
+<p><span class="bold">JavaScript Example:</span></p>
+<pre dir="ltr">
+return p.then(function(graph) {
+  let edgeFilter = pgx.createEdgeFilter("src.prop1 == 10");
+  let vertexFilter = pgx.createVertexFilter("vertex.prop1 &lt; 10");
+  let filter = edgeFilter.intersect(vertexFilter);
+  return graph.filter(filter);
+});
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-4A449E11-B542-4DCD-A758-8CAFACE799E6"></a>
+<h3 id="BDSPA-GUID-4A449E11-B542-4DCD-A758-8CAFACE799E6" class="sect3"><span class="enumeration_section">6.6.6</span> Using an Expression Filter to Create a Set of Vertices or Edges</h3>
+<div>
+<p>In addition to using expression filters to create a subgraph (discussed in other topics), you can use them to select just a set of vertices or edges from a graph.</p>
+<p>For example, you can create a vertex set on the sample graph from <a href="using-in-memory-analyst.htm#GUID-D8D24AA9-7B2A-4018-8626-76BA87888299">About Filter Expressions</a> using the following vertex filter expression:</p>
+<pre dir="ltr">
+vertex.prop1 &lt; 10
+</pre>
+<p>This yields the following set: vertices with ID values 99 and 333.</p>
+<div class="example" id="GUID-4A449E11-B542-4DCD-A758-8CAFACE799E6__GUID-C9C6CBC5-0417-4E22-BE7D-AB7B990D7C78">
+<p class="titleinexample">Example 6-4 Creating a Vertex Set</p>
+<p><span class="bold">Shell Example:</span></p>
+<pre dir="ltr">
+vertices = g.getVertices( new VertexFilter("vertex.prop1 &lt; 10") )
+==&gt; PgxVertex with ID 99
+==&gt; PgxVertex with ID 333
+</pre>
+<p><span class="bold">Java Example:</span></p>
+<pre dir="ltr">
+import oracle.pgx.api.*;
+import oracle.pgx.filter.expressions.*;
+...
+VertexSet&lt;Integer&gt; = g.getVertices( new VertexFilter("vertex.prop1 &lt; 10") );
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-4A449E11-B542-4DCD-A758-8CAFACE799E6__GUID-2D808B4A-4B5D-4AEB-A247-F2DDD7785A4F">
+<p class="titleinexample">Example 6-5 Creating an EdgeSet</p>
+<p><span class="bold">Shell Example:</span></p>
+<pre dir="ltr">
+edges = g.getEdges( new EdgeFilter("src.prop1 == 10") )
+==&gt; PgxEdge with ID 0
+==&gt; PgxEdge with ID 1
+</pre>
+<p><span class="bold">Java Example:</span></p>
+<pre dir="ltr">
+import oracle.pgx.api.*;
+import oracle.pgx.filter.expressions.*;
+...
+EdgeSet = g.getEdges( new EdgeFilter("src.prop1 == 10") );
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BDSPA325"></a><a id="BDSPA326"></a><a id="BDSPA324"></a>
+<div class="props_rev_3"><a id="GUID-A0003270-3B54-416F-8BC0-E37EA4F699AD"></a>
+<h3 id="BDSPA-GUID-A0003270-3B54-416F-8BC0-E37EA4F699AD" class="sect3"><span class="enumeration_section">6.6.7</span> Using a Vertex Set to Create a Bipartite Subgraph</h3>
+<div>
+<p>You can create a bipartite subgraph by specifying a set of vertices (nodes), which are used as the left side. A bipartite subgraph has edges only between the left set of vertices and the right set of vertices. There are no edges within those sets, such as between two nodes on the left side. In the in-memory analyst, vertices that are isolated because all incoming and outgoing edges were deleted are not part of the bipartite subgraph.</p>
+<p>The following figure shows a bipartite subgraph. No properties are shown.</p>
+<div class="figure" id="GUID-A0003270-3B54-416F-8BC0-E37EA4F699AD__GUID-C8204681-BFAA-43C8-86E0-CB4F8CA4F7DE"><img width="597" height="486" src="img/GUID-CE62AAFC-0A54-4565-BE64-8E6DE26E46EA-default.png" alt="Description of GUID-CE62AAFC-0A54-4565-BE64-8E6DE26E46EA-default.png follows" title="Description of GUID-CE62AAFC-0A54-4565-BE64-8E6DE26E46EA-default.png follows" /><br />
+<a href="img_text/GUID-CE62AAFC-0A54-4565-BE64-8E6DE26E46EA-default.htm">Description of the illustration GUID-CE62AAFC-0A54-4565-BE64-8E6DE26E46EA-default.png</a></div>
+<!-- class="figure" -->
+<p>The following examples create a bipartite subgraph from the simple graph created in <a href="using-in-memory-analyst.htm#GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF__BABFEEHB">Figure 6-1</a>. They create a vertex collection and fill it with the vertices for the left side.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Create a Bipartite Subgraph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+pgx&gt; s = graph.createVertexSet()
+==&gt; ...
+pgx&gt; s.addAll([graph.getVertex(333), graph.getVertex(99)])
+==&gt; ...
+pgx&gt; s.size()
+==&gt; 2
+pgx&gt; bGraph = graph.bipartiteSubGraphFromLeftSet(s)
+==&gt; PGX Bipartite Graph named sample-sub-graph-4
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Create a Bipartite Subgraph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+ 
+VertexSet&lt;Integer&gt; s = graph.createVertexSet();
+s.addAll(graph.getVertex(333), graph.getVertex(99));
+BipartiteGraph bGraph = graph.bipartiteSubGraphFromLeftSet(s);
+</pre>
+<p>When you create a subgraph, the in-memory analyst automatically creates a Boolean vertex (node) property that indicates whether the vertex is on the left side. You can specify a unique name for the property.</p>
+<p>The resulting bipartite subgraph looks like this:</p>
+<div class="figure" id="GUID-A0003270-3B54-416F-8BC0-E37EA4F699AD__GUID-F0B25296-4342-407B-9432-EFFC656A65F3"><img width="394" height="232" src="img/GUID-43F3394A-1159-4F90-BFED-7EC83364E3D3-default.png" alt="Description of GUID-43F3394A-1159-4F90-BFED-7EC83364E3D3-default.png follows" title="Description of GUID-43F3394A-1159-4F90-BFED-7EC83364E3D3-default.png follows" /><br />
+<a href="img_text/GUID-43F3394A-1159-4F90-BFED-7EC83364E3D3-default.htm">Description of the illustration GUID-43F3394A-1159-4F90-BFED-7EC83364E3D3-default.png</a></div>
+<!-- class="figure" -->
+<p>Vertex 1908 is excluded from the bipartite subgraph. The only edge that connected that vertex extended from 128 to 1908. The edge was removed, because it violated the bipartite properties of the subgraph. Vertex 1908 had no other edges, and so was removed also.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-96D9C0AA-CE52-48E6-A09E-D97E872A79A1"></a>
+<h2 id="BDSPA-GUID-96D9C0AA-CE52-48E6-A09E-D97E872A79A1" class="sect2"><span class="enumeration_section">6.7</span> Using Pattern-Matching Queries with Graphs</h2>
+<div>
+<p>You can issue a pattern-matching query against an in-memory graph, and then work with the results of that query.</p>
+<div class="section">
+<p class="subhead2">Data Sets for the Pattern-Matching Query Examples</p>
+<p>The pattern-matching examples use two different data sets:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Relationships between politicians, athletes, celebrities, and companies</p>
+</li>
+<li>
+<p>An electrical network with devices, connections and switches</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Submitting the Pattern-Matching Queries Using PGQL</p>
+<p>You can submit a graph pattern-matching query in the Property Graph Suery Language (PGQL), a SQL-like declarative language that allows you to express a pattern consisting of vertices and edges, plus constraints on the properties of the vertices and edges.</p>
+<p>To submit a query to the in-memory analyst, you can use the&nbsp;<code class="codeph">queryPgql()</code>&nbsp;Java method of&nbsp;<code class="codeph">PgxGraph</code>&nbsp;(the type of object you get when you load a graph using the&nbsp;<code class="codeph">session</code>), or you can use the equivalent JavaScript function. Java example:</p>
+<p>The following topics use pattern matching in queries:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-FB13E846-9A2B-49EA-8170-E551D52D0B9E">Example: The Enemy of My Enemy is My Friend</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-8234E777-6707-4C52-8240-0824707CAA77">Example: Top 10 Most Collaborative People</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-D3C03F5C-10B9-49E3-A6A2-360E24F98B4C">Example: Transitive Connectivity Between Electrical Devices</a></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+<div class="props_rev_3"><a id="GUID-FB13E846-9A2B-49EA-8170-E551D52D0B9E"></a>
+<h3 id="BDSPA-GUID-FB13E846-9A2B-49EA-8170-E551D52D0B9E" class="sect3"><span class="enumeration_section">6.7.1</span> Example: The Enemy of My Enemy is My Friend</h3>
+<div>
+<p>The example in this topic describes a graph pattern inspired by the famous ancient proverb,&nbsp;<span class="italic">The enemy of my enemy is my friend.</span> Specifically, the graph includes two entities that are connected by two edges of the&nbsp;<code class="codeph">feuds</code>&nbsp;edge label. Vertices represent people or clans or countries. A pair of vertices that are feuding with each other will have an edge with the&nbsp;<code class="codeph">feuds</code>&nbsp;edge label.</p>
+<p>Such a query is written in PGQL as follows:</p>
+<pre dir="ltr">
+SELECT x.name, z.name
+WHERE
+    (x) -[e1:feuds]-&gt; (y),
+    (y) -[e2:feuds]-&gt; (z),
+    x != y
+ORDER BY x.name, z.name
+</pre>
+<p>Note that in the preceding query, the results are ordered by&nbsp;<code class="codeph">x.name</code>&nbsp;and then&nbsp;<code class="codeph">z.name</code>.</p>
+<p>Submit the query to PGX:</p>
+<p><span class="bold">Shell Example:</span></p>
+<pre dir="ltr">
+pgx&gt; resultSet = connectionsGraph.queryPgql("SELECT x.name, z.name WHERE (x) -[e1:feuds]-&gt; (y), (y) -[e2:feuds]-&gt; (z), x != z ORDER BY x.name, z.name")
+</pre>
+<p><span class="bold">Java Example:</span></p>
+<pre dir="ltr">
+import oracle.pgx.api.*;
+
+...
+
+PgqlResultSet resultSet = connectionsGraph.queryPgql("SELECT x.name, z.name WHERE (x) -[e1:feuds]-&gt; (y), (y) -[e2:feuds]-&gt; (z), x != z ORDER BY x.name, z.name");
+</pre>
+<p><span class="bold">JavaScript Example:</span></p>
+<pre dir="ltr">
+return p.then(function(graph) {
+  return graph.queryPgql("SELECT x.name, z.name WHERE (x) -[e1:feuds]-&gt; (y), (y) -[e2:feuds]-&gt; (z), x != z ORDER BY x.name, z.name");
+});
+</pre>
+<p><code class="codeph">PgqlResultSet</code>&nbsp;manages a result set of a query. A result set contains multiple results (such a query may match many sub-graphs). Each result consists of a list of result elements. The order of result elements follows the order of variables in the&nbsp;<code class="codeph">SELECT</code>&nbsp;clause of a query.</p>
+<p>Iterating over a query results means iterating over a set of&nbsp;<code class="codeph">PgqlResultElement</code>&nbsp;instances. A&nbsp;<code class="codeph">PgqlResultElement</code>&nbsp;maintains the type and variable name of a result element.</p>
+<p>You can get the list of&nbsp;<code class="codeph">PgqlResultElement</code>&nbsp;instances as follows:</p>
+<p><span class="bold">Shell Example:</span></p>
+<pre dir="ltr">
+pgx&gt; resultElements = resultSet.getPgqlResultElements()
+</pre>
+<p><span class="bold">Java Example:</span></p>
+<pre dir="ltr">
+import oracle.pgx.api.*;
+import java.util.List;
+
+...
+
+List&lt;PgqlResultElement&gt; resultElements = resultSet.getPgqlResultElements();
+</pre>
+<p><span class="bold">JavaScript Example:</span></p>
+<pre dir="ltr">
+return p.then(function(resultSet) {
+  console.log(resultSet.resultElements);
+});
+</pre>
+<p>Get the type and variable name of the first result element:</p>
+<p><span class="bold">Shell Example:</span></p>
+<pre dir="ltr">
+pgx&gt; resultElement = resultElements.get(0)
+pgx&gt; type = resultElement.getElementType() // STRING
+pgx&gt; varName = resultElement.getVarName() // x.name
+</pre>
+<p><span class="bold">Java Example:</span></p>
+<pre dir="ltr">
+import oracle.pgx.api.*;
+
+...
+
+PgqlResultElement resultElement = resultElements.get(0);
+PqglResultElement.Type = resultElement.getElementType(); // STRING
+String varName = resultElement.getVarName(); // x.name
+</pre>
+<p><span class="bold">JavaScript Example:</span></p>
+<pre dir="ltr">
+return p.then(function(resultSet) {
+  console.log(resultSet.resultElements[0].varName);
+  console.log(resultSet.resultElements[0].elementType);
+});
+</pre>
+<p>Iterate over a result set using the for-each style&nbsp;for&nbsp;loop. In the loop, you get a&nbsp;<code class="codeph">PgqlResult</code>&nbsp;instance that contains a query result.</p>
+<p><span class="bold">Shell Example:</span></p>
+<pre dir="ltr">
+pgx&gt; resultSet.getResults().each { \
+       // the variable 'it' is implicitly declared to references each PgqlResult instance
+     }
+</pre>
+<p><span class="bold">Java Example:</span></p>
+<pre dir="ltr">
+import oracle.pgx.api.*;
+
+...
+
+for (PgqlResult result : resultSet.getResults()) {
+  ...
+}
+</pre>
+<p><span class="bold">JavaScript Example:</span></p>
+<pre dir="ltr">
+return p.then(function(resultSet) {
+  return resultSet.iterate(function(row) {
+    console.log(row);
+  });
+});
+</pre>
+<p>In the shell, you can conveniently print out the result set in textual format using&nbsp;<code class="codeph">print</code>&nbsp;method of&nbsp;<code class="codeph">PqglResultSet</code>.</p>
+<pre dir="ltr">
+pgx&gt; resultSet.print(10) // print the first 10 results
+</pre>
+<p>You will see the following results:</p>
+<pre dir="ltr">
+--------------------------------
+| x.name        | z.name       |
+================================
+| ABC           | CBS          |
+| ABC           | NBC          |
+| Alibaba       | Beyonce      |
+| Alibaba       | Google       |
+| Alibaba       | eBay         |
+| Amazon        | Carl Icahn   |
+| Amazon        | Facebook     |
+| Amazon        | Tencent      |
+| Angela Merkel | Barack Obama |
+| Angela Merkel | John Kerry   |
+--------------------------------
+</pre>
+<p>You can also get a handle of individual&nbsp;<code class="codeph">PgqlResult</code>&nbsp;instances or their elements.</p>
+<p>By the index of the result element:</p>
+<pre dir="ltr">
+pgx&gt; nameX = it.getString(0)
+pgx&gt; nameZ = it.getString(1)
+</pre>
+<p>By the variable name of the result element:</p>
+<pre dir="ltr">
+pgx&gt; nameX = it.getString("x.name")
+pgx&gt; nameZ = it.getString("z.name")
+</pre>
+<p>You can also get a result element without knowing its type:</p>
+<pre dir="ltr">
+pgx&gt; nameX = it.get(0)
+// or
+pgx&gt; nameX = it.get("x.name")
+</pre>
+<p>In JavaScript, you can access result elements by the variable name like this:</p>
+<pre dir="ltr">
+return p.then(function(resultSet) {
+  return resultSet.iterate(function(row) {
+    console.log(row['n']);
+    console.log(row['n.pagerank']);
+  });
+});
+</pre></div>
+</div>
+<div class="props_rev_3"><a id="GUID-8234E777-6707-4C52-8240-0824707CAA77"></a>
+<h3 id="BDSPA-GUID-8234E777-6707-4C52-8240-0824707CAA77" class="sect3"><span class="enumeration_section">6.7.2</span> Example: Top 10 Most Collaborative People</h3>
+<div>
+<p>This example finds the top 10 most collaborative people in the graph in a decreasing order of the number of collaborators. Such a query exploits various features of PGQL, which include grouping, aggregating, ordering, and limiting the graph patterns found in the&nbsp;WHERE&nbsp;clause. The following query string expresses a user's inquiry in PGQL.</p>
+<pre dir="ltr">
+pgx&gt; resultSet = connectionsGraph.queryPgql("SELECT x.name, COUNT(*) AS num_collaborators WHERE (x) -[:collaborates]-&gt; () GROUP BY x ORDER BY DESC(num_collaborators) LIMIT 10")
+</pre>
+<p>The preceding query does the following:</p>
+<ol>
+<li>
+<p>Find all collaboration relationship patterns from the graph by matching the `collaborates' edge label.</p>
+</li>
+<li>
+<p>Group the found patterns by its source vertex.</p>
+</li>
+<li>
+<p>Apply the count aggregation to each group to find the number of collaborators.</p>
+</li>
+<li>
+<p>Order the groups by the number of collaborators in a decreasing order.</p>
+</li>
+<li>
+<p>Take only the first 10 results.</p>
+</li>
+</ol>
+<p>The <code class="codeph">print()</code>&nbsp;method shows the name and the number of collaborators of the top 10 collaborative people in the graph.</p>
+<pre dir="ltr">
+pgx&gt; resultSet.print()
+</pre>
+<p>You will see the following results.</p>
+<pre dir="ltr">
+---------------------------------------------------
+| x.name                      | num_collaborators |
+===================================================
+| Barack Obama                | 10                |
+| Charlie Rose                | 4                 |
+| Omar Kobine Layama          | 3                 |
+| Dieudonne Nzapalainga       | 3                 |
+| Nicolas Guerekoyame Gbangou | 3                 |
+| NBC                         | 3                 |
+| Pope Francis                | 3                 |
+| Beyonce                     | 2                 |
+| Eric Holder                 | 2                 |
+| Tom Steyer                  | 2                 |
+---------------------------------------------------
+</pre></div>
+</div>
+<div class="props_rev_3"><a id="GUID-D3C03F5C-10B9-49E3-A6A2-360E24F98B4C"></a>
+<h3 id="BDSPA-GUID-D3C03F5C-10B9-49E3-A6A2-360E24F98B4C" class="sect3"><span class="enumeration_section">6.7.3</span> Example: Transitive Connectivity Between Electrical Devices</h3>
+<div>
+<p>This example tests for reachability between vertices. It uses the electrical network graph in the following figure.</p>
+<div class="figure" id="GUID-D3C03F5C-10B9-49E3-A6A2-360E24F98B4C__GUID-EB076685-421F-4149-9A4B-1B1E99E88700">
+<p class="titleinfigure">Figure 6-9 Electrical Network Graph</p>
+<img width="370" height="460" src="img/GUID-CD58CD05-0ADC-4726-8A11-8AC2D77F5701-default.jpg" alt="Description of Figure 6-9 follows" title="Description of Figure 6-9 follows" /><br />
+<a href="img_text/GUID-CD58CD05-0ADC-4726-8A11-8AC2D77F5701-default.htm">Description of "Figure 6-9 Electrical Network Graph"</a></div>
+<!-- class="figure" -->
+<p>The example seeks to determine whether every&nbsp;<code class="codeph">Device</code>&nbsp;in the graph is transitively connected to every other&nbsp;<code class="codeph">Device</code>. Note that devices are connected by&nbsp;<code class="codeph">Connection</code>&nbsp;vertices and&nbsp;<code class="codeph">Switch</code>&nbsp;vertices.</p>
+<p>First, find out how many devices there are in the graph by submitting the following PGQL query:</p>
+<pre dir="ltr">
+SELECT COUNT(*) AS numDevices
+WHERE (n:Device)
+</pre>
+<p>The result is 6031:</p>
+<pre dir="ltr">
+--------------
+| numDevices |
+==============
+| 6031       |
+--------------
+</pre>
+<p>For each device, count the number of devices that can be reached by following zero or more&nbsp;<code class="codeph">Connection</code>&nbsp;or&nbsp;<code class="codeph">Switch</code>&nbsp;vertices (and necessary edges). This query can be expressed in PGQL as follows:</p>
+<pre dir="ltr">
+PATH connects_to := () &lt;- (/*:Connection|Switch*/) -&gt; ()
+SELECT n.nickname AS device, count(m) AS reachabilityCount
+WHERE (n:Device) -/:connects_to*/-&gt; (m:Device)
+GROUP BY n
+ORDER BY COUNT(m), n.nickname
+</pre>
+<p>In the preceding query, express connectivity between two neighboring devices/connections is expressed using a path pattern&nbsp;<code class="codeph">connects_to</code>. A Kleene star (*) expresses that the path pattern may repeatedly match zero or more times, with the goal of determining&nbsp;<span class="italic">transitive</span> connectivity. (The labels in the path pattern are commented out because the in-memory analyst does not yet support this feature.)</p>
+<p>The query uses&nbsp;<code class="codeph">GROUP BY</code>&nbsp;to make a group for each of the source devices&nbsp;<code class="codeph">n</code>,&nbsp;and then counts the number of reachable destination devices&nbsp;<code class="codeph">m</code>. The first 20 results are as follows:</p>
+<pre dir="ltr">
+------------------------------------------------
+| device                   | reachabilityCount |
+================================================
+| 190-7361-M1089120        | 6031              |
+| 190-8581-D5587291-3_INT  | 6031              |
+| 190-8593-D5860423-3_INT  | 6031              |
+| 196-29518-L3122816       | 6031              |
+| 196-29519-L3066815       | 6031              |
+| 196-29520-L3160109       | 6031              |
+| 196-29521-N1136355       | 6031              |
+| 196-31070-D5861005-2_INT | 6031              |
+| 196-35541-M1108317       | 6031              |
+| 196-35813-N1140519       | 6031              |
+| 196-36167-L3011298       | 6031              |
+| 198-5320-221-311359      | 6031              |
+| 221-240988-L3141411      | 6031              |
+| 221-240991-L3066817      | 6031              |
+| 221-242079-L3011293      | 6031              |
+| 221-282818-N1230123      | 6031              |
+| 221-282819-N1230122      | 6031              |
+| 221-306686-L2970258      | 6031              |
+| 221-306687-L2916625      | 6031              |
+| 221-308718-L2803199      | 6031              |
+------------------------------------------------
+</pre>
+<p>Because the results are sorted by increasing&nbsp;<code class="codeph">reachabilityCount</code>&nbsp;and because even the first device in the results transitively connects to every device in the graph (<code class="codeph">reachabilityCount&nbsp;=&nbsp;6031</code>), you now know that all the devices in the graph are fully reachable from each other.</p>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-57ADFFAE-3520-4F6A-871D-5B8D2C31854B"></a>
+<h2 id="BDSPA-GUID-57ADFFAE-3520-4F6A-871D-5B8D2C31854B" class="sect2"><span class="enumeration_section">6.8</span> Starting the In-Memory Analyst Server</h2>
+<div>
+<p>Big Data Spatial and Graph bundles a preconfigured version of Apache Tomcat that allows you to start the in-memory analyst server by running a script.</p>
+<p>If you need to configure the server before starting it, see <a href="using-in-memory-analyst.htm#GUID-26963C28-3672-404B-A66B-7F6CBC2B1D93">Configuring the In-Memory Analyst Server</a>.</p>
+<p>You can start the server by running the following script: <code class="codeph">/opt/oracle/oracle-spatial-graph/property_graph/pgx/bin/start-server</code></p>
+</div>
+<div class="props_rev_3"><a id="GUID-26963C28-3672-404B-A66B-7F6CBC2B1D93"></a>
+<h3 id="BDSPA-GUID-26963C28-3672-404B-A66B-7F6CBC2B1D93" class="sect3"><span class="enumeration_section">6.8.1</span> Configuring the In-Memory Analyst Server</h3>
+<div>
+<p>You can configure the in-memory analyst server by modifying the /opt/oracle/oracle-spatial-graph/property_graph/pgx/conf/server.conf file. The following table shows the valid configuration options, which can be specified in JSON format:</p>
+<div class="tblformal" id="GUID-26963C28-3672-404B-A66B-7F6CBC2B1D93__GUID-F1323BD2-A28E-482E-9D4C-5AD222556A71">
+<p class="titleintable">Table 6-2 Configuration Options for In-Memory Analyst Server</p>
+<table class="cellalignment327" title="Configuration Options for In-Memory Analyst Server" summary="Table of in-memory analyst server options, with the following columns: column 1 is the option name, column 2 is the data type, column 3 is a description of the option, and column 4 is the default value for the option.">
+<thead>
+<tr class="cellalignment321">
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e3960">Option</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e3963">Type</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e3966">Description</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e3969">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e3974" headers="d32131e3960">
+<p>authorization</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e3974 d32131e3963">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e3974 d32131e3966">
+<p>File that maps clients to roles for authorization.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e3974 d32131e3969">
+<p>server.auth.conf</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e3987" headers="d32131e3960">
+<p>ca_certs</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e3987 d32131e3963">
+<p>array of string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e3987 d32131e3966">
+<p>List of trusted certificates (PEM format). If 'enable_tls' is set to&nbsp;false, this option has no effect.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e3987 d32131e3969">
+<p>[See information after this table.]</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e4000" headers="d32131e3960">
+<p>enable_client_authentication</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4000 d32131e3963">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4000 d32131e3966">
+<p>If&nbsp;true, the client is authenticated during TLS handshake. See the TLS protocol for details. This flag does not have any effect if 'enable_tls' is&nbsp;false.</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4000 d32131e3969">
+<p>true</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e4013" headers="d32131e3960">
+<p>enable_tls</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4013 d32131e3963">
+<p>boolean</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4013 d32131e3966">
+<p>If&nbsp;true, the server enables transport layer security (TLS).</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4013 d32131e3969">
+<p>true</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e4026" headers="d32131e3960">
+<p>port</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4026 d32131e3963">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4026 d32131e3966">
+<p>Port that the PGX server should listen on</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4026 d32131e3969">
+<p>7007</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e4039" headers="d32131e3960">
+<p>server_cert</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4039 d32131e3963">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4039 d32131e3966">
+<p>The path to the server certificate to be presented to TLS clients (PEM format). If 'enable_tls' is set to&nbsp;false, this option has no effect</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4039 d32131e3969">
+<p>null</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e4052" headers="d32131e3960">
+<p>server_private_key</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4052 d32131e3963">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4052 d32131e3966">
+<p>the private key of the server (PKCS#8, PEM format). If 'enable_tls' is set to&nbsp;false, this option has no effect</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e4052 d32131e3969">
+<p>null</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p>The in-memory analyst web server enables&nbsp;two-way SSL/TLS&nbsp;(Transport Layer Security) by default. The server enforces TLS 1.2 and disables certain cipher suites known to be vulnerable to attacks. Upon a TLS handshake, both the server and the client present certificates to each other, which are used to validate the authenticity of the other party. Client certificates are also used to authorize client applications.</p>
+<p>The following is an example <code class="codeph">server.conf</code> configuration file:</p>
+<pre dir="ltr">
+{ 
+  "port": 7007, 
+  "server_cert": "certificates/server_certificate.pem", 
+  "server_private_key": "certificates/server_key.pem", 
+  "ca_certs": [ "certificates/ca_certificate.pem" ], 
+  "authorization": "auth/server.auth.conf",
+  "enable_tls": true,
+  "enable_client_authentication": true
+}
+</pre>
+<p>The following is an example <code class="codeph">server.auth.conf</code> configuration file: mapping client (applications) identified by their certificate DN string to roles:</p>
+<pre dir="ltr">
+{ 
+  "authorization": [{
+    "dn": "CN=Client, OU=Development, O=Oracle, L=Belmont, ST=California, C=US", 
+   "admin": false
+  }, {
+    "dn": "CN=Admin, OU=Development, O=Oracle, L=Belmont, ST=California, C=US", 
+   "admin": true
+  }]
+}
+</pre>
+<p>You can turn off client-side authentication or SSL/TLS authentication entirely in the server configuration. However, we recommend having two-way SSL/TLS enabled for any production usage.</p>
+</div>
+</div>
+</div>
+<a id="BDSPA328"></a>
+<div class="props_rev_3"><a id="GUID-A7FCA21B-F26A-4DF3-A906-C78E2274117B"></a>
+<h2 id="BDSPA-GUID-A7FCA21B-F26A-4DF3-A906-C78E2274117B" class="sect2"><span class="enumeration_section">6.9</span> Deploying to Jetty</h2>
+<div>
+<p>You can deploy the in-memory analyst to Eclipse Jetty, Apache Tomcat, or Oracle WebLogic. This example shows how to deploy the in-memory analyst as a web application with Eclipse Jetty.</p>
+<div class="infobox-note" id="GUID-A7FCA21B-F26A-4DF3-A906-C78E2274117B__GUID-F342A7D2-1E03-4FE7-8C76-6618D18C91DA">
+<p class="notep1">Note:</p>
+<p>These steps are meant only for testing the in-memory analyst. For any serious deployment, you should configure Jetty to enforce proper authentication and authorization, store the credentials securely, and only allow connections over HTTPS.</p>
+</div>
+<ol>
+<li>
+<p>Copy the in-memory analyst web application archive (WAR) file into the Jetty <code class="codeph">webapps</code> directory (replace <code class="codeph">&lt;VERSION&gt;</code> with the actual version number):</p>
+<pre dir="ltr">
+cp $PGX_HOME/server/shared-mem/pgx-webapp-&lt;VERSION&gt;.war.war $JETTY_HOME/webapps/pgx.war
+</pre></li>
+<li>
+<p>Ensure that port 8080 is not already in use, and then start Jetty:</p>
+<pre dir="ltr">
+cd $JETTY_HOME
+java -jar start.jar
+</pre></li>
+<li>
+<p>Verify that Jetty is working:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+./bin/pgx --base_url http://localhost:8080/pgx
+</pre></li>
+<li>
+<p>(Optional) Modify the in-memory analyst configuration files.</p>
+<p>The configuration file <code class="codeph">(pgx.conf</code>) and the logging parameters (<code class="codeph">log4j.xml</code>) for the in-memory analyst engine are in the WAR file under&nbsp;<code class="codeph">WEB-INF/classes</code>.</p>
+<p>After you make any changes, restart the server to enable the changes.</p>
+</li>
+</ol>
+<div class="infoboxnotealso" id="GUID-A7FCA21B-F26A-4DF3-A906-C78E2274117B__GUID-923A2C4E-2310-4D2C-9037-5AE4D760C317">
+<p class="notep1">See Also:</p>
+<p>The Jetty documentation for configuration and use at <a href="http://eclipse.org/jetty/documentation/" target="_blank"><code class="codeph">http://eclipse.org/jetty/documentation/</code></a></p>
+</div>
+</div>
+</div>
+<a id="BDSPA330"></a>
+<div class="props_rev_3"><a id="GUID-FF212462-41EE-4003-B25B-26E6B9B055CF"></a>
+<h2 id="BDSPA-GUID-FF212462-41EE-4003-B25B-26E6B9B055CF" class="sect2"><span class="enumeration_section">6.10</span> Deploying to Apache Tomcat</h2>
+<div>
+<div class="section">
+<p>You can deploy the in-memory analyst to Eclipse Jetty, Apache Tomcat, or Oracle WebLogic. This example shows how to deploy the in-memory analyst as a web application with Apache Tomcat.</p>
+<div class="infobox-note" id="GUID-FF212462-41EE-4003-B25B-26E6B9B055CF__GUID-F342A7D2-1E03-4FE7-8C76-6618D18C91DA">
+<p class="notep1">Note:</p>
+<p>These steps are meant only for testing the in-memory analyst. For any serious deployment, you should configure Apache Tomcat to enforce proper authentication and authorization, store the credentials securely, and only allow connections over HTTPS.</p>
+</div>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Copy the in-memory analyst WAR file into the Tomcat <code class="codeph">webapps</code> directory. For example (and replace &lt;VERSION&gt; with the actual version number):</span>
+<div>
+<pre dir="ltr">
+cp $PGX_HOME/server/shared-mem/pgx-webapp-&lt;VERSION&gt;.war $CATALINA_HOME/webapps/pgx.war
+</pre></div>
+</li>
+<li class="stepexpand"><span>Ensure that port 8080 is not already in use, and then start Tomcat:</span>
+<div>
+<pre dir="ltr">
+cd $CATALINA_HOME
+./bin/startup.sh
+</pre></div>
+</li>
+<li class="stepexpand"><span>Verify that Tomcat is working.</span>
+<div>
+<pre dir="ltr">
+cd $PGX_HOME
+./bin/pgx --base_url http://localhost:8080/pgx
+</pre></div>
+</li>
+</ol>
+<div class="section">
+<div class="infoboxnotealso" id="GUID-FF212462-41EE-4003-B25B-26E6B9B055CF__GUID-D8A2853A-521B-46F2-8800-89C2BEAC9344">
+<p class="notep1">See Also:</p>
+<p>The Tomcat documentation at</p>
+<p><a href="http://tomcat.apache.org/tomcat-7.0-doc/" target="_blank"><code class="codeph">http://tomcat.apache.org/tomcat-7.0-doc/</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA331"></a>
+<div class="props_rev_3"><a id="GUID-B70BD7A8-C34C-4B12-B36F-DE2CD9A107C2"></a>
+<h2 id="BDSPA-GUID-B70BD7A8-C34C-4B12-B36F-DE2CD9A107C2" class="sect2"><span class="enumeration_section">6.11</span> Deploying to Oracle WebLogic Server</h2>
+<div>
+<p>You can deploy the in-memory analysts to Eclipse Jetty, Apache Tomcat, or Oracle WebLogic Server. This example shows how to deploy the in-memory analyst as a web application with Oracle WebLogic Server.</p>
+<div class="infobox-note" id="GUID-B70BD7A8-C34C-4B12-B36F-DE2CD9A107C2__GUID-F342A7D2-1E03-4FE7-8C76-6618D18C91DA">
+<p class="notep1">Note:</p>
+<p>These steps are meant only for testing the in-memory analyst. For any serious deployment, you should configure WebLogic Server to enforce proper authentication and authorization, store the credentials securely, and only allow connections over HTTPS.</p>
+</div>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-013DE62D-1D96-45C2-A631-2DB4F575AB67">Installing Oracle WebLogic Server</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-1A6D5BD5-D361-43E7-9FFE-4434DC0A0B06">Deploying the In-Memory Analyst</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-CB2A1DE8-14DA-4DAD-9BAA-A7A1F2DB0618">Verifying That the Server Works</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA332"></a>
+<div class="props_rev_3"><a id="GUID-013DE62D-1D96-45C2-A631-2DB4F575AB67"></a>
+<h3 id="BDSPA-GUID-013DE62D-1D96-45C2-A631-2DB4F575AB67" class="sect3"><span class="enumeration_section">6.11.1</span> Installing Oracle WebLogic Server</h3>
+<div>
+<p>To download and install the latest version of Oracle WebLogic Server, see</p>
+<p><a href="http://www.oracle.com/technetwork/middleware/weblogic/documentation/index.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/middleware/weblogic/documentation/index.html</code></a></p>
+</div>
+</div>
+<a id="BDSPA337"></a>
+<div class="props_rev_3"><a id="GUID-1A6D5BD5-D361-43E7-9FFE-4434DC0A0B06"></a>
+<h3 id="BDSPA-GUID-1A6D5BD5-D361-43E7-9FFE-4434DC0A0B06" class="sect3"><span class="enumeration_section">6.11.2</span> Deploying the In-Memory Analyst</h3>
+<div>
+<p>To deploy the in-memory analyst to Oracle WebLogic, use commands like the following. Substitute your administrative credentials and WAR file for the values shown in this example:</p>
+<pre dir="ltr">
+. $MW_HOME/user_projects/domains/mydomain/bin/setDomainEnv.sh
+. $MW_HOME/wlserver/server/bin/setWLSEnv.sh
+java weblogic.Deployer -adminurl http://localhost:7001 -username username -password password -deploy -source $PGX_HOME/server/pgx-webapp-wls.war
+</pre>
+<p>If the script runs successfully, you will see a message like this one:</p>
+<pre dir="ltr">
+Target state: deploy completed on Server myserver
+</pre></div>
+</div>
+<a id="BDSPA338"></a>
+<div class="props_rev_3"><a id="GUID-CB2A1DE8-14DA-4DAD-9BAA-A7A1F2DB0618"></a>
+<h3 id="BDSPA-GUID-CB2A1DE8-14DA-4DAD-9BAA-A7A1F2DB0618" class="sect3"><span class="enumeration_section">6.11.3</span> Verifying That the Server Works</h3>
+<div>
+<p>Verify that you can connect to the server.</p>
+<pre dir="ltr">
+$PGX_HOME/bin/pgx --base_url http://localhost:7001/pgx
+</pre></div>
+</div>
+</div>
+<a id="BDSPA339"></a>
+<div class="props_rev_3"><a id="GUID-D7A6A8E7-5C99-4495-A2A8-F4B36462183A"></a>
+<h2 id="BDSPA-GUID-D7A6A8E7-5C99-4495-A2A8-F4B36462183A" class="sect2"><span class="enumeration_section">6.12</span> Connecting to the In-Memory Analyst Server</h2>
+<div>
+<p>After the property graph in-memory analyst is deployed as a server, and installed in a Hadoop cluster -- or on a client system without Hadoop as a web application on Eclipse Jetty, Apache Tomcat, or Oracle WebLogic Server -- you can connect to the in-memory analyst server.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-80F7A17E-E04B-4DF3-80C1-70A3413A048A">Connecting with the In-Memory Analyst Shell</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-1A699EB3-3593-468E-872C-0A8FC6BB6DDA">Connecting with Java</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-D86E01E3-A788-4C4D-9CA8-185AEE7D0083">Connecting with JavaScript</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA340"></a>
+<div class="props_rev_3"><a id="GUID-80F7A17E-E04B-4DF3-80C1-70A3413A048A"></a>
+<h3 id="BDSPA-GUID-80F7A17E-E04B-4DF3-80C1-70A3413A048A" class="sect3"><span class="enumeration_section">6.12.1</span> Connecting with the In-Memory Analyst Shell</h3>
+<div>
+<p>The simplest way to connect to an in-memory analyst instance is to specify the base URL of the server.</p>
+<p>You can use the <code class="codeph">--base_url</code> command line argument to connect to a server running on that base URL. For example, if the server has SSL/TLS disabled, does not require any authentication, and is running on <code class="codeph">http://localhost:8080/pgx</code>, you can connect to it using PGX shell by entering the following:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+./bin/pgx --base_url http://scott:tiger@localhost:8080/pgx
+</pre>
+<p>You can connect to a remote instance the same way.</p>
+<p>If the server requires BASIC auth, you can specify the username and password as in the following example:</p>
+<pre dir="ltr">
+./bin/pgx --base_url http://localhost:8080/pgx --username scott --password &lt;password-for-scott&gt;
+</pre>
+<p>If the server has SSL/TLS enabled, you can specify the path to the trust store (in JKS format) which is used to validate the server certificate with the <code class="codeph">--truststore</code> option.</p>
+<pre dir="ltr">
+./bin/pgx --base_url https://localhost:8080/pgx --truststore path/to/truststore.jks
+</pre>
+<p>If the server has two-way SSL/TLS enabled, you can specify the keystore file containing the client certificate and the keystore password with the <code class="codeph">--keystore</code> and <code class="codeph">&ndash;-password</code> options.</p>
+<pre dir="ltr">
+./bin/pgx --base_url https://localhost:8080/pgx --truststore path/to/truststore.jks --keystore path/to/keystore.jks --password &lt;password&gt;
+</pre></div>
+<a id="BDSPA341"></a>
+<div class="props_rev_3"><a id="GUID-8A824DB3-1440-4B6C-93D6-3EF6CF1EA344"></a>
+<h4 id="BDSPA-GUID-8A824DB3-1440-4B6C-93D6-3EF6CF1EA344" class="sect4"><span class="enumeration_section">6.12.1.1</span> About Logging HTTP Requests</h4>
+<div>
+<p>The in-memory analyst shell suppresses all debugging messages by default. To see which HTTP requests are executed, set the log level for <code class="codeph">oracle.pgx</code> to <code class="codeph">DEBUG</code>, as shown in this example:</p>
+<pre dir="ltr">
+pgx&gt; <span class="bold">:loglevel oracle.pgx DEBUG</span>
+===&gt; log level of oracle.pgx logger set to DEBUG
+pgx&gt; <span class="bold">session.readGraphWithProperties("sample_http.adj.json", "sample")</span>
+10:24:25,056 [main] DEBUG RemoteUtils - Requesting POST http://scott:tiger@localhost:8080/pgx/core/session/session-shell-6nqg5dd/graph HTTP/1.1 with payload {"graphName":"sample","graphConfig":{"uri":"http://path.to.some.server/pgx/sample.adj","separator":" ","edge_props":[{"type":"double","name":"cost"}],"node_props":[{"type":"integer","name":"prop"}],"format":"adj_list"}}
+10:24:25,088 [main] DEBUG RemoteUtils - received HTTP status 201
+10:24:25,089 [main] DEBUG RemoteUtils - {"futureId":"87d54bed-bdf9-4601-98b7-ef632ce31463"}
+10:24:25,091 [pool-1-thread-3] DEBUG PgxRemoteFuture$1 - Requesting GET http://scott:tiger@localhost:8080/pgx/future/session/session-shell-6nqg5dd/result/87d54bed-bdf9-4601-98b7-ef632ce31463 HTTP/1.1
+10:24:25,300 [pool-1-thread-3] DEBUG RemoteUtils - received HTTP status 200
+10:24:25,301 [pool-1-thread-3] DEBUG RemoteUtils - {"stats":{"loadingTimeMillis":0,"estimatedMemoryMegabytes":0,"numEdges":4,"numNodes":4},"graphName":"sample","nodeProperties":{"prop":"integer"},"edgeProperties":{"cost":"double"}}
+</pre></div>
+</div>
+</div>
+<a id="BDSPA342"></a>
+<div class="props_rev_3"><a id="GUID-1A699EB3-3593-468E-872C-0A8FC6BB6DDA"></a>
+<h3 id="BDSPA-GUID-1A699EB3-3593-468E-872C-0A8FC6BB6DDA" class="sect3"><span class="enumeration_section">6.12.2</span> Connecting with Java</h3>
+<div>
+<p>You can specify the base URL when you initialize the in-memory analyst using Java. An example is as follows. A URL to an in-memory analyst server is provided to the <code class="codeph">getInstance</code> API call.</p>
+<pre dir="ltr">
+import oracle.pg.nosql.*;
+import oracle.pgx.api.*;
+ 
+PgNosqlGraphConfig cfg = GraphConfigBuilder.forNosql().setName("mygraph").setHosts(...).build();
+OraclePropertyGraph opg = OraclePropertyGraph.getInstance(cfg);
+ServerInstance remoteInstance = Pgx.getInstance("http://scott:tiger@hostname:port/pgx");
+PgxSession session = remoteInstance.createSession("my-session");
+ 
+PgxGraph graph = session.readGraphWithProperties(opg.getConfig());
+</pre>
+<p>To specify the trust store, key store, and keystore password when connecting with Java, you must set the <code class="codeph">javax.net.ssl.trustStore</code>, <code class="codeph">javax.net.ssl.keyStore</code>, and <code class="codeph">javax.net.ssl.keyStorePassword</code> system properties, respectively.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-D86E01E3-A788-4C4D-9CA8-185AEE7D0083"></a>
+<h3 id="BDSPA-GUID-D86E01E3-A788-4C4D-9CA8-185AEE7D0083" class="sect3"><span class="enumeration_section">6.12.3</span> Connecting with JavaScript</h3>
+<div>
+<p>You can specify the base URL when you initialize the in-memory analyst using JavaScript. An example is as follows. A URL to an in-memory analyst server is provided to the&nbsp;<code class="codeph">connect</code>&nbsp;API call.</p>
+<pre dir="ltr">
+const pgx = require('oracle-pgx-client'); // oracle-pgx-client npm package
+const fs = require('fs');
+// options to connect to pgx server
+let options = {
+  clientKey: fs.readFileSync('client_key.pem'),
+  clientCert: fs.readFileSync('client_cert.pem'),
+  caCert: fs.readFileSync('ca_cert.pem'),
+  passphrase: 'passphrase',
+};
+// connect to pgx server
+let p = pgx.connect(url, options).then(function(session) {
+  return session.readGraphWithProperties(&hellip;); // load graph from pgx server
+}).then(function(graph) {
+  return graph.session.analyst.pagerank(graph); // run pagerank algorithm in pgx server
+}).catch(function(err) {
+  console.log("error: " + err);
+});
+</pre></div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-A8AABE4E-78A7-4555-8517-A15623D7D9F0"></a>
+<h2 id="BDSPA-GUID-A8AABE4E-78A7-4555-8517-A15623D7D9F0" class="sect2"><span class="enumeration_section">6.13</span> Using the In-Memory Analyst in Distributed Mode</h2>
+<div>
+<p>The in-memory analyst can be run in the following modes:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Shared memory mode</p>
+<p>Multiple threads work in parallel on in-memory graph data stored in a single node (a single, shared memory space). In shared memory mode, the size of the graph is constrained by the physical memory size and by other applications running on the same node.</p>
+</li>
+<li>
+<p>Distributed mode</p>
+<p>To overcome the limitations of shared memory mode, you can run the in-memory analyst in distributed mode, in which multiple nodes (computers) form a cluster, partition a large property graph across distributed memory, and work together to provide efficient and scalable graph analytics.</p>
+</li>
+</ul>
+<p>For using the in-memory analyst feature in distributed mode, the following requirements apply to each node in the cluster:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>GNU Compiler Collection (GCC) 4.8.2 or later</p>
+<p>C++ standard libraries built upon 3.4.20 of the GNU C++ API are needed.</p>
+</li>
+<li>
+<p>Ability to open a TCP port</p>
+<p>Distributed in-memory analyst requires a designated TCP port to be open for initial handshaking. The default port number is 7777, but you can set it using the run-time parameter <code class="codeph">pgx_side_channel_port</code>.</p>
+</li>
+<li>
+<p>Ability to use InfiniBand or UDP on Ethernet</p>
+<p>Data communication among nodes mainly uses InfiniBand (IB) or UDP on Ethernet. When using Ethernet, the machines in the cluster need to accept UDP packets from other computers.</p>
+</li>
+<li>
+<p>JDK8 or later</p>
+</li>
+</ul>
+<p>To start the in-memory analyst in distributed mode, do the following. (For this example, assume that four nodes (computers) have been allocated for this purpose, and that they have the host names <code class="codeph">hostname0</code>, <code class="codeph">hostname1</code>, <code class="codeph">hostname2</code>, and <code class="codeph">hostname3</code>.)</p>
+<p>On each of the nodes, log in and perform the following operations (modifying the details for your actual environment):</p>
+<pre dir="ltr">
+export PGX_HOME=/opt/oracle/oracle-spatial-graph/property_graph/pgx
+export LD_LIBRARY_PATH=$PGX_HOME/server/distributed/lib:$JAVA_HOME/jre/lib/amd64/server:$LD_LIBRARY_PATH
+
+cd $PGX_HOME/server/distributed
+./bin/node ./package/main/ClusterHost.js -server_config=./package/options.json -pgx_hostnames=hostname0,hostname1,hostname2,hostname3
+</pre>
+<p>After the operations have successfully completed on all four nodes. you can see a log message similar to the following:</p>
+<pre dir="ltr">
+17:11:42,709 [hostname0] INFO pgx.dist.cluster_host - PGX.D Server listening on http://hostname0:8023/pgx
+</pre>
+<p>The distributed in-memory analyst in now up and running. It provides service through the following endpoint: <code class="codeph">http://hostname0:8023/pgx</code></p>
+<p>This endpoint can be consumed in the same manner as a remotely deployed shared-memory analyst. You can use Java APIs, Groovy shells, and the PGX shell. An example of using the PGX shell is as follows:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+./bin/pgx --base_url=http://hostname0:8023/pgx 
+</pre>
+<p>The following example uses the service from a Groovy shell for Oracle NoSQL Database:</p>
+<pre dir="ltr">
+opg-nosql&gt; session=Pgx.createSession("http://hostname0:8023/pgx", "session-id-123");
+opg-nosql&gt; analyst=session.createAnalyst();
+opg-nosql&gt; pgxGraph = session.readGraphWithProperties(opg.getConfig());
+</pre>
+<p>The following is an example <code class="codeph">options.json</code> file:</p>
+<pre dir="ltr">
+$ cat ./package/options.json
+{
+    "pgx_use_infiniband": 1,
+    "pgx_command_queue_path": ".",
+    "pgx_builtins_path": "./lib",
+    "pgx_executable_path": "./bin/pgxd",
+    "java_class_path": "./jlib/*",
+    "pgx_httpserver_port": 8023,
+    "pgx_httpserver_enable_csrf_token": 1,
+    "pgx_httpserver_enable_ssl": 0,
+    "pgx_httpserver_client_auth": 1,
+    "pgx_httpserver_key": "&lt;INSERT_VALUE_HERE&gt;/server_key.pem",
+    "pgx_httpserver_cert": "&lt;INSERT_VALUE_HERE&gt;/server_cert.pem",
+    "pgx_httpserver_ca": "&lt;INSERT_VALUE_HERE&gt;/server_cert.pem",
+    "pgx_httpserver_auth": "&lt;INSERT_VALUE_HERE&gt;/server.auth.json",
+    "pgx_log_configure": "./package/log4j.xml",
+    "pgx_ranking_query_max_cache_size": 1048576,
+    "zookeeper_timeout": 10000,
+    "pgx_partitioning_strategy": "out_in",
+    "pgx_partitioning_ignore_ghostnodes": false,
+    "pgx_ghost_min_neighbors": 5000,
+    "pgx_ghost_max_node_counts": 40000,
+    "pgx_use_bulk_communication": true,
+    "pgx_num_worker_threads": 28
+}
+</pre></div>
+</div>
+<a id="BDSPA344"></a>
+<div class="props_rev_3"><a id="GUID-3410C21E-DE4C-4620-93F4-E0FA068F74B2"></a>
+<h2 id="BDSPA-GUID-3410C21E-DE4C-4620-93F4-E0FA068F74B2" class="sect2"><span class="enumeration_section">6.14</span> Reading and Storing Data in HDFS</h2>
+<div>
+<p>The in-memory analyst supports the Hadoop Distributed File System (HDFS). This example shows how to read and access graph data in HDFS using the in-memory analyst APIs.</p>
+<p>Graph configuration files are parsed on the client side. The graph data and configuration files must be stored in HDFS. You must install a Hadoop client on the same computer as In-Memory Analytics. See <a class="olink BIGUG207" target="_blank" href="../BIGUG/users.htm#BIGUG207">Oracle Big Data Appliance Software User's Guide</a>.</p>
+<div class="infobox-note" id="GUID-3410C21E-DE4C-4620-93F4-E0FA068F74B2__GUID-A8F3C8DC-80B2-4CF0-94E1-940E59E4C5C4">
+<p class="notep1">Note:</p>
+<p>The in-memory analyst engine runs in memory on one node of the Hadoop cluster only.</p>
+</div>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-BEA13DC0-3A18-4F6A-A181-8F3F259B67D9">Reading Data from HDFS</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-565B60F4-7CF9-4571-98A6-0E8DAB9EACC1">Storing Graph Snapshots in HDFS</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-7A6C928D-2920-48EA-BF40-8F8C3BFF281D">Compiling and Running a Java Application in Hadoop</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA346"></a><a id="BDSPA347"></a><a id="BDSPA345"></a>
+<div class="props_rev_3"><a id="GUID-BEA13DC0-3A18-4F6A-A181-8F3F259B67D9"></a>
+<h3 id="BDSPA-GUID-BEA13DC0-3A18-4F6A-A181-8F3F259B67D9" class="sect3"><span class="enumeration_section">6.14.1</span> Reading Data from HDFS</h3>
+<div>
+<p>This example copies the <code class="codeph">sample.adj</code> graph data and its configuration file into HDFS, and then reads it into memory.</p>
+<ol>
+<li>
+<p>Copy the graph data into HDFS:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+hadoop fs -mkdir -p /user/pgx
+hadoop fs -copyFromLocal ../examples/pgx/graphs/sample.adj /user/pgx
+</pre></li>
+<li>
+<p>Edit the <code class="codeph">uri</code> field of the graph configuration file <code class="codeph">sample.adj.json</code> to point to an HDFS resource:</p>
+<pre dir="ltr">
+{
+  "uri": "hdfs:/user/pgx/sample.adj", 
+  "format": "adj_list",
+  "node_props": [{ 
+    "name": "prop", 
+    "type": "integer" 
+  }],
+  "edge_props": [{ 
+    "name": "cost", 
+    "type": "double" 
+  }],
+  "separator": " "
+}
+</pre></li>
+<li>
+<p>Copy the configuration file into HDFS:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+hadoop fs -copyFromLocal ../examples/pgx/graphs/sample.adj.json /user/pgx
+</pre></li>
+<li>
+<p>Read the sample graph from HDFS into the in-memory analyst, as shown in the following examples.</p>
+</li>
+</ol>
+<div class="section">
+<p class="subhead3">Using the Shell to Read the Graph from HDFS</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+g = session.readGraphWithProperties("hdfs:/user/pgx/sample.adj.json");
+===&gt; PgxGraph[name=sample,N=4,E=4,created=1475525438479]
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Read the Graph from HDFS</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+PgxGraph g = session.readGraphWithProperties("hdfs:/user/pgx/sample.adj.json");
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA350"></a><a id="BDSPA351"></a><a id="BDSPA349"></a>
+<div class="props_rev_3"><a id="GUID-565B60F4-7CF9-4571-98A6-0E8DAB9EACC1"></a>
+<h3 id="BDSPA-GUID-565B60F4-7CF9-4571-98A6-0E8DAB9EACC1" class="sect3"><span class="enumeration_section">6.14.2</span> Storing Graph Snapshots in HDFS</h3>
+<div>
+<p>The in-memory analyst binary format (<code class="codeph">.pgb</code>) is a proprietary binary graph format for the in-memory analyst. Fundamentally, a <code class="codeph">.pgb</code> file is a binary dump of a graph and its property data, and it is efficient for in-memory analyst operations. You can use this format to quickly serialize a graph snapshot to disk and later read it back into memory.</p>
+<p>You should not alter an existing <code class="codeph">.pgb</code> file.</p>
+<p>The following examples store the sample graph, currently in memory, in PGB format in HDFS.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Store a Graph in HDFS</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+g.store(Format.PGB, "hdfs:/user/pgx/sample.pgb", VertexProperty.ALL, EdgeProperty.ALL, true)
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Store a Graph in HDFS</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.config.GraphConfig;
+import oracle.pgx.api.*;
+ 
+GraphConfig pgbGraphConfig = g.store(Format.PGB, "hdfs:/user/pgx/sample.pgb", VertexProperty.ALL, EdgeProperty.ALL, true);
+</pre>
+<p>To verify that the PGB file was created, list the files in the <code class="codeph">/user/pgx</code> HDFS directory:</p>
+<pre dir="ltr">
+hadoop fs -ls /user/pgx
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA353"></a>
+<div class="props_rev_3"><a id="GUID-7A6C928D-2920-48EA-BF40-8F8C3BFF281D"></a>
+<h3 id="BDSPA-GUID-7A6C928D-2920-48EA-BF40-8F8C3BFF281D" class="sect3"><span class="enumeration_section">6.14.3</span> Compiling and Running a Java Application in Hadoop</h3>
+<div>
+<p>The following is the <code class="codeph">HdfsDemo</code> Java class for the previous examples:</p>
+<pre dir="ltr">
+import oracle.pgx.api.Pgx;
+import oracle.pgx.api.PgxGraph;
+import oracle.pgx.api.PgxSession;
+import oracle.pgx.api.ServerInstance;
+import oracle.pgx.config.Format;
+import oracle.pgx.config.GraphConfig;
+import oracle.pgx.config.GraphConfigFactory;
+ 
+public class HdfsDemo {
+  public static void main(String[] mainArgs) throws Exception {
+    ServerInstance instance = Pgx.getInstance(Pgx.EMBEDDED_URL);
+    instance.startEngine();
+    PgxSession session = Pgx.createSession("my-session");
+    GraphConfig adjConfig = GraphConfigFactory.forAnyFormat().fromPath("hdfs:/user/pgx/sample.adj.json");
+    PgxGraph graph1 = session.readGraphWithProperties(adjConfig);
+    GraphConfig pgbConfig = graph1.store(Format.PGB, "hdfs:/user/pgx/sample.pgb");
+    PgxGraph graph2 = session.readGraphWithProperties(pgbConfig);
+    System.out.println("graph1 N = " + graph1.getNumVertices() + " E = " + graph1.getNumEdges());
+    System.out.println("graph2 N = " + graph1.getNumVertices() + " E = " + graph2.getNumEdges());
+  }
+}
+</pre>
+<p>These commands compile the <code class="codeph">HdfsDemo</code> class:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+mkdir classes
+javac -cp ../lib/'*' HdfsDemo.java -d classes
+</pre>
+<p>This command runs the <code class="codeph">HdfsExample</code> class:</p>
+<pre dir="ltr">
+java -cp ../lib/*:conf:classes:$HADOOP_CONF_DIR HdfsDemo
+</pre></div>
+</div>
+</div>
+<a id="BDSPA354"></a>
+<div class="props_rev_3"><a id="GUID-C9B538F8-D956-46F8-8714-3609C66CA802"></a>
+<h2 id="BDSPA-GUID-C9B538F8-D956-46F8-8714-3609C66CA802" class="sect2"><span class="enumeration_section">6.15</span> Running the In-Memory Analyst as a YARN Application</h2>
+<div>
+<p>In this example you will learn how to start, stop and monitor in-memory analyst servers on a Hadoop cluster via Hadoop NextGen MapReduce (YARN) scheduling.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-310197DE-46EC-4691-A28B-735D7089C6CC">Starting and Stopping In-Memory Analyst Services</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-0844CDCD-462F-4E74-B188-F92A2C0C6481">Connecting to In-Memory Analyst Services</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-112F75FC-7E60-4780-B4D8-5053BE1CC01C">Monitoring In-Memory Analyst Services</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA356"></a>
+<div class="props_rev_3"><a id="GUID-310197DE-46EC-4691-A28B-735D7089C6CC"></a>
+<h3 id="BDSPA-GUID-310197DE-46EC-4691-A28B-735D7089C6CC" class="sect3"><span class="enumeration_section">6.15.1</span> Starting and Stopping In-Memory Analyst Services</h3>
+<div>
+<p>Before you can start the in-memory analyst as a YARN application, you must configure the in-memory analyst YARN client.</p>
+</div>
+<a id="BDSPA357"></a>
+<div class="props_rev_3"><a id="GUID-855AC58E-FEFE-4F19-8D00-8FFA3BAEFF5C"></a>
+<h4 id="BDSPA-GUID-855AC58E-FEFE-4F19-8D00-8FFA3BAEFF5C" class="sect4"><span class="enumeration_section">6.15.1.1</span> Configuring the In-Memory Analyst YARN Client</h4>
+<div>
+<p>The in-memory analyst distribution contains an example YARN client configuration file in <code class="codeph">$PGX_HOME/conf/yarn.conf</code>.</p>
+<p>Ensure that all the required fields are set properly. The specified paths must exist in HDFS, and <code class="codeph">zookeeper_connect_string</code> must point to a running ZooKeeper port of the CDH cluster.</p>
+</div>
+</div>
+<a id="BDSPA358"></a>
+<div class="props_rev_3"><a id="GUID-C973F5BD-1828-4A44-87D4-F4A472A0638F"></a>
+<h4 id="BDSPA-GUID-C973F5BD-1828-4A44-87D4-F4A472A0638F" class="sect4"><span class="enumeration_section">6.15.1.2</span> Starting a New In-Memory Analyst Service</h4>
+<div>
+<p>To start a new in-memory analyst service on the Hadoop cluster, use the following command ( replace &lt;VERSION&gt; with the actual version number):</p>
+<pre dir="ltr">
+yarn jar $PGX_HOME/yarn/pgx-yarn-&lt;VERSION&gt;.jar
+</pre>
+<p>To use a YARN client configuration file other than <code class="codeph">$PGX_HOME/conf/yarn.conf</code>, provide the file path ( replace &lt;VERSION&gt; with the actual version number, and /path/to/different/ with the actual path):</p>
+<pre dir="ltr">
+yarn jar $PGX_HOME/yarn/pgx-yarn-&lt;VERSION&gt;.jar /path/to/different/yarn.conf
+</pre>
+<p>When the service starts, the host name and port of the Hadoop node where the in-memory analyst service launched are displayed.</p>
+</div>
+</div>
+<a id="BDSPA359"></a>
+<div class="props_rev_3"><a id="GUID-9CC6E7BD-A5CE-48EF-9A41-DC8224A51A89"></a>
+<h4 id="BDSPA-GUID-9CC6E7BD-A5CE-48EF-9A41-DC8224A51A89" class="sect4"><span class="enumeration_section">6.15.1.3</span> About Long-Running In-Memory Analyst Services</h4>
+<div>
+<p>The in-memory analyst YARN applications are configured by default to time out after a specified period. If you disable the time out by setting <code class="codeph">pgx_server_timeout_secs</code> to <code class="codeph">0</code>, the in-memory analyst server keeps running until you or Hadoop explicitly stop it.</p>
+</div>
+</div>
+<a id="BDSPA360"></a>
+<div class="props_rev_3"><a id="GUID-57E23231-B1B6-4183-ACDF-737C5E541E51"></a>
+<h4 id="BDSPA-GUID-57E23231-B1B6-4183-ACDF-737C5E541E51" class="sect4"><span class="enumeration_section">6.15.1.4</span> Stopping In-Memory Analyst Services</h4>
+<div>
+<p>To stop a running in-memory analyst service:</p>
+<pre dir="ltr">
+yarn application -kill <span class="italic">appId</span>
+</pre>
+<p>In this syntax, <span class="italic">appId</span> is the application ID displayed when the service started.</p>
+<p>To inspect the logs of a terminated in-memory analyst service:</p>
+<pre dir="ltr">
+yarn logs -applicationId <span class="italic">appId</span>
+</pre></div>
+</div>
+</div>
+<a id="BDSPA361"></a>
+<div class="props_rev_3"><a id="GUID-0844CDCD-462F-4E74-B188-F92A2C0C6481"></a>
+<h3 id="BDSPA-GUID-0844CDCD-462F-4E74-B188-F92A2C0C6481" class="sect3"><span class="enumeration_section">6.15.2</span> Connecting to In-Memory Analyst Services</h3>
+<div>
+<p>You can connect to in-memory analyst services in YARN the same way you connect to any in-memory analyst server. For example, to connect the Shell interface with the in-memory analyst service, use a command like this one:</p>
+<pre dir="ltr">
+$PGX_HOME/bin/pgx --base_url <span class="italic">username:password@hostname:port</span>
+</pre>
+<p>In this syntax, <span class="italic">username</span> and <span class="italic">password</span> match those specified in the YARN configuration.</p>
+</div>
+</div>
+<a id="BDSPA362"></a>
+<div class="props_rev_3"><a id="GUID-112F75FC-7E60-4780-B4D8-5053BE1CC01C"></a>
+<h3 id="BDSPA-GUID-112F75FC-7E60-4780-B4D8-5053BE1CC01C" class="sect3"><span class="enumeration_section">6.15.3</span> Monitoring In-Memory Analyst Services</h3>
+<div>
+<p>To monitor in-memory analyst services, click the corresponding YARN application in the Resource Manager Web UI. By default, the Web UI is located at</p>
+<p><code class="codeph">http://</code><span class="italic"><code class="codeph">resource-manager-hostname</code></span><code class="codeph">:8088/cluster</code></p>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-F1275F1F-6FA8-4B37-ACD7-BDF6CFEF5E6F"></a>
+<h2 id="BDSPA-GUID-F1275F1F-6FA8-4B37-ACD7-BDF6CFEF5E6F" class="sect2"><span class="enumeration_section">6.16</span> Using Oracle Two-Tables Relational Format</h2>
+<div>
+<p>When using a relational data model, graph data can be represented with two relational tables. One table is for nodes and their properties; the other table is for edges and their properties.</p>
+<p>The in-memory analyst allows graphs to be read from such a relational graph representation: two relational (RDBMS) tables representing nodes and edges. All you need to do is specify the following additional fields in the graph <code class="codeph">config</code> object.</p>
+<div class="tblformal" id="GUID-F1275F1F-6FA8-4B37-ACD7-BDF6CFEF5E6F__GUID-58D1703F-CBC4-42A0-BCED-5FFEB8BB0D21">
+<p class="titleintable">Table 6-3 Additional Fields for Two-Tables Format</p>
+<table class="cellalignment327" title="Additional Fields for Two-Tables Format" summary="Additional fields for the config object to be able to use the two-tables format.">
+<thead>
+<tr class="cellalignment321">
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e5742">Field</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e5745">Type</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e5748">Description</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e5751">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5756" headers="d32131e5742">
+<p>edges_key_column</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5756 d32131e5745">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5756 d32131e5748">
+<p>Name of primary key column in edges table</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5756 d32131e5751">
+<p>eid</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5769" headers="d32131e5742">
+<p>edges_table_name</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5769 d32131e5745">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5769 d32131e5748">
+<p>Name of edges table</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5769 d32131e5751">
+<p>null</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5782" headers="d32131e5742">
+<p>from_nid_column</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5782 d32131e5745">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5782 d32131e5748">
+<p>Column name for source node</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5782 d32131e5751">
+<p>svid</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5795" headers="d32131e5742">
+<p>insert_batch_size</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5795 d32131e5745">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5795 d32131e5748">
+<p>Batch size of the rows to be inserted</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5795 d32131e5751">
+<p>10000</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5808" headers="d32131e5742">
+<p>max_prefetched_rows</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5808 d32131e5745">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5808 d32131e5748">
+<p>Maximum number or rows prefetched during each round trip (result set - the database)</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5808 d32131e5751">
+<p>10000</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5821" headers="d32131e5742">
+<p>nodes_key_column</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5821 d32131e5745">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5821 d32131e5748">
+<p>Name of primary key column in nodes table</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5821 d32131e5751">
+<p>vid</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5834" headers="d32131e5742">
+<p>nodes_table_name</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5834 d32131e5745">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5834 d32131e5748">
+<p>Name of nodes table</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5834 d32131e5751">
+<p>null</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5847" headers="d32131e5742">
+<p>num_connections</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5847 d32131e5745">
+<p>integer</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5847 d32131e5748">
+<p>Number of connections to read/write data from/to two tables</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5847 d32131e5751">
+<p>&lt;no-of-cpus&gt;</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5860" headers="d32131e5742">
+<p>schema</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5860 d32131e5745">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5860 d32131e5748">
+<p>Schema where the tables are going to be written</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5860 d32131e5751">
+<p>null</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5873" headers="d32131e5742">
+<p>tablespace</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5873 d32131e5745">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5873 d32131e5748">
+<p>Tablespace where the tables are going to be written</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5873 d32131e5751">
+<p>users</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5886" headers="d32131e5742">
+<p>to_nid_column</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5886 d32131e5745">
+<p>string</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5886 d32131e5748">
+<p>Column name for destination node</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5886 d32131e5751">
+<p>dvid</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5900" headers="d32131e5742">
+<p>vertex_id_type</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5900 d32131e5745">
+<p>enum[long, string]</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5900 d32131e5748">
+<p>Type of the vertex id</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5900 d32131e5751">
+<p>long</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infobox-note" id="GUID-F1275F1F-6FA8-4B37-ACD7-BDF6CFEF5E6F__GUID-BE14D53D-692D-485B-8F94-B22EE939A5A8">
+<p class="notep1">Note:</p>
+<p>To read data from Oracle Database using the two-tables format directly into the Oracle Big Data Spatial and Graph in-memory analyst, you must have the following license or licenses:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Big Data Spatial and Graph license on an Oracle Big Data Appliance, OR</p>
+</li>
+<li>
+<p>Oracle Big Data Spatial and Graph license on another supported configuration, and a license for the Oracle Spatial and Graph option on the Oracle Database Enterprise Edition system.</p>
+</li>
+</ul>
+<p>See <a class="olink BIGLI872" target="_blank" href="../BIGLI/bda.htm#BIGLI872"><span class="italic">Big Data Appliance Licensing Information User Manual</span></a> for details on licensing Oracle Big Data Spatial and Graph.</p>
+</div>
+<ul style="list-style-type: disc;">
+<li>
+<p>Example of Using Two-Tables Format</p>
+</li>
+<li>
+<p>How Null Values Are Handled</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead2">Example of Using Two-Tables Format</p>
+<p>The following example reads graph data from two relational tables (NODES and EDGES), using the values shown in the following tables.</p>
+<div class="tblformal" id="GUID-F1275F1F-6FA8-4B37-ACD7-BDF6CFEF5E6F__NODESTABLEVALUESFORTWO-TABLESEXAMPL-8ED45303">
+<p class="titleintable">Table 6-4 NODES Table Values for Two-Tables Example</p>
+<table class="cellalignment327" title="NODES Table Values for Two-Tables Example" summary="NODES table values for the example that uses the two-tables format. The columns is this table are NID for node ID and node properties NP1, NP2, and NP3.">
+<thead>
+<tr class="cellalignment321">
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e5953">nid</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e5956">NP1</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e5959">NP2</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e5962">NP3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5967" headers="d32131e5953">
+<p>1829107</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5967 d32131e5956">
+<p>&ldquo;hello&rdquo;</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5967 d32131e5959">
+<p>06/06/2012</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5967 d32131e5962">
+<p>0.30</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e5980" headers="d32131e5953">
+<p>1829179</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5980 d32131e5956">
+<p>&ldquo;world&rdquo;</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5980 d32131e5959">
+<p>06/08/2012</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e5980 d32131e5962">
+<p>0.999</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="tblformal" id="GUID-F1275F1F-6FA8-4B37-ACD7-BDF6CFEF5E6F__EDGESTABLEVALUESFORTWO-TABLESEXAMPL-8ED45A79">
+<p class="titleintable">Table 6-5 EDGES Table Values for Two-Tables Example</p>
+<table class="cellalignment327" title="EDGES Table Values for Two-Tables Example" summary="EDGES table values for the example that uses the two-tables format. The columns is this table are EID for node ID, FROM_NID and TO_NID, and edge properties EP1, EP2, and EP3.">
+<thead>
+<tr class="cellalignment321">
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e6006">eid</th>
+<th class="cellalignment328" id="d32131e6009">from_nid</th>
+<th class="cellalignment328" id="d32131e6012">to_nid</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e6015">EP1</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e6018">EP2</th>
+<th class="cellalignment382" rowspan="1" colspan="1" id="d32131e6021">EP3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e6026" headers="d32131e6006">
+<p>21123</p>
+</td>
+<td class="cellalignment329" headers="d32131e6026 d32131e6009">
+<p>1829107</p>
+</td>
+<td class="cellalignment329" headers="d32131e6026 d32131e6012">
+<p>1829179</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e6026 d32131e6015">
+<p>&ldquo;alpha&rdquo;</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e6026 d32131e6018">
+<p>06/06/2012</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e6026 d32131e6021">
+<p>10.5</p>
+</td>
+</tr>
+<tr class="cellalignment321">
+<td class="cellalignment321" rowspan="1" colspan="1" id="d32131e6045" headers="d32131e6006">
+<p>48180</p>
+</td>
+<td class="cellalignment329" headers="d32131e6045 d32131e6009">
+<p>1788817</p>
+</td>
+<td class="cellalignment329" headers="d32131e6045 d32131e6012">
+<p>1829179</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e6045 d32131e6015">
+<p>&ldquo;beta&rdquo;</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e6045 d32131e6018">
+<p>06/08/2012</p>
+</td>
+<td class="cellalignment321" rowspan="1" colspan="1" headers="d32131e6045 d32131e6021">
+<p>22.3</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<pre dir="ltr">
+{
+  "jdbc_url": "jdbc:oracle:thin:@mydatabaseserver:1521/dbName",
+  "format": "two_tables",
+  "datastore": "rdbms",
+  "username": "dbUser",
+  "password": "dbPassword",
+  "nodes_table_name": "nodes",
+  "edges_table_name": "edges",
+  "node_props": [{
+    "name": "NP1",
+    "type": "string"
+  },{
+    "name": "NP2",
+    "type": "date"
+  },{
+    "name": "NP3",
+    "type": "double"
+  }],
+  "edge_props": [{
+    "name": "EP1",
+    "type": "string"
+  },{
+    "name": "EP2",
+    "type": "date"
+  },{
+    "name": "EP3",
+    "type": "float"
+  }]
+}
+</pre>
+<p>For additional examples of using the two-tables format, see <a href="using-in-memory-analyst.htm#GUID-286D11B2-5A66-4072-808D-8FA569DDCC4A">Using the In-Memory Analyst to Analyze Graph Data in Apache Spark</a>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">How Null Values Are Handled</p>
+<p>For the in-memory analyst, property values in the nodes or edges cannot be&nbsp;null. So whenever a property value in the nodes or edges table is set to&nbsp;null, a default value will be assigned instead. If not specified in the <code class="codeph">config</code> object, the default value is the Java default value for the property type (for example,&nbsp;0.0&nbsp;for&nbsp;<code class="codeph">double</code>).</p>
+<p>However, you can specify a different default value in the <code class="codeph">config</code> object, as shown in the following example.</p>
+<pre dir="ltr">
+{
+  "name": "NP1",
+  "type": "double",
+  "default": 1.0
+}
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-286D11B2-5A66-4072-808D-8FA569DDCC4A"></a>
+<h2 id="BDSPA-GUID-286D11B2-5A66-4072-808D-8FA569DDCC4A" class="sect2"><span class="enumeration_section">6.17</span> Using the In-Memory Analyst to Analyze Graph Data in Apache Spark</h2>
+<div>
+<p>The property graph feature in Oracle Big Data Spatial and Graph enables integration of in-memory analytics and Apache Spark.</p>
+<p>The following examples create a Spark context, load a graph in two-tables format (vertices/nodes table and edges table) as a Spark DataFrame, read from this DataFrame into an in-memory analyst, and finally build an in-memory graph. For simplicity, only the Java APIs are illustrated.</p>
+<p>(For an explanation of the two-tables format, see <a href="using-in-memory-analyst.htm#GUID-F1275F1F-6FA8-4B37-ACD7-BDF6CFEF5E6F">Using Oracle Two-Tables Relational Format</a>.)</p>
+<div class="example" id="GUID-286D11B2-5A66-4072-808D-8FA569DDCC4A__GUID-191D7FDE-9CF6-4EF6-AF1F-DF03670AF873">
+<p class="titleinexample">Example 6-6 Create Spark Context</p>
+<pre dir="ltr">
+// import classes required by Apache Spark and PGX
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.*;
+import oracle.pgx.api.*;
+import org.apache.spark.sql.*;
+import org.apache.spark.sql.types.*;
+
+String sparkMaster = "spark://..."; // the access point for your Spark cluster
+String sparkAppName = "My Spark App ..."; // the name of this application
+String [] appJarPaths = new String[] {"/your/jar/path" }; // a file path to your jar file
+// create a Spark configuration and a context
+SparkConf sparkConf = new SparkConf().setMaster(sparkMaster).setAppName(sparkAppName).setJars(appJarPaths);
+JavaSparkContext sc = new JavaSparkContext(sparkConf);
+SQLContext sqlContext = new SQLContext(sc);
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-286D11B2-5A66-4072-808D-8FA569DDCC4A__GUID-CC108824-55F8-49B8-BBBE-A5F4AAB7477D">
+<p class="titleinexample">Example 6-7 Build Spark DataFrame from a Graph in Two-Tables Format</p>
+<p>This example assumes that the vertex CSV file ("vertex table") has, in each row, an ID of long integer type, VProp1 of integer type, and VProf2 of double type. It also assumes that the edge CSV file ("edge table") has, in each row, an SRCID of long integer type, DSTID of long integer type, EProp1 of integer type, and EProp2 of double type.</p>
+<pre dir="ltr">
+JavaRDD&lt;String&gt; vLines = sc.textFile("&lt;path&gt;/test_graph_nodes_table.csv", 2) 
+JavaRDD&lt;String&gt; eLines = sc.textFile("&lt;path&gt;/test_graph_edges_table.csv", 2) 
+
+JavaRDD&lt;Row&gt; vRowRdd = vLines.map(_.split(",")).map(p=&gt;Row(p(0).toLong,p(1).toInt,p(2).toDouble));
+StructType vDataframeScheme = new StructType().add("ID", LongType).add("VProp1", IntegerType).add("VProp2", DoubleType);
+Dataframe vDataframe = sqlc.createDataFrame(vRowRdd, vDataframeScheme);
+
+JavaRDD&lt;Row&gt; eRowRdd = eLines.map(_.split(",")).map(p=&gt;Row(p(0).toLong,p(1).toLong,p(2).toInt,p(3).toDouble));
+StructType eDataframeScheme = new StructType().add("SRCID", LongType).add("DSTID", LongType).add("EProp1", IntegerType).add("EProp2", DoubleType);
+Dataframe eDataframe = sqlc.createDataFrame(eRowRdd, eDataframeScheme);
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-286D11B2-5A66-4072-808D-8FA569DDCC4A__GUID-88F84D11-88C3-4C6D-BAA9-825D07610EF0">
+<p class="titleinexample">Example 6-8 Read Spark DataFrame into In-Memory Analyst (1)</p>
+<p>This example creates a <code class="codeph">PgxSession</code> and a <code class="codeph">PgxSparkContext</code>, and uses the <code class="codeph">PgxSparkContext</code> to read and build an in-memory graph out of the two Spark DataFrames.</p>
+<pre dir="ltr">
+String pgxServer = "http://..."; // the access point for a PGX server
+// create a PGX session and a context
+PgxSession pgxSession = Pgx.getInstance(pgxServer).createSession("spark-session");
+PgxSparkContext pgxContext = new PgxSparkContext(sparkContext, pgxSession);
+
+// load into PGX
+PgxGraph g = pgxContext.read(vDataframe, eDataframe, "spark-test-graph");
+</pre>
+<p>After an instance of <code class="codeph">PgxGraph</code> is created, all existing analytical functions can be used.</p>
+</div>
+<!-- class="example" -->
+<div class="example" id="GUID-286D11B2-5A66-4072-808D-8FA569DDCC4A__GUID-D70F1D6C-03D9-4328-89CA-80508A3C6579">
+<p class="titleinexample">Example 6-9 Read Spark DataFrame into In-Memory Analyst (2)</p>
+<p>The following example stores the already loaded in-memory graph <code class="codeph">g</code> back into Apache Spark by creating a pair of two Spark DztaFrames. The elements of the pair store vertex and edge information, respectively.</p>
+<pre dir="ltr">
+// store graph "spark-test-graph" into Apache Spark
+Pair&lt;DataFrame, DataFrame&gt; dataframePair = pgxContext.writeToDataframes(vertexDataFrame, eDataframeScheme, "spark-test-graph");
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-C46BBFC0-EDDB-43E9-B313-56472404483A"></a>
+<h2 id="BDSPA-GUID-C46BBFC0-EDDB-43E9-B313-56472404483A" class="sect2"><span class="enumeration_section">6.18</span> Using the In-Memory Analyst Zeppelin Interpreter</h2>
+<div>
+<p>The in-memory analyst provides an interpreter implementation for Apache Zeppelin. This tutorial topic explains how to install the in-memory analyst interpreter into your local Zeppelin installation and to perform some simple operations.</p>
+<div class="section">
+<p class="subhead2">Installing the Interpreter</p>
+<p>The following steps were tested with Zeppelin version 0.6.1, and might have to be modified with newer versions.</p>
+<ol>
+<li>
+<p>If you have not already done so,&nbsp;<a href="http://zeppelin.apache.org/download.html" target="_blank">download and install Zeppelin</a>.</p>
+</li>
+<li>
+<p>Locate the in-memory analyst interpreter package in the Big Data Spatial and Graph installation: /opt/oracle/oracle-spatial-graph/property_graph/pgx/client/pgx-&lt;version&gt;-zeppelin-interpreter.zip</p>
+</li>
+<li>
+<p>Follow the&nbsp;<a href="https://zeppelin.apache.org/docs/latest/development/writingzeppelininterpreter.html#install-your-interpreter-binary" target="_blank">official interpreter installation steps</a>.</p>
+<ol>
+<li>
+<p>Unzip the in-memory analyst interpreter package into&nbsp;<code class="codeph">$ZEPPELIN_HOME/interpreter/pgx</code>.</p>
+</li>
+<li>
+<p>Edit&nbsp;<code class="codeph">$ZEPPELIN_HOME/conf/zeppelin-site.xml</code>&nbsp;and add the in-memory analyst Zeppelin interpreter class <code class="codeph">nameoracle.pgx.zeppelin.PgxInterpreter</code>&nbsp;to the&nbsp;<code class="codeph">zeppelin.interpreters</code>&nbsp;property field.</p>
+</li>
+<li>
+<p>Restart Zeppelin.</p>
+</li>
+<li>
+<p>In the Zeppelin interpreter page, click the&nbsp;<span class="bold">+Create</span>&nbsp;button to add a new interpreter of interpreter group <code class="codeph">pgx</code>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Configure the new in-memory analyst interpreter.</p>
+<ol>
+<li>
+<p>Choose an option for <span class="bold">interpreter for note</span>:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Shared</span>: All notes will share the same in-memory analyst session (not recommended).</p>
+</li>
+<li>
+<p><span class="bold">Scoped</span>: Every note gets its own in-memory analyst session but shares the same process (recommended).</p>
+</li>
+<li>
+<p><span class="bold">Isolated</span>: Every note gets its own in-memory client shell process. This is the highest level of isolation, but might consume unnecessary resources on the system running the Zeppelin interpreters.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For <span class="bold">pgx.baseUrl</span>, specify at least the base URL at which the in-memory analyst server is running, because the in-memory analyst interpreter acts like a client that talks to a remote in-memory analyst server.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Using the Interpreter</p>
+<p>If you named the in-memory analyst interpreter&nbsp;<code class="codeph">pgx</code>, you can send paragraphs to the in-memory analyst interpreter by starting the paragraphs with the&nbsp;<code class="codeph">%pgx</code>directive, just as with any other interpreter.</p>
+<p>The in-memory analyst Zeppelin interpreter evaluates paragraphs in the same way that the in-memory analyst shell does, and returns the output. Therefore, any valid in-memory analyst shell script will run in the in-memory analyst interpreter, as in the following example:</p>
+<pre dir="ltr">
+%pgx
+g_brands = session.readGraphWithProperties("/opt/data/exommerce/brand_cat.json")
+g_brands.getNumVertices()
+rank = analyst.pagerank(g_brands, 0.001, 0.85, 100)
+rank.getTopKValues(10)
+</pre>
+<p>The following figure shows the results of that query after you click the icon to execute it.</p>
+<div class="figure" id="GUID-C46BBFC0-EDDB-43E9-B313-56472404483A__GUID-0E6AA854-8552-4351-A6E9-B3067774DAAF"><img width="727" height="264" src="img/GUID-5C09F22E-982E-4ED8-8786-BBF545B71233-default.jpg" alt="Description of GUID-5C09F22E-982E-4ED8-8786-BBF545B71233-default.jpg follows" title="Description of GUID-5C09F22E-982E-4ED8-8786-BBF545B71233-default.jpg follows" /><br />
+<a href="img_text/GUID-5C09F22E-982E-4ED8-8786-BBF545B71233-default.htm">Description of the illustration GUID-5C09F22E-982E-4ED8-8786-BBF545B71233-default.jpg</a></div>
+<!-- class="figure" -->
+<p>As you can see in the preceding figure, the in-memory analyst Zeppelin interpreter automatically renders the values returned by&nbsp;<code class="codeph">rank.getTopKValues(10)</code>&nbsp;as a Zeppelin table, to make it more convenient for you to browse results.</p>
+<p>Besides property values (<code class="codeph">getTopKValues(),&nbsp;getBottomKValues()&nbsp;and&nbsp;getValues()</code>), the following return types are automatically rendered as table also if they are returned from a paragraph:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">PgqlResultSet</code>&nbsp;- the object returned by the&nbsp;<code class="codeph">queryPgql("...")</code>&nbsp;method of the&nbsp;<code class="codeph">PgxGraph</code>&nbsp;class</p>
+</li>
+<li>
+<p><code class="codeph">MapIterable</code>&nbsp;- the object returned by the&nbsp;<code class="codeph">entries()</code>&nbsp;method of the&nbsp;<code class="codeph">PgxMap</code>&nbsp;class</p>
+</li>
+</ul>
+<p>All other return types and errors are returned as normal strings, just as the in-memory analyst shell does.</p>
+<p>For more information about Zeppelin, see the&nbsp;<a href="https://zeppelin.apache.org/" target="_blank">official Zeppelin documentation</a>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-722CE294-EBB0-4893-8AF8-D5D3887C1A90"></a>
+<h2 id="BDSPA-GUID-722CE294-EBB0-4893-8AF8-D5D3887C1A90" class="sect2"><span class="enumeration_section">6.19</span> Using the In-Memory Analyst Enterprise Scheduler</h2>
+<div>
+<p>The in-memory analyst enterprise scheduler provides advanced scheduling features.</p>
+<div class="infobox-note" id="GUID-722CE294-EBB0-4893-8AF8-D5D3887C1A90__GUID-674306B8-7728-4361-A366-F1CAD45ED159">
+<p class="notep1">Note:</p>
+<p>The advanced scheduling features are currently only available for Linux (x86_64), Mac OS X (x86_64), and Solaris (x86_64, SPARC).</p>
+</div>
+<p>This tutorial topic shows how you can use the advanced scheduling features of the in-memory analyst enterprise scheduler. It shows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>How to enable the advanced scheduling features by configuring the in-memory analyst server</p>
+</li>
+<li>
+<p>How to retrieve and inspect the execution environment</p>
+</li>
+<li>
+<p>How to modify the execution environment and run tasks with it</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead2">Enabling Advanced Scheduling Features</p>
+<p>To enable the advanced scheduling features, set the flag <code class="codeph">allow_override_scheduling_information</code> of the in-memory analyst instance configuration to <code class="codeph">true</code>.</p>
+<pre dir="ltr">
+{
+  "allow_override_scheduling_information": true
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Retrieving and Inspecting the Execution Environment</p>
+<p>Execution environments are bound to a session. To retrieve the execution environment for a session, call&nbsp;<code class="codeph">getExecutionEnvironment()</code> on a&nbsp;<code class="codeph">PgxSession</code>.</p>
+<pre dir="ltr">
+pgx&gt; execEnv = session.getExecutionEnvironment()
+==&gt; ExecutionEnvironment[session=576af1fd-73aa-4866-abf0-00a71757d75b]
+</pre>
+<p>An execution environment is split into three sub-environments, one for each task type:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The IO environment: for IO tasks</p>
+</li>
+<li>
+<p>The Analysis environment: for CPU bound analytics tasks</p>
+</li>
+<li>
+<p>The Fast Analysis environment: for lightweight, but CPU bound analytics tasks</p>
+</li>
+</ul>
+<p>To query the current state of the execution environment call the&nbsp;<code class="codeph">getValues()</code>&nbsp;method.</p>
+<pre dir="ltr">
+pgx&gt; execEnv.getValues()
+==&gt; io-pool.num_threads_per_task=72
+==&gt; analysis-pool.max_num_threads=72
+==&gt; analysis-pool.weight=72
+==&gt; analysis-pool.priority=MEDIUM
+==&gt; fast-track-analysis-pool.max_num_threads=72
+==&gt; fast-track-analysis-pool.weight=1
+==&gt; fast-track-analysis-pool.priority=HIGH
+</pre>
+<p>To retrieve the sub-environments use the&nbsp;<code class="codeph">getIoEnvironment()</code>,&nbsp;<code class="codeph">getAnalysisEnvironment()</code>,&nbsp;and&nbsp;<code class="codeph">getFastAnalysisEnvironment()</code> methods: Each sub-environment has itx own&nbsp;<code class="codeph">getValues()</code>&nbsp;method for retrieving the configuration of the sub-environment.</p>
+<pre dir="ltr">
+pgx&gt; ioEnv = execEnv.getIoEnvironment()
+==&gt; IoEnvironment[pool=io-pool]
+pgx&gt; ioEnv.getValues()
+==&gt; num_threads_per_task=72
+
+pgx&gt; analysisEnv = execEnv.getAnalysisEnvironment()
+==&gt; CpuEnvironment[pool=analysis-pool]
+pgx&gt; analysisEnv.getValues()
+==&gt; max_num_threads=72
+==&gt; weight=72
+==&gt; priority=MEDIUM
+
+pgx&gt; fastAnalysisEnv = execEnv.getFastAnalysisEnvironment()
+==&gt; CpuEnvironment[pool=fast-track-analysis-pool]
+pgx&gt; fastAnalysisEnv.getValues()
+==&gt; max_num_threads=72
+==&gt; weight=1
+==&gt; priority=HIGH
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Modifying the Execution Environment and Submitting Tasks Under the Updated Environment</p>
+<p>You can modify the number of threads for I/O environments by using the <code class="codeph">setNumThreadsPerTask()</code> method of <code class="codeph">IoEnvironment</code>. The value is updated immediately, and all tasks that are submitted after the update are executed with the updated value.</p>
+<pre dir="ltr">
+pgx&gt; ioEnv.setNumThreadsPerTask(8)
+==&gt; 8
+pgx&gt; g = session.readGraphWithProperties(...)
+==&gt; PgxGraph[name=graph,N=3,E=6,created=0]
+</pre>
+<p>To reset an environment to its initial values, call the&nbsp;<code class="codeph">reset()</code>&nbsp;method.</p>
+<pre dir="ltr">
+pgx&gt; ioEnv.reset()
+==&gt; null
+</pre>
+<p>For CPU environments, the weight, priority and maximum number of threads can be modified using the&nbsp;setWeight(),&nbsp;setPriority()and&nbsp;setMaxThreads()&nbsp;methods.</p>
+<pre dir="ltr">
+pgx&gt;  analysisEnv.setWeight(50)
+==&gt; 50
+pgx&gt; fastAnalysisEnv.setMaxThreads(1)
+==&gt; 1
+pgx&gt; rank = analyst.pagerank(g)
+==&gt; VertexProperty[name=pagerank,type=double,graph=graph]
+</pre>
+<p>You can reset all environments at once by calling&nbsp;<code class="codeph">reset()</code>&nbsp;on the&nbsp;<code class="codeph">ExecutionEnvironment</code>.</p>
+<pre dir="ltr">
+pgx&gt; execEnv.reset()
+==&gt; null
+</pre></div>
+<!-- class="section" --></div>
+<div class="props_rev_3"><a id="GUID-594C8680-2AD7-470D-BC83-9BD518E6DE75"></a>
+<h3 id="BDSPA-GUID-594C8680-2AD7-470D-BC83-9BD518E6DE75" class="sect3"><span class="enumeration_section">6.19.1</span> Using Lambda Syntax with Execution Environments</h3>
+<div>
+<p>You can use lambda syntax to combine steps used with execution environments. Typically, the environment is used in the following way.</p>
+<ol>
+<li>
+<p>Set up execution environment</p>
+</li>
+<li>
+<p>Execute task</p>
+</li>
+<li>
+<p>Reset execution environment</p>
+</li>
+</ol>
+<p>To make these three steps easier, there is a method that combines these three steps: For each&nbsp;set&nbsp;method there is a method using the&nbsp;with&nbsp;prefix that takes the updated value and a lambda that should be executed using the updated value. For example, instead of&nbsp;setNumThreadsPerTask()&nbsp;there is a method called&nbsp;withNumThreadsPerTask(), which can be invoked like this:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>In an Java application, using Java 8 lambdas:</p>
+<pre dir="ltr">
+import oracle.pgx.api.*;
+import oracle.pgx.api.executionenvironment.*;
+
+PgxGraph g = ioEnv.withNumThreadsPerTask(8, () -&gt; session.readGraphWithPropertiesAsync(...));
+</pre></li>
+<li>
+<p>In the in-memory analyst shell, using Groovy closures:</p>
+<pre dir="ltr">
+pgx&gt; g = ioEnv.withNumThreadsPerTask(8, { session.readGraphWithPropertiesAsync(...) } )
+==&gt; PgxGraph[name=graph,N=3,E=6,created=0]
+</pre></li>
+</ul>
+<p>Both of the preceding are equivalent to the following sequence of actions:</p>
+<pre dir="ltr">
+oldValue = ioEnv.getNumThreadsPerTask()
+ioEnv.setNumThreadsPerTask(currentValue)
+g = session.readGraphWithProperties(...)
+ioEnv.setNumThreadsPerTask( oldValue )
+</pre></div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment320">
+<tr>
+<td class="cellalignment357">
+<table class="cellalignment325">
+<tr>
+<td class="cellalignment324"><a href="using-property-graphs-big-data.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment324"><a href="using-multimedia-analytics.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment359">
+<table class="cellalignment323">
+<tr>
+<td class="cellalignment324"><a href="http://docs.oracle.com/bigdata/bda48/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment324"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment324"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

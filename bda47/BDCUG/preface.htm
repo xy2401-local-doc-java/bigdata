@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Preface</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2017-02-14T12:45:16Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Connectors User's Guide" />
+<meta name="dcterms.identifier" content="E81085-02" />
+<meta name="dcterms.isVersionOf" content="BDCUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda47/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="title.htm" title="Previous" type="text/html" />
+<link rel="Next" href="setup-part.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDCUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-F352F15B-3B1D-4149-88E2-AB965A139F14"></a> <span id="PAGE" style="display:none;">3/19</span> <!-- End Header -->
+<script  >
+//<![CDATA[
+window.name='preface'
+//]]>
+</script> <script  >
+    function footdisplay(footnum,footnote) {
+    var msg = window.open('about:blank', 'NewWindow' + footnum,
+        'directories=no,height=100,location=no,menubar=no,resizable=yes,' +
+        'scrollbars=yes,status=no,toolbar=no,width=598');
+    msg.document.open('text/html');
+    msg.document.write('<!DOCTYPE html ');
+    msg.document.write('PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" ');
+    msg.document.write('"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'); 
+    msg.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" ><head><title>');
+   
+    msg.document.write('Footnote&amp;nbsp; ' + footnum);
+    msg.document.write('<\/title><meta http-equiv="Content-Type" ');
+    msg.document.write('content="text/html; charset=utf-8" />');
+    msg.document.write('');
+    msg.document.write('<style> <![CDATA[ ');
+    msg.document.write('h1 {text-align: center; font-size: 14pt;}');
+    msg.document.write('fieldset {border: none;}');
+    msg.document.write('form {text-align: center;}');
+    msg.document.write(' ]]\u003e <\/style>');
+    msg.document.write('<\/head><body><div id="footnote"><h1>Footnote&nbsp; ' + footnum + '<\/h1><p>');
+    msg.document.write(footnote);
+    msg.document.write('<\/p><form action="" method="post"><fieldset>');
+    msg.document.write('<input type="button" value="OK" ');
+    msg.document.write('onclick="window.close();" />');
+    msg.document.write('<\/fieldset><\/form><\/div><\/body><\/html>');
+    msg.document.close();
+    setTimeout(function() {
+        var height = msg.document.getElementById('footnote').offsetHeight;
+        msg.resizeTo(598, height + 100);
+    }
+    , 100);
+    msg.focus();
+}
+</script><noscript>
+<p>The script content on this page is for navigation purposes only and does not alter the content in any way.</p>
+</noscript><a id="BDCUG101"></a>
+<h1 id="BDCUG-GUID-F352F15B-3B1D-4149-88E2-AB965A139F14" class="sect1">Preface</h1>
+<div>
+<p>The <span class="italic">Oracle Big Data Connectors User's Guide</span> describes how to install and use Oracle Big Data Connectors:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Loader for Hadoop</p>
+</li>
+<li>
+<p>Oracle SQL Connector for Hadoop Distributed File System</p>
+</li>
+<li>
+<p>Oracle XQuery for Hadoop</p>
+</li>
+<li>
+<p>Oracle R Advanced Analytics for Hadoop</p>
+</li>
+<li>
+<p>Oracle Datasource for Apache Hadoop</p>
+</li>
+<li>
+<p><a href="start.htm#GUID-DA112DAB-1D7A-4909-9824-F6840A5FB506">Oracle Data Integrator</a><a id="fn_1" href="#fn_1" onclick='footdisplay(1,"Oracle Big Data Connectors includes a restricted use license for the Oracle Data Integrator when licensed on an Oracle Big Data Appliance. However, additional licensing is required for using it on other Hadoop clusters. ")'><sup>Foot&nbsp;1</sup></a></p>
+</li>
+</ul>
+</div>
+<a id="BDCUG102"></a>
+<div class="props_rev_3"><a id="GUID-2A17C437-865D-4A77-9238-7E9450BDBB71"></a>
+<h2 id="BDCUG-GUID-2A17C437-865D-4A77-9238-7E9450BDBB71" class="sect2">Audience</h2>
+<div>
+<p>This document is intended for users of Oracle Big Data Connectors, including the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Application developers</p>
+</li>
+<li>
+<p>Java programmers</p>
+</li>
+<li>
+<p>XQuery programmers</p>
+</li>
+<li>
+<p>System administrators</p>
+</li>
+<li>
+<p>Database administrators</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2"><a id="GUID-E409CC44-9A8F-4043-82C8-6B95CD939296"></a>
+<h2 id="BDCUG-GUID-E409CC44-9A8F-4043-82C8-6B95CD939296" class="sect2">Documentation Accessibility</h2>
+<div>
+<p>For information about Oracle's commitment to accessibility, visit the Oracle Accessibility Program website at <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=docacc" target="_blank">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=docacc</a>.</p>
+<div class="section" id="GUID-E409CC44-9A8F-4043-82C8-6B95CD939296__GUID-D88DC1A6-B2C8-4B61-85D2-23B0215F1664">
+<p class="subhead2">Access to Oracle Support</p>
+<p>Oracle customers that have purchased support have access to electronic support through My Oracle Support. For information, visit <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=info" target="_blank">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=info</a> or visit <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=trs" target="_blank">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=trs</a> if you are hearing impaired.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG105"></a>
+<div class="props_rev_3"><a id="GUID-87B3CA97-677A-4DD9-9BBA-8E44EFFC3EAB"></a>
+<h2 id="BDCUG-GUID-87B3CA97-677A-4DD9-9BBA-8E44EFFC3EAB" class="sect2">Related Documents</h2>
+<div>
+<p>For more information, see the following documents:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a class="olink OLHJD" target="_blank" href="../OLHJD/toc.htm"><span class="italic">Oracle Loader for Hadoop Java API Reference</span></a></p>
+</li>
+<li>
+<p><a class="olink BIGUG-GUID-776081A2-0AB3-4728-BD95-5873447FD1F6" target="_blank" href="../BIGUG/preface.htm#BIGUG-GUID-776081A2-0AB3-4728-BD95-5873447FD1F6"><span class="italic">Oracle Big Data Appliance Software User's Guide</span></a></p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDCUG106"></a>
+<div class="props_rev_3"><a id="GUID-167B4CB4-4B25-4321-8F7E-36C1EFAD5016"></a>
+<h2 id="BDCUG-GUID-167B4CB4-4B25-4321-8F7E-36C1EFAD5016" class="sect2">Text Conventions</h2>
+<div>
+<p>The following text conventions are used in this document:</p>
+<div class="tblformal" id="GUID-167B4CB4-4B25-4321-8F7E-36C1EFAD5016__GUID-E4A021E6-3E7E-4AF8-AF28-A703222BEA56">
+<table class="cellalignment8" summary="This table summarizes conventions used in this document.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment33" id="d3067e182">Convention</th>
+<th class="cellalignment32" id="d3067e185">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment35" id="d3067e190" headers="d3067e182">
+<p><span class="bold">boldface</span></p>
+</td>
+<td class="cellalignment34" headers="d3067e190 d3067e185">
+<p>Boldface type indicates graphical user interface elements associated with an action, or terms defined in text or the glossary.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment35" id="d3067e198" headers="d3067e182">
+<p><span class="italic">italic</span></p>
+</td>
+<td class="cellalignment34" headers="d3067e198 d3067e185">
+<p>Italic type indicates book titles, emphasis, or placeholder variables for which you supply particular values.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment35" id="d3067e206" headers="d3067e182">
+<p><code>monospace</code></p>
+</td>
+<td class="cellalignment34" headers="d3067e206 d3067e185">
+<p>Monospace type indicates commands within a paragraph, URLs, code in examples, text that appears on the screen, or text that you enter.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BDCUG336"></a>
+<div class="props_rev_3"><a id="GUID-18267A26-5BFE-4B91-8E92-20BA3DCBC303"></a>
+<h2 id="BDCUG-GUID-18267A26-5BFE-4B91-8E92-20BA3DCBC303" class="sect2">Syntax Conventions</h2>
+<div>
+<p>The syntax is presented in a simple variation of Backus-Naur Form (BNF) that uses the following symbols and conventions:</p>
+<div class="tblformal" id="GUID-18267A26-5BFE-4B91-8E92-20BA3DCBC303__GUID-2FC4B338-1574-4D0B-9B19-C33930D21577">
+<table class="cellalignment8" summary="Conventions used in syntax">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment49" id="d3067e241">Symbol or Convention</th>
+<th class="cellalignment50" id="d3067e244">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment51" id="d3067e249" headers="d3067e241">
+<p>[ ]</p>
+</td>
+<td class="cellalignment52" headers="d3067e249 d3067e244">
+<p>Brackets enclose optional items.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment51" id="d3067e256" headers="d3067e241">
+<p>{ }</p>
+</td>
+<td class="cellalignment52" headers="d3067e256 d3067e244">
+<p>Braces enclose a choice of items, only one of which is required.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment51" id="d3067e263" headers="d3067e241">
+<p>|</p>
+</td>
+<td class="cellalignment52" headers="d3067e263 d3067e244">
+<p>A vertical bar separates alternatives within brackets or braces.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment51" id="d3067e270" headers="d3067e241">
+<p>...</p>
+</td>
+<td class="cellalignment52" headers="d3067e270 d3067e244">
+<p>Ellipses indicate that the preceding syntactic element can be repeated.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment51" id="d3067e277" headers="d3067e241">
+<p>delimiters</p>
+</td>
+<td class="cellalignment52" headers="d3067e277 d3067e244">
+<p>Delimiters other than brackets, braces, and vertical bars must be entered as shown.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-8B72AFD8-E46A-4C1A-9502-3C077B02EDF0"></a>
+<h2 id="BDCUG-GUID-8B72AFD8-E46A-4C1A-9502-3C077B02EDF0" class="sect2">Changes in Oracle Big Data Connectors Release 4 (4.7)</h2>
+<div>
+<p>The following are changes in <span class="italic">Oracle Big Data Connectors User's Guide</span> for Oracle Big Data Connectors Release 4 (4.7).</p>
+<p>The following table lists the software versions installed with Oracle Big Data Connectors 4.7:</p>
+<div class="tblformal" id="GUID-8B72AFD8-E46A-4C1A-9502-3C077B02EDF0__BDCSOFTWAREVERSIONSFORRELEASE4.7CON-6A5A77CA">
+<table class="cellalignment8" summary="BDC software versions for release 4.7">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment53" id="d3067e316">Connector</th>
+<th class="cellalignment54" id="d3067e319">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e324" headers="d3067e316">
+<p>Oracle SQL Connector for HDFS</p>
+</td>
+<td class="cellalignment56" headers="d3067e324 d3067e319">
+<p>3.7.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e331" headers="d3067e316">
+<p>Oracle Loader for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e331 d3067e319">
+<p>3.8.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e338" headers="d3067e316">
+<p>Oracle Shell for Hadoop Loaders</p>
+</td>
+<td class="cellalignment56" headers="d3067e338 d3067e319">
+<p>1.2</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e345" headers="d3067e316">
+<p>Oracle XQuery for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e345 d3067e319">
+<p>4.5.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e352" headers="d3067e316">
+<p>Oracle R Advanced Analytics for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e352 d3067e319">
+<p>2.7.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e359" headers="d3067e316">
+<p>Oracle Data Integrator</p>
+</td>
+<td class="cellalignment56" headers="d3067e359 d3067e319">
+<p>12.2.1.1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p class="subhead2">Changes in Oracle SQL Connectors for HDFS</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The property <code>oracle.hadoop.exttab.dataCompressionCodec</code> is now deprecated.</p>
+<p>OSCH does not process datasets containing both compressed and uncompressed files. OSCH automatically discovers the compression codec of the dataset at runtime.</p>
+</li>
+<li>
+<p><code>-createTable</code> for delimited text source does not support the NULLIF clause.</p>
+<p>This transaction adds properties that allow you to configure null-if-specifiers on an external table (or specific columns of an external table) when OSCH reads data from a text source. The properties must be specified at <code>-createTable</code> time and can be configured as: <code>- oracle.hadoop.exttab.nullIfSpecifier=&lt;null-if-value&gt;</code> or , <code>- oracle.hadoop.exttab.colMap.&lt;columnName&gt;.nullIfSpecifier=&lt;null-if-value&gt;</code>.</p>
+</li>
+</ul>
+<pre dir="ltr">
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">New and Enhanced Features</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Oracle R Advanced Analytics for Hadoop (ORAAH) 2.7</span></p>
+<p>ORAAH 2.7 provides the following new features:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>New ORAAH Spark-based LM algorithm with summary statistics.</p>
+</li>
+<li>
+<p>Enhanced ORAAH Spark-based GLM full formula support and summary functions for the Spark-based GLM.</p>
+</li>
+<li>
+<p>Enhanced ORAAH Spark-based Deep Neural Networks now supporting full formula parsing, and Modeling plus Scoring in Spark, with computations up to 30% faster.</p>
+</li>
+<li>
+<p>New Oracle R API for the Spark MLlib Gaussian Mixture Models clustering algorithm.</p>
+</li>
+<li>
+<p>General improvements to HIVE integration, especially for BDA secure clusters with enabled SSL connection and Kerberos authentication.</p>
+</li>
+<li>
+<p>Automated Hive JDBC driver lookup for known installations, such RPM or parcel installations.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="bold">Oracle Shell for Hadoop Loaders (OHSH) 1.2</span></p>
+<p>New features and changes in Release 1.2 include:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>On-disk logging of load operations in the <code>$HOME/.ohsh</code> shadow directory.</p>
+</li>
+<li>
+<p>The ability to minimize output when doing load commands. (See the help command for <code>set outputlevel</code>.)</p>
+</li>
+<li>
+<p>Loading Hive tables from Oracle tables not living in the <code>oracle</code> user's schema.</p>
+</li>
+<li>
+<p>Wallet and TNS usage by OHSH relies on the setting of environmental variables WALLET_LOCATION and TNS_ADMIN. The <code>set tnsadmin</code> and <code>set walletlocation</code> commands are no longer supported.</p>
+</li>
+</ul>
+<p>In addition, you no longer set <code>HIVE0_URL</code> to the fully-qualified URL of remote HiveServer2 in order to create a <code>%hive0</code> resource. In OHSH 1.2, set the environmental variable <code>HS2_HOST_PORT</code> in <code>bin/ohsh</code>, which is the <code>&lt;<span class="codeinlineitalic">hostname</span>&gt;:&lt;<span class="codeinlineitalic">port</span>&gt;</code> pair of HiveServer2.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-9D1E44F7-3608-4D90-869D-3FBC7EE97A22"></a>
+<h2 id="BDCUG-GUID-9D1E44F7-3608-4D90-869D-3FBC7EE97A22" class="sect2">Change History for Previous Releases</h2>
+<div>
+<p>The following are changes in previous versions of the product.</p>
+<div class="p">
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="preface.htm#GUID-9F297AAD-34A9-46D9-9EA4-9856CB4591CF">Changes in Oracle Big Data Connectors Release 4 (4.6)</a></p>
+</li>
+<li>
+<p><a href="preface.htm#GUID-6931DF3D-675F-4CC9-BA68-AC8FA6296C74">Changes in Oracle Big Data Connectors Release 4 (4.5)</a></p>
+</li>
+<li>
+<p><a href="preface.htm#GUID-1E85FD4B-12E8-483F-9864-037BB0DF3ACA">Changes in Oracle Big Data Connectors Release 4 (4.4)</a></p>
+</li>
+<li>
+<p><a href="preface.htm#GUID-2E723DD3-B40C-4A6C-A225-08A1FB08272F">Changes in Oracle Big Data Connectors Release 4 (4.3)</a></p>
+</li>
+<li>
+<p><a href="preface.htm#GUID-05DBFB23-2405-47F3-A1D4-8BC4515BC4BA">Changes in Oracle Big Data Connectors Release 4 (4.2)</a></p>
+</li>
+<li>
+<p><a href="preface.htm#GUID-BCBC3F5C-845F-456A-8066-FAE793246A5E">Changes in Oracle Big Data Connectors Release 4 (4.1)</a></p>
+</li>
+<li>
+<p><a href="preface.htm#GUID-395691AB-AD99-488B-96D3-CC1D8C1873B7">Changes in Oracle Big Data Connectors Release 4 (4.0)</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-9F297AAD-34A9-46D9-9EA4-9856CB4591CF"></a>
+<h3 id="BDCUG-GUID-9F297AAD-34A9-46D9-9EA4-9856CB4591CF" class="sect3">Changes in Oracle Big Data Connectors Release 4 (4.6)</h3>
+<div>
+<p>The following are changes in <span class="italic">Oracle Big Data Connectors User's Guide</span> for Oracle Big Data Connectors Release 4 (4.6).</p>
+<p>The following table lists the software versions installed with Oracle Big Data Connectors 4.6:</p>
+<div class="tblformal" id="GUID-9F297AAD-34A9-46D9-9EA4-9856CB4591CF__BDCSOFTWAREVERSIONSFORRELEASE4.6CON-2C6B41E9">
+<table class="cellalignment8" summary="BDC software versions for release 4.6">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment53" id="d3067e563">Connector</th>
+<th class="cellalignment54" id="d3067e566">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e571" headers="d3067e563">
+<p>Oracle SQL Connector for HDFS</p>
+</td>
+<td class="cellalignment56" headers="d3067e571 d3067e566">
+<p>3.6.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e578" headers="d3067e563">
+<p>Oracle Loader for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e578 d3067e566">
+<p>3.7.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e585" headers="d3067e563">
+<p>Oracle Shell for Hadoop Loaders</p>
+</td>
+<td class="cellalignment56" headers="d3067e585 d3067e566">
+<p>1.1</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e592" headers="d3067e563">
+<p>Oracle XQuery for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e592 d3067e566">
+<p>4.5.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e599" headers="d3067e563">
+<p>Oracle R Advanced Analytics for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e599 d3067e566">
+<p>2.6.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e606" headers="d3067e563">
+<p>Oracle Data Integrator</p>
+</td>
+<td class="cellalignment56" headers="d3067e606 d3067e566">
+<p>12.2.1.1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p class="subhead3">New and Enhanced Features</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Oracle Datasource for Apache Hadoop (formerly Oracle Table Access for Apache Hadoop)</span></p>
+<p>Oracle Datasource for Apache Hadoop (OD4H) is now part of the Oracle Big Data Connectors suite and is licensed for use at no additional cost.</p>
+<p>OD4H turns Oracle Database tables into Hadoop data sources (i.e., external tables), enabling direct, and consistent HiveQL/SparkSQL queries, as well as direct Hadoop API access.</p>
+<p>OD4H optimizes queries execution plans using&nbsp;predicate and projection pushdown as well as partition pruning. Oracle Database table access is performed in parallel using smart and secure connections&nbsp;(Kerberos, SSL,&nbsp; Oracle Wallet), regulated by both Hadoop (i.e., maximum concurrent tasks) and Oracle DBAs (i.e. , max pool size).</p>
+</li>
+<li>
+<p><span class="bold">Oracle Shell for Hadoop Loaders 1.1</span></p>
+<p>Oracle Shell for Hadoop Loaders (OHSH) was introduced recently in Oracle Big Data Data Connectors 4.5. OHSH is an intuitive command line tool for data migration. You can set up resources to connect to Hive, HDFS or Oracle Database and access each of these data sources through OHSH&rsquo;s uniform interface. Copy to Hadoop users can download OHSH from <a href="http://www.oracle.com/technetwork/database/database-technologies/bdc/big-data-connectors/downloads/index.html" target="_blank">OTN</a> .</p>
+<p>Changes in this release:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Interactive command history is now persistent across OHSH sessions.</p>
+</li>
+<li>
+<p>Support for spooling of OHSH output to a text file. By default the spool file is <code>ohshspool.txt</code> in the directory where OHSH is invoked. Spooling can be turned on, off, or directed to a user-specified file as follows:</p>
+<pre dir="ltr">
+ohsh&gt; spool on
+ohsh&gt; spool off
+ohsh&gt; set spool &lt;filename&gt;
+</pre></li>
+<li>
+<p>New Hive CLI. Beeline is now the CLI for Hive resources. The syntax to create a Hive resource is now as follows.</p>
+<pre dir="ltr">
+ohsh&gt; create hive resource &lt;resource_id&gt; connectionurl=&lt;DQString&gt;
+</pre>
+<p>In this case, if the user has specified the <code>HIVE0_URL</code> variable in <code>bin/ohsh</code>, the command creates a <code>hive0</code> resource.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-6931DF3D-675F-4CC9-BA68-AC8FA6296C74"></a>
+<h3 id="BDCUG-GUID-6931DF3D-675F-4CC9-BA68-AC8FA6296C74" class="sect3">Changes in Oracle Big Data Connectors Release 4 (4.5)</h3>
+<div>
+<p>The following are changes in <span class="italic">Oracle Big Data Connectors User's Guide</span> for Oracle Big Data Connectors Release 4 (4.5).</p>
+<p>The following table lists the software versions installed with Oracle Big Data Connectors 4.5:</p>
+<div class="tblformal" id="GUID-6931DF3D-675F-4CC9-BA68-AC8FA6296C74__BDCSOFTWAREVERSIONSFORRELEASE4.5CON-0A613D7F">
+<table class="cellalignment8" summary="BDC software versions for release 4.5">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment53" id="d3067e699">Connector</th>
+<th class="cellalignment54" id="d3067e702">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e707" headers="d3067e699">
+<p>Oracle SQL Connector for HDFS</p>
+</td>
+<td class="cellalignment56" headers="d3067e707 d3067e702">
+<p>3.5.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e714" headers="d3067e699">
+<p>Oracle Loader for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e714 d3067e702">
+<p>3.6.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e721" headers="d3067e699">
+<p>Oracle XQuery for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e721 d3067e702">
+<p>4.5.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e728" headers="d3067e699">
+<p>Oracle R Advanced Analytics for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e728 d3067e702">
+<p>2.6.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e735" headers="d3067e699">
+<p>Oracle Data Integrator</p>
+</td>
+<td class="cellalignment56" headers="d3067e735 d3067e702">
+<p>12.2.1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p class="subhead3">New and Enhanced Features</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Oracle Shell for Hadoop Loaders</span></p>
+<p>Oracle Shell for Hadoop Loaders is a new user interface for Big Data Connectors. Is it not itself a Big Data Connector. Oracle Shell for Hadoop Loaders is a shell and command line that provides the user with a single environment for interacting with Big Data Connectors &ndash; Oracle Loader for Hadoop, Oracle SQL Connector for HDFS, and Copy to Hadoop. In addition to providing a single point of access, Oracle Shell for Hadoop Loaders can reduce some of the overhead involved in using the Connectors, because otherwise these products must be configured, managed, and run separately.</p>
+</li>
+<li>
+<p><span class="bold">Oracle R Advanced Analytics for Hadoop (ORAAH) 2.6 Improvements</span></p>
+<p>ORAAH 2.6 includes expanded support for predictive modeling algorithms, including integration of many Spark MLlib capabilities, as well as enhancements for existing custom Spark algorithms.</p>
+</li>
+<li>
+<p><span class="bold">Oracle XQuery for Hadoop 4.5.0 Improvements</span></p>
+<p>Adds support for W3C XQuery 3.0 including the try/catch expression, the switch expression, and standard functions and operators.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-1E85FD4B-12E8-483F-9864-037BB0DF3ACA"></a>
+<h3 id="BDCUG-GUID-1E85FD4B-12E8-483F-9864-037BB0DF3ACA" class="sect3">Changes in Oracle Big Data Connectors Release 4 (4.4)</h3>
+<div>
+<p>The following are changes in <span class="italic">Oracle Big Data Connectors User's Guide</span> for Oracle Big Data Connectors Release 4 (4.4).</p>
+<p>This table shows the software versions installed with Oracle Big Data Connectors 4.4:</p>
+<div class="tblformal" id="GUID-1E85FD4B-12E8-483F-9864-037BB0DF3ACA__GUID-BA9F2E1F-9694-4A6E-AF40-4623128DBF0C">
+<table class="cellalignment8" summary="BDC software versions for release 4.4">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment53" id="d3067e795">Connector</th>
+<th class="cellalignment54" id="d3067e798">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e803" headers="d3067e795">
+<p>Oracle SQL Connector for HDFS</p>
+</td>
+<td class="cellalignment56" headers="d3067e803 d3067e798">
+<p>3.4.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e810" headers="d3067e795">
+<p>Oracle Loader for Hadoop <a id="fn_2" href="#fn_2" onclick='footdisplay(2,"Oracle Loader for Hadoop 3.5 supports filtering of data loaded from Hive tables at the individual record level. Previously Hive data could only be filtered at the partition level. ")'><sup>Foot&nbsp;2</sup></a></p>
+</td>
+<td class="cellalignment56" headers="d3067e810 d3067e798">
+<p>3.5.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e820" headers="d3067e795">
+<p>Oracle XQuery for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e820 d3067e798">
+<p>4.2.1</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e827" headers="d3067e795">
+<p>Oracle R Advanced Analytics for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e827 d3067e798">
+<p>2.4.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e834" headers="d3067e795">
+<p>Oracle Data Integrator</p>
+</td>
+<td class="cellalignment56" headers="d3067e834 d3067e798">
+<p>12.2.1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;2</sup></p>
+<p>Oracle Loader for Hadoop 3.5 supports filtering of data loaded from Hive tables at the individual record level. Previously Hive data could only be filtered at the partition level.</p>
+<div class="section">
+<p class="subhead3">New Features</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-2E723DD3-B40C-4A6C-A225-08A1FB08272F"></a>
+<h3 id="BDCUG-GUID-2E723DD3-B40C-4A6C-A225-08A1FB08272F" class="sect3">Changes in Oracle Big Data Connectors Release 4 (4.3)</h3>
+<div>
+<p>The following are changes in <span class="italic">Oracle Big Data Connectors User's Guide</span> for Oracle Big Data Connectors Release 4 (4.3).</p>
+<p>This table shows the software versions installed with Oracle Big Data Connectors 4.3:</p>
+<div class="tblformal" id="GUID-2E723DD3-B40C-4A6C-A225-08A1FB08272F__GUID-BA9F2E1F-9694-4A6E-AF40-4623128DBF0C">
+<table class="cellalignment8" summary="BDC software versions for release 4.3">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment53" id="d3067e876">Connector</th>
+<th class="cellalignment54" id="d3067e879">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e884" headers="d3067e876">
+<p>Oracle SQL Connector for HDFS</p>
+</td>
+<td class="cellalignment56" headers="d3067e884 d3067e879">
+<p>3.4.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e891" headers="d3067e876">
+<p>Oracle Loader for Hadoop <a id="fn_3" href="#fn_3" onclick='footdisplay(3,"Oracle Loader for Hadoop 3.5 supports filtering of data loaded from Hive tables at the individual record level. Previously Hive data could only be filtered at the partition level. ")'><sup>Foot&nbsp;3</sup></a></p>
+</td>
+<td class="cellalignment56" headers="d3067e891 d3067e879">
+<p>3.5.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e901" headers="d3067e876">
+<p>Oracle XQuery for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e901 d3067e879">
+<p>4.2.1</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e908" headers="d3067e876">
+<p>Oracle R Advanced Analytics for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e908 d3067e879">
+<p>2.4.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e915" headers="d3067e876">
+<p>Oracle Data Integrator<a id="fn_4" href="#fn_4" onclick='footdisplay(4,"For information about requirements and instructions to set up and use Oracle Data Integrator, refer to Hadoop chapter of Oracle Fusion Middleware Application Adapters Guide for Oracle Data Integrator. ")'><sup>Foot&nbsp;4</sup></a></p>
+</td>
+<td class="cellalignment56" headers="d3067e915 d3067e879">
+<p>12.1.3.0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;3</sup></p>
+<p>Oracle Loader for Hadoop 3.5 supports filtering of data loaded from Hive tables at the individual record level. Previously Hive data could only be filtered at the partition level.</p>
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;4</sup></p>
+<p>For information about requirements and instructions to set up and use Oracle Data Integrator, refer to <a class="olink ODIAA187" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E80756-01&amp;id=ODIAA187"><span class="italic">Hadoop</span></a> chapter of <span class="italic">Oracle Fusion Middleware Application Adapters Guide for Oracle Data Integrator</span>.</p>
+<div class="section">
+<p class="subhead3">New Features</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG1113"></a>
+<div class="props_rev_3"><a id="GUID-05DBFB23-2405-47F3-A1D4-8BC4515BC4BA"></a>
+<h3 id="BDCUG-GUID-05DBFB23-2405-47F3-A1D4-8BC4515BC4BA" class="sect3">Changes in Oracle Big Data Connectors Release 4 (4.2)</h3>
+<div>
+<p>The following are changes in <span class="italic">Oracle Big Data Connectors User's Guide</span> for Oracle Big Data Connectors Release 4 (4.2).</p>
+<p>This table shows the software versions installed with Oracle Big Data Connectors 4.2:</p>
+<div class="tblformal" id="GUID-05DBFB23-2405-47F3-A1D4-8BC4515BC4BA__GUID-BA9F2E1F-9694-4A6E-AF40-4623128DBF0C">
+<table class="cellalignment8" summary="BDC software versions for release 4.2">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment53" id="d3067e970">Connector</th>
+<th class="cellalignment54" id="d3067e973">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e978" headers="d3067e970">
+<p>Oracle SQL Connector for HDFS</p>
+</td>
+<td class="cellalignment56" headers="d3067e978 d3067e973">
+<p>3.3.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e985" headers="d3067e970">
+<p>Oracle Loader for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e985 d3067e973">
+<p>3.4.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e992" headers="d3067e970">
+<p>Oracle XQuery for Hadoop<a id="fn_5" href="#fn_5" onclick='footdisplay(5,"Added support for Oracle NoSQL Database Table API and Oracle NoSQL Database Large Object API. For working with Oracle NoSQL Database Table API functions, you must have Oracle NoSQL Database 3.1 or above. ")'><sup>Foot&nbsp;5</sup></a></p>
+</td>
+<td class="cellalignment56" headers="d3067e992 d3067e973">
+<p>4.2.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1002" headers="d3067e970">
+<p>Oracle R Advanced Analytics for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e1002 d3067e973">
+<p>2.4.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1009" headers="d3067e970">
+<p>Oracle Data Integrator<a id="fn_6" href="#fn_6" onclick='footdisplay(6,"For information about requirements and instructions to set up and use Oracle Data Integrator, refer to Hadoop chapter of Oracle Fusion Middleware Application Adapters Guide for Oracle Data Integrator. ")'><sup>Foot&nbsp;6</sup></a></p>
+</td>
+<td class="cellalignment56" headers="d3067e1009 d3067e973">
+<p>12.1.3.0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;5</sup></p>
+<p>Added support for Oracle NoSQL Database Table API and Oracle NoSQL Database Large Object API. For working with Oracle NoSQL Database Table API functions, you must have Oracle NoSQL Database 3.1 or above.</p>
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;6</sup></p>
+<p>For information about requirements and instructions to set up and use Oracle Data Integrator, refer to <a class="olink ODIAA187" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E80756-01&amp;id=ODIAA187"><span class="italic">Hadoop</span></a> chapter of <span class="italic">Oracle Fusion Middleware Application Adapters Guide for Oracle Data Integrator</span>.</p>
+</div>
+</div>
+<a id="BDCUG1002"></a>
+<div class="props_rev_3"><a id="GUID-BCBC3F5C-845F-456A-8066-FAE793246A5E"></a>
+<h3 id="BDCUG-GUID-BCBC3F5C-845F-456A-8066-FAE793246A5E" class="sect3">Changes in Oracle Big Data Connectors Release 4 (4.1)</h3>
+<div>
+<p>The following are changes in <span class="italic">Oracle Big Data Connectors User's Guide</span> for Oracle Big Data Connectors Release 4 (4.1).</p>
+<p>This table shows the software versions installed with Oracle Big Data Connectors 4.1:</p>
+<div class="tblformal" id="GUID-BCBC3F5C-845F-456A-8066-FAE793246A5E__GUID-626AFFC7-372D-44AE-A0C0-7383A6F44731">
+<table class="cellalignment8" summary="BDC software versions for release 4.1">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment53" id="d3067e1059">Connector</th>
+<th class="cellalignment54" id="d3067e1062">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1067" headers="d3067e1059">
+<p>Oracle SQL Connector for HDFS</p>
+</td>
+<td class="cellalignment56" headers="d3067e1067 d3067e1062">
+<p>3.3.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1074" headers="d3067e1059">
+<p>Oracle Loader for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e1074 d3067e1062">
+<p>3.3.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1081" headers="d3067e1059">
+<p>Oracle XQuery for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e1081 d3067e1062">
+<p>4.2.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1088" headers="d3067e1059">
+<p>Oracle R Advanced Analytics for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e1088 d3067e1062">
+<p>2.4.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1095" headers="d3067e1059">
+<p>Oracle Data Integrator<a id="fn_7" href="#fn_7" onclick='footdisplay(7,"For information about requirements and instructions to set up and use Oracle Data Integrator, refer to Hadoop chapter of Oracle Fusion Middleware Application Adapters Guide for Oracle Data Integrator. ")'><sup>Foot&nbsp;7</sup></a></p>
+</td>
+<td class="cellalignment56" headers="d3067e1095 d3067e1062">
+<p>12.1.3.0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;7</sup></p>
+<p>For information about requirements and instructions to set up and use Oracle Data Integrator, refer to <a class="olink ODIAA187" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E80756-01&amp;id=ODIAA187"><span class="italic">Hadoop</span></a> chapter of <span class="italic">Oracle Fusion Middleware Application Adapters Guide for Oracle Data Integrator</span>.</p>
+</div>
+</div>
+<a id="BDCUG998"></a>
+<div class="props_rev_3"><a id="GUID-395691AB-AD99-488B-96D3-CC1D8C1873B7"></a>
+<h3 id="BDCUG-GUID-395691AB-AD99-488B-96D3-CC1D8C1873B7" class="sect3">Changes in Oracle Big Data Connectors Release 4 (4.0)</h3>
+<div>
+<p>The following are changes in <span class="italic">Oracle Big Data Connectors User's Guide</span> for Oracle Big Data Connectors Release 4 (4.0).</p>
+<p>This table shows the software versions installed with Oracle Big Data Connectors 4.0:</p>
+<div class="tblformal" id="GUID-395691AB-AD99-488B-96D3-CC1D8C1873B7__GUID-795C198E-07CB-42CD-924C-A8F343E19875">
+<table class="cellalignment8" summary="BDC software versions for release 3.0">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment53" id="d3067e1145">Connector</th>
+<th class="cellalignment54" id="d3067e1148">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1153" headers="d3067e1145">
+<p>Oracle SQL Connector for HDFS</p>
+</td>
+<td class="cellalignment56" headers="d3067e1153 d3067e1148">
+<p>3.1</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1160" headers="d3067e1145">
+<p>Oracle Loader for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e1160 d3067e1148">
+<p>3.2</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1167" headers="d3067e1145">
+<p>Oracle Data Integrator Application Adapter for Hadoop<a id="fn_8" href="#fn_8" onclick='footdisplay(8,"For information about requirements and instructions to set up and use Oracle Data Integrator Application Adapter for Hadoop, refer to Hadoop chapter of Oracle Fusion Middleware Application Adapters Guide for Oracle Data Integrator. ")'><sup>Foot&nbsp;8</sup></a></p>
+</td>
+<td class="cellalignment56" headers="d3067e1167 d3067e1148">
+<p>12.1.3.0</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1185" headers="d3067e1145">
+<p>Oracle XQuery for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e1185 d3067e1148">
+<p>4.0.1</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment55" id="d3067e1192" headers="d3067e1145">
+<p>Oracle R Advanced Analytics for Hadoop</p>
+</td>
+<td class="cellalignment56" headers="d3067e1192 d3067e1148">
+<p>2.4</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;8</sup></p>
+<p>For information about requirements and instructions to set up and use Oracle Data Integrator Application Adapter for Hadoop, refer to <a class="olink ODIAA187" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E80756-01&amp;id=ODIAA187"><span class="italic">Hadoop</span></a> chapter of <span class="italic">Oracle Fusion Middleware Application Adapters Guide for Oracle Data Integrator</span>.</p>
+</div>
+</div>
+</div>
+<hr />
+<br />
+<p style="text-decoration:underline">Footnote Legend</p>
+Footnote&nbsp;1:
+<p>Oracle Big Data Connectors includes a restricted use license for the Oracle Data Integrator when licensed on an <span>Oracle Big Data Appliance</span>. However, additional licensing is required for using it on other Hadoop clusters.</p>
+<br /></div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment42">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="title.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="setup-part.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment44">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="http://docs.oracle.com/bigdata/bda47/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+</body>
+</html>

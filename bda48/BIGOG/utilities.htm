@@ -1,0 +1,2722 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Oracle Big Data Appliance Utilities</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="bdacheckcluster utility, CDH, health checks, network validation, hardware validation, software validation, validating a cluster, bdacheckhw utility, bdacheckib utility, InfiniBand network, cabling checks, bdachecknet utility, checking network configuration, validating network configuration, bdachecksw utility, server software validation, validating the server software, checking the server software, bdaclustersynctime utility, time synchronization, synchronizing servers, bdacli utility, command-line interface, CLI utility, adding services, removing services, querying configuration, configuration, querying, hardware configuration, software configuration, bdadiag utility, diagnostics collection, collecting diagnostics, server diagnostics, HDFS diagnostics, bdagetclientconfig utility, client configuration distribution, bdaid utility, bdaibstatus utility, network checks, bdaimagevalidate utility, image validation, validating hardware and software, bdaredoclientnet utility, VNICs, re-creating, network connections, reconfiguring 10GbE, bdaserials utility, MAC addresses, serial numbers, bdaswapoff utility, swapping, bdaswapon utility, bdaupdatefw utility, firmware updates, iblinkinfo utility, imagehistory utility, operating system history, upgrade history, imageinfo utility, operating system image, listlinkup command, Ethernet bridge ports, mount_hadoop_dirs utility, remove-root-ssh script, SSH, removing passwordless, passwordless SSH, reset-boot-order utility, boot order, resetting, startup order, resetting, server boot order, resetting, setup-root-ssh script, setting up passwordless, showusb utility, USB flash drive, showvlan utility, VLANs, showvnics utility" />
+<meta name="dcterms.created" content="2018-07-19T23:52:02Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E85370-07" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda48/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="disks.htm" title="Previous" type="text/html" />
+<link rel="Next" href="dcli.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-A04A712A-1380-4305-92C9-6A8EF70C3E33"></a> <span id="PAGE" style="display:none;">21/31</span> <!-- End Header -->
+<a id="BIGOG76779"></a>
+<h1 id="BIGOG-GUID-A04A712A-1380-4305-92C9-6A8EF70C3E33" class="sect1"><span class="enumeration_chapter">13</span> Oracle Big Data Appliance Utilities</h1>
+<div>
+<p>This chapter describes the utilities available on Oracle Big Data Appliance. Most of the utilities are for monitoring the health of the hardware and the network.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-44FE19D5-F7D6-4099-B43D-5B7DEEBBC963">bdacheckcluster</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-78682A7C-7461-4A52-AEAC-5BE31077B599">bdacheckhw</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-860EC4FC-D582-4608-8751-35B39DA20672">bdacheckib</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-5E6ED401-D024-4CB6-B62F-FBEE24DCBCE3">bdachecknet</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-0D50A8C4-2D0B-4C65-B72C-A2F24107A33F">bdachecksw</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-B6E3E506-DA8E-4935-AEB3-405546950158">bdaclustersynctime</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C">bdacli</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-B6E3E506-DA8E-4935-AEB3-405546950158">bdaclustersynctime</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-DAF89FC9-F9D8-4EB1-A6AA-BF3816A238D4">bdadiag</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-0472EF6F-3B65-44BF-9D52-A733F216C7BB">bdadiagcluster</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-114F2D3E-3EC6-4D5D-8A95-8503F96B57DB">bdagetclientconfig</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-B4376FF0-BF88-4943-A6E8-BF5F6113DB06">bdaibstatus</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-331083F3-E5EE-4594-BDE6-9578F044E776">bdaid</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-50B293A3-CC1B-48E5-A4FE-15DDBF59C6FA">bdaimagevalidate</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-0A490AD3-9570-4A8E-B691-2E867AD010C4">bdanodedesc</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-223C44A0-0ABA-4212-A6B4-55A0C4EAEA43">bdaredoclientnet</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-9C37291F-1AD6-4562-861A-44C38C01E2F2">bdaserials</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-79C32A70-9F37-49AC-ACCD-6EFA755F172F">bdaswapoff</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-B382CF46-97F5-4168-9CAA-D6349DA406DF">bdaswapon</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A">bdaupdatefw</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-020B7FED-98ED-418A-A851-2868960D58EB">iblinkinfo</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-9AAC628A-EA0E-4A7A-AD46-8CE9F22539AF">imagehistory</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-BB9317A6-BD9F-47FE-984A-CEFA60F05825">imageinfo</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-48D8B260-A75C-46CD-A99A-2D1D4BA556C8">listlinkup</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-CC852C01-92CA-4B76-8D16-3B767BB03DDF">mount_hadoop_dirs</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186">remove-root-ssh</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-3A23857C-EF8B-4E54-953B-DBE911C2D351">reset-boot-order</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8">setup-root-ssh</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-10ECA5F5-A2FE-46CF-8E16-AA4E2AB1683D">showusb</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-824B60BF-EC3E-4DE1-8837-FBA798491271">showvlan</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="utilities.htm#GUID-BB89CB9B-4CAF-46FC-8A8B-F82E6B2E81F6">showvnics</a></code></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76710"></a>
+<div class="sect2"><a id="GUID-44FE19D5-F7D6-4099-B43D-5B7DEEBBC963"></a>
+<h2 id="BIGOG-GUID-44FE19D5-F7D6-4099-B43D-5B7DEEBBC963" class="sect2"><span class="enumeration_section">13.1</span> bdacheckcluster</h2>
+<div>
+<p>Checks the health of a CDH cluster, including the software, hardware, and network, and logs the results in a file in the <code class="codeph">/tmp</code> directory.</p>
+<p>To also run the CDH cluster health checks, enter the Cloudera Manager <code class="codeph">admin</code> password in response to the prompt. If you do not enter the password, then these checks are skipped.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdacheckcluster
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Notes</p>
+<p>If the cluster is protected by Kerberos authentication, then you must obtain a ticket for the <code class="codeph">hdfs</code> user before running <code class="codeph">bdacheckcluster</code>.</p>
+</div>
+<!-- class="section" -->
+<div class="section"></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the output from the utility:</p>
+<pre dir="ltr">
+# <span class="bold">bdacheckcluster</span>
+INFO: Logging results to /tmp/bdacheckcluster_1373393815/
+Enter CM admin password to enable check for CM services and hosts
+Press ENTER twice to skip CM services and hosts checks
+Enter password: <span class="italic"><span class="bold">password</span></span>
+Enter password again: <span class="italic"><span class="bold">password</span></span>
+SUCCESS: Mammoth configuration file is valid.
+SUCCESS: hdfs is in good health
+SUCCESS: mapreduce is in good health
+SUCCESS: oozie is in good health
+SUCCESS: zookeeper is in good health
+SUCCESS: hive is in good health
+SUCCESS: hue is in good health
+SUCCESS: Cluster passed checks on all hadoop services health check
+SUCCESS: bda1node01.example.com is in good health
+SUCCESS: bda1node02.example.com is in good health
+SUCCESS: bda1node03.example.com is in good health
+     .
+     .
+     .
+SUCCESS: Cluster passed checks on all hosts health check
+SUCCESS: All cluster host names are pingable
+SUCCESS: All cluster hosts passed checks on last reboot
+INFO: Starting cluster host hardware checks
+SUCCESS: All cluster hosts pass hardware checks
+INFO: Starting cluster host software checks
+SUCCESS: All cluster hosts pass software checks
+SUCCESS: All ILOM hosts are pingable
+SUCCESS: All client interface IPs are pingable
+SUCCESS: All admin eth0 interface IPs are pingable
+SUCCESS: All private Infiniband interface IPs are pingable
+SUCCESS: All cluster hosts resolve public hostnames to private IPs
+     .
+     .
+     .
+INFO: Checking local reverse DNS resolve of private IPs on all cluster hosts
+SUCCESS: All cluster hosts resolve private IPs to public hostnames
+SUCCESS: 2 virtual NICs available on all cluster hosts
+SUCCESS: NTP service running on all cluster hosts
+SUCCESS: At least one valid NTP server accessible from all cluster servers.
+SUCCESS: Max clock drift of 0 seconds is within limits
+SUCCESS: Big Data Appliance cluster health checks succeeded
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76645"></a>
+<div class="sect2"><a id="GUID-78682A7C-7461-4A52-AEAC-5BE31077B599"></a>
+<h2 id="BIGOG-GUID-78682A7C-7461-4A52-AEAC-5BE31077B599" class="sect2"><span class="enumeration_section">13.2</span> bdacheckhw</h2>
+<div>
+<p>Checks the hardware profile of the server.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdacheckhw
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <span class="q">"<a href="configure.htm#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1">Configuring the Oracle Big Data Appliance Servers</a>"</span> for tips about using this utility.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the output from the utility:</p>
+<pre dir="ltr">
+# <span class="bold">bdacheckhw</span>
+SUCCESS: Found BDA v2 server : SUN FIRE X4270 M3
+SUCCESS: Correct processor info : Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz
+SUCCESS: Correct number of types of CPU : 1
+SUCCESS: Correct number of CPU cores : 32
+SUCCESS: Sufficient GB of memory (&gt;=63): 63
+SUCCESS: Correct BIOS vendor : American Megatrends Inc.
+SUCCESS: Sufficient BIOS version (&gt;=08080102): 18021300
+SUCCESS: Recent enough BIOS release date (&gt;=05/23/2011):06/19/2012
+SUCCESS: Correct ILOM major version : 3.1.2.12
+SUCCESS: Sufficient ILOM minor version (&gt;=74388): 74388
+SUCCESS: Correct number of fans : 4
+SUCCESS: Correct fan 0 status : ok
+SUCCESS: Correct fan 1 status : ok
+     .
+     .
+     .
+SUCCESS: Big Data Appliance hardware validation checks succeeded
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76644"></a>
+<div class="sect2"><a id="GUID-860EC4FC-D582-4608-8751-35B39DA20672"></a>
+<h2 id="BIGOG-GUID-860EC4FC-D582-4608-8751-35B39DA20672" class="sect2"><span class="enumeration_section">13.3</span> bdacheckib</h2>
+<div>
+<p>Checks the InfiniBand cabling between the servers and switches of a single rack, when entered with no options.</p>
+<p>Run this command after connecting as <code class="codeph">root</code> to any server.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdacheckib [<span class="italic">parameter</span>]
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-860EC4FC-D582-4608-8751-35B39DA20672__GUID-5EF71428-2FE7-4594-BE4B-3837F4BC5748"><!-- --></a>-s</dt>
+<dd>
+<p>The same as running without options except that the network must still be configured with the factory default settings. You can use this option as soon as Oracle Big Data Appliance arrives at the site, even before the switches are configured.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-860EC4FC-D582-4608-8751-35B39DA20672__GUID-05D99E2B-88FC-412B-A53C-614E7150FCF7"><!-- --></a>-m <span class="italic">json_file</span></dt>
+<dd>
+<p>Verifies that the InfiniBand switch-to-switch cabling among multiple racks is correct. To create <span class="italic">json_file</span>, see the <code class="codeph">-g</code> option.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-860EC4FC-D582-4608-8751-35B39DA20672__GUID-33EB08CB-8006-4448-B216-A3E2D4956B80"><!-- --></a>-g</dt>
+<dd>
+<p>Generates a sample JSON file named <code class="codeph">sample-multi-rack.json</code>. Use this file as an example of the format required by the <code class="codeph">-m</code> option.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>The network must be configured with custom settings as described by <code class="codeph">/opt/oracle/bda/network.json</code>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<p>This example checks the switch-to-server InfiniBand cables:</p>
+<pre dir="ltr">
+[root@node01 network]# <span class="bold">bdacheckib</span>
+LINK bda1sw-ib3.15A  ...  bda1node02.HCA-1.2 UP
+LINK bda1sw-ib3.15B  ...  bda1node01.HCA-1.2 UP
+LINK bda1sw-ib3.14A  ...  bda1node04.HCA-1.2 UP
+LINK bda1sw-ib3.14B  ...  bda1node03.HCA-1.2 UP
+     .
+     .
+     .
+</pre>
+<p>The next example generates the JSON file and shows the output.</p>
+<pre dir="ltr">
+[root@bda1node01 bda]# <span class="bold">bdacheckib -g</span>
+[root@bda1node01 bda]# <span class="bold">cat sample-multi-rack.json</span>
+# This json multirack spec is generated. The array elements are sorted
+# alphabetically.  A properly arranged json spec representing racks from left to right
+# can be used as input to bdacheckib (bdacheckib -m multi-rack.json)
+# Note commas separating rack elements are optional.
+[
+{"SPINE_NAME": "bda1sw-ib1", "LEAF1_NAME": "bda1sw-ib2", "LEAF2_NAME": "bda1sw-ib3"}
+{"SPINE_NAME": "bda2sw-ib1", "LEAF1_NAME": "bda2sw-ib2", "LEAF2_NAME": "bda2sw-ib3"}
+{"SPINE_NAME": "dm01sw-ib1", "LEAF1_NAME": "dm01sw-ib2", "LEAF2_NAME": "dm01sw-ib3"}
+</pre>
+<p>The final example checks all the racks on the InfiniBand network using the edited JSON file created in the previous example:</p>
+<pre dir="ltr">
+# <span class="bold">bdacheckib -m sample-multi-rack.json</span>
+ 
+Rack #1 leaf to spines topology check
+  leaf: bda1sw-ib2
+     expected 2 links to rack 1, found 4 OK
+     expected 2 links to rack 2, found 4 OK
+     expected 2 links to rack 3, found 3 OK
+     expected 2 links to rack 4, found 3 OK
+  leaf: bda1sw-ib3
+     expected 2 links to rack 1, found 3 OK
+     expected 2 links to rack 2, found 4 OK
+     expected 2 links to rack 3, found 3 OK
+     expected 2 links to rack 4, found 3 OK
+     .
+     .
+     .
+ 
+Rack #1 cabling details
+ leaf: bda1sw-ib2
+   LINK ... to rack2 .........  UP
+   LINK ... to rack2 .........  UP
+   LINK ... to rack1 .........  UP
+   LINK ... to rack1 .........  UP
+   LINK ... to rack3 .........  UP
+   LINK ... to rack3 .........  UP
+   LINK ... to rack4 .........  UP
+   LINK ... to rack4 .........  UP
+     .
+     .
+     .
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76646"></a>
+<div class="sect2"><a id="GUID-5E6ED401-D024-4CB6-B62F-FBEE24DCBCE3"></a>
+<h2 id="BIGOG-GUID-5E6ED401-D024-4CB6-B62F-FBEE24DCBCE3" class="sect2"><span class="enumeration_section">13.4</span> bdachecknet</h2>
+<div>
+<p>Checks whether the network configuration is working properly.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdachecknet
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Run this command after connecting as <code class="codeph">root</code> to any server.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the output from the utility:</p>
+<pre dir="ltr">
+[root@node01 network]# <span class="bold">bdachecknet</span>
+bdachecknet: do basic sanity checks on /opt/oracle/bda/network.json
+bdachecknet: warning: bda deploy /opt/oracle/bda/network.json check odd nr of elements 7
+bdachecknet: passed
+bdachecknet: checking for  networkexpansion.json
+bdachecknet: ping test private infiniband ips (bondib0 40gbs)
+     .
+     .
+     .
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76647"></a>
+<div class="sect2"><a id="GUID-0D50A8C4-2D0B-4C65-B72C-A2F24107A33F"></a>
+<h2 id="BIGOG-GUID-0D50A8C4-2D0B-4C65-B72C-A2F24107A33F" class="sect2"><span class="enumeration_section">13.5</span> bdachecksw</h2>
+<div>
+<p>Checks the software profile of a server.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdachecksw
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>See <span class="q">"<a href="configure.htm#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1">Configuring the Oracle Big Data Appliance Servers</a>"</span> for tips about using this utility.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the output from the utility:</p>
+<pre dir="ltr">
+# <span class="bold">bdachecksw</span>
+SUCCESS: Correct OS disk s0 partition info : 1 ext3 raid 2 ext3 raid 3 linux-swap 4 ext3 primary
+SUCCESS: Correct OS disk s1 partition info : 1 ext3 raid 2 ext3 raid 3 linux-swap 4 ext3 primary
+SUCCESS: Correct data disk s2 partition info : 1 ext3 primary
+SUCCESS: Correct data disk s3 partition info : 1 ext3 primary
+SUCCESS: Correct data disk s4 partition info : 1 ext3 primary
+SUCCESS: Correct data disk s5 partition info : 1 ext3 primary
+SUCCESS: Correct data disk s6 partition info : 1 ext3 primary
+SUCCESS: Correct data disk s7 partition info : 1 ext3 primary
+SUCCESS: Correct data disk s8 partition info : 1 ext3 primary
+SUCCESS: Correct data disk s9 partition info : 1 ext3 primary
+SUCCESS: Correct data disk s10 partition info : 1 primary
+SUCCESS: Correct data disk s11 partition info : 1 primary
+SUCCESS: Correct software RAID info : /dev/md2 level=raid1 num-devices=2 /dev/md0 level=raid1 num-devices=2
+SUCCESS: Correct mounted partitions : /dev/mapper/lvg1-lv1 /lv1 ext4 /dev/md0 /boot ext3 /dev/md2 / ext3 /dev/sd4 /u01 ext4 /dev/sd4 /u02 ext4 /dev/sd1 /u03 ext4 /dev/sd1 /u04 ext4 /dev/sd1 /u05 ext4 /dev/sd1 /u06 ext4 /dev/sd1 /u07 ext4 /dev/sd1 /u08 ext4 /dev/sd1 /u09 ext4 /dev/sd1 /u10 ext4
+SUCCESS: Correct matching label and slot  : symbolic link to `../../sda4'
+SUCCESS: Correct matching label and slot  : symbolic link to `../../sdb4'
+     .
+     .
+     .
+SUCCESS: Correct Linux kernel version 2.6-39-400.200 series : Linux 2.6.39-400.2             14.3.el6uek.x86_64
+SUCCESS: Correct Java Virtual Machine version : HotSpot(TM) 64-Bit Server 1.7.0_             25
+SUCCESS: Correct puppet version : 2.6.11
+SUCCESS: Correct MySQL version : 5.5.35
+SUCCESS: All required programs are accessible in $PATH
+SUCCESS: All required RPMs are installed and valid
+SUCCESS: Correct bda-monitor status : bda monitor is running
+SUCCESS: Big Data Appliance software validation checks succeeded
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76864"></a>
+<div class="sect2"><a id="GUID-B6E3E506-DA8E-4935-AEB3-405546950158"></a>
+<h2 id="BIGOG-GUID-B6E3E506-DA8E-4935-AEB3-405546950158" class="sect2"><span class="enumeration_section">13.6</span> bdaclustersynctime</h2>
+<div>
+<p>Synchronizes the time of all servers in a cluster.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdaclustersynctime
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>To use this utility, you must log in as <code class="codeph">root</code> to the first server in the node. Passwordless <code class="codeph">ssh</code> must also be set up for the cluster. See the <code class="codeph">-C</code> parameter for <span class="q">"<a href="utilities.htm#GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8">setup-root-ssh</a>."</span></p>
+<p>This utility creates a log file named <code class="codeph">bdaclustersynctime.log</code> in the directory identified in the output.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>The following example successfully runs <code class="codeph">bdaclustersynctime</code>:</p>
+<pre dir="ltr">
+# <span class="bold">bdaclustersynctime</span>
+INFO: Logging results to /tmp/bdacluster_1373485952/
+SUCCESS: Mammoth configuration file is valid.
+SUCCESS: All cluster host names are pingable
+SUCCESS: NTP service running on all cluster hosts
+SUCCESS: At least one valid NTP server found
+SUCCESS: No errors found syncing date and time on all nodes
+SUCCESS: Max clock drift of 0 seconds is within limits
+SUCCESS: Sync date and time of cluster succeeded
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG77005"></a><a id="BIGOG76982"></a><a id="BIGOG77007"></a><a id="BIGOG76985"></a><a id="BIGOG76983"></a><a id="BIGOG76979"></a><a id="BIGOG77008"></a><a id="BIGOG77009"></a><a id="BIGOG77010"></a><a id="BIGOG76984"></a><a id="BIGOG77011"></a><a id="BIGOG76978"></a>
+<div class="sect2"><a id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C"></a>
+<h2 id="BIGOG-GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C" class="sect2"><span class="enumeration_section">13.7</span> bdacli</h2>
+<div>
+<p>The Oracle Big Data Appliance Command-Line Interface (<code class="codeph">bdacli</code>) queries various configuration files to return information about the rack, cluster, server, InfiniBand network, and software patches.</p>
+<p>The <code class="codeph">bdacli</code> utility also adds and removes patches and optional services. It can migrate critical services between critical nodes, and add and remove servers from a cluster.</p>
+<p>The <code class="codeph">bdacli</code> utility displays usage information if no parameters are included on the command line or the values are undefined.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdacli <span class="italic">action</span> <span class="italic">[parameters]</span>
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Actions</p>
+<dl class="0.57* 3.43*">
+<dt class="dlterm"><a id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__GUID-CF4B3670-E531-4947-9F0D-6A87B656B947"><!-- --></a>help</dt>
+<dd>
+<p>Displays general usage information for bdacli, a list of actions, and a list of supported parameters for the <code class="codeph">getinfo</code> action.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__GUID-C7C1DE39-7482-4AC0-BB6C-067058A36AE6"><!-- --></a>{add | remove} patch <span class="italic">patch_number</span></dt>
+<dd>
+<p>Adds or removes a software patch on Oracle Big Data Appliance that matches <span class="italic">patch_number</span>. You must log in as <code class="codeph">root</code> to use <code class="codeph">add</code> or <code class="codeph">remove</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__GUID-AAC8723B-C50A-4D4C-98FD-C1C55439599D"><!-- --></a>admin_cluster <span class="italic">parameter</span> <span class="italic">node_name</span></dt>
+<dd>
+<p>Enables you to administer the nodes in a cluster in response to a failing server.<a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAIIFBI" title="bdacli admin_cluster parameters">Table 13-1</a> describes the parameters.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAIIFBI">
+<p class="titleintable">Table 13-1 bdacli admin_cluster parameters</p>
+<table class="cellalignment167" title="bdacli admin_cluster parameters" summary="bdacli admin_cluster parameters">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment168" id="d58947e735">Parameter</th>
+<th class="cellalignment169" id="d58947e738">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d58947e743" headers="d58947e735">
+<p><code class="codeph">decommission</code></p>
+</td>
+<td class="cellalignment171" headers="d58947e743 d58947e738">
+<p>Removes the specified node from the cluster and decommissions the server in Cloudera Manager. It also updates the Mammoth files.</p>
+<p>You can decommission a failing, noncritical node. Note that critical services on the node must be moved first. This parameter is for temporarily removing a node from a cluster for maintenance and is not a method to delete a node from a cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d58947e753" headers="d58947e735">
+<p><code class="codeph">recommission</code></p>
+</td>
+<td class="cellalignment171" headers="d58947e753 d58947e738">
+<p>Removes the node from the list of decommissioned nodes, and recommissions the server in Cloudera Manager. Use this command after decommissioning and repairing a failing server.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d58947e761" headers="d58947e735">
+<p><code class="codeph">migrate</code></p>
+</td>
+<td class="cellalignment171" headers="d58947e761 d58947e738">
+<p>Moves the services from a critical node to a noncritical node, and decommissions the failing server in Cloudera Manager. You specify the name of the failing critical node, and the utility selects the noncritical node for the migration. When migration is complete, the new node has all of the functionality of the original critical node.</p>
+<p>You can only migrate a critical node, and should do so only when it is failing.</p>
+<div class="infobox-note" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__GUID-00A0B4F1-25F1-4305-AC8F-DA977432809F">
+<p class="notep1">Note:</p>
+In Oracle Big Data Appliance 4.8, migration does not support Oracle Big Data SQL. If Oracle Big Data SQL is installed, disable it first, run the migration, and then re-enable Oracle Big Data SQL.
+<p>Use <code class="codeph">bdacli disable big_data_sql</code> and <code class="codeph">bdacli enable big_data_sql</code>.</p>
+</div>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d58947e781" headers="d58947e735">
+<p><code class="codeph">reprovision</code></p>
+</td>
+<td class="cellalignment171" headers="d58947e781 d58947e738">
+<p>Restores a server to the cluster as a noncritical node, and recommissions the server in Cloudera Manager. Use this command after migrating the services of a critical node and repairing the failing server.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></dd>
+<dt class="dlterm"><a id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__GUID-BC2AC6AB-06A4-477A-A345-91FC62D2CAF8"><!-- --></a>{enable | disable} <span class="italic">service</span></dt>
+<dd>
+<p>Enables or disables an optional software component on Oracle Big Data Appliance. You must log in as <code class="codeph">root</code> to use <code class="codeph">enable</code> or <code class="codeph">disable</code>.</p>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAHAAFG" title="Component keywords and descriptions">Table 13-2</a> describes the component parameters.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAHAAFG">
+<p class="titleintable">Table 13-2 bdacli enable or disable Service Parameters</p>
+<table class="cellalignment167" title="bdacli enable or disable Service Parameters" summary="Component keywords and descriptions">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment172" id="d58947e821">Parameter</th>
+<th class="cellalignment173" id="d58947e824">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e829" headers="d58947e821">
+<p><code class="codeph">asr</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e829 d58947e824">
+<p>Auto Service Request</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e837" headers="d58947e821">
+<p><code class="codeph">auditvault</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e837 d58947e824">
+<p>Oracle Audit Vault and Database Firewall plugin</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e845" headers="d58947e821">
+<p><code class="codeph">bdc</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e845 d58947e824">
+<p>Oracle Big Data Connectors</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e853" headers="d58947e821">
+<p><code class="codeph">big_data_sql</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e853 d58947e824">
+<p>Oracle Big Data SQL</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e861" headers="d58947e821">
+<p><code class="codeph">em</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e861 d58947e824">
+<p>Oracle Enterprise Manager Cloud Control agent</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e869" headers="d58947e821">
+<p><code class="codeph">disk_encryption</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e869 d58947e824">
+<p>Disable existing eCryptfs encryption. <code class="codeph">disable</code> only. There is no <code class="codeph">enable</code> action for this parameter. You have the option to use the hdfs_transparent_encryption parameter to encrypt data at rest.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e883" headers="d58947e821">
+<p><code class="codeph">hdfs_transparent_encryption</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e883 d58947e824">
+<p>HDFS Transparent Encryption on the cluster.</p>
+<p>Respond Yes or No to a prompt to set up Key Trustee Servers on the BDA. If you respond No, you are further prompted for the addresses of the Active and Passive Key Trustee Servers, as well as the Key Trustee organization and authorization code. If you respond Yes, the Key Trustee Servers are set up on Oracle Big Data Appliance in a predetermined configuration.</p>
+<p>Kerberos is required. See <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=565560479001943&amp;id=2111343.1&amp;_adf.ctrl-state=l40x5mccy_77" target="_blank">Document 2111343.1 in My Oracle Support</a> for important prerequisites and procedure details.</p>
+<p>After the initial configuration, starting/stopping the KMS/KTS servers can be done only through Cloudera Manager.</p>
+<p>Mammoth does not have direct access to edge nodes and therefore cannot set up or detect KMS services on these nodes. Customers can set up KMS services on edge nodes themselves. These must exist same cluster as the services that require access to the Key Trustee Servers. See <a href="http://www.cloudera.com/documentation/enterprise/latest/topics/encryption_ref_arch.html#concept_npk_rxh_1v" target="_blank">Cloudera&rsquo;s description of this architecture</a>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e907" headers="d58947e821">
+<p><code class="codeph">ad_kerberos</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e907 d58947e824">
+<p>Active Directory Kerberos. Also prompts the user to choose whether or not to enable the features <span class="italic">Encrypt Hadoop Services</span> and <span class="italic">Encrypt HDFS Data Transport</span>.</p>
+<p>The <code class="codeph">disable</code> option disables these services as well as ad_kerberos.</p>
+<p>Note that there are important preliminary steps. See MOS (My Oracle Support) documents 2013585.1 and 2029378.1.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e928" headers="d58947e821">
+<p><code class="codeph">kerberos</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e928 d58947e824">
+<p>MIT Kerberos. Also prompts the user to choose whether or not to enable the features <span class="italic">Encrypt Hadoop Services</span> and <span class="italic">Encrypt HDFS Data Transport</span>. The disable option disables these services as well as MIT Kerberos.</p>
+<p>This parameter does not control Active Directory Kerberos. See <code>ad_kerberos</code> in this table.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e947" headers="d58947e821">
+<p><code class="codeph">https_cm_hue_oozie</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e947 d58947e824">
+<p>HTTPS for Cloudera Manager, Hue, and Oozie. There is no disable option. Kerberos is required.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e955" headers="d58947e821">
+<p><code class="codeph">hdfs_encrypted_data_transport</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e955 d58947e824">
+<p>Encryption of data transfer between DataNodes and clients, and among DataNodes. Kerberos is required.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e964" headers="d58947e821">
+<p><code class="codeph">hadoop_network_encryption</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e964 d58947e824">
+<p>HTTPS encryption and Kerberos authentication for HDFS and YARN, also enables encrypted web shuffling for YARN. Data spills to non-HFDS disk storage from Spark shuffle, MapReduce intermediate files, map and reduce operations, and Impala SQL are also encrypted.</p>
+<p>Kerberos is required.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d58947e974" headers="d58947e821">
+<p><code class="codeph">sentry</code></p>
+</td>
+<td class="cellalignment175" headers="d58947e974 d58947e824">
+<p>Apache Sentry authorization</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infobox-note" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__GUID-423C4E70-B7F1-41FA-B5C3-A52D81AD547C">
+<p class="notep1">Note:</p>
+<p>If HDFS Transparent Encryption is disabled, data stored in the HDFS Transparent Encryption zones in the cluster will remain encrypted and therefore inaccessible. To restore access to the data, re-enable HDFS Transparent Encryption using the same key provider.</p>
+</div>
+</dd>
+<dt class="dlterm"><a id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__GUID-7622C630-64EB-4585-BA67-60E44FDC2E5C"><!-- --></a>{start | stop | restart | status} <span class="italic">service</span></dt>
+<dd>
+<p><a id="d58947e991" class="indexterm-anchor"></a><a id="d58947e995" class="indexterm-anchor"></a><a id="d58947e997" class="indexterm-anchor"></a>Starts, stops, restarts, or returns the current status of a service on a cluster or a specific node.</p>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAGCHAG" title="bdacli start, stop, restart parameters">Table 13-3</a> describes the service parameters.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAGCHAG">
+<p class="titleintable">Table 13-3 BDACLI start, stop, and restart Parameters</p>
+<table class="cellalignment167" title="BDACLI start, stop, and restart Parameters" summary="bdacli start, stop, restart parameters">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment176" id="d58947e1016">Parameter</th>
+<th class="cellalignment177" id="d58947e1019">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment178" id="d58947e1024" headers="d58947e1016">
+<p><code class="codeph">big_data_sql_cluster</code></p>
+</td>
+<td class="cellalignment179" headers="d58947e1024 d58947e1019">
+<p>Oracle Big Data SQL on all nodes of the cluster</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment178" id="d58947e1032" headers="d58947e1016">
+<p><code class="codeph">big_data_sql_server</code> <span class="italic"><code class="codeph">node_name</code></span></p>
+</td>
+<td class="cellalignment179" headers="d58947e1032 d58947e1019">
+<p>Oracle Big Data SQL on a specified node of the cluster.</p>
+<p>Use <code class="codeph">bdacli</code> with this parameter only from the first node of the cluster, where the current <code class="codeph">config.json</code> file is stored.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></dd>
+<dt class="dlterm"><a id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__GUID-ED55BB73-475F-4402-9B99-2FD7248B6A30"><!-- --></a>reset <span class="italic">scope_parameter</span> <span class="italic">network_parameter</span></dt>
+<dd>
+<p>Reconfigures the network (or networks) within the specified scope. The network configuration will set the IP addresses, subnets, domain and DNS. In the case of a virtual adapter such as client network or private network, the VNICs are deleted and recreated with the new IP addresses.</p>
+<p>Requires <code class="codeph">root</code> privileges.</p>
+<p><span class="bold">Examples:</span></p>
+<pre dir="ltr">
+bdacli reset server admin_network
+bdacli reset cluster client_network
+bdacli reset cluster private_network
+bdacli reset server all_networks
+</pre>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__BDACLISTARTSTOPANDRESTARTPARAMETERS-3BF5E127">
+<p class="titleintable">Table 13-4 BDACLI reset Scope Parameters</p>
+<table class="cellalignment167" title="BDACLI reset Scope Parameters" summary="Scope parameters for bdacli reset. The first row list the parameters. The second row provides the description for each parameter.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment180" id="d58947e1085">Scope Parameter</th>
+<th class="cellalignment181" id="d58947e1088">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment182" id="d58947e1093" headers="d58947e1085">
+<p><code class="codeph">server</code></p>
+</td>
+<td class="cellalignment183" headers="d58947e1093 d58947e1088">
+<p>The action is performed for the node where the command is being executed.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment182" id="d58947e1101" headers="d58947e1085">
+<p><code class="codeph">cluster</code></p>
+</td>
+<td class="cellalignment183" headers="d58947e1101 d58947e1088">
+<p>The action is performed for all the nodes in the cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment182" id="d58947e1110" headers="d58947e1085">
+<p><code class="codeph">rack</code></p>
+</td>
+<td class="cellalignment183" headers="d58947e1110 d58947e1088">
+<p>The action is performed for all the nodes in the rack.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__BDACLIRESETNETWORKPARAMETERS-3BF6735A">
+<p class="titleintable">Table 13-5 BDACLI reset Network Parameters</p>
+<table class="cellalignment167" title="BDACLI reset Network Parameters" summary="Network parameters for bdacli reset. The first row list the parameters. The second row provides the description for each parameter.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment180" id="d58947e1131">Network Parameter</th>
+<th class="cellalignment181" id="d58947e1134">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment182" id="d58947e1139" headers="d58947e1131">
+<p><code class="codeph">admin_network</code></p>
+</td>
+<td class="cellalignment183" headers="d58947e1139 d58947e1134">
+<p>Reconfigures the admin network interface <code class="codeph">eth0</code> to what is specified in &lt;<code class="codeph"><span class="codeinlineitalic">rack-name</span>&gt;-network.json</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment182" id="d58947e1155" headers="d58947e1131">
+<p><code class="codeph">client_network</code></p>
+</td>
+<td class="cellalignment183" headers="d58947e1155 d58947e1134">
+<p>Reconfigures the client <code class="codeph">eth8</code>, <code class="codeph">eth9</code>, <code class="codeph">bondeth0</code> and all the extra client networks to what is specified in &lt;<code class="codeph"><span class="codeinlineitalic">cluster-name</span>&gt;-network.json</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment182" id="d58947e1178" headers="d58947e1131">
+<p><code class="codeph">private_network</code></p>
+</td>
+<td class="cellalignment183" headers="d58947e1178 d58947e1134">
+<p>Reconfigures client <code class="codeph">ib0</code>, <code class="codeph">ib1</code>, <code class="codeph">bondib0</code> and all the extra private networks to what is specified in <code class="codeph">&lt;<span class="codeinlineitalic">cluster-name</span>&gt;-network.json</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment182" id="d58947e1202" headers="d58947e1131">
+<p><code class="codeph">all_networks</code></p>
+</td>
+<td class="cellalignment183" headers="d58947e1202 d58947e1134">
+<p>Reconfigures all networks (admin, client and private) to what is specified in the corresponding network files.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></dd>
+<dt class="dlterm"><a id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__GUID-3B726AD1-D476-4D42-81EB-852C377B9E62"><!-- --></a>getinfo [<span class="italic">parameter</span>]</dt>
+<dd>
+<p>Returns a list of <code class="codeph">getinfo</code> parameters. If you include a parameter name in the command, then <code class="codeph">getinfo</code> returns information about that system component:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">InfiniBand parameters</span>: The <code class="codeph">bdacli</code> command queries the InfiniBand fabric. See <span class="q">"<a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAFDFFI">InfiniBand Parameters</a>"</span>.</p>
+</li>
+<li>
+<p><span class="bold">Rack parameters</span>: Describes a physical Oracle Big Data Appliance rack. The <code class="codeph">bdacli</code> command queries the current <code class="codeph">network.json</code> configuration file for the rack where the command executes. See <span class="q">"<a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAIAIHC">Rack Parameters</a>"</span>.</p>
+</li>
+<li>
+<p><span class="bold">Cluster parameters</span>: Describes a logical Oracle Big Data Appliance cluster. The <code class="codeph">bdacli</code> command queries the current <code class="codeph">config.json</code> file for the Hadoop cluster where the command executes. See <span class="q">"<a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJACEDGJ">Cluster Parameters</a>"</span>.</p>
+</li>
+<li>
+<p><span class="bold">Server parameters</span>: Describes a server. The <code class="codeph">bdacli</code> command queries the operating system of the server where the <code class="codeph">bdacli</code> command executes. See <span class="q">"<a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJADCFCB">Server Parameters</a>"</span>.</p>
+</li>
+<li>
+<p><span class="bold">One-off patch parameters</span>: Provides information about one-off patches. See <span class="q">"<a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJADAEFD">One-Off Patch Parameters</a>"</span>.</p>
+</li>
+</ul>
+<p>Parameter names that end with an "s" return lists. Boolean parameters return a string of either <code class="codeph">true</code> or <code class="codeph">false</code>.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAFDFFI">
+<p class="subhead2">InfiniBand Parameters</p>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAIFEEB" title="GETINFO InfiniBand Parameters">Table 13-6</a> describes the InfiniBand parameters for <code class="codeph">bdacli getinfo</code>.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAIFEEB">
+<p class="titleintable">Table 13-6 InfiniBand Parameters</p>
+<table class="cellalignment184" title="InfiniBand Parameters" summary="GETINFO InfiniBand Parameters">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment168" id="d58947e1322">Parameter</th>
+<th class="cellalignment169" id="d58947e1325">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d58947e1330" headers="d58947e1322">
+<p><code class="codeph">ib_bda_servers</code></p>
+</td>
+<td class="cellalignment171" headers="d58947e1330 d58947e1325">
+<p>A list of all Oracle Big Data Appliance servers on the InfiniBand fabric. The list contains the unqualified client host names, which are sorted alphabetically. The list can include servers in multiple racks that are cabled together.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d58947e1338" headers="d58947e1322">
+<p><code class="codeph">ib_switches</code></p>
+</td>
+<td class="cellalignment171" headers="d58947e1338 d58947e1325">
+<p>Lists the switches on the InfiniBand fabric, including the switch name, Globally Unique Identifier (GUID), and type (<code class="codeph">GTW</code> for a gateway switch, or <code class="codeph">36P</code> for a spine switch). The list contains the unqualified administration names, which are sorted alphabetically by switch name. See <span class="q">"<a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAHBDBE">Examples</a>"</span>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAIAIHC">
+<p class="subhead2">Rack Parameters</p>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAFIEEB" title="getinfo rack parameters and descriptions">Table 13-7</a> describes the rack parameters for <code class="codeph">bdacli getinfo</code>.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAFIEEB">
+<p class="titleintable">Table 13-7 Rack Parameters</p>
+<table class="cellalignment184" title="Rack Parameters" summary="getinfo rack parameters and descriptions">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment185" id="d58947e1377">Parameter</th>
+<th class="cellalignment186" id="d58947e1380">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1385" headers="d58947e1377">
+<p><code class="codeph">rack_admin_domain_name</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1385 d58947e1380">
+<p>The administrative network domain name for the rack, such as <code class="codeph">example.com</code>. Because all cluster nodes must have the same administrative domain name, the return value is also the administrative network domain for all nodes in the cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1396" headers="d58947e1377">
+<p><code class="codeph">rack_domain_name</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1396 d58947e1380">
+<p>The client network domain name for the rack, such as <code class="codeph">example.com</code>. Because all cluster nodes must have the same client domain name, the return value is also the client network domain for all nodes in the cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1407" headers="d58947e1377">
+<p><code class="codeph">rack_ib_switch_ips</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1407 d58947e1380">
+<p>The IP addresses of the three InfiniBand switches in the rack in this order: spine switch, first leaf switch (upper), second leaf switch (lower)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1415" headers="d58947e1377">
+<p><code class="codeph">rack_ib_switch_names</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1415 d58947e1380">
+<p>The unqualified names of the three InfiniBand switches in the rack in this order: spine switch, first leaf switch (upper), second leaf switch (lower). For example, bda1sw-ib1, bda1sw-ib2, and bda1sw-ib3.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1423" headers="d58947e1377">
+<p><code class="codeph">rack_ilom_ips</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1423 d58947e1380">
+<p>An ordered list of IP addresses of all Oracle ILOMs in the rack, starting with the lowest server</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1431" headers="d58947e1377">
+<p><code class="codeph">rack_ilom_names</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1431 d58947e1380">
+<p>An ordered list of host names of all Oracle ILOMs in the rack, such as bda1node01-ilom and bda1node02-ilom, starting with the lowest server</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1439" headers="d58947e1377">
+<p><code class="codeph">rack_ip_switch_ip</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1439 d58947e1380">
+<p>The IP address of the Cisco Ethernet switch</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1447" headers="d58947e1377">
+<p><code class="codeph">rack_ip_switch_name</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1447 d58947e1380">
+<p>The host name of the Cisco Ethernet switch, such as bda1sw-ip</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1455" headers="d58947e1377">
+<p><code class="codeph">rack_name</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1455 d58947e1380">
+<p>The name of this rack, such as bda1</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1463" headers="d58947e1377">
+<p><code class="codeph">rack_pdu_ips</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1463 d58947e1380">
+<p>An ordered list of IP addresses of PDUs in the rack, starting with PDU-A</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1471" headers="d58947e1377">
+<p><code class="codeph">rack_pdu_names</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1471 d58947e1380">
+<p>An ordered list of unqualified names of PDUs in the rack, starting with PDU-A (such as bda1-pdua and bda1-pdub)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1480" headers="d58947e1377">
+<p><code class="codeph">rack_serial_number</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1480 d58947e1380">
+<p>The rack serial number</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1488" headers="d58947e1377">
+<p><code class="codeph">rack_server_admin_ips</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1488 d58947e1380">
+<p>An ordered list of IP addresses on the administrative network of all servers in the rack, starting with the lowest server</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1496" headers="d58947e1377">
+<p><code class="codeph">rack_server_admin_names</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1496 d58947e1380">
+<p>An ordered list of host names on the administrative network of all servers in the rack (such as bda1node01-adm, bda1node02-adm, and so forth) starting with the lowest server</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1504" headers="d58947e1377">
+<p><code class="codeph">rack_server_ips</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1504 d58947e1380">
+<p>An ordered list of IP addresses on the client network of all servers in the rack, starting with the lowest server</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1512" headers="d58947e1377">
+<p><code class="codeph">rack_server_names</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1512 d58947e1380">
+<p>An ordered list of host names on the client network of all servers in the rack (such as bda1node01, bda1node02, and so forth) starting with the lowest server</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1520" headers="d58947e1377">
+<p><code class="codeph">rack_server_priv_ips</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1520 d58947e1380">
+<p>A list of IP addresses for ILOM devices in the rack</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1528" headers="d58947e1377">
+<p><code class="codeph">rack_server_priv_names</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1528 d58947e1380">
+<p>The unqualified names of the ILOM devices in the rack (such as bda1node01-priv, bda1node02-priv, and so forth)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJACEDGJ">
+<p class="subhead2">Cluster Parameters</p>
+<p>The following tables describe the cluster parameters:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAIEGAH" title="general cluster parameters for bdacli">Table 13-8</a></p>
+</li>
+<li>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJABCGGB" title="Big Data Connectors status parameters for bdacli">Table 13-9</a></p>
+</li>
+<li>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAJGEJI" title="Cluster network parameters for bdacli">Table 13-10</a></p>
+</li>
+<li>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAFBCIG" title="bdacli option descriptions">Table 13-11</a></p>
+</li>
+</ul>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAIEGAH" title="general cluster parameters for bdacli">Table 13-8</a> describes the general cluster parameters for <code class="codeph">bdacli getinfo</code>.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAIEGAH">
+<p class="titleintable">Table 13-8 General Cluster Parameters</p>
+<table class="cellalignment184" title="General Cluster Parameters " summary="general cluster parameters for bdacli">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment185" id="d58947e1584">Parameter</th>
+<th class="cellalignment186" id="d58947e1587">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1592" headers="d58947e1584">
+<p><code class="codeph">cluster_asr_installed</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1592 d58947e1587">
+<p><code class="codeph">true</code> if Auto Service Request is configured for this cluster; <code class="codeph">false</code> otherwise</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1605" headers="d58947e1584">
+<p><code class="codeph">cluster_big_data_sql_enabled</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1605 d58947e1587">
+<p><code class="codeph">true</code> if Oracle Big Data SQL is enabled for this cluster; <code class="codeph">false</code> otherwise.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1618" headers="d58947e1584">
+<p><code class="codeph">cluster_cdh_version</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1618 d58947e1587">
+<p>The version of Cloudera's Distribution including Apache Hadoop installed on this cluster, such as <code class="codeph">4.5.0-ol6</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1629" headers="d58947e1584">
+<p><code class="codeph">cluster_cm_server</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1629 d58947e1587">
+<p>The Cloudera Manager address, including the server name and port number, such as <code class="codeph">bda1node03.example.com:7180</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1640" headers="d58947e1584">
+<p><code class="codeph">cluster_cm_version</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1640 d58947e1587">
+<p>The version of Cloudera Manager running on this cluster, such as <code class="codeph">4.8.0-ol6</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1651" headers="d58947e1584">
+<p><code class="codeph">cluster_em_enabled</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1651 d58947e1587">
+<p><code class="codeph">true</code> if Oracle Enterprise Manger is configured for this cluster; <code class="codeph">false</code> otherwise</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1664" headers="d58947e1584">
+<p><code class="codeph">cluster_name</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1664 d58947e1587">
+<p>The name of the cluster, such as <code class="codeph">cluster-c</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1675" headers="d58947e1584">
+<p><code class="codeph">cluster_nosqldb_type</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1675 d58947e1587">
+<p>The edition of Oracle NoSQL Database installed on this cluster (<code class="codeph">community edition</code> or <code class="codeph">enterprise edition</code>), or <code class="codeph">none</code> if Oracle NoSQL Database is not installed.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1692" headers="d58947e1584">
+<p><code class="codeph">cluster_nosqldb_version</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1692 d58947e1587">
+<p>The version of Oracle NoSQL Database installed on the cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1700" headers="d58947e1584">
+<p><code class="codeph">cluster_primary_host</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1700 d58947e1587">
+<p>The unqualified host name of the server that hosts the puppet master. The Mammoth utility was deployed from this host, and any reconfiguration of the cluster must be done while logged in to that server.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1708" headers="d58947e1584">
+<p><code class="codeph">cluster_type</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1708 d58947e1587">
+<p>The type of cluster, either <code class="codeph">hadoop</code> or <code class="codeph">nosqldb</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1723" headers="d58947e1584">
+<p><code class="codeph">cluster_version</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1723 d58947e1587">
+<p>The software version installed on this cluster by the Mammoth utility, such as 3.1.0.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJABCGGB" title="Big Data Connectors status parameters for bdacli">Table 13-9</a> describes the cluster parameters related to Oracle Big Data Connectors for <code class="codeph">bdacli getinfo</code>.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJABCGGB">
+<p class="titleintable">Table 13-9 Oracle Big Data Connectors Status Parameters</p>
+<table class="cellalignment184" title="Oracle Big Data Connectors Status Parameters" summary="Big Data Connectors status parameters for bdacli">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment185" id="d58947e1749">Parameter</th>
+<th class="cellalignment186" id="d58947e1752">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1757" headers="d58947e1749">
+<p><code class="codeph">cluster_bdc_installed</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1757 d58947e1752">
+<p><code class="codeph">true</code> if Oracle Big Data Connectors is installed; <code class="codeph">false</code> otherwise</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1770" headers="d58947e1749">
+<p><code class="codeph">cluster_odi_enabled</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1770 d58947e1752">
+<p><code class="codeph">true</code> if the Oracle Data Integrator agent is enabled; <code class="codeph">false</code> otherwise.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1783" headers="d58947e1749">
+<p><code class="codeph">cluster_odi_version</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1783 d58947e1752">
+<p>The version of Oracle Data Integrator agent installed on the cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1791" headers="d58947e1749">
+<p><code class="codeph">cluster_oraah_version</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1791 d58947e1752">
+<p>The version of Oracle R Advanced Analytics for Hadoop installed on the cluster</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1799" headers="d58947e1749">
+<p><code class="codeph">cluster_oraloader_version</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1799 d58947e1752">
+<p>The version of Oracle Loader for Hadoop installed on the cluster</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1807" headers="d58947e1749">
+<p><code class="codeph">cluster_osch_version</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1807 d58947e1752">
+<p>The version of Oracle SQL Connector for HDFS installed on the cluster</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1815" headers="d58947e1749">
+<p><code class="codeph">cluster_oxh_version</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1815 d58947e1752">
+<p>The version of Oracle XQuery for Hadoop installed on the cluster</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAJGEJI" title="Cluster network parameters for bdacli">Table 13-10</a> describes the cluster network parameters for <code class="codeph">bdacli getinfo</code>.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAJGEJI">
+<p class="titleintable">Table 13-10 Cluster Network Parameters</p>
+<table class="cellalignment184" title="Cluster Network Parameters" summary="Cluster network parameters for bdacli">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment185" id="d58947e1841">Parameter</th>
+<th class="cellalignment186" id="d58947e1844">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1849" headers="d58947e1841">
+<p><code class="codeph">cluster_hosts_entries</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1849 d58947e1844">
+<p>A list of <code class="codeph">/etc/hosts</code> entries that you can append to the <code class="codeph">/etc/hosts</code> file on any device on the same InfiniBand fabric as the Oracle Big Data Appliance cluster, to ensure that Hadoop traffic uses the InfiniBand network. Do not add these entries to a device on a different fabric.</p>
+<p>Each entry is on a separate line with three parts: the InfiniBand IP address, the full client host name, and the short client host name.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1865" headers="d58947e1841">
+<p><code class="codeph">cluster_ilom_ips</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1865 d58947e1844">
+<p>An ordered list of IP addresses for the Oracle ILOMs in the servers, starting with the first node in the cluster</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1873" headers="d58947e1841">
+<p><code class="codeph">cluster_ilom_names</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1873 d58947e1844">
+<p>A list of unqualified host names on the administrative network for the Oracle ILOMs in the servers, in order starting with the first server in the cluster</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1881" headers="d58947e1841">
+<p><code class="codeph">cluster_node_ips</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1881 d58947e1844">
+<p>The IP addresses on the client network of all nodes in this cluster</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1889" headers="d58947e1841">
+<p><code class="codeph">cluster_node_names</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1889 d58947e1844">
+<p>The host names on the client network of all nodes in the cluster, such as <code class="codeph">bda1node01</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAFBCIG" title="bdacli option descriptions">Table 13-11</a> describes the cluster security parameters for <code class="codeph">bdacli getinfo</code>.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAFBCIG">
+<p class="titleintable">Table 13-11 Cluster Security Parameters</p>
+<table class="cellalignment184" title="Cluster Security Parameters" summary="bdacli option descriptions">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment185" id="d58947e1917">Parameter</th>
+<th class="cellalignment186" id="d58947e1920">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1925" headers="d58947e1917">
+<p><code class="codeph">cluster_av_admin</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1925 d58947e1920">
+<p>The name of the Oracle Audit Vault and Database Firewall administration user. Returns an error if Audit Vault is not configured for this cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1933" headers="d58947e1917">
+<p><code class="codeph">cluster_av_enabled</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1933 d58947e1920">
+<p><code class="codeph">true</code> if Oracle Audit Vault and Database Firewall auditing is enabled; <code class="codeph">false</code> otherwise</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1946" headers="d58947e1917">
+<p><code class="codeph">cluster_av_port</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1946 d58947e1920">
+<p>The port number that the Audit Vault server listens on. Returns an error if Oracle Audit Vault and Database Firewall is not configured on this cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1954" headers="d58947e1917">
+<p><code class="codeph">cluster_av_server</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1954 d58947e1920">
+<p>The IP address of the Audit Vault server. Returns an error if Oracle Audit Vault and Database Firewall is not configured on this cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1962" headers="d58947e1917">
+<p><code class="codeph">cluster_av_service</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1962 d58947e1920">
+<p>The database service name for the Audit Vault server. Returns an error if Oracle Audit Vault and Database Firewall is not configured on this cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1970" headers="d58947e1917">
+<p><code class="codeph">cluster_hdfs_encryption_enabled</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1970 d58947e1920">
+<p><code class="codeph">true</code> if network encryption of Hadoop data is enabled for this cluster; <code class="codeph">false</code> otherwise</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1983" headers="d58947e1917">
+<p><code class="codeph">cluster_hdfs_transparent_encryption_enabled</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1983 d58947e1920">
+<p><code class="codeph">true</code> if HDFS Transparent Encryption of Hadoop data at rest is enabled for this cluster; <code class="codeph">false</code> otherwise</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e1996" headers="d58947e1917">
+<p><code class="codeph">cluster_kerberos_enabled</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e1996 d58947e1920">
+<p><code class="codeph">true</code> if Kerberos security is enabled; <code class="codeph">false</code> otherwise.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e2009" headers="d58947e1917">
+<p><code class="codeph">cluster_kerberos_kdc_hosts</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e2009 d58947e1920">
+<p>A list of key distribution center (KDC) hosts external to Oracle Big Data Appliance. Returns an error if Kerberos is not enabled.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e2017" headers="d58947e1917">
+<p><code class="codeph">cluster_kerberos_kdc_on_bda</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e2017 d58947e1920">
+<p><code class="codeph">true</code> if the Kerberos KDC is on Oracle Big Data Appliance; <code class="codeph">false</code> otherwise. Returns an error if Kerberos is not enabled.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e2030" headers="d58947e1917">
+<p><code class="codeph">cluster_kerberos_realm</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e2030 d58947e1920">
+<p>The Kerberos realm for the cluster. Returns an error if Kerberos is not enabled.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d58947e2039" headers="d58947e1917">
+<p><code class="codeph">cluster_sentry_enabled</code></p>
+</td>
+<td class="cellalignment188" headers="d58947e2039 d58947e1920">
+<p><code class="codeph">true</code> if Sentry is configured on the cluster; <code class="codeph">false</code> otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJADCFCB">
+<p class="subhead2">Server Parameters</p>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAGCHAJ" title="bdacli getinfo server parameter descriptions">Table 13-12</a> describes the server parameters for <code class="codeph">bdacli getinfo</code>.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAGCHAJ">
+<p class="titleintable">Table 13-12 Server Parameters</p>
+<table class="cellalignment184" title="Server Parameters" summary="bdacli getinfo server parameter descriptions">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment189" id="d58947e2073">Parameter</th>
+<th class="cellalignment190" id="d58947e2076">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d58947e2081" headers="d58947e2073">
+<p><code class="codeph">server_mammoth_installed</code></p>
+</td>
+<td class="cellalignment192" headers="d58947e2081 d58947e2076">
+<p><code class="codeph">true</code> if the Mammoth utility has deployed the Oracle Big Data Appliance software on this server; <code class="codeph">false</code> otherwise.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d58947e2094" headers="d58947e2073">
+<p><code class="codeph">server_name</code></p>
+</td>
+<td class="cellalignment192" headers="d58947e2094 d58947e2076">
+<p>The name of this server on the client network, such as bda1node01.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d58947e2102" headers="d58947e2073">
+<p><code class="codeph">server_os_version</code></p>
+</td>
+<td class="cellalignment192" headers="d58947e2102 d58947e2076">
+<p>The version of Oracle Linux on this server, such as 6.4.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJADAEFD">
+<p class="subhead2">One-Off Patch Parameters</p>
+<p><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJABDJFI" title="One-off patch parameter descriptions for bdacli getinfo">Table 13-13</a> describes the one-off patch parameters for <code class="codeph">bdacli getinfo</code>.</p>
+<div class="tblformal" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJABDJFI">
+<p class="titleintable">Table 13-13 One-Off Patch Parameters</p>
+<table class="cellalignment184" title="One-Off Patch Parameters" summary="One-off patch parameter descriptions for bdacli getinfo">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment189" id="d58947e2131">Parameter</th>
+<th class="cellalignment190" id="d58947e2134">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d58947e2139" headers="d58947e2131">
+<p><code class="codeph">available_patches</code></p>
+</td>
+<td class="cellalignment192" headers="d58947e2139 d58947e2134">
+<p>A list of valid patches available for installation. A valid patch has a directory under <code class="codeph">/opt/oracle/bda/patches</code> or <code class="codeph">/opt/oracle/BDAMammoth/patches</code> that contains a file named <code class="codeph">inventory</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d58947e2156" headers="d58947e2131">
+<p><code class="codeph">installed_patches</code></p>
+</td>
+<td class="cellalignment192" headers="d58947e2156 d58947e2134">
+<p>A list of patches already installed. An installed patch has a directory in both <code class="codeph">/opt/oracle/bda/patches</code> and <code class="codeph">/opt/oracle/BDAMammoth/patches</code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">See Also</p>
+<p><span class="q">"<a href="mammoth.htm#GUID-D9B445F2-A5DD-4C6C-9BA1-2F5330ED4798">Changing the Configuration of Optional Software</a>"</span> for more information about the optional services.</p>
+</div>
+<!-- class="section" -->
+<div class="section" id="GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C__CJAHBDBE">
+<p class="subhead2">Examples</p>
+<p>The following commands provide information about the optional software on the cluster:</p>
+<pre dir="ltr">
+# <span class="bold">bdacli getinfo cluster_bdc_installed</span>
+true
+# <span class="bold">bdacli getinfo cluster_odi_version</span>
+11.1.1.7.0
+
+# <span class="bold">bdacli getinfo cluster_hdfs_encryption_enabled</span>
+true
+</pre>
+<p>The following command lists all switches on the current InfiniBand fabric. In this example, three Oracle Big Data Appliance racks are on the fabric with the standard hardware configuration of one spine switch and two gateway switches each.</p>
+<pre dir="ltr">
+$ <span class="bold">bdacli getinfo ib_switches</span>
+bda1sw-iba0 00:21:28:6c:c8:af:a0:a0 36P
+bda1sw-ibb0 00:21:28:46:9e:3b:a0:a0 36P
+bda1sw-ibs0 00:21:28:6c:c8:ae:a0:a0 36P
+bda2sw-ib1 00:21:28:46:98:d3:a0:a0 36P
+bda2sw-ib2 00:21:28:de:ae:4a:c0:a0 GTW
+bda2sw-ib3 00:21:28:c3:70:9a:c0:a0 GTW
+bda3sw-ib1 00:21:28:46:90:ee:a0:a0 36P
+bda3sw-ib2 00:21:28:df:34:8a:c0:a0 GTW
+bda3sw-ib3 00:21:28:df:0f:0a:c0:a0 GTW
+bda4sw-ib1 00:21:28:e8:af:23:a0:a0 36P
+bda4sw-ib2 00:10:e0:0c:48:a0:c0:a0 GTW
+bda4sw-ib3 00:21:28:f4:82:ce:c0:a0 GTW
+</pre></div>
+<!-- class="section" -->
+<p>This example installs patch 1234:</p>
+<pre dir="ltr">
+$ bdacli add patch 1234
+</pre></div>
+</div>
+<a id="BIGOG76992"></a>
+<div class="sect2"><a id="GUID-75A1785F-511F-4389-9F68-30A1B02E04D3"></a>
+<h2 id="BIGOG-GUID-75A1785F-511F-4389-9F68-30A1B02E04D3" class="sect2"><span class="enumeration_section">13.8</span> bdaclustersynctime</h2>
+<div>
+<p>Uses network time protocol (NTP) to synchronize the time of all units in the cluster.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdaclustersynctime
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>You must be logged in as the <code class="codeph">root</code> user.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>The following example shows that the cluster is synchronized.</p>
+<pre dir="ltr">
+# <span class="bold">bdaclustersynctime</span>
+INFO: Logging results to /tmp/bdacluster_1399300113/
+SUCCESS: Mammoth configuration file is valid.
+SUCCESS: All cluster host names are pingable
+SUCCESS: NTP service running on all cluster hosts
+SUCCESS: At least one valid NTP server found
+SUCCESS: No errors found syncing date and time on all nodes
+SUCCESS: Max clock drift of 0 seconds is within limits
+SUCCESS: Sync date and time of cluster succeeded
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76648"></a>
+<div class="sect2"><a id="GUID-DAF89FC9-F9D8-4EB1-A6AA-BF3816A238D4"></a>
+<h2 id="BIGOG-GUID-DAF89FC9-F9D8-4EB1-A6AA-BF3816A238D4" class="sect2"><span class="enumeration_section">13.9</span> bdadiag</h2>
+<div>
+<p>Collects diagnostic information about an individual server for Oracle Support.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdadiag [<span class="italic">parameter</span>]
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-DAF89FC9-F9D8-4EB1-A6AA-BF3816A238D4__GUID-2E0F9A6E-C9C3-448D-8EDF-9872CC07EA31"><!-- --></a>cm</dt>
+<dd>
+<p>Downloads diagnostics from Cloudera Manager. You must know the Cloudera Manager <code class="codeph">admin</code> password to use this parameter.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-DAF89FC9-F9D8-4EB1-A6AA-BF3816A238D4__GUID-240A7C68-F3C1-4A3B-BD03-E090CAE3B7B6"><!-- --></a>hadoop</dt>
+<dd>
+<p>Collects the <a id="d58947e2308" class="indexterm-anchor"></a>CDH cluster logs from /var/log.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-DAF89FC9-F9D8-4EB1-A6AA-BF3816A238D4__GUID-BC8962C8-315F-4288-B903-C710D7B254F8"><!-- --></a>hdfs</dt>
+<dd>
+<p>Collects the output of a complete Hadoop Distributed File System (HDFS) <code class="codeph">fsck</code> check.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-DAF89FC9-F9D8-4EB1-A6AA-BF3816A238D4__GUID-A2C50EAE-A569-4778-8320-804D34B404B4"><!-- --></a>ilom</dt>
+<dd>
+<p>Gathers ILOM data using <code class="codeph">ipmitool</code>. You cannot use <code class="codeph">ilom</code> in the same command as <code class="codeph">snapshot</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-DAF89FC9-F9D8-4EB1-A6AA-BF3816A238D4__GUID-24BBF74E-E940-4688-9B7B-41273956449A"><!-- --></a>osw</dt>
+<dd>
+<p>Collects Oracle <a id="d58947e2341" class="indexterm-anchor"></a><a id="d58947e2343" class="indexterm-anchor"></a>OS Watcher logs, which include historical operating system performance and monitoring data. The output can consume several hundred megabytes of disk space.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-DAF89FC9-F9D8-4EB1-A6AA-BF3816A238D4__GUID-57A15730-61C5-48BC-88FC-B32E5DA86EDA"><!-- --></a>snapshot</dt>
+<dd>
+<p>Collects ILOM snapshot data over the network, and provides most useful output than the <code class="codeph">ilom</code> option. You must know the server <code class="codeph">root</code> password to use this parameter. You cannot use <code class="codeph">snapshot</code> in the same command as <code class="codeph">ilom</code>.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Return Value</p>
+<p>The name of the compressed file in the <code class="codeph">/tmp</code> directory where <code class="codeph">bdadiag</code> stored the data. The file name has the form <code class="codeph">bdadiag_</code><code class="codeph">server-name_server-serial-number_</code><span class="italic"><code class="codeph">date</code></span><code class="codeph">.tar.bz2</code>.</p>
+<p>The logs are organized in subdirectories, including the following:</p>
+<pre dir="ltr">
+asr
+ilom
+install
+messages
+net
+raid
+sysconfig
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>You must be connected to the server as <code class="codeph">root</code>.</p>
+</div>
+<!-- class="section" -->
+<p>The optional parameters instruct <code class="codeph">bdadiag</code> to collect additional diagnostics. You can enter the options together on the command line to collect the most information.</p>
+<p>You run <code class="codeph">bdadiag</code> at the request of Oracle Support and associate it with an open Service Request (SR). See the <a class="olink BIGUG248" target="_blank" href="../BIGUG/admin.htm#BIGUG248"><span class="italic">Oracle Big Data Appliance Software User's Guide</span></a> for details about providing diagnostics to Oracle Support.</p>
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the basic output from the utility:</p>
+<pre dir="ltr">
+# <span class="bold">bdadiag</span>
+
+Big Data Appliance Diagnostics Collection Tool v4.0.0
+ 
+Gathering Linux information
+ 
+Skipping ILOM collection. Use the ilom or snapshot options, or login to             ILOM over the network and run Snapshot separately if necessary.
+ 
+Generating diagnostics tarball and removing temp directory
+ 
+===========================================================================            
+Done. The report files are bzip2 compressed in /tmp/bdadiag_bda1node0101_12            16FM5497_2014_01_18_06_49.tar.bz2
+===========================================================================            
+</pre>
+<p>The next example shows the additional output from the <code class="codeph">cm</code> option.</p>
+<pre dir="ltr">
+# <span class="bold">bdadiag cm</span>
+ 
+Big Data Appliance Diagnostics Collection Tool v4.0.0
+ 
+Getting Cloudera Manager Diagnostics
+Password for the Cloudera Manager admin user is needed
+Enter password: <span class="italic"><span class="bold">password</span></span>
+Enter password again: <span class="italic"><span class="bold">password</span></span>
+Passwords match
+Waiting for Cloudera Manager ...
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/cm_commands.out
+Collecting diagnostic data ...
+{ "startTime" : "2014-09-07T14:18", "endTime" : "2014-09-06T14:18" }
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/cm_commands_collectD                                                          iagnosticData.out
+Command ID is 526
+.....
+Command 526 finished after 30 seconds
+Operation completed successfully
+Diagnostic data successfully collected
+Can be downloaded from URL http://bda1node03.example.com:7180/cmf/command/526/download
+Downloading diagnostic data ...
+Original Cloudera Manager Diagnostics Bundle Name : 3609df48-4930-11e1-9006-b8ac6f8061c1.cluster1.20140907-18-59.support-bundle.zip
+Data successfully downloaded and placed in /tmp/bdadiag_bda2node01_1408NM50AE_2014_09_07_14_18/3609df48-4930-11e1-9006-b8ac6f8061c1.AK00198532.cluster1.20140907-18-59.support-bundle.zip
+Gathering Linux information
+     .
+     .
+     .
+</pre>
+<p>The next example shows the additional output from the <code class="codeph">snapshot</code> option:</p>
+<pre dir="ltr">
+# <span class="bold">bdadiag snapshot</span>
+ 
+Big Data Appliance Diagnostics Collection Tool v4.0.0
+ 
+Please enter Host OS root password required for snapshot: <span class="italic"><span class="bold">password</span></span>
+ 
+Gathering Linux information
+ 
+Gathering ILOM Snapshot data - please be patient, this may take a long time
+ 
+snapshot running: Tue Sep  2 13:42:28 PDT 2014
+snapshot running: Tue Sep  2 13:43:21 PDT 2014
+snapshot running: Tue Sep  2 13:44:32 PDT 2014
+snapshot running: Tue Sep  2 13:45:35 PDT 2014
+snapshot running: Tue Sep  2 13:46:31 PDT 2014
+snapshot running: Tue Sep  2 13:47:43 PDT 2014
+snapshot running: Tue Sep  2 13:48:47 PDT 2014
+Snapshot Collection completed.
+ 
+Generating diagnostics tarball and removing temp directory
+
+==============================================================================
+Done. The report files are bzip2 compressed in /tmp/bdadiag_bda1node01_1143FMM06E_2014_09_02_14_40.tar.bz2
+==============================================================================
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76993"></a>
+<div class="sect2"><a id="GUID-0472EF6F-3B65-44BF-9D52-A733F216C7BB"></a>
+<h2 id="BIGOG-GUID-0472EF6F-3B65-44BF-9D52-A733F216C7BB" class="sect2"><span class="enumeration_section">13.10</span> bdadiagcluster</h2>
+<div>
+<p>Creates a diagnostic bundle for the cluster.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdadiagcluster
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>You must be logged in as the <code class="codeph">root</code> user. To include the diagnostics provided by Cloudera Manager, you must provide the Cloudera Manager password twice when prompted for it.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>The following example creates a bundled zip file from the diagnostic zip files creates on the servers in a six-node cluster. It does not include the Cloudera Manager diagnostics.</p>
+<pre dir="ltr">
+# <span class="bold">bdadiagcluster</span>
+Enter CM admin password to run dumpcluster
+Press ENTER twice to skip CM services and hosts checks
+Enter password: <span class="italic"><span class="bold">Enter</span></span>
+Enter password again: <span class="italic"><span class="bold">Enter</span></span>
+INFO: Starting Big Data Appliance diagnose cluster at Mon May  5 07:34:03 2014
+INFO: Logging results to /tmp/bdadiagcluster_1399300440.log
+SUCCESS: Created BDA diagcluster zipfile on node bda01node01
+SUCCESS: Created BDA diagcluster zipfile on node bda01node02
+SUCCESS: Created BDA diagcluster zipfile on node bda01node03
+SUCCESS: Created BDA diagcluster zipfile on node bda01node04
+SUCCESS: Created BDA diagcluster zipfile on node bda01node05
+SUCCESS: Created BDA diagcluster zipfile on node bda01node06
+SUCCESS: bdadiagcluster_1399300440.zip created
+INFO: Big Data Appliance diagnose cluster complete at Mon May  5 07:34:48 2014
+INFO: Please get the Big Data Appliance cluster diagnostic bundle at /tmp/bdadiagcluster_1399300440.zip
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76865"></a>
+<div class="sect2"><a id="GUID-114F2D3E-3EC6-4D5D-8A95-8503F96B57DB"></a>
+<h2 id="BIGOG-GUID-114F2D3E-3EC6-4D5D-8A95-8503F96B57DB" class="sect2"><span class="enumeration_section">13.11</span> bdagetclientconfig</h2>
+<div>
+<p>Deploys the HDFS, MapReduce, and Hive client configuration files from Cloudera Manager.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdagetclientconfig
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>You must be connected to the server as <code class="codeph">root</code>.</p>
+<p>To deploy a new client configuration to all nodes of the cluster, use the <code class="codeph">dcli -C</code> command.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the output from one node in the cluster:</p>
+<pre dir="ltr">
+# <span class="bold">bdagetclientconfig</span>
+ 
+bdagetclientconfig : Download and deploy HDFS, Map-Reduce and Hive client configuration files
+ 
+Logging to /tmp/bdagetclientconfig-1368541073.out
+ 
+Downloading HDFS and Map-Reduce client configuration zipfile
+ 
+Downloading Hive client configuration zipfile
+ 
+Deploying HDFS, Map-Reduce and Hive client configurations
+ 
+Successfully downloaded and deployed HDFS, Map-Reduce and Hive client configurations !
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76649"></a>
+<div class="sect2"><a id="GUID-331083F3-E5EE-4594-BDE6-9578F044E776"></a>
+<h2 id="BIGOG-GUID-331083F3-E5EE-4594-BDE6-9578F044E776" class="sect2"><span class="enumeration_section">13.12</span> bdaid</h2>
+<div>
+<p>Returns information about an individual server.</p>
+<p>If you need to contact <a id="d58947e2586" class="indexterm-anchor"></a><a id="d58947e2588" class="indexterm-anchor"></a><a id="d58947e2590" class="indexterm-anchor"></a>Oracle Support about an issue with Cloudera's Distribution including Apache Hadoop, then run this command first.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdaid
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>You must be connected to the server as <code class="codeph">root</code>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the output from the utility:</p>
+<pre dir="ltr">
+# <span class="bold">bdaid</span>
+Server Hostname           : bda1node09
+Rack Serial Number        : AK00023713
+Server Serial Number      : 1137FMM06Y
+Appliance Name            : bda1
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-B4376FF0-BF88-4943-A6E8-BF5F6113DB06"></a>
+<h2 id="BIGOG-GUID-B4376FF0-BF88-4943-A6E8-BF5F6113DB06" class="sect2"><span class="enumeration_section">13.13</span> bdaibstatus</h2>
+<div>
+<div class="p">The bdaibstatus utility checks status for the following networks by pinging the gateway for each network.
+<ul style="list-style-type: disc;">
+<li>
+<p>The client network <code class="codeph">bondeth0</code> and its slaves <code class="codeph">eth8</code> and <code class="codeph">eth9</code> .</p>
+</li>
+<li>
+<p>The private network <code class="codeph">bondib0</code> and its slaves <code class="codeph">ib0</code> and <code class="codeph">ib1</code>.</p>
+</li>
+</ul>
+</div>
+<p>For releases Oracle Big Data Appliance 4.7 and greater, <code class="codeph">bdaibstatus</code> replaces <code class="codeph">bdacheckvnics</code>, which provided similar functionality.</p>
+<p>Run this command after connecting as <code class="codeph">root</code> to any server.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdaibstatus [<span class="italic">-bsgpch</span>]
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-B4376FF0-BF88-4943-A6E8-BF5F6113DB06__GUID-5EF71428-2FE7-4594-BE4B-3837F4BC5748"><!-- --></a>-b</dt>
+<dd>
+<p>Brief. No heading.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-B4376FF0-BF88-4943-A6E8-BF5F6113DB06__GUID-05D99E2B-88FC-412B-A53C-614E7150FCF7"><!-- --></a>-s</dt>
+<dd>
+<p>Test the passive network interface also. Temporarily make each passive slave interface active, ping the gateway from the slave, and then return the slave to passive mode.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-B4376FF0-BF88-4943-A6E8-BF5F6113DB06__GUID-33EB08CB-8006-4448-B216-A3E2D4956B80"><!-- --></a>-g</dt>
+<dd>
+<p>Bring down the primary interface if both of the following are true:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The primary interface is bad (fails to ping the gateway).</p>
+</li>
+<li>
+<p>The non-primary interface is good (successfully pings the gateway).</p>
+</li>
+</ul>
+<p>This parameter includes an implicit <code class="codeph">-s</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-B4376FF0-BF88-4943-A6E8-BF5F6113DB06__GUID-6E0FCAD9-7E41-49D5-816E-28DC3BE5FAFF"><!-- --></a>-p</dt>
+<dd>Display results for private InfiniBand interfaces only.</dd>
+<dt class="dlterm"><a id="GUID-B4376FF0-BF88-4943-A6E8-BF5F6113DB06__GUID-14C0A78C-8D99-49BB-9842-A650733B1232"><!-- --></a>-c</dt>
+<dd>Display results for client network interfaces only.</dd>
+<dt class="dlterm"><a id="GUID-B4376FF0-BF88-4943-A6E8-BF5F6113DB06__GUID-ECF210C5-6108-4141-A2D7-9151E18D10AA"><!-- --></a>-h</dt>
+<dd>Display this help information.</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<pre dir="ltr">
+[root@node01 network]# <span class="bold">bdaibstatus</span>
+host if status actv primary pkey
+============== === ====== ==== ======== =======
+bdanode01 ib0 up yes yes NO
+bdanode01 ib1 up no no NO
+host if status actv primary switch gw port ping gw vlan
+============== === ====== ==== ======= ====================== ========= ======= ======
+bdanode01 eth9 up yes yes bdasw-ib3 0A-ETH-1 yes N/A
+</pre>
+<pre dir="ltr">
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76650"></a>
+<div class="sect2"><a id="GUID-50B293A3-CC1B-48E5-A4FE-15DDBF59C6FA"></a>
+<h2 id="BIGOG-GUID-50B293A3-CC1B-48E5-A4FE-15DDBF59C6FA" class="sect2"><span class="enumeration_section">13.14</span> bdaimagevalidate</h2>
+<div>
+<p>Validates the hardware and software on a server by running <code class="codeph"><a href="utilities.htm#GUID-78682A7C-7461-4A52-AEAC-5BE31077B599">bdacheckhw</a></code>, and then <code class="codeph"><a href="utilities.htm#GUID-0D50A8C4-2D0B-4C65-B72C-A2F24107A33F">bdachecksw</a></code>.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdaimagevalidate [startup]
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-50B293A3-CC1B-48E5-A4FE-15DDBF59C6FA__GUID-84E18572-28F5-44B5-A7A9-05BC53674D4C"><!-- --></a>startup</dt>
+<dd>
+<p>Regenerates the <code class="codeph">bda_reboot_status</code> and <code class="codeph">BDA_REBOOT_*</code> files in <code class="codeph">/root</code>, in addition to performing the validation checks. Use this parameter if the checks fail after restarting the server, such that either <a id="d58947e2811" class="indexterm-anchor"></a><code class="codeph">BDA_REBOOT_FAILED</code> or <code class="codeph">BDA_REBOOT_WARNINGS</code> exist, and the issue is resolved. Do not use this parameter for the initial set of checks, that is, if <code class="codeph">/root/bda_reboot_status</code> does not exist.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<pre dir="ltr">
+# <span class="bold">bdaimagevalidate</span>
+SUCCESS: Found BDA v3 server : SUN SERVER X4-2L
+SUCCESS: Correct processor info : Intel(R) Xeon(R) CPU E5-2650 v2 @ 2.60GHz
+SUCCESS: Correct number of types of CPU : 1
+SUCCESS: Correct number of CPU cores : 32
+SUCCESS: Sufficient GB of memory (&gt;=63): 63
+SUCCESS: Correct BIOS vendor : American Megatrends Inc.
+SUCCESS: Sufficient BIOS version (&gt;=08080102): 26010600
+SUCCESS: Recent enough BIOS release date (&gt;=05/23/2011):07/08/2013
+SUCCESS: Correct ILOM major version : 3.1.2.32
+SUCCESS: Sufficient ILOM minor version (&gt;=82440): 82440
+     .
+     .
+     .
+SUCCESS: Correct bda-monitor status : bda monitor is running
+SUCCESS: Big Data Appliance software validation checks succeeded
+SUCCESS: All Big Data Appliance validation checks succeeded
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76994"></a>
+<div class="sect2"><a id="GUID-0A490AD3-9570-4A8E-B691-2E867AD010C4"></a>
+<h2 id="BIGOG-GUID-0A490AD3-9570-4A8E-B691-2E867AD010C4" class="sect2"><span class="enumeration_section">13.15</span> bdanodedesc</h2>
+<div>
+<p>Displays the server name and IP address.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdanodedesc
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows that the user is logged in to a BDA server named bda1node03 with an IP address of 192.168.40.61:</p>
+<pre dir="ltr">
+$ <span class="bold">bdanodedesc</span>
+bda1node03 BDA 192.168.40.61 HCA-
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76651"></a>
+<div class="sect2"><a id="GUID-223C44A0-0ABA-4212-A6B4-55A0C4EAEA43"></a>
+<h2 id="BIGOG-GUID-223C44A0-0ABA-4212-A6B4-55A0C4EAEA43" class="sect2"><span class="enumeration_section">13.16</span> bdaredoclientnet</h2>
+<div>
+<p>Re-creates the virtual network interface cards (VNICs) for all servers in the rack and spreads them across the available 10 GbE ports.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdaredoclientnet
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Log in to server 1 and change to the <code class="codeph">/opt/oracle/bda/network</code> directory to run this utility.</p>
+<p>You must run this utility after changing the number of 10 GbE connections to a <a id="d58947e2914" class="indexterm-anchor"></a>Sun Network QDR InfiniBand Gateway switch. See <span class="q">"<a href="maintenance.htm#GUID-A321B1D6-55A3-47E8-BF27-B76661082C31">Changing the Number of Connections to a Gateway Switch</a>"</span>.</p>
+<p>The <code class="codeph">bdaredoclientnet</code> utility performs the following subset of tasks done by the <code class="codeph">networksetup-two</code> script during the initial configuration of Oracle Big Data Appliance:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Verifies that the administrative network is working, the InfiniBand cabling is correct, and the InfiniBand switches are available</p>
+</li>
+<li>
+<p>Determines how many 10 GbE connections are available and connects them to the InfiniBand Gateway switches</p>
+</li>
+<li>
+<p>Deletes all VNICs and re-creates them</p>
+</li>
+<li>
+<p>Connects to each server and updates the configuration files</p>
+</li>
+<li>
+<p>Restarts the client network and verifies that it can connect to each server using the newly configured client network</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>The following example shows the output from the <code class="codeph">bdaredoclientnet</code> utility:</p>
+<pre dir="ltr">
+# <span class="bold">cd /opt/oracle/bda/network</span>
+# <span class="bold">bdaredoclientnet</span>
+bdaredoclientnet: do basic sanity checks on /opt/oracle/bda/network.json
+bdaredoclientnet: warning: bda deploy /opt/oracle/bda/network.json check odd nr of elements 7
+bdaredoclientnet: passed
+bdaredoclientnet: checking for  networkexpansion.json
+src/query_smp.c:196; umad (DR path slid 0; dlid 0; 0,1,13,34,20 Attr 0xff90:1) bad status 110; Connection timed out
+src/query_smp.c:196; umad (DR path slid 0; dlid 0; 0,1,13,31,20 Attr 0xff90:2) bad status 110; Connection timed out
+bdaredoclientnet: ping servers by name on admin network
+bdaredoclientnet: ping servers by name on admin network
+bdaredoclientnet: passed
+bdaredoclientnet: verify infiniband topology
+bdaredoclientnet: passed
+bdaredoclientnet: start setup client network (10gigE over Infiniband)
+bdaredoclientnet: ping both gtw leaf switches
+bdaredoclientnet: passed
+bdaredoclientnet: verify existence of gateway ports
+bdaredoclientnet: passed
+bdaredoclientnet: removing existing eoib setup for this server
+Shutting down interface bondeth0:                          [  OK  ]
+Shutting down interface bondib0:                           [  OK  ]
+Shutting down interface eth0:                              [  OK  ]
+Shutting down loopback interface:                          [  OK  ]
+Disabling IPv4 packet forwarding:  net.ipv4.ip_forward = 0
+                                                           [  OK  ]
+Bringing up loopback interface:                            [  OK  ]
+Bringing up interface bondib0:                             [  OK  ]
+Bringing up interface eth0:                                [  OK  ]
+bdaredoclientnet: ping server ips on admin network
+bdaredoclientnet: passed
+bdaredoclientnet: ping servers by name on admin network
+bdaredoclientnet: passed
+bdaredoclientnet: test ssh server ips on admin network
+hello from bda1node02.example.com
+hello from bda1node03.example.com
+     .
+     .
+     .
+bdaredoclientnet: passed
+bdaredoclientnet: check existence of default vlan for port 0A-ETH-1 on bda1sw-ib2
+bdaredoclientnet: use existing default vlan for port 0A-ETH-1 on bda1sw-ib2
+bdaredoclientnet: check existence of default vlan for port 0A-ETH-1 on bda1sw-ib3
+bdaredoclientnet: use existing default vlan for port 0A-ETH-1 on bda1sw-ib3
+bdaredoclientnet: passed
+bdaredoclientnet: apply eoib on each server
+bdaredoclientnet: wait a few seconds for the network to restart on 10.111.22.001
+bdaredoclientnet: wait a few seconds for the network to restart on 10.111.22.002
+     .
+     .
+     .
+check and delete vNIC for bda1node02 on switch bda1sw-ib2
+vNIC ID 757 deleted
+IO Adapter for vNIC deleted
+check and delete vNIC for bda1node02 on switch bda1sw-ib3
+check and delete vNIC for bda1node02 on switch bda1sw-ib2
+check and delete vNIC for bda1node02 on switch bda1sw-ib3
+vNIC ID 707 deleted
+IO Adapter for vNIC deleted
+create vNIC eth9 bda1node02 on switch bda1sw-ib3
+vNIC created
+create vNIC eth8 bda1node02 on switch bda1sw-ib2
+vNIC created
+     .
+     .
+     .
+bdaredoclientnet: ping server ips on client network
+bdaredoclientnet: passed
+bdaredoclientnet: test ssh server ips on client network
+hello from bda1node02.example.com
+hello from bda1node03.example.com
+     .
+     .
+     .
+bdaredoclientnet: passed
+bdaredoclientnet: end setup client network
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76652"></a>
+<div class="sect2"><a id="GUID-9C37291F-1AD6-4562-861A-44C38C01E2F2"></a>
+<h2 id="BIGOG-GUID-9C37291F-1AD6-4562-861A-44C38C01E2F2" class="sect2"><span class="enumeration_section">13.17</span> bdaserials</h2>
+<div>
+<p>Returns the serial numbers and media access control (MAC) addresses for most components of the Oracle Big Data Appliance server that you are connected to.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdaserials
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the output from the utility:</p>
+<pre dir="ltr">
+# <span class="bold">bdaserials</span>
+Rack serial number : AK00023713
+System serial number : 1137FMM0BY
+System UUID : 080020FF-FFFF-FFFF-FFFF-7E97D6282100
+Motherboard serial number : 0338MSL-1131BA2194
+Chassis serial number : 1137FMM0BY
+Memory serial numbers : 87948175 87949173 87948163 8794816B 87948130 87948176
+Infiniband HCA serial number : 1388FMH-1122501437
+Disk controller serial number : SV11713731
+Hard disk serial numbers :
+SEAGATE ST32000SSSUN2.0T061A1125L6M89X
+SEAGATE ST32000SSSUN2.0T061A1125L6LFH0
+SEAGATE ST32000SSSUN2.0T061A1125L6M94J
+SEAGATE ST32000SSSUN2.0T061A1125L6LLEZ
+SEAGATE ST32000SSSUN2.0T061A1125L6M5S2
+SEAGATE ST32000SSSUN2.0T061A1125L6LSD4
+SEAGATE ST32000SSSUN2.0T061A1127L6M58L
+SEAGATE ST32000SSSUN2.0T061A1127L6R40S
+SEAGATE ST32000SSSUN2.0T061A1125L6M3WX
+SEAGATE ST32000SSSUN2.0T061A1125L6M65D
+SEAGATE ST32000SSSUN2.0T061A1127L6NW3K
+SEAGATE ST32000SSSUN2.0T061A1127L6N4G1
+ 
+MAC addresses :
+bondeth0 Ethernet : CE:1B:4B:85:2A:63
+bondib0 InfiniBand : 80:00:00:4A:FE:80:00:00:00:00:00:00:00:00:00:00:00:00:00:00
+bond0 Ethernet : 00:00:00:00:00:00
+eth0 Ethernet : 00:21:28:E7:97:7E
+eth1 Ethernet : 00:21:28:E7:97:7F
+eth2 Ethernet : 00:21:28:E7:97:80
+eth3 Ethernet : 00:21:28:E7:97:81
+eth8 Ethernet : CE:1B:4B:85:2A:63
+eth9 Ethernet : CE:1B:4C:85:2A:63
+ib0 InfiniBand : 80:00:00:4A:FE:80:00:00:00:00:00:00:00:00:00:00:00:00:00:00
+ib1 InfiniBand : 80:00:00:4B:FE:80:00:00:00:00:00:00:00:00:00:00:00:00:00:00
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76839"></a>
+<div class="sect2"><a id="GUID-79C32A70-9F37-49AC-ACCD-6EFA755F172F"></a>
+<h2 id="BIGOG-GUID-79C32A70-9F37-49AC-ACCD-6EFA755F172F" class="sect2"><span class="enumeration_section">13.18</span> bdaswapoff</h2>
+<div>
+<p>Turns off swapping by the operating system.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdaswapoff
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>The <code class="codeph">bdaswapoff</code> utility disables both swap partitions on a server, which disables all swapping by the operating system. This state persists when the server restarts; you must run <code class="codeph">bdaswapon</code> to restore swapping. Swapping is turned off by default to improve performance and to allow high availability if a disk fails.</p>
+<p>Use <code class="codeph">bdaswapoff</code> instead of the Linux <code class="codeph">swapoff</code> utility.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">See Also</p>
+<p><span class="q">"<a href="utilities.htm#GUID-B382CF46-97F5-4168-9CAA-D6349DA406DF">bdaswapon</a>"</span></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example turns off swapping:</p>
+<pre dir="ltr">
+# bdaswapoff
+#
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76840"></a>
+<div class="sect2"><a id="GUID-B382CF46-97F5-4168-9CAA-D6349DA406DF"></a>
+<h2 id="BIGOG-GUID-B382CF46-97F5-4168-9CAA-D6349DA406DF" class="sect2"><span class="enumeration_section">13.19</span> bdaswapon</h2>
+<div>
+<p>Turns on paging and swapping by the operating system.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdaswapon
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Swapping is turned off by default to improve performance and the ability to recover from disk failure.</p>
+<p>Use <code class="codeph">bdaswapon</code> instead of the Linux <code class="codeph">swapon</code> utility.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">See Also</p>
+<p><span class="q">"<a href="utilities.htm#GUID-79C32A70-9F37-49AC-ACCD-6EFA755F172F">bdaswapoff</a>"</span></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example turns on swapping:</p>
+<pre dir="ltr">
+# <span class="bold">bdaswapon</span>
+Filename                                Type            Size    Used    Priority
+/dev/sda3                               partition       12287992        0      1
+/dev/sdb3                               partition       12287992        0      1
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76832"></a>
+<div class="sect2"><a id="GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A"></a>
+<h2 id="BIGOG-GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A" class="sect2"><span class="enumeration_section">13.20</span> bdaupdatefw</h2>
+<div>
+<p>Updates the firmware of a particular component of a server, such as a replacement disk drive.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdaupdatefw <span class="italic">parameter</span>
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A__GUID-31E14772-9BF7-4F3E-AE54-649D6DFB96A6"><!-- --></a>-d <span class="italic">N</span></dt>
+<dd>
+<p>Updates the LSI disk firmware for the specified disk (<span class="italic">N</span>). Each server has 12 disks, which are numbered from 0 to 11.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A__GUID-E274FE4C-F957-4BF1-A3D3-B4E2BDC6B6AF"><!-- --></a>-f</dt>
+<dd>
+<p>Specifies the file path to the firmware. If the path is omitted, then <code class="codeph">bdaupdatefw</code> uses the default firmware for the specified component from <code class="codeph">/opt/oracle/bda/firmware</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A__GUID-9E301F90-5170-4937-A776-179BB4EB6BD0"><!-- --></a>-h</dt>
+<dd>
+<p>Displays syntax and usage information for <code class="codeph">bdaupdatefw</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A__GUID-6882E542-45CB-44D3-9B8F-E50DAA21433C"><!-- --></a>-i</dt>
+<dd>
+<p>Updates the Oracle ILOM firmware.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A__GUID-CBAB3D81-FB39-4461-9AAE-ADFD3CA402EA"><!-- --></a>-l</dt>
+<dd>
+<p>Updates the LSI disk controller firmware.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A__GUID-51833857-8F45-4B36-9294-97A2A131DE35"><!-- --></a>-m</dt>
+<dd>
+<p>Updates the firmware for the Mellanox host channel adapter (InfiniBand card).</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage</p>
+<p>This utility is typically run by Oracle field engineers when installing or replacing hardware components, which may not be factory-installed with a supported firmware version. During a software installation, Mammoth copies the currently supported firmware to Oracle Big Data Appliance. The <code class="codeph">bdaupdatefw</code> command uses those files when they are needed to update the firmware of a server component.</p>
+<p>You can update one firmware package in a single command. Thus, you can specify only one of the following parameters: <code class="codeph">-d</code>, <code class="codeph">-i</code>, <code class="codeph">-l</code>, or <code class="codeph">-m</code>.</p>
+</div>
+<!-- class="section" -->
+<div class="infobox-note" id="GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A__GUID-589AC843-8441-4124-BA57-E96713146A39">
+<p class="notep1">Caution:</p>
+<p>Only use the firmware provided in a Mammoth bundle. Do not attempt to install firmware downloaded from a third-party site. Doing so may result in the loss of warranty and support.</p>
+</div>
+<div class="section">
+<p class="subhead2">Examples</p>
+<p>This example shows the output from a command to update the Oracle ILOM firmware. To perform the update, you must execute the <code class="codeph">ipmiflash</code> command provided in the output.</p>
+<pre dir="ltr">
+# <span class="bold">bdaupdatefw -i</span>
+[INFO:GENERAL] No firmware file specified. Using default firmware file - /opt/or
+           acle/bda/firmware/ILOM-3_2_0_r74388-Sun_Fire_X4270_M3.pkg
+[INFO:GENERAL] Updating ILOM firmware with the firmware file /opt/oracle/bda/fir
+           mware/ILOM-3_2_0_r74388-Sun_Fire_X4270_M3.pkg
+[INFO:GENERAL] Original version is: 3.1.2.12 r74388
+[INFO:GENERAL]
+[INFO:GENERAL] Please run the following command and enter the root password
+[INFO:GENERAL] for the ILOM when requested
+[INFO:GENERAL]
+[INFO:GENERAL] Note that this command will shutdown the server after flashing.
+[INFO:GENERAL] You will need to login to the ILOM to power on the server afterwa
+           rds.
+[INFO:GENERAL]
+[INFO:GENERAL] ipmiflash -v -I lanplus -H 10.133.46.218 -U root write /opt/oracl
+           e/bda/firmware/ILOM-3_1_2_12_r74388-Sun_Fire_X4270_M3.pkg
+[INFO:GENERAL]
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76653"></a>
+<div class="sect2"><a id="GUID-020B7FED-98ED-418A-A851-2868960D58EB"></a>
+<h2 id="BIGOG-GUID-020B7FED-98ED-418A-A851-2868960D58EB" class="sect2"><span class="enumeration_section">13.21</span> iblinkinfo</h2>
+<div>
+<p>Lists all InfiniBand connections in the InfiniBand network.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+iblinkinfo
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Run this command as <code class="codeph">root</code> from any server.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows two Oracle Big Data Appliances and one Oracle Exadata Database Machine on the InfiniBand network:</p>
+<pre dir="ltr">
+[root@bda1node01 network]# <span class="bold">iblinkinfo</span>
+Switch 0x002128df348ac0a0 SUN IB QDR GW switch bda1sw-ib2 10.133.43.36:
+  149  1[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  130  2[ ] "SUN IB QDR GW switch bda1sw-ib2 10.133...
+  149  2[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  127  1[ ] "SUN IB QDR GW switch bda1sw-ib2 10.133...
+  149  3[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  111  2[ ] "SUN IB QDR GW switch bda1sw-ib2 10.133...
+  149  4[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  109  1[ ] "SUN IB QDR GW switch bda1sw-ib2 10.133...
+  149  5[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  143  1[ ] "bda1node02 BDA 192.168.41.20 HCA-1" ( )
+  149  6[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  137  1[ ] "bda1node01 BDA 192.168.41.19 HCA-1" ( )
+  149  7[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  141  1[ ] "bda1node04 BDA 192.168.41.22 HCA-1" ( )
+  149  8[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  123  1[ ] "bda1node03 BDA 192.168.41.21 HCA-1" ( )
+  149  9[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  151  1[ ] "bda1node06 BDA 192.168.41.24 HCA-1" ( )
+  149 10[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  112  1[ ] "bda1node05 BDA 192.168.41.23 HCA-1" ( )
+  149 11[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;  139  1[ ] "bda1node07 BDA 192.168.41.25 HCA-1" ( )
+  149 12[ ] ==(                Down/Disabled)==&gt;        [ ] "" ( )
+  149 13[ ] ==(                Down/Disabled)==&gt;        [ ] "" ( )
+  149 14[ ] ==( 4X 10.0 Gbps Active/  LinkUp)==&gt;   85  9[ ] "SUN DCS 36P QDR dm01sw-ib1 10.133.40.203" ( )
+  149 15[ ] ==(                Down/Disabled)==&gt;        [ ] "" ( )
+          .
+          .
+          .
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76655"></a>
+<div class="sect2"><a id="GUID-9AAC628A-EA0E-4A7A-AD46-8CE9F22539AF"></a>
+<h2 id="BIGOG-GUID-9AAC628A-EA0E-4A7A-AD46-8CE9F22539AF" class="sect2"><span class="enumeration_section">13.22</span> imagehistory</h2>
+<div>
+<p>Displays a history of operating system upgrades.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+imagehistory
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows that the appliance was imaged with version 3.1.0 with an upgrade to 4.0.0</p>
+<pre dir="ltr">
+$ <span class="bold">imagehistory</span>
+
+Big Data Appliance Image History
+ 
+IMAGE_VERSION             : 3.1.0
+IMAGE_CREATION_DATE       : Tue Jun 24 06:44:22 UTC 2014
+IMAGING_START_DATE        : Sat Aug 30 18:15:01 UTC 2014
+IMAGING_END_DATE          : Sat Aug 30 14:59:39 EDT 2014
+DEPLOYMENT_VERSION        : 4.0.0
+DEPLOYMENT_START_DATE     : Sat Aug 30 15:18:07 EDT 2014
+DEPLOYMENT_END_DATE       : Sat Aug 30 16:39:07 EDT 2014
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76654"></a>
+<div class="sect2"><a id="GUID-BB9317A6-BD9F-47FE-984A-CEFA60F05825"></a>
+<h2 id="BIGOG-GUID-BB9317A6-BD9F-47FE-984A-CEFA60F05825" class="sect2"><span class="enumeration_section">13.23</span> imageinfo</h2>
+<div>
+<p>Displays information about the Oracle Big Data Appliance operating system image currently running.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+imageinfo
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example identifies the 4.0.0 image:</p>
+<pre dir="ltr">
+$ <span class="bold">imageinfo</span>
+Big Data Appliance Image Info
+ 
+IMAGE_CREATION_DATE       : Sat Aug 30 13:55:26 EDT 2014
+IMAGE_LABEL               : BDA_MAIN_LINUX.X64_140829
+IMAGE_VERSION             : 4.0.0
+LINUX_VERSION             : Oracle Linux Server release 5.8
+KERNEL_VERSION            : 2.6.39-400.215.9.el5uek
+BDA_RPM_VERSION           : bda-4.0.0-1.el5
+OFED_VERSION              : OFED-IOV-1.5.5-2.0.0088
+JDK_VERSION               : jdk-1.7.0_65-fcs
+HADOOP_VERSION            : 2.3.0-cdh5.1.0
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76656"></a>
+<div class="sect2"><a id="GUID-48D8B260-A75C-46CD-A99A-2D1D4BA556C8"></a>
+<h2 id="BIGOG-GUID-48D8B260-A75C-46CD-A99A-2D1D4BA556C8" class="sect2"><span class="enumeration_section">13.24</span> listlinkup</h2>
+<div>
+<p>Shows the Ethernet bridge ports with active links.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+listlinkup
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Run this command after connecting as <code class="codeph">root</code> to a <a id="d58947e3427" class="indexterm-anchor"></a>Sun Network QDR InfiniBand Gateway switch.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows three active ports (0A-ETH-1, 0A-ETH-3, and 0A-ETH-4) out of the eight available ports on switch bda1sw-ib3:</p>
+<pre dir="ltr">
+[root@bda1sw-ib3 ~]# <span class="bold">listlinkup | grep Bridge</span>
+  Bridge-0 Port 0A-ETH-1 (Bridge-0-2) up (Enabled)
+  Bridge-0 Port 0A-ETH-2 (Bridge-0-2) down (Enabled)
+  Bridge-0 Port 0A-ETH-3 (Bridge-0-1) up (Enabled)
+  Bridge-0 Port 0A-ETH-4 (Bridge-0-1) up (Enabled)
+  Bridge-1 Port 1A-ETH-1 (Bridge-1-2) down (Enabled)
+  Bridge-1 Port 1A-ETH-2 (Bridge-1-2) down (Enabled)
+  Bridge-1 Port 1A-ETH-3 (Bridge-1-1) down (Enabled)
+  Bridge-1 Port 1A-ETH-4 (Bridge-1-1) down (Enabled)
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76980"></a>
+<div class="sect2"><a id="GUID-CC852C01-92CA-4B76-8D16-3B767BB03DDF"></a>
+<h2 id="BIGOG-GUID-CC852C01-92CA-4B76-8D16-3B767BB03DDF" class="sect2"><span class="enumeration_section">13.25</span> mount_hadoop_dirs</h2>
+<div>
+<p>Makes password-encrypted data accessible after the server is restarted. Until you run this utility and enter the correct password, the data is unreadable.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+mount_hadoop_dirs
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the prompt for entering the password:</p>
+<pre dir="ltr">
+$ <span class="bold">mount_hadoop_dirs</span>
+Enter password to mount Hadoop directories: <span class="italic"><span class="bold">password</span></span>
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76780"></a>
+<div class="sect2"><a id="GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186"></a>
+<h2 id="BIGOG-GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186" class="sect2"><span class="enumeration_section">13.26</span> remove-root-ssh</h2>
+<div>
+<p>Removes passwordless SSH previously established by the <a href="utilities.htm#GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8">setup-root-ssh</a> command.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+remove-root-ssh [-C | -c | -g | -j] [-p]
+
+remove-root-ssh -h
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186__GUID-2214A6C8-C51C-444C-8F67-F822DCEC0CE4"><!-- --></a>-C</dt>
+<dd>
+<p>Targets all servers in the cluster, using the list of servers in /opt/oracle/bda/cluster-hosts-infiniband.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186__GUID-66605B9F-0E21-4D8D-9E27-47D37CA1B24B"><!-- --></a>-c <span class="italic">host1</span>, <span class="italic">host2</span>,...</dt>
+<dd>
+<p>Targets the servers specified as <span class="italic">host1</span>, <span class="italic">host2</span>, and so forth, on the command line.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186__GUID-3EC50B0A-2FA1-46E9-A0E2-78945E3FE1CD"><!-- --></a>-g <span class="italic">groupfile</span></dt>
+<dd>
+<p>Targets a user-defined set of servers listed in <span class="italic">groupfile</span>. You can enter either server names or IP addresses in the file, one per line.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186__GUID-5C6C5BE5-50FD-4FA6-B764-417CBCCDD690"><!-- --></a>-j "etho0_ips[<span class="italic">range</span>]"</dt>
+<dd>
+<p>Specifies the range of servers in a starter rack <code class="codeph">[1-6]</code> or a starter rack with additional servers <code class="codeph">[1-12]</code>. This parameter is required in the 2.2.<span class="italic">x</span> base image when the utility is used before network configuration.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186__GUID-C9EBEA67-B3D4-441E-95EE-708C26CEFD8C"><!-- --></a>-h</dt>
+<dd>
+<p>Displays Help.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186__GUID-1422F501-E44C-403B-9240-6CB9C2643D43"><!-- --></a>-p <span class="italic">password</span></dt>
+<dd>
+<p>Specifies the <code class="codeph">root</code> password on the command line.</p>
+<p>Oracle recommends that you omit this parameter. You will be prompted to enter the password, which the utility does not display on your screen.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>You must know the <code class="codeph">root</code> password to use this command.</p>
+<p>If you do not specify the target servers, then <code class="codeph">remove-root-ssh</code> uses all servers in the rack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">See Also</p>
+<p><span class="q">"<a href="utilities.htm#GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8">setup-root-ssh</a>"</span>, <span class="q">"<a href="dcli.htm#GUID-3E1D048B-3EDF-4E14-81E8-93741428708B">Setting Up Passwordless SSH</a>"</span></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows passwordless SSH being removed:</p>
+<pre dir="ltr">
+# <span class="bold">remove-root-ssh</span>
+calling /opt/oracle/bda/bin/dcli -c 192.168.42.37,192.168.42.38,192.168.42.39 --unkey
+192.168.42.37: ssh key dropped
+192.168.42.38: ssh key dropped
+192.168.42.39: ssh key dropped
+remove-root-ssh succeeded
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76866"></a>
+<div class="sect2"><a id="GUID-3A23857C-EF8B-4E54-953B-DBE911C2D351"></a>
+<h2 id="BIGOG-GUID-3A23857C-EF8B-4E54-953B-DBE911C2D351" class="sect2"><span class="enumeration_section">13.27</span> reset-boot-order</h2>
+<div>
+<p>Resets the boot order of the server to the factory defaults, as specified in the BIOS. By doing so, it clears any ILOM booting overrides.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+reset-boot-order
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>The following example resets the boot order of the current server:</p>
+<pre dir="ltr">
+# <span class="bold">reset-boot-order</span>
+Set Boot Device to none
+ 
+Cleared ILOM boot override - Boot device: none
+ 
+Found BDA v1 Hardware - setting boot order using biosconfig
+ 
+Copyright (C) SUN Microsystems 2009.
+BIOSconfig Utility Version 2.2.1
+Build Date: Aug 24 2009
+Build Time: 09:01:30
+ 
+BIOSconfig Specification Version 2.4
+ 
+Processing Input BIOS Data....
+ 
+Success
+ 
+Found USB device name : USB:02.82;01 Unigen PSA4000
+     .
+     .
+     .
+BIOSconfig Specification Version 2.4
+ 
+Processing Input BIOS Data....
+ 
+Success
+New BIOS boot order :
+                        USB:02.82;01  Unigen PSA4000
+                        RAID:Slot0.F0:(Bus 13 Dev 00)PCI RAID Adapter
+                        PXE:IBA GE Slot 0100 v1331
+                        PXE:IBA GE Slot 0101 v1331
+                        PXE:IBA GE Slot 0700 v1331
+                        PXE:IBA GE Slot 0701 v1331
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76781"></a>
+<div class="sect2"><a id="GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8"></a>
+<h2 id="BIGOG-GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8" class="sect2"><span class="enumeration_section">13.28</span> setup-root-ssh</h2>
+<div>
+<p>Establishes passwordless SSH for the <code class="codeph">root</code> user.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+setup-root-ssh [-C | -c | -g | -j] [-p]
+
+setup-root-ssh -h
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Parameters</p>
+<dl>
+<dt class="dlterm"><a id="GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8__GUID-4F4A7084-B289-43F4-8153-C8D08E0C6CBF"><!-- --></a>-C</dt>
+<dd>
+<p>Targets all servers in the cluster, using the list of servers in <code class="codeph">/opt/oracle/bda/cluster-hosts-infiniband</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8__GUID-560C5077-1D4E-4F98-A03A-0E3F02A87CB6"><!-- --></a>-c <span class="italic">host1</span>, <span class="italic">host2</span>,...</dt>
+<dd>
+<p>Targets the servers specified as <span class="italic">host1</span>, <span class="italic">host2</span>, and so forth, on the command line.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8__GUID-751E27E3-101A-4F46-8E18-363534997E15"><!-- --></a>-g <span class="italic">groupfile</span></dt>
+<dd>
+<p>Targets a user-defined set of servers listed in <span class="italic">groupfile</span>. You can enter either server names or IP addresses in the file, one per line.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8__GUID-A6B0F9CC-7CA3-4F68-AEC9-3AA572E1BB58"><!-- --></a>-j "etho0_ips[<span class="italic">range</span>]"</dt>
+<dd>
+<p>Specifies the range of servers in a starter rack <code class="codeph">[1-6]</code> or a starter rack with additional servers <code class="codeph">[1-12]</code>. This parameter is required in the 2.2.<span class="italic">x</span> base image when the utility is used before network configuration.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8__GUID-C16C2B97-EDF7-4F73-8A8A-BE49BA219286"><!-- --></a>-h</dt>
+<dd>
+<p>Displays Help.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8__GUID-72F41BB8-0B3B-43C1-88C5-2E29789F595F"><!-- --></a>-p <span class="italic">password</span></dt>
+<dd>
+<p>Specifies the <code class="codeph">root</code> password on the command line.</p>
+<p>Oracle recommends that you omit this parameter. You will be prompted to enter the password, which the utility does not display on your screen.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>You must know the <code class="codeph">root</code> password to use this command.</p>
+<p>If you do not specify the target servers, then <code class="codeph">setup-root-ssh</code> uses all servers in the rack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">See Also</p>
+<p><span class="q">"<a href="utilities.htm#GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186">remove-root-ssh</a>"</span>, <span class="q">"<a href="dcli.htm#GUID-3E1D048B-3EDF-4E14-81E8-93741428708B">Setting Up Passwordless SSH</a>"</span></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows passwordless SSH being set up for <code class="codeph">root</code>:</p>
+<pre dir="ltr">
+# <span class="bold">setup-root-ssh</span>
+Enter root password: <span class="italic">password</span>
+spawn /opt/oracle/bda/bin/dcli -c 192.168.42.37,192.168.42.38... -k
+root@192.168.42.37's password:
+root@192.168.42.38's password:
+     .
+     .
+     .
+192.168.42.37: ssh key added
+192.168.42.38: ssh key added
+     .
+     .
+     .
+setup-root-ssh succeeded
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76867"></a>
+<div class="sect2"><a id="GUID-10ECA5F5-A2FE-46CF-8E16-AA4E2AB1683D"></a>
+<h2 id="BIGOG-GUID-10ECA5F5-A2FE-46CF-8E16-AA4E2AB1683D" class="sect2"><span class="enumeration_section">13.29</span> showusb</h2>
+<div>
+<p>Shows the device location of an inserted USB drive as it is known to the operating system, such as <code class="codeph">/dev/sdn.</code></p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+showusb
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76657"></a>
+<div class="sect2"><a id="GUID-824B60BF-EC3E-4DE1-8837-FBA798491271"></a>
+<h2 id="BIGOG-GUID-824B60BF-EC3E-4DE1-8837-FBA798491271" class="sect2"><span class="enumeration_section">13.30</span> showvlan</h2>
+<div>
+<p>Lists the VLANs configured on the switch.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+showvlan
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Run this command after connecting as <code class="codeph">root</code> to a Sun Network QDR InfiniBand Gateway switch.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the default VLAN, which has an ID of 0, on switch bda1sw-ib3:</p>
+<pre dir="ltr">
+# <span class="bold">showvlan</span>
+   Connector/LAG  VLN   PKEY
+   -------------  ---   ----
+   0A-ETH-1        0    ffff
+   0A-ETH-2        0    ffff
+   0A-ETH-3        0    ffff
+   0A-ETH-4        0    ffff
+   1A-ETH-1        0    ffff
+   1A-ETH-3        0    ffff
+   1A-ETH-4        0    ffff
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76658"></a>
+<div class="sect2"><a id="GUID-BB89CB9B-4CAF-46FC-8A8B-F82E6B2E81F6"></a>
+<h2 id="BIGOG-GUID-BB89CB9B-4CAF-46FC-8A8B-F82E6B2E81F6" class="sect2"><span class="enumeration_section">13.31</span> showvnics</h2>
+<div>
+<p>Lists the virtual network interface cards (VNICs) created for the switch.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+showvnics
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Usage Notes</p>
+<p>Run this command after connecting as <code class="codeph">root</code> to a Sun Network QDR InfiniBand Gateway switch.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>This example shows the VNICs created in a round-robin process for switch bda1sw-ib3:</p>
+<pre dir="ltr">
+# <span class="bold">showvnics</span>
+ID  STATE FLG IOA_GUID          NODE                                IID  MAC               VLN PKEY   GW
+--- ----- --- ----------------- --------------------------------    ---- ----------------- --- ----   --------
+561 UP      N 0021280001CF4C23  bda1node13 BDA 192.168.41.31    0000 CE:4C:23:85:2B:0A NO  ffff   0A-ETH-1
+564 UP      N 0021280001CF4C53  bda1node16 BDA 192.168.41.34    0000 CE:4C:53:85:2B:0D NO  ffff   0A-ETH-1
+567 UP      N 0021280001CF4B58  bda1node01 BDA 192.168.41.19    0000 CE:4B:58:85:2A:FC NO  ffff   0A-ETH-1
+555 UP      N 0021280001CF2A5C  bda1node07 BDA 192.168.41.25    0000 CE:2A:5C:85:2B:04 NO  ffff   0A-ETH-1
+552 UP      N 0021280001CF4C74  bda1node04 BDA 192.168.41.22    0000 CE:4C:74:85:2B:01 NO  ffff   0A-ETH-1
+558 UP      N 0021280001CF179B  bda1node10 BDA 192.168.41.28    0000 CE:17:9B:85:2B:07 NO  ffff   0A-ETH-1
+     .
+     .
+     .
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment160">
+<tr>
+<td class="cellalignment193">
+<table class="cellalignment165">
+<tr>
+<td class="cellalignment164"><a href="disks.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment164"><a href="dcli.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment195">
+<table class="cellalignment163">
+<tr>
+<td class="cellalignment164"><a href="http://docs.oracle.com/bigdata/bda48/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment164"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment164"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment164"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Setting Up Auto Service Request</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="ASR network connections, network connections, ASR" />
+<meta name="dcterms.created" content="2018-07-19T23:52:02Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E85370-07" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda48/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="configurator.htm" title="Previous" type="text/html" />
+<link rel="Next" href="part-hardware-installation.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-6D1BCF7C-FCDD-4767-A10C-BD5519C3EF6A"></a> <span id="PAGE" style="display:none;">10/31</span> <!-- End Header -->
+<a id="BIGOG76641"></a>
+<h1 id="BIGOG-GUID-6D1BCF7C-FCDD-4767-A10C-BD5519C3EF6A" class="sect1"><span class="enumeration_chapter">5</span> Setting Up Auto Service Request</h1>
+<div>
+<p>This chapter explains how to install and configure Auto Service Request for Oracle Big Data Appliance. It contains these sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="asr.htm#GUID-D4AA87AA-4080-485C-A399-65FD25D54E77">Understanding Auto Service Request</a></p>
+</li>
+<li>
+<p><a href="asr.htm#GUID-0D209F10-1767-4944-AF41-7F24DF157A7B">Getting Ready to Install ASR</a></p>
+</li>
+<li>
+<p><a href="asr.htm#GUID-F2783FD4-ED52-4D04-93A6-2E56CF615E22">Installing ASR Manager</a></p>
+</li>
+<li>
+<p><a href="asr.htm#GUID-335A894F-4B23-45F7-9785-746E52FBF9E0">Verifying the ASR Manager Installation</a></p>
+</li>
+<li>
+<p><a href="asr.htm#GUID-13787743-07CE-441A-9279-4830E780468D">Configuring the Trap Destinations on Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="asr.htm#GUID-A78023F5-8D00-4522-A187-AE2A7471AFC3">Verifying ASR Assets</a></p>
+</li>
+<li>
+<p><a href="asr.htm#GUID-160440A5-6AF3-4779-8FB3-DB546F0B302B">Validating Auto Service Request on Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="asr.htm#GUID-DE89D576-8947-4C0F-A671-FCB3C182B216">Troubleshooting ASR</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG246"></a>
+<div class="props_rev_3"><a id="GUID-D4AA87AA-4080-485C-A399-65FD25D54E77"></a>
+<h2 id="BIGOG-GUID-D4AA87AA-4080-485C-A399-65FD25D54E77" class="sect2"><span class="enumeration_section">5.1</span> Understanding Auto Service Request</h2>
+<div>
+<p><a id="d33799e70" class="indexterm-anchor"></a><a id="d33799e74" class="indexterm-anchor"></a><a id="d33799e76" class="indexterm-anchor"></a><a id="d33799e78" class="indexterm-anchor"></a>Auto Service Request (ASR) is designed to automatically open service requests when specific Oracle Big Data Appliance hardware faults occur. ASR detects faults in the most common server components, such as disks, fans, and power supplies, and automatically opens a service request when a fault occurs. ASR monitors only server components and does not detect all possible faults.</p>
+<p>ASR is not a replacement for other monitoring mechanisms, such as <a id="d33799e83" class="indexterm-anchor"></a>SMTP and <a id="d33799e86" class="indexterm-anchor"></a>SNMP alerts, within the customer data center. It is a complementary mechanism that expedites and simplifies the delivery of replacement hardware. ASR should not be used for downtime events in high-priority systems. For high-priority events, contact Oracle Support Services directly.</p>
+<p>When ASR detects a hardware problem, ASR Manager submits a service request to Oracle Support Services. In many cases, Oracle Support Services can begin work on resolving the issue before the administrator is even aware the problem exists.</p>
+<p>An email message is sent to both the <a id="d33799e93" class="indexterm-anchor"></a><a id="d33799e95" class="indexterm-anchor"></a>My Oracle Support email account and the technical contact for Oracle Big Data Appliance to notify them of the creation of the service request.</p>
+<p>A service request may not be filed automatically on some occasions. This can happen because of the unreliable nature of the SNMP protocol or a loss of connectivity to ASR Manager. Oracle recommends that customers continue to monitor their systems for faults and call Oracle Support Services if they do not receive notice that a service request has been filed automatically.</p>
+<div class="infoboxnotealso" id="GUID-D4AA87AA-4080-485C-A399-65FD25D54E77__GUID-A3E277DE-66DD-4EE5-AD56-B1BB5B9AD383">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Auto Service Request web page at</p>
+<p><a href="http://www.oracle.com/technetwork/systems/asr/overview/index.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/systems/asr/overview/index.html</code></a></p>
+</li>
+<li>
+<p>Oracle Auto Service Request user documentation at</p>
+<p><a href="http://www.oracle.com/technetwork/systems/asr/documentation/index.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/systems/asr/documentation/index.html</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGOG76824"></a><a id="BIGOG76599"></a>
+<div class="props_rev_3"><a id="GUID-0D209F10-1767-4944-AF41-7F24DF157A7B"></a>
+<h2 id="BIGOG-GUID-0D209F10-1767-4944-AF41-7F24DF157A7B" class="sect2"><span class="enumeration_section">5.2</span> Getting Ready to Install ASR</h2>
+<div>
+<div class="section">
+<p>Before installing ASR, complete these prerequisites:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Create a <a id="d33799e152" class="indexterm-anchor"></a>My Oracle Support account at <a href="http://support.oracle.com" target="_blank"><code class="codeph">http://support.oracle.com</code></a>.</span></li>
+<li class="stepexpand"><span>Ensure that the following are set up correctly:</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Premier Support for Systems, Oracle Premier Support for Operating Systems, or Oracle Limited Warranty</p>
+</li>
+<li>
+<p>The technical contact person at the customer site who is responsible for Oracle Big Data Appliance</p>
+</li>
+<li>
+<p>A valid shipping address at the customer site for Oracle Big Data Appliance parts</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="stepexpand"><span>Identify and designate a system to host ASR Manager.</span>
+<div>
+<p><a id="d33799e179" class="indexterm-anchor"></a><a id="d33799e183" class="indexterm-anchor"></a>ASR Manager must be installed on a server that has connectivity to Oracle Big Data Appliance and an outbound Internet connection using HTTPS or an HTTPS proxy. To submit a service request (SR), the server must be able to access the Internet.</p>
+</div>
+</li>
+<li class="stepexpand"><span>ASR Manager uses the following ports for normal operations. Ensure that the Oracle Big Data Appliance and ASR Manager server ports are open:</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>All Oracle Big Data Appliance servers must have port 6481 open for HTTP-based asset activation requests that they receive from ASR Manager.</p>
+</li>
+<li>
+<p>The server running ASR Manager must have port 162 open for SNMP-based telemetry messages that the Oracle Big Data Appliance servers send to it.</p>
+</li>
+<li>
+<p>The Oracle <code class="codeph">transport.oracle.com</code> web server has port 443 open for HTTPS-based telemetry messages that ASR Manager sends to it.</p>
+</li>
+</ul>
+<p>See <a href="asr.htm#GUID-0D209F10-1767-4944-AF41-7F24DF157A7B__CHDEAJAE">Figure 5-1</a> for the port locations.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Ensure that the designated system conforms to the "Hardware and Network Configuration Recommendations for ASR." See the Oracle ASR website:</span>
+<div>
+<p><a href="http://docs.oracle.com/cd/E37710_01/nav/products.htm" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E37710_01/nav/products.htm</code></a></p>
+</div>
+</li>
+<li class="stepexpand"><span>Confirm that Java Development Kit 6 (JDK 1.6.0_04 or later) is running on the designated ASR Manager system:</span>
+<div>
+<pre dir="ltr">
+java -version
+</pre>
+<p>If necessary, download and install the latest version of JDK from the Java SE Downloads website:</p>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/java/javase/downloads/index.html</code></a></p>
+</div>
+</li>
+<li class="stepexpand"><span>Obtain <code class="codeph">root</code> access to the designated ASR Manager host.</span></li>
+<li class="stepexpand"><span>Identify and verify connectivity to Oracle Big Data Appliance.</span></li>
+<li class="stepexpand"><span>Verify connectivity to the Internet using HTTPS.</span></li>
+</ol>
+<div class="section">
+<p><a href="asr.htm#GUID-0D209F10-1767-4944-AF41-7F24DF157A7B__CHDEAJAE">Figure 5-1</a> shows the network connections between ASR and Oracle Big Data Appliance.</p>
+<div class="figure" id="GUID-0D209F10-1767-4944-AF41-7F24DF157A7B__CHDEAJAE">
+<p class="titleinfigure">Figure 5-1 Auto Service Request Network Connections</p>
+<img width="498" height="456" src="img/GUID-EDAFED24-D4B1-4FEF-A95E-9B0B8CC8F8E6-default.png" alt="Description of Figure 5-1 follows" title="Description of Figure 5-1 follows" /><br />
+<a href="img_text/GUID-EDAFED24-D4B1-4FEF-A95E-9B0B8CC8F8E6-print.htm">Description of "Figure 5-1 Auto Service Request Network Connections"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG248"></a>
+<div class="props_rev_3"><a id="GUID-F2783FD4-ED52-4D04-93A6-2E56CF615E22"></a>
+<h2 id="BIGOG-GUID-F2783FD4-ED52-4D04-93A6-2E56CF615E22" class="sect2"><span class="enumeration_section">5.3</span> Installing ASR Manager</h2>
+<div>
+<div class="section">
+<p>To install <a id="d33799e272" class="indexterm-anchor"></a>ASR Manager, download the current version from My Oracle Support ID 1185493.1. Then follow the instructions in the <span class="italic">Oracle Auto Service Request Quick Installation Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E37710_01/index.htm" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E37710_01/index.htm</code></a></p>
+<p>Do not set up the assets.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG249"></a>
+<div class="props_rev_3"><a id="GUID-335A894F-4B23-45F7-9785-746E52FBF9E0"></a>
+<h2 id="BIGOG-GUID-335A894F-4B23-45F7-9785-746E52FBF9E0" class="sect2"><span class="enumeration_section">5.4</span> Verifying the ASR Manager Installation</h2>
+<div>
+<div class="section">
+<p>As <code class="codeph">root</code>, perform these checks on ASR Manager to ensure that it is installed properly:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Verify that ASR Manager 3.5 or later is running:</p>
+<pre dir="ltr">
+asr show_rules_version
+</pre></li>
+<li>
+<p>Check the registration status:</p>
+<pre dir="ltr">
+asr show_reg_status
+</pre></li>
+<li>
+<p>Test the connection by sending a test message to the transport server.</p>
+<pre dir="ltr">
+asr test_connection
+</pre></li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG250"></a>
+<div class="props_rev_3"><a id="GUID-13787743-07CE-441A-9279-4830E780468D"></a>
+<h2 id="BIGOG-GUID-13787743-07CE-441A-9279-4830E780468D" class="sect2"><span class="enumeration_section">5.5</span> Configuring the Trap Destinations on Oracle Big Data Appliance</h2>
+<div>
+<div class="section">
+<p><a id="d33799e348" class="indexterm-anchor"></a><a id="d33799e350" class="indexterm-anchor"></a>ASR is an optional software component of Oracle Big Data Appliance. When configuring the software in Oracle Big Data Appliance Configuration Generation Utility, you must complete the section about ASR. Then during the software installation, the Mammoth utility configures the servers to trap the component fault indicators. See <span class="q">"<a href="mammoth.htm#GUID-A1C3510A-77A2-4B1D-A4B1-555F1833149E">Mammoth Installation Steps</a>"</span>.</p>
+<p>You can reconfigure your appliance at any time to add or drop support for ASR. See <span class="q">"<a href="mammoth.htm#GUID-D9B445F2-A5DD-4C6C-9BA1-2F5330ED4798">Changing the Configuration of Optional Software</a>."</span></p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG252"></a>
+<div class="props_rev_3"><a id="GUID-A78023F5-8D00-4522-A187-AE2A7471AFC3"></a>
+<h2 id="BIGOG-GUID-A78023F5-8D00-4522-A187-AE2A7471AFC3" class="sect2"><span class="enumeration_section">5.6</span> Verifying ASR Assets</h2>
+<div>
+<div class="section">
+<p>To <a id="d33799e385" class="indexterm-anchor"></a><a id="d33799e389" class="indexterm-anchor"></a>verify the ASR assets:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>In ASR Manager, verify that ASR is activated:</span>
+<div>
+<pre dir="ltr">
+asr list_asset -i <span class="italic">asset_ip</span>
+</pre>
+<p>In the preceding command, <span class="italic">asset_ip</span> is the IP address of a server or an Oracle ILOM. To list all assets, enter this command:</p>
+<pre dir="ltr">
+asr list_asset
+</pre>
+<p>The following is an example of the output. You should see a host name and an Oracle ILOM name for each of the servers, for a total of 12, 24, or 36 activations. If you see fewer, then identify the missing ones and activate them. An example of a server name is bda1node15 and an Oracle ILOM name is bda1node15-c.</p>
+<pre dir="ltr">
+ADDRESS       HOST_NAME      SERIAL_NUMBER  ASR      PRODUCT_NAME
+------------- -------------- -----------    -------- --------------------------
+203.0.114.44  bda1node15    1143FMM023     Enabled  SUN FIRE X4270 M2 SERVER
+203.0.115.139 bda1node15-c  1143FMM023     Enabled  SUN FIRE X4270 M2 SERVER
+203.0.114.45  bda1node16    1143FMM021     Enabled  SUN FIRE X4270 M2 SERVER
+203.0.115.140 bda1node16-c  1143FMM021     Enabled  SUN FIRE X4270 M2 SERVER
+203.0.114.46  bda1node17    1143FMM022     Enabled  SUN FIRE X4270 M2 SERVER
+203.0.115.141 bda1node17-c  1143FMM022     Enabled  SUN FIRE X4270 M2 SERVER
+</pre></div>
+</li>
+<li class="stepexpand"><span>If no assets are listed, then verify that ASR is configured on Oracle Big Data Appliance. Log in to the first server and enter this command:</span>
+<div>
+<pre dir="ltr">
+# cat /opt/oracle/BDAMammoth/<span class="italic">cluster_name</span>-config.json  | grep ASR
+</pre>
+<p>The following output shows that ASR has not been configured.</p>
+<pre dir="ltr">
+ASR_ENABLED=false
+SETUP_ASR_SERVER=false
+ASR_HOST=
+ASR_PORT=162
+ASR_SERVER_PWD=
+</pre>
+<p>To configure ASR, see <span class="q">"<a href="mammoth.htm#GUID-D9B445F2-A5DD-4C6C-9BA1-2F5330ED4798">Changing the Configuration of Optional Software</a>."</span></p>
+</div>
+</li>
+</ol>
+<div class="section">
+<div class="infobox-note" id="GUID-A78023F5-8D00-4522-A187-AE2A7471AFC3__GUID-9938AB4C-6BC7-4BBD-962C-677FE09B09C6">
+<p class="notep1">Note:</p>
+<p>If an IP address or host name changes, then you must deactivate and reactivate the asset.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG253"></a>
+<div class="props_rev_3"><a id="GUID-160440A5-6AF3-4779-8FB3-DB546F0B302B"></a>
+<h2 id="BIGOG-GUID-160440A5-6AF3-4779-8FB3-DB546F0B302B" class="sect2"><span class="enumeration_section">5.7</span> Validating Auto Service Request on Oracle Big Data Appliance</h2>
+<div>
+<div class="section">
+<p>To validate the <a id="d33799e458" class="indexterm-anchor"></a><a id="d33799e462" class="indexterm-anchor"></a>ASR installation, you can generate test events.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To set up a test event on Oracle ILOM:</p>
+<ol>
+<li>
+<p>Log in to the Oracle ILOM of any server in Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Change to the following directory:</p>
+<pre dir="ltr">
+-&gt; cd /SP/alertmgmt/rules/3
+</pre></li>
+<li id="GUID-160440A5-6AF3-4779-8FB3-DB546F0B302B__CHDBCEII">
+<p>Enter this command:</p>
+<pre dir="ltr">
+-&gt; show
+</pre>
+<p>The following information is displayed:</p>
+<pre dir="ltr">
+ /SP/alertmgmt/rules/3
+    Targets:
+ 
+    Properties:
+        type = snmptrap
+        level = disable
+        destination = 0.0.0.0
+        destination_port = 0
+        community_or_username = public
+        snmp_version = 1
+        testrule = (Cannot show property)
+ 
+    Commands:
+        cd
+        set
+        show
+</pre></li>
+<li>
+<p>Ensure that the properties have valid values, not blank or set to zeros as shown in Step <a href="asr.htm#GUID-160440A5-6AF3-4779-8FB3-DB546F0B302B__CHDBCEII">3</a>. Use the appropriate IP address and port for your site.</p>
+</li>
+<li>
+<p>Set the test trap<a id="d33799e495" class="indexterm-anchor"></a>:</p>
+<pre dir="ltr">
+-&gt; set testrule=true
+</pre></li>
+<li>
+<p>You should receive an email about the event. Verify that an email was also sent to the address listed in your customer support identifier (CSI) for Oracle Big Data Appliance.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To set up a test in the operating system environment:</p>
+<ol>
+<li>
+<p>Log in to any server on Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Enter this command to validate the operating system.</p>
+<pre dir="ltr">
+# ./opt/oracle/bda/compmon/bda_mon_hw_asr.pl -validate_snmp_subscriber -type asr
+</pre>
+<p>The sample output shows 10.10.10.123:162 as the ASR Manager address:</p>
+<pre dir="ltr">
+Sending test trap to destination - 10.10.10.123:162 
+</pre></li>
+<li>
+<p>Verify that an email about the event was sent to you and to the address listed in your customer support identifier (CSI) for Oracle Big Data Appliance.</p>
+<p>This test event does not open a case, but it makes a verifiable entry in the ASR back end.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>If you received the emails from both of the previous tests (Oracle ILOM and operating system environment), then your validation is complete. If not, then proceed to <span class="q">"<a href="asr.htm#GUID-DE89D576-8947-4C0F-A671-FCB3C182B216">Troubleshooting ASR</a>"</span>.</p>
+<p>If the emails state that there are contract issues, contact your installation coordinator for further assistance.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76603"></a>
+<div class="props_rev_3"><a id="GUID-DE89D576-8947-4C0F-A671-FCB3C182B216"></a>
+<h2 id="BIGOG-GUID-DE89D576-8947-4C0F-A671-FCB3C182B216" class="sect2"><span class="enumeration_section">5.8</span> Troubleshooting ASR</h2>
+<div>
+<div class="section">
+<p>For troubleshooting procedures for the <a id="d33799e554" class="indexterm-anchor"></a>ASR software, see Chapter 5 of the <span class="italic">Oracle ASR Installation and Operations Guide</span> at:</p>
+<p><a href="http://www.oracle.com/technetwork/systems/asr/documentation/index.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/systems/asr/documentation/index.html</code></a></p>
+<p>If you continue to have issues, contact ASR support. See My Oracle Support Note 1352349.1.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment160">
+<tr>
+<td class="cellalignment193">
+<table class="cellalignment165">
+<tr>
+<td class="cellalignment164"><a href="configurator.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment164"><a href="part-hardware-installation.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment195">
+<table class="cellalignment163">
+<tr>
+<td class="cellalignment164"><a href="http://docs.oracle.com/bigdata/bda48/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment164"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment164"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment164"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

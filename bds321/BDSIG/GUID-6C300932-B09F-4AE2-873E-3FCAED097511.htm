@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Reconfiguring an Installation</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-08-03T19:36:02Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E87608-09" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds321/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="adaptingtochange.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-2298CDEF-31D7-48CC-A7FE-AA150DB0ABAD.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E87608-09.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-6C300932-B09F-4AE2-873E-3FCAED097511"></a> <span id="PAGE" style="display:none;">8/18</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-6C300932-B09F-4AE2-873E-3FCAED097511" class="sect1"><span class="enumeration_chapter">5</span> Reconfiguring an Installation</h1>
+<div>
+<p><a id="d9331e14" class="indexterm-anchor"></a><a id="d9331e16" class="indexterm-anchor"></a><a id="d9331e18" class="indexterm-anchor"></a><a id="d9331e20" class="indexterm-anchor"></a><a id="d9331e22" class="indexterm-anchor"></a><a id="d9331e24" class="indexterm-anchor"></a><a id="d9331e26" class="indexterm-anchor"></a><a id="d9331e28" class="indexterm-anchor"></a><a id="d9331e30" class="indexterm-anchor"></a><a id="d9331e32" class="indexterm-anchor"></a>After the initial Oracle Big Data SQL installation, there may be changes on the Hadoop cluster or the Oracle Database system that require corresponding updates to the Oracle Big Data SQL configuration, including:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A change in the status of Kerberos &mdash; if it was previously disabled and is now enabled, or vice versa.</p>
+</li>
+<li>
+<p>Implementation of TLS (Transport Layer Security) or other security measures, such as Database Authentication option now supported by Oracle Big Data SQL.</p>
+</li>
+<li>
+<p>Changes to the location of Hive service instances within the Hadoop cluster.</p>
+</li>
+<li>
+<p>A switch from Ethernet to InfiniBand (or InfiniBand to Ethernet) for networking between the Hadoop cluster and the Oracle Database system.</p>
+</li>
+<li>
+<p>A change to the version of Oracle Big Data SQL running on the Hadoop cluster.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-6C300932-B09F-4AE2-873E-3FCAED097511__GUID-97B587E7-22C5-40E3-B65D-04862E7CCEEE">
+<p class="notep1">Important:</p>
+<p>If you are storing Oracle tablespaces in HDFS, then after you run <code class="codeph">reconfigure</code> , take the tablespaces offline (or stop the database) and then restart the FUSE-DFS service running on all database compute nodes that are connected to the Hadoop cluster. See <span class="italic">Restarting FUSE-DFS After a Reconfigure Operation</span> at the end of this section for details.</p>
+</div>
+<p>The basic procedure for reconfiguring an installation is:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Edit the <code>bds-config.json</code> file as needed.</p>
+</li>
+<li>
+<p>Run the Jaguar <code class="codeph">reconfigure</code> command to push the configuration changes to the Hadoop cluster nodes and to generate an updated database-side installation bundle.</p>
+</li>
+<li>
+<p>Reinstall Oracle Big Data Data SQL on Oracle Database compute nodes using the new installation bundle. You can just overwrite the current installation. There is no prerequisite to uninstall the current Oracle Big Data SQL installation on either side.</p>
+</li>
+</ul>
+<p>Details are provided below.</p>
+<div class="infoboxnotealso" id="GUID-6C300932-B09F-4AE2-873E-3FCAED097511__GUID-7D67BF73-E66A-42A2-980F-E709F2FDBAF9">
+<p class="notep1">See Also:</p>
+The addition or removal of Oracle Big Data SQL from Hadoop cluster nodes or nodes in a multinode Oracle Database system is not a considered configuration change. See <a href="adaptingtochange.htm#GUID-1C979747-3CAD-4C43-9A50-201C4494AAFF" title="Changes that occur to the Hadoop cluster over time, such as network reconfiguration or DataNode services added, moved, or removed, as well as changes on the Oracle Database server, can require corresponding changes to the Oracle Big Data SQL installation.">Expanding or Shrinking an Installation</a>.</div>
+<div class="section">
+<p class="subhead1">Run &ldquo;jaguar reconfigure&rdquo; to Reconfigure the Hadoop Side of the Installation and to Generate an Updated Database Installation Bundle</p>
+<ol>
+<li>
+<p>Log on to the cluster management server node as <code class="codeph">root</code> and cd to the directory where you extracted the downloaded Oracle Big Data SQL installation bundle.</p>
+</li>
+<li>
+<p>Go to the <code class="codeph">BDSJaguar-3.2.1</code> subdirectory under the path where you unzipped the Oracle Big Data SQL bundle .</p>
+<pre dir="ltr">
+# cd &lt;<span class="italic">Big Data SQL Install Directory</span>&gt;/BDSJaguar-3.2.1
+</pre></li>
+<li>
+<p>In the <code class="codeph">BDSJaguar-3.2.1</code> directory, run the Jaguar utility. Pass it the <code class="codeph">reconfigure</code> parameter and the configuration file name (<code class="codeph">bds-config.json</code> or other) as arguments. You may or may not need to include the <code class="codeph">--requestdb</code> option.</p>
+<pre dir="ltr">
+[root@myclusteradminserver:BDSjaguar-3.2.1] #  ./jaguar reconfigure bds-config.json
+</pre>
+<div class="p">If <code class="codeph">bds-config.json</code> sets <code class="codeph">database_auth_enabled</code> to <code class="codeph">&ldquo;true&rdquo;</code>, then include the <code class="codeph">--requestdb</code> option in the install command:
+<pre dir="ltr">
+[root@myclusteradminserver:BDSjaguar-3.2.1] # ./jaguar --requestdb testdb reconfigure
+</pre></div>
+<div class="p">The script prompts for the cluster management service administrator credentials and then reconfigures Oracle Big Data SQL on the management server and the cluster nodes according to the new settings in the configuration file. The script output terminates with the following message if the installation completed without error.
+<pre dir="ltr">
+BigDataSQL: RECONFIGURE workflow completed. 
+</pre></div>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Copy the Updated Database Installation Bundle to Each Oracle Database Node and Install It</p>
+<ol>
+<li>
+<p>Log on as either <code class="codeph">root</code> or <code class="codeph">oracle</code> on the cluster management server and cd to the directory where the new database bundle was generated.</p>
+<pre dir="ltr">
+# cd &lt;<span class="codeinlineitalic">Big Data SQL Install Directory</span>&gt;/BDSJaguar-3.2.1/db-bundles
+</pre>
+<p>Check that the new bundle is there.</p>
+<pre dir="ltr">
+[oracle@myclusteradminserver:db-bundles] # ls 
+[oracle@myclusteradminserver:db-bundles] # bds-3.2.1-db-&lt;<span class="italic">cluster</span>&gt;-&lt;<span class="italic">yymmdd.hhmi</span>&gt;.zip
+</pre></li>
+<li>
+<p>Copy the database installation bundle over to any directory on the Oracle Database node, using the <code class="codeph">oracle</code> account on the Oracle system. If there are multiple bundles, be sure to select the correct bundle for cluster that you want to connect to Oracle Database.</p>
+<pre dir="ltr">
+[oracle@myclusteradminserver:db-bundles] # scp bds-3.2.1-db-&lt;<span class="italic">cluster</span>&gt;-&lt;<span class="italic">yymmdd.hhmi</span>&gt;.zip oracle@&lt;<span class="italic">database_node</span>&gt;:/opt/tmp
+</pre></li>
+<li>
+<p>Log on to the Oracle Database node as the database owner (<code class="codeph">oracle</code> or other) in order perform the installation.</p>
+</li>
+<li>
+<p>Cd to the directory where you copied the bundle, unzip the bundle, and then run the compressed executable that was extracted from the zip file. For example:</p>
+<pre dir="ltr">
+$ unzip bds-3.2.1-db-cdh510-170309.1918.zip
+$ ./bds-3.2.1-db-cdh510-170309.1918.run
+</pre></li>
+<li>
+<p>Change directories to the new directory under ORACLE_HOME and run <code class="codeph">bds-database-install.sh</code>, the database-side installer.</p>
+<pre dir="ltr">
+$ cd $ORACLE_HOME/BDSJaguar-3.2.1/cdh510-6-node1.my.domain.com
+$ ./bds-database-install.sh
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Restarting FUSE_DFS After a Reconfigure Operation</p>
+<p>The Oracle Tablespaces in HDFS feature uses a FUSE-DFS connection for file transfers between Oracle Database and the Hadoop cluster. There is a FUSE-DFS service instance for each connection to cluster. The service is named as follows:</p>
+<pre dir="ltr">
+ fuse_&lt;cluster name&gt;_hdfs
+</pre>
+<p>If this service exists, then after a reconfiguration of an Oracle Big Data SQL installation, then do the following:</p>
+<ol>
+<li>
+<p>Either set the tablespaces in HDFS to offline or stop the database.</p>
+<p>The datafiles for these tablespaces are open and locked by database processes.</p>
+</li>
+<li>
+<p>Restart FUSE-DFS. Do this on each compute node.</p>
+<pre dir="ltr">
+# service fuse_mycluster_hdfs restart
+</pre></li>
+<li>
+<p>After FUSE-DFS has restarted, you can set the tablespaces to online (or you if you stopped the database, you can restart it).</p>
+</li>
+</ol>
+<p>The <code class="codeph">status</code>, <code class="codeph">stop</code>, and <code class="codeph">start</code> operations are also available for the FUSE-DFS service, as in:</p>
+<pre dir="ltr">
+# service fuse_mycluster_hdfs status
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="adaptingtochange.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="GUID-2298CDEF-31D7-48CC-A7FE-AA150DB0ABAD.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds321/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Additional Tools Installed</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-08-03T19:37:49Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E99049-01" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds32/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="securing.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-2E1F8BAE-104D-4B27-84A5-C03E9C845AB4.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E99049-01.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-82BFB573-1991-406E-8C09-DA9C7630142B"></a> <span id="PAGE" style="display:none;">12/21</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-82BFB573-1991-406E-8C09-DA9C7630142B" class="sect1"><span class="enumeration_chapter">8</span> Additional Tools Installed</h1>
+<div class="sect2"><a id="GUID-8136D74D-0BA9-4B7E-A46E-7B0A2F5DED84"></a>
+<h2 id="BDSIG-GUID-8136D74D-0BA9-4B7E-A46E-7B0A2F5DED84" class="sect2"><span class="enumeration_section">8.1</span> Copy to Hadoop and OHSH</h2>
+<div>
+<div class="section">
+<p class="subhead2">Copy to Hadoop</p>
+<p><a id="d10774e32" class="indexterm-anchor"></a><a id="d10774e34" class="indexterm-anchor"></a><a id="d10774e36" class="indexterm-anchor"></a><a id="d10774e38" class="indexterm-anchor"></a><a id="d10774e40" class="indexterm-anchor"></a><a id="d10774e42" class="indexterm-anchor"></a><a id="d10774e44" class="indexterm-anchor"></a>Copy to Hadoop makes it easy to identify and copy data from an Oracle Database table to the Apache Hadoop Distributed File System (HDFS) and create an Apache Hive external table over that data. In HDFS, the data can be saved in Oracle Data Pump files (which store data as Oracle data types). This provides an exact copy of the data in the database, without the potential for data type conversion errors. You can then query the data via Hive (and Hadoop technologies that access data through Hive) and by Oracle Big Data SQL. Oracle Data Pump data can be converted to Parquet or ORC using Hive</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Oracle Shell for Hadoop Loaders (OHSH)</p>
+<p>OHSH is an intuitive command line tool to move data between Hadoop and Oracle Database. It provides a set of declarative commands you can use to copy contents from an Oracle Database table to a Hive table.</p>
+<p>OHSH is bundled with both Oracle Big Data SQL and Oracle Big Data Connectors. With Oracle Big Data SQL, OHSH works with Copy to Hadoop. With Oracle Big Data Connectors, OHSH provides an interface to copy contents from Hadoop and Hive to Oracle tables using Oracle Loader for Hadoop (OLH) and Oracle SQL Connector for Hadoop Distributed File System (OSCH).</p>
+<p>Although OHSH can serve as a front end for OLH and OSCH as well as for Copy to Hadoop, OLH and OSCH are part of the Oracle Big Data Connectors product and are not installed by Oracle Big Data SQL.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Installation and Configuration of Copy to Hadoop and OHSH</p>
+<p>You can use Copy to Hadoop and OHSH from any of these environments:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A Hadoop cluster node</p>
+</li>
+<li>
+<p>An Oracle Database node</p>
+</li>
+<li>
+<p>An edge node.</p>
+</li>
+</ul>
+<p>Oracle Big Data SQL installs the kits for Copy to Hadoop and Oracle Shell for Hadoop Loaders on the Hadoop cluster management server and on any Oracle Database server node where you install Oracle Big Data SQL.</p>
+<p>You can also manually copy the kits for both tools from the Hadoop cluster management server to an edge node and configure them for use from the edge node. The kits are stored at <code class="codeph">/opt/oracle/orahivedp-&lt;<span class="codeinlineitalic">version</span>&gt;.</code>. See <code class="codeph">/opt/oracle/ohsh-&lt;<span class="codeinlineitalic">version</span>&gt;/doc/OHSH_EDGE_NODE_README.txt</code> on the Hadoop cluster management server for instructions.</p>
+<div class="infobox-note" id="GUID-8136D74D-0BA9-4B7E-A46E-7B0A2F5DED84__GUID-013C4E22-6D0B-41A6-8032-7CE298D5F11A">
+<p class="notep1">Note:</p>
+In the Oracle Big Data SQL installation, the Copy to Hadoop is fully automated except for the setting of the <code class="codeph">CP2HADOOP_HOME</code> listed in the table below. You must set this manually.
+<p>You must complete configuration of Oracle Shell for Hadoop Loaders manually, as described in this section.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Environment Variables for OHSH</p>
+<p>On the Hadoop cluster management server, the OHSH configuration file is<code class="codeph">/opt/oracle/ohsh-&lt;version&gt;/bin/ohsh_config.sh</code>. On an Oracle Database node, it is <code>$ORACLE_HOME/ohsh/bin/ohsh_config.sh</code>. This file contains environment required by OHSH. The set of variables needed the installation on a Hadoop cluster, Oracle Database Node or an edge node differ. The table below shows which variables you need to set for each environment. Some of the required variables are set for you automatically by the Oracle Big Data SQL installer.</p>
+</div>
+<!-- class="section" --></div>
+<div class="sect3"><a id="GUID-9745340D-54F5-41B9-BAAF-034F33549A75"></a>
+<h3 id="BDSIG-GUID-9745340D-54F5-41B9-BAAF-034F33549A75" class="sect3"><span class="enumeration_section">8.1.1</span> Completing the OHSH Configuration on Oracle Database Nodes</h3>
+<div>
+<p>The Oracle Big Data SQL installation automatically copies the OHSH installation kit to each node where Oracle Big Data SQL is installed. There are some manual steps you must perform to complete the installation.</p>
+<div class="infobox-note" id="GUID-9745340D-54F5-41B9-BAAF-034F33549A75__GUID-2943C7AC-AD25-4AE3-B447-47CEB6D1381E">
+<p class="notep1">Note:</p>
+The README file at <code>$ORACLE_HOME/ohsh/doc/OHSH_DB_NODE_README.txt</code> on the Hadoop cluster management server where you installed Oracle Big Data SQL describes the full set of steps ordinarily needed to enable OHSH on an Oracle Database node. However, when OHSH is installed by Oracle Big Data SQL, some of the setup is done for you by the installer. To complete the configuration in this context, use this shortened procedure instead of the full procedure documented in the README.
+<p><a id="d10774e129" class="indexterm-anchor"></a><a id="d10774e131" class="indexterm-anchor"></a><a id="d10774e133" class="indexterm-anchor"></a><a id="d10774e135" class="indexterm-anchor"></a><a id="d10774e137" class="indexterm-anchor"></a>Also notice below that patch 23237037 is required for 12.1.0.2 (or earlier Oracle Database releases) only. Do not install this patch if you are running a later release of Oracle Database.</p>
+</div>
+<ol>
+<li>
+<p>Log on to the Oracle Database server as the <code class="codeph">oracle</code> user.</p>
+</li>
+<li>
+<p>Set up OHSH to work with Copy to Hadoop.</p>
+<ol>
+<li>
+<p>Create a staging directory in the file system on the Oracle Database node:</p>
+<pre dir="ltr">
+$ mkdir &lt;<span class="italic">OS_STAGE_DIR</span>&gt;
+</pre></li>
+<li>
+<p>Create an Oracle directory on this staging directory and grant read/write privileges to the Oracle Database user (<code class="codeph">oracle</code> or other). In this example, <span class="italic">ORACLE_STAGE_DIR</span> refers to the name of the directory object in Oracle Database. <span class="italic">OS_STAGE_DIR</span> refers to the path on the server.</p>
+<pre dir="ltr">
+SQL&gt; CREATE DIRECTORY &lt;<span class="italic">ORACLE_STAGE_DIR</span>&gt; AS '&lt;<span class="italic">OS_STAGE_DIR</span>&gt;';
+SQL&gt; GRANT READ,WRITE ON DIRECTORY &lt;<span class="italic">ORACLE_STAGE_DIR</span>&gt; TO &lt;<span class="italic">ORACLE_USER</span>&gt;;
+</pre>
+<div class="infobox-note" id="GUID-9745340D-54F5-41B9-BAAF-034F33549A75__GUID-282047C4-A78E-48BC-A12B-F3E0D39BDD78">
+<p class="notep1">Note:</p>
+Later, if you employ the &ldquo;stage&rdquo; method to copy Oracle tables, use the OHSH <code class="codeph">set locationdirectory</code> command to point to the Oracle directory object name (the name of the directory you created above in this step).</div>
+</li>
+<li>
+<p>If you are connecting to a CDH-based Hadoop system (Oracle Big Data Appliance or other), perform the substeps below to enable the OHSH &ldquo;FUSE&rdquo; method, in which you copy files to Hive tables over an HDFS Mountable FUSE directory. Note that HDP does not support Fuse, therefore you cannot create a mount point to HDFS on HDP using these steps.</p>
+<ol>
+<li>
+<p>If you are using <span class="bold">Oracle Database 12.1.0.2 or earlier</span>, install patch 23237037 (available on <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a>) on all database nodes.</p>
+</li>
+<li>
+<p>On the Oracle Database host, create a FUSE mount to the root of the HDFS system on the Hadoop cluster. Refer to Cloudera&rsquo;s documentation on installing FUSE. You may find current instructions at <a href="https://www.cloudera.com/documentation/enterprise/5-8-x/topics/cdh_ig_hdfs_mountable.html" target="_blank">Configuring Mountable HDFS</a> on Cloudera&rsquo;s website.</p>
+</li>
+<li>
+<p>Create the Oracle directory on the FUSE mount and grant privileges. In this example, <span class="italic">ORACLE_FUSE_DIR</span> refers to the name of the directory object in Oracle Database. <span class="italic">OS_FUSE_MOUNT</span> refers to the path to the mount point on the server.</p>
+<pre dir="ltr">
+      SQL&gt; CREATE DIRECTORY &lt;<span class="italic">ORACLE_FUSE_DIR</span>&gt; AS '&lt;<span class="italic">OS_FUSE_MOUNT</span>&gt;';
+      SQL&gt; GRANT READ,WRITE ON DIRECTORY <span class="italic">&lt;ORACLE_FUSE_DIR</span>&gt; TO &lt;<span class="italic">ORACLE_USER</span>&gt;;
+</pre></li>
+</ol>
+<p>Note that when you use OHSH later to copy Oracle tables to Hive using the "FUSE" method, use the OHSH <code class="codeph">set locationdirectory</code> command to point to the same <code class="codeph">&lt;ORACLE_FUSE_DIR&gt;</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Edit <code>$ORACLE_HOME/ohsh/bin/ohsh_config.sh</code> in order to configure the home directories of dependencies. When OHSH is installed by Oracle Big Data SQL, most of the required variables are already set for you. Set <code class="codeph">HS2_HOST_PORT</code> and (if needed) <code class="codeph">HIVE_SESS_VAR_LIST</code> as follows.</p>
+<pre dir="ltr">
+export HS2_HOST_PORT=&lt;HS2_HOST&gt;:&lt;HS2_PORT&gt;
+</pre>
+<p>Also set <code class="codeph">HIVE_SESS_VAR_LIST</code> to any required Hive session variables. For example:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To connect to HiveServer2 with Kerberos authentication: <code class="codeph">export HIVE_SESS_VAR_LIST="principal=&lt;<span class="codeinlineitalic">The server principal of HiveServer2</span>&gt;"</code></p>
+<p>The Hive principal&nbsp; is specified by the configuration property <code>hive.server2.authentication.kerberos.principal</code> in <code>hive-site.xml</code>.</p>
+</li>
+<li>
+<p>To connect to HiveServer2 running in HTTP mode: <code class="codeph">export HIVE_SESS_VAR_LIST="transportMode=http;httpPath=&lt;<span class="codeinlineitalic">The HTTP endpoint</span>&gt;"</code></p>
+</li>
+<li>
+<p>To connect to HiveServer2 when SSL is enabled: <code class="codeph">export HIVE_SESS_VAR_LIST="ssl=true;sslTrustStore=&lt;<span class="codeinlineitalic">Trust Store path</span>&gt;;trustStorePassword=&lt;<span class="codeinlineitalic">Trust Store password</span>&gt;"</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you want to configure OHSH to use Oracle Wallet, set environment the variables <code class="codeph">TNS_ADMIN</code> and <code class="codeph">WALLET_LOCATION</code> to the directory path where TNS and Oracle Wallet are stored.</p>
+<pre dir="ltr">
+export WALLET_LOCATION="&lt;wallet_location&gt;"
+export TNS_ADMIN="&lt;tns_admin_location&gt;"
+</pre>
+<div class="infobox-note" id="GUID-9745340D-54F5-41B9-BAAF-034F33549A75__GUID-1EE1220D-5E2A-48C6-8013-8896522BA520">
+<p class="notep1">Note:</p>
+<p>Later, when you start an OHSH session, if the <code class="codeph">TNS_ADMIN</code> and <code class="codeph">WALLET_LOCATION</code> are different on the Hadoop cluster then&nbsp;set <code class="codeph">hadooptnsadmin</code> and <code class="codeph">hadoopwalletlocation</code>:</p>
+<pre dir="ltr">
+set hadooptnsadmin &lt;<span class="italic">tns_admin_hadoop_node</span>&gt;
+set hadoopwalletlocation &lt;<span class="italic">wallet_location_hadoop_node</span>&gt;
+</pre></div>
+</li>
+<li>
+<p>Start an OHSH session and check for resources. This check indicates whether or not the configuration is correct.</p>
+<pre dir="ltr">
+$ ohsh
+ohsh&gt; show resources
+</pre>
+<p>You should see the resources <code class="codeph">hadoop0</code>, <code class="codeph">hive0</code>, and <code class="codeph">bash0</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3"><a id="GUID-11D199F1-4040-4E69-9EE1-310C070A8638"></a>
+<h3 id="BDSIG-GUID-11D199F1-4040-4E69-9EE1-310C070A8638" class="sect3"><span class="enumeration_section">8.1.2</span> Completing the OHSH Configuration on the Hadoop Cluster</h3>
+<div>
+<p>On the Hadoop cluster management server, Oracle Big Data SQL installs OHSH from an RPM to <code>/opt/oracle/ohsh</code>. Perform the steps below as <code class="codeph">root</code> in order to complete the Hadoop side of the configuration.</p>
+<div class="infobox-note" id="GUID-11D199F1-4040-4E69-9EE1-310C070A8638__GUID-33953E01-43E8-4BC4-A870-10B203905A54">
+<p class="notep1">Note:</p>
+The installation instructions at <code>$ORACLE_HOME/ohsh/doc/OHSH_HADOOP_NODE_README.txt</code> on the Hadoop cluster management server contain extra information that is not applicable to the installation of Copy to Hadoop and OHSH in the context of the Oracle Big Data SQL installation. Use the instructions below instead.</div>
+<ol>
+<li>
+<p><a id="d10774e378" class="indexterm-anchor"></a><a id="d10774e380" class="indexterm-anchor"></a><a id="d10774e382" class="indexterm-anchor"></a><a id="d10774e384" class="indexterm-anchor"></a><a id="d10774e386" class="indexterm-anchor"></a><a id="d10774e388" class="indexterm-anchor"></a><a id="d10774e390" class="indexterm-anchor"></a><a id="d10774e392" class="indexterm-anchor"></a>If the Hadoop system is not an Oracle Big Data Appliance, then download the SQL*Plus Instant Client and Oracle Instant Client for Linux from the <a href="http://www.oracle.com/technetwork/database/database-technologies/instant-client/downloads/index.html" target="_blank">Oracle Technology Network</a>. Select the client versions that matches the version of the Oracle Database.</p>
+<p>For example, you can find the client downloads for Oracle Database 12.2.0.1.0 at this address:<a href="http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html" target="_blank">http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html</a></p>
+<p>Extract both packages into the same directory.</p>
+<p>Add the directory to <code class="codeph">PATH</code> and <code class="codeph">LD_LIBRARY_PATH</code>.</p>
+</li>
+<li>
+<p>Create a local directory for TNS and from <code class="codeph">TNS_ADMIN</code> on the Oracle Database host, copy the <code>tnsnames.ora</code> and <code>sqlnet.ora</code> file into this directory.</p>
+<div class="p">If you create an Oracle Wallet for the Oracle Database host, then also copy over the Oracle Wallet file from the database server. Also check that <code>sqlnet.ora</code> points to the correct Oracle Wallet location.
+<pre dir="ltr">
+WALLET_LOCATION= 
+      (SOURCE=(METHOD=FILE)(METHOD_DATA= 
+        (DIRECTORY=&lt;<span class="italic">your wallet directory</span>&gt;))) 
+   sqlnet.wallet_override=true
+</pre></div>
+</li>
+<li>
+<div class="p">As root, edit <code>/opt/oracle/ohsh/bin/ohsh_config.sh</code>. Set the following environment variables.
+<pre dir="ltr">
+export CP2HADOOP_HOME=/opt/oracle/orahivedp-&lt;<span class="italic">version</span> 
+export HS2_HOST_PORT=&lt;<span class="italic">HiveServer2 hostname</span>&gt;:&lt;<span class="italic">Port number</span>&gt;
+</pre></div>
+<p>Also set <code class="codeph">HIVE_SESS_VAR_LIST</code> to any required Hive session variables. For example:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To connect to HiveServer2 with Kerberos authentication: <code class="codeph">export HIVE_SESS_VAR_LIST="principal=&lt;<span class="codeinlineitalic">The server principal of HiveServer2</span>&gt;"</code></p>
+</li>
+<li>
+<p>To connect to HiveServer2 running in HTTP mode: <code class="codeph">export HIVE_SESS_VAR_LIST="transportMode=http;httpPath=&lt;<span class="codeinlineitalic">The HTTP endpoint</span>&gt;"</code></p>
+</li>
+<li>
+<p>To connect to HiveServer2 when SSL is enabled: <code class="codeph">export HIVE_SESS_VAR_LIST="ssl=true;sslTrustStore=&lt;<span class="codeinlineitalic">Trust Store path</span>&gt;;trustStorePassword=&lt;<span class="codeinlineitalic">Trust Store password</span>&gt;"</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>If TNS and Oracle Wallet are enabled, also add the following variables to the file and export them:</p>
+<pre dir="ltr">
+export WALLET_LOCATION="&lt;<span class="italic">your wallet directory</span>&gt;"
+export TNS_ADMIN="&lt;<span class="italic">your TNS directory</span>&gt;"
+</pre></li>
+<li>
+<p>Add <code>/opt/oracle/ohsh</code> and <code>$HADOOP_HOME/bin</code> to the PATH variable</p>
+<pre dir="ltr">
+PATH=/opt/oracle/ohsh-&lt;version&gt;/bin:$PATH
+PATH=$HADOOP_HOME/bin:$PATH 
+</pre></li>
+<li>
+<p>Start an OHSH session and check for resources. This check indicates whether or not the configuration is correct.</p>
+<pre dir="ltr">
+$ ohsh
+ohsh&gt; show resources
+</pre>
+<p>You should see the resources <code class="codeph">hadoop0</code>, <code class="codeph">hive0</code>, and <code class="codeph">bash0</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3"><a id="GUID-9D8B7391-5CCC-4B98-B308-845B71E48981"></a>
+<h3 id="BDSIG-GUID-9D8B7391-5CCC-4B98-B308-845B71E48981" class="sect3"><span class="enumeration_section">8.1.3</span> Getting Started Using Copy to Hadoop and OHSH</h3>
+<div>
+<p>See <code>$ORACLE_HOME/ohsh/doc</code> and <code>$ORACLE_HOME/ohsh/examples</code> for examples that show how to run the OHSH load methods.</p>
+<p>See the <a class="olink BDSUG-GUID-B897FD6B-2BFE-4C86-AE53-08EA181F92F2" target="_blank" href="../BDSUG/copy2bda.htm#BDSUG-GUID-B897FD6B-2BFE-4C86-AE53-08EA181F92F2">Oracle Big Data SQL User&rsquo;s Guide</a> more information on Copy to Hadoop and Oracle Shell for Hadoop Loaders.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="securing.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="GUID-2E1F8BAE-104D-4B27-84A5-C03E9C845AB4.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds32/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

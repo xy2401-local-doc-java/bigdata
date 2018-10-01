@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using the In-Memory Analyst</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2016-05-03T13:10:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Spatial and Graph User's Guide and Reference" />
+<meta name="dcterms.identifier" content="E67958-03" />
+<meta name="dcterms.isVersionOf" content="BDSPA" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2015, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="using-pgs-bigdata.htm" title="Previous" type="text/html" />
+<link rel="Next" href="using-multimedia-analytics.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E67958-03.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-9270CEE3-9314-4724-BCFB-CCCF941D4230"></a> <span id="PAGE" style="display:none;">11/15</span> <!-- End Header --><a id="BDSPA264"></a>
+<h1 id="BDSPA-GUID-9270CEE3-9314-4724-BCFB-CCCF941D4230" class="sect1"><span class="enumeration_chapter">5</span> Using the In-Memory Analyst</h1>
+<div>
+<p>The in-memory analyst feature of Oracle Spatial and Graph supports a set of analytical functions.</p>
+<p>This chapter provides examples using the in-memory analyst (also referred to as Property Graph In-Memory Analytics, and often abbreviated as PGX in the Javadoc, command line, path descriptions, error messages, and examples). It contains the following major topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-78C0C625-D737-458E-9A7A-A1FA4169FF76">Reading a Graph into Memory</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-9624C4F8-4169-4506-B84B-7DAAABDF0D56">Reading Custom Graph Data</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-298446DB-6397-48DF-BBE8-B1CEFCBB8C6C">Storing Graph Data on Disk</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-86A8173D-CD09-478B-B9D3-C0EB00A7374C">Executing Built-in Algorithms</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-066BC440-E42F-49E0-B605-8306F0801FA4">Creating Subgraphs</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-A7FCA21B-F26A-4DF3-A906-C78E2274117B">Deploying to Jetty</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-FF212462-41EE-4003-B25B-26E6B9B055CF">Deploying to Apache Tomcat</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-B70BD7A8-C34C-4B12-B36F-DE2CD9A107C2">Deploying to Oracle WebLogic Server</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-D7A6A8E7-5C99-4495-A2A8-F4B36462183A">Connecting to the In-Memory Analyst Server</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-A8AABE4E-78A7-4555-8517-A15623D7D9F0">Using the In-Memory Analyst in Distributed Mode</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-3410C21E-DE4C-4620-93F4-E0FA068F74B2">Reading and Storing Data in HDFS</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-C9B538F8-D956-46F8-8714-3609C66CA802">Running the In-Memory Analyst as a YARN Application</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA265"></a>
+<div class="props_rev_3"><a id="GUID-78C0C625-D737-458E-9A7A-A1FA4169FF76"></a>
+<h2 id="BDSPA-GUID-78C0C625-D737-458E-9A7A-A1FA4169FF76" class="sect2"><span class="enumeration_section">5.1</span> Reading a Graph into Memory</h2>
+<div>
+<p>This topic provides an example of reading graph interactively into memory using the shell interface. These are the major steps:</p>
+<ol>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-336400CA-1316-4A78-BD3E-39F3084F4C1C">Connecting to an In-Memory Analyst Server Instance</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-EB130544-3489-4EA7-9552-B8F7B5AE7C8C">Using the Shell Help</a> (as needed)</p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF">Providing Graph Metadata in a Configuration File</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-147E545D-CB0B-479A-8D7F-D36CF2064A45">Reading Graph Data into Memory</a></p>
+</li>
+</ol>
+</div>
+<a id="BDSPA266"></a>
+<div class="props_rev_3"><a id="GUID-336400CA-1316-4A78-BD3E-39F3084F4C1C"></a>
+<h3 id="BDSPA-GUID-336400CA-1316-4A78-BD3E-39F3084F4C1C" class="sect3"><span class="enumeration_section">5.1.1</span> Connecting to an In-Memory Analyst Server Instance</h3>
+<div>
+<div class="section">
+<p>To start the in-memory analyst shell:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Open a terminal session on the system where property graph support is installed.</span></li>
+<li class="stepexpand"><span>Either start a local (embedded) in-memory analyst instance or connect to a remote in-memory analyst instance</span>
+<ul>
+<li>Java example of starting a local (embedded) instance:
+<pre dir="ltr">
+import java.util.Map;
+import java.util.HashMap;
+import oracle.pgx.api.*;
+import oracle.pgx.config.PgxConfig.Field;
+ 
+String url = Pgx.EMBEDDED_URL; // local JVM
+ServerInstance instance = Pgx.getInstance(url);
+instance.startEngine(); // will use default configuration
+PgxSession session = instance.createSession("test");
+</pre></li>
+<li>Java example of connecting to a remote instance:
+<pre dir="ltr">
+import java.util.Map;
+import java.util.HashMap;
+import oracle.pgx.api.*;
+import oracle.pgx.config.PgxConfig.Field;
+ 
+String url = "http://my-server.com:8080/pgx" // replace with base URL of your setup
+ServerInstance instance = Pgx.getInstance(url);
+PgxSession session = instance.createSession("test");
+</pre></li>
+</ul>
+</li>
+<li class="stepexpand"><span>In the shell, enter the following commands, but select only one of the commands to start or connect to the desired type of instance:</span>
+<div>
+<pre dir="ltr">
+cd $PGX_HOME
+./bin/pgx --help
+./bin/pgx --version
+ 
+# start embedded shell
+./bin/pgx
+ 
+# start remote shell
+./bin/pgx --base_url http://my-server.com:8080/pgx
+</pre>
+<p>For the embedded shell, the output should be similar to the following:</p>
+<pre dir="ltr">
+10:43:46,666 [main] INFO Ctrl$2 - &gt;&gt;&gt; PGX engine running.
+pgx&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Optionally, show the predefined variables:</span>
+<div>
+<pre dir="ltr">
+pgx&gt; instance
+==&gt; PGX Server Instance running on embedded mode
+pgx&gt; session
+==&gt; PGX session pgxShell registered at PGX Server Instance running on embedded mode
+pgx&gt; analyst
+==&gt; Analyst for PGX session pgxShell registered at PGX Server Instance running on embedded mode
+pgx&gt;
+</pre>
+<p>Examples in some other topics assume that the instance and session variables have been set as shown here.</p>
+</div>
+</li>
+</ol>
+<div class="section">
+<p>If the in-memory analyst software is installed correctly, you will see an engine-running log message and the in-memory analyst shell prompt (<code>pgx&gt;</code>):</p>
+<p>The variables <code>instance</code>, <code>session</code>, and <code>analyst</code> are ready to use.</p>
+<p>In the preceding example in this topic, the shell started a local instance because the <code>pgx</code> command did not specify a remote URL.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA267"></a>
+<div class="props_rev_3"><a id="GUID-EB130544-3489-4EA7-9552-B8F7B5AE7C8C"></a>
+<h3 id="BDSPA-GUID-EB130544-3489-4EA7-9552-B8F7B5AE7C8C" class="sect3"><span class="enumeration_section">5.1.2</span> Using the Shell Help</h3>
+<div>
+<p>The in-memory analyst shell provides a help system, which you access using the <code>:help</code> command.</p>
+</div>
+</div>
+<a id="BDSPA269"></a><a id="BDSPA268"></a>
+<div class="props_rev_3"><a id="GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF"></a>
+<h3 id="BDSPA-GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF" class="sect3"><span class="enumeration_section">5.1.3</span> Providing Graph Metadata in a Configuration File</h3>
+<div>
+<p>An example graph is included in the installation directory, under <code>/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/</code>. It uses a configuration file that describes how the in-memory analyst reads the graph.</p>
+<pre dir="ltr">
+pgx&gt; <span class="bold">cat /opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json</span> 
+===&gt; {
+  "uri": "sample.adj", 
+  "format": "adj_list",
+  "node_props": [{ 
+    "name": "prop", 
+    "type": "integer" 
+  }],
+  "edge_props": [{ 
+    "name": "cost", 
+    "type": "double" 
+  }],
+  "separator": " "
+}
+</pre>
+<p>The <code>uri</code> field provides the location of the graph data. This path resolves relative to the parent directory of the configuration file. When the in-memory analyst loads the graph, it searches the <code>examples/graphs</code> directory for a file named <code>sample.adj</code>.</p>
+<p>The other fields indicate that the graph data is provided in adjacency list format, and consists of one node property of type <code>integer</code> and one edge property of type <code>double</code>.</p>
+<p>This is the graph data in adjacency list format:</p>
+<pre dir="ltr">
+pgx&gt; <span class="bold">cat /opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj</span>
+===&gt; 128 10 1908 27.03 99 8.51 
+99 2 333 338.0
+1908 889
+333 6 128 51.09
+</pre>
+<p><a href="using-inmem-analytics.htm#GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF__BABFEEHB">Figure 5-1</a> shows a property graph created from the data:</p>
+<div class="figure" id="GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF__BABFEEHB">
+<p class="titleinfigure">Figure 5-1 Property Graph Rendered by sample.adj Data</p>
+<img width="444" height="368" src="img/GUID-BF24D79B-BA58-4F39-81ED-6131C142D046-default.png" alt="Description of Figure 5-1 follows" title="Description of Figure 5-1 follows" /><br />
+<a href="img_text/GUID-502671E3-5612-4D36-848F-B74C377D4976.htm">Description of "Figure 5-1 Property Graph Rendered by sample.adj Data"</a></div>
+<!-- class="figure" --></div>
+</div>
+<a id="BDSPA270"></a>
+<div class="props_rev_3"><a id="GUID-147E545D-CB0B-479A-8D7F-D36CF2064A45"></a>
+<h3 id="BDSPA-GUID-147E545D-CB0B-479A-8D7F-D36CF2064A45" class="sect3"><span class="enumeration_section">5.1.4</span> Reading Graph Data into Memory</h3>
+<div>
+<p>To read a graph into memory, you must pass the following information:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The path to the graph configuration file that specifies the graph metadata</p>
+</li>
+<li>
+<p>A unique alphanumeric name that you can use to reference the graph</p>
+<p>An error results if you previously loaded a different graph with the same name.</p>
+</li>
+</ul>
+<p><span class="bold">Example: Using the Shell to Read a Graph</span></p>
+<pre dir="ltr">
+pgx&gt; graph = session.readGraphWithProperties("/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json", "sample");
+==&gt; PGX Graph named sample bound to PGX session pgxShell ...
+pgx&gt; graph.getNumVertices()
+==&gt; 4
+</pre>
+<p><span class="bold">Example: Using Java to Read a Graph</span></p>
+<pre dir="ltr">
+import oracle.pgx.api.*;
+ 
+PgxGraph graph = session.readGraphWithProperties("/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json");
+</pre>
+<p>The following topics contain additional examples of reading a property graph into memory:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-E5F36137-663D-46E4-94E0-0004B8D55733">Read a Graph Stored in Apache HBase into Memory</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-FF0CD115-90C1-4534-A25C-A78C3E94DA51">Read a Graph Stored in Oracle NoSQL Database into Memory</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-7408ACE8-2A0A-474D-9386-821CEB1C862E">Read a Graph Stored in the Local File System into Memory</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA375"></a>
+<div class="props_rev_3"><a id="GUID-E5F36137-663D-46E4-94E0-0004B8D55733"></a>
+<h4 id="BDSPA-GUID-E5F36137-663D-46E4-94E0-0004B8D55733" class="sect4"><span class="enumeration_section">5.1.4.1</span> Read a Graph Stored in Apache HBase into Memory</h4>
+<div>
+<p>To read a property graph stored in Apache HBase, you can create a JSON based configuration file as follows. Note that the quorum, client port, graph name, and other information must be customized for your own setup.</p>
+<pre dir="ltr">
+% cat /tmp/my_graph_hbase.json
+{
+  "format": "pg",
+  "db_engine": "hbase",
+  "zk_quorum": "scaj31bda07,scaj31bda08,scaj31bda09",
+  "zk_client_port": 2181,
+  "name": "connections",
+  "node_props": [{
+    "name": "country",
+    "type": "string"
+  }],
+  "load_edge_label": true,
+  "edge_props": [{
+    "name": "label",
+    "type": "string"
+  }, {
+    "name": "weight",
+    "type": "float"
+  }]
+}
+EOF
+</pre>
+<p>With the following command, the property graph <code>connections</code> will be read into memory:</p>
+<pre dir="ltr">
+pgx&gt; session.readGraphWithProperties("/tmp/my_graph_hbase.json", "connections")
+==&gt; PGX Graph named connections ...
+</pre>
+<p>Note that when dealing with a large graph, it may become necessary to tune parameters like number of IO workers, number of workers for analysis, task timeout, and others. You can find and change those parameters in the following directory (assume the installation home is <code>/opt/oracle/oracle-spatial-graph</code>).</p>
+<pre dir="ltr">
+/opt/oracle/oracle-spatial-graph/property_graph/pgx/conf
+</pre></div>
+</div>
+<a id="BDSPA376"></a>
+<div class="props_rev_3"><a id="GUID-FF0CD115-90C1-4534-A25C-A78C3E94DA51"></a>
+<h4 id="BDSPA-GUID-FF0CD115-90C1-4534-A25C-A78C3E94DA51" class="sect4"><span class="enumeration_section">5.1.4.2</span> Read a Graph Stored in Oracle NoSQL Database into Memory</h4>
+<div>
+<p>To read a property graph stored in Oracle NoSQL Database, you can create a JSON based configuration file as follows. Note that the hosts, store name, graph name, and other information must be customized for your own setup.</p>
+<pre dir="ltr">
+% cat /tmp/my_graph_nosql.json
+{
+  "format": "pg",
+  "db_engine": "nosql",
+  "hosts": [
+    "zathras01:5000"
+  ],
+  "store_name": "kvstore",
+  "name": "connections",
+  "node_props": [{
+    "name": "country",
+    "type": "string"
+  }],
+  "load_edge_label": true,
+  "edge_props": [{
+    "name": "label",
+    "type": "string"
+  }, {
+    "name": "weight",
+    "type": "float"
+  }]
+}
+</pre>
+<p>Then, read the configuration file into memory. The following example snippet read the file into memory, generates an undirected graph (named <code>U</code>) from the original data, and counts the number of triangles.</p>
+<pre dir="ltr">
+pgx&gt; g = session.readGraphWithProperties("/tmp/my_graph_nosql.json", "connections")
+pgx&gt; analyst.countTriangles(g, false)
+==&gt; 8
+</pre></div>
+</div>
+<a id="BDSPA377"></a>
+<div class="props_rev_3"><a id="GUID-7408ACE8-2A0A-474D-9386-821CEB1C862E"></a>
+<h4 id="BDSPA-GUID-7408ACE8-2A0A-474D-9386-821CEB1C862E" class="sect4"><span class="enumeration_section">5.1.4.3</span> Read a Graph Stored in the Local File System into Memory</h4>
+<div>
+<p>The following command uses the configuration file from <span class="q">"<a href="using-inmem-analytics.htm#GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF">Providing Graph Metadata in a Configuration File</a>"</span> and the name <code>my-graph</code>:</p>
+<pre dir="ltr">
+pgx&gt; g = session.readGraphWithProperties("/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json", "my-graph")
+</pre></div>
+</div>
+</div>
+</div>
+<a id="BDSPA271"></a>
+<div class="props_rev_3"><a id="GUID-9624C4F8-4169-4506-B84B-7DAAABDF0D56"></a>
+<h2 id="BDSPA-GUID-9624C4F8-4169-4506-B84B-7DAAABDF0D56" class="sect2"><span class="enumeration_section">5.2</span> Reading Custom Graph Data</h2>
+<div>
+<p>You can read your own custom graph data. This example creates a graph, alters it, and shows how to read it properly. This graph uses the adjacency list format, but the in-memory analyst supports several graph formats.</p>
+<p>The main steps are:</p>
+<ol>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-8EFE353D-6084-4EFA-9620-D38A9639773B">Creating a Simple Graph File</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-52F53A1E-36AA-4939-B9A6-CF4A3C838959">Adding a Vertex Property</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-FF68108E-86FB-4C50-BE57-E5782A2E1F4C">Using Strings as Vertex Identifiers</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-7EDBE4DF-55F4-4756-97A8-6F8BA30B4BCD">Adding an Edge Property</a></p>
+</li>
+</ol>
+</div>
+<a id="BDSPA273"></a><a id="BDSPA274"></a><a id="BDSPA275"></a><a id="BDSPA272"></a>
+<div class="props_rev_3"><a id="GUID-8EFE353D-6084-4EFA-9620-D38A9639773B"></a>
+<h3 id="BDSPA-GUID-8EFE353D-6084-4EFA-9620-D38A9639773B" class="sect3"><span class="enumeration_section">5.2.1</span> Creating a Simple Graph File</h3>
+<div>
+<p>This example creates a small, simple graph in adjacency list format with no vertex or edge properties. Each line contains the vertex (node) ID, followed by the vertex IDs to which iits outgoing edges point:</p>
+<pre dir="ltr">
+1 2
+2 3 4
+3 4
+4 2
+</pre>
+<p>In this list, a single space separates the individual tokens. The in-memory analyst supports other separators, which you can specify in the graph configuration file.</p>
+<p><a href="using-inmem-analytics.htm#GUID-8EFE353D-6084-4EFA-9620-D38A9639773B__BABCGCGG">Figure 5-2</a> shows the data rendered as a property graph with 4 vertices and 5 edges. The edge from vertex 2 to vertex 4 points in both directions.</p>
+<div class="figure" id="GUID-8EFE353D-6084-4EFA-9620-D38A9639773B__BABCGCGG">
+<p class="titleinfigure">Figure 5-2 Simple Custom Property Graph</p>
+<img width="394" height="325" src="img/GUID-1BEC6D65-DD39-4348-BF07-EA3FD92E5EA1-default.png" alt="Description of Figure 5-2 follows" title="Description of Figure 5-2 follows" /><br />
+<a href="img_text/GUID-E12AC399-A6DC-447D-89A1-82C2C85A9ECB.htm">Description of "Figure 5-2 Simple Custom Property Graph"</a></div>
+<!-- class="figure" -->
+<p>Reading a graph into the in-memory analyst requires a graph configuration. You can provide the graph configuration using either of these methods:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Write the configuration settings in JSON format into a file</p>
+</li>
+<li>
+<p>Using a Java <code>GraphConfigBuilder</code> object.</p>
+</li>
+</ul>
+<p>This example shows both methods.</p>
+<div class="section">
+<p class="subhead3">JSON Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+{
+    "uri": "graph.adj",
+    "format":"adj_list",
+    "separator":" "
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Java Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.config.FileGraphConfig;
+import oracle.pgx.config.Format;
+import oracle.pgx.config.GraphConfigBuilder;
+FileGraphConfig config = GraphConfigBuilder 
+   .forFileFormat(Format.ADJ_LIST) 
+   .setUri("graph.adj") 
+   .setSeparator(" ") 
+   .build();
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA277"></a><a id="BDSPA278"></a><a id="BDSPA276"></a>
+<div class="props_rev_3"><a id="GUID-52F53A1E-36AA-4939-B9A6-CF4A3C838959"></a>
+<h3 id="BDSPA-GUID-52F53A1E-36AA-4939-B9A6-CF4A3C838959" class="sect3"><span class="enumeration_section">5.2.2</span> Adding a Vertex Property</h3>
+<div>
+<p>The graph in <span class="q">"<a href="using-inmem-analytics.htm#GUID-8EFE353D-6084-4EFA-9620-D38A9639773B">Creating a Simple Graph File</a>"</span> consists of vertices and edges, without vertex or edge properties. Vertex properties are positioned directly after the source vertex ID in each line. The graph data looks like this after a <code>double</code> vertex (node) property is added to the graph:</p>
+<pre dir="ltr">
+1 0.1 2
+2 2.0 3 4
+3 0.3 4
+4 4.56789 2
+</pre>
+<div class="infobox-note" id="GUID-52F53A1E-36AA-4939-B9A6-CF4A3C838959__GUID-E1749BB1-E9E1-4713-AD9C-2BFE62D488F4">
+<p class="notep1">Note:</p>
+<p>The in-memory analyst supports only homogeneous graphs, in which all vertices have the same number and type of properties.</p>
+</div>
+<p>For the in-memory analyst to read the modified data file, you must add a vertex node) property in the configuration file or the builder code. The following examples provide a descriptive name for the property and set the type to <code>double</code>.</p>
+<div class="section">
+<p class="subhead3">JSON Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+{
+    "uri": "graph.adj",
+    "format":"adj_list",
+    "separator":" ",
+    "node_props":[{
+        "name":"double-prop",
+        "type":"double"
+    }]
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Java Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.common.types.PropertyType;
+import oracle.pgx.config.FileGraphConfig;
+import oracle.pgx.config.Format;
+import oracle.pgx.config.GraphConfigBuilder;
+
+FileGraphConfig config = GraphConfigBuilder.forFileFormat(Format.ADJ_LIST) 
+    .setUri("graph.adj") 
+    .setSeparator(" ") 
+    .addNodeProperty("double-prop", PropertyType.DOUBLE) 
+    .build();
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA280"></a><a id="BDSPA281"></a><a id="BDSPA279"></a>
+<div class="props_rev_3"><a id="GUID-FF68108E-86FB-4C50-BE57-E5782A2E1F4C"></a>
+<h3 id="BDSPA-GUID-FF68108E-86FB-4C50-BE57-E5782A2E1F4C" class="sect3"><span class="enumeration_section">5.2.3</span> Using Strings as Vertex Identifiers</h3>
+<div>
+<p>The previous examples used <code>integer</code> vertex (node) IDs. The default in In-Memory Analytics is <code>integer</code> vertex IDs, but you can define a graph to use <code>string</code> vertex IDs instead.</p>
+<p>This data file uses "node 1", "node 2", and so forth instead of just the digit:</p>
+<pre dir="ltr">
+"node 1" 0.1 "node 2"
+"node 2" 2.0 "node 3" "node 4"
+"node 3" 0.3 "node 4"
+"node 4" 4.56789 "node 2"
+</pre>
+<p>Again, you must modify the graph configuration to match the data file:</p>
+<div class="section">
+<p class="subhead3">JSON Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+{
+    "uri": "graph.adj",
+    "format":"adj_list",
+    "separator":" ",
+    "node_props":[{
+        "name":"double-prop",
+        "type":"double"
+    }],
+    "node_id_type":"string"
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Java Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.common.types.IdType;
+import oracle.pgx.common.types.PropertyType;
+import oracle.pgx.config.FileGraphConfig;
+import oracle.pgx.config.Format;
+import oracle.pgx.config.GraphConfigBuilder;
+
+FileGraphConfig config = GraphConfigBuilder.forFileFormat(Format.ADJ_LIST) 
+    .setUri("graph.adj") 
+    .setSeparator(" ") 
+    .addNodeProperty("double-prop", PropertyType.DOUBLE) 
+    .setNodeIdType(IdType.STRING) 
+    .build();
+</pre>
+<div class="infobox-note" id="GUID-FF68108E-86FB-4C50-BE57-E5782A2E1F4C__GUID-4A343CCB-E55C-4F84-8B5E-CDEF540C55F4">
+<p class="notep1">Note:</p>
+<p><code>string</code> vertex IDs consume much more memory than <code>integer</code> vertex IDs.</p>
+<p>Any single or double quotes inside the string must be escaped with a backslash (\).</p>
+<p>Newlines (\n) inside strings are not supported.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA283"></a><a id="BDSPA284"></a><a id="BDSPA282"></a>
+<div class="props_rev_3"><a id="GUID-7EDBE4DF-55F4-4756-97A8-6F8BA30B4BCD"></a>
+<h3 id="BDSPA-GUID-7EDBE4DF-55F4-4756-97A8-6F8BA30B4BCD" class="sect3"><span class="enumeration_section">5.2.4</span> Adding an Edge Property</h3>
+<div>
+<p>This example adds an edge property of type <code>string</code> to the graph. The edge properties are positioned after the destination vertex (node) ID.</p>
+<pre dir="ltr">
+"node1" 0.1 "node2" "edge_prop_1_2"
+"node2" 2.0 "node3" "edge_prop_2_3" "node4" "edge_prop_2_4"
+"node3" 0.3 "node4" "edge_prop_3_4"
+"node4" 4.56789 "node2" "edge_prop_4_2"
+</pre>
+<p>The graph configuration must match the data file:</p>
+<div class="section">
+<p class="subhead3">JSON Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+{
+    "uri": "graph.adj",
+    "format":"adj_list",
+    "separator":" ",
+    "node_props":[{
+        "name":"double-prop",
+        "type":"double"
+    }],
+    "node_id_type":"string",
+     "edge_props":[{
+        "name":"edge-prop",
+        "type":"string"
+    }]
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Java Configuration</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.common.types.IdType;
+import oracle.pgx.common.types.PropertyType;
+import oracle.pgx.config.FileGraphConfig;
+import oracle.pgx.config.Format;
+import oracle.pgx.config.GraphConfigBuilder;
+
+FileGraphConfig config = GraphConfigBuilder.forFileFormat(Format.ADJ_LIST) 
+    .setUri("graph.adj") 
+    .setSeparator(" ") 
+    .addNodeProperty("double-prop", PropertyType.DOUBLE) 
+    .setNodeIdType(IdType.STRING) 
+    .addEdgeProperty("edge-prop", PropertyType.STRING) 
+    .build();
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA285"></a>
+<div class="props_rev_3"><a id="GUID-298446DB-6397-48DF-BBE8-B1CEFCBB8C6C"></a>
+<h2 id="BDSPA-GUID-298446DB-6397-48DF-BBE8-B1CEFCBB8C6C" class="sect2"><span class="enumeration_section">5.3</span> Storing Graph Data on Disk</h2>
+<div>
+<p>After reading a graph into memory using either Java or the Shell, you can store it on disk in different formats. You can then use the stored graph data as input to the in-memory analyst at a later time.</p>
+<p>Storing graphs over HTTP/REST is currently not supported.</p>
+<p>The options include:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-016DFFE1-3D43-490D-8159-9B72ED534887">Storing the Results of Analysis in a Vertex Property</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-477E86A7-18B0-4A4A-8DD0-9E9D79E5CF42">Storing a Graph in Edge-List Format on Disk</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA287"></a><a id="BDSPA288"></a><a id="BDSPA286"></a>
+<div class="props_rev_3"><a id="GUID-016DFFE1-3D43-490D-8159-9B72ED534887"></a>
+<h3 id="BDSPA-GUID-016DFFE1-3D43-490D-8159-9B72ED534887" class="sect3"><span class="enumeration_section">5.3.1</span> Storing the Results of Analysis in a Vertex Property</h3>
+<div>
+<p>This example reads a graph into memory and analyzes it using the Pagerank algorithm. This analysis creates a new vertex property to store the PageRank values.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Run PageRank</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+pgx&gt; g = session.readGraphWithProperties("/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json", "my-graph")
+==&gt; ...
+pgx&gt; rank = analyst.pagerank(g, 0.001, 0.85, 100)
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Run PageRank</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+PgxGraph g = session.readGraphWithProperties("/opt/oracle/oracle-spatial-graph/property_graph/examples/pgx/graphs/sample.adj.json", "my-graph");
+VertexProperty&lt;Integer, Double&gt; rank = session.createAnalyst().pagerank(g, 0.001, 0.85, 100);
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA290"></a><a id="BDSPA291"></a><a id="BDSPA289"></a>
+<div class="props_rev_3"><a id="GUID-477E86A7-18B0-4A4A-8DD0-9E9D79E5CF42"></a>
+<h3 id="BDSPA-GUID-477E86A7-18B0-4A4A-8DD0-9E9D79E5CF42" class="sect3"><span class="enumeration_section">5.3.2</span> Storing a Graph in Edge-List Format on Disk</h3>
+<div>
+<p>This example stores the graph, the result of the Pagerank analysis, and all original edge properties as a file in edge-list format on disk.</p>
+<p>To store a graph, you must specify:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The graph format</p>
+</li>
+<li>
+<p>A path where the file will be stored</p>
+</li>
+<li>
+<p>The properties to be stored. Specify VertexProperty.<code>ALL</code> or EdgeProperty.<code>ALL</code>&nbsp;to store all properties, or VertexProperty.<code>NONE</code> or EdgePropery.<code>NONE</code>&nbsp;to store no properties. To specify individual properties, pass in the VertexProperty or /EdgeProperty objects you want to store.</p>
+</li>
+<li>
+<p>A flag that indicates whether to overwrite an existing file with the same name</p>
+</li>
+</ul>
+<p>The following examples store the graph data in <code>/tmp/sample_pagerank.elist</code>, with the <code>/tmp/sample_pagerank.elist.json</code> configuration file. The return value is the graph configuration stored in the file. You can use it to read the graph again.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Store a Graph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+pgx&gt; config = g.store(Format.EDGE_LIST, "/tmp/sample_pagerank.elist", [rank], EdgeProperty.ALL, false)
+==&gt; {"node_props":[{"name":"session-12kta9mj-vertex-prop-double-2","type":"double"}],"error_handling":{},"node_id_type":"integer","uri":"/tmp/g.edge","loading":{},"edge_props":[{"name":"cost","type":"double"}],"format":"edge_list"}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Store a Graph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+import oracle.pgx.config.*;
+ 
+FileGraphConfig config = g.store(Format.EDGE_LIST, "/tmp/sample_pagerank.elist", Collections.singletonList(rank), EdgeProperty.ALL, false);
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA292"></a>
+<div class="props_rev_3"><a id="GUID-86A8173D-CD09-478B-B9D3-C0EB00A7374C"></a>
+<h2 id="BDSPA-GUID-86A8173D-CD09-478B-B9D3-C0EB00A7374C" class="sect2"><span class="enumeration_section">5.4</span> Executing Built-in Algorithms</h2>
+<div>
+<p>The in-memory analyst contains a set of built-in algorithms that are available as Java APIs. This section describes the use of the in-memory analyst using Triangle Counting and Pagerank analytics as examples.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-3EE1831C-779F-4674-9039-7B5C9267F59B">About the In-Memory Analyst</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-0DB504D7-2AF9-4BAB-8BB4-28FCD8DA754C">Running the Triangle Counting Algorithm</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-6DFBD476-03DB-4076-A7C4-0809BC64A2FF">Running the Pagerank Algorithm</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA294"></a><a id="BDSPA295"></a><a id="BDSPA293"></a>
+<div class="props_rev_3"><a id="GUID-3EE1831C-779F-4674-9039-7B5C9267F59B"></a>
+<h3 id="BDSPA-GUID-3EE1831C-779F-4674-9039-7B5C9267F59B" class="sect3"><span class="enumeration_section">5.4.1</span> About the In-Memory Analyst</h3>
+<div>
+<p>The in-memory analyst contains a set of built-in algorithms that are available as Java APIs. The details of the APIs are documented in the Javadoc that in included in the product documentation library. Specifically, see the <code>BuiltinAlgorithms</code> interface Method Summary for a list of the supported in-memory analyst methods.</p>
+<p>For example, this is the Pagerank procedure signature:</p>
+<pre dir="ltr">
+/**
+   * Classic pagerank algorithm. Time complexity: O(E * K) with E = number of edges, K is a given constant (max
+   * iterations)
+   *
+   * @param graph
+   *          graph
+   * @param e
+   *          maximum error for terminating the iteration
+   * @param d
+   *          damping factor
+   * @param max
+   *          maximum number of iterations
+   * @return Vertex Property holding the result as a double
+   */
+  public &lt;ID extends Comparable&lt;ID&gt;&gt; VertexProperty&lt;ID, Double&gt; pagerank(PgxGraph graph, double e, double d, int max);
+</pre>
+<pre dir="ltr">
+</pre></div>
+</div>
+<a id="BDSPA302"></a><a id="BDSPA303"></a><a id="BDSPA301"></a>
+<div class="props_rev_3"><a id="GUID-0DB504D7-2AF9-4BAB-8BB4-28FCD8DA754C"></a>
+<h3 id="BDSPA-GUID-0DB504D7-2AF9-4BAB-8BB4-28FCD8DA754C" class="sect3"><span class="enumeration_section">5.4.2</span> Running the Triangle Counting Algorithm</h3>
+<div>
+<p>For triangle counting, the <code>sortByDegree</code> boolean parameter of <code>countTriangles()</code> allows you to control whether the graph should first be sorted by degree (<code>true</code>) or not (<code>false</code>). If <code>true</code>, more memory will be used, but the algorithm will run faster; however, if your graph is very large, you might want to turn this optimization off to avoid running out of memory.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Run Triangle Counting</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+pgx&gt; analyst.countTriangles(graph, true)
+==&gt; 1
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Run Triangle Counting</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+ 
+Analyst analyst = session.createAnalyst();
+long triangles = analyst.countTriangles(graph, true);
+</pre>
+<p>The algorithm finds one triangle in the sample graph.</p>
+<div class="infoboxnotealso" id="GUID-0DB504D7-2AF9-4BAB-8BB4-28FCD8DA754C__GUID-09303ED3-A1D3-4655-AF28-69EC7B641678">
+<p class="notep1">Tip:</p>
+<p>When using the in-memory analyst shell, you can increase the amount of log output during execution by changing the logging level. See information about the <code>:loglevel</code> command with <code>:h :loglevel</code>.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA306"></a><a id="BDSPA307"></a><a id="BDSPA305"></a>
+<div class="props_rev_3"><a id="GUID-6DFBD476-03DB-4076-A7C4-0809BC64A2FF"></a>
+<h3 id="BDSPA-GUID-6DFBD476-03DB-4076-A7C4-0809BC64A2FF" class="sect3"><span class="enumeration_section">5.4.3</span> Running the Pagerank Algorithm</h3>
+<div>
+<p>Pagerank computes a rank value between <code>0</code> and <code>1</code> for each vertex (node) in the graph and stores the values in a <code>double</code> property. The algorithm therefore creates a <span class="italic">vertex property</span> of type <code>double</code> for the output.</p>
+<p>In the in-memory analyst, there are two types of vertex and edge properties:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Persistent Properties</span>: Properties that are loaded with the graph from a data source are fixed, in-memory copies of the data on disk, and are therefore persistent. Persistent properties are read-only, immutable and shared between sessions.</p>
+</li>
+<li>
+<p><span class="bold">Transient Properties</span>: Values can only be written to transient properties, which are session private. You can create transient properties by alling <code>createVertexProperty</code> and <code>createEdgeProperty</code>() on <code>PgxGraph</code> objects.</p>
+</li>
+</ul>
+<p>This example obtains the top three vertices with the highest Pagerank values. It uses a transient vertex property of type <code>double</code> to hold the computed Pagerank values. The Pagerank algorithm uses a maximum error of 0.001, a damping factor of 0.85, and a maximum number of 100 iterations.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Run Pagerank</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+pgx&gt; rank = analyst.pagerank(graph, 0.001, 0.85, 100);
+==&gt; ...
+pgx&gt; rank.getTopKValues(3)
+==&gt; 128=0.1402019732468347
+==&gt; 333=0.12002296283541904
+==&gt; 99=0.09708583862990475
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Run Pagerank</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import java.util.Map.Entry;
+import oracle.pgx.api.*;
+ 
+Analyst analyst = session.createAnalyst();
+VertexProperty&lt;Integer, Double&gt; rank = analyst.pagerank(graph, 0.001, 0.85, 100);
+for (Entry&lt;Integer, Double&gt; entry : rank.getTopKValues(3)) {
+ System.out.println(entry.getKey() + "=" entry.getValue());
+}
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA309"></a>
+<div class="props_rev_3"><a id="GUID-066BC440-E42F-49E0-B605-8306F0801FA4"></a>
+<h2 id="BDSPA-GUID-066BC440-E42F-49E0-B605-8306F0801FA4" class="sect2"><span class="enumeration_section">5.5</span> Creating Subgraphs</h2>
+<div>
+<p>You can create subgraphs based on a graph that has been loaded into memory. You can use filter expressions or create bipartite subgraphs based on a vertex (node) collection that specifies the left set of the bipartite graph.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-D8D24AA9-7B2A-4018-8626-76BA87888299">About Filter Expressions</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-CFEB793C-3674-4904-BBD4-B6A86BB1473A">Using a Simple Filter to Create a Subgraph</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24">Using a Complex Filter to Create a Subgraph</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-A0003270-3B54-416F-8BC0-E37EA4F699AD">Using a Vertex Set to Create a Bipartite Subgraph</a></p>
+</li>
+</ul>
+<p>For information about reading a graph into memory, see <a href="using-inmem-analytics.htm#GUID-147E545D-CB0B-479A-8D7F-D36CF2064A45">Reading Graph Data into Memory</a>.</p>
+</div>
+<a id="BDSPA315"></a><a id="BDSPA316"></a><a id="BDSPA314"></a>
+<div class="props_rev_3"><a id="GUID-D8D24AA9-7B2A-4018-8626-76BA87888299"></a>
+<h3 id="BDSPA-GUID-D8D24AA9-7B2A-4018-8626-76BA87888299" class="sect3"><span class="enumeration_section">5.5.1</span> About Filter Expressions</h3>
+<div>
+<p>Filter expressions are expressions that are evaluated for each edge. The expression can define predicates that an edge must fulfil to be contained in the result, in this case a subgraph.</p>
+<p>Consider the graph in <a href="using-inmem-analytics.htm#GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF__BABFEEHB">Figure 5-1</a>, which consists of four vertices (nodes) and four edges. For an edge to match the filter expression <code>src.prop == 10</code>, the source vertex <code>prop</code> property must equal 10. Two edges match that filter expression, as shown in <a href="using-inmem-analytics.htm#GUID-D8D24AA9-7B2A-4018-8626-76BA87888299__BABIGAAI">Figure 5-3</a>.</p>
+<div class="figure" id="GUID-D8D24AA9-7B2A-4018-8626-76BA87888299__BABIGAAI">
+<p class="titleinfigure">Figure 5-3 Edges Matching src.prop == 10</p>
+<img width="396" height="333" src="img/GUID-9898BA7E-837E-4C54-8887-41D8CCC313D7-default.png" alt="Description of Figure 5-3 follows" title="Description of Figure 5-3 follows" /><br />
+<a href="img_text/GUID-ED5B9621-3E91-4F70-BE70-910865BA02CF.htm">Description of "Figure 5-3 Edges Matching src.prop == 10"</a></div>
+<!-- class="figure" -->
+<p><a href="using-inmem-analytics.htm#GUID-D8D24AA9-7B2A-4018-8626-76BA87888299__BABEEDAE">Figure 5-4</a> shows the graph that results when the filter is applied. The filter excludes the edges associated with vertex 333, and the vertex itself.</p>
+<div class="figure" id="GUID-D8D24AA9-7B2A-4018-8626-76BA87888299__BABEEDAE">
+<p class="titleinfigure">Figure 5-4 Graph Created by the Simple Filter</p>
+<img width="397" height="335" src="img/GUID-0019306D-85AF-48AB-BDBF-E9F591BEC818-default.png" alt="Description of Figure 5-4 follows" title="Description of Figure 5-4 follows" /><br />
+<a href="img_text/GUID-51ADDF9E-C77A-4200-B391-F5662875F3A2.htm">Description of "Figure 5-4 Graph Created by the Simple Filter"</a></div>
+<!-- class="figure" -->
+<p>Using filter expressions to select a single vertex or a set of vertices is difficult. For example, selecting only the vertex with the property value <code>10</code> is impossible, because the only way to match the vertex is to match an edge where <code>10</code> is either the source or destination property value. However, when you match an edge you automatically include the source vertex, destination vertex, and the edge itself in the result.</p>
+</div>
+</div>
+<a id="BDSPA318"></a><a id="BDSPA319"></a><a id="BDSPA317"></a>
+<div class="props_rev_3"><a id="GUID-CFEB793C-3674-4904-BBD4-B6A86BB1473A"></a>
+<h3 id="BDSPA-GUID-CFEB793C-3674-4904-BBD4-B6A86BB1473A" class="sect3"><span class="enumeration_section">5.5.2</span> Using a Simple Filter to Create a Subgraph</h3>
+<div>
+<p>The following examples create the subgraph described in <span class="q">"<a href="using-inmem-analytics.htm#GUID-D8D24AA9-7B2A-4018-8626-76BA87888299">About Filter Expressions</a>"</span>.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Create a Subgraph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+subgraph = graph.filter(new VertexFilter("vertex.prop == 10"))
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Create a Subgraph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+import oracle.pgx.api.filter.*;
+
+PgxGraph graph = session.readGraphWithProperties(...);
+PgxGraph subgraph = graph.filter(new VertexFilter("vertex.prop == 10"));
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA322"></a><a id="BDSPA323"></a><a id="BDSPA321"></a>
+<div class="props_rev_3"><a id="GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24"></a>
+<h3 id="BDSPA-GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24" class="sect3"><span class="enumeration_section">5.5.3</span> Using a Complex Filter to Create a Subgraph</h3>
+<div>
+<p>This example uses a slightly more complex filter. It uses the <code>outDegree</code> function, which calculates the number of outgoing edges for an identifier (source <code>src</code> or destination <code>dst</code>). The following filter expression matches all edges with a <code>cost</code> property value greater than 50 and a destination vertex (node) with an <code>outDegree</code> greater than 1.</p>
+<pre dir="ltr">
+dst.outDegree() &gt; 1 &amp;&amp; edge.cost &gt; 50
+</pre>
+<p>One edge in the sample graph matches this filter expression, as shown in <a href="using-inmem-analytics.htm#GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24__BABEBGII">Figure 5-5</a>.</p>
+<div class="figure" id="GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24__BABEBGII">
+<p class="titleinfigure">Figure 5-5 Edges Matching the outDegree Filter</p>
+<img width="394" height="334" src="img/GUID-E27EB26D-A77B-45E9-877A-4BCA7C01A739-default.png" alt="Description of Figure 5-5 follows" title="Description of Figure 5-5 follows" /><br />
+<a href="img_text/GUID-3445397A-2FCF-42B2-86FC-658D46852B2B.htm">Description of "Figure 5-5 Edges Matching the outDegree Filter"</a></div>
+<!-- class="figure" -->
+<p><a href="using-inmem-analytics.htm#GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24__BABCIGDF">Figure 5-6</a> shows the graph that results when the filter is applied. The filter excludes the edges associated with vertixes 99 and 1908, and so excludes those vertices also.</p>
+<div class="figure" id="GUID-22F930E3-3748-4F3B-940D-3DD799D0CD24__BABCIGDF">
+<p class="titleinfigure">Figure 5-6 Graph Created by the outDegree Filter</p>
+<img width="398" height="334" src="img/GUID-6D967245-691B-4F81-BD22-7A6C0CAF8AA9-default.png" alt="Description of Figure 5-6 follows" title="Description of Figure 5-6 follows" /><br />
+<a href="img_text/GUID-7BE9996D-2D59-4A8D-BC52-0A4C2520C04E.htm">Description of "Figure 5-6 Graph Created by the outDegree Filter"</a></div>
+<!-- class="figure" --></div>
+</div>
+<a id="BDSPA325"></a><a id="BDSPA326"></a><a id="BDSPA324"></a>
+<div class="props_rev_3"><a id="GUID-A0003270-3B54-416F-8BC0-E37EA4F699AD"></a>
+<h3 id="BDSPA-GUID-A0003270-3B54-416F-8BC0-E37EA4F699AD" class="sect3"><span class="enumeration_section">5.5.4</span> Using a Vertex Set to Create a Bipartite Subgraph</h3>
+<div>
+<p>You can create a bipartite subgraph by specifying a set of vertices (nodes), which are used as the left side. A bipartite subgraph has edges only between the left set of vertices and the right set of vertices. There are no edges within those sets, such as between two nodes on the left side. In the in-memory analyst, vertices that are isolated because all incoming and outgoing edges were deleted are not part of the bipartite subgraph.</p>
+<p>The following figure shows a bipartite subgraph. No properties are shown.</p>
+<div class="figure" id="GUID-A0003270-3B54-416F-8BC0-E37EA4F699AD__GUID-C8204681-BFAA-43C8-86E0-CB4F8CA4F7DE"><img width="597" height="486" src="img/GUID-CE62AAFC-0A54-4565-BE64-8E6DE26E46EA-default.png" alt="Description of GUID-CE62AAFC-0A54-4565-BE64-8E6DE26E46EA-default.png follows" title="Description of GUID-CE62AAFC-0A54-4565-BE64-8E6DE26E46EA-default.png follows" /><br />
+<a href="img_text/GUID-F81697F6-8A7A-4D5C-8E92-E1445B6B707C.htm">Description of the illustration GUID-CE62AAFC-0A54-4565-BE64-8E6DE26E46EA-default.png</a></div>
+<!-- class="figure" -->
+<p>The following examples create a bipartite subgraph from the simple graph created in <a href="using-inmem-analytics.htm#GUID-661B64BD-275B-4942-94DC-71BC60B6F7BF__BABFEEHB">Figure 5-1</a>. They create a vertex collection and fill it with the vertices for the left side.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Create a Bipartite Subgraph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+pgx&gt; s = graph.createVertexSet()
+==&gt; ...
+pgx&gt; s.addAll([graph.getVertex(333), graph.getVertex(99)])
+==&gt; ...
+pgx&gt; s.size()
+==&gt; 2
+pgx&gt; bGraph = graph.bipartiteSubGraphFromLeftSet(s)
+==&gt; PGX Bipartite Graph named sample-sub-graph-4
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Create a Bipartite Subgraph</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+ 
+VertexSet&lt;Integer&gt; s = graph.createVertexSet();
+s.addAll(graph.getVertex(333), graph.getVertex(99));
+BipartiteGraph bGraph = graph.bipartiteSubGraphFromLeftSet(s);
+</pre>
+<p>When you create a subgraph, the in-memory analyst automatically creates a Boolean vertex (node) property that indicates whether the vertex is on the left side. You can specify a unique name for the property.</p>
+<p>The resulting bipartite subgraph looks like this:</p>
+<div class="figure" id="GUID-A0003270-3B54-416F-8BC0-E37EA4F699AD__GUID-F0B25296-4342-407B-9432-EFFC656A65F3"><img width="394" height="232" src="img/GUID-43F3394A-1159-4F90-BFED-7EC83364E3D3-default.png" alt="Description of GUID-43F3394A-1159-4F90-BFED-7EC83364E3D3-default.png follows" title="Description of GUID-43F3394A-1159-4F90-BFED-7EC83364E3D3-default.png follows" /><br />
+<a href="img_text/GUID-A57E58C2-FC44-4D28-9E02-E4EC3BDF8AFD.htm">Description of the illustration GUID-43F3394A-1159-4F90-BFED-7EC83364E3D3-default.png</a></div>
+<!-- class="figure" -->
+<p>Vertex 1908 is excluded from the bipartite subgraph. The only edge that connected that vertex extended from 128 to 1908. The edge was removed, because it violated the bipartite properties of the subgraph. Vertex 1908 had no other edges, and so was removed also.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA328"></a>
+<div class="props_rev_3"><a id="GUID-A7FCA21B-F26A-4DF3-A906-C78E2274117B"></a>
+<h2 id="BDSPA-GUID-A7FCA21B-F26A-4DF3-A906-C78E2274117B" class="sect2"><span class="enumeration_section">5.6</span> Deploying to Jetty</h2>
+<div>
+<p>You can deploy the in-memory analyst to Eclipse Jetty, Apache Tomcat, or Oracle WebLogic. This example shows how to deploy the in-memory analyst as a web application with Eclipse Jetty.</p>
+<ol>
+<li>
+<p>Copy the the in-memory analyst web application archive (WAR) file into the Jetty <code>webapps</code> directory:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+cp $PGX_HOME/webapp/pgx-webapp-1.0.0-for-cdh5.2.1.war $JETTY_HOME/webapps/pgx.war
+</pre></li>
+<li>
+<p>Set up a security realm within Jetty that specifies where it can find the user names and passwords. To add the most basic security realm, which reads the credentials from a file, add this snippet to <code>$JETTY_HOME/etc/jetty.xml</code>:</p>
+<pre dir="ltr">
+&lt;Call name="addBean"&gt;
+  &lt;Arg&gt;
+    &lt;New class="org.eclipse.jetty.security.HashLoginService"&gt;
+      &lt;Set name="name"&gt;PGX-Realm&lt;/Set&gt;
+      &lt;Set name="config"&gt;
+        etc/realm.properties
+      &lt;/Set&gt;
+      &lt;Set name="refreshInterval"&gt;0&lt;/Set&gt;
+    &lt;/New&gt;
+  &lt;/Arg&gt;
+&lt;/Call&gt;
+</pre>
+<p>This snippet instructs Jetty to use the simplest, in-memory login service it supports, the <code>HashLoginService</code>. This service uses a configuration file that stores the user names, passwords, and roles.</p>
+</li>
+<li>
+<p>Add the users to <code>$JETTY_HOME/etc/realm.properties</code> in the following format:</p>
+<pre dir="ltr">
+<span class="italic">username: password, role</span>
+</pre>
+<p>For example, this line adds user <code>SCOTT</code>, with password <code>TIGER</code> and the <code>USER</code> role.</p>
+<pre dir="ltr">
+scott: tiger, USER
+</pre></li>
+<li>
+<p>Ensure that port 8080 is not already in use, and then start Jetty:</p>
+<pre dir="ltr">
+cd $JETTY_HOME
+java -jar start.jar
+</pre></li>
+<li>
+<p>Verify that Jetty is working, using the appropriate credentials for your installation:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+./bin/pgx --base_url http://scott:tiger@localhost:8080/pgx
+</pre></li>
+<li>
+<p>(Optional) Modify the in-memory analyst configuration files.</p>
+<p>The configuration file (<code>pgx.conf</code>) and the logging parameters (<code>log4j.xml</code>) for the in-memory analyst engine are in the WAR file under <code>WEB-INF/classes</code>. Restart the server to enable the changes.</p>
+</li>
+</ol>
+<div class="infoboxnotealso" id="GUID-A7FCA21B-F26A-4DF3-A906-C78E2274117B__GUID-923A2C4E-2310-4D2C-9037-5AE4D760C317">
+<p class="notep1">See Also:</p>
+<p>The Jetty documentation for configuration and use at</p>
+<p><a href="http://eclipse.org/jetty/documentation/" target="_blank"><code>http://eclipse.org/jetty/documentation/</code></a></p>
+</div>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-7FCC7C9F-5397-413D-B919-22667F0E0E92">About the Authentication Mechanism</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA329"></a>
+<div class="props_rev_3"><a id="GUID-7FCC7C9F-5397-413D-B919-22667F0E0E92"></a>
+<h3 id="BDSPA-GUID-7FCC7C9F-5397-413D-B919-22667F0E0E92" class="sect3"><span class="enumeration_section">5.6.1</span> About the Authentication Mechanism</h3>
+<div>
+<p>The in-memory analyst web deployment uses <code>BASIC Auth</code> by default. You should change to a more secure authentication mechanism for a production deployment.</p>
+<p>To change the authentication mechanism, modify the <code>security-constraint</code> element of the <code>web.xml</code> deployment descriptor in the web application archive (WAR) file.</p>
+</div>
+</div>
+</div>
+<a id="BDSPA330"></a>
+<div class="props_rev_3"><a id="GUID-FF212462-41EE-4003-B25B-26E6B9B055CF"></a>
+<h2 id="BDSPA-GUID-FF212462-41EE-4003-B25B-26E6B9B055CF" class="sect2"><span class="enumeration_section">5.7</span> Deploying to Apache Tomcat</h2>
+<div>
+<div class="section">
+<p>You can deploy the in-memory analyst to Eclipse Jetty, Apache Tomcat, or Oracle WebLogic. This example shows how to deploy In-Memory Analytics as a web application with Apache Tomcat.</p>
+<p>The in-memory analyst ships with <code>BASIC Auth</code> enabled, which requires a security realm. Tomcat supports many different types of realms. This example configures the simplest one, <code>MemoryRealm</code>. See the Tomcat Realm Configuration How-to for information about the other types.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Copy the in-memory analyst WAR file into the Tomcat <code>webapps</code> directory. For example:</span>
+<div>
+<pre dir="ltr">
+cd $PGX_HOME
+cp $PGX_HOME/webapp/pgx-webapp-1.0.0-for-cdh5.2.1.war $CATALINA_HOME/webapps/pgx.war
+</pre></div>
+</li>
+<li class="stepexpand"><span>Open <code>$CATALINA_HOME/conf/server.xml</code> in an editor and add the following realm class declaration under the <code>&lt;Engine&gt;</code> element:</span>
+<div>
+<pre dir="ltr">
+&lt;Realm className="org.apache.catalina.realm.MemoryRealm" /&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Open <code>CATALINA_HOME/conf/tomcat-users.xml</code> in an editor and define a user for the <code>USER</code> role. Replace <code>scott</code> and <code>tiger</code> in this example with an appropriate user name and password:</span>
+<div>
+<pre dir="ltr">
+&lt;role rolename="USER" /&gt;
+&lt;user username="scott" password="tiger" roles="USER" /&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Ensure that port 8080 is not already in use.</span></li>
+<li class="stepexpand"><span>Start Tomcat:</span>
+<div>
+<pre dir="ltr">
+cd $CATALINA_HOME
+./bin/startup.sh
+</pre></div>
+</li>
+<li class="stepexpand"><span>Verify that Tomcat is working:</span>
+<div>
+<pre dir="ltr">
+cd $PGX_HOME
+./bin/pgx --base_url http://scott:tiger@localhost:8080/pgx
+</pre></div>
+</li>
+</ol>
+<div class="section">
+<div class="infobox-note" id="GUID-FF212462-41EE-4003-B25B-26E6B9B055CF__GUID-E09BE13B-838C-47AB-9C66-F1542857E5F4">
+<p class="notep1">Note:</p>
+<p>Oracle recommends <code>BASIC Auth</code> only for testing. Use stronger authentication mechanisms for all other types of deployments.</p>
+</div>
+<div class="infoboxnotealso" id="GUID-FF212462-41EE-4003-B25B-26E6B9B055CF__GUID-D8A2853A-521B-46F2-8800-89C2BEAC9344">
+<p class="notep1">See Also:</p>
+<p>The Tomcat documentation at</p>
+<p><a href="http://tomcat.apache.org/tomcat-7.0-doc/" target="_blank"><code>http://tomcat.apache.org/tomcat-7.0-doc/</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA331"></a>
+<div class="props_rev_3"><a id="GUID-B70BD7A8-C34C-4B12-B36F-DE2CD9A107C2"></a>
+<h2 id="BDSPA-GUID-B70BD7A8-C34C-4B12-B36F-DE2CD9A107C2" class="sect2"><span class="enumeration_section">5.8</span> Deploying to Oracle WebLogic Server</h2>
+<div>
+<p>You can deploy the in-memory analysts to Eclipse Jetty, Apache Tomcat, or Oracle WebLogic Server. This example shows how to deploy the in-memory analyst as a web application with Oracle WebLogic Server.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-013DE62D-1D96-45C2-A631-2DB4F575AB67">Installing Oracle WebLogic Server</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-1A6D5BD5-D361-43E7-9FFE-4434DC0A0B06">Deploying the In-Memory Analyst</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-CB2A1DE8-14DA-4DAD-9BAA-A7A1F2DB0618">Verifying That the Server Works</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA332"></a>
+<div class="props_rev_3"><a id="GUID-013DE62D-1D96-45C2-A631-2DB4F575AB67"></a>
+<h3 id="BDSPA-GUID-013DE62D-1D96-45C2-A631-2DB4F575AB67" class="sect3"><span class="enumeration_section">5.8.1</span> Installing Oracle WebLogic Server</h3>
+<div>
+<p>To download and install the latest version of Oracle WebLogic Server, see</p>
+<p><a href="http://www.oracle.com/technetwork/middleware/weblogic/documentation/index.html" target="_blank"><code>http://www.oracle.com/technetwork/middleware/weblogic/documentation/index.html</code></a></p>
+</div>
+</div>
+<a id="BDSPA337"></a>
+<div class="props_rev_3"><a id="GUID-1A6D5BD5-D361-43E7-9FFE-4434DC0A0B06"></a>
+<h3 id="BDSPA-GUID-1A6D5BD5-D361-43E7-9FFE-4434DC0A0B06" class="sect3"><span class="enumeration_section">5.8.2</span> Deploying the In-Memory Analyst</h3>
+<div>
+<p>To deploy the in-memory analyst to Oracle WebLogic, use commands like the following. Substitute your administrative credentials and WAR file for the values shown in this example:</p>
+<pre dir="ltr">
+cd $MW_HOME/user_projects/domains/mydomain
+. bin/setDomainEnv.sh
+java weblogic.Deployer -adminurl http://localhost:7001 -username <span class="italic">username</span> -password <span class="italic">password</span> -deploy -upload $PGX_HOME/lib/server/pgx-webapp-0.9.0.war
+</pre>
+<p>If the script runs successfully, you will see a message like this one:</p>
+<pre dir="ltr">
+Target state: deploy completed on Server myserver
+</pre></div>
+</div>
+<a id="BDSPA338"></a>
+<div class="props_rev_3"><a id="GUID-CB2A1DE8-14DA-4DAD-9BAA-A7A1F2DB0618"></a>
+<h3 id="BDSPA-GUID-CB2A1DE8-14DA-4DAD-9BAA-A7A1F2DB0618" class="sect3"><span class="enumeration_section">5.8.3</span> Verifying That the Server Works</h3>
+<div>
+<p>Verify that you can connect to the server:</p>
+<pre dir="ltr">
+$PGX_HOME/bin/pgx --base_url scott:tiger123@localhost:7001/pgx
+</pre></div>
+</div>
+</div>
+<a id="BDSPA339"></a>
+<div class="props_rev_3"><a id="GUID-D7A6A8E7-5C99-4495-A2A8-F4B36462183A"></a>
+<h2 id="BDSPA-GUID-D7A6A8E7-5C99-4495-A2A8-F4B36462183A" class="sect2"><span class="enumeration_section">5.9</span> Connecting to the In-Memory Analyst Server</h2>
+<div>
+<p>After the property graph in-memory analyst is installed in a Hadoop cluster -- or on a client system without Hadoop as a web application on Eclipse Jetty, Apache Tomcat, or Oracle WebLogic -- you can connect to the in-memory analyst server.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-80F7A17E-E04B-4DF3-80C1-70A3413A048A">Connecting with the In-Memory Analyst Shell</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-1A699EB3-3593-468E-872C-0A8FC6BB6DDA">Connecting with Java</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-FF5B1FB0-DC33-4D92-A242-CCB3B576E060">Connecting with an HTTP Request</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA340"></a>
+<div class="props_rev_3"><a id="GUID-80F7A17E-E04B-4DF3-80C1-70A3413A048A"></a>
+<h3 id="BDSPA-GUID-80F7A17E-E04B-4DF3-80C1-70A3413A048A" class="sect3"><span class="enumeration_section">5.9.1</span> Connecting with the In-Memory Analyst Shell</h3>
+<div>
+<p>The simplest way to connect to an in-memory analyst instance is to specify the base URL of the server. The following base URL can connect the SCOTT user to the local instance listening on port 8080:</p>
+<p><code>http://scott:tiger@localhost:8080/pgx</code></p>
+<p>To start the in-memory analyst shell with this base URL, you use the <code>--base_url</code> command line argument</p>
+<pre dir="ltr">
+cd $PGX_HOME
+./bin/pgx --base_url http://scott:tiger@localhost:8080/pgx
+</pre>
+<p>You can connect to a remote instance the same way. However, the in-memory analyst currently does not provide remote support for the Control API.</p>
+</div>
+<a id="BDSPA341"></a>
+<div class="props_rev_3"><a id="GUID-8A824DB3-1440-4B6C-93D6-3EF6CF1EA344"></a>
+<h4 id="BDSPA-GUID-8A824DB3-1440-4B6C-93D6-3EF6CF1EA344" class="sect4"><span class="enumeration_section">5.9.1.1</span> About Logging HTTP Requests</h4>
+<div>
+<p>The in-memory analyst shell suppresses all debugging messages by default. To see which HTTP requests are executed, set the log level for <code>oracle.pgx</code> to <code>DEBUG</code>, as shown in this example:</p>
+<pre dir="ltr">
+pgx&gt; <span class="bold">:loglevel oracle.pgx DEBUG</span>
+===&gt; log level of oracle.pgx logger set to DEBUG
+pgx&gt; <span class="bold">session.readGraphWithProperties("sample_http.adj.json", "sample")</span>
+10:24:25,056 [main] DEBUG RemoteUtils - Requesting POST http://scott:tiger@localhost:8080/pgx/core/session/session-shell-6nqg5dd/graph HTTP/1.1 with payload {"graphName":"sample","graphConfig":{"uri":"http://path.to.some.server/pgx/sample.adj","separator":" ","edge_props":[{"type":"double","name":"cost"}],"node_props":[{"type":"integer","name":"prop"}],"format":"adj_list"}}
+10:24:25,088 [main] DEBUG RemoteUtils - received HTTP status 201
+10:24:25,089 [main] DEBUG RemoteUtils - {"futureId":"87d54bed-bdf9-4601-98b7-ef632ce31463"}
+10:24:25,091 [pool-1-thread-3] DEBUG PgxRemoteFuture$1 - Requesting GET http://scott:tiger@localhost:8080/pgx/future/session/session-shell-6nqg5dd/result/87d54bed-bdf9-4601-98b7-ef632ce31463 HTTP/1.1
+10:24:25,300 [pool-1-thread-3] DEBUG RemoteUtils - received HTTP status 200
+10:24:25,301 [pool-1-thread-3] DEBUG RemoteUtils - {"stats":{"loadingTimeMillis":0,"estimatedMemoryMegabytes":0,"numEdges":4,"numNodes":4},"graphName":"sample","nodeProperties":{"prop":"integer"},"edgeProperties":{"cost":"double"}}
+</pre>
+<p>This example requires that the graph URI points to a file that the in-memory analyst server can access using HTTP or HDFS.</p>
+</div>
+</div>
+</div>
+<a id="BDSPA342"></a>
+<div class="props_rev_3"><a id="GUID-1A699EB3-3593-468E-872C-0A8FC6BB6DDA"></a>
+<h3 id="BDSPA-GUID-1A699EB3-3593-468E-872C-0A8FC6BB6DDA" class="sect3"><span class="enumeration_section">5.9.2</span> Connecting with Java</h3>
+<div>
+<p>You can specify the base URL when you initialize the in-memory analyst using Java. An example is as follows. A URL to an in-memory analyst server is provided to the <code>getInMemAnalyst</code> API call.</p>
+<pre dir="ltr">
+import oracle.pg.nosql.*;
+import oracle.pgx.api.*;
+ 
+PgNosqlGraphConfig cfg = GraphConfigBuilder.forNosql().setName("mygraph").setHosts(...).build();
+OraclePropertyGraph opg = OraclePropertyGraph.getInstance(cfg);
+ServerInstance remoteInstance = Pgx.getInstance("http://scott:tiger@hostname:port/pgx");
+PgxSession session = remoteInstance.createSession("my-session");
+ 
+PgxGraph graph = session.readGraphWithProperties(opg.getConfig());
+</pre></div>
+</div>
+<a id="BDSPA343"></a>
+<div class="props_rev_3"><a id="GUID-FF5B1FB0-DC33-4D92-A242-CCB3B576E060"></a>
+<h3 id="BDSPA-GUID-FF5B1FB0-DC33-4D92-A242-CCB3B576E060" class="sect3"><span class="enumeration_section">5.9.3</span> Connecting with an HTTP Request</h3>
+<div>
+<p>The in-memory analyst shell uses HTTP requests to communicate with the in-memory analyst server. You can use the same HTTP endpoints directly or use them to write your own client library.</p>
+<p>This example uses HTTP to call <code>create session</code>:</p>
+<pre dir="ltr">
+HTTP POST 'http://scott:tiger@localhost:8080/pgx/core/session' with payload '{"source":"shell"}'
+Response: {"sessionId":"session-shell-42v3b9n7"}
+</pre>
+<p>The call to <code>create session</code> returns a session identifier. Most HTTP calls return an in-memory analyst UUID, which identifies the resource that holds the result of the request. Many in-memory analyst requests take a while to complete, but you can obtain a handle to the result immediately. Using that handle, an <code>HTTP GET</code> call to a special endpoint provides the result of the request (or block, if the request is not complete).</p>
+<p>Most interactions with the in-memory analyst with HTTP look like this example:</p>
+<pre dir="ltr">
+// any request, with some payload
+HTTP POST 'http://scott:tiger@localhost:8080/pgx/core/session/session-shell-42v3b9n7/graph' with payload '{"graphName":"sample","graphConfig":{"edge_props":[{"type":"double","name":"cost"}],"format":"adj_list","separator":" ","node_props":[{"type":"integer","name":"prop"}],"uri":"http://path.to.some.server/pgx/sample.adj"}}'
+Response: {"futureId":"15fc72e9-42e9-4527-9a31-bd20eb0adafb"}
+
+// get the result using the in-memory analyst future UUID.
+HTTP GET 'http://scott:tiger@localhost:8080/pgx/future/session/session-shell-42v3b9n7/result/15fc72e9-42e9-4527-9a31-bd20eb0adafb'
+Response: {"stats":{"loadingTimeMillis":0,"estimatedMemoryMegabytes":0,"numNodes":4,"numEdges":4},"graphName":"sample","nodeProperties":{"prop":"integer"},"edgeProperties":{"cost":"double"}}
+</pre></div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-A8AABE4E-78A7-4555-8517-A15623D7D9F0"></a>
+<h2 id="BDSPA-GUID-A8AABE4E-78A7-4555-8517-A15623D7D9F0" class="sect2"><span class="enumeration_section">5.10</span> Using the In-Memory Analyst in Distributed Mode</h2>
+<div>
+<p>The in-memory analyst can be run in the following modes:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Shared memory mode</p>
+<p>Multiple threads work in parallel on in-memory graph data stored in a single node (a single, shared memory space). In shared memory mode, the size of the graph is constrained by the physical memory size and by other applications running on the same node.</p>
+</li>
+<li>
+<p>Distributed mode</p>
+<p>To overcome the limitations of shared memory mode, you can run the in-memory analyst in distributed mode, in which multiple nodes (computers) form a cluster, partition a large property graph across distributed memory, and work together to provide efficient and scalable graph analytics.</p>
+</li>
+</ul>
+<p>For using the in-memory analyst feature in distributed mode, the following requirements apply to each node in the cluster:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>GNU Compiler Collection (GCC) 4.8.2 or later</p>
+<p>C++ standard libraries built upon 3.4.20 of the GNU C++ API are needed.</p>
+</li>
+<li>
+<p>Ability to open a TCP port</p>
+<p>Distributed in-memory analyst requires a designated TCP port to be open for initial handshaking. The default port number is 7777, but you can set it using the run-time parameter <code>pgx_side_channel_port</code>.</p>
+</li>
+<li>
+<p>Ability to use InfiniBand or UDP on Ethernet</p>
+<p>Data communication among nodes mainly uses InfiniBand (IB) or UDP on Ethernet. When using Ethernet, the machines in the cluster need to accept UDP packets from other computers.</p>
+</li>
+<li>
+<p>JDK7 or later</p>
+</li>
+</ul>
+<p>To start the in-memory analyst in distributed mode, do the following. (For this example, assume that four nodes (computers) have been allocated for this purpose, and that they have the host names <code>hostname0</code>, <code>hostname1</code>, <code>hostname2</code>, and <code>hostname3</code>.)</p>
+<p>On each of the nodes, log in and perform the following operations (modifying the details for your actual environment):</p>
+<pre dir="ltr">
+export PGX_HOME=/opt/oracle/oracle-spatial-graph/property_graph/pgx
+export LD_LIBRARY_PATH=$PGX_HOME/server/distributed/lib:$LD_LIBRARY_PATH
+
+cd $PGX_HOME/server/distributed
+./bin/node ./package/ClusterHost.js -server_config=./package/options.json -pgx_hostnames=hostname0,hostname1,hostname2,hostname3 
+</pre>
+<p>After the operations have successfully completed on all four nodes. you can see a log message similar to the following:</p>
+<pre dir="ltr">
+17:11:42,709 [hostname0] INFO pgx.dist.cluster_host - PGX.D Server listening on http://hostname0:8023/pgx
+</pre>
+<p>The distributed in-memory analyst in now up and running. It provides service through the following endpoint: <code>http://hostname0:8023/pgx</code></p>
+<p>This endpoint can be consumed in the same manner as a remotely deployed shared-memory analyst. You can use Java APIs, Groovy shells, and the PGX shell. An example of using the PGX shell is as follows:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+./bin/pgx --base_url=http://hostname0:8023/pgx 
+</pre>
+<p>The following example uses the service from a Groovy shell for Oracle NoSQL Database:</p>
+<pre dir="ltr">
+opg-nosql&gt; session=Pgx.createSession("http://hostname0:8023/pgx", "session-id-123");
+opg-nosql&gt; analyst=session.createAnalyst();
+opg-nosql&gt; pgxGraph = session.readGraphWithProperties(opg.getConfig());
+</pre>
+<p>The following is an example <code>options.json</code> file:</p>
+<pre dir="ltr">
+$ cat ./package/options.json
+{
+    "pgx_use_infiniband": 1,
+    "pgx_command_queue_path": ".",
+    "pgx_builtins_path": "./lib",
+    "pgx_executable_path": "./bin/pgxd",
+    "java_class_path": "./jlib/*",
+    "pgx_httpserver_port": 8023,
+    "pgx_httpserver_enable_csrf_token": 1,
+    "pgx_httpserver_enable_ssl": 0,
+    "pgx_httpserver_client_auth": 1,
+    "pgx_httpserver_key": "&lt;INSERT_VALUE_HERE&gt;/server_key.pem",
+    "pgx_httpserver_cert": "&lt;INSERT_VALUE_HERE&gt;/server_cert.pem",
+    "pgx_httpserver_ca": "&lt;INSERT_VALUE_HERE&gt;/server_cert.pem",
+    "pgx_httpserver_auth": "&lt;INSERT_VALUE_HERE&gt;/server.auth.json",
+    "pgx_log_configure": "./package/log4j.xml",
+    "pgx_ranking_query_max_cache_size": 1048576,
+    "zookeeper_timeout": 10000,
+    "pgx_partitioning_strategy": "out_in",
+    "pgx_partitioning_ignore_ghostnodes": false,
+    "pgx_ghost_min_neighbors": 5000,
+    "pgx_ghost_max_node_counts": 40000,
+    "pgx_use_bulk_communication": true,
+    "pgx_num_worker_threads": 28
+}
+</pre></div>
+</div>
+<a id="BDSPA344"></a>
+<div class="props_rev_3"><a id="GUID-3410C21E-DE4C-4620-93F4-E0FA068F74B2"></a>
+<h2 id="BDSPA-GUID-3410C21E-DE4C-4620-93F4-E0FA068F74B2" class="sect2"><span class="enumeration_section">5.11</span> Reading and Storing Data in HDFS</h2>
+<div>
+<p>The in-memory analyst supports the Hadoop Distributed File System (HDFS). This example shows how to read and access graph data in HDFS using the in-memory analyst APIs.</p>
+<p>Graph configuration files are parsed on the client side. The graph data and configuration files must be stored in HDFS. You must install a Hadoop client on the same computer as In-Memory Analytics. See <a class="olink BIGUG207" target="_blank" href="../BIGUG/users.htm#BIGUG207">Oracle Big Data Appliance Software User's Guide</a>.</p>
+<div class="infobox-note" id="GUID-3410C21E-DE4C-4620-93F4-E0FA068F74B2__GUID-A8F3C8DC-80B2-4CF0-94E1-940E59E4C5C4">
+<p class="notep1">Note:</p>
+<p>The in-memory analyst engine runs in memory on one node of the Hadoop cluster only.</p>
+</div>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-BEA13DC0-3A18-4F6A-A181-8F3F259B67D9">Loading Data from HDFS</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-565B60F4-7CF9-4571-98A6-0E8DAB9EACC1">Storing Graph Snapshots in HDFS</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-7A6C928D-2920-48EA-BF40-8F8C3BFF281D">Compiling and Running a Java Application in Hadoop</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA346"></a><a id="BDSPA347"></a><a id="BDSPA345"></a>
+<div class="props_rev_3"><a id="GUID-BEA13DC0-3A18-4F6A-A181-8F3F259B67D9"></a>
+<h3 id="BDSPA-GUID-BEA13DC0-3A18-4F6A-A181-8F3F259B67D9" class="sect3"><span class="enumeration_section">5.11.1</span> Loading Data from HDFS</h3>
+<div>
+<p>This example copies the <code>sample.adj</code> graph data and its configuration file into HDFS, and then loads it into memory.</p>
+<ol>
+<li>
+<p>Copy the graph data into HDFS:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+hadoop fs -mkdir -p /user/pgx
+hadoop fs -copyFromLocal examples/graphs/sample.adj /user/pgx
+</pre></li>
+<li>
+<p>Edit the <code>uri</code> field of the graph configuration file to point to an HDFS resource:</p>
+<pre dir="ltr">
+{
+  "uri": "hdfs:/user/pgx/sample.adj", 
+  "format": "adj_list",
+  "node_props": [{ 
+    "name": "prop", 
+    "type": "integer" 
+  }],
+  "edge_props": [{ 
+    "name": "cost", 
+    "type": "double" 
+  }],
+  "separator": " "
+}
+</pre></li>
+<li>
+<p>Copy the configuration file into HDFS:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+hadoop fs -copyFromLocal examples/graphs/sample.adj.json /user/pgx
+</pre></li>
+<li>
+<p>Load the sample graph from HDFS into the in-memory analyst, as shown in the following examples.</p>
+</li>
+</ol>
+<div class="section">
+<p class="subhead3">Using the Shell to Load the Graph from HDFS</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+<span class="bold">g = session.readGraphWithProperties("hdfs:/user/pgx/sample.adj.json");</span>
+===&gt; {
+  "graphName" : "G",
+  "nodeProperties" : {
+    "prop" : "integer"
+  },
+  "edgeProperties" : {
+    "cost" : "double"
+  },
+  "stats" : {
+    "loadingTimeMillis" : 628,
+    "estimatedMemoryMegabytes" : 0,
+    "numNodes" : 4,
+    "numEdges" : 4
+  }
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Load the Graph from HDFS</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.api.*;
+PgxGraph g = session.readGraphWithProperties("hdfs:/user/pgx/sample.adj.json");
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA350"></a><a id="BDSPA351"></a><a id="BDSPA349"></a>
+<div class="props_rev_3"><a id="GUID-565B60F4-7CF9-4571-98A6-0E8DAB9EACC1"></a>
+<h3 id="BDSPA-GUID-565B60F4-7CF9-4571-98A6-0E8DAB9EACC1" class="sect3"><span class="enumeration_section">5.11.2</span> Storing Graph Snapshots in HDFS</h3>
+<div>
+<p>The in-memory analyst binary format (<code>.pgb</code>) is a proprietary binary graph format for the in-memory analyst. Fundamentally, a <code>.pgb</code> file is a binary dump of a graph and its property data, and it is efficient for in-memory analyst operations. You can use this format to quickly serialize a graph snapshot to disk and later read it back into memory.</p>
+<p>You should not alter an existing <code>.pgb</code> file.</p>
+<p>The following examples store the sample graph, currently in memory, in PGB format in HDFS.</p>
+<div class="section">
+<p class="subhead3">Using the Shell to Store a Graph in HDFS</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+g.store(Format.PGB, "hdfs:/user/pgx/sample.pgb", VertexProperty.ALL, EdgeProperty.ALL, true)
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Using Java to Store a Graph in HDFS</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+import oracle.pgx.config.GraphConfig;
+import oracle.pgx.api.*;
+ 
+GraphConfig pgbGraphConfig = g.store(Format.PGB, "hdfs:/user/pgx/sample.pgb", VertexProperty.ALL, EdgeProperty.ALL, true);
+</pre>
+<p>To verify that the PGB file was created, list the files in the <code>/user/pgx</code> HDFS directory:</p>
+<pre dir="ltr">
+hadoop fs -ls /user/pgx
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA353"></a>
+<div class="props_rev_3"><a id="GUID-7A6C928D-2920-48EA-BF40-8F8C3BFF281D"></a>
+<h3 id="BDSPA-GUID-7A6C928D-2920-48EA-BF40-8F8C3BFF281D" class="sect3"><span class="enumeration_section">5.11.3</span> Compiling and Running a Java Application in Hadoop</h3>
+<div>
+<p>The following is the <code>HdfsExample</code> Java class for the previous examples:</p>
+<pre dir="ltr">
+import oracle.pgx.api.Pgx;
+import oracle.pgx.api.PgxGraph;
+import oracle.pgx.api.PgxSession;
+import oracle.pgx.api.ServerInstance;
+import oracle.pgx.config.Format;
+import oracle.pgx.config.GraphConfig;
+import oracle.pgx.config.GraphConfigFactory;
+ 
+public class HdfsDemo {
+  public static void main(String[] mainArgs) throws Exception {
+    ServerInstance instance = Pgx.getInstance(Pgx.EMBEDDED_URL);
+    instance.startEngine();
+    PgxSession session = Pgx.createSession("my-session");
+    GraphConfig adjConfig = GraphConfigFactory.forAnyFormat().fromHdfs("/user/pgx/sample.adj.json");
+    PgxGraph graph1 = session.readGraphWithProperties(adjConfig);
+    GraphConfig pgbConfig = graph1.store(Format.PGB, "hdfs:/user/pgx/sample.pgb");
+    PgxGraph graph2 = session.readGraphWithProperties(pgbConfig);
+    System.out.println("graph1 N = " + graph1.getNumVertices() + " E = " + graph1.getNumEdges());
+    System.out.println("graph2 N = " + graph1.getNumVertices() + " E = " + graph2.getNumEdges());
+  }
+}
+</pre>
+<p>These commands compile the HdfsExample class:</p>
+<pre dir="ltr">
+cd $PGX_HOME
+mkdir classes
+javac -cp ../lib/* HdfsDemo.java -d classes
+</pre>
+<p>This command runs the HdfsExample class:</p>
+<pre dir="ltr">
+java -cp ../lib/*:conf:classes:$HADOOP_CONF_DIR HdfsDemo
+</pre></div>
+</div>
+</div>
+<a id="BDSPA354"></a>
+<div class="props_rev_3"><a id="GUID-C9B538F8-D956-46F8-8714-3609C66CA802"></a>
+<h2 id="BDSPA-GUID-C9B538F8-D956-46F8-8714-3609C66CA802" class="sect2"><span class="enumeration_section">5.12</span> Running the In-Memory Analyst as a YARN Application</h2>
+<div>
+<p>In this example you will learn how to start, stop and monitor in-memory analyst servers on a Hadoop cluster via Hadoop NextGen MapReduce (YARN) scheduling.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-310197DE-46EC-4691-A28B-735D7089C6CC">Starting and Stopping In-Memory Analyst Services</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-0844CDCD-462F-4E74-B188-F92A2C0C6481">Connecting to In-Memory Analyst Services</a></p>
+</li>
+<li>
+<p><a href="using-inmem-analytics.htm#GUID-112F75FC-7E60-4780-B4D8-5053BE1CC01C">Monitoring In-Memory Analyst Services</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA356"></a>
+<div class="props_rev_3"><a id="GUID-310197DE-46EC-4691-A28B-735D7089C6CC"></a>
+<h3 id="BDSPA-GUID-310197DE-46EC-4691-A28B-735D7089C6CC" class="sect3"><span class="enumeration_section">5.12.1</span> Starting and Stopping In-Memory Analyst Services</h3>
+<div>
+<p>Before you can start the in-memory analyst as a YARN application, you must configure the in-memory analyst YARN client.</p>
+</div>
+<a id="BDSPA357"></a>
+<div class="props_rev_3"><a id="GUID-855AC58E-FEFE-4F19-8D00-8FFA3BAEFF5C"></a>
+<h4 id="BDSPA-GUID-855AC58E-FEFE-4F19-8D00-8FFA3BAEFF5C" class="sect4"><span class="enumeration_section">5.12.1.1</span> Configuring the In-Memory Analyst YARN Client</h4>
+<div>
+<p>The in-memory analyst distribution contains an example YARN client configuration file in <code>$PGX_HOME/conf/yarn.conf</code>.</p>
+<p>Ensure that all the required fields are set properly. The specified paths must exist in HDFS, and <code>zookeeper_connect_string</code> must point to a running ZooKeeper port of the CDH cluster.</p>
+</div>
+</div>
+<a id="BDSPA358"></a>
+<div class="props_rev_3"><a id="GUID-C973F5BD-1828-4A44-87D4-F4A472A0638F"></a>
+<h4 id="BDSPA-GUID-C973F5BD-1828-4A44-87D4-F4A472A0638F" class="sect4"><span class="enumeration_section">5.12.1.2</span> Starting a New In-Memory Analyst Service</h4>
+<div>
+<p>To start a new in-memory analyst service on the Hadoop cluster, use the following command:</p>
+<pre dir="ltr">
+yarn jar $PGX_HOME/yarn/pgx-yarn-1.0.0-for-cdh5.2.1.jar
+</pre>
+<p>To use a YARN client configuration file other than <code>$PGX_HOME/conf/yarn.conf</code>, provide the file path:</p>
+<pre dir="ltr">
+yarn jar $PGX_HOME/yarn/pgx-yarn-1.0.0-for-cdh5.2.1.jar /path/to/different/yarn.conf
+</pre>
+<p>When the service starts, the host name and port of the Hadoop node where the in-memory analyst service launched are displayed.</p>
+</div>
+</div>
+<a id="BDSPA359"></a>
+<div class="props_rev_3"><a id="GUID-9CC6E7BD-A5CE-48EF-9A41-DC8224A51A89"></a>
+<h4 id="BDSPA-GUID-9CC6E7BD-A5CE-48EF-9A41-DC8224A51A89" class="sect4"><span class="enumeration_section">5.12.1.3</span> About Long-Running In-Memory Analyst Services</h4>
+<div>
+<p>The in-memory analyst YARN applications are configured by default to time out after a specified period. If you disable the time out by setting <code>pgx_server_timeout_secs</code> to <code>0</code>, the in-memory analyst server keeps running until you or Hadoop explicitly stop it.</p>
+</div>
+</div>
+<a id="BDSPA360"></a>
+<div class="props_rev_3"><a id="GUID-57E23231-B1B6-4183-ACDF-737C5E541E51"></a>
+<h4 id="BDSPA-GUID-57E23231-B1B6-4183-ACDF-737C5E541E51" class="sect4"><span class="enumeration_section">5.12.1.4</span> Stopping In-Memory Analyst Services</h4>
+<div>
+<p>To stop a running in-memory analyst service:</p>
+<pre dir="ltr">
+yarn application -kill <span class="italic">appId</span>
+</pre>
+<p>In this syntax, <span class="italic">appId</span> is the application ID displayed when the service started.</p>
+<p>To inspect the logs of a terminated in-memory analyst service:</p>
+<pre dir="ltr">
+yarn logs -applicationId <span class="italic">appId</span>
+</pre></div>
+</div>
+</div>
+<a id="BDSPA361"></a>
+<div class="props_rev_3"><a id="GUID-0844CDCD-462F-4E74-B188-F92A2C0C6481"></a>
+<h3 id="BDSPA-GUID-0844CDCD-462F-4E74-B188-F92A2C0C6481" class="sect3"><span class="enumeration_section">5.12.2</span> Connecting to In-Memory Analyst Services</h3>
+<div>
+<p>You can connect to in-memory analyst services in YARN the same way you connect to any in-memory analyst server. For example, to connect the Shell interface with the in-memory analyst service, use a command like this one:</p>
+<pre dir="ltr">
+$PGX_HOME/bin/pgx --base_url <span class="italic">username:password@hostname:port</span>
+</pre>
+<p>In this syntax, <span class="italic">username</span> and <span class="italic">password</span> match those specified in the YARN configuration.</p>
+</div>
+</div>
+<a id="BDSPA362"></a>
+<div class="props_rev_3"><a id="GUID-112F75FC-7E60-4780-B4D8-5053BE1CC01C"></a>
+<h3 id="BDSPA-GUID-112F75FC-7E60-4780-B4D8-5053BE1CC01C" class="sect3"><span class="enumeration_section">5.12.3</span> Monitoring In-Memory Analyst Services</h3>
+<div>
+<p>To monitor in-memory analyst services, click the corresponding YARN application in the Resource Manager Web UI. By default, the Web UI is located at</p>
+<p><code>http://</code><span class="italic"><code>resource-manager-hostname</code></span><code>:8088/cluster</code></p>
+</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment324">
+<tr>
+<td class="cellalignment331">
+<table class="cellalignment329">
+<tr>
+<td class="cellalignment328"><a href="using-pgs-bigdata.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment328"><a href="using-multimedia-analytics.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2015, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment333">
+<table class="cellalignment327">
+<tr>
+<td class="cellalignment328"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment328"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment328"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment328"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment328"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

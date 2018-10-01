@@ -1,0 +1,111 @@
+.BreadCrumbs
+{
+  font-size: 12px;
+  color: rgb(100, 100, 100);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.contentpage-doctitle
+{
+  color:  rgb(0, 0, 0);
+  font-family: "Univers LT Std", Univers, Arial, Helvetica, sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
+  text-align: left;
+}
+
+.headerPane {
+  height: 70px;
+	margin-left: 0px;
+	margin-right: 10px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    margin-bottom: 20px;
+}
+
+img {border: none;}
+
+
+div.linkPane {display: none }
+div.topicPane {display: none}
+div.feedbackCtrlArea { display: none }
+div.pageCtrlArea {display: none}
+div.searchPane {display: none !important }
+div.langPane {display: none }
+div.wrapper { display: none }
+
+p.breadcrumb {display: none}
+
+.closeprintview
+{
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgb(127, 127, 127);
+  float: right;
+}
+
+a:visited{color: rgb(0, 0, 0)}
+a{color: rgb(0, 0, 0)}
+a{text-decoration:none}
+
+.oracle_logo {
+	width: 140px;
+	height: 70px;
+	float: left;
+	background: url(../graphics/smallOracleLogo.gif) no-repeat;
+	background-position: 8px center;
+	margin: 0px;
+}
+
+.doc_title {
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 70px;
+  margin-left: 30px;
+}
+
+.invisible { 
+  color: #ffffff;
+}
+
+.ContentPane th {
+	border-top: 2px solid #444444;
+	border-bottom: 1px solid #444444;
+}
+
+
+
+.ContentPane td {
+	border-bottom: 1px solid #444444;
+	border-spacing: 3px;
+}
+
+.wrapper {
+   display: none;
+}
+
+
+.accessibility-top:focus {
+	display: block;
+    height: auto;
+    width: auto;
+    left:0;
+    top:0;
+    position: absolute;
+    z-index:500;
+
+}
+.accessibility-top {
+    height: 1px;
+    width: 1px;
+    left:0;
+    top:0;
+    overflow: hidden;
+    position: absolute;    
+}

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Manual Steps for Using Copy to Hadoop for Staged Copies</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Not Big Data SQL Cloud Service Topic This topic does not apply to Oracle Big Data SQL Cloud Service." />
+<meta name="keywords" content="external tables, about, access drivers" />
+<meta name="dcterms.created" content="2018-05-01T12:27:20Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User&rsquo;s Guide" />
+<meta name="dcterms.identifier" content="E77162-12" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds31/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="appendixes.htm" title="Previous" type="text/html" />
+<link rel="Next" href="using_copy_to_hadoop_direct_copy.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77162-12.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-E25F810B-5D75-4FC4-9C5E-9E7B8B5DDAA3"></a> <span id="PAGE" style="display:none;">9/13</span> <!-- End Header -->
+<h1 id="BDSUG-GUID-E25F810B-5D75-4FC4-9C5E-9E7B8B5DDAA3" class="sect1"><span class="enumeration_chapter">A</span> Manual Steps for Using Copy to Hadoop for Staged Copies</h1>
+<div>
+<p><span><img width="34" height="32" src="img/GUID-C72DC198-E369-4550-B147-149B67FDFDDB-default.png" alt="Not Big Data SQL Cloud Service Topic" title="Not Big Data SQL Cloud Service Topic" /> This topic does not apply to Oracle Big Data SQL Cloud Service.</span></p>
+<p>To manually copy data from Oracle Database to Hadoop using Copy to Hadoop, take the following steps:</p>
+<ol>
+<li>
+<p>On the Oracle Database server, connect to Oracle Database and generate Data Pump format files containing the table data and metadata.</p>
+<p>See "<a href="generate_data_pump_file.htm#GUID-9A6D9F3F-BF74-4CD0-B237-5EAE85159267">Generating the Data Pump Files</a>".</p>
+</li>
+<li>
+<p>Copy the files to HDFS on the Hadoop cluster.</p>
+<p>See "<a href="generate_data_pump_file.htm#GUID-F4F247BE-6081-469F-84EC-8DA5A5EDB539">Copying the Files to HDFS</a>".</p>
+</li>
+<li>
+<p>Connect to Apache Hive and create an external table from the files.</p>
+<p>See "<a href="generate_data_pump_file.htm#GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA">Creating a Hive Table</a>".</p>
+</li>
+<li>
+<p>Query this Hive table the same as you would any other Hive table.</p>
+</li>
+</ol>
+</div>
+<a id="BIGUG76743"></a>
+<div class="props_rev_3"><a id="GUID-9A6D9F3F-BF74-4CD0-B237-5EAE85159267"></a>
+<h2 id="BDSUG-GUID-9A6D9F3F-BF74-4CD0-B237-5EAE85159267" class="sect2"><span class="enumeration_section">A.1</span> Generating the Data Pump Files</h2>
+<div>
+<p>The SQL <code class="codeph">CREATE TABLE</code> statement has a clause specifically for creating external tables, in which you specify the <code class="codeph">ORACLE_DATAPUMP</code> access driver. The information that you provide in this clause enables the access driver to generate a Data Pump format file that contains the data and metadata from the Oracle database table.</p>
+<p>This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="generate_data_pump_file.htm#GUID-4841DD91-1A90-4992-93C0-F0139270709F">About Data Pump Format Files</a></p>
+</li>
+<li>
+<p><a href="generate_data_pump_file.htm#GUID-619CF941-8D7D-4B5C-A396-E4BED5DC62A9">Identifying the Target Directory</a></p>
+</li>
+<li>
+<p><a href="generate_data_pump_file.htm#GUID-D0462F01-F726-4A1B-876B-C530C0007426">About the CREATE TABLE Syntax</a></p>
+</li>
+<li>
+<p><a href="generate_data_pump_file.htm#GUID-F4F247BE-6081-469F-84EC-8DA5A5EDB539">Copying the Files to HDFS</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76744"></a>
+<div class="props_rev_3"><a id="GUID-4841DD91-1A90-4992-93C0-F0139270709F"></a>
+<h3 id="BDSUG-GUID-4841DD91-1A90-4992-93C0-F0139270709F" class="sect3"><span class="enumeration_section">A.1.1</span> About Data Pump Format Files</h3>
+<div>
+<p>Data Pump files are typically used to move data and metadata from one database to another. Copy to Hadoop uses this file format to copy data from an Oracle database to HDFS.</p>
+<p>To generate Data Pump format files, you create an external table from an existing Oracle table. An <span class="bold">external table</span> in Oracle Database is an object that identifies and describes the location of data outside of a database. External tables use <span class="bold">access drivers</span> to parse and format the data. For Copy to Hadoop, you use the <code class="codeph">ORACLE_DATAPUMP</code> access driver. It copies the data and metadata from internal Oracle tables and populates the Data Pump format files of the external table.</p>
+</div>
+</div>
+<a id="BIGUG76746"></a>
+<div class="props_rev_3"><a id="GUID-619CF941-8D7D-4B5C-A396-E4BED5DC62A9"></a>
+<h3 id="BDSUG-GUID-619CF941-8D7D-4B5C-A396-E4BED5DC62A9" class="sect3"><span class="enumeration_section">A.1.2</span> Identifying the Target Directory</h3>
+<div>
+<div class="section">
+<p>You must have read and write access to a database directory in Oracle Database. Only Oracle Database users with the <code class="codeph">CREATE ANY DIRECTORY</code> system privilege can create directories.</p>
+<p>This example creates a database directory named <code class="codeph">EXPORTDIR</code> that points to the <code class="codeph">/exportdir</code> directory on the Oracle Database server (Oracle Exadata Database Machine or other):</p>
+<pre dir="ltr">
+SQL&gt; CREATE DIRECTORY exportdir AS '/exportdir';
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76747"></a>
+<div class="props_rev_3"><a id="GUID-D0462F01-F726-4A1B-876B-C530C0007426"></a>
+<h3 id="BDSUG-GUID-D0462F01-F726-4A1B-876B-C530C0007426" class="sect3"><span class="enumeration_section">A.1.3</span> About the CREATE TABLE Syntax</h3>
+<div>
+<div class="section">
+<p><a id="d20417e183" class="indexterm-anchor"></a>The following is the basic syntax of the <code class="codeph">CREATE TABLE</code> statement for Data Pump format files:</p>
+<pre dir="ltr">
+CREATE TABLE <span class="italic">table_name</span>
+   ORGANIZATION EXTERNAL (
+     TYPE oracle_datapump
+     DEFAULT DIRECTORY <span class="italic">database_directory</span>
+     LOCATION ('<span class="italic">filename1</span>.dmp','<span class="italic">filename2</span>.dmp'...)
+     ) PARALLEL <span class="italic">n</span>
+   AS SELECT * FROM <span class="italic">tablename</span>;
+</pre>
+<dl>
+<dt class="dlterm"><a id="GUID-D0462F01-F726-4A1B-876B-C530C0007426__GUID-8A1D9563-22DB-4998-B3B4-E9D3A613C004"><!-- --></a>DEFAULT DIRECTORY</dt>
+<dd>
+<p>Identifies the database directory that you created for this purpose. See <span class="q">"<a href="generate_data_pump_file.htm#GUID-619CF941-8D7D-4B5C-A396-E4BED5DC62A9">Identifying the Target Directory</a>"</span>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D0462F01-F726-4A1B-876B-C530C0007426__GUID-7066379F-0821-4FB1-B944-B92FD99FDB7B"><!-- --></a>LOCATION</dt>
+<dd>
+<p>Lists the names of the Data Pump files to be created. The number of names should match the degree of parallelism (DOP) specified by the <code class="codeph">PARALLEL</code> clause. Otherwise, the DOP drops to the number of files.</p>
+<p>The number of files and the degree of parallelism affect the performance of Oracle Database when generating the Data Pump format files. They do not affect querying performance in Hive.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D0462F01-F726-4A1B-876B-C530C0007426__GUID-07D4F886-B810-45E9-BB8E-0D5FEAFCA0F0"><!-- --></a>PARALLEL</dt>
+<dd>
+<p>Sets the degree of parallelism (DOP). Use the maximum number that your Oracle DBA permits you to use. By default the DOP is 1, which is serial processing. Larger numbers enable parallel processing.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-D0462F01-F726-4A1B-876B-C530C0007426__GUID-A6AF2EF2-94D1-4B70-9E03-51CE60B2FA27"><!-- --></a>AS SELECT</dt>
+<dd>
+<p>Use the full SQL <code class="codeph">SELECT</code> syntax for this clause. It is not restricted. The <span class="italic">tablename</span> identifies the Oracle table to be copied to HDFS.</p>
+</dd>
+</dl>
+<div class="infoboxnotealso" id="GUID-D0462F01-F726-4A1B-876B-C530C0007426__GUID-A3455B04-A322-4950-9ACE-F199CF7070DD">
+<p class="notep1">See Also:</p>
+<p>For descriptions of these parameters:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="http://docs.oracle.com/database/121/SQLRF/toc.htm" target="_blank"><span class="italic">Oracle Database SQL Language Reference</span></a></p>
+</li>
+<li>
+<p><a href="http://docs.oracle.com/database/121/SUTIL/toc.htm" target="_blank"><span class="italic">Oracle Database Utilities</span></a></p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG76748"></a>
+<div class="props_rev_3"><a id="GUID-F4F247BE-6081-469F-84EC-8DA5A5EDB539"></a>
+<h2 id="BDSUG-GUID-F4F247BE-6081-469F-84EC-8DA5A5EDB539" class="sect2"><span class="enumeration_section">A.2</span> Copying the Files to HDFS</h2>
+<div>
+<div class="section">
+<p>The Oracle Big Data SQL installation installs Hadoop client files on the Oracle Datatabase server (Oracle Exadata Database Machine or other). The Hadoop client installation enables you to use Hadoop commands to copy the Data Pump files to HDFS. You must have write privileges on the HDFS directory.</p>
+<p>To copy the <code class="codeph">dmp</code> files into HDFS, use the <code class="codeph">hadoop fs -put</code> command. This example copies the files into the HDFS <code class="codeph">customers</code> directory owned by the <code class="codeph">oracle</code> user:</p>
+<pre dir="ltr">
+$ hadoop fs -put customers*.dmp /user/oracle/customers
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76749"></a>
+<div class="props_rev_3"><a id="GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA"></a>
+<h2 id="BDSUG-GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA" class="sect2"><span class="enumeration_section">A.3</span> Creating a Hive Table</h2>
+<div>
+<p>To provide access to the data in the Data Pump files, you create a Hive external table over the Data Pump files. Copy to Hadoop provides SerDes that enable Hive to read the files. These SerDes are read only, so you cannot use them to write to the files.</p>
+<div class="infoboxnotealso" id="GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA__GUID-C12C7AFC-CEC0-4A0F-B7FF-A8569F956982">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Apache Hive Language Manual DDL</span> at</p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/TruncateTable" target="_blank"><code class="codeph">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/TruncateTable</code></a></p>
+</div>
+</div>
+<a id="BIGUG76750"></a>
+<div class="props_rev_3"><a id="GUID-EE8E769D-7847-4487-828C-D8848EEE1ED4"></a>
+<h3 id="BDSUG-GUID-EE8E769D-7847-4487-828C-D8848EEE1ED4" class="sect3"><span class="enumeration_section">A.3.1</span> About Hive External Tables</h3>
+<div>
+<p>For external tables, Hive loads the table metadata into its metastore. The data remains in its original location, which you identify in the <code class="codeph">LOCATION</code> clause. If you drop an external table using a HiveQL <code class="codeph">DROP TABLE</code> statement, then only the metadata is discarded, while the external data remains unchanged. In this respect, Hive handles external tables in fundamentally the same way as Oracle Database.</p>
+<p>External tables support data sources that are shared by multiple programs. In this case, you use Oracle Database to update the data and then generate a new file. You can replace the old HDFS files with the updated files, while leaving the Hive metadata intact.</p>
+<p>The following is the basic syntax of a Hive <code class="codeph">CREATE TABLE</code> statement for creating a Hive external table for use with a Data Pump format file:</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE <span class="italic">tablename</span> 
+ROW FORMAT
+   SERDE 'oracle.hadoop.hive.datapump.DPSerDe'
+STORED AS
+   INPUTFORMAT  'oracle.hadoop.hive.datapump.DPInputFormat'
+   OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION '<span class="italic">hdfs_directory</span>'
+</pre></div>
+</div>
+</div>
+<a id="BIGUG76755"></a>
+<div class="props_rev_3"><a id="GUID-BCAC514F-33AA-40EB-A4D3-C1BE71EDFBA6"></a>
+<h2 id="BDSUG-GUID-BCAC514F-33AA-40EB-A4D3-C1BE71EDFBA6" class="sect2"><span class="enumeration_section">A.4</span> Example Using the Sample Schemas</h2>
+<div>
+<p>This example shows all steps in the process of creating a Hive table from an Oracle table using Copy to Hadoop.</p>
+</div>
+<a id="BIGUG76756"></a>
+<div class="props_rev_3"><a id="GUID-4103DE0C-3F36-4A92-8245-B3D3B797D24B"></a>
+<h3 id="BDSUG-GUID-4103DE0C-3F36-4A92-8245-B3D3B797D24B" class="sect3"><span class="enumeration_section">A.4.1</span> About the Sample Data</h3>
+<div>
+<p>The Oracle tables are from the Sales History (SH) sample schema. The <code class="codeph">CUSTOMERS</code> table provides extensive information about individual customers, including names, addresses, telephone numbers, birth dates, and credit limits. The <code class="codeph">COUNTRIES</code> table provides a list of countries, and identifies regions and subregions.</p>
+<p>This query shows a small selection of data in the <code class="codeph">CUSTOMERS</code> table:</p>
+<pre dir="ltr">
+SELECT cust_first_name first_name,
+   cust_last_name last_name,
+   cust_gender gender, 
+   cust_year_of_birth birth
+FROM customers 
+ORDER BY cust_city, last_name 
+FETCH FIRST 10 ROWS ONLY;
+</pre>
+<p>The query returns the following rows:</p>
+<pre dir="ltr">
+FIRST_NAME      LAST_NAME            GENDER      BIRTH
+--------------- -------------------- ------ ----------
+Lise            Abbey                F            1963
+Lotus           Alden                M            1958
+Emmanuel        Aubrey               M            1933
+Phil            Ball                 M            1956
+Valentina       Bardwell             F            1965
+Lolita          Barkley              F            1966
+Heloise         Barnes               M            1980
+Royden          Barrett              M            1937
+Gilbert         Braun                M            1984
+Portia          Capp                 F            1948
+</pre>
+<p>To reproduce this example, install the sample schemas in Oracle Database and connect as the <code class="codeph">SH</code> user.</p>
+<div class="infoboxnotealso" id="GUID-4103DE0C-3F36-4A92-8245-B3D3B797D24B__GUID-D24CF326-F835-413A-8F5F-CE779264878D">
+<p class="notep1">See Also:</p>
+<p><a class="olink COMSC-GUID-8142F875-DB28-454B-81DB-4DD7667EAD5E" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E77143-01&amp;id=COMSC-GUID-8142F875-DB28-454B-81DB-4DD7667EAD5E"><span class="italic">Oracle Database Sample Schemas</span></a> for descriptions of the tables and installation instructions for the schemas.</p>
+</div>
+</div>
+</div>
+<a id="BIGUG76757"></a>
+<div class="props_rev_3"><a id="GUID-255BF7DE-0F5B-4F16-9C49-CC3F6B08634D"></a>
+<h3 id="BDSUG-GUID-255BF7DE-0F5B-4F16-9C49-CC3F6B08634D" class="sect3"><span class="enumeration_section">A.4.2</span> Creating the EXPDIR Database Directory</h3>
+<div>
+<div class="section">
+<p>These SQL statements create a local database directory named <code class="codeph">EXPDIR</code> and grant access to the <code class="codeph">SH</code> user:</p>
+<pre dir="ltr">
+SQL&gt; <span class="bold">CREATE DIRECTORY expdir AS '/expdir';</span>
+Directory created.
+SQL&gt; <span class="bold">GRANT READ, WRITE ON DIRECTORY expdir TO SH;</span>
+Grant succeeded.
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76758"></a>
+<div class="props_rev_3"><a id="GUID-D9EB06FF-24D6-446E-8505-E0AB8A5B8A59"></a>
+<h3 id="BDSUG-GUID-D9EB06FF-24D6-446E-8505-E0AB8A5B8A59" class="sect3"><span class="enumeration_section">A.4.3</span> Creating Data Pump Format Files for Customer Data</h3>
+<div>
+<div class="section">
+<p>The following examples show how to create the Data Pump files and check their contents.</p>
+<p>Copy to Hadoop supports only the syntax shown in the examples. Data pump files created with the Export utility or Oracle Data Pump are not compatible.</p>
+</div>
+<!-- class="section" --></div>
+<a id="BIGUG76759"></a>
+<div class="props_rev_3"><a id="GUID-3CF438FB-767A-42EE-8EC0-14D091929A6E"></a>
+<h4 id="BDSUG-GUID-3CF438FB-767A-42EE-8EC0-14D091929A6E" class="sect4"><span class="enumeration_section">A.4.3.1</span> CREATE TABLE Example With a Simple SELECT Statement</h4>
+<div>
+<div class="section">
+<p>This example shows a very simple SQL command for creating a Data Pump format file from the <code class="codeph">CUSTOMERS</code> table. It selects the entire table and generates a single output file named <code class="codeph">customers.dmp</code> in the local <code class="codeph">/expdir</code> directory.</p>
+<pre dir="ltr">
+CREATE TABLE export_customers 
+   ORGANIZATION EXTERNAL
+   (
+   TYPE oracle_datapump
+   DEFAULT DIRECTORY expdir
+   LOCATION('customers.dmp')
+   )
+AS SELECT * FROM customers;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76760"></a>
+<div class="props_rev_3"><a id="GUID-E209DF96-8E71-454E-93BC-13A9DD2A03AA"></a>
+<h4 id="BDSUG-GUID-E209DF96-8E71-454E-93BC-13A9DD2A03AA" class="sect4"><span class="enumeration_section">A.4.3.2</span> CREATE TABLE Example With a More Complex SQL SELECT Statement</h4>
+<div>
+<div class="section">
+<p>The next example shows more complexity in the syntax. It joins the <code class="codeph">CUSTOMERS</code> and <code class="codeph">COUNTRIES</code> tables on the <code class="codeph">COUNTRY_ID</code> columns to provide the country names. It also limits the rows to customers in the Americas. The command generates two output files in parallel, named <code class="codeph">americas1.dmp</code> and <code class="codeph">americas2.dmp</code>, in the local <code class="codeph">/expdir</code> directory.</p>
+<pre dir="ltr">
+CREATE TABLE export_americas 
+   ORGANIZATION EXTERNAL
+   (
+   TYPE oracle_datapump
+   DEFAULT DIRECTORY expdir
+   LOCATION('americas1.dmp', 'americas2.dmp')
+   )
+   PARALLEL 2
+AS SELECT a.cust_first_name first_name,
+   a.cust_last_name last_name,
+   a.cust_gender gender,
+   a.cust_year_of_birth birth, 
+   a.cust_email email, 
+   a.cust_postal_code postal_code, 
+   b.country_name country
+FROM customers a,
+     countries b
+WHERE a.country_id=b.country_id AND
+      b.country_region='Americas'
+ORDER BY a.country_id, a.cust_postal_code;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG76761"></a>
+<div class="props_rev_3"><a id="GUID-5E5D1332-46E6-4412-B3B4-1E0ABF4E81B7"></a>
+<h3 id="BDSUG-GUID-5E5D1332-46E6-4412-B3B4-1E0ABF4E81B7" class="sect3"><span class="enumeration_section">A.4.4</span> Verifying the Contents of the Data Files</h3>
+<div>
+<div class="section">
+<p>You can check the content of the output data files before copying them to Hadoop. The previous <code class="codeph">CREATE TABLE</code> statement created an external table named <code class="codeph">EXPORT_AMERICAS</code>, which you can describe and query the same as any other table.</p>
+<p>The <code class="codeph">DESCRIBE</code> statement shows the selection of columns and the modified names:</p>
+<pre dir="ltr">
+SQL&gt; <span class="bold">DESCRIBE export_americas;</span>
+ Name                      Null?    Type
+ ------------------------- -------- -----------------
+ FIRST_NAME                NOT NULL VARCHAR2(20)
+ LAST_NAME                 NOT NULL VARCHAR2(40)
+ GENDER                    NOT NULL CHAR(1)
+ BIRTH                     NOT NULL NUMBER(4)
+ EMAIL                              VARCHAR2(50)
+ POSTAL_CODE               NOT NULL VARCHAR2(10)
+ COUNTRY                   NOT NULL VARCHAR2(40)
+</pre>
+<p>A <code class="codeph">SELECT</code> statement like the following shows a sample of the data:</p>
+<pre dir="ltr">
+SELECT first_name, last_name, gender, birth, country 
+   FROM export_americas 
+   WHERE birth &gt; 1985 
+   ORDER BY last_name 
+   FETCH FIRST 5 ROWS ONLY;
+</pre>
+<pre dir="ltr">
+FIRST_NAME      LAST_NAME            GENDER      BIRTH COUNTRY
+--------------- -------------------- ------ ---------- ------------------------
+Opal            Aaron                M            1990 United States of America
+KaKit           Abeles               M            1986 United States of America
+Mitchel         Alambarati           M            1987 Canada
+Jade            Anderson             M            1986 United States of America
+Roderica        Austin               M            1986 United States of America
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76762"></a>
+<div class="props_rev_3"><a id="GUID-3DD8E38F-BBA9-4492-B6F6-CA01BB9F41E0"></a>
+<h3 id="BDSUG-GUID-3DD8E38F-BBA9-4492-B6F6-CA01BB9F41E0" class="sect3"><span class="enumeration_section">A.4.5</span> Copying the Files into Hadoop</h3>
+<div>
+<div class="section">
+<p>The following commands list the files in the local <code class="codeph">expdir</code> directory, create a Hadoop subdirectory named <code class="codeph">customers</code>, and copy the files to it. The user is connected to the Hadoop cluster (Oracle Big Data Appliance or other) as the <code class="codeph">oracle</code> user.</p>
+<pre dir="ltr">
+$ <span class="bold">cd /expdir</span>
+$ <span class="bold">ls americas*.dmp</span>
+americas1.dmp  americas2.dmp
+$ <span class="bold">hadoop fs -mkdir customers</span>
+$ <span class="bold">hadoop fs -put *.dmp customers</span>
+$ <span class="bold">hadoop fs -ls customers</span>
+Found 2 items
+-rw-r--r--   1 oracle oracle     798720 2014-10-13 17:04 customers/americas1.dmp
+-rw-r--r--   1 oracle oracle     954368 2014-10-13 17:04 customers/americas2.dmp
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76763"></a>
+<div class="props_rev_3"><a id="GUID-9FB85387-4CB2-4F94-9FD8-7282EC2725AC"></a>
+<h3 id="BDSUG-GUID-9FB85387-4CB2-4F94-9FD8-7282EC2725AC" class="sect3"><span class="enumeration_section">A.4.6</span> Creating a Hive External Table</h3>
+<div>
+<div class="section">
+<p>This HiveQL statement creates an external table using the Copy to Hadoop SerDes. The <code class="codeph">LOCATION</code> clause identifies the full path to the Hadoop directory containing the Data Pump files:</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE customers
+   ROW FORMAT SERDE 'oracle.hadoop.hive.datapump.DPSerDe'
+   STORED AS
+      INPUTFORMAT  'oracle.hadoop.hive.datapump.DPInputFormat'
+      OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+   LOCATION '/user/oracle/customers';
+</pre>
+<p>The <code class="codeph">DESCRIBE</code> command shows the columns of the <code class="codeph">CUSTOMERS</code> external table.</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">DESCRIBE customers;</span>
+OK
+first_name               varchar(20)              from deserializer   
+last_name                varchar(40)              from deserializer   
+gender                   char(1)                  from deserializer   
+birth                    int                      from deserializer   
+email                    varchar(50)              from deserializer   
+postal_code              varchar(10)              from deserializer   
+country                  varchar(40)              from deserializer   
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="appendixes.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="using_copy_to_hadoop_direct_copy.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="http://docs.oracle.com/bigdata/bds31/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

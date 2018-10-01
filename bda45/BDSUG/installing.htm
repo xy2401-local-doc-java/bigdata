@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Installing Oracle Big Data SQL</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2016-06-27T14:31:41Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User's Guide" />
+<meta name="dcterms.identifier" content="E76071-02" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="concepts.htm" title="Previous" type="text/html" />
+<link rel="Next" href="bigsql.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E76071-02.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-9761D895-54EE-45DD-A44E-340ECA81C376"></a> <span id="PAGE" style="display:none;">5/11</span> <!-- End Header -->
+<h1 id="BDSUG-GUID-9761D895-54EE-45DD-A44E-340ECA81C376" class="sect1"><span class="enumeration_chapter">2</span> Installing Oracle Big Data SQL</h1>
+<div>
+<p>Oracle Big Data SQL 3.0 can connect Oracle Database to the Hadoop environment on Oracle Big Data Appliance, other systems based on CDH (Cloudera's Distribution including Apache Hadoop), HDP (Hortonworks Data Platform), and potentially other non-CDH Hadoop systems.</p>
+<p>The procedures for installing Oracle Big Data SQL in these environments differ. To install the product in your particular environment, see the appropriate section:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="installing.htm#GUID-C5C42E98-35DE-4B6C-9C71-44A279A12A1E">Installing On Oracle Big Data Appliance and the Oracle Exadata Database Machine</a></p>
+<p>See this section for installation on Oracle Big Data Appliance and Exadata servers only.</p>
+</li>
+<li>
+<p><a href="installing.htm#GUID-A645EF83-F65E-45CB-BE13-95B4520E6656" title="Oracle Big Data SQL is deployed using the services provides by the cluster management server. The installation process uses the management server API to register the service and start the deployment task. From there, the management server controls the process.">Installing Oracle Big Data SQL on Other Hadoop Systems</a></p>
+<p>See this section for installation on both CDH (excluding Oracle Big Data Appliance) and non-CDH (specifically, HDP) systems.</p>
+</li>
+</ul>
+</div>
+<div class="sect2"><a id="GUID-FD0216F4-B340-4056-ADC0-EAEA03C82EA1"></a>
+<h2 id="BDSUG-GUID-FD0216F4-B340-4056-ADC0-EAEA03C82EA1" class="sect2"><span class="enumeration_section">2.1</span> Oracle Big Data SQL Compatibility Matrix</h2>
+<div>
+<p>See the <span class="italic">Oracle Big Data SQL Master Compatibility Matrix</span> (Doc ID 2119369.1) in <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a> for up-to-date information on Big Data SQL compatibility with the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Engineered Systems.</p>
+</li>
+<li>
+<p>Other systems.</p>
+</li>
+<li>
+<p>Linux OS distributions and versions.</p>
+</li>
+<li>
+<p>Hadoop distributions.</p>
+</li>
+<li>
+<p>Oracle Database releases, including required patches.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2"><a id="GUID-C5C42E98-35DE-4B6C-9C71-44A279A12A1E"></a>
+<h2 id="BDSUG-GUID-C5C42E98-35DE-4B6C-9C71-44A279A12A1E" class="sect2"><span class="enumeration_section">2.2</span> Installing On Oracle Big Data Appliance and the Oracle Exadata Database Machine</h2>
+<div>
+<p>To use Oracle Big Data SQL on an Oracle Exadata Database Machine connected to Oracle Big Data Appliance, you must install the Oracle Big Data SQL software on both systems.</p>
+</div>
+<a id="BIGUG76719"></a>
+<div class="props_rev_3"><a id="GUID-4BADF912-EE0E-4A98-A2E6-403E689B5098"></a>
+<h3 id="BDSUG-GUID-4BADF912-EE0E-4A98-A2E6-403E689B5098" class="sect3"><span class="enumeration_section">2.2.1</span> Performing the Installation</h3>
+<div>
+<div class="section">
+<p>Follow these steps to install the Oracle Big Data SQL software on Oracle Big Data Appliance and Oracle Exadata Database Machine.</p>
+<div class="infobox-note" id="GUID-4BADF912-EE0E-4A98-A2E6-403E689B5098__GUID-531C2F62-458C-463C-8F1A-4BC42978D9FB">
+<p class="notep1">Note:</p>
+<p>This procedure is not applicable to the installation of Oracle Big Data SQL on systems other than Oracle Big Data Appliance and Oracle Exadata Database Machine.</p>
+<p>The April 2016 Proactive Bundle Patch (12.1.0.2.160419 BP) for Oracle Database must be pre-installed on each Exadata Database Machine. You may instead use the January 12.1.0.2.160119 Bundle Patch, but that older BP requires an additional one-off patch. (See the <span class="italic">Oracle Big Data SQL Master Compatibility Matrix</span>, Doc ID 2119369.1 in <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a>, for details.)</p>
+<p>This procedure assumes that you are running Oracle Big Data Appliance 4.5 or intend to upgrade to it. However, Oracle Big Data SQL 3.0.1 is also compatible with Oracle Big Data Appliance 4.3. If you are running v4.3 and and do not intend to upgrade at this time, see the <span class="italic">Oracle Big Data SQL Master Compatibility Matrix</span> for patch requirements.</p>
+</div>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>On Oracle Big Data Appliance, install or upgrade the software to Oracle Big Data Appliance Release 4.5.</span>
+<div>Oracle Big Data SQL is included in the mammoth bundle. You have two options for enabling the software:
+<ul style="list-style-type: disc;">
+<li>
+<p>When you pre-configure the mammoth installation using the Configuration Generation Utility, click the Big Data SQL checkbox on the <a class="olink BIGOG-GUID-0BCC9610-205F-4A9B-9C39-85404E5E4629" target="_blank" href="../BIGOG/configurator.htm#BIGOG-GUID-0BCC9610-205F-4A9B-9C39-85404E5E4629">Cluster Page</a>. This will enable the software during the Oracle Big Data Appliance installation.</p>
+</li>
+<li>
+<div class="p">At any time after the installation, use the bdacli utility:
+<pre dir="ltr">
+$ bdacli enable big_data_sql
+</pre></div>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-4BADF912-EE0E-4A98-A2E6-403E689B5098__GUID-DE53D062-8967-4116-B778-50F59988E45C">
+<p class="notep1">Tip:</p>
+If you are doing an upgrade to Oracle Big Data Appliance v4.5.0 and an earlier version of Oracle Big Data SQL had previously been enabled, that setting is inherited and Oracle Big Data SQL 3.0.1 is enabled automatically in the upgrade. In that case, there is no need to re-enable the software. When the upgrade is done, you can skip directly to the next step and rerun the post-installation script on each database node.</div>
+</div>
+</li>
+<li class="stepexpand"><span>On each Oracle Exadata Database Machine, run the post-installation script.</span>
+<div>
+<p>See <span class="q">"<a href="installing.htm#GUID-82C6C34A-D7F7-4E90-9457-8D01CC5DB657">Running the Post-Installation Script for Oracle Big Data SQL</a>"</span>.</p>
+<p>You must run the post-installation script on every node of the Exadata database cluster. This is true in all cases, for both a new installation as well as for an upgrade where the post-installation script had previously been run on all database nodes.</p>
+</div>
+</li>
+</ol>
+<div class="section">
+<p>You can use Cloudera Manager to verify that Oracle Big Data SQL is up and running.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>When you are done, if the cluster is secured by Kerberos then there are additional steps you must perform on both the cluster nodes and on the Oracle Exadata Database Machine. See <a href="installing.htm#GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9">Enabling Oracle Big Data SQL Access to a Kerberized Cluster</a>.</p>
+<p>In the case of an Oracle Big Data Appliance upgrade, the customer is responsible for upgrading the Oracle Database to a supported level before re-running the post-installation script.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76720"></a>
+<div class="props_rev_3"><a id="GUID-82C6C34A-D7F7-4E90-9457-8D01CC5DB657"></a>
+<h3 id="BDSUG-GUID-82C6C34A-D7F7-4E90-9457-8D01CC5DB657" class="sect3"><span class="enumeration_section">2.2.2</span> Running the Post-Installation Script for Oracle Big Data SQL</h3>
+<div>
+<div class="section">
+<p>When you run the <code>bds-exa-install</code> post-installation script, you are configuring the database to &ldquo;talk&rdquo; to a Hadoop cluster - i.e. registering that cluster with the selected database. The first cluster registered with the database becomes the default/primary cluster for the database. If you want the database to connect to additional clusters, call <code>bds-exa-install</code> again but use the <code>--install-as-secondary</code> option.</p>
+<p>If you uninstall the primary cluster&rsquo;s registration by running <code>bds-exa-install --uninstall-as-primary</code>, key configuration information is removed. Therefore you must rerun <code>bds-exa-install</code> to reregister any clusters that should remain in communication with the database. One cluster should be reregistered as the primary, any others as secondaries.</p>
+<div class="infobox-note" id="GUID-82C6C34A-D7F7-4E90-9457-8D01CC5DB657__GUID-1041C1AD-B95E-46AA-BA98-85D39799A9E1">
+<p class="notep1">Important</p>
+Run <code>bds-exa-install.sh</code> on every node of the Exadata cluster. If this is not done, you will see RPC connection errors when the BDS service is started.</div>
+<p>To run the Oracle Big Data SQL post-installation script:</p>
+<ol>
+<li>
+<p>Copy the <code>bds-exa-install.sh</code> installation script from the Oracle Big Data Appliance to a temporary directory on the Oracle Exadata Database machine. (Find the script on the node where Mammoth is installed, typically the first node in the cluster.) For example:</p>
+<pre dir="ltr">
+# curl -O http://bda1node07/bda/bds-exa-install.sh
+</pre></li>
+<li>
+<p>Verify the name of the Oracle installation owner and set the executable bit for this user. Typically, the <code>oracle</code> user owns the installation. For example:</p>
+<pre dir="ltr">
+$ ls -l bds-exa-install.sh
+$ chown oracle:oinstall bds-exa-install.sh
+$ chmod +x bds-exa-install.sh
+</pre></li>
+<li>
+<p>Set the following environment variables:</p>
+<pre dir="ltr">
+$ORACLE_HOME to &lt;database home&gt;
+$ORACLE_SID to &lt;correct db SID&gt;
+$GI_HOME to &lt;correct grid home&gt;
+</pre>
+<div class="infobox-note" id="GUID-82C6C34A-D7F7-4E90-9457-8D01CC5DB657__GUID-ED74E52F-864D-4E9E-A27A-91B09CA42E13">
+<p class="notep1">Note:</p>
+<p>You can set the grid home with the install script as mentioned in step 5 d instead of setting the $GI_HOME as mentioned in this step.</p>
+</div>
+</li>
+<li>
+<p>Check that <code>TNS_ADMIN</code> is pointing to the directory where the right <code>listener.ora</code> is running. If the listener is in the default <code>TNS_ADMIN</code> location, <code>$ORACLE HOME/network/admin</code>, then there is no need to define the <code>TNS_ADMIN</code>. But if the listener is in a non-default location, TNS_ADMIN must correctly point to it, using the command:</p>
+<pre dir="ltr">
+export TNS_ADMIN=&lt;path to listener.ora&gt;
+</pre></li>
+<li>
+<p>Perform this step only if the ORACLE_SID is in uppercase, else you can proceed to the next step. This is because the install script derives the CRS database resource from ORACLE_SID, only if it is in lowercase. Perform the following sequence of steps to manually pass the SID to the script, if it is in uppercase:</p>
+<ol>
+<li>
+<p>Run the following command to list all the resources.</p>
+<pre dir="ltr">
+$ crsctl stat res -t
+</pre></li>
+<li>
+<p>From the output note down the <code>ora.&lt;dbresource&gt;.db</code> resource name.</p>
+</li>
+<li>
+<p>Run the following command to verify whether the correct <code>ora.&lt;dbresource&gt;.db</code> resource name is returned or not.</p>
+<pre dir="ltr">
+$ ./crsctl stat res ora.&lt;dbresource&gt;.db
+</pre>
+<p>The output displays the resource names as follows:</p>
+<pre dir="ltr">
+NAME=ora.&lt;dbresource&gt;.db
+TYPE=ora.database.type
+TARGET=ONLINE , ONLINE
+STATE=ONLINE on &lt;name01&gt;, ONLINE on &lt;name02&gt;
+</pre></li>
+<li>
+<p>Specify the <code>--db-name=&lt;dbresource&gt;</code> as additional argument to the install script as follows:</p>
+<pre dir="ltr">
+./bds-exa-install.sh --db-name=&lt;dbresource&gt;
+</pre>
+<p>Additionally, you can set the grid home instead of setting the $GI_HOME as mentioned in step 3, along with the above command as follows:</p>
+<pre dir="ltr">
+./bds-exa-install.sh --db-name=&lt;dbresource&gt; --grid-home=&lt;grid home&gt;
+</pre>
+<div class="infobox-note" id="GUID-82C6C34A-D7F7-4E90-9457-8D01CC5DB657__GUID-795FAA28-B302-4710-9E4A-2E5B2F77E5A2">
+<p class="notep1">Note:</p>
+<p>You can skip the next step, if you performed this step.</p>
+</div>
+</li>
+</ol>
+</li>
+<li id="GUID-82C6C34A-D7F7-4E90-9457-8D01CC5DB657__BJECBHGH">
+<p>Run the script as any user who has <code>dba</code> privileges (who can connect to <code>sys</code> as <code>sysdba</code>).</p>
+<p>If you have not run the post-installation script on this node before, then there are some first-time operations that need to be performed as <code>root</code> in a separate run of the script. In that case, when you run <code>bds-exa-install.sh</code>, the script will pause and prompt you to run it as <code>root</code> in another shell. When the execution as <code>root</code> is done, return to the pending script and press <span class="bold">Enter</span> to continue.</p>
+<p>This two-phase procedure is not necessary if you have already run the post-installation script on this node previously. In that case, use <code>--no-root-script</code> to bypass the prompt, as in:</p>
+<pre dir="ltr">
+./bds-exa-install.sh --no-root-script
+</pre>
+<p>If this is the first time that the post-installation has been run on this node, then instead, enter <code>bds-exa-install.sh</code> with no parameters. The script will pause and prompt to run it as <code>root</code> in another shell, as follows:</p>
+<pre dir="ltr">
+$ ./bda-exa-install.sh:
+bds-exa-install: root shell script : /u01/app/oracle/product/12.1.0.2/dbhome_1/install/bds-root-&lt;cluster-name&gt;-setup.sh
+please run as root:
+/u01/app/oracle/product/12.1.0.2/dbhome_1/install/bds-root-&lt;rack-name&gt;-clu-setup.sh
+</pre>
+<p>A sample output is shown here:</p>
+<pre dir="ltr">
+bds-exa-install: platform is Linux
+bds-exa-install: setup script started at   : Sun Feb 14 20:06:17 PST 2016
+bds-exa-install: bds version               : bds-3.0-1.el6.x86_64
+bds-exa-install: bda cluster name          : mycluster1
+bds-exa-install: bda web server            : mycluster1bda16.us.oracle.com
+bds-exa-install: cloudera manager url      : mycluster1bda18.us.oracle.com:7180
+bds-exa-install: hive version              : hive-1.1.0-cdh5.5.1
+bds-exa-install: hadoop version            : hadoop-2.6.0-cdh5.5.1
+bds-exa-install: bds install date          : 02/14/2016 12:00 PST
+bds-exa-install: bd_cell version           : bd_cell-12.1.2.0.100_LINUX.X64_160131-1.x86_64
+bds-exa-install: action                    : setup
+bds-exa-install: crs                       : true
+bds-exa-install: db resource               : orcl
+bds-exa-install: database type             : SINGLE
+bds-exa-install: cardinality               : 1
+bds-exa-install: root shell script         : /u03/app/oracle/product/12.1.0/dbhome_1/install/bds-root-mycluster1-setup.sh
+please run as root:
+
+/u03/app/oracle/product/12.1.0/dbhome_1/install/bds-root-mycluster1-setup.sh
+
+waiting for root script to complete, press &lt;enter&gt; to continue checking.. q&lt;enter&gt; to quit
+bds-exa-install: root script seem to have succeeded, continuing with setup bds
+bds-exa-install: working directory         : /u03/app/oracle/product/12.1.0/dbhome_1/install
+bds-exa-install: downloading JDK
+bds-exa-install: working directory         : /u03/app/oracle/product/12.1.0/dbhome_1/install
+bds-exa-install: installing JDK tarball
+bds-exa-install: working directory         : /u03/app/oracle/product/12.1.0/dbhome_1/bigdatasql/jdk1.8.0_66/jre/lib/security
+bds-exa-install: Copying JCE policy jars
+/bin/mkdir: cannot create directory `bigdata_config/mycluster1': File exists
+bds-exa-install: working directory         : /u03/app/oracle/product/12.1.0/dbhome_1/bigdatasql/jlib
+bds-exa-install: removing old oracle bds jars if any
+bds-exa-install: downloading oracle bds jars
+bds-exa-install: installing oracle bds jars
+bds-exa-install: working directory         : /u03/app/oracle/product/12.1.0/dbhome_1/bigdatasql
+bds-exa-install: downloading               : hadoop-2.6.0-cdh5.5.1.tar.gz
+bds-exa-install: downloading               : hive-1.1.0-cdh5.5.1.tar.gz
+bds-exa-install: unpacking                 : hadoop-2.6.0-cdh5.5.1.tar.gz
+bds-exa-install: unpacking                 : hive-1.1.0-cdh5.5.1.tar.gz
+bds-exa-install: working directory         : /u03/app/oracle/product/12.1.0/dbhome_1/bigdatasql/hadoop-2.6.0-cdh5.5.1/lib
+bds-exa-install: downloading               : cdh-ol6-native.tar.gz
+bds-exa-install: creating /u03/app/oracle/product/12.1.0/dbhome_1/bigdatasql/hadoop_mycluster1.env for hdfs/mapred client access 
+bds-exa-install: working directory         : /u03/app/oracle/product/12.1.0/dbhome_1/bigdatasql
+bds-exa-install: creating bds property files
+bds-exa-install: working directory         : /u03/app/oracle/product/12.1.0/dbhome_1/bigdatasql/bigdata_config
+bds-exa-install: created bigdata.properties
+bds-exa-install: created  bigdata-log4j.properties
+bds-exa-install: creating default and cluster directories needed by big data external tables
+bds-exa-install: note this will grant default and cluster directories to public!
+catcon: ALL catcon-related output will be written to /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_catcon_29579.lst
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon*.log files for output generated by scripts
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_*.lst files for spool files, if any
+catcon.pl: completed successfully
+bds-exa-install: granted default and cluster directories to public!
+bds-exa-install: mta set to use listener end point : EXTPROC1521
+bds-exa-install: mta will be setup
+bds-exa-install: creating /u03/app/oracle/product/12.1.0/dbhome_1/hs/admin/initbds_orcl_mycluster1.ora
+bds-exa-install: mta setting agent home as : /u03/app/oracle/product/12.1.0/dbhome_1/hs/admin
+bds-exa-install: mta shutdown              : bds_orcl_mycluster1
+bds-exa-install: registering crs resource  : bds_orcl_mycluster1
+bds-exa-install: using dependency db resource of orcl
+bds-exa-install: starting crs resource     : bds_orcl_mycluster1
+CRS-2672: Attempting to start 'bds_orcl_mycluster1' on 'mycluster1bda09'
+CRS-2676: Start of 'bds_orcl_mycluster1' on 'mycluster1bda09' succeeded
+NAME=bds_orcl_mycluster1
+TYPE=generic_application
+TARGET=ONLINE
+STATE=ONLINE on mycluster1bda09
+
+bds-exa-install: patching view LOADER_DIR_OBJS
+catcon: ALL catcon-related output will be written to /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_catcon_30123.lst
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon*.log files for output generated by scripts
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_*.lst files for spool files, if any
+catcon.pl: completed successfully
+bds-exa-install: creating mta dblinks
+bds-exa-install: cluster name              : mycluster1
+bds-exa-install: extproc sid               : bds_orcl_mycluster1
+bds-exa-install: cdb                       : true
+catcon: ALL catcon-related output will be written to /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_dbcluster_dropdblink_catcon_30153.lst
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_dbcluster_dropdblink*.log files for output generated by scripts
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_dbcluster_dropdblink_*.lst files for spool files, if any
+catcon.pl: completed successfully
+catcon: ALL catcon-related output will be written to /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_default_dropdblink_catcon_30179.lst
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_default_dropdblink*.log files for output generated by scripts
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_default_dropdblink_*.lst files for spool files, if any
+catcon.pl: completed successfully
+catcon: ALL catcon-related output will be written to /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_dbcluster_createdblink_catcon_30205.lst
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_dbcluster_createdblink*.log files for output generated by scripts
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_dbcluster_createdblink_*.lst files for spool files, if any
+catcon.pl: completed successfully
+catcon: ALL catcon-related output will be written to /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_default_createdblink_catcon_30231.lst
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_default_createdblink*.log files for output generated by scripts
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_default_createdblink_*.lst files for spool files, if any
+catcon.pl: completed successfully
+catcon: ALL catcon-related output will be written to /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_catcon_30257.lst
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon*.log files for output generated by scripts
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_*.lst files for spool files, if any
+catcon.pl: completed successfully
+catcon: ALL catcon-related output will be written to /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_catcon_30283.lst
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon*.log files for output generated by scripts
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_*.lst files for spool files, if any
+catcon.pl: completed successfully
+bds-exa-install: setup script completed all steps
+</pre>
+<p>For additional details see <span class="q">"<a href="installing.htm#GUID-053B4534-356D-49BB-B128-5D021DD83A76">Running the bds-exa-install Script</a>"</span>.</p>
+<p>In the case of a multi-instance database, repeat Step 6 for each instance.</p>
+</li>
+</ol>
+<p>When the script completes, the following items including Oracle Big Data SQL are available and running on the database instance.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Big Data SQL directory and configuration with jar, and environment and properties files.</p>
+</li>
+<li>
+<p>Database dba_directories.</p>
+</li>
+<li>
+<p>Database dblinks.</p>
+</li>
+<li>
+<p>Database big data spfile parameter.</p>
+<p>For example, you can verify the dba_directories from the SQL prompt as follows:</p>
+<pre dir="ltr">
+SQL&gt; select * from dba_directories where directory_name like '%BIGDATA%';
+</pre></li>
+</ul>
+<div class="infobox-note" id="GUID-82C6C34A-D7F7-4E90-9457-8D01CC5DB657__GUID-078BC4C0-C4B3-4B56-8002-2B1DB4436E1B">
+<p class="notep1">Note:</p>
+If the Oracle Big Data SQL agent to stops, then you must restart it. See <span class="q">"<a href="installing.htm#GUID-04783D50-D49D-4374-BFE9-ADC6C9209629">Starting and Stopping the Big Data SQL Agent</a>"</span>.</div>
+</div>
+<!-- class="section" --></div>
+<a id="BIGUG76721"></a>
+<div class="props_rev_3"><a id="GUID-053B4534-356D-49BB-B128-5D021DD83A76"></a>
+<h4 id="BDSUG-GUID-053B4534-356D-49BB-B128-5D021DD83A76" class="sect4"><span class="enumeration_section">2.2.2.1</span> Running the bds-exa-install Script</h4>
+<div>
+<p>The <code>bds-exa-install</code> script generates a custom installation script that is run by the owner of the Oracle home directory. That secondary script installs all the files need by Oracle Big Data SQL into the <code>$ORACLE_HOME/bigdatasql</code> directory. For Oracle NoSQL Database support, it installs the client library (<code>kvclient.jar</code>). It also creates the database directory objects, and the database links for the multithreaded Oracle Big Data SQL agent.</p>
+</div>
+</div>
+<a id="BIGUG76722"></a>
+<div class="props_rev_3"><a id="GUID-60F683EE-3CA3-4FF0-B602-4B982CFA332A"></a>
+<h4 id="BDSUG-GUID-60F683EE-3CA3-4FF0-B602-4B982CFA332A" class="sect4"><span class="enumeration_section">2.2.2.2</span> bds-exa-install Syntax</h4>
+<div>
+<div class="section">
+<p>The following is the <code>bds-exa-install</code> syntax:</p>
+<pre dir="ltr">
+Usage: bds-exa-install oracle-sid=&lt;<span class="italic">orcl</span>&gt;
+           (
+                --version
+                --info
+                --root-script-only                
+                --no-root-script
+                --uninstall-as-primary
+                --uninstall-as-secondary
+                --install-as-secondary
+                --jdk-home=&lt;<span class="italic">dir</span>&gt;
+                --grid-home=&lt;<span class="italic">dir</span>&gt;
+           )*
+
+Options
+   --version
+      Prints the script version.
+   --info   
+      Print information such as the cluster name, CM host, Oracle Big Data Appliance HTTP server.
+  --root-script-only 
+      Only generate the root script.
+  --no-root-script
+      Do not generate the root script. This can be used for second and subsequent runs of bds-exa-install on a node.
+  --uninstall-as-primary
+      Uninstall the cluster, including hadoop client JARs. 
+      In the bds-exa-install context, to "uninstall" a cluster means to unregister the cluster with the database.         
+      Note: if any other clusters should remain registered after removing the primary, then 
+      one cluster must be reinstalled as primary and any others as secondaries. 
+  --uninstall-as-secondary
+      Attempt to uninstall the cluster as a secondary cluster. 
+  --install-as-secondary  
+      Default = false. 
+      Do not install client libraries, etc. The primary cluster will not be affected.
+      In the bds-exa-install context, to "install" a cluster means to register the 
+      cluster with the database.  
+  --jdk-home  
+      For example: /opt/oracle/bd_cell12.1.2.0.100_LINUX.X64_150912.1/jdk
+  --grid-home  
+      Oracle Grid Infrastructure home.
+      For example: "/opt/oracle/bd_cell12.1.2.0.100_LINUX.X64_150912.1/../grid"
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG77032"></a>
+<div class="props_rev_3"><a id="GUID-0C062205-CE55-4AF6-BBFF-75897FCFB574"></a>
+<h4 id="BDSUG-GUID-0C062205-CE55-4AF6-BBFF-75897FCFB574" class="sect4"><span class="enumeration_section">2.2.2.3</span> Troubleshooting Running bds-exa-install Script</h4>
+<div>
+<div class="section">
+<p>In case of problems running the install script on Exadata, perform the following steps and open an SR with Oracle Support with the details:</p>
+<ol>
+<li>
+<p>Collect the debug output by running the script in a debug mode as follows:</p>
+<pre dir="ltr">
+$ ./bds-exa-install.sh --db-name=&lt;dbresource&gt; --grid-home=&lt;grid home&gt;  --no-root-script --debug
+OR
+$ ./bds-exa-install.sh --no-root-script --debug
+</pre></li>
+<li>
+<p>Collect the Oracle Database version as follows:</p>
+<ol>
+<li>
+<p>Collect the result of <code>opatch lsinventory</code> from RDBMS-RAC Home.</p>
+</li>
+<li>
+<p>Collect the result of <code>opatch lsinventory</code> from Grid Home</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Result of the following SQL statement to confirm that the Datapatch is set up.</p>
+<pre dir="ltr">
+SQL&gt; select patch_id, patch_uid, version, bundle_series, bundle_id, action, status from dba_registry_sqlpatch;
+</pre></li>
+<li>
+<p>Collect the information from the following environment variables:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>$ORACLE_HOME</p>
+</li>
+<li>
+<p>$ORACLE_SID</p>
+</li>
+<li>
+<p>$GI_HOME</p>
+</li>
+<li>
+<p>$TNS_ADMIN</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Result of running <code>lsnrctl status</code> command.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-94192A0B-84F0-4611-91F6-30CE9902D2F7"></a>
+<h3 id="BDSUG-GUID-94192A0B-84F0-4611-91F6-30CE9902D2F7" class="sect3"><span class="enumeration_section">2.2.3</span> About Data Security with Oracle Big Data SQL</h3>
+<div>
+<p>Oracle Big Data Appliance already provides numerous security features to protect data stored in a CDH cluster on Oracle Big Data Appliance:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Kerberos authentication</span>: Requires users and client software to provide credentials before accessing the cluster.</p>
+</li>
+<li>
+<p><span class="bold">Apache Sentry authorization</span>: Provides fine-grained, role-based authorization to data and metadata.</p>
+</li>
+<li>
+<p><a id="d3222e551" class="indexterm-anchor"></a><span class="bold">HDFS Transparent Encryption</span>: Protects the data on disk and at rest. Data encryption and decryption is transparent to applications using the data.</p>
+</li>
+<li>
+<p><a id="d3222e558" class="indexterm-anchor"></a><a id="d3222e562" class="indexterm-anchor"></a><span class="bold">Oracle Audit Vault and Database Firewall monitoring</span>: The Audit Vault plug-in on Oracle Big Data Appliance collects audit and logging data from MapReduce, HDFS, and Oozie services. You can then use Audit Vault Server to monitor these services on Oracle Big Data Appliance</p>
+</li>
+</ul>
+<p><a id="d3222e570" class="indexterm-anchor"></a>Oracle Big Data SQL adds the full range of Oracle Database security features to this list. You can apply the same security policies and rules to your Hadoop data that you apply to your relational data.</p>
+</div>
+</div>
+<div class="sect3"><a id="GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9"></a>
+<h3 id="BDSUG-GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9" class="sect3"><span class="enumeration_section">2.2.4</span> Enabling Oracle Big Data SQL Access to a Kerberized Cluster</h3>
+<div>
+<p>In order to give Oracle Big Data SQL access to HDFS data on a Kerberos-enabled cluster, make each Oracle Exadata Database Machine that needs access a Kerberos client. Also run <code>kinit</code> on the <code>oracle</code> account on each cluster node and Exadata Database Machine to ensure that the account is authenticated by Kerberos. There are two situations where this procedure is required:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>When enabling Oracle Big Data SQL on a Kerberos-enabled cluster.</p>
+</li>
+<li>
+<p>When enabling Kerberos on a cluster where Oracle Big Data SQL is already installed.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9__GUID-D0B9CF91-C755-482C-9F7C-8D8E13EFE971">
+<p class="notep1">Note:</p>
+Oracle Big Data SQL queries will run on the Hadoop cluster as the owner of the Oracle Database process (i.e. the <code>oracle</code> user). Therefore, the <code>oracle</code> user needs a valid Kerberos ticket in order to access data. This ticket is required for every Oracle Database instance that is accessing the cluster. A valid ticket is also need for each Big Data SQL Server process running on the Oracle Big Data Appliance. Run <code>kinit oracle</code> to obtain the ticket.</div>
+<p>These steps enable the operating system user to authenticate with the&nbsp;<span class="bold">kinit</span>&nbsp;utility before submitting Oracle SQL Connector for HDFS jobs. The&nbsp;<span class="bold">kinit</span>&nbsp;utility typically uses a Kerberos keytab file for authentication without an interactive prompt for a password.</p>
+<ol>
+<li>
+<p>On each node of the cluster:</p>
+<ol>
+<li>
+<p>Log in as the <code>oracle</code> user.</p>
+</li>
+<li>
+<p>Run <code>kinit</code> on the oracle account.</p>
+<pre dir="ltr">
+$ kinit oracle
+</pre></li>
+<li>
+<p>Enter the Kerberos password.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Log on to the primary node and then stop and restart Oracle Big Data SQL.</p>
+<div class="p">
+<pre dir="ltr">
+$ bdacli stop big_data_sql_cluster
+$ bdacli start big_data_sql_cluster
+</pre></div>
+</li>
+<li>
+<p>On all Oracle Exadata Database Machines that need access to the cluster:</p>
+<ol>
+<li>
+<p>Copy the Kerberos configuration file <code>/etc/krb5.conf</code> from the node where Mammoth is installed to the same path on each Oracle Exadata Machine.</p>
+</li>
+<li>
+<p>Run <code>kinit</code> on the <code>oracle</code> account and enter the Kerberos password.</p>
+</li>
+<li>
+<p>Re-run the Oracle Big Data SQL post-installation script</p>
+<pre dir="ltr">
+$ ./bds-exa-install.sh
+</pre></li>
+</ol>
+</li>
+</ol>
+<div class="section">
+<p class="subhead3">Avoiding Kerberos Ticket Expiration</p>
+<p>The system should run&nbsp;<span class="bold">kinit</span>&nbsp;on a regular basis, before letting the Kerberos ticket expire, to enable Oracle SQL Connector for HDFS to authenticate transparently. Use&nbsp;<span class="bold">cron</span>&nbsp;or a similar utility to run&nbsp;<span class="bold">kinit</span>. For example, if Kerberos tickets expire every two weeks, then set up a&nbsp;<span class="bold">cron</span>&nbsp;job to renew the ticket weekly.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76709"></a>
+<div class="props_rev_3"><a id="GUID-04783D50-D49D-4374-BFE9-ADC6C9209629"></a>
+<h3 id="BDSUG-GUID-04783D50-D49D-4374-BFE9-ADC6C9209629" class="sect3"><span class="enumeration_section">2.2.5</span> Starting and Stopping the Big Data SQL Agent</h3>
+<div>
+<p>The Big Data SQL agent on the database is managed by Oracle Clusterware. The agent is registered with Oracle Clusterware during Big Data SQL installation to automatically start and stop with the database. To check the status, you can run <code>mtactl status</code> from the Oracle Grid Infrastructure home or Oracle Clusterware home:</p>
+<pre dir="ltr">
+# mtactl status bds_databasename_clustername
+</pre></div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-A645EF83-F65E-45CB-BE13-95B4520E6656"></a>
+<h2 id="BDSUG-GUID-A645EF83-F65E-45CB-BE13-95B4520E6656" class="sect2"><span class="enumeration_section">2.3</span> Installing Oracle Big Data SQL on Other Hadoop Systems</h2>
+<div>
+<p>Oracle Big Data SQL is deployed using the services provides by the cluster management server. The installation process uses the management server API to register the service and start the deployment task. From there, the management server controls the process.</p>
+<p>After installing Big Data SQL on the cluster management server, use the tools provided in the bundle to generate an installation package for the database server side.</p>
+</div>
+<div class="sect3"><a id="GUID-5CDA332E-8CB8-42CC-8922-09295E22B0E5"></a>
+<h3 id="BDSUG-GUID-5CDA332E-8CB8-42CC-8922-09295E22B0E5" class="sect3"><span class="enumeration_section">2.3.1</span> Downloading Oracle Big Data SQL</h3>
+<div>
+<div class="section">
+<p>You can download Oracle Big Data SQL from the <a href="https://edelivery.oracle.com/osdc/faces/Home.jspx?_afrLoop=529343431120485&amp;_afrWindowMode=0&amp;_adf.ctrl-state=4wf98vff_9" target="_blank">Oracle Software Delivery Cloud</a></p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>On the cluster management server, create a new directory or choose an existing one to be the installation source directory.</span></li>
+<li class="stepexpand"><span>Log in to the <a href="https://edelivery.oracle.com/osdc/faces/Home.jspx?_afrLoop=529343431120485&amp;_afrWindowMode=0&amp;_adf.ctrl-state=4wf98vff_9" target="_blank">Oracle Software Delivery Cloud</a>.</span></li>
+<li class="stepexpand"><span>Search for Oracle Big Data SQL.</span></li>
+<li class="stepexpand"><span>Select <code>Oracle Big Data SQL 3.0.1.0.0 for Linux x86-64</code>.</span></li>
+<li class="stepexpand"><span>Read and agree to the Oracle Standard Terms and Restrictions.</span></li>
+<li class="stepexpand"><span>From the list, select the zip file that is appropriate for your Hadoop system. You do not need any other packages.</span>
+<div>
+<pre dir="ltr">
+Big Data SQL (3.0.1)      
+V266870-01.zip Oracle Big Data SQL 3.0.1 installer for Hortonworks Data Platform        
+V266871-01.zip Oracle Big Data SQL 3.0.1 installer for Cloudera Enterprise         
+           
+</pre></div>
+</li>
+<li class="stepexpand"><span>Download the file and extract the contents.</span></li>
+</ol>
+<div class="section">Your product bundle should include the content listed the table below.
+<div class="tblformal" id="GUID-5CDA332E-8CB8-42CC-8922-09295E22B0E5__ORACLEBIGDATASQLPRODUCTBUNDLEINVENT-E8C4D3C5">
+<p class="titleintable">Table 2-1 Oracle Big Data SQL Product Bundle Inventory</p>
+<table class="cellalignment301" title="Oracle Big Data SQL Product Bundle Inventory" summary="Column one lists the files in each of the product bundles in the download. Column two describes each file.">
+<thead align="left">
+<tr>
+<th class="cellalignment302" id="d3222e805"><span class="bold">File</span></th>
+<th class="cellalignment302" id="d3222e808"><span class="bold">Description</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment302" id="d3222e813" headers="d3222e805"><code>setup-bds</code></td>
+<td class="cellalignment302" headers="d3222e813 d3222e808">Cluster-side installation script</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e819" headers="d3222e805"><code>bds-config.json</code></td>
+<td class="cellalignment302" headers="d3222e819 d3222e808">Configuration file.</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e825" headers="d3222e805"><code>api_env.sh</code></td>
+<td class="cellalignment302" headers="d3222e825 d3222e808">Setup REST API environment script</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e831" headers="d3222e805"><code>platform_env.sh</code></td>
+<td class="cellalignment302" headers="d3222e831 d3222e808">BDS service configuration script</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e837" headers="d3222e805"><code>BIGDATASQL-1.0.jar</code></td>
+<td class="cellalignment302" headers="d3222e837 d3222e808">CSD file (in the CDH product bundle only)</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e843" headers="d3222e805"><code>bin/json-select</code></td>
+<td class="cellalignment302" headers="d3222e843 d3222e808">JSON-select utility</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e849" headers="d3222e805"><code>db/bds-database-create-bundle.sh</code></td>
+<td class="cellalignment302" headers="d3222e849 d3222e808">Database bundle creation script</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e855" headers="d3222e805"><code>db/database-install.zip</code></td>
+<td class="cellalignment302" headers="d3222e855 d3222e808">Database side installation files</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e861" headers="d3222e805"><code>repo/BIGDATASQL-1.0.0-el6.parcel</code></td>
+<td class="cellalignment302" headers="d3222e861 d3222e808">Parcel file (in the CDH product bundle only)</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e867" headers="d3222e805"><code>repo/manifest.json</code></td>
+<td class="cellalignment302" headers="d3222e867 d3222e808">Hash key for the parcel file (in the CDH product bundle only)</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e873" headers="d3222e805"><code>BIGDATASQL-1.0.0-el6.stack</code></td>
+<td class="cellalignment302" headers="d3222e873 d3222e808">Stack file (in the HDP product bundle only)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-052CDDA6-1F03-416B-9E75-9F09EFD0DF62"></a>
+<h3 id="BDSUG-GUID-052CDDA6-1F03-416B-9E75-9F09EFD0DF62" class="sect3"><span class="enumeration_section">2.3.2</span> Prerequisites for Installing on an HDP Cluster</h3>
+<div>
+<p>The following are required in order to install Oracle Big Data SQL on the Hortonworks Hadoop Data Platform (HDP).</p>
+<div class="section">
+<p class="subhead3">Services Running</p>
+<p>The following services must be running at the time of the Big Data SQL installation</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>HDP</p>
+</li>
+<li>
+<p>Ambari</p>
+</li>
+<li>
+<p>HDFS</p>
+</li>
+<li>
+<p>YARN</p>
+</li>
+<li>
+<p>Zookeeper</p>
+</li>
+<li>
+<p>Hive</p>
+</li>
+<li>
+<p>Tez</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Packages</p>
+<p>The following packages must be pre-installed before installing Big Data SQL.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>JDK version 1.7 or later</p>
+</li>
+<li>
+<p>Python version 2.6.</p>
+<p>OpenSSL version 1.01 build 16 or later</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">System Tools</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>curl</p>
+</li>
+<li>
+<p>rpm</p>
+</li>
+<li>
+<p>scp</p>
+</li>
+<li>
+<p>tar</p>
+</li>
+<li>
+<p>unzip</p>
+</li>
+<li>
+<p>wget</p>
+</li>
+<li>
+<p>yum</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Environment Settings</p>
+<p>The following environment settings are required prior to the installation.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>ntp enabled</p>
+</li>
+<li>
+<p>iptables disabled</p>
+</li>
+<li>
+<p>Ensure that <code>/usr/java/default</code> exists and is linked to the appropriate Java version.&nbsp;To link it to the latest Java version, perform the following as <code>root</code> :</p>
+<pre dir="ltr">
+$ ln -s /usr/java/latest /usr/java/default
+</pre></li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">If Oracle Big Data SQL is Already Installed</p>
+<p>If the Ambari Web GUI shows that the Big Data SQL service is already installed, make sure that all Big Data SQL Cell components are stopped before reinstalling. (Use the <span class="bold">actions</span> button, as with any other service.)</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-342E82FD-6FF0-410A-A980-E84FE8C13CC6"></a>
+<h3 id="BDSUG-GUID-342E82FD-6FF0-410A-A980-E84FE8C13CC6" class="sect3"><span class="enumeration_section">2.3.3</span> Prerequisites for Installing on a CDH Cluster</h3>
+<div>
+<p>The following conditions must be met when installing Oracle Big Data SQL on a CDH cluster that is not part of an Oracle Big Data Appliance.</p>
+<div class="infobox-note" id="GUID-342E82FD-6FF0-410A-A980-E84FE8C13CC6__GUID-1CBFBAEE-4820-4A56-B3DD-4413F22AD0EB">
+<p class="notep1">Note:</p>
+The installation prerequisites as well as the procedure for installing Oracle Big Data SQL on the Oracle Big Data Appliance are different from process used for installations on other CDH systems. See <a href="installing.htm#GUID-C5C42E98-35DE-4B6C-9C71-44A279A12A1E">Installing On Oracle Big Data Appliance and the Oracle Exadata Database Machine</a> if you are installing on Oracle Big Data Appliance.</div>
+<div class="section">
+<p class="subhead3">Services Running</p>
+<p>The following services must be running at the time of the Oracle Big Data SQL installation</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Cloudera&rsquo;s Distribution including Apache Hadoop (CDH)</p>
+</li>
+<li>
+<p>HDFS</p>
+</li>
+<li>
+<p>YARN</p>
+</li>
+<li>
+<p>Zookeeper</p>
+</li>
+<li>
+<p>Hive</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Packages</p>
+<p>The following packages must be pre-installed before installing Oracle Big Data SQL. The Oracle clients are available for download on the <a href="http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html" target="_blank">Oracle Technology Network</a>.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>JDK version 1.7 or later</p>
+</li>
+<li>
+<p>Oracle Instant Client &ndash; 12.1.0.2 or higher, e.g. oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm</p>
+</li>
+<li>
+<p>Oracle Instant JDBC Client &ndash; 12.1.0.2 or higher, e.g. oracle-instantclient12.1-jdbc-12.1.0.2.0-</p>
+</li>
+<li>
+<p>PERL LibXML &ndash; 1.7.0 or higher, e.g. perl-XML-LibXML-1.70-5.el6.x86_64.rpm</p>
+</li>
+<li>
+<p>Apache log4j</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">System Tools</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>unzip</p>
+</li>
+<li>
+<p>finger</p>
+</li>
+<li>
+<p>wget</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Environment Settings</p>
+<p>The following environment settings are required prior to the installation.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Ensure that <code>/usr/java/default</code> exists and is linked to the appropriate Java version.&nbsp;To link it to the latest Java version, perform the following as <code>root</code> :</p>
+<pre dir="ltr">
+$ ln -s /usr/java/latest /usr/java/default
+</pre></li>
+<li>
+<p>The path to the Java binaries must exist in <code>/usr/java/latest</code>.</p>
+</li>
+<li>
+<p>The default path to Hadoop libraries must be in <code>/opt/cloudera/parcels/CDH/lib/</code>.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">If Oracle Big Data SQL is Already Installed</p>
+<p>If the Configuration Manager shows that the Big Data SQL service is already installed, make sure that all Big Data SQL Cell components are stopped before reinstalling.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9"></a>
+<h3 id="BDSUG-GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9" class="sect3"><span class="enumeration_section">2.3.4</span> Installation Overview</h3>
+<div>
+<p>The Oracle Big Data SQL installation consists of two stages.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Cluster-side installation:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Deploys binaries along the cluster.</p>
+</li>
+<li>
+<p>Configures Linux and network settings for the service on each cluster node.</p>
+</li>
+<li>
+<p>Configures the service on the management server.</p>
+</li>
+<li>
+<p>Acquires cluster information for configure database connection.</p>
+</li>
+<li>
+<p>Creates database bundle for the database side installation.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Oracle Database server-side installation:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Copies binaries into database node.</p>
+</li>
+<li>
+<p>Configures network settings for the service.</p>
+</li>
+<li>
+<p>Inserts cluster metadata into database.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3"><a id="GUID-8553EEF4-4D29-4D1A-B256-580A9021AC12"></a>
+<h3 id="BDSUG-GUID-8553EEF4-4D29-4D1A-B256-580A9021AC12" class="sect3"><span class="enumeration_section">2.3.5</span> Installing on the Hadoop Cluster Management Server</h3>
+<div>
+<p>The first step of the Oracle Big Data SQL installation is to run the installer on the Hadoop cluster management server (where Cloudera Manager runs on a CDH system or Ambari runs on an HDP system). As post-installation task on the management server, you then run the script that prepares the installation bundle for the database server.</p>
+<div class="section">There are three tasks to perform on the cluster manager server:
+<ul style="list-style-type: disc;">
+<li>
+<p>Extract the files from BIGDATASQL product bundle saved from the download (either <code>BigDataSQL-CDH-&lt;<span class="codeinlineitalic">version</span>&gt;.zip</code> or <code>BigDataSQL-HDP-&lt;<span class="codeinlineitalic">version</span>&gt;.zip</code>) then configure and run the Oracle Big Data SQL installer found within the bundle. This installs Oracle Big Data SQL on the local server.</p>
+</li>
+<li>
+<p>Run the database bundle creation script. This script generates the database bundle file that you will run on the Oracle Database server in order to install Oracle Big Data SQL there.</p>
+</li>
+<li>
+<p>Check the parameters in the database bundle file and adjust as needed.</p>
+</li>
+</ul>
+<p>After you have checked and (if necessary) edited the database bundle file, copy it over to the Oracle Database server and run it as described in <a href="installing.htm#GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59" title="Oracle Big Data SQL must be installed on both the Hadoop cluster management server and the Oracle Database server. This section describes the database server installation.">Installing on the Oracle Database Server</a></p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Install Big Data SQL on the Cluster Management Server</p>
+<p>To install Big Data SQL on the cluster management server:</p>
+<ol>
+<li>
+<p>Copy the appropriate zip file (<code>BigDataSQL-CDH-&lt;<span class="codeinlineitalic">version</span>&gt;.zip</code> or <code>BigDataSQL-HDP-&lt;<span class="codeinlineitalic">version</span>&gt;.zip</code>) to a temporary location on the cluster management server.</p>
+</li>
+<li>
+<p>Unzip file.</p>
+</li>
+<li>
+<p>Change directories to either <code>BigDataSQL-HDP-&lt;<span class="codeinlineitalic">version</span>&gt;</code> or <code>BigDataSQL-CDH-&lt;<span class="codeinlineitalic">version</span>&gt;</code>, depending up on which platform you are working with.</p>
+</li>
+<li>
+<p>Edit the configuration file.</p>
+<p>Table 2&ndash;4 below describes the use of each configuration parameter.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>For CDH, edit <code>bds-config.json</code> , as in this example. Any unused port will work as the web server port.</p>
+<pre dir="ltr">
+{
+  "CLUSTER_NAME" : "cluster",
+  "CSD_PATH" : "/opt/cloudera/csd",
+  "DATABASE_IP" : "10.12.13.14/24",
+  "REST_API_PORT" : "7180",  
+  "WEB_SERVER_PORT" : "81",
+}
+</pre></li>
+<li>
+<p>For HDP, edit <code>bds-config.json</code> as in this example:</p>
+<pre dir="ltr">
+{
+  "CLUSTER_NAME" : "clustername",
+  "DATABASE_IP" : "10.10.10.10/24",
+  "REST_API_PORT" : "8080",
+}
+</pre></li>
+</ul>
+<p><code>DATABASE_IP</code> must be the correct network interface address for the database node where you will perform the installation. You can confirm this by running <code>/sbin/ip -o -f inet addr show</code> on the database node.</p>
+</li>
+<li>
+<p>Obtain the cluster administrator user ID and password and then as <code>root</code> run <code>setup-bds</code>. Pass it the configuration file name as an argument (<code>bds-config.json</code> ). The script will prompt for the administrator credentials and then install BDS on the management server.</p>
+<pre dir="ltr">
+$ ./setup-bds bds-config.json  
+</pre></li>
+</ol>
+<div class="tblformal" id="GUID-8553EEF4-4D29-4D1A-B256-580A9021AC12__CONFIGURATIONPARAMETERSFORSETUP-BDS-E8CB4A0D">
+<p class="titleintable">Table 2-2 Configuration Parameters for setup-bds</p>
+<table class="cellalignment301" title="Configuration Parameters for setup-bds" summary="The first column lists each configuration parameter. The second column describes its use. And the third column indicates which platform the parameter applies to &ndash; CDH or HDP or both.">
+<thead align="left">
+<tr>
+<th class="cellalignment302" id="d3222e1307"><span class="bold">Configuration Parameter</span></th>
+<th class="cellalignment302" id="d3222e1310"><span class="bold">Use</span></th>
+<th class="cellalignment302" id="d3222e1313"><span class="bold">Applies To</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment302" id="d3222e1318" headers="d3222e1307"><code>CLUSTER_NAME</code></td>
+<td class="cellalignment302" headers="d3222e1318 d3222e1310">The name of the cluster on the Hadoop server.</td>
+<td class="cellalignment302" headers="d3222e1318 d3222e1313">CDH, HDP</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e1326" headers="d3222e1307"><code>CSD_PATH</code></td>
+<td class="cellalignment302" headers="d3222e1326 d3222e1310">Location of Custom Service Descriptor files. This user-defined CSD path is a fallback that is used only the default path does not exist. It does not override the default CSD_PATH.</td>
+<td class="cellalignment302" headers="d3222e1326 d3222e1313">CDH only</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e1334" headers="d3222e1307"><code>DATABASE_IP</code></td>
+<td class="cellalignment302" headers="d3222e1334 d3222e1310">
+<p>The IP address of the Oracle Database server that will make connection requests. The address must include the prefix length (as in 100.112.10.36/24). Although only one IP address is specified in the configuration file, it is possible to install the database-side software on multiple database servers (as in a RAC environment) by using a command line parameter to override <code>DATABASE_IP</code> at installation time. (See the description of <code>--ip-cell</code> in <a href="installing.htm#GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59__GUID-D47AE5C6-4329-4B16-8662-BBBFAD2F079C">Table 2&ndash;6</a>.)</p>
+</td>
+<td class="cellalignment302" headers="d3222e1334 d3222e1313">CDH, HDP</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e1353" headers="d3222e1307"><code>REST_API_PORT</code></td>
+<td class="cellalignment302" headers="d3222e1353 d3222e1310">The port where the cluster management server listens for requests.</td>
+<td class="cellalignment302" headers="d3222e1353 d3222e1313">CDH, HDP</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e1361" headers="d3222e1307"><code>WEB_SERVER_PORT</code></td>
+<td class="cellalignment302" headers="d3222e1361 d3222e1310">A port assigned temporarily to a repository for deployment tasks during installation. This can be any port where the assignment does not conflict with cluster operations. `</td>
+<td class="cellalignment302" headers="d3222e1361 d3222e1313">CDH only.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infobox-note" id="GUID-8553EEF4-4D29-4D1A-B256-580A9021AC12__GUID-CFE94D8B-2BDE-4B07-9319-F424361A7F56">
+<p class="notep1">Important</p>
+Be sure that the address provided for <code>DATABASE_IP</code> is the correct address of a network interface on the database server and is accessible from each DataNode of the Hadoop system, otherwise the installation will fail. You can test that the database IP replies to a ping from each DataNode. Also, currently the address string (including the prefix length) must be at least nine characters long.</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">If the Oracle Big Data SQL Service Immediately Fails</p>
+<p>If Ambari or Configuration Manager reports an Oracle Big Data SQL service failure immediately after service startup, do the following.</p>
+<ol>
+<li>
+<p>Check the cell server (CELLSRV) log on the cluster management server for the following error at the time of failure:</p>
+<pre dir="ltr">
+ossnet_create_box_handle: failed to parse ip : &lt;<span class="italic">IP Address</span>&gt;
+</pre></li>
+<li>
+<p>If the IP address in the error message is less than nine characters in length, for example, <code>10.0.1.4/24</code>, then on the cluster management server, find this address in <code>/opt/oracle/bd_cell/cellsrv/deploy/config/cellinit.ora</code>. Edit the string by padding one or more of the octets with leading zeros to make the total at least nine characters in length, as in:</p>
+<pre dir="ltr">
+ipaddress1=10.0.1.004/24
+</pre></li>
+<li>
+<p>Restart the Oracle Big Data SQL service.</p>
+</li>
+</ol>
+<p>The need for this workaround will be eliminated in a subsequent Oracle Big Data SQL release.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Command Line Switches for setup-bds.sh</p>
+<p>The setup-bds.sh script has several optional switches. These are not overrides of the configuration in <code>bds_config.json</code>. They change the behavior of <code>setup-bds.sh</code> as described in the table below. In each case, the <code>bds_config.json</code> filename is passed in as an argument, as in <code>./setup-bds.sh &lt;<span class="codeinlineitalic">switch</span>&gt; bds_config.json</code>.</p>
+<div class="tblformal" id="GUID-8553EEF4-4D29-4D1A-B256-580A9021AC12__GUID-47649605-898D-46FE-BE7C-C18526074CB7">
+<p class="titleintable">Table 2-3 Command Line Switches for setup-bds.sh</p>
+<table class="cellalignment301" title="Command Line Switches for setup-bds.sh" summary="The first column list the setup-bds.sh command line switches. The second column describes each switch.">
+<thead align="left">
+<tr>
+<th class="cellalignment302" id="d3222e1435">Switch</th>
+<th class="cellalignment302" id="d3222e1437">Description</th>
+<th class="cellalignment302" id="d3222e1439">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment302" id="d3222e1443" headers="d3222e1435"><code>--db-bundle</code></td>
+<td class="cellalignment302" headers="d3222e1443 d3222e1437">Recreate or update the database bundle configuration file. This is a preliminary that may be necessary if you need to use <code>bds-database-create-bundle.sh</code> to recreate or update the database bundle. For example, you may need to rebuild and redeploy the database bundle to account for a changes in the cluster configuration setttings. In that case, run <code>setup-bds.sh</code> with this optional switch to recreate the configuration file if the original file is obsolete or cannot be located.
+<p>After recreating the configuration file, you can run <code>bds-database-create-bundle.sh --clean_previous</code> to rebuild the bundle with the fresh configuration settings</p>
+</td>
+<td class="cellalignment302" headers="d3222e1443 d3222e1439"><code>./setup-bds.sh --db-bundle bds-config.json</code></td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d3222e1463" headers="d3222e1435"><code>--uninstall</code></td>
+<td class="cellalignment302" headers="d3222e1463 d3222e1437">Uninstall Oracle Big Data SQL from the Hadoop cluster management server. See <a href="installing.htm#GUID-6779577B-E5E2-4B3E-8AD1-3C9257FD62A3" title="Oracle Big Data SQL can be uninstalled from the Hadoop cluster management server or from any Oracle Database servers connected to the cluster management server. The procedure is the same for all Hadoop platforms.">Uninstalling Oracle Big Data SQL</a>.</td>
+<td class="cellalignment302" headers="d3222e1463 d3222e1439"><code>./setup-bds.sh --uninstall bds-config.json</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-DB114461-5B9F-4418-B258-23440D69682B"></a>
+<h3 id="BDSUG-GUID-DB114461-5B9F-4418-B258-23440D69682B" class="sect3"><span class="enumeration_section">2.3.6</span> Creating the Database-Side Installation Bundle</h3>
+<div>
+<p>On the cluster management server, run the database bundle creation script from the Oracle Big Data SQL download to create an installation bundle to install the product on the Oracle Database server. If some of the external resources that the script requires are not accessible from the management server, you can add them manually.</p>
+<p>The database bundle creation script attempts to download the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Hadoop and Hive client tarballs from Cloudera or Hortonworks repository web site.</p>
+</li>
+<li>
+<p>Configuration files for Yarn and Hive from the cluster management server, via Cloudera Manager (for the CDH versions) or Ambari (for the HDP versions).</p>
+</li>
+<li>
+<p>For HDP only, HDFS and MapReduce configuration files from Ambari.</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>Change directories to <code>BigDataSQL-CDH-&lt;<span class="codeinlineitalic">version</span>&gt;/db</code> or (<code>BigDataSQL-HDP-&lt;<span class="codeinlineitalic">version</span>&gt;/db</code>).</p>
+</li>
+<li>
+<p>Run the BDS database bundle creation script. See the table below for optional parameters that you can pass to the script in order to override any of the default settings.</p>
+<pre dir="ltr">
+$ bds-database-create-bundle.sh &lt;<span class="italic">optional parameters</span>&gt; 
+</pre>
+<p>The message below is returned if the operation is successful.</p>
+<pre dir="ltr">
+      bds-database-create-bundle: database bundle creation script completed all steps
+</pre></li>
+</ol>
+<p>The database bundle file includes a number of parameters. You can change any of these parameters as necessary. Any URLs specified must be accessible from the cluster management server at the time you run bds-database-create-bundle.sh.</p>
+<div class="tblformal" id="GUID-DB114461-5B9F-4418-B258-23440D69682B__GUID-B50830EC-9C27-4CEF-AF3E-C71330829A46">
+<p class="titleintable">Table 2-4 Command Line Parameters for bds-database-create-bundle.sh</p>
+<table class="cellalignment301" title="Command Line Parameters for bds-database-create-bundle.sh" summary="The first column list optional command line parameters of the bundle creation script. The second column describes the value of each parameter.">
+<thead align="left">
+<tr>
+<th class="cellalignment303" id="d3222e1546"><span class="bold">Parameter</span></th>
+<th class="cellalignment303" id="d3222e1549"><span class="bold">Value</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment303" id="d3222e1554" headers="d3222e1546"><code>--hadoop-client-ws</code></td>
+<td class="cellalignment303" headers="d3222e1554 d3222e1549">Specifies an URL for the Hadoop client tarball download.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1560" headers="d3222e1546"><code>--no-hadoop-client-ws</code></td>
+<td class="cellalignment303" headers="d3222e1560 d3222e1549">Exclude this download.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1566" headers="d3222e1546"><code>--hive-client-ws</code></td>
+<td class="cellalignment303" headers="d3222e1566 d3222e1549">Specifies an URL for the Hive client tarball download.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1572" headers="d3222e1546"><code>--no-hive-client-ws</code></td>
+<td class="cellalignment303" headers="d3222e1572 d3222e1549">Exclude this download.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1578" headers="d3222e1546"><code>--yarn-conf-ws</code></td>
+<td class="cellalignment303" headers="d3222e1578 d3222e1549">Specifies an URL for the YARN configuration zip file download.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1584" headers="d3222e1546"><code>--no-yarn-conf-ws</code></td>
+<td class="cellalignment303" headers="d3222e1584 d3222e1549">Exclude this download.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1590" headers="d3222e1546"><code>--hive-conf-ws</code></td>
+<td class="cellalignment303" headers="d3222e1590 d3222e1549">Specifies an URL for the Hive configuration zip file download.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1596" headers="d3222e1546"><code>--no-hive-conf-ws</code></td>
+<td class="cellalignment303" headers="d3222e1596 d3222e1549">Exclude this download.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1602" headers="d3222e1546"><code>--ignore-missing-files</code></td>
+<td class="cellalignment303" headers="d3222e1602 d3222e1549">Create the bundle file even if some files are missing.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1608" headers="d3222e1546"><code>--jdk-tar-path</code></td>
+<td class="cellalignment303" headers="d3222e1608 d3222e1549">Override the default JDK path. Do not specify a relative path, use <code>--jdk-tar-path=&lt;<span class="codeinlineitalic">jdk tarfile absolute path</span>&gt;.</code></td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1619" headers="d3222e1546"><code>--clean-previous</code></td>
+<td class="cellalignment303" headers="d3222e1619 d3222e1549">Deletes previous bundle files and directories from <code>bds-database-install/</code> . If cluster management server the cluster settings have changed (for example, because of an extension, service node migration, or adding/removing security) then it necessary to redo the installation on the database server. As part of this re-installation, you must run <code>--clean-previous</code> to purge the cluster information left the database server side from the previous installation.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1632" headers="d3222e1546"><code>--script-only</code></td>
+<td class="cellalignment303" headers="d3222e1632 d3222e1549">This is useful for re-installations on the database side when there are no cluster configuration changes to communicate to the database server and where there is no need to refresh files (such as client tarballs) on the database side. With this switch, <code>bds-database-create-bundle.sh</code> generates a zip file that contains only the database installation script and does not bundle in other components, such as the tarballs. If these already exist on the database server, you can use <code>--script-only</code> to bypass the downloading and packaging of these large files. Do not include <code>--clean-previous</code> in this case.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1647" headers="d3222e1546"><code>--hdfs-conf-ws</code></td>
+<td class="cellalignment303" headers="d3222e1647 d3222e1549">Specify an URL for the HDFS configuration zip file download.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1653" headers="d3222e1546"><code>--no-hdfs-conf-ws</code></td>
+<td class="cellalignment303" headers="d3222e1653 d3222e1549">Exclude this download (HDP only).</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1659" headers="d3222e1546"><code>--mapreduce-conf-ws</code></td>
+<td class="cellalignment303" headers="d3222e1659 d3222e1549">Specify an URL for the MapReduce configuration zip file download (HDP only).</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1665" headers="d3222e1546"><code>--no-mapreduce-conf-ws</code></td>
+<td class="cellalignment303" headers="d3222e1665 d3222e1549">Exclude this download (HDP only).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p class="subhead3">Manually Adding Resources if Download Sites are not Accessible to the BDS Database Bundle Creation Script</p>
+<p>If one or more of the default download sites is inaccessible from the cluster management server, there are two ways around this problem:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Download the files from another server first and then provide <code>bds-database-create-bundle.sh</code> with the alternate path as an argument. For example:</p>
+<pre dir="ltr">
+$ ./bds-database-create-bundle.sh --yarn-conf-ws='http://nodexample:1234/config/yarn'
+</pre></li>
+<li>
+<p>Because the script will first search locally in <code>/bds-database-install</code> for resources, you can download the files to another server, move the files into <code>/bds-database-install</code> on the cluster management server and then run the bundle creation script with no additional argument. For example:</p>
+<pre dir="ltr">
+$ cp hadoop-xxxx.tar.gz bds-database-install/
+$ cp hive-xxxx.tar.gz bds-database-install/
+$ cp yarn-conf.zip bds-database-install/
+$ cp hive-conf.zip bds-database-install/
+$ cd db
+$ ./bds-database-create-bundle.sh
+</pre></li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Copying the Database Bundle to the Oracle Database Server</p>
+<p>Use <code>scp</code> to copy the database bundle you created to the Oracle Database server. In the example below, <code>dbnode</code> is the database server. The Linux account and target directory here are arbitrary. Use any account authorized to <code>scp</code> to the specified path.</p>
+<pre dir="ltr">
+$ scp bds-database-install.zip oracle@dbnode:/home/oracle
+</pre></div>
+<!-- class="section" -->
+<p>The next step is to log on to the Oracle Database server and install the bundle.</p>
+</div>
+</div>
+<div class="sect3"><a id="GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59"></a>
+<h3 id="BDSUG-GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59" class="sect3"><span class="enumeration_section">2.3.7</span> Installing on the Oracle Database Server</h3>
+<div>
+<p>Oracle Big Data SQL must be installed on both the Hadoop cluster management server and the Oracle Database server. This section describes the database server installation.</p>
+<div class="section">
+<p class="subhead3">Prerequisites for Installing on an Oracle Database Server</p>
+<p>The information in this section does not apply to the installation of Oracle Big Data SQL on an Oracle Exadata Database Machine connected Oracle Big Data Appliance.</p>
+<div class="infobox-note" id="GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59__GUID-7F664EC4-F570-418A-9DF2-C7730246025C">
+<p class="notep1">Important</p>
+<p>For multi-node databases, you must repeat this installation on every node of the database. For each node, you may need to modify the <code>DATABASE_IP</code> parameter of the installation bundle in order to identify the correct network interface. This is described in the section, <span class="italic">If You Need to Change the Configured Database_IP Address</span></p>
+</div>
+<pre dir="ltr">
+</pre>
+<p><span class="bold">Required Software</span></p>
+<p>See the <span class="italic">Oracle Big Data SQL Master Compatibility Matrix</span> (Doc ID 2119369.1) in <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a> for supported Linux distributions, Oracle Database release levels, and required patches.</p>
+<div class="infobox-note" id="GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59__GUID-4AAC8EDE-7738-4142-B83C-68D8C28F86B2">
+<p class="notep1">Note:</p>
+Be sure that the correct Bundle Patch and one-off patch have been pre-applied before starting this installation. Earlier Bundle patches are not supported for use Big Data SQL 3.0 at this time.</div>
+<p><span class="bold">Recommended Network Connections to the Hadoop Cluster</span></p>
+<p>Oracle recommends Ethernet connections between Oracle Database and the Hadoop cluster of 10Gb/s Ethernet.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Extract and Run the Big Data SQL Installation Script</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>Perform the procedure in this section as the <code>oracle</code> user, except where <code>sudo</code> is indicated.</p>
+<ol>
+<li>
+<p>Locate the database bundle zip file that you copied over from the cluster management server.</p>
+</li>
+<li>
+<p>Unzip the bundle into a temporary directory.</p>
+</li>
+<li>
+<p>Change directories to <code>bds-database-install</code>, which was extracted from the zip file.</p>
+</li>
+<li>
+<p>Run <code>bds-database-install.sh</code>. Note the optional parameters listed in <a href="installing.htm#GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59__PARAMETERSFORTHEBDS-DATABASE-INSTAL-E88C699A" title="Parameters for the bds-database-install shell script. The first column lists each parameter. The second column describes its function.">Table 2-5</a></p>
+<p>If <code>bds-database-install.sh</code> finds and updates <code>/etc/oracle/cell/network-config/cellinit.ora</code>, then the installation is complete. If not, then the following prompt displays:</p>
+<pre dir="ltr">
+Please run as root:  
+&lt;temporary location&gt;/bds-root-cluster-cellconfigdir.sh  
+Waiting for root script to complete. Press &lt;Enter&gt; to continue checking or press q&lt;Enter&gt; to quit.
+</pre>
+<p>This prompt appears only if the <code>network-config</code> directory and/or <code>cellinit.ora</code> are not found at <code>/etc/oracle/cell/network-config/cellinit.ora</code> . The installation is temporarily suspended so that you can take the following corrective action. (You can press <code>q</code> and then <code>Enter</code> to cancel the installation if you do not want to continue at this time.)</p>
+</li>
+<li>
+<p>Star another shell and run the secondary script<code>bds-root-cluster-cellconfigdir.sh</code> as root or via sudo.</p>
+<p>The script will create the complete path if needed. If <code>cellinit.ora</code> is missing, it will create the file and populate it with a temporary IP address that will allow the installation to continue.</p>
+</li>
+<li>
+<p>When <code>bds-root-cluster-cellconfigdir.sh</code> has finished, return to the original shell and press <code>Enter</code> to resume the installation.</p>
+<p>The installation will enter the correct IP address for the database and other required parameters into <code>cellinit.ora</code>.</p>
+</li>
+</ol>
+<div class="tblformal" id="GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59__PARAMETERSFORTHEBDS-DATABASE-INSTAL-E88C699A">
+<p class="titleintable">Table 2-5 Optional Parameters for bds-database-install.sh</p>
+<table class="cellalignment301" title="Optional Parameters for bds-database-install.sh" summary="Parameters for the bds-database-install shell script. The first column lists each parameter. The second column describes its function.">
+<thead align="left">
+<tr>
+<th class="cellalignment303" id="d3222e1862"><span class="bold">Parameter</span></th>
+<th class="cellalignment303" id="d3222e1865"><span class="bold">Function</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment303" id="d3222e1870" headers="d3222e1862"><code>--db-name</code></td>
+<td class="cellalignment303" headers="d3222e1870 d3222e1865">Specify the Oracle Database SID.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1876" headers="d3222e1862"><code>--debug</code></td>
+<td class="cellalignment303" headers="d3222e1876 d3222e1865">Activate shell trace mode. If you report a problem, Oracle Support may want to see this output.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1882" headers="d3222e1862"><code>--grid-home</code></td>
+<td class="cellalignment303" headers="d3222e1882 d3222e1865">Specify the Grid home directory.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1888" headers="d3222e1862"><code>--info</code></td>
+<td class="cellalignment303" headers="d3222e1888 d3222e1865">Show information about the cluster.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1894" headers="d3222e1862"><code>--ip-cell</code></td>
+<td class="cellalignment303" headers="d3222e1894 d3222e1865">Set a particular IP address for db_cell process. See <span class="italic">If You Need to Change the Configured Database_IP Address</span> below</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1903" headers="d3222e1862"><code>--install-as-secondary</code></td>
+<td class="cellalignment303" headers="d3222e1903 d3222e1865">Specify secondary cluster installation.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1909" headers="d3222e1862"><code>--jdk-home</code></td>
+<td class="cellalignment303" headers="d3222e1909 d3222e1865">Specify the JDK home directory.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1915" headers="d3222e1862"><code>--root-script-only</code></td>
+<td class="cellalignment303" headers="d3222e1915 d3222e1865">Generate the root script only.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1921" headers="d3222e1862"><code>--uninstall-as-primary</code></td>
+<td class="cellalignment303" headers="d3222e1921 d3222e1865">Uninstall Oracle Big Data SQL from the primary cluster.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1927" headers="d3222e1862"><code>--uninstall-as-secondary</code></td>
+<td class="cellalignment303" headers="d3222e1927 d3222e1865">Uninstall Oracle Big Data SQL from a secondary cluster.</td>
+</tr>
+<tr>
+<td class="cellalignment303" id="d3222e1933" headers="d3222e1862"><code>--version</code></td>
+<td class="cellalignment303" headers="d3222e1933 d3222e1865">Show the <code>bds-database-install.sh</code> script version.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">If You Need to Change the Configured Database_IP Address</p>
+<p>The <code>DATABASE_IP</code> parameter in the <code>bds-config.json</code> file identifies the network interface of the database node. If you run <code>bds-database-install.sh</code> with no parameter passed in, it will search for that IP address (with that length, specifically) among the available network interfaces. You can pass the <code>&ndash;&ndash;ip-cell</code> parameter to <code>bds-database-install.sh</code> in order to override the configured <code>DATABASE_IP</code> setting:</p>
+<pre dir="ltr">
+$ ./bds-database-install.sh --ip-cell=10.20.30.40/24
+</pre>
+<p>Possible reasons for doing this are:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>bds-database-install.sh</code> terminates with an error. The configured IP address (or length) may be wrong.</p>
+</li>
+<li>
+<p>There is an additional database node in the cluster and the defined <code>DATABASE_IP</code> address is not a network interface of the current node.</p>
+</li>
+<li>
+<p>The connection is to a multi-node database. In this case, perform the installation on each database node. On each node, use the <code>&ndash;&ndash;ip-cell</code> parameter to set the correct <code>DATABASE_IP</code> value.</p>
+</li>
+</ul>
+<div class="p">To determine the correct value for <code>ip-cell</code>, you can use list all network interfaces on a node as follows:
+<pre dir="ltr">
+/sbin/ip -o -f inet addr show
+</pre></div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-6779577B-E5E2-4B3E-8AD1-3C9257FD62A3"></a>
+<h3 id="BDSUG-GUID-6779577B-E5E2-4B3E-8AD1-3C9257FD62A3" class="sect3"><span class="enumeration_section">2.3.8</span> Uninstalling Oracle Big Data SQL</h3>
+<div>
+<p>Oracle Big Data SQL can be uninstalled from the Hadoop cluster management server or from any Oracle Database servers connected to the cluster management server. The procedure is the same for all Hadoop platforms.</p>
+<p>Guidelines for uninstalling Oracle Big Data SQL are as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To perform a complete uninstall of Oracle Big Data SQL, remove the software from the cluster management server and from each Oracle Database server connected to the BDS service.</p>
+<p>This is a single script execution on each server. Not other manual steps are needed.</p>
+</li>
+<li>
+<p>You can uninstall from the cluster management server first or from the database servers first.</p>
+<p>Note, however, that if you uninstall from the cluster management server first, queries in process will fail.</p>
+</li>
+<li>
+<p>On the database server side, uninstall from any secondary notes before uninstalling from the primary node.</p>
+<p>This is not critical to the uninstall process, but active queries from secondary nodes will fail if the primary node is disconnected from the service.</p>
+</li>
+<li>
+<p>You can uninstall from one or more secondary database nodes without impacting the operation of the Big Data SQL service on the Hadoop cluster management server.</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead3">Uninstalling the Software from the Hadoop Cluster Management Server</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>From the <code>bds-database-install</code> directory, run the following command as root.</p>
+<pre dir="ltr">
+# ./setup-bds --uninstall bds-config.json
+</pre></li>
+</ul>
+<p>The script will return the following to standard output. Annotations and name alterations are included for the purposes of this example.</p>
+<pre dir="ltr">
+Big Data SQL  //including the version
+Big Data SQL: Loading Configuration File
+Big Data SQL: Configuration File Loaded Successfully
+Big Data SQL: Beginning API setup, you will be asked for your Ambari admin user and password.
+Big Data SQL: REST API port is 8080
+Big Data SQL: Identifying protocol for connection..
+Big Data SQL: REST API version is v1
+
+Ambari Admin User:   //or Configuration Manager admin user 
+Password:
+
+Big Data SQL: API setup finished successfully.
+Big Data SQL: Cluster myclusterexample verified.
+Big Data SQL: Big Data SQL service was detected. Beginning uninstall
+Big Data SQL: Stopping Big Data SQL service in order to begin uninstall.
+Big Data SQL: Executing Asynchronous Command....
+Big Data SQL: Asynchronous Command Completed!
+Big Data SQL: Big Data SQL service Stopped!
+Big Data SQL: Cell nodes: myclusterexample-adm.myregion.mydomain.com,mybdanode08-adm.myregion.mydomain.com,mybdanode09-adm.myreqion.mydomain.com
+Big Data SQL: Executing Asynchronous Command...
+Big Data SQL: Asynchronous Command Completed!
+Big Data SQL: Deleted previous Big Data SQL service.
+Big Data SQL: Beginning Cleanup of the Ambari Server Node.
+Big Data SQL: Stack root directory found: /var/lib/ambari-server/resources/stacks/HDP/2.4/services
+Big Data SQL: Removing Big Data SQL Stack directory
+Big Data SQL: Removing Big Data SQL Log directory
+Big Data SQL: Cleaning up installation...
+Big Data SQL: Finished!
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Uninstalling the Software from an Oracle Database Server</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>On any database server where you want to uninstall Oracle Big Data SQL, run the appropriate command below as the database owner (usually the <code>oracle</code> user).</p>
+<pre dir="ltr">
+# ./bds-database-install.sh --uninstall-as-secondary
+</pre>
+<p>or</p>
+<pre dir="ltr">
+# ./bds-database-install.sh --uninstall-as-primary
+</pre></li>
+</ul>
+<p>If you use the <code>--uninstall-as-secondary</code> switch to uninstall the software from the primary node, cleanup of database objects will be incomplete. This can be remedied by running the uninstall again. Error messages may appear if your run a second uninstall for cleanup purposes, but the cleanup should complete successfully.</p>
+<p>The following example show the output of <code>bds-database-install.sh --uninstall-as-primary</code>. The output for <code>--uninstall-as-secondary</code> is similar. In this case, the command is run on a CDH cluster, but the differences in the output on an HDP cluster are minor.</p>
+<pre dir="ltr">
+oracle@mynode42bda06$ ./bds-database-install.sh --uninstall-as-primary
+bds-database-install: platform is               : Linux
+bds-database-install: setup script started at   : Wed May 25 11:49:07 PDT 2016
+bds-database-install: cluster type              : cdh
+bds-database-install: cluster name              : myclusterexample
+bds-database-install: hive version              : hive-1.1.0-cdh5.7.0
+bds-database-install: hadoop version            : hadoop-2.6.0-cdh5.7.0
+bds-database-install: bds version               : Big Data SQL 3.0.1
+bds-database-install: bds install date          : Fri May 13 10:45:59 PDT 2016
+bds-database-install: bd_cell version           : bd_cell-12.1.2.0.100_LINUX.X64_151208.1100-1.x86_64
+bd_cell-12.1.2.0.100_LINUX.X64_160511.1100-1.x86_64
+bds-database-install: cell config dir           : /etc/oracle/cell/network-config
+bds-database-install: configured cell network   : 10.101.4.13/20
+bds-database-install: allow multiple subnets    : _skgxp_ant_options=1
+bds-database-install: use UDP protocol          : _skgxp_dynamic_protocol=2
+bds-database-install: cellaffinity.ora file     : missing
+bds-database-install: configured DB network     : 10.245.129.72/21
+bds-database-install: action                    : uninstall
+bds-database-install: crs                       : true
+bds-database-install: db resource               : orcl
+bds-database-install: database type             : SINGLE
+bds-database-install: cardinality               : 1
+bds-database-uninstall: removing: oracle-hadoop-sql.jar ora-hadoop-common.jar oraloader.jar kvclient.jar orahivedp.jar
+bds-database-uninstall: removing: client jars hadoop-2.6.0-cdh5.7.0
+bds-database-uninstall: removing: client jars hive-1.1.0-cdh5.7.0
+bds-database-uninstall: mta setting agent home as : /u03/app/oracle/product/12.1.0/dbhome_1/hs/admin
+bds-database-uninstall: stopping crs resource     : bds_orcl_myclusterexample
+CRS-2673: Attempting to stop 'bds_orcl_myclusterexample' on 'mynode42bda06'
+CRS-2677: Stop of 'bds_orcl_myclusterexample' on 'mynode42bda06' succeeded
+bds-database-uninstall: deleting crs resource     : bds_orcl_myclusterexample
+bds-database-uninstall: removing /u03/app/oracle/product/12.1.0/dbhome_1/hs/admin/initbds_orcl_myclusterexample.ora
+bds-database-uninstall: dropping mta related db links
+catcon: ALL catcon-related output will be written to /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_catcon_5$51.lst
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon*.log files for output generated by scripts
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_*.lst files for spool files, if any
+catcon.pl: completed successfully
+catcon: ALL catcon-related output will be written to /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_catcon_5$01.lst
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon*.log files for output generated by scripts
+catcon: See /u03/app/oracle/product/12.1.0/dbhome_1/install/bdscatcon_*.lst files for spool files, if any
+catcon.pl: completed successfully
+bds-database-uninstall: uninstalled               : myclusterexample
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-4D61AACF-BEE7-497C-8CE0-14DF1F9DC204"></a>
+<h3 id="BDSUG-GUID-4D61AACF-BEE7-497C-8CE0-14DF1F9DC204" class="sect3"><span class="enumeration_section">2.3.9</span> Securing Big Data SQL</h3>
+<div>
+<p>Procedures for securing Oracle Big Data SQL on Hortonworks HDP and on CDH-based systems other than Oracle Big Data Appliance are not covered in this version of the guide. Please review the MOS documents referenced in this section for more information.</p>
+</div>
+<div class="sect4"><a id="GUID-DDCB8B7F-C7B7-4B6A-8C3D-9AF4A18A67C8"></a>
+<h4 id="BDSUG-GUID-DDCB8B7F-C7B7-4B6A-8C3D-9AF4A18A67C8" class="sect4"><span class="enumeration_section">2.3.9.1</span> Big Data SQL Communications and Secure Hadoop Clusters</h4>
+<div>
+<p>Please refer to MOS Document 2123125.1 at <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a> for guidelines on securing Hadoop clusters for use with Big Data SQL.</p>
+</div>
+</div>
+<div class="sect4"><a id="GUID-2326934B-DA41-430C-A1EB-6AA6A4B351DA"></a>
+<h4 id="BDSUG-GUID-2326934B-DA41-430C-A1EB-6AA6A4B351DA" class="sect4"><span class="enumeration_section">2.3.9.2</span> Setting up Oracle Big Data SQL and Oracle Secure External Password Store</h4>
+<div>
+<p>See MOS Document 2126903.1 for changes required in order to use Oracle Secure External Password Store with Oracle Big Data SQL</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment279">
+<tr>
+<td class="cellalignment286">
+<table class="cellalignment290">
+<tr>
+<td class="cellalignment283"><a href="concepts.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment283"><a href="bigsql.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment288">
+<table class="cellalignment289">
+<tr>
+<td class="cellalignment283"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment283"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment283"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment283"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment283"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Oracle XML Extensions for Hive</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content=", CREATE TABLE, syntax, configuration properties, oxh-default-namespace property, oxh-charset property, oxh-column property, oxh-elements property, oxh-entity.name property, oxh-namespace.prefix property, examples, XML_EXISTS function, XML_QUERY function, XML_QUERY_AS_primitive function, XML_TABLE function" />
+<meta name="dcterms.created" content="2018-07-30T11:38:18Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Connectors User's Guide" />
+<meta name="dcterms.identifier" content="E93614-03" />
+<meta name="dcterms.isVersionOf" content="BDCUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="oxh_ref.htm" title="Previous" type="text/html" />
+<link rel="Next" href="analytics-part.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDCUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-357AABA9-596D-4902-AE40-E2E84E4393D6"></a> <span id="PAGE" style="display:none;">13/22</span> <!-- End Header -->
+<a id="BDCUG691"></a>
+<h1 id="BDCUG-GUID-357AABA9-596D-4902-AE40-E2E84E4393D6" class="sect1"><span class="enumeration_chapter">7</span> Oracle XML Extensions for Hive</h1>
+<div>
+<p>This chapter explains how to use the XML extensions for Apache Hive provided with Oracle XQuery for Hadoop. The chapter contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="oxh_hive.htm#GUID-8CF8190F-F7B7-44B6-8A84-76036E9BC2B0">What are the XML Extensions for Hive?</a></p>
+</li>
+<li>
+<p><a href="oxh_hive.htm#GUID-8F957573-9C44-4C6E-B59C-3B7494818B16">Using the Hive Extensions From the Command Line</a></p>
+</li>
+<li>
+<p><a href="oxh_hive.htm#GUID-7ECF36DC-4791-4964-945A-802226CA99E6">About the Hive Functions</a></p>
+</li>
+<li>
+<p><a href="oxh_hive.htm#GUID-6B848924-C150-4E90-998E-CF4B35ACD9BA">Creating XML Tables</a></p>
+</li>
+<li>
+<p><a href="oxh_hive.htm#GUID-74F7CECB-4C77-43E4-8296-5A15A7E9BC7E">Oracle XML Functions for&nbsp;Hive Reference</a></p>
+</li>
+</ul>
+</div>
+<a id="BDCUG692"></a>
+<div class="props_rev_3"><a id="GUID-8CF8190F-F7B7-44B6-8A84-76036E9BC2B0"></a>
+<h2 id="BDCUG-GUID-8CF8190F-F7B7-44B6-8A84-76036E9BC2B0" class="sect2"><span class="enumeration_section">7.1</span> What are the XML Extensions for Hive?</h2>
+<div>
+<p>The XML Extensions for Hive provide XML processing support that enables you to do the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Query large XML files in HDFS as Hive tables</p>
+</li>
+<li>
+<p>Query XML strings in Hive tables</p>
+</li>
+<li>
+<p>Query XML file resources in the Hadoop distributed cache</p>
+</li>
+<li>
+<p>Efficiently extract atomic values from XML without using expensive DOM parsing</p>
+</li>
+<li>
+<p>Retrieve, generate, and transform complex XML elements</p>
+</li>
+<li>
+<p>Generate multiple table rows from a single XML value</p>
+</li>
+<li>
+<p>Manage missing and dirty data in XML</p>
+</li>
+</ul>
+<p>The XML extensions also support these W3C modern standards:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>XQuery 3.1</p>
+</li>
+<li>
+<p>XQuery Update Facility 1.0 (transform expressions)</p>
+</li>
+<li>
+<p>XPath 3.1</p>
+</li>
+<li>
+<p>XML Schema 1.0</p>
+</li>
+<li>
+<p>XML Namespaces</p>
+</li>
+</ul>
+<p>The XML extensions have two components:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>XML InputFormat and SerDe for creating XML tables</p>
+<p>See <span class="q">"<a href="oxh_hive.htm#GUID-6B848924-C150-4E90-998E-CF4B35ACD9BA">Creating XML Tables</a>."</span></p>
+</li>
+<li>
+<p>XML function library</p>
+<p>See <span class="q">"<a href="oxh_hive.htm#GUID-7ECF36DC-4791-4964-945A-802226CA99E6">About the Hive Functions</a>."</span></p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDCUG693"></a>
+<div class="props_rev_3"><a id="GUID-8F957573-9C44-4C6E-B59C-3B7494818B16"></a>
+<h2 id="BDCUG-GUID-8F957573-9C44-4C6E-B59C-3B7494818B16" class="sect2"><span class="enumeration_section">7.2</span> Using the Hive Extensions From the Command Line</h2>
+<div>
+<div class="section">
+<p>To enable the Oracle XQuery for Hadoop extensions, use the <code class="codeph">--auxpath</code> and <code class="codeph">-i</code> arguments when starting Hive:</p>
+<pre dir="ltr">
+$ hive --auxpath \
+$OXH_HOME/hive/lib/oxh-hive.jar,\
+$OXH_HOME/hive/lib/oxh-mapreduce.jar,\
+$OXH_HOME/hive/lib/oxquery.jar,\
+$OXH_HOME/hive/lib/xqjapi.jar,\
+$OXH_HOME/hive/lib/apache-xmlbeans.jar,\
+$OXH_HOME/hive/lib/woodstox-core-asl-*.jar,\
+$OXH_HOME/hive/lib/stax2-api-*.jar \
+-i $OXH_HOME/hive/init.sql
+</pre>
+<div class="infobox-note" id="GUID-8F957573-9C44-4C6E-B59C-3B7494818B16__GUID-7ACB1082-D573-4CB6-9F5B-5BF0CB5151DE">
+<p class="notep1">Note:</p>
+<p>On the Oracle BigDataLite VM, <code class="codeph">HIVE_AUX_JARS_PATH</code> contains the Hive extensions by default and hence specifying <code class="codeph">--auxpath</code> is unnecessary.</p>
+</div>
+<p>The first time you use the extensions, verify that they are accessible. The following procedure creates a table named <code class="codeph">SRC</code>, loads one row into it, and calls the <code class="codeph">xml_query</code> function.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To verify that the extensions are accessible:</p>
+<ol>
+<li>
+<p>Log in to a server in the Hadoop cluster where you plan to work.</p>
+</li>
+<li>
+<p>Start the Hive command-line interface (CLI):</p>
+<pre dir="ltr">
+$ hive --auxpath \
+$OXH_HOME/hive/lib/oxh-hive.jar,\
+$OXH_HOME/hive/lib/oxh-mapreduce.jar,\
+$OXH_HOME/hive/lib/oxquery.jar,\
+$OXH_HOME/hive/lib/xqjapi.jar,\
+$OXH_HOME/hive/lib/apache-xmlbeans.jar,\
+$OXH_HOME/hive/lib/woodstox-core-asl-*.jar,\
+$OXH_HOME/hive/lib/stax2-api-*.jar \
+-i $OXH_HOME/hive/init.sql
+</pre>
+<p>The <code class="codeph">init.sql</code> file contains the <code class="codeph">CREATE TEMPORARY FUNCTION</code> statements that declare the XML functions.</p>
+</li>
+<li>
+<p>Call an Oracle XQuery for Hadoop function for Hive. This example calls the <code class="codeph">xml_query</code> function to parse an XML string:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_query("x/y", "&lt;x&gt;&lt;y&gt;123&lt;/y&gt;&lt;z&gt;456&lt;/z&gt;&lt;/x&gt;");</span>
+     .
+     .
+     .
+["123"]
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>If the extensions are accessible, then the query returns <code class="codeph">["123"]</code>, as shown in the example.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-93691DFB-3B02-4847-A259-58E8633CAF98"></a>
+<h2 id="BDCUG-GUID-93691DFB-3B02-4847-A259-58E8633CAF98" class="sect2"><span class="enumeration_section">7.3</span> Using the Hive Extensions in HiveServer2</h2>
+<div>
+<div class="section">To enable the XML Extensions for Hive in HiveServer2, you must add the following JARs to the environment variable <code class="codeph">HIVE_AUX_JARS_PATH</code> and to the configuration property <code class="codeph">hive.aux.jars.path</code>.
+<pre dir="ltr">
+$OXH_HOME/hive/lib/woodstox-core-asl-*.jar            
+$OXH_HOME/hive/lib/apache-xmlbeans.jar            
+$OXH_HOME/hive/lib/oxh-hive.jar            
+$OXH_HOME/hive/lib/oxh-mapreduce.jar           
+$OXH_HOME/hive/lib/stax2-api-*.jar            
+$OXH_HOME/hive/lib/xqjapi.jar            
+$OXH_HOME/hive/lib/oxquery.jar
+</pre></div>
+<!-- class="section" -->
+<div class="section">If you are using Cloudera's distribution including Apache Hadoop&nbsp;(on Oracle Big Data Appliance or commodity hardware) you can add the JARs as follows:</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>In Cloudera Manager, click <span class="bold">hive</span>:</span>
+<div><img width="421" height="257" src="img/GUID-1F98161C-F0A9-4584-8B21-BC5D45FA2B18-default.png" alt="Selecting the Hive service in CM." title="Selecting the Hive service in CM." /></div>
+</li>
+<li class="stepexpand"><span>Click <span class="bold">Configuration</span> to go to the Configuration tab.</span>
+<div><img width="785" height="44" src="img/GUID-A296AD3D-46DA-4053-83B2-10D72DA5AD61-default.png" alt="Click Configuration" title="Click Configuration" /></div>
+</li>
+<li class="stepexpand"><span>In the search field, enter <code class="codeph">hive_aux</code>. Then, add the following text after whatever value is in <span class="bold">Gateway Client Environment Advanced Configuration Snippet (Safety Valve) for hive-env.sh</span> . Be sure to include the leading comma. It is advisable to save the text of the original path before editing this field in case you need to revert at a later time.</span>
+<div>
+<pre dir="ltr">
+,/opt/oracle/oxh-*/hive/lib/woodstox-core-asl-oxh-*.jar,/opt/oracle/oxh-*/hive/lib/apache-xmlbeans.jar,/opt/oracle/oxh-*/hive/lib/oxh-hive.jar,/opt/oracle/oxh-*/hive/lib/oxh-mapreduce.jar,/opt/oracle/oxh-*/hive/lib/stax2-api-*.jar,/opt/oracle/oxh-*/hive/lib/xqjapi.jar,/opt/oracle/oxh-*/hive/lib/oxquery.jar
+</pre>
+<p>Note that the JAR version numbers in the paths above are wildcarded (*). Replace the wildcards with the correct JAR versions for the OXH release you are working with.</p>
+<img width="807" height="315" src="img/GUID-52FDE9C3-A99A-4A5D-9C23-852C20001850-default.png" alt="Shows edits to Gateway Client Advanced Configuration" title="Shows edits to Gateway Client Advanced Configuration" /></div>
+</li>
+<li class="stepexpand"><span>Search for <code class="codeph">hive.aux.jars.path</code>. Add the following text after whatever value is in <span class="bold">Hive Client Advanced Configuration Snippet (Safety Valve) for hive-site.xml</span> . Be sure to add the text to the <span class="bold">value</span> field in the <span class="bold">Gateway Default Group</span> panel:</span>
+<div><img width="762" height="545" src="img/GUID-D7936FE5-FE65-4647-A91C-D13FB4373A3E-default.png" alt="Shows Gateway Default Group" title="Shows Gateway Default Group" /></div>
+</li>
+<li class="stepexpand"><span>Click <span class="bold">Save Changes</span>.</span></li>
+<li class="stepexpand"><span>Click <span class="bold">Actions</span> and then click <span class="bold">Deploy Client Configuration</span>. <img width="322" height="489" src="img/GUID-A2062A75-7091-43E4-8606-22C90CB4B3EA-default.png" alt="Click Deploy Client Configuration" title="Click Deploy Client Configuration" /></span></li>
+<li class="stepexpand"><span>After the service restarts, check the status to ensure that it is working correctly.</span></li>
+<li class="stepexpand"><span>To verify that the extensions are accessible, use Beeline:</span>
+<ol>
+<li class="substepexpand"><span>Start Beeline:</span>
+<div>
+<pre dir="ltr">
+$ beeline -i $OXH_HOME/hive/init.sql
+</pre>
+<div class="infobox-note" id="GUID-93691DFB-3B02-4847-A259-58E8633CAF98__GUID-BC11AA23-7155-4CAD-A8E6-ABB374C1480E">
+<p class="notep1">Note:</p>
+You can use <code class="codeph">init.sql</code> as shown above to temporarily declare the functions xml_query, xml_table, et cetera. You can also enable the functions permanently as described in <a href="oxh_hive.htm#GUID-22C5E224-40E5-44E8-8004-C8F6D8EC9872">Permanently Declaring the Hive Functions</a>.</div>
+</div>
+</li>
+<li class="substepexpand"><span>At the Beeline CLI, enter the following. (Fill in the placeholders <code class="codeph"><span class="codeinlineitalic">host</span></code> and<code class="codeph"><span class="codeinlineitalic">port</span></code> with the host and port of <code class="codeph">hiveserver2</code>.)</span>
+<div>
+<pre dir="ltr">
+beeline&gt; !connect jdbc:hive2: //[<span class="italic">host</span>]:[<span class="italic">port</span>] 
+</pre>
+<p>When prompted for a username and password, you can press <span class="bold">Enter</span>.</p>
+</div>
+</li>
+<li class="substepexpand"><span>All the XML extension functions should be created when you connected to Hive. Try the following command to test if they are working correctly:</span>
+<div>
+<pre dir="ltr">
+beeline&gt; SELECT xml_query("x/y", "&lt;x&gt;&lt;y&gt;123&lt;/y&gt;&lt;z&gt;456&lt;/z&gt;&lt;/x&gt;");
+</pre>
+<div class="p">The results returned should be similar to this example:
+<pre dir="ltr">
++----------+--+
+|   _c0    |
++----------+--+
+| ["123"]  |
++----------+--+
+</pre></div>
+</div>
+</li>
+</ol>
+<div>If this test is successful, then you are ready to use the Oracle XQuery for Hadoop functions for Hive in HiveServer2.</div>
+</li>
+</ol>
+<div class="section">
+<div class="p">
+<div class="infoboxnotealso" id="GUID-93691DFB-3B02-4847-A259-58E8633CAF98__GUID-BFF23ADB-29A3-4441-88E0-0E38F28FF1E0">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="oxh_hive.htm#GUID-22C5E224-40E5-44E8-8004-C8F6D8EC9872">Permanently Declaring the Hive Functions</a>.</p>
+<p>You can use <code class="codeph">init.sql</code> to temporarily declare the functions, as shown in previous examples. You can also permanently declare them.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG950"></a>
+<div class="props_rev_3"><a id="GUID-7ECF36DC-4791-4964-945A-802226CA99E6"></a>
+<h2 id="BDCUG-GUID-7ECF36DC-4791-4964-945A-802226CA99E6" class="sect2"><span class="enumeration_section">7.4</span> About the Hive Functions</h2>
+<div>
+<p>The Oracle XQuery for Hadoop extensions enable you to query XML strings in Hive tables and XML file resources in the Hadoop distributed cache. These are the functions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph"><a href="oxh_hive.htm#GUID-1F1C224E-CC06-4400-8002-13DF6D800938">xml_query</a></code>: Returns the result of a query as an array of <code class="codeph">STRING</code> values.</p>
+</li>
+<li>
+<p><code class="codeph"><a href="oxh_hive.htm#GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2">xml_query_as_primitive</a></code>: Returns the result of a query as a Hive primitive value. Each Hive primitive data type has a separate function named for it.</p>
+</li>
+<li>
+<p><code class="codeph"><a href="oxh_hive.htm#GUID-C8C7C9DE-245B-4D8A-9E41-938D738977B9">xml_exists</a></code>: Tests if the result of a query is empty</p>
+</li>
+<li>
+<p><code class="codeph"><a href="oxh_hive.htm#GUID-DC0D869E-3C6D-447F-BF02-25D819399F74">xml_table</a></code>: Maps an XML value to zero or more table rows, and enables nested repeating elements in XML to be mapped to Hive table rows.</p>
+</li>
+</ul>
+<p>See <span class="q">"<a href="oxh_hive.htm#GUID-74F7CECB-4C77-43E4-8296-5A15A7E9BC7E">Oracle XML Functions for&nbsp;Hive Reference</a>."</span></p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-22C5E224-40E5-44E8-8004-C8F6D8EC9872"></a>
+<h2 id="BDCUG-GUID-22C5E224-40E5-44E8-8004-C8F6D8EC9872" class="sect2"><span class="enumeration_section">7.5</span> Permanently Declaring the Hive Functions</h2>
+<div>
+<div class="section">
+<p>In the examples in the previous section, <code class="codeph">$OXH_HOME/hive/init.sql</code> is used to temporarily declare the XML extensions for Hive functions. However, as an alternative, you can permanently declare the functions so that <code class="codeph">init.sql</code> is not needed. Use the following commands to permanently declare the functions.</p>
+<pre dir="ltr">
+CREATE FUNCTION xml_query AS 'oracle.hadoop.xquery.hive.OXMLQueryUDF' ;
+CREATE FUNCTION xml_query_as_bigint AS 'oracle.hadoop.xquery.hive.OXMLQueryBigintUDF' ;
+CREATE FUNCTION xml_query_as_int AS 'oracle.hadoop.xquery.hive.OXMLQueryIntUDF' ;
+CREATE FUNCTION xml_query_as_smallint AS 'oracle.hadoop.xquery.hive.OXMLQuerySmallintUDF' ;
+CREATE FUNCTION xml_query_as_tinyint AS 'oracle.hadoop.xquery.hive.OXMLQueryTinyintUDF' ;
+CREATE FUNCTION xml_query_as_float AS 'oracle.hadoop.xquery.hive.OXMLQueryFloatUDF' ;
+CREATE FUNCTION xml_query_as_double AS 'oracle.hadoop.xquery.hive.OXMLQueryDoubleUDF' ';
+CREATE FUNCTION xml_query_as_boolean AS 'oracle.hadoop.xquery.hive.OXMLQueryBooleanUDF' ;
+CREATE FUNCTION xml_query_as_string AS 'oracle.hadoop.xquery.hive.OXMLQueryStringUDF' ;
+CREATE FUNCTION xml_exists AS 'oracle.hadoop.xquery.hive.OXMLExists' ;
+CREATE FUNCTION xml_table AS 'oracle.hadoop.xquery.hive.OXMLTableUDTF' ;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG951"></a>
+<div class="props_rev_3"><a id="GUID-6B848924-C150-4E90-998E-CF4B35ACD9BA"></a>
+<h2 id="BDCUG-GUID-6B848924-C150-4E90-998E-CF4B35ACD9BA" class="sect2"><span class="enumeration_section">7.6</span> Creating XML Tables</h2>
+<div>
+<p>This section describes how you can use the Hive <code class="codeph">CREATE TABLE</code> statement to create tables over large XML documents.</p>
+<p>Hive queries over XML tables scale well, because Oracle XQuery for Hadoop splits up the XML so that the MapReduce framework can process it in parallel.</p>
+<p>To support scalable processing and operate in the MapReduce framework, the table adapter scans for elements to use to create table rows. It parses only the elements that it identifies as being part of the table; the rest of the XML is ignored. Thus, the XML table adapter does not perform a true parse of the entire XML document, which imposes limitations on the input XML. Because of these limitations, you can create tables only over XML documents that meet the constraints listed in <span class="q">"<a href="oxh.htm#GUID-B93E00B7-28D8-4CAB-9D63-821EFC0FEBA3">XQuery Transformation Requirements</a>."</span> Otherwise, you might get errors or incorrect results.</p>
+</div>
+<a id="BDCUG694"></a>
+<div class="props_rev_3"><a id="GUID-8268F310-D88A-48F5-8971-6A3625B0644F"></a>
+<h3 id="BDCUG-GUID-8268F310-D88A-48F5-8971-6A3625B0644F" class="sect3"><span class="enumeration_section">7.6.1</span> Hive CREATE TABLE Syntax for XML Tables</h3>
+<div>
+<div class="section">
+<p>The following is the basic syntax of the Hive <code class="codeph">CREATE TABLE</code> statement for creating a Hive table over XML files:</p>
+<pre dir="ltr">
+CREATE TABLE table_name (<span class="italic">columns</span>)
+ROW FORMAT
+   SERDE 'oracle.hadoop.xquery.hive.<a id="d58115e544" class="indexterm-anchor"></a>OXMLSerDe'
+STORED AS
+   INPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLInputFormat'
+   OUTPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLOutputFormat'
+TBLPROPERTIES(<span class="italic">configuration</span>)
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Parameters</p>
+<div class="tblformal" id="GUID-8268F310-D88A-48F5-8971-6A3625B0644F__GUID-9F3C6BE0-F4CA-490D-95A2-357DD7DBEA97">
+<table class="cellalignment65" summary="Describes the parameters of the Hive Create Table syntax.">
+<thead>
+<tr class="cellalignment26">
+<th class="cellalignment64" id="d58115e561">Parameter</th>
+<th class="cellalignment64" id="d58115e563">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment26" id="GUID-8268F310-D88A-48F5-8971-6A3625B0644F__GUID-BA77F501-7D09-40D0-B05D-E7BB1A5C2247">
+<td class="cellalignment26" id="d58115e567" headers="d58115e561">
+<p><span class="bold">columns</span></p>
+</td>
+<td class="cellalignment26" headers="d58115e567 d58115e563">
+<p>All column types in an XML table must be one of the Hive primitive types given in <span class="q">"<a href="oxh_hive.htm#GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738">Data Type Conversions</a>."</span></p>
+</td>
+</tr>
+<tr class="cellalignment26" id="GUID-8268F310-D88A-48F5-8971-6A3625B0644F__CHDDCCFF">
+<td class="cellalignment26" id="d58115e580" headers="d58115e561">
+<p><span class="bold">configuration</span></p>
+</td>
+<td class="cellalignment26" headers="d58115e580 d58115e563">
+<p>Any of the properties described in <span class="q">"<a href="oxh_hive.htm#GUID-2C34F568-B846-41AC-9A57-231D3FDAC3F1">CREATE TABLE Configuration Properties</a>."</span> Separate multiple properties with commas.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<div class="infobox-note" id="GUID-8268F310-D88A-48F5-8971-6A3625B0644F__GUID-662D0FC0-509C-42A4-ADAA-355CBC872BF0">
+<p class="notep1">Note:</p>
+<p>Inserting data into XML tables is not supported.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG952"></a>
+<div class="props_rev_3"><a id="GUID-2C34F568-B846-41AC-9A57-231D3FDAC3F1"></a>
+<h3 id="BDCUG-GUID-2C34F568-B846-41AC-9A57-231D3FDAC3F1" class="sect3"><span class="enumeration_section">7.6.2</span> CREATE TABLE Configuration Properties</h3>
+<div>
+<div class="section">
+<p>Use these configuration properties in the <code class="codeph"><a href="oxh_hive.htm#GUID-8268F310-D88A-48F5-8971-6A3625B0644F__CHDDCCFF">configuration</a></code> parameter of the <code class="codeph">CREATE TABLE</code> command.</p>
+<dl>
+<dt class="dlterm"><a id="GUID-2C34F568-B846-41AC-9A57-231D3FDAC3F1__GUID-44B588FC-E6B6-456D-A004-F6413A1AFD3A"><!-- --></a>oxh-default-namespace</dt>
+<dd>
+<p>Sets the default namespace for expressions in the table definition and for XML parsing. The value is a URI.</p>
+<p>This example defines the default namespace:</p>
+<pre dir="ltr">
+"oxh-default-namespace" = "http://example.com/foo"
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C34F568-B846-41AC-9A57-231D3FDAC3F1__GUID-615E3CA3-301E-406F-9E88-209DFC0B28EB"><!-- --></a>oxh-charset</dt>
+<dd>
+<p>Specifies the character encoding of the XML files. The supported encodings are UTF-8 (default), ISO-8859-1, and US-ASCII.</p>
+<p>All XML files for the table must share the same character encoding. Any encoding declarations in the XML files are ignored.</p>
+<p>This example defines the character set:</p>
+<pre dir="ltr">
+"oxh-charset" = "ISO-8859-1"
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C34F568-B846-41AC-9A57-231D3FDAC3F1__GUID-8D8EA1EC-7923-4323-9439-994A6260C4EF"><!-- --></a>oxh-column.<span class="italic">name</span></dt>
+<dd>
+<p>Specifies how an element selected by the <code class="codeph">oxh-elements</code> property is mapped to columns in a row. In this property name, replace <span class="italic">name</span> with the name of a column in the table. The value can be any XQuery expression. The initial context item of the expression (the "." variable) is bound to the selected element.</p>
+<p>Check the log files even when a query executes successfully. If a column expression returns no value or raises a dynamic error, the column value is <code class="codeph">NULL</code>. The first time an error occurs, it is logged and query processing continues. Subsequent errors raised by the same column expression are not logged.</p>
+<p>Any column of the table that does not have a corresponding <code class="codeph">oxh-column</code> property behaves as if the following property is specified:</p>
+<pre dir="ltr">
+"oxh-column.name" = "(./name | ./@name)[1]"
+</pre>
+<p>Thus, the default behavior is to select the first child element or attribute that matches the table column name. See <span class="q">"<a href="oxh_hive.htm#GUID-118138E4-E97D-4FFD-836D-BB93C0031749">Syntax Example</a>."</span></p>
+</dd>
+<dt class="dlterm"><a id="GUID-2C34F568-B846-41AC-9A57-231D3FDAC3F1__GUID-D59B1706-E4ED-4F88-885C-C4530FF0833F"><!-- --></a>oxh-elements</dt>
+<dd>
+<p>Identifies the names of elements in the XML that map to rows in the table, in a comma-delimited list. This property must be specified one time. Required.</p>
+<p>This example maps each element named <code class="codeph">foo</code> in the XML to a single row in the Hive table:</p>
+<pre dir="ltr">
+"oxh-elements" = "foo"
+</pre>
+<p>The next example maps each element named either <code class="codeph">foo</code> or <code class="codeph">bar</code> in the XML to a row in the Hive table:</p>
+<pre dir="ltr">
+"oxh-elements" = "foo, bar"
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C34F568-B846-41AC-9A57-231D3FDAC3F1__GUID-1B7F8D59-3E45-4026-88B0-BEC5C749C5CB"><!-- --></a>oxh-entity.name</dt>
+<dd>
+<p>Defines a set of entity reference definitions.</p>
+<p>In the following example, entity references in the XML are expanded from <code class="codeph">&amp;foo;</code> to "foo value" and from <code class="codeph">&amp;bar;</code> to "bar value".</p>
+<div class="p">
+<pre dir="ltr">
+"oxh-entity.foo" = "foo value"
+"oxh-entity.bar" = "bar value"
+</pre></div>
+</dd>
+<dt class="dlterm"><a id="GUID-2C34F568-B846-41AC-9A57-231D3FDAC3F1__GUID-9B7EEFA4-3A10-42E1-8A19-F5ED4A78E9F2"><!-- --></a>oxh-namespace.prefix</dt>
+<dd>
+<p>Defines a namespace binding.</p>
+<p>This example binds the prefix <code class="codeph">myns</code> to the namespace <code class="codeph">http://example.org</code>:</p>
+<pre dir="ltr">
+"oxh-namespace.myns" = "http://example.org"
+</pre>
+<p>You can use this property multiple times to define additional namespaces. The namespace definitions are used when parsing the XML. The <code class="codeph">oxh-element</code> and <code class="codeph">oxh-column</code> property values can also reference them.</p>
+<p>In the following example, only <code class="codeph">foo</code> elements in the <code class="codeph">http://example.org</code> namespace are mapped to table rows:</p>
+<div class="p">
+<pre dir="ltr">
+"oxh-namespace.myns" = "http://example.org",
+"oxh-elements" = "myns:foo",
+"oxh-column.bar" = "./myns:bar"
+</pre></div>
+</dd>
+</dl>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG696"></a>
+<div class="props_rev_3"><a id="GUID-6EA8BF3B-6C48-4EE7-91DB-14EA39C28838"></a>
+<h3 id="BDCUG-GUID-6EA8BF3B-6C48-4EE7-91DB-14EA39C28838" class="sect3"><span class="enumeration_section">7.6.3</span> CREATE TABLE Examples</h3>
+<div>
+<p>This section includes the following examples:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="oxh_hive.htm#GUID-118138E4-E97D-4FFD-836D-BB93C0031749">Syntax Example</a></p>
+</li>
+<li>
+<p><a href="oxh_hive.htm#GUID-595795D3-1EE9-495B-8C22-31191BAF86F4">Simple Examples</a></p>
+</li>
+<li>
+<p><a href="oxh_hive.htm#GUID-58FF7900-7878-4A89-B3F3-7FD0057A610F">OpenStreetMap Examples</a></p>
+</li>
+</ul>
+</div>
+<a id="BDCUG1081"></a><a id="BDCUG1082"></a><a id="BDCUG1083"></a><a id="BDCUG953"></a>
+<div class="props_rev_3"><a id="GUID-118138E4-E97D-4FFD-836D-BB93C0031749"></a>
+<h4 id="BDCUG-GUID-118138E4-E97D-4FFD-836D-BB93C0031749" class="sect4"><span class="enumeration_section">7.6.3.1</span> Syntax Example</h4>
+<div>
+<div class="section">
+<p>This example shows how to map XML elements to column names.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-118138E4-E97D-4FFD-836D-BB93C0031749__GUID-6FFC5672-0DAC-416E-88DE-20C4E7904552">
+<p class="titleinexample">Example 7-1 Basic Column Mappings</p>
+<p>In the following table definition, the <code class="codeph">oxh-elements</code> property specifies that each element named <code class="codeph">foo</code> in the XML is mapped to a single row in the table. The <code class="codeph">oxh-column</code> properties specify that a Hive table column named <code class="codeph">BAR</code> gets the value of the child element named <code class="codeph">bar</code> converted to <code class="codeph">STRING</code>, and the column named <code class="codeph">ZIP</code> gets the value of the child element named <code class="codeph">zip</code> converted to <code class="codeph">INT</code>.</p>
+<pre dir="ltr">
+CREATE TABLE example (bar STRING, zip INT)
+ROW FORMAT
+   SERDE 'oracle.hadoop.xquery.hive.OXMLSerDe'
+STORED AS
+   INPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLInputFormat'
+   OUTPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLOutputFormat'
+TBLPROPERTIES(
+   "oxh-elements" = "foo", 
+   "oxh-column.bar" = "./bar",
+   "oxh-column.zip" = "./zip"
+)
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-118138E4-E97D-4FFD-836D-BB93C0031749__GUID-FC2F606D-440D-444A-8CCD-744762E9CD23">
+<p class="titleinexample">Example 7-2 Conditional Column Mappings</p>
+<p>In this modified definition of the <code class="codeph">ZIP</code> column, the column receives a value of -1 if the <code class="codeph">foo</code> element does not have a child <code class="codeph">zip</code> element, or if the <code class="codeph">zip</code> element contains a nonnumeric value:</p>
+<pre dir="ltr">
+"oxh-column.zip" = "
+   if (./zip castable as xs:int) then 
+      xs:int(./zip) 
+   else 
+      -1
+"
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-118138E4-E97D-4FFD-836D-BB93C0031749__GUID-0510D6A8-776D-4C9C-8878-4653A7CB41B5">
+<p class="titleinexample">Example 7-3 Default Column Mappings</p>
+<p>The following two table definitions are equivalent. Table Definition 2 relies on the default mappings for the <code class="codeph">BAR</code> and <code class="codeph">ZIP</code> columns.</p>
+<p><span class="bold">Table Definition 1</span></p>
+<pre dir="ltr">
+CREATE TABLE example (bar STRING, zip INT)
+ROW FORMAT
+   SERDE 'oracle.hadoop.xquery.hive.OXMLSerDe'
+STORED AS
+   INPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLInputFormat'
+   OUTPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLOutputFormat'
+TBLPROPERTIES(
+   "oxh-elements" = "foo", 
+   "oxh-column.bar" = "(./bar | ./@bar)[1]",
+   "oxh-column.zip" = "(./zip | ./@zip)[1]"
+)
+</pre>
+<p id="GUID-118138E4-E97D-4FFD-836D-BB93C0031749__CHDIGJDD"><span class="bold">Table Definition 2</span></p>
+<pre dir="ltr">
+CREATE TABLE example (bar STRING, zip INT)
+ROW FORMAT
+   SERDE 'oracle.hadoop.xquery.hive.OXMLSerDe'
+STORED AS
+   INPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLInputFormat'
+   OUTPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLOutputFormat'
+TBLPROPERTIES(
+   "oxh-elements" = "foo"
+)
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BDCUG1084"></a><a id="BDCUG1085"></a><a id="BDCUG1086"></a><a id="BDCUG697"></a>
+<div class="props_rev_3"><a id="GUID-595795D3-1EE9-495B-8C22-31191BAF86F4"></a>
+<h4 id="BDCUG-GUID-595795D3-1EE9-495B-8C22-31191BAF86F4" class="sect4"><span class="enumeration_section">7.6.3.2</span> Simple Examples</h4>
+<div>
+<p>These examples show how to create Hive tables over a small XML document that contains comments posted by users of a fictitious website. Each <code class="codeph">comment</code> element in the document (<code class="codeph">comments.xml</code>) has one or more <code class="codeph">like</code> elements that indicate that the user liked the comment.</p>
+<pre dir="ltr">
+&lt;comments&gt;
+   &lt;comment id="12345" user="john" text="It is raining :( "/&gt;
+   &lt;comment id="56789" user="kelly" text="I won the lottery!"&gt;
+      &lt;like user="john"/&gt;
+      &lt;like user="mike"/&gt;
+   &lt;/comment&gt;
+   &lt;comment id="54321" user="mike" text="Happy New Year!"&gt;
+      &lt;like user="laura"/&gt;
+   &lt;/comment&gt;
+&lt;/comments&gt;
+</pre>
+<p>In the <code class="codeph">CREATE TABLE</code> examples, the <code class="codeph">comments.xml</code> input file is in the current working directory of the local file system.</p>
+<div class="example" id="GUID-595795D3-1EE9-495B-8C22-31191BAF86F4__BABGEICH">
+<p class="titleinexample">Example 7-4 Creating a Table</p>
+<p>The following Hive <code class="codeph">CREATE TABLE</code> command creates a table named <code class="codeph">COMMENTS</code> with a row for each comment containing the user names, text, and number of likes:</p>
+<pre dir="ltr">
+hive&gt;
+CREATE TABLE comments (usr STRING, content STRING, likeCt INT)
+ROW FORMAT
+   SERDE 'oracle.hadoop.xquery.hive.OXMLSerDe'
+STORED AS
+   INPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLInputFormat'
+   OUTPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLOutputFormat'
+TBLPROPERTIES(
+   "oxh-elements" = "comment",
+   "oxh-column.usr" = "./@user",
+   "oxh-column.content" = "./@text",
+   "oxh-column.likeCt" = "fn:count(./like)"
+);
+</pre>
+<p>The Hive <code class="codeph">LOAD DATA</code> command loads <code class="codeph">comments.xml</code> into the <code class="codeph">COMMENTS</code> table.</p>
+<pre dir="ltr">
+hive&gt; LOAD DATA LOCAL INPATH 'comments.xml' OVERWRITE INTO TABLE comments;
+]
+</pre>
+<p>The following query shows the content of the <code class="codeph">COMMENTS</code> table.</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT usr, content, likeCt FROM comments;</span>
+     .
+     .
+     .
+john  It is raining :(     0
+kelly I won the lottery!   2
+mike  Happy New Year!      1
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-595795D3-1EE9-495B-8C22-31191BAF86F4__GUID-3540F49C-EB08-46FC-90D6-FE15333D8D16">
+<p class="titleinexample">Example 7-5 Querying an XML Column</p>
+<p>This <code class="codeph">CREATE TABLE</code> command is like the previous example, except that the <code class="codeph">like</code> elements are produced as XML in a <code class="codeph">STRING</code> column.</p>
+<pre dir="ltr">
+hive&gt;
+CREATE TABLE comments2 (usr STRING, content STRING, likes STRING)
+ROW FORMAT
+   SERDE 'oracle.hadoop.xquery.hive.OXMLSerDe'
+STORED AS
+   INPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLInputFormat'
+   OUTPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLOutputFormat'
+TBLPROPERTIES(
+   "oxh-elements" = "comment",
+   "oxh-column.usr" = "./@user",
+   "oxh-column.content" = "./@text",
+   "oxh-column.likes" = "fn:serialize(&lt;likes&gt;{./like}&lt;/likes&gt;)"
+);
+</pre>
+<p>The Hive <code class="codeph">LOAD DATA</code> command loads <code class="codeph">comments.xml</code> into the table. See <span class="q">"<a href="oxh_hive.htm#GUID-595795D3-1EE9-495B-8C22-31191BAF86F4">Simple Examples</a>"</span> for the contents of the file.</p>
+<pre dir="ltr">
+hive&gt; LOAD DATA LOCAL INPATH 'comments.xml' OVERWRITE INTO TABLE comments2;
+ 
+</pre>
+<p>The following query shows the content of the <code class="codeph">COMMENTS2</code> table.</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT usr, content, likes FROM comments2;</span>
+     .
+     .
+     .
+john   It is raining :(    &lt;likes/&gt;
+kelly  I won the lottery!  &lt;likes&gt;&lt;like user="john"/&gt;&lt;like user="mike"/&gt;&lt;/likes&gt;
+mike   Happy New Year!     &lt;likes&gt;&lt;like user="laura"/&gt;&lt;/likes&gt;
+ 
+</pre>
+<p>The next query extracts the user names from the <code class="codeph">like</code> elements:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT usr, t.user FROM comments2 LATERAL VIEW</span> 
+    &gt; <span class="bold">xml_table("likes/like", comments2.likes, struct("./@user")) t AS user;</span>
+     .
+     .
+     .
+kelly  john
+kelly  mike
+mike   laura
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-595795D3-1EE9-495B-8C22-31191BAF86F4__GUID-BAA0942F-35FB-4578-BA14-F4ADDCF35A5A">
+<p class="titleinexample">Example 7-6 Generating XML in a Single String Column</p>
+<p>This command creates a table named <code class="codeph">COMMENTS3</code> with a row for each comment, and produces the XML in a single <code class="codeph">STRING</code> column.</p>
+<pre dir="ltr">
+hive&gt; 
+CREATE TABLE comments3 (xml STRING)
+ROW FORMAT
+   SERDE 'oracle.hadoop.xquery.hive.OXMLSerDe'
+STORED AS
+   INPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLInputFormat'
+   OUTPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLOutputFormat'
+TBLPROPERTIES(
+   "oxh-elements" = "comment",
+   "oxh-column.xml" = "fn:serialize(.)"
+   ); 
+</pre>
+<p>The Hive <code class="codeph">LOAD DATA</code> command loads <code class="codeph">comments.xml</code> into the table. See <span class="q">"<a href="oxh_hive.htm#GUID-595795D3-1EE9-495B-8C22-31191BAF86F4">Simple Examples</a>"</span> for the contents of the file.</p>
+<pre dir="ltr">
+hive&gt; LOAD DATA LOCAL INPATH 'comments.xml' OVERWRITE INTO TABLE comments3;
+</pre>
+<p>The following query shows the contents of the XML column:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml FROM comments3;</span>
+     .
+     .
+     .
+&lt;comment id="12345" user="john" text="It is raining :( "/&gt;
+&lt;comment id="56789" user="kelly" text="I won the lottery!"&gt;
+   &lt;like user="john"/&gt;
+   &lt;like user="mike"/&gt;
+&lt;/comment&gt;
+&lt;comment id="54321" user="mike" text="Happy New Year!"&gt;
+   &lt;like user="laura"/&gt;
+&lt;/comment&gt;
+ 
+</pre>
+<p>The next query extracts the IDs and converts them to integers:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_query_as_int("comment/@id", xml) FROM comments3;</span>
+     .
+     .
+     .
+12345
+56789
+54321
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BDCUG1087"></a><a id="BDCUG1088"></a><a id="BDCUG702"></a>
+<div class="props_rev_3"><a id="GUID-58FF7900-7878-4A89-B3F3-7FD0057A610F"></a>
+<h4 id="BDCUG-GUID-58FF7900-7878-4A89-B3F3-7FD0057A610F" class="sect4"><span class="enumeration_section">7.6.3.3</span> OpenStreetMap Examples</h4>
+<div>
+<p>These examples use data from OpenStreetMap, which provides free map data for the entire world. You can export the data as XML for specific geographic regions or the entire planet. An OpenStreetMap XML document mainly contains a sequence of <code class="codeph">node</code>, <code class="codeph">way</code>, and <code class="codeph">relation</code> elements.</p>
+<p>In these examples, the OpenStreetMap XML files are stored in the <code class="codeph">/user/name/osm</code> HDFS directory.</p>
+<div class="infoboxnotealso" id="GUID-58FF7900-7878-4A89-B3F3-7FD0057A610F__GUID-FA5F6E83-36DC-4A00-A173-552061B38DFA">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To download OpenStreetMap data, go to</p>
+<p><a href="http://www.openstreetmap.org/export" target="_blank"><code class="codeph">http://www.openstreetmap.org/export</code></a></p>
+</li>
+<li>
+<p>For information about the OpenStreetMap XML format, go to</p>
+<p><a href="http://wiki.openstreetmap.org/wiki/OSM_XML" target="_blank"><code class="codeph">http://wiki.openstreetmap.org/wiki/OSM_XML</code></a></p>
+</li>
+</ul>
+</div>
+<div class="example" id="GUID-58FF7900-7878-4A89-B3F3-7FD0057A610F__GUID-46D40CF7-99D4-42A5-94F7-DB84FEC3134B">
+<p class="titleinexample">Example 7-7 Creating a Table Over OpenStreetMap XML</p>
+<p>This example creates a table over OpenStreetMap XML with one row for each <code class="codeph">node</code> element as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The <code class="codeph">id</code>, <code class="codeph">lat</code>, <code class="codeph">lon</code>, and <code class="codeph">user</code> attributes of the <code class="codeph">node</code> element are mapped to table columns.</p>
+</li>
+<li>
+<p>The year is extracted from the <code class="codeph">timestamp</code> attribute and mapped to the <code class="codeph">YEAR</code> column. If a node does not have a <code class="codeph">timestamp</code> attribute, then <code class="codeph">-1</code> is used for the year.</p>
+</li>
+<li>
+<p>If the <code class="codeph">node</code> element has any child <code class="codeph">tag</code> elements, then they are stored as an XML string in the <code class="codeph">TAGS</code> column. If <code class="codeph">node</code> has no child <code class="codeph">tag</code> elements, then column value is <code class="codeph">NULL</code>.</p>
+</li>
+</ul>
+<pre dir="ltr">
+hive&gt;
+CREATE EXTERNAL TABLE nodes (
+   id BIGINT,
+   latitude DOUBLE,
+   longitude DOUBLE,
+   year SMALLINT,
+   tags STRING
+) 
+ROW FORMAT 
+   SERDE 'oracle.hadoop.xquery.hive.OXMLSerDe'
+STORED AS
+   INPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLInputFormat'
+   OUTPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLOutputFormat'
+LOCATION '/user/name/osm'
+TBLPROPERTIES (
+   "oxh-elements" = "node",
+   "oxh-column.id" = "./@id",
+   "oxh-column.latitude" = "./@lat",
+   "oxh-column.longitude" = "./@lon",
+   "oxh-column.year" = "
+      if (fn:exists(./@timestamp)) then
+         fn:year-from-dateTime(xs:dateTime(./@timestamp))
+      else
+         -1
+   ",
+   "oxh-column.tags" = "
+      if (fn:exists(./tag)) then
+         fn:serialize(&lt;tags&gt;{./tag}&lt;/tags&gt;)
+      else 
+         ()
+   "
+);
+</pre>
+<p>The following query returns the number of nodes per year:</p>
+<pre dir="ltr">
+hive&gt; SELECT year, count(*) FROM nodes GROUP BY year;
+</pre>
+<p>This query returns the total number of tags across nodes:</p>
+<pre dir="ltr">
+hive&gt; SELECT sum(xml_query_as_int("count(tags/tag)", tags)) FROM nodes;
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-58FF7900-7878-4A89-B3F3-7FD0057A610F__GUID-00310DA1-B0A0-4E2C-BE0A-3DA578DA35EF">
+<p class="titleinexample">Example 7-8</p>
+<p>In OpenStreetMap XML, the <code class="codeph">node</code>, <code class="codeph">way</code>, and <code class="codeph">relation</code> elements share a set of common attributes, such as the user who contributed the data. The next table produces one row for each <code class="codeph">node</code>, <code class="codeph">way</code>, and <code class="codeph">relation</code> element.</p>
+<pre dir="ltr">
+hive&gt;
+  CREATE EXTERNAL TABLE osm (
+     id BIGINT,
+     uid BIGINT,
+     type STRING
+  ) 
+  ROW FORMAT 
+    SERDE 'oracle.hadoop.xquery.hive.OXMLSerDe'
+  STORED AS
+    INPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLInputFormat'
+    OUTPUTFORMAT 'oracle.hadoop.xquery.hive.OXMLOutputFormat'
+  LOCATION '/user/name/osm'
+  TBLPROPERTIES (
+    "oxh-elements" = "node, way, relation",
+    "oxh-column.id" = "./@id",
+    "oxh-column.uid" = "./@uid",
+    "oxh-column.type" = "./name()"
+  );
+</pre>
+<p>The following query returns the number of <code class="codeph">node</code>, <code class="codeph">way</code>, and <code class="codeph">relation</code> elements. The <code class="codeph">TYPE</code> column is set to the name of the selected element, which is either <code class="codeph">node</code>, <code class="codeph">way</code>, or <code class="codeph">relation</code>.</p>
+<pre dir="ltr">
+hive&gt; SELECT type, count(*) FROM osm GROUP BY type;
+ 
+</pre>
+<p>This query returns the number of distinct user IDs:</p>
+<pre dir="ltr">
+hive&gt; SELECT count(*) FROM (SELECT uid FROM osm GROUP BY uid) t;
+</pre></div>
+<!-- class="example" -->
+<div class="infoboxnotealso" id="GUID-58FF7900-7878-4A89-B3F3-7FD0057A610F__GUID-8193E42D-D3F9-495C-B380-F5463DFCBFB3">
+<p class="notep1">See Also:</p>
+<p>For a description of the OpenStreetMap elements and attributes, go to</p>
+<p><a href="http://wiki.openstreetmap.org/wiki/Elements" target="_blank"><code class="codeph">http://wiki.openstreetmap.org/wiki/Elements</code></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a id="BDCUG705"></a>
+<div class="sect2"><a id="GUID-74F7CECB-4C77-43E4-8296-5A15A7E9BC7E"></a>
+<h2 id="BDCUG-GUID-74F7CECB-4C77-43E4-8296-5A15A7E9BC7E" class="sect2"><span class="enumeration_section">7.7</span> Oracle XML Functions for&nbsp;Hive Reference</h2>
+<div>
+<p>This section describes the Oracle XML Extensions for Hive. It describes the following commands and functions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="oxh_hive.htm#GUID-C8C7C9DE-245B-4D8A-9E41-938D738977B9">xml_exists</a></p>
+</li>
+<li>
+<p><a href="oxh_hive.htm#GUID-1F1C224E-CC06-4400-8002-13DF6D800938">xml_query</a></p>
+</li>
+<li>
+<p><a href="oxh_hive.htm#GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2">xml_query_as_primitive</a></p>
+</li>
+<li>
+<p><a href="oxh_hive.htm#GUID-DC0D869E-3C6D-447F-BF02-25D819399F74">xml_table</a></p>
+</li>
+</ul>
+</div>
+<a id="BDCUG709"></a><a id="BDCUG708"></a>
+<div class="sect3"><a id="GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738"></a>
+<h3 id="BDCUG-GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738" class="sect3"><span class="enumeration_section">7.7.1</span> Data Type Conversions</h3>
+<div>
+<p>This table shows the conversions that occur automatically between Hive primitives and XML schema types.</p>
+<div class="tblformal" id="GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738__CHDCJFHH">
+<p class="titleintable">Table 7-1 Data Type Equivalents</p>
+<table class="cellalignment32" title="Data Type Equivalents" summary="Equivalent Hive, Java, and XQJ data types">
+<thead>
+<tr class="cellalignment26">
+<th class="cellalignment71" id="d58115e1345">Hive</th>
+<th class="cellalignment71" id="d58115e1348">XML schema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment26">
+<td class="cellalignment72" id="d58115e1353" headers="d58115e1345">
+<p><code class="codeph">TINYINT</code></p>
+</td>
+<td class="cellalignment72" headers="d58115e1353 d58115e1348">
+<p><code class="codeph">xs:byte</code></p>
+</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment72" id="d58115e1362" headers="d58115e1345">
+<p><code class="codeph">SMALLINT</code></p>
+</td>
+<td class="cellalignment72" headers="d58115e1362 d58115e1348">
+<p><code class="codeph">xs:short</code></p>
+</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment72" id="d58115e1371" headers="d58115e1345">
+<p><code class="codeph">INT</code></p>
+</td>
+<td class="cellalignment72" headers="d58115e1371 d58115e1348">
+<p><code class="codeph">xs:int</code></p>
+</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment72" id="d58115e1380" headers="d58115e1345">
+<p><code class="codeph">BIGINT</code></p>
+</td>
+<td class="cellalignment72" headers="d58115e1380 d58115e1348">
+<p><code class="codeph">xs:long</code></p>
+</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment72" id="d58115e1389" headers="d58115e1345">
+<p><code class="codeph">BOOLEAN</code></p>
+</td>
+<td class="cellalignment72" headers="d58115e1389 d58115e1348">
+<p><code class="codeph">xs:boolean</code></p>
+</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment72" id="d58115e1398" headers="d58115e1345">
+<p><code class="codeph">FLOAT</code></p>
+</td>
+<td class="cellalignment72" headers="d58115e1398 d58115e1348">
+<p><code class="codeph">xs:float</code></p>
+</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment72" id="d58115e1407" headers="d58115e1345">
+<p><code class="codeph">DOUBLE</code></p>
+</td>
+<td class="cellalignment72" headers="d58115e1407 d58115e1348">
+<p><code class="codeph">xs:double</code></p>
+</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment72" id="d58115e1416" headers="d58115e1345">
+<p><code class="codeph">STRING</code></p>
+</td>
+<td class="cellalignment72" headers="d58115e1416 d58115e1348">
+<p><code class="codeph">xs:string</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BDCUG707"></a>
+<div class="sect3"><a id="GUID-808C8CC2-5007-4A9D-A0A3-E7E4983B63D0"></a>
+<h3 id="BDCUG-GUID-808C8CC2-5007-4A9D-A0A3-E7E4983B63D0" class="sect3"><span class="enumeration_section">7.7.2</span> Hive Access to External Files</h3>
+<div>
+<p>The Hive functions have access to the following external file resources:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>XML schemas</p>
+<p>See <a href="http://www.w3.org/TR/xquery/#id-schema-import" target="_blank"><code class="codeph">http://www.w3.org/TR/xquery/#id-schema-import</code></a></p>
+</li>
+<li>
+<p>XML documents</p>
+<p>See <a href="http://www.w3.org/TR/xpath-functions/#func-doc" target="_blank"><code class="codeph">http://www.w3.org/TR/xpath-functions/#func-doc</code></a></p>
+</li>
+<li>
+<p>XQuery library modules</p>
+<p>See <a href="http://www.w3.org/TR/xquery/#id-module-import" target="_blank"><code class="codeph">http://www.w3.org/TR/xquery/#id-module-import</code></a></p>
+</li>
+</ul>
+<p>You can address these files by their URI from either HTTP (by using the <code class="codeph">http://...</code> syntax) or the local file system (by using the <code class="codeph">file://...</code> syntax). In this example, relative file locations are resolved against the local working directory of the task, so that URIs such as bar.xsd can be used to access files that were added to the distributed cache:</p>
+<pre dir="ltr">
+xml_query("
+   import schema namespace tns='http://example.org' at 'bar.xsd';
+   validate { ... }
+        ",
+   .
+   .
+   .
+</pre>
+<p>To access a local file, first add it to the Hadoop distributed cache using the Hive <code class="codeph">ADD FILE</code> command. For example:</p>
+<pre dir="ltr">
+ADD FILE /local/mydir/thisfile.xsd;
+</pre>
+<p>Otherwise, you must ensure that the file is available on all nodes of the cluster, such as by mounting the same network drive or simply copying the file to every node. The default base URI is set to the local working directory.</p>
+<div class="infoboxnotealso" id="GUID-808C8CC2-5007-4A9D-A0A3-E7E4983B63D0__GUID-0A0935A9-68D2-4B0A-ADEC-99017ADF4285">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>For examples of accessing the distributed cache, see <a href="oxh_hive.htm#GUID-1F1C224E-CC06-4400-8002-13DF6D800938__BABDFFEG">Example 7-15</a> for <code class="codeph">xml_query</code>, <a href="oxh_hive.htm#GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__BABDEADA">Example 7-22</a> for <code class="codeph">xml_query_as_</code><span class="italic"><code class="codeph">primitive</code></span>, and <a href="oxh_hive.htm#GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABEIDHH">Example 7-31</a> for <code class="codeph">xml_table</code>.</p>
+</li>
+<li>
+<p>For information about the default base URI, see <span class="italic">XQuery 3.1: An XML Query Language</span> at</p>
+<p><a href="https://www.w3.org/TR/xquery-31/#dt-static-base-uri" target="_blank"><code class="codeph">http://www.w3.org/TR/xquery/#dt-base-uri</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<a id="BDCUG706"></a>
+<div class="sect2"><a id="GUID-752B31ED-DFF2-4978-8CA8-41D1A00E45C5"></a>
+<h2 id="BDCUG-GUID-752B31ED-DFF2-4978-8CA8-41D1A00E45C5" class="sect2"><span class="enumeration_section">7.8</span> Online Documentation of Functions</h2>
+<div>
+<p>You can get online Help for the Hive extension functions by using this command:</p>
+<pre dir="ltr">
+DESCRIBE FUNCTION [EXTENDED] <span class="italic">function_name</span>;
+</pre>
+<p>This example provides a brief description of the <code class="codeph">xml_query</code> function:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">describe function xml_query</span>;         
+OK
+xml_query(query, bindings) - Returns the result of the query as a STRING array
+</pre>
+<p>The <code class="codeph">EXTENDED</code> option provides a detailed description and examples:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">describe function extended xml_query;</span>
+OK
+xml_query(query, bindings) - Returns the result of the query as a STRING array
+Evaluates an XQuery expression with the specified bindings. The query argument must be a STRING and the bindings argument must be a STRING or a STRUCT. If the bindings argument is a STRING, it is parsed as XML and bound to the initial context item of the query. For example:
+  
+  &gt; SELECT xml_query("x/y", "&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;") FROM src LIMIT 1;
+  ["hello", "world"]
+     .
+     .
+     .
+</pre></div>
+</div>
+<a id="BDCUG1089"></a><a id="BDCUG1090"></a><a id="BDCUG1091"></a><a id="BDCUG724"></a>
+<div class="sect2"><a id="GUID-C8C7C9DE-245B-4D8A-9E41-938D738977B9"></a>
+<h2 id="BDCUG-GUID-C8C7C9DE-245B-4D8A-9E41-938D738977B9" class="sect2"><span class="enumeration_section">7.9</span> xml_exists</h2>
+<div>
+<p>Tests if the result of a query is empty.</p>
+<div class="section">
+<p class="subhead2">Signature</p>
+<pre dir="ltr">
+xml_exists(
+    STRING query, 
+    { STRING | STRUCT } bindings
+) as BOOLEAN
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<dl>
+<dt class="dlterm"><a id="GUID-C8C7C9DE-245B-4D8A-9E41-938D738977B9__GUID-EDCCF391-9802-4A41-8334-C169372B4A98"><!-- --></a>query</dt>
+<dd>
+<p>An XQuery or XPath expression. It must be a constant value, because it is only read the first time the function is evaluated. The initial query string is compiled and reused in all subsequent calls.</p>
+<p>You can access files that are stored in the Hadoop distributed cache and HTTP resources (<code class="codeph">http://...</code>). Use the XQuery <code class="codeph">fn:doc</code> function for XML documents, and the <code class="codeph">fn:unparsed-text</code> and <code class="codeph">fn:parsed-text-lines</code> functions to access plain text files.</p>
+<p>If an error occurs while compiling the query, the function raises an error. If an error occurs while evaluating the query, the error is logged (not raised), and an empty array is returned.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-C8C7C9DE-245B-4D8A-9E41-938D738977B9__GUID-9CA84EED-894A-47AF-B080-A97001AFB67D"><!-- --></a>bindings</dt>
+<dd>
+<p>The input that the query processes. The value can be an XML <code class="codeph">STRING</code> or a <code class="codeph">STRUCT</code> of variable values:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">STRING</code>: The string is bound to the initial context item of the query as XML.</p>
+</li>
+<li>
+<p><code class="codeph">STRUCT</code>: A <code class="codeph">STRUCT</code> with an even number of fields. Each pair of fields defines a variable binding (<span class="italic">name</span>, <span class="italic">value</span>) for the query. The name fields must be type <code class="codeph">STRING</code>, and the value fields can be any supported primitive. See <span class="q">"<a href="oxh_hive.htm#GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738">Data Type Conversions</a>."</span></p>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Return Value</p>
+<p><code class="codeph">true</code> if the result of the query is not empty; <code class="codeph">false</code> if the result is empty or the query raises a dynamic error</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Notes</p>
+<p>The first dynamic error raised by a query is logged, but subsequent errors are suppressed.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-C8C7C9DE-245B-4D8A-9E41-938D738977B9__GUID-F3342E1C-DAB4-4A66-9D20-D1DDF402F853">
+<p class="titleinexample">Example 7-9 STRING Binding</p>
+<p>This example parses and binds the input XML string to the initial context item of the query <code class="codeph">x/y</code>:</p>
+<pre dir="ltr">
+Hive&gt; <span class="bold">SELECT xml_exists("x/y", "&lt;x&gt;&lt;y&gt;123&lt;/y&gt;&lt;/x&gt;") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+true
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-C8C7C9DE-245B-4D8A-9E41-938D738977B9__GUID-0A38454A-E06A-4B36-AAFB-A8590036492F">
+<p class="titleinexample">Example 7-10 STRUCT Binding</p>
+<p>This example defines two query variables, <code class="codeph">$data</code> and <code class="codeph">$value</code>:</p>
+<pre dir="ltr">
+Hive&gt; <span class="bold">SELECT xml_exists(</span>
+      <span class="bold">"parse-xml($data)/x/y[@id = $value]",</span>
+      <span class="bold">struct(</span>
+         <span class="bold">"data", "&lt;x&gt;&lt;y id='1'/&gt;&lt;y id='2'/&gt;&lt;/x&gt;",</span>
+         <span class="bold">"value", 2</span>
+      <span class="bold">)</span>
+   <span class="bold">) FROM src LIMIT 1;</span>
+     .
+     .
+     .
+true
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-C8C7C9DE-245B-4D8A-9E41-938D738977B9__GUID-2BB9AC9F-6F93-4FA2-8BAF-A9D757254857">
+<p class="titleinexample">Example 7-11 Error Logging</p>
+<p>In this example, an error is written to the log, because the input XML is invalid:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_exists("x/y", "&lt;x&gt;&lt;y&gt;123&lt;/invalid&gt;&lt;/x&gt;") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+false
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BDCUG1092"></a><a id="BDCUG1093"></a><a id="BDCUG1094"></a><a id="BDCUG1095"></a><a id="BDCUG1096"></a><a id="BDCUG710"></a>
+<div class="sect2"><a id="GUID-1F1C224E-CC06-4400-8002-13DF6D800938"></a>
+<h2 id="BDCUG-GUID-1F1C224E-CC06-4400-8002-13DF6D800938" class="sect2"><span class="enumeration_section">7.10</span> xml_query</h2>
+<div>
+<p>Returns the result of a query as an array of <code class="codeph">STRING</code> values.</p>
+<div class="section">
+<p class="subhead2">Signature</p>
+<pre dir="ltr">
+xml_query(
+   STRING query, 
+   { STRING | STRUCT } bindings
+) as ARRAY&lt;STRING&gt;
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<dl>
+<dt class="dlterm"><a id="GUID-1F1C224E-CC06-4400-8002-13DF6D800938__GUID-C45A1286-D609-4724-9E6C-4C19C746E875"><!-- --></a>query</dt>
+<dd>
+<p>An XQuery or XPath expression. It must be a constant value, because it is only read the first time the function is evaluated. The initial query string is compiled and reused in all subsequent calls.</p>
+<p>You can access files that are stored in the Hadoop distributed cache and HTTP resources (<code class="codeph">http://...</code>). Use the XQuery <code class="codeph">fn:doc</code> function for XML documents, and the <code class="codeph">fn:unparsed-text</code> and <code class="codeph">fn:parsed-text-lines</code> functions to access plain text files. See <a href="oxh_hive.htm#GUID-1F1C224E-CC06-4400-8002-13DF6D800938__BABDFFEG">Example 7-15</a>.</p>
+<p>If an error occurs while compiling the query, the function raises an error. If an error occurs while evaluating the query, the error is logged (not raised), and an empty array is returned.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-1F1C224E-CC06-4400-8002-13DF6D800938__GUID-41E999BC-CB60-448A-8258-65EBAA449731"><!-- --></a>bindings</dt>
+<dd>
+<p>The input that the query processes. The value can be an XML <code class="codeph">STRING</code> or a <code class="codeph">STRUCT</code> of variable values:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">STRING</code>: The string is bound to the initial context item of the query as XML. See <a href="oxh_hive.htm#GUID-1F1C224E-CC06-4400-8002-13DF6D800938__BABEDBHH">Example 7-12</a>.</p>
+</li>
+<li>
+<p><code class="codeph">STRUCT</code>: A <code class="codeph">STRUCT</code> with an even number of fields. Each pair of fields defines a variable binding (<span class="italic">name</span>, <span class="italic">value</span>) for the query. The name fields must be type <code class="codeph">STRING</code>, and the value fields can be any supported primitive. See <span class="q">"<a href="oxh_hive.htm#GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738">Data Type Conversions</a>"</span> and <a href="oxh_hive.htm#GUID-1F1C224E-CC06-4400-8002-13DF6D800938__BABIIIIJ">Example 7-13</a>.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Return Value</p>
+<p>A Hive array of <code class="codeph">STRING</code> values, which are the result of the query converted to a sequence of atomic values. If the result of the query is empty, then the return value is an empty array.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-1F1C224E-CC06-4400-8002-13DF6D800938__BABEDBHH">
+<p class="titleinexample">Example 7-12 Using a STRING Binding</p>
+<p>This example parses and binds the input XML string to the initial context item of the query <code class="codeph">x/y</code>:</p>
+<pre dir="ltr">
+hive&gt; 
+<span class="bold">SELECT xml_query("x/y", "&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;") </span>
+<span class="bold">FROM src LIMIT 1;</span>
+     .
+     .
+     .
+["hello","world"]
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-1F1C224E-CC06-4400-8002-13DF6D800938__BABIIIIJ">
+<p class="titleinexample">Example 7-13 Using a STRUCT Binding</p>
+<p>In this example, the second argument is a <code class="codeph">STRUCT</code> that defines two query variables, <code class="codeph">$data</code> and <code class="codeph">$value</code>. The values of the variables in the <code class="codeph">STRUCT</code> are converted to XML schema types as described in <span class="q">"<a href="oxh_hive.htm#GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738">Data Type Conversions</a>."</span></p>
+<pre dir="ltr">
+hive&gt;
+<span class="bold">SELECT xml_query(</span>
+   <span class="bold">"fn:parse-xml($data)/x/y[@id = $value]",</span> 
+   <span class="bold">struct(</span>
+      <span class="bold">"data", "&lt;x&gt;&lt;y id='1'&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y id='2'&gt;world&lt;/y&gt;&lt;/x&gt;",</span>
+      <span class="bold">"value", 1</span>
+   <span class="bold">)</span>
+<span class="bold">) FROM src LIMIT 1;</span>
+     .
+     .
+     .
+["hello"]
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-1F1C224E-CC06-4400-8002-13DF6D800938__GUID-87E1E6D6-83E2-44B8-A390-B04703F06B2D">
+<p class="titleinexample">Example 7-14 Obtaining Serialized XML</p>
+<p>This example uses the <code class="codeph">fn:serialize</code> function to return serialized XML:</p>
+<pre dir="ltr">
+hive&gt; 
+<span class="bold">SELECT xml_query(</span>
+<span class="bold">"for $y in x/y</span> 
+<span class="bold">return fn:serialize($y)</span>
+<span class="bold">",</span>
+<span class="bold">"&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;"</span>
+<span class="bold">) FROM src LIMIT 1;</span>
+     .
+     .
+     .
+["&lt;y&gt;hello&lt;/y&gt;","&lt;y&gt;world&lt;/y&gt;"]
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-1F1C224E-CC06-4400-8002-13DF6D800938__BABDFFEG">
+<p class="titleinexample">Example 7-15 Accessing the Hadoop Distributed Cache</p>
+<p>This example adds a file named test.xml to the distributed cache, and then queries it using the <code class="codeph">fn:doc</code> function. The file contains this value:</p>
+<pre dir="ltr">
+&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;
+</pre>
+<pre dir="ltr">
+hive&gt; <span class="bold">ADD FILE test.xml;</span>
+Added resource: test.xml
+hive&gt; <span class="bold">SELECT xml_query("fn:doc('test.xml')/x/y", NULL) FROM src LIMIT 1;</span>
+     .
+     .
+     .
+["hello","world"]
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-1F1C224E-CC06-4400-8002-13DF6D800938__GUID-F6E6B8E4-2B11-44E9-97B3-CA500E63C470">
+<p class="titleinexample">Example 7-16 Results of a Failed Query</p>
+<p>The next example returns an empty array because the input XML is invalid. The XML parsing error will be written to the log:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_query("x/y", "&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;/invalid") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+[]
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BDCUG1097"></a><a id="BDCUG1098"></a><a id="BDCUG1099"></a><a id="BDCUG1100"></a><a id="BDCUG1101"></a><a id="BDCUG1102"></a><a id="BDCUG1103"></a><a id="BDCUG716"></a>
+<div class="sect2"><a id="GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2"></a>
+<h2 id="BDCUG-GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2" class="sect2"><span class="enumeration_section">7.11</span> xml_query_as_<span class="italic">primitive</span></h2>
+<div>
+<p>Returns the result of a query as a Hive primitive value. Each Hive primitive data type has a separate function named for it:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">xml_query_as_string</code></p>
+</li>
+<li>
+<p><code class="codeph">xml_query_as_boolean</code></p>
+</li>
+<li>
+<p><code class="codeph">xml_query_as_tinyint</code></p>
+</li>
+<li>
+<p><code class="codeph">xml_query_as_smallint</code></p>
+</li>
+<li>
+<p><code class="codeph">xml_query_as_int</code></p>
+</li>
+<li>
+<p><code class="codeph">xml_query_as_bigint</code></p>
+</li>
+<li>
+<p><code class="codeph">xml_query_as_double</code></p>
+</li>
+<li>
+<p><code class="codeph">xml_query_as_float</code></p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead2">Signature</p>
+<pre dir="ltr">
+xml_query_as_<span class="italic">primitive</span> (
+   STRING query,
+   {STRUCT | STRING} bindings,
+} as <span class="italic">primitive</span>
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<dl>
+<dt class="dlterm"><a id="GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__GUID-2811E1E9-478C-40FA-8F1B-E45B30FF22D0"><!-- --></a>query</dt>
+<dd>
+<p>An XQuery or XPath expression. It must be a constant value, because it is only read the first time the function is evaluated. The initial query string is compiled and reused in all subsequent calls.</p>
+<p>You can access files that are stored in the Hadoop distributed cache and HTTP resources (<code class="codeph">http://...</code>). Use the XQuery <code class="codeph">fn:doc</code> function for XML documents, and the <code class="codeph">fn:unparsed-text</code> and <code class="codeph">fn:parsed-text-lines</code> functions to access plain text files. See <a href="oxh_hive.htm#GUID-1F1C224E-CC06-4400-8002-13DF6D800938__BABDFFEG">Example 7-15</a>.</p>
+<p>If an error occurs while compiling the query, the function raises an error. If an error occurs while evaluating the query, the error is logged (not raised), and an empty array is returned.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__GUID-8C278018-4CBC-431A-8669-33F4CF6DDE4F"><!-- --></a>bindings</dt>
+<dd>
+<p>The input that the query processes. The value can be an XML <code class="codeph">STRING</code> or a <code class="codeph">STRUCT</code> of variable values:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">STRING</code>: The string is bound to the initial context item of the query as XML. See <a href="oxh_hive.htm#GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__BABCEBAB">Example 7-17</a>.</p>
+</li>
+<li>
+<p><code class="codeph">STRUCT</code>: A <code class="codeph">STRUCT</code> with an even number of fields. Each pair of fields defines a variable binding (<span class="italic">name</span>, <span class="italic">value</span>) for the query. The name fields must be type <code class="codeph">STRING</code>, and the value fields can be any supported primitive. See <span class="q">"<a href="oxh_hive.htm#GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738">Data Type Conversions</a>"</span> and <a href="oxh_hive.htm#GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__BABFJHJB">Example 7-18</a>.</p>
+<p>The first item in the result of the query is cast to the XML schema type that maps to the primitive type of the function. If the query returns multiple items, then all but the first are ignored.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Return Value</p>
+<p>A Hive primitive value, which is the first item returned by the query, converted to an atomic value. If the result of the query is empty, then the return value is <code class="codeph">NULL</code>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__BABCEBAB">
+<p class="titleinexample">Example 7-17 Using a STRING Binding</p>
+<p>This example parses and binds the input XML string to the initial context item of the query <code class="codeph">x/y</code>:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_query_as_string("x/y", "&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;/x&gt;") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+"hello"
+</pre>
+<p>The following are string binding examples that use other primitive functions:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_query_as_int("x/y", "&lt;x&gt;&lt;y&gt;123&lt;/y&gt;&lt;/x&gt;") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+123
+ 
+hive&gt; <span class="bold">SELECT xml_query_as_double("x/y", "&lt;x&gt;&lt;y&gt;12.3&lt;/y&gt;&lt;/x&gt;") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+12.3
+ 
+hive&gt; <span class="bold">SELECT xml_query_as_boolean("x/y", "&lt;x&gt;&lt;y&gt;true&lt;/y&gt;&lt;/x&gt;") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+true
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__BABFJHJB">
+<p class="titleinexample">Example 7-18 Using a STRUCT Binding</p>
+<p>In this example, the second argument is a <code class="codeph">STRUCT</code> that defines two query variables, <code class="codeph">$data</code> and <code class="codeph">$value</code>. The values of the variables in the <code class="codeph">STRUCT</code> are converted to XML schema types as described in <span class="q">"<a href="oxh_hive.htm#GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738">Data Type Conversions</a>."</span></p>
+<pre dir="ltr">
+hive&gt;
+<span class="bold">SELECT xml_query_as_string(</span>
+   <span class="bold">"fn:parse-xml($data)/x/y[@id = $value]",</span> 
+   <span class="bold">struct(</span>
+      <span class="bold">"data", "&lt;x&gt;&lt;y id='1'&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y id='2'&gt;world&lt;/y&gt;&lt;/x&gt;",</span>
+      <span class="bold">"value", 2</span>
+   <span class="bold">)</span>
+<span class="bold">) FROM src LIMIT 1;</span>
+     .
+     .
+     .
+world
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__GUID-A3FAAB1A-A326-4549-92FC-0F5CB24262E7">
+<p class="titleinexample">Example 7-19 Returning Multiple Query Results</p>
+<p>This example returns only the first item (hello) from the query. The second item (world) is discarded.</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_query_as_string("x/y", "&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+hello
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__GUID-DA87AD0C-62AB-402C-B3E4-350BC379A450">
+<p class="titleinexample">Example 7-20 Returning Empty Query Results</p>
+<p>This example returns <code class="codeph">NULL</code> because the result of the query is empty:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_query_as_string("x/foo", "&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+NULL
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__GUID-DB037661-EA76-47A1-AEAE-CE83536D0D72">
+<p class="titleinexample">Example 7-21 Obtaining Serialized XML</p>
+<p>These examples use the <code class="codeph">fn:serialize</code> function to return complex XML elements as a <code class="codeph">STRING</code> value:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_query_as_string("fn:serialize(x/y[1])", "&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+"&lt;y&gt;hello&lt;/y&gt;"
+
+hive&gt; <span class="bold">SELECT xml_query_as_string(</span>
+   <span class="bold">"fn:serialize(&lt;html&gt;&lt;head&gt;&lt;title&gt;{$desc}&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Name: {$name}&lt;/body&gt;&lt;/html&gt;)",</span> 
+   <span class="bold">struct(</span>
+      <span class="bold">"desc", "Employee Details",</span>
+      <span class="bold">"name", "John Doe"</span>
+   <span class="bold">)</span>
+<span class="bold">) FROM src LIMIT 1;</span>
+...
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Employee Details&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Name: John Doe&lt;/body&gt;&lt;/html&gt;
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__BABDEADA">
+<p class="titleinexample">Example 7-22 Accessing the Hadoop Distributed Cache</p>
+<p>This example adds a file named <code class="codeph">test.xml</code> to the distributed cache, and then queries it using the <code class="codeph">fn:doc</code> function. The file contains this value:</p>
+<pre dir="ltr">
+&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;
+</pre>
+<pre dir="ltr">
+Hive&gt; <span class="bold">ADD FILE test.xml;</span>
+Added resource: test.xml
+Hive&gt; <span class="bold">SELECT xml_query_as_string("fn:doc('test.xml')/x/y[1]", NULL) FROM src LIMIT 1;</span>
+     .
+     .
+     .
+hello
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2__GUID-3E128AEA-B077-4983-9591-F3837E2DC4B3">
+<p class="titleinexample">Example 7-23 Results of a Failed Query</p>
+<p>This example returns <code class="codeph">NULL</code> because <code class="codeph">&lt;/invalid</code> is missing an angle bracket. An XML parsing error is written to the log:</p>
+<pre dir="ltr">
+Hive&gt; <span class="bold">SELECT xml_query_as_string("x/y", "&lt;x&gt;&lt;y&gt;hello&lt;/invalid") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+NULL
+</pre>
+<p>This example returns <code class="codeph">NULL</code> because <code class="codeph">foo</code> cannot be cast as <code class="codeph">xs:float</code>. A cast error is written to the log:</p>
+<pre dir="ltr">
+Hive&gt; <span class="bold">SELECT xml_query_as_float("x/y", "&lt;x&gt;&lt;y&gt;foo&lt;/y&gt;&lt;/x&gt;") FROM src LIMIT 1;</span>
+     .
+     .
+     .
+NULL
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BDCUG1104"></a><a id="BDCUG1105"></a><a id="BDCUG1106"></a><a id="BDCUG1107"></a><a id="BDCUG1108"></a><a id="BDCUG1109"></a><a id="BDCUG1110"></a><a id="BDCUG1111"></a><a id="BDCUG728"></a>
+<div class="sect2"><a id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74"></a>
+<h2 id="BDCUG-GUID-DC0D869E-3C6D-447F-BF02-25D819399F74" class="sect2"><span class="enumeration_section">7.12</span> xml_table</h2>
+<div>
+<p>A user-defined table-generating function (UDTF) that maps an XML value to zero or more table rows. This function enables nested repeating elements in XML to be mapped to Hive table rows.</p>
+<div class="section">
+<p class="subhead2">Signature</p>
+<pre dir="ltr">
+xml_table( 
+   STRUCT? namespaces,
+   STRING query, 
+   {STRUCT | STRING} bindings,
+   STRUCT? columns
+) 
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Description</p>
+<dl>
+<dt class="dlterm"><a id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__GUID-564FE4D4-166F-4B13-A2EE-41625F031C6C"><!-- --></a>namespaces</dt>
+<dd>
+<p>Identifies the namespaces that the query and column expressions can use. Optional.</p>
+<p>The value is a <code class="codeph">STRUCT</code> with an even number of <code class="codeph">STRING</code> fields. Each pair of fields defines a namespace binding (<span class="italic">prefix, URI</span>) that can be used by the query or the column expressions. See <a href="oxh_hive.htm#GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABHIHFA">Example 7-26</a>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__GUID-D94B3B16-95F6-4FA3-9022-099101A070BB"><!-- --></a>query</dt>
+<dd>
+<p>An XQuery or XPath expression that generates a table row for each returned value. It must be a constant value, because it is only read the first time the function is evaluated. The initial query string is compiled and reused in all subsequent calls.</p>
+<p>If a dynamic error occurs during query processing, then the function does not raise an error, but logs it the first time. Subsequent dynamic errors are not logged.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__GUID-4B99BD2C-7450-456C-A566-0CFC385219E2"><!-- --></a>bindings</dt>
+<dd>
+<p>The input that the query processes. The value can be an XML <code class="codeph">STRING</code> or a <code class="codeph">STRUCT</code> of variable values:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">STRING</code>: The string is bound to the initial context item of the query as XML. See <a href="oxh_hive.htm#GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABGJGHI">Example 7-24</a>.</p>
+</li>
+<li>
+<p><code class="codeph">STRUCT</code>: A <code class="codeph">STRUCT</code> with an even number of fields. Each pair of fields defines a variable binding (<span class="italic">name</span>, <span class="italic">value</span>) for the query. The name fields must be type <code class="codeph">STRING</code>, and the value fields can be any supported primitive. See <span class="q">"<a href="oxh_hive.htm#GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738">Data Type Conversions</a>."</span></p>
+</li>
+</ul>
+</dd>
+<dt class="dlterm"><a id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__GUID-F38B5208-C418-40F8-ACF8-2B1BE50E6C89"><!-- --></a>columns</dt>
+<dd>
+<p>The XQuery or XPath expressions that define the columns of the generated rows. Optional.</p>
+<p>The value is a <code class="codeph">STRUCT</code> that contains the additional XQuery expressions. The XQuery expressions must be constant <code class="codeph">STRING</code> values, because they are only read the first time the function is evaluated. For each column expression in the <code class="codeph">STRUCT</code>, there is one column in the table.</p>
+<p>For each item returned by the query, the column expressions are evaluated with the current item as the initial context item of the expression. The results of the column expressions are converted to <code class="codeph">STRING</code> values and become the values of the row.</p>
+<p>If the result of a column expression is empty or if a dynamic error occurs while evaluating the column expression, then the corresponding column value is <code class="codeph">NULL</code>. If a column expression returns more than one item, then all but the first are ignored.</p>
+<p>Omitting the <span class="italic">columns</span> argument is the same as specifying <code class="codeph">'struct(".")'</code>. See <a href="oxh_hive.htm#GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABEGIEC">Example 7-25</a>.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Return Value</p>
+<p>One table row for each item returned by the <span class="italic">query</span> argument.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Notes</p>
+<p>The XML table adapter enables Hive tables to be created over large XML files in HDFS. See <span class="q">"<a href="oxh_hive.htm#GUID-8268F310-D88A-48F5-8971-6A3625B0644F">Hive CREATE TABLE Syntax for XML Tables</a>"</span>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<div class="infobox-note" id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__GUID-539E7AE5-0142-4F64-8E3A-8CAA89BCB995">
+<p class="notep1">Note:</p>
+<p>You could use the <code class="codeph">xml_query_as_string</code> function to achieve the same result in this example. However, <code class="codeph">xml_table</code> is more efficient, because a single function call sets all three column values and parses the input XML only once for each row. The <code class="codeph">xml_query_as_string</code> function requires a separate function call for each of the three columns and reparses the same input XML value each time.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABGJGHI">
+<p class="titleinexample">Example 7-24 Using a STRING Binding</p>
+<p>The query "x/y" returns two <code class="codeph">&lt;y&gt;</code> elements, therefore two table rows are generated. Because there are two column expressions ("./z", "./w"), each row has two columns.</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_table(</span>
+   <span class="bold">"x/y",</span>
+   <span class="bold">"&lt;x&gt;</span>
+      <span class="bold">&lt;y&gt;</span>
+         <span class="bold">&lt;z&gt;a&lt;/z&gt;</span>
+         <span class="bold">&lt;w&gt;b&lt;/w&gt;</span>
+      <span class="bold">&lt;/y&gt;</span>
+      <span class="bold">&lt;y&gt;</span>
+         <span class="bold">&lt;z&gt;c&lt;/z&gt;</span>
+      <span class="bold">&lt;/y&gt;</span>
+   <span class="bold">&lt;/x&gt;</span>
+   <span class="bold">",</span>
+   <span class="bold">struct("./z", "./w")</span>
+ <span class="bold">) AS (z, w)</span>
+ <span class="bold">FROM src;</span>
+     .
+     .
+     .
+a        b
+c        NULL
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABEGIEC">
+<p class="titleinexample">Example 7-25 Using the Columns Argument</p>
+<p>The following two queries are equivalent. The first query explicitly specifies the value of the <span class="italic">columns</span> argument:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_table(</span>
+     <span class="bold"> "x/y",</span>
+     <span class="bold"> "&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;",</span>
+      <span class="bold">struct(".")</span>
+   <span class="bold">) AS (y)</span>
+   <span class="bold">FROM src;</span>
+     .
+     .
+     .
+hello
+world
+</pre>
+<p>The second query omits the <span class="italic">columns</span> argument, which defaults to <code class="codeph">struct(".")</code>:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_table(</span>
+      <span class="bold">"x/y",</span>
+      <span class="bold">"&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;"</span>
+   <span class="bold">) AS (y)</span>
+   <span class="bold">FROM src;</span>
+     .
+     .
+     .
+hello
+world
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABHIHFA">
+<p class="titleinexample">Example 7-26 Using the Namespaces Argument</p>
+<p>This example specifies the optional namespaces argument, which identifies an <code class="codeph">ns</code> prefix and a URI of <code class="codeph">http://example.org</code>.</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_table(</span>
+     <span class="bold">struct("ns", "http://example.org"),</span>
+     <span class="bold">"ns:x/ns:y",</span>
+     <span class="bold">"&lt;x xmlns='http://example.org'&gt;&lt;y&gt;&lt;z/&gt;&lt;/y&gt;&lt;y&gt;&lt;z/&gt;&lt;z/&gt;&lt;/y&gt;&lt;/x&gt;",</span>
+     <span class="bold">struct("count(./ns:z)")</span>
+  <span class="bold">) AS (y)</span>
+  <span class="bold">FROM src;</span>
+     .
+     .
+     .
+1
+2
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABEAEFB">
+<p class="titleinexample">Example 7-27 Querying a Hive Table of XML Documents</p>
+<p>This example queries a table named <code class="codeph">COMMENTS3</code>, which has a single column named <code class="codeph">XML_STR</code> of type <code class="codeph">STRING</code>. It contains these three rows:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT xml_str FROM comments3;</span>
+
+&lt;comment id="12345" user="john" text="It is raining:("/&gt;
+&lt;comment id="56789" user="kelly" text="I won the lottery!"&gt;&lt;like user="john"/&gt;&lt;like user="mike"/&gt;&lt;/comment&gt;
+&lt;comment id="54321" user="mike" text="Happy New Year!"&gt;&lt;like user="laura"/&gt;&lt;/comment&gt;
+</pre>
+<p>The following query shows how to extract the user, text, and number of likes from the <code class="codeph">COMMENTS3</code> table.</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">SELECT t.id, t.usr, t.likes</span>
+     <span class="bold">FROM comments3 LATERAL VIEW xml_table(</span>
+        <span class="bold">"comment",</span>
+        <span class="bold">comments.xml_str,</span> 
+        <span class="bold">struct("./@id", "./@user", "fn:count(./like)")</span>
+     <span class="bold">) t AS id, usr, likes;</span>
+
+12345   john    0
+56789   kelly   2
+54321   mike    1
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABDDECI">
+<p class="titleinexample">Example 7-28 Mapping Nested XML Elements to Table Rows</p>
+<p>This example shows how to use <code class="codeph">xml_table</code> to flatten nested, repeating XML elements into table rows. See the previous example for the <code class="codeph">COMMENTS</code> table.</p>
+<pre dir="ltr">
+&gt; <span class="bold">SELECT t.i, t.u, t.l</span>
+    <span class="bold">FROM comments3 LATERAL VIEW xml_table (</span>
+       <span class="bold">"let $comment := ./comment</span>
+        <span class="bold">for $like in $comment/like</span>
+        <span class="bold">return</span>
+           <span class="bold">&lt;r&gt;</span>
+              <span class="bold">&lt;id&gt;{$comment/@id/data()}&lt;/id&gt;</span>
+              <span class="bold">&lt;user&gt;{$comment/@user/data()}&lt;/user&gt;</span>
+              <span class="bold">&lt;like&gt;{$like/@user/data()}&lt;/like&gt;</span>
+           <span class="bold">&lt;/r&gt;</span>
+       <span class="bold">",</span>
+       <span class="bold">comments.xml_str</span>,
+       <span class="bold">struct("./id", "./user", "./like")</span>
+    <span class="bold">) t AS i, u, l;</span>
+
+56789   kelly   john
+56789   kelly   mike
+54321   mike    laura
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__GUID-55727F0A-1653-467A-BD71-72394FB99BC9">
+<p class="titleinexample">Example 7-29 Mapping Optional Nested XML Elements to Table Rows</p>
+<p>This example is a slight modification of the previous example that produces a row even when a comment has no likes. See <a href="oxh_hive.htm#GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABEAEFB">Example 7-27</a> for the <code class="codeph">COMMENTS</code> table.</p>
+<pre dir="ltr">
+&gt; <span class="bold">SELECT t.i, t.u, t.l</span>
+     <span class="bold">FROM comments3 LATERAL VIEW xml_table (</span>
+        <span class="bold">"let $comment := ./comment</span>
+         <span class="bold">for $like allowing empty in $comment/like</span>
+         <span class="bold">return</span> 
+            <span class="bold">&lt;r&gt;</span>
+               <span class="bold">&lt;id&gt;{$comment/@id/data()}&lt;/id&gt;</span>
+               <span class="bold">&lt;user&gt;{$comment/@user/data()}&lt;/user&gt;</span>
+               <span class="bold">&lt;like&gt;{$like/@user/data()}&lt;/like&gt;</span>
+            <span class="bold">&lt;/r&gt;</span>
+        <span class="bold">",</span>
+        <span class="bold">comments.xml_str,</span> 
+        <span class="bold">struct("./id", "./user", "./like")</span>
+     <span class="bold">) t AS i, u, l;</span>
+
+12345   john
+56789   kelly   john
+56789   kelly   mike
+54321   mike    laura
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__GUID-D943BC31-B88F-4CC6-B50C-B1DAD7BBA351">
+<p class="titleinexample">Example 7-30 Creating a New View</p>
+<p>You can create views and new tables using <code class="codeph">xml_table</code>, the same as any table-generating function. This example creates a new view named <code class="codeph">COMMENTS_LIKES</code> from the <code class="codeph">COMMENTS</code> table:</p>
+<pre dir="ltr">
+hive&gt; CREATE VIEW comments_likes AS 
+     SELECT xml_table(
+        "comment", 
+         comments.xml_str, 
+         struct("./@id", "count(./like)")
+     ) AS (id, likeCt)
+     FROM comments;
+</pre>
+<p>This example queries the new view:</p>
+<pre dir="ltr">
+&gt; <span class="bold">SELECT * FROM comments_likes</span>
+     <span class="bold">WHERE CAST(likeCt AS INT) != 0;</span>
+
+56789   2
+54321   1
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-DC0D869E-3C6D-447F-BF02-25D819399F74__BABEIDHH">
+<p class="titleinexample">Example 7-31 Accessing the Hadoop Distributed Cache</p>
+<p>You can access XML documents and text files added to the distributed cache by using the <code class="codeph">fn:doc</code> and <code class="codeph">fn:unparsed-text</code> functions.</p>
+<p>This example queries a file named test.xml that contains this string:</p>
+<pre dir="ltr">
+&lt;x&gt;&lt;y&gt;hello&lt;/y&gt;&lt;z/&gt;&lt;y&gt;world&lt;/y&gt;&lt;/x&gt;
+</pre>
+<pre dir="ltr">
+hive&gt; <span class="bold">ADD FILE test.xml;</span>
+Added resource: test.xml
+hive&gt; <span class="bold">SELECT xml_table("fn:doc('test.xml')/x/y", NULL) AS y FROM src;</span>
+     .
+     .
+     .
+hello
+world
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment25">
+<tr>
+<td class="cellalignment66">
+<table class="cellalignment30">
+<tr>
+<td class="cellalignment29"><a href="oxh_ref.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment29"><a href="analytics-part.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment68">
+<table class="cellalignment28">
+<tr>
+<td class="cellalignment29"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment29"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment29"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment29"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment29"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

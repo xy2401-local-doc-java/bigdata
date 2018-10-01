@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Installing Oracle Big Data Appliance at&nbsp;the&nbsp;Site</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="unpacking instructions, ground cable, earth ground cable, racks, inspecting, power cords, connecting to rack, connecting power cords, powering on, PDUs" />
+<meta name="dcterms.created" content="2018-08-11T12:13:02Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E93623-06" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="part-hardware-installation.htm" title="Previous" type="text/html" />
+<link rel="Next" href="configure.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-21BD5FDB-9536-4F09-AF74-CA86AD4AB1C8"></a> <span id="PAGE" style="display:none;">12/33</span> <!-- End Header -->
+<a id="BIGOG164"></a>
+<h1 id="BIGOG-GUID-21BD5FDB-9536-4F09-AF74-CA86AD4AB1C8" class="sect1"><span class="enumeration_chapter">6</span> Installing Oracle Big Data Appliance at&nbsp;the&nbsp;Site</h1>
+<div>
+<p>This chapter describes how to move, install, and configure the hardware&mdash;from unpacking Oracle Big Data Appliance to powering on the system. This chapter contains these sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="unpack.htm#GUID-C7D6186B-73AE-4357-ADE3-526D7871C3CD">Reviewing Safety Guidelines</a></p>
+</li>
+<li>
+<p><a href="unpack.htm#GUID-A9AC0AF8-1357-45B4-BD0A-DB74AC3F2981">Unpacking Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="unpack.htm#GUID-C03CF1C1-BC9C-4524-B27D-0F932D102EE0">Placing Oracle Big Data Appliance in Its Allocated Space</a></p>
+</li>
+<li>
+<p><a href="unpack.htm#GUID-3FD25D2A-DD68-4394-B888-2FF16486BC0E">Powering On the System for the First Time</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG165"></a>
+<div class="props_rev_3"><a id="GUID-C7D6186B-73AE-4357-ADE3-526D7871C3CD"></a>
+<h2 id="BIGOG-GUID-C7D6186B-73AE-4357-ADE3-526D7871C3CD" class="sect2"><span class="enumeration_section">6.1</span> Reviewing Safety Guidelines</h2>
+<div>
+<p>Before Oracle Big Data Appliance arrives, review the following <a id="d36315e55" class="indexterm-anchor"></a>safety precautions to ensure that the site is safe and ready for delivery. Failing to observe these precautions can result in injury, equipment damage, or malfunction.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Do not block ventilation openings.</p>
+</li>
+<li>
+<p>Do not install Oracle Big Data Appliance in a location that is exposed to direct sunlight or near a device that may become hot.</p>
+</li>
+<li>
+<p>Do not install Oracle Big Data Appliance in a location that is exposed to excessive dust, corrosive gases, or air with high salt concentrations.</p>
+</li>
+<li>
+<p>Do not install Oracle Big Data Appliance in a location that is exposed to frequent vibrations. Install it on a flat, level surface.</p>
+</li>
+<li>
+<p>Use a power outlet that provides proper grounding. For shared grounding, the <a id="d36315e74" class="indexterm-anchor"></a>grounding resistance must not be greater than 10 ohms. Ensure that your facility administrator or a qualified electrical engineer verifies the grounding method for the building and performs the grounding work.</p>
+</li>
+<li>
+<p>Be sure that each grounding wire used for Oracle Big Data Appliance is used exclusively for Oracle Big Data Appliance. Observe the precautions, warnings, and notes about handling that appear on labels on the equipment.</p>
+</li>
+<li>
+<p>Do not place cables under the equipment or stretch the cables tightly.</p>
+</li>
+<li>
+<p>Do not disconnect power cords from the equipment while its power is on.</p>
+</li>
+<li>
+<p>If you cannot reach the connector lock when disconnecting LAN cables, then press the connector lock with a flathead screwdriver to disconnect the cable. You could damage the system board if you force your fingers into the gap rather than using a flathead screwdriver.</p>
+</li>
+<li>
+<p>Do not place anything on top of Oracle Big Data Appliance or perform any work directly above it.</p>
+</li>
+<li>
+<p>Do not let the room temperature rise sharply, especially in winter. Sudden temperature changes can cause condensation to form inside Oracle Big Data Appliance. Allow for a sufficient warm-up period before operation.</p>
+</li>
+<li>
+<p>Do not install Oracle Big Data Appliance near a photocopier, <a id="d36315e99" class="indexterm-anchor"></a><a id="d36315e101" class="indexterm-anchor"></a><a id="d36315e103" class="indexterm-anchor"></a><a id="d36315e105" class="indexterm-anchor"></a>air conditioner, welding machine, or any other equipment that generates loud, electronic noises.</p>
+</li>
+<li>
+<p>Avoid <a id="d36315e111" class="indexterm-anchor"></a>static electricity at the installation location. Static electricity transferred to Oracle Big Data Appliance can cause malfunctions. Static electricity is often generated on carpets.</p>
+</li>
+<li>
+<p>Confirm that the supply voltage and frequency match the electrical ratings indicated for Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Do not insert anything into any Oracle Big Data Appliance opening, unless doing so is part of a documented procedure.</p>
+<div class="infoboxnotewarn" id="GUID-C7D6186B-73AE-4357-ADE3-526D7871C3CD__GUID-2D5DD8C2-BFFA-47CB-A87C-2B78AC823F6C">
+<p class="notep1">WARNING:</p>
+<p>Oracle Big Data Appliance contains high-voltage parts. If a metal object or other electrically conductive object enters an opening in Oracle Big Data Appliance, then it could cause a short circuit. This could result in personal injury, fire, electric shock, and equipment damage.</p>
+</div>
+</li>
+<li>
+<p>When using <a id="d36315e126" class="indexterm-anchor"></a><a id="d36315e128" class="indexterm-anchor"></a><a id="d36315e130" class="indexterm-anchor"></a>single-phase power distribution units (PDUs), note the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>PDU A input 0 and PDU B input 2 must be on the same phase.</p>
+</li>
+<li>
+<p>PDU A input 1 and PDU B input 1 must be on the same phase.</p>
+</li>
+<li>
+<p>PDU A input 2 and PDU B input 0 must be on the same phase.</p>
+</li>
+</ul>
+<p>The inputs are labeled where they come out of the PDU. Connecting cables as described ensures that the phases are balanced on both sides, A and B, in a failover.</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-C7D6186B-73AE-4357-ADE3-526D7871C3CD__GUID-DDE6F1FA-1815-427E-8ABB-4834F0D8A876">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>All safety notices printed on the packaging.</p>
+</li>
+<li>
+<p><a class="olink DBMSG" target="_blank" href="../DBMSG/toc.htm"><span class="italic">Oracle&reg; Engineered System Safety and Compliance Guide: ESY27</span></a></p>
+</li>
+<li>
+<p><span><cite>Important Safety Information for Sun Hardware Systems</cite> at <a href="http://docs.oracle.com/cd/E19115-01/mod.dc.d20/816-7190-12/816-7190-12.pdf" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19115-01/mod.dc.d20/816-7190-12/816-7190-12.pdf</code></a></span></p>
+<p><span class="italic">Important Safety Information for Sun Hardware Systems</span> (816-7190) included with the rack and available online at</p>
+</li>
+<li>
+<p><span><cite>Sun Rack II Power Distribution Units User's Guide</cite> at <a href="http://docs.oracle.com/cd/e19844-01/html/e23956/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19844-01/html/E23956/index.html</code></a></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGOG167"></a><a id="BIGOG166"></a>
+<div class="props_rev_3"><a id="GUID-A9AC0AF8-1357-45B4-BD0A-DB74AC3F2981"></a>
+<h2 id="BIGOG-GUID-A9AC0AF8-1357-45B4-BD0A-DB74AC3F2981" class="sect2"><span class="enumeration_section">6.2</span> Unpacking Oracle Big Data Appliance</h2>
+<div>
+<div class="section">
+<p>You should determine the unpacking location during the site planning process. See <a href="prep.htm#GUID-2F0463FF-D15C-4059-B81F-59E20413DC44">Site Requirements for Oracle Big Data Appliance</a>.</p>
+<p><a href="unpack.htm#GUID-A9AC0AF8-1357-45B4-BD0A-DB74AC3F2981__BABFHFGC">Figure 6-1</a> shows the Oracle Big Data Appliance <a id="d36315e210" class="indexterm-anchor"></a>shipping crate.</p>
+<div class="figure" id="GUID-A9AC0AF8-1357-45B4-BD0A-DB74AC3F2981__BABFHFGC">
+<p class="titleinfigure">Figure 6-1 Oracle Big Data Appliance in the Shipping Crate</p>
+<img width="441" height="422" src="img/GUID-74FDD49B-F4A4-407B-A734-EF6E9CF88775-default.gif" alt="Description of Figure 6-1 follows" title="Description of Figure 6-1 follows" /><br />
+<a href="img_text/GUID-74FDD49B-F4A4-407B-A734-EF6E9CF88775-print.htm">Description of "Figure 6-1 Oracle Big Data Appliance in the Shipping Crate"</a></div>
+<!-- class="figure" -->
+<div class="infoboxnotealso" id="GUID-A9AC0AF8-1357-45B4-BD0A-DB74AC3F2981__GUID-ED870508-501E-4452-8BA4-B77AD13D1EC9">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Sun Rack II Unpacking Guide</span> for additional information about unpacking the rack. The guide is available at</p>
+<p><a href="http://docs.oracle.com/cd/E19844-01/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19844-01/index.html</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+<a id="BIGOG168"></a>
+<div class="props_rev_3"><a id="GUID-3992820A-BA5F-4C92-823D-BA16A1675FB9"></a>
+<h3 id="BIGOG-GUID-3992820A-BA5F-4C92-823D-BA16A1675FB9" class="sect3"><span class="enumeration_section">6.2.1</span> Contents of the Shipping Kit</h3>
+<div>
+<div class="section">
+<p>The <a id="d36315e249" class="indexterm-anchor"></a><a id="d36315e251" class="indexterm-anchor"></a><a id="d36315e253" class="indexterm-anchor"></a><a id="d36315e255" class="indexterm-anchor"></a><a id="d36315e257" class="indexterm-anchor"></a><a id="d36315e259" class="indexterm-anchor"></a><a id="d36315e261" class="indexterm-anchor"></a><a id="d36315e263" class="indexterm-anchor"></a><a id="d36315e265" class="indexterm-anchor"></a><a id="d36315e267" class="indexterm-anchor"></a>shipping kit contains the following tools and equipment to install and service Oracle Big Data Appliance:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>16 mm long No. 2 Phillips screw</p>
+</li>
+<li>
+<p>T30 Torx cranked wrench key</p>
+</li>
+<li>
+<p>T25 Torx cranked wrench key</p>
+</li>
+<li>
+<p>6 mm hexagon Allen wrench key</p>
+</li>
+<li>
+<p>SW 12 mm single-headed wrench</p>
+</li>
+<li>
+<p>2 square jumper brackets with 4 M5 Torx screws</p>
+</li>
+<li>
+<p>2 cable management hooks with 4 spring nuts</p>
+</li>
+<li>
+<p>Side panel removal tool</p>
+</li>
+<li>
+<p>Keys to the front door, rear door, and side panel locks</p>
+</li>
+<li>
+<p>32 M6 cage nuts</p>
+</li>
+<li>
+<p>32 M6 screws</p>
+</li>
+<li>
+<p>Cage nut mounting tool</p>
+</li>
+<li>
+<p>SW 17 mm single-headed wrench is included on the shipping pallet</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-3992820A-BA5F-4C92-823D-BA16A1675FB9__GUID-C27B012D-1418-4D1B-9AFE-0DF1E82BE799">
+<p class="notep1">Note:</p>
+<p><a id="d36315e313" class="indexterm-anchor"></a><a id="d36315e315" class="indexterm-anchor"></a>The following items are not included in the shipping kit:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>No. 2 Phillips screwdriver</p>
+</li>
+<li>
+<p>Antistatic wrist strap</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG169"></a>
+<div class="props_rev_3"><a id="GUID-D0DABE16-9ACD-4A6A-85E4-550CEEE2561A"></a>
+<h3 id="BIGOG-GUID-D0DABE16-9ACD-4A6A-85E4-550CEEE2561A" class="sect3"><span class="enumeration_section">6.2.2</span> Removing Oracle Big Data Appliance from the Shipping Crate</h3>
+<div>
+<div class="section">
+<div class="infobox-note" id="GUID-D0DABE16-9ACD-4A6A-85E4-550CEEE2561A__GUID-4A3916CD-205A-497A-A58F-BCB2CF646323">
+<p class="notep1">Note:</p>
+<p>Oracle strongly recommends that you use professional movers to unpack and install Oracle Big Data Appliance.</p>
+</div>
+<div class="infoboxnotealso" id="GUID-D0DABE16-9ACD-4A6A-85E4-550CEEE2561A__GUID-B5521227-FEE9-4F9C-9161-70B21D03F937">
+<p class="notep1">See Also:</p>
+<p>Sun Rack II unpacking instructions included with the packaging</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To unpack Oracle Big Data Appliance:</p>
+<div class="infobox-note" id="GUID-D0DABE16-9ACD-4A6A-85E4-550CEEE2561A__GUID-C4B7CA70-275C-421B-96A4-C76504D095B1">
+<p class="notep1">Important:</p>
+<ol>
+<li>
+<p>When unpacking, verify that the leveling feet are <span class="bold">up</span> before moving rack.</p>
+</li>
+<li>
+<p>When moving rack to a different location, including repacking, verify that leveling feet are up before moving rack.</p>
+</li>
+</ol>
+</div>
+<ol>
+<li>
+<p>Unpack Oracle Big Data Appliance carefully from the packaging and shipping pallet:</p>
+<ol>
+<li>
+<p>Remove the shipping carton bands.</p>
+</li>
+<li>
+<p>Remove the yellow fasteners and carton top.</p>
+</li>
+<li>
+<p>Remove the carton sides and inner top.</p>
+</li>
+</ol>
+<div class="infoboxnotewarn" id="GUID-D0DABE16-9ACD-4A6A-85E4-550CEEE2561A__GUID-9D44CC1D-BF49-4B66-953E-9EA4A9813011">
+<p class="notep1">WARNING:</p>
+<p>Rocking or tilting the rack can cause it to fall over and cause serious injury or death.</p>
+</div>
+</li>
+<li>
+<p>Remove the shipping kit.</p>
+</li>
+<li>
+<p>Attach the ramps to the shipping pallet as follows:</p>
+<ol>
+<li>
+<p>Remove the ramps from the pallet sides.</p>
+</li>
+<li>
+<p>Obtain the <a id="d36315e398" class="indexterm-anchor"></a>parts bag from inside the cabinet.</p>
+</li>
+<li>
+<p>Adjust the <a id="d36315e404" class="indexterm-anchor"></a>leveling bolts on the ramps and connect the ramps to the pallet wheel track.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Carefully roll Oracle Big Data Appliance off the shipping pallet as follows:</p>
+<ol>
+<li>
+<p>Unfasten the exterior <a id="d36315e414" class="indexterm-anchor"></a>shipping brackets from the pallet.</p>
+</li>
+<li>
+<p>Unfasten the interior shipping brackets from the pallet. Use care when removing the shipping brackets from underneath Oracle Big Data Appliance. Access to the inside shipping brackets might be limited.</p>
+</li>
+<li>
+<p>Roll the cabinet down the ramps to the level floor. Oracle recommends having three people available to move the rack down the ramp: one person on each side to help guide the rack and one person in back.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Save the shipping brackets that secure the rack to the shipping pallet. You will need them if you later need to relocate the rack.</p>
+<div class="infobox-note" id="GUID-D0DABE16-9ACD-4A6A-85E4-550CEEE2561A__GUID-4B49D123-729D-449E-A52A-14300B4B9AFB">
+<p class="notep1">Note:</p>
+<p>Do not dispose of these brackets, because you cannot order replacement brackets.</p>
+</div>
+</li>
+<li>
+<p>Recycle the packaging properly. Follow local laws and guidelines to dispose of the material.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG170"></a>
+<div class="props_rev_3"><a id="GUID-C03CF1C1-BC9C-4524-B27D-0F932D102EE0"></a>
+<h2 id="BIGOG-GUID-C03CF1C1-BC9C-4524-B27D-0F932D102EE0" class="sect2"><span class="enumeration_section">6.3</span> Placing Oracle Big Data Appliance in Its Allocated Space</h2>
+<div>
+<p>This section describes how to position, stabilize, and ground Oracle Big Data Appliance. This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="unpack.htm#GUID-5AF7E49E-8AF6-4DF7-9925-70346385EE2D">Moving Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="unpack.htm#GUID-37AD7036-AA3B-4022-87FE-047E4B856D7A">Securing an Oracle Big Data Appliance Rack</a></p>
+</li>
+<li>
+<p><a href="unpack.htm#GUID-88BB9B3A-0315-466B-93E9-94734E3ABA6B">Attaching a Ground Cable (Optional)</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG172"></a><a id="BIGOG171"></a>
+<div class="props_rev_3"><a id="GUID-5AF7E49E-8AF6-4DF7-9925-70346385EE2D"></a>
+<h3 id="BIGOG-GUID-5AF7E49E-8AF6-4DF7-9925-70346385EE2D" class="sect3"><span class="enumeration_section">6.3.1</span> Moving Oracle Big Data Appliance</h3>
+<div>
+<div class="section">
+<div class="infobox-note" id="GUID-5AF7E49E-8AF6-4DF7-9925-70346385EE2D__GUID-37D6B6D7-C91A-425C-B3C2-286C4F27627C">
+<p class="notep1">Note:</p>
+If you are moving an appliance that has already been installed and in use, see <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=221363077537149&amp;id=1607802.1&amp;_adf.ctrl-state=lw3phzol7_67" target="_blank">Steps to Gracefully Shutting Down and Powering On Oracle Big Data Appliance (Doc ID 1607802.1)</a> in My Oracle Support (support.oracle.com).
+<p>If there is no change in network configuration, then a relocation has no impact from a software perspective. Verify that any multi-racking InfiniBand cables are long enough for the new location. Also ensure that all external cables (including power cables) are removed and secured in the rack while wheeling it</p>
+</div>
+<p><a id="d36315e495" class="indexterm-anchor"></a>To move Oracle Big Data Appliance:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Ensure that the doors are closed and secured.</span></li>
+<li><span><span class="bold">Important:</span> Check to ensure that the <a id="d36315e509" class="indexterm-anchor"></a><a id="d36315e511" class="indexterm-anchor"></a>leveling and stabilizing feet on the rack are raised and out of the way.</span></li>
+<li><span>Push Oracle Big Data Appliance from behind to the installation site.</span></li>
+</ol>
+<div class="section">
+<p>When moving Oracle Big Data Appliance to the installation site, the front <a id="d36315e520" class="indexterm-anchor"></a>casters do not turn; you must steer the unit by moving the rear casters, as shown in <a href="unpack.htm#GUID-5AF7E49E-8AF6-4DF7-9925-70346385EE2D__BABEBHEE">Figure 6-2</a>. You can safely maneuver Oracle Big Data Appliance by carefully pushing it.</p>
+<p><a href="unpack.htm#GUID-5AF7E49E-8AF6-4DF7-9925-70346385EE2D__BABEBHEE">Figure 6-2</a> shows the correct way to maneuver Oracle Big Data Appliance.</p>
+<div class="figure" id="GUID-5AF7E49E-8AF6-4DF7-9925-70346385EE2D__BABEBHEE">
+<p class="titleinfigure">Figure 6-2 Carefully Push Oracle Big Data Appliance from Behind</p>
+<img width="489" height="345" src="img/GUID-66FAD4B4-64D9-4D33-9CF1-2477CEC4FAA2-default.jpg" alt="Description of Figure 6-2 follows" title="Description of Figure 6-2 follows" /><br />
+<a href="img_text/GUID-66FAD4B4-64D9-4D33-9CF1-2477CEC4FAA2-default.htm">Description of "Figure 6-2 Carefully Push Oracle Big Data Appliance from Behind"</a></div>
+<!-- class="figure" -->
+<p>Use two people to move the rack: one person in front and one person in back to help guide the rack. When transporting configured racks from one location to another, move them slowly -- 0.65 meters (2 feet) per second or slower.</p>
+<p>Carefully examine the transportation path. Avoid obstacles such as doorways or elevator thresholds that can cause abrupt stops or shocks. Go around obstacles by using ramps or lifts to enable smooth transport.</p>
+<div class="infoboxnotewarn" id="GUID-5AF7E49E-8AF6-4DF7-9925-70346385EE2D__GUID-D68BE0FD-D7C0-41BF-95F9-49AD18B23268">
+<p class="notep1">WARNING:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Never attempt to move Oracle Big Data Appliance by pushing on the side panels. Pushing on the side panels can tip the rack over. This can cause serious personal injury or death, and also damage to the equipment.</p>
+</li>
+<li>
+<p>Never tip or rock Oracle Big Data Appliance because the rack can fall over.</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG173"></a>
+<div class="props_rev_3"><a id="GUID-37AD7036-AA3B-4022-87FE-047E4B856D7A"></a>
+<h3 id="BIGOG-GUID-37AD7036-AA3B-4022-87FE-047E4B856D7A" class="sect3"><span class="enumeration_section">6.3.2</span> Securing an Oracle Big Data Appliance Rack</h3>
+<div>
+<p>After moving Oracle Big Data Appliance to the installation site, secure the rack to ensure that it does not move or tip over. You can secure the rack permanently by extending the rack leveling feet, using the shipping brackets, or both.</p>
+<div class="infobox-note" id="GUID-37AD7036-AA3B-4022-87FE-047E4B856D7A__GUID-F12E2872-D166-41B2-B82A-2F7FDAC7DB44">
+<p class="notep1">Caution:</p>
+<p>Shipping brackets are not for use for bracing or anchoring the rack during seismic events.</p>
+</div>
+</div>
+<a id="BIGOG176"></a><a id="BIGOG174"></a>
+<div class="props_rev_3"><a id="GUID-1CC037BF-DCEE-4113-B94D-1E535D82FD8E"></a>
+<h4 id="BIGOG-GUID-1CC037BF-DCEE-4113-B94D-1E535D82FD8E" class="sect4"><span class="enumeration_section">6.3.2.1</span> Secure the Oracle Big Data Appliance Rack with Leveling Feet</h4>
+<div>
+<div class="section">
+<p>The rack contains four <a id="d36315e590" class="indexterm-anchor"></a><a id="d36315e592" class="indexterm-anchor"></a>leveling feet that you can lower to secure the rack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To adjust the leveling feet:</p>
+<ol>
+<li>
+<p>Locate the four leveling feet located at the bottom corners of the rack.</p>
+</li>
+<li>
+<p>Lower the leveling feet to the floor as shown in the figure below, using the SW 12 mm wrench. When lowered correctly, the four leveling feet should support the full weight of the rack.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="figure" id="GUID-1CC037BF-DCEE-4113-B94D-1E535D82FD8E__BABJGCGF">
+<p class="titleinfigure">Figure 6-3 Securing the Oracle Big Data Appliance Rack Using Leveling Feet</p>
+<img width="309" height="278" src="img/GUID-DE492DAD-984D-447B-A996-3985BCF288F2-default.jpg" alt="Description of Figure 6-3 follows" title="Description of Figure 6-3 follows" /><br />
+<a href="img_text/GUID-DE492DAD-984D-447B-A996-3985BCF288F2-default.htm">Description of "Figure 6-3 Securing the Oracle Big Data Appliance Rack Using Leveling Feet"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG183"></a><a id="BIGOG182"></a>
+<div class="props_rev_3"><a id="GUID-88BB9B3A-0315-466B-93E9-94734E3ABA6B"></a>
+<h3 id="BIGOG-GUID-88BB9B3A-0315-466B-93E9-94734E3ABA6B" class="sect3"><span class="enumeration_section">6.3.3</span> Attaching a Ground Cable (Optional)</h3>
+<div>
+<div class="section">
+<p>The Oracle Big Data Appliance rack power distribution units (PDUs) achieve earth ground through their power cords. Final chassis ground is achieved by way of the ground prong when you connect the power cord to a socket. For additional grounding, attach a chassis earth ground cable to the rack. The additional ground point enables electrical current leakage to dissipate more efficiently.</p>
+<div class="infoboxnotewarn" id="GUID-88BB9B3A-0315-466B-93E9-94734E3ABA6B__GUID-10F4147F-F931-4E95-8BC4-CC907F448C91">
+<p class="notep1">WARNING:</p>
+<p>The PDU power input lead cords and the ground cable must reference a common earth ground. If they do not, then a difference in ground potential can be introduced. If you are unsure of your facility's PDU receptacle grounding, then do not install a ground cable until you confirm that there is a proper PDU receptacle grounding. If a difference in ground potential is apparent, then you must take corrective action.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To attach a ground cable:</p>
+<ol>
+<li>
+<p>Obtain a grounding cable. It is not shipped with the system.</p>
+</li>
+<li>
+<p>Ensure that the installation site has properly grounded the power source in the data center. The facility PDU must have earth ground.</p>
+</li>
+<li>
+<p>Ensure that all grounding points, such as raised floors and power receptacles, reference the facility ground.</p>
+</li>
+<li>
+<p>Ensure that direct, metal-to-metal contact is made for this installation. During manufacturing, the ground cable attachment area might have been painted or coated.</p>
+</li>
+<li>
+<p>Attach the ground cable to an attachment point located at the bottom rear of the system frame, as shown in <a href="unpack.htm#GUID-88BB9B3A-0315-466B-93E9-94734E3ABA6B__BABHHFHC">Figure 6-4</a>. The attachment point is an adjustable bolt that is inside the rear of the cabinet.</p>
+<div class="figure" id="GUID-88BB9B3A-0315-466B-93E9-94734E3ABA6B__BABHHFHC">
+<p class="titleinfigure">Figure 6-4 Earth Ground Attachment Bolt Location</p>
+<img width="365" height="275" src="img/GUID-EFE0D7DA-DFDE-489D-A061-69B09BCD8E44-default.jpg" alt="Description of Figure 6-4 follows" title="Description of Figure 6-4 follows" /><br />
+<a href="img_text/GUID-EFE0D7DA-DFDE-489D-A061-69B09BCD8E44-default.htm">Description of "Figure 6-4 Earth Ground Attachment Bolt Location"</a></div>
+<!-- class="figure" --></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG184"></a>
+<div class="props_rev_3"><a id="GUID-3FD25D2A-DD68-4394-B888-2FF16486BC0E"></a>
+<h2 id="BIGOG-GUID-3FD25D2A-DD68-4394-B888-2FF16486BC0E" class="sect2"><span class="enumeration_section">6.4</span> Powering On the System for the First Time</h2>
+<div>
+<p>Before powering on the system for the first time, you must inspect it and connect the power cords. This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="unpack.htm#GUID-316E5BCF-93F8-4885-AFEE-599726C7BAB4">Inspecting the Oracle Big Data Appliance Rack After It Is in Place</a></p>
+</li>
+<li>
+<p><a href="unpack.htm#GUID-8B8B737E-31AE-4899-B27E-081D19DDB713">Connecting Power Cords</a></p>
+</li>
+<li>
+<p><a href="unpack.htm#GUID-A5D8626A-A38A-471E-800F-14BA5E7398FC">Powering On Oracle Big Data Appliance</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG185"></a>
+<div class="props_rev_3"><a id="GUID-316E5BCF-93F8-4885-AFEE-599726C7BAB4"></a>
+<h3 id="BIGOG-GUID-316E5BCF-93F8-4885-AFEE-599726C7BAB4" class="sect3"><span class="enumeration_section">6.4.1</span> Inspecting the Oracle Big Data Appliance Rack After It Is in Place</h3>
+<div>
+<div class="section">
+<p>This procedure describes how to visually examine the Oracle Big Data Appliance physical system after it is in place, but before power is supplied.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To inspect the Oracle Big Data Appliance rack:</p>
+<ol>
+<li>
+<p>Check the rack for damage.</p>
+</li>
+<li>
+<p>Check the rack for loose or missing screws.</p>
+</li>
+<li>
+<p>Check the rack for the ordered configuration. Refer to the Customer Information Sheet (CIS) on the side of the packaging.</p>
+</li>
+<li>
+<p>Check that all cable connections are secure and firmly in place as follows:</p>
+<ol>
+<li>
+<p>Check the power cables. Ensure that the correct connectors have been supplied for the data center facility power source.</p>
+</li>
+<li>
+<p>Check the network data cables.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Check the site location tile arrangement for cable access and airflow.</p>
+</li>
+<li>
+<p>Check the data center airflow that leads into the front of the rack.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-316E5BCF-93F8-4885-AFEE-599726C7BAB4__GUID-09B92307-E7E1-420A-8714-9319FEB4FB8F">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a>"</span> for more information</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76594"></a><a id="BIGOG187"></a><a id="BIGOG188"></a><a id="BIGOG186"></a>
+<div class="props_rev_3"><a id="GUID-8B8B737E-31AE-4899-B27E-081D19DDB713"></a>
+<h3 id="BIGOG-GUID-8B8B737E-31AE-4899-B27E-081D19DDB713" class="sect3"><span class="enumeration_section">6.4.2</span> Connecting Power Cords</h3>
+<div>
+<div class="section">
+<p>This procedure describes how to connect power cords to the Oracle Big Data Appliance rack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To connect power cords to the rack:</p>
+<ol>
+<li>
+<p>Open the rear cabinet door.</p>
+</li>
+<li>
+<p>Ensure that the correct power connectors have been supplied.</p>
+</li>
+<li>
+<p>Unfasten the power cord <a id="d36315e814" class="indexterm-anchor"></a><a id="d36315e818" class="indexterm-anchor"></a>cable ties. The ties are for shipping only and are no longer needed.</p>
+</li>
+<li>
+<p>Route the power cords to the facility receptacles. You can route the <a id="d36315e826" class="indexterm-anchor"></a>power cords through the top or the bottom of the rack.</p>
+</li>
+<li>
+<p>Secure the power cords in bundles.</p>
+</li>
+<li>
+<p>Ensure that the breaker switches are OFF before connecting the power cables.</p>
+</li>
+<li>
+<p>Plug the PDU power cord connectors into the facility receptacles.</p>
+</li>
+</ol>
+<div class="infoboxnotealso" id="GUID-8B8B737E-31AE-4899-B27E-081D19DDB713__GUID-FE395421-0B24-40DF-B200-A8A6FA274EEB">
+<p class="notep1">See Also:</p>
+Power cords, cord routing, and connections are illustrated in <a href="unpack.htm#GUID-8B8B737E-31AE-4899-B27E-081D19DDB713__BABCIJFF">Figure 6-5</a>, <a href="unpack.htm#GUID-8B8B737E-31AE-4899-B27E-081D19DDB713__BABGAJBB">Figure 6-6</a>, and <a href="unpack.htm#GUID-8B8B737E-31AE-4899-B27E-081D19DDB713__BABEFDFA">Figure 6-7</a>.</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="unpack.htm#GUID-8B8B737E-31AE-4899-B27E-081D19DDB713__BABCIJFF">Figure 6-5</a> shows the location of the power cord cable ties in a rack.</p>
+<div class="figure" id="GUID-8B8B737E-31AE-4899-B27E-081D19DDB713__BABCIJFF">
+<p class="titleinfigure">Figure 6-5 Location of Power Cord Cable Ties</p>
+<img width="539" height="376" src="img/GUID-49CCA430-6C73-43C9-BB28-36A0A394DD41-default.jpg" alt="Description of Figure 6-5 follows" title="Description of Figure 6-5 follows" /><br />
+<a href="img_text/GUID-49CCA430-6C73-43C9-BB28-36A0A394DD41-default.htm">Description of "Figure 6-5 Location of Power Cord Cable Ties"</a></div>
+<!-- class="figure" -->
+<p><a href="unpack.htm#GUID-8B8B737E-31AE-4899-B27E-081D19DDB713__BABGAJBB">Figure 6-6</a> shows the power cords routed out of the bottom of the rack.</p>
+<div class="figure" id="GUID-8B8B737E-31AE-4899-B27E-081D19DDB713__BABGAJBB">
+<p class="titleinfigure">Figure 6-6 Power Cord Routing Out the Bottom</p>
+<img width="440" height="432" src="img/GUID-19F17F40-2C4A-480B-AF8A-5756B05CB56B-default.jpg" alt="Description of Figure 6-6 follows" title="Description of Figure 6-6 follows" /><br />
+<a href="img_text/GUID-19F17F40-2C4A-480B-AF8A-5756B05CB56B-default.htm">Description of "Figure 6-6 Power Cord Routing Out the Bottom"</a></div>
+<!-- class="figure" -->
+<p><a href="unpack.htm#GUID-8B8B737E-31AE-4899-B27E-081D19DDB713__BABEFDFA">Figure 6-7</a> shows the power cords routed out the top of the rack.</p>
+<div class="figure" id="GUID-8B8B737E-31AE-4899-B27E-081D19DDB713__BABEFDFA">
+<p class="titleinfigure">Figure 6-7 Power Cord Routing Out the Top</p>
+<img width="444" height="432" src="img/GUID-B3BDF8C3-BD0F-44EF-800A-004EC5652E5F-default.jpg" alt="Description of Figure 6-7 follows" title="Description of Figure 6-7 follows" /><br />
+<a href="img_text/GUID-B3BDF8C3-BD0F-44EF-800A-004EC5652E5F-default.htm">Description of "Figure 6-7 Power Cord Routing Out the Top"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG190"></a><a id="BIGOG189"></a>
+<div class="props_rev_3"><a id="GUID-A5D8626A-A38A-471E-800F-14BA5E7398FC"></a>
+<h3 id="BIGOG-GUID-A5D8626A-A38A-471E-800F-14BA5E7398FC" class="sect3"><span class="enumeration_section">6.4.3</span> Powering On Oracle Big Data Appliance</h3>
+<div>
+<div class="section">
+<div class="infobox-note" id="GUID-A5D8626A-A38A-471E-800F-14BA5E7398FC__GUID-F3C5C139-B824-469B-8B28-A60CC82A96CF">
+<p class="notep1">Note:</p>
+<p>Oracle Big Data Appliance nodes may take up to 15 minutes to start through the normal BIOS POST tests.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To power up Oracle Big Data Appliance:</p>
+<ol>
+<li>
+<p>Switch on the <a id="d36315e912" class="indexterm-anchor"></a><a id="d36315e914" class="indexterm-anchor"></a>PDU B circuit breakers, one at a time. PDU B is on the right side of the rack when viewed from the rear. The circuit breakers are on the rear of the rack as shown in <a href="unpack.htm#GUID-A5D8626A-A38A-471E-800F-14BA5E7398FC__BABDDCBH">Figure 6-8</a>. Press the ON (|) side of the toggle switch. When the breaker is ON, the switch is flush with the side of the PDU.</p>
+<div class="figure" id="GUID-A5D8626A-A38A-471E-800F-14BA5E7398FC__BABDDCBH">
+<p class="titleinfigure">Figure 6-8 PDU Switch Locations</p>
+<img width="500" height="346" src="img/GUID-1F175B88-F414-4A7C-B32F-9893096CCF92-default.jpg" alt="Description of Figure 6-8 follows" title="Description of Figure 6-8 follows" /><br />
+<a href="img_text/GUID-1F175B88-F414-4A7C-B32F-9893096CCF92-default.htm">Description of "Figure 6-8 PDU Switch Locations"</a></div>
+<!-- class="figure" --></li>
+<li>
+<p>Verify that the expected <a id="d36315e929" class="indexterm-anchor"></a>power light-emitting diodes (LEDs) are on. The LEDs are located as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Servers: Top LED</p>
+</li>
+<li>
+<p>Cisco switch: Left LED (viewed from front) is green, and the other LEDs are red</p>
+</li>
+<li>
+<p>InfiniBand switches: Right LED (viewed from front) labeled PS1</p>
+</li>
+<li>
+<p>KVM switch: Lower LED B (Sun Fire X4270 M2-based rack only)</p>
+</li>
+<li>
+<p>KMM switch: Only supplied by PDU B (Sun Fire X4270 M2-based rack only)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Connect power to PDU A. Ensure that the breaker switches are in the OFF position before connecting the power cables.</p>
+<div class="infoboxnotealso" id="GUID-A5D8626A-A38A-471E-800F-14BA5E7398FC__GUID-701CF248-C57F-426C-B7A5-BC044E689F58">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="unpack.htm#GUID-C7D6186B-73AE-4357-ADE3-526D7871C3CD">Reviewing Safety Guidelines</a>"</span> for information about single-phase PDUs and cabling</p>
+</div>
+</li>
+<li>
+<p>On <a id="d36315e960" class="indexterm-anchor"></a><a id="d36315e962" class="indexterm-anchor"></a><a id="d36315e964" class="indexterm-anchor"></a>single-phase systems, ensure that the following inputs are on the same phase:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>PDU A Input 2 and PDU B Input 0</p>
+</li>
+<li>
+<p>PDU A Input 1 and PDU B Input 1</p>
+</li>
+<li>
+<p>PDU A Input 0 and PDU B Input 2</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Switch on the PDU A circuit breakers one at a time.</p>
+</li>
+<li>
+<p>Verify that the expected power LEDs are on throughout the rack.</p>
+</li>
+<li>
+<p>Perform a visual check of all cable connections in the rack. Do not press every connector to verify connection.</p>
+</li>
+<li>
+<p>Verify that the OK LED is blinking standby for all systems. The OK LED blinks every 3 seconds when in standby mode. It is dark for 2 to 3 minutes while Oracle ILOM is booting before going to standby mode.</p>
+</li>
+<li>
+<p>If a system does not go into standby mode:</p>
+<ol>
+<li>
+<p>Connect a laptop to the service processor SET MGT port with baud settings of 115200,8,N,1.</p>
+</li>
+<li>
+<p>At the pre-boot prompt, type boot.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>Each time the system restarts, a file is generated in the <code class="codeph">/root</code> directory with the results of the validation check. The file is named either <a id="d36315e1007" class="indexterm-anchor"></a><a id="d36315e1009" class="indexterm-anchor"></a><a id="d36315e1011" class="indexterm-anchor"></a><code class="codeph">BDA_REBOOT_SUCCEEDED</code> or <code class="codeph">BDA_REBOOT_FAILED</code>, depending on the success or failure of the validation checks.</p>
+<div class="infobox-note" id="GUID-A5D8626A-A38A-471E-800F-14BA5E7398FC__GUID-E75B29DC-D990-4AC6-902D-312CF8E57D84">
+<p class="notep1">Note:</p>
+<p>After powering on Oracle Big Data Appliance, configure the system as described in <a href="configure.htm#GUID-BD34C9EF-67C1-4871-A6AA-27E3534DE682" title="Oracle Big Data X7 racks are shipped with the Cisco Nexus 93108-1G Ethernet Switch. Older Racks were shipped with the Cisco Catalyst 4948 Ethernet Switch. The Cisco Nexus 93108-1G Ethernet switch supplied with Oracle Big Data Appliance rack is minimally configured during installation. During the initial configuration, you reset the switch and use the Basic System Configuration Dialog to configure the switch. After you have performed the initial configuration, you can adjust the time used by the switch.">Configuring an Oracle Big Data Appliance Full Rack or Starter Rack</a>.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment188">
+<tr>
+<td class="cellalignment221">
+<table class="cellalignment193">
+<tr>
+<td class="cellalignment192"><a href="part-hardware-installation.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment192"><a href="configure.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment223">
+<table class="cellalignment191">
+<tr>
+<td class="cellalignment192"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment192"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment192"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment192"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment192"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

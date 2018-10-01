@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using Multimedia Analytics</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="You can use the multimedia analytics framework in a Big Data environment to perform facial recognition in videos and images." />
+<meta name="dcterms.created" content="2017-10-02T15:13:12Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Spatial and Graph User&rsquo;s Guide and Reference" />
+<meta name="dcterms.identifier" content="E67958-14" />
+<meta name="dcterms.isVersionOf" content="BDSPA" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda49/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="using-in-memory-analyst.htm" title="Previous" type="text/html" />
+<link rel="Next" href="big-data-spatial-third-party-licenses.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDSPA.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-4B15F058-BCE7-4A3C-A6B8-163DB2D4368B"></a> <span id="PAGE" style="display:none;">13/15</span> <!-- End Header -->
+<h1 id="BDSPA-GUID-4B15F058-BCE7-4A3C-A6B8-163DB2D4368B" class="sect1"><span class="enumeration_chapter">7</span> Using Multimedia Analytics</h1>
+<div>
+<p>You can use the multimedia analytics framework in a Big Data environment to perform facial recognition in videos and images.</p>
+</div>
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-F4A6A92E-3619-435E-8B54-6A5736435963">About Multimedia Analytics</a><br />
+The multimedia analytics feature of Oracle Big Data Spatial and Graph provides a framework for processing video and image data in Apache Hadoop.</li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-BF7B406B-449C-4242-BD74-EC45D1561888">Processing Video and Image Data Stored in HDFS Using the Multimedia Analytics Framework</a><br />
+The multimedia analytics framework processes video and image data stored in HDFS using MapReduce.</li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-0E2B25A6-8A27-4F31-BB6F-EC1E3681C79B">Processing Streaming Video Using the Multimedia Analytics Framework</a><br />
+The multimedia analytics framework processes streaming video from RTSP and HTTP servers using Apache Spark.</li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-3C6B70D7-8AE9-4580-AE1C-7F8F15093F3E">Face Recognition Using the Multimedia Analytics Framework</a><br />
+The multimedia analytics feature is configured to perform face recognition with OpenCV libraries. These OpenCV libraries are available with the product.</li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-7ECE895B-8891-4093-855D-3BEC1F63C3BE">Configuration Properties for Multimedia Analytics</a><br />
+The multimedia analytics framework uses the standard methods for specifying configuration properties in the <code class="codeph">hadooop</code> command.</li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-090BD058-396D-41F8-814E-D407DF0941F6">Using the Multimedia Analytics Framework with Third-Party Software</a><br />
+You can implement and install custom modules for multimedia decoding and processing.</li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-71D95F34-5D2B-4AEA-B60D-D250BC4EF7E6">Displaying Images in Output</a><br />
+If the output is displayed as images, <code class="codeph">oracle.ord.hadoop.OrdPlayImages</code> can be used to display all the images in the output HDFS directory.</li>
+</ul>
+</div>
+<div class="props_rev_3"><a id="GUID-F4A6A92E-3619-435E-8B54-6A5736435963"></a>
+<h2 id="BDSPA-GUID-F4A6A92E-3619-435E-8B54-6A5736435963" class="sect2"><span class="enumeration_section">7.1</span> About Multimedia Analytics</h2>
+<div>
+<p>The multimedia analytics feature of Oracle Big Data Spatial and Graph provides a framework for processing video and image data in Apache Hadoop.</p>
+<p>The framework enables distributed processing of video and image data. Features of the framework include:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>APIs to process and analyze video and image data in Apache Hadoop</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>APIs to process and analyze video and image data in batch using MapReduce (input data can be in HDFS, Oracle NoSQL Database, or Apache HBase)</p>
+</li>
+<li>
+<p>APIs to process and analyze streaming video in real-time using Apache Spark</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Scalable, high speed processing, leveraging the parallelism of Apache Hadoop</p>
+</li>
+<li>
+<p>Built-in face recognition using OpenCV</p>
+</li>
+<li>
+<p>Ability to install and implement custom video/image processing (for example, license plate recognition) to use the framework to run in Apache Hadoop</p>
+</li>
+</ul>
+<p>The video analysis framework is installed on Oracle Big Data Appliance if Oracle Spatial and Graph is licensed, and you can install it on other Hadoop clusters.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-BF7B406B-449C-4242-BD74-EC45D1561888"></a>
+<h2 id="BDSPA-GUID-BF7B406B-449C-4242-BD74-EC45D1561888" class="sect2"><span class="enumeration_section">7.2</span> Processing Video and Image Data Stored in HDFS Using the Multimedia Analytics Framework</h2>
+<div>
+<p>The multimedia analytics framework processes video and image data stored in HDFS using MapReduce.</p>
+<p>Face recognition using OpenCV is integrated with the framework and available with the product. Third party processing code can also be integrated into the framework for a variety of use cases, such as face recognition, license plate recognition, and object recognition.</p>
+<p>Video and image data processing involves the following</p>
+<ol>
+<li>
+<p>Input data comes from HDFS, Oracle NoSQL Database, or Apache HBase.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Video input data can be stored in HDFS, or decoded frames can be stored in Oracle NoSQL Database or Apache HBase.</p>
+</li>
+<li>
+<p>Image input data can be stored in HDFS, Oracle NoSQL Database, or Apache HBase.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The data is split into a set of images or video frames.</p>
+</li>
+<li>
+<p>The Images or video frames are processed on each node, using OpenCV or third party code.</p>
+</li>
+<li>
+<p>The output of processing is stored in HDFS or Apache HBase.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-0E2B25A6-8A27-4F31-BB6F-EC1E3681C79B"></a>
+<h2 id="BDSPA-GUID-0E2B25A6-8A27-4F31-BB6F-EC1E3681C79B" class="sect2"><span class="enumeration_section">7.3</span> Processing Streaming Video Using the Multimedia Analytics Framework</h2>
+<div>
+<p>The multimedia analytics framework processes streaming video from RTSP and HTTP servers using Apache Spark.</p>
+<p>Face detection and face recognition using OpenCV is integrated with the framework and available with the product. Third party processing code can be integrated into the framework for a variety of use cases, such as face recognition, license plate recognition, and object recognition.</p>
+<p>Streaming video is processed by an Apache Spark job. The Spark job processes each frame and outputs the result into HDFS, or to specialized output locations using custom implementations to write output. Sample implementations of custom writers to write to the local file system and send data to a demo image player are available with the product.</p>
+<p>Streaming video processing involves the following</p>
+<ol>
+<li>
+<p>Input data comes from RTSP or HTTP streaming servers or from HDFS. The framework can also read video streaming into HDFS.</p>
+</li>
+<li>
+<p>Streaming video is decoded into frames.</p>
+</li>
+<li>
+<p>Video frames are processed by Apache Spark.</p>
+</li>
+<li>
+<p>Results of the processing can be written to HDFS or to specialized locations, such as an image player using custom plugins. Sample plugins are available for:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Writing JSON, CSV, and/or image data to the local file system</p>
+</li>
+<li>
+<p>Sending the image data to an image player, enabling the results to be viewed in real time. (A demo image player is included with the product.)</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-3C6B70D7-8AE9-4580-AE1C-7F8F15093F3E"></a>
+<h2 id="BDSPA-GUID-3C6B70D7-8AE9-4580-AE1C-7F8F15093F3E" class="sect2"><span class="enumeration_section">7.4</span> Face Recognition Using the Multimedia Analytics Framework</h2>
+<div>
+<p>The multimedia analytics feature is configured to perform face recognition with OpenCV libraries. These OpenCV libraries are available with the product.</p>
+<p>This topic describes using this face recognition functionality with MapReduce to process video and images stored in HDFS. Face recognition has two steps:</p>
+<ol>
+<li>
+<p>&ldquo;Training&rdquo; a model with face images. This step can be run in any Hadoop client or node.</p>
+</li>
+<li>
+<p>Recognizing faces from input video or images using the training model. This step is a MapReduce job that runs in a Hadoop cluster.</p>
+</li>
+</ol>
+<p>The training process creates a <span class="bold">model</span> stored in a file. This file is used as input for face recognition from videos or images.</p>
+</div>
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-39118430-83FC-4281-A8B1-D5A831CC4EE3">Training to Detect Faces</a><br /></li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-E9E5EAE8-0DB7-4BCA-B641-0A15A4E10771">Selecting Faces to be Used for Training</a><br /></li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-4F675754-CA87-4DF8-ABE2-6E0E365A9D99">Detecting Faces in Videos</a><br /></li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-23FA7435-2125-4956-914F-590E62F5C89C">Detecting Faces in Images</a><br /></li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-97858CF4-FC93-4665-94C2-86C7D7E36EA1">Working with Oracle NoSQL Database</a><br /></li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-D765BE3E-AB6F-45E4-BE01-B0F832C2300C">Working with Apache HBase</a><br /></li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-5A746BA6-9A5F-45B9-AA4B-5576F07B9E77">Examples and Training Materials for Detecting Faces</a><br /></li>
+</ul>
+</div>
+<div class="props_rev_3"><a id="GUID-39118430-83FC-4281-A8B1-D5A831CC4EE3"></a>
+<h3 id="BDSPA-GUID-39118430-83FC-4281-A8B1-D5A831CC4EE3" class="sect3"><span class="enumeration_section">7.4.1</span> Training to Detect Faces</h3>
+<div>
+<p>Training is done using the Java program <code class="codeph">OrdFaceTrainer</code>, which is part of <code class="codeph">ordhadoop_multimedia_analytics.jar</code>. Inputs to this program are a set of images and a label mapping file that maps images to labels. The output is a training model that is written to a file. (You must <span class="bold">not</span> edit this file.)</p>
+<p>To train the multimedia analytics feature to detect (recognize) faces, follow these steps.</p>
+<ol>
+<li>
+<p>Create a parent directory and subdirectories to store images that are to be recognized.</p>
+<p>Each subdirectory should contain one or more images of one person. A person can have images in multiple subdirectories, but a subdirectory can have images of only one person. For example, assume that a parent directory named <code class="codeph">images</code> exists where one subdirectory (<code class="codeph">d1</code>) contains images of a person named Andrew, and two subdirectories (<code class="codeph">d2</code> and <code class="codeph">d3</code>) contain images of a person named Betty (such as pictures taken at two different times in two different locations). In this example, the directories and their contents might be as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">images/1</code> contains five images of Andrew.</p>
+</li>
+<li>
+<p><code class="codeph">images/2</code> contains two images of Betty.</p>
+</li>
+<li>
+<p><code class="codeph">images/3</code> contains four images of Betty.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Create a mapping file that maps image subdirectories to labels.</p>
+<p>A &ldquo;label&rdquo; is a numeric ID value to be associated with a person who has images for recognition. For example, Andrew might be assigned the label value 100, and Betty might be assigned the label value 101. Each record (line) in the mapping file must have the following structure:</p>
+<pre dir="ltr">
+&lt;subdirectory&gt;,&lt;label-id&gt;,&lt;label-text&gt;
+</pre>
+<p>For example:</p>
+<pre dir="ltr">
+1,100,Andrew
+2,101,Betty
+3,101,Betty
+</pre></li>
+<li>
+<p>Set the required configuration properties:</p>
+<pre dir="ltr">
+oracle.ord.hadoop.ordfacemodel
+oracle.ord.hadoop.ordfacereader
+oracle.ord.hadoop.ordsimplefacereader.dirmap 
+oracle.ord.hadoop.ordsimplefacereader.imagedir
+</pre>
+<p>For information about the available properties, see <a href="using-multimedia-analytics.htm#GUID-7ECE895B-8891-4093-855D-3BEC1F63C3BE" title="The multimedia analytics framework uses the standard methods for specifying configuration properties in the hadooop command.">Configuration Properties for Multimedia Analytics</a>.</p>
+</li>
+<li>
+<p>Create the training model. Enter a command in the following general form:</p>
+<pre dir="ltr">
+hadoop jar ${MMA_HOME}/lib/ordhadoop-multimedia-analytics-example.jar faceTrainer &lt;training_config_file.xml&gt;
+</pre></li>
+</ol>
+<div class="infobox-note" id="GUID-39118430-83FC-4281-A8B1-D5A831CC4EE3__GUID-6BB0B159-46C7-48FF-86F0-EC6CD70158BA">
+<p class="notep1">Note:</p>
+<code class="codeph">$MMA_HOME/example</code> has a set of sample files. It includes scripts for setting the Java <code class="codeph">CLASSPATH</code>. You can edit the example as needed to create a training model.</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-E9E5EAE8-0DB7-4BCA-B641-0A15A4E10771"></a>
+<h3 id="BDSPA-GUID-E9E5EAE8-0DB7-4BCA-B641-0A15A4E10771" class="sect3"><span class="enumeration_section">7.4.2</span> Selecting Faces to be Used for Training</h3>
+<div>
+<p>Images used to create the training model should contain only the face, with as little extra detail around the face as possible. The following are some examples, showing four images of the same man&rsquo;s face with different facial expressions.</p>
+<br />
+<img width="550" height="135" src="img/GUID-EB53C6B0-043C-4D73-90B4-B6F19F5845D0-default.jpg" alt="Description of GUID-EB53C6B0-043C-4D73-90B4-B6F19F5845D0-default.jpg follows" title="Description of GUID-EB53C6B0-043C-4D73-90B4-B6F19F5845D0-default.jpg follows" /><br />
+<a href="img_text/GUID-EB53C6B0-043C-4D73-90B4-B6F19F5845D0-default.htm">Description of the illustration GUID-EB53C6B0-043C-4D73-90B4-B6F19F5845D0-default.jpg</a><br />
+<p>The selection of images for training is important for accurate matching. The following guidelines apply:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The set of images should contain faces with all possible positions and facial movements, for example, closed eyes, smiles, and so on.</p>
+</li>
+<li>
+<p>The images should have the same size.</p>
+</li>
+<li>
+<p>The images should have good resolution and good pixel quality.</p>
+</li>
+<li>
+<p>Try to avoid including images that are very similar.</p>
+</li>
+<li>
+<p>If it is necessary to recognize a person with several backgrounds and light conditions, include images with these backgrounds.</p>
+</li>
+<li>
+<p>The number of images to include depends on the variety of movements and backgrounds expected in the input data.</p>
+</li>
+</ul>
+<p>An example to process images in a set of images and create good training images is available in: <code class="codeph">$MMA_HOME/example/facetrain/runFaceTrainUIExample.sh</code></p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-4F675754-CA87-4DF8-ABE2-6E0E365A9D99"></a>
+<h3 id="BDSPA-GUID-4F675754-CA87-4DF8-ABE2-6E0E365A9D99" class="sect3"><span class="enumeration_section">7.4.3</span> Detecting Faces in Videos</h3>
+<div>
+<p>To detect (recognize) faces in videos, you have the following options for video processing software to transcode video data:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Use <code class="codeph">OrdOpenCVFaceRecognizerMulti</code> as the frame processor, along with any of the frontal face cascade classifiers available with OpenCV.</p>
+<p><code class="codeph">Haarcascade_frontalface_alt2.xml</code> is a good place to start. You can experiment with the different cascade classifiers to identify a good fit for your requirements.</p>
+</li>
+<li>
+<p>Use third-party face recognition software.</p>
+</li>
+</ul>
+<p>To perform recognition, follow these steps:</p>
+<ol>
+<li>
+<p>Copy the video files (containing video in which you want to recognize faces) to HDFS.</p>
+</li>
+<li>
+<p>Copy these required files to a shared location accessible by all nodes in the cluster:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Generated training model</p>
+</li>
+<li>
+<p>Mapping file that maps image subdirectories to labels</p>
+</li>
+<li>
+<p>Cascade classifier XML file</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Create the configuration file.</p>
+<p>Required configuration parameters:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.ord.hadoop.inputtype</code>: Type if input data (<code class="codeph">video</code> or <code class="codeph">image</code>).</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.outputtypes</code>: Format of generated results (<code class="codeph">JSON/text/Image</code>).</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.ordframegrabber</code>: Get a video frame from the video data. You can use the Java classes available with the product or you can provide an implementation for the abstraction.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>OrdJCodecFrameGrabber is available with the product. This class can be used without any additional steps. See <a href="http://www.jcodec.org" target="_blank">www.jcodec.org</a> for more details on JCodec.</p>
+</li>
+<li>
+<p>OrdFFMPEGFrameGrabber is available with the product. This class requires installation of FFMPEG libraries. See <a href="http://www.ffmpeg.org" target="_blank">www.ffmpeg.org</a> for more details</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.ordframeprocessor</code>: Processor to use on the video frame to recognize faces. You can use the Java classes available with the product or you can provide an implementation for the abstraction. The classes available with the product are:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.ord.hadoop.mapreduce.OrdOpenCVFaceRecognize</code> for face recognition.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.demo.OrdFaceDetectionSample</code> for face detection.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.recognizer.classifier</code>: Cascade classifier XML file.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.recognizer.labelnamefile</code>: Mapping file that maps image subdirectories to labels.</p>
+</li>
+</ul>
+<p>Optional configuration parameters:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.ord.hadoop.frameinterval</code>: Time interval (number of seconds) between frames that are processed. Default: 1.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.numofsplits</code>: Number of splits of the video file on the Hadoop cluster, with one split analyzed on each node of the Hadoop cluster. Default: 1.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.recognizer.cascadeclassifier.scalefactor</code>: Scale factor to be used for matching images used in training with faces identified in video frames or images. Default: 1.1 (no scaling)</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.recognizer.cascadeclassifier.minneighbor</code>: Determines size of the sliding window to detect face in video frame or image. Default: 1.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.recognizer.cascadeclassifier.flags</code>: Determines type of face detection.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.recognizer.cascadeclassifier.minsize</code>: Smallest bounding box used to detect a face.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.recognizer.cascadeclassifier.maxsize</code>: Largest bounding box used to detect a face.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.recognizer.cascadeclassifier.maxconfidence</code>: Maximum allowable distance between the detected face and a face in the model.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.ordframeprocessor.k2</code>: Key class for the implemented class for <code class="codeph">OrdFrameProcessor</code>.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.ordframeprocessor.v2</code>: Value class for the implemented class for <code class="codeph">OrdFrameProcessor</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Run the Hadoop job to recognize faces. Enter a command in the following format:</p>
+<pre dir="ltr">
+$ hadoop jar $MMA_HOME/lib/orhadoop-multimedia-analytics.jar -conf &lt;conf file&gt; &lt;hdfs_input_directory_containing_video_data&gt; &lt;hdfs_output_directory_to_write_results&gt;
+</pre>
+<p>Be sure that the configuration file specifies the <code class="codeph">oracle.ord.hadoop.ordframeprocessor</code> property with the desired value.</p>
+</li>
+</ol>
+<p>The accuracy of detecting faces depends on a variety of factors, including lighting, brightness, orientation of the face, distance of the face from the camera, and clarity of the video or image. You should experiment with the configuration properties to determine the best set of values for your use case. Note that it is always possible to have false positives (identifing objects that are not faces as faces) and false recognitions (wrongly labeling a face).</p>
+<div class="infobox-note" id="GUID-4F675754-CA87-4DF8-ABE2-6E0E365A9D99__GUID-E86C0AA1-F52D-4B84-9760-C66421C470DC">
+<p class="notep1">Note:</p>
+<code class="codeph">$MMA_HOME/example</code>&nbsp;has a set of sample files.&nbsp;It includes scripts for setting the Java&nbsp;CLASSPATH.&nbsp;You can edit as needed to submit a job to detect faces.</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-23FA7435-2125-4956-914F-590E62F5C89C"></a>
+<h3 id="BDSPA-GUID-23FA7435-2125-4956-914F-590E62F5C89C" class="sect3"><span class="enumeration_section">7.4.4</span> Detecting Faces in Images</h3>
+<div>
+<p>To detect faces in images, copy the images to HDFS. Specify the following property:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.inputtype&lt;/name&gt;
+  &lt;value&gt;image&lt;/value&gt;
+&lt;/property&gt;
+</pre></div>
+</div>
+<div class="props_rev_3"><a id="GUID-97858CF4-FC93-4665-94C2-86C7D7E36EA1"></a>
+<h3 id="BDSPA-GUID-97858CF4-FC93-4665-94C2-86C7D7E36EA1" class="sect3"><span class="enumeration_section">7.4.5</span> Working with Oracle NoSQL Database</h3>
+<div>
+<p>Oracle NoSQL Database providesperformance improvements when working with small objects such as images. Images can be stored in Oracle NoSQL Database and accessed by the multimedia analytics framework. If input data is video, then the video must be decoded into frames and the frames stored in Oracle NoSQL Database. HDFS or HBase can be used to store the output of multimedia processing.</p>
+<p>Starting with Oracle NoSQL Database Release 4.3, user authentication is enabled by default. If you use Oracle NoSQL Database, you must set up a mechanism for authenticating user access. Instructions for configuring demos in <code class="codeph">$MMA_HOME/example/kvlite</code> are available in <code class="codeph">$MMA_HOME/example/README.txt</code>.</p>
+<p>The following properties are required when the input is in an Oracle NoSQL database:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.ord.hadoop.datasource</code>&nbsp;&ndash; Storage option for input data. Specify <code class="codeph">kvstore</code> if input data is in Oracle NoSQL Database. Default is <code class="codeph">HDFS</code>.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.kvstore.input.name</code>&nbsp;&ndash; Name of NoSQL Database storage.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.kvstore.input.table</code> &ndash; Name of the NoSQL Database table.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.kvstore.input.hosts</code>&nbsp;&ndash; Hostname and port.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.kvstore.input.primarykey</code>&nbsp;&ndash; Primary key for accessing records in a table.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.datasink</code>&nbsp;&ndash; Storage option for the output of multimedia analysis. Default is <code class="codeph">HDFS</code>. Specify <code class="codeph">HBase</code> to use an HBase table to store the output.</p>
+</li>
+</ul>
+</div>
+<div>
+<div class="relinfo">
+<p><strong>Related Topics</strong></p>
+<ul>
+<li><a href="https://blogs.oracle.com/nosql/oracle-nosql-database-keeps-your-data-secure" target="_blank">Blog post: "Oracle NoSQL Database Keeps Your Data Secure"</a></li>
+<li><a href="http://docs.oracle.com/cd/NOSQL/html/SecurityGuide/index.html" target="_blank">Oracle NoSQL Database Security Guide</a></li>
+<li><a href="https://docs.oracle.com/cd/NOSQL/html/index.html" target="_blank">Oracle NoSQL Database documentation</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-D765BE3E-AB6F-45E4-BE01-B0F832C2300C"></a>
+<h3 id="BDSPA-GUID-D765BE3E-AB6F-45E4-BE01-B0F832C2300C" class="sect3"><span class="enumeration_section">7.4.6</span> Working with Apache HBase</h3>
+<div>
+<p>Apache provides performance improvements when working with small objects such as images. Images can be stored in an HBase table and accessed by the multimedia analytics framework. If input data is video, then the video must be decoded into frames and the frames stored in an HBase table.</p>
+<p>The following properties are used when the input or output is an HBase table:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.ord.hadoop.datasource</code> &ndash; Storage option for input data. Specify HBase if input data is in an HBase table. Default is HDFS.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hbase.input.table</code> &ndash; Name of the HBase table containing the input data.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hbase.input.columnfamily</code> &ndash; Name of the HBase column family containing the input data.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hbase.input.column</code> &ndash; Name of the HBase column containing the input data.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.datasink</code> &ndash; Storage option for the output of multimedia analysis. Specify HBase to use an HBase table to store the output. Default is HDFS.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hbase.output.columnfamily</code> &ndash; Name of the HBase column family in the output HBase table.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-5A746BA6-9A5F-45B9-AA4B-5576F07B9E77"></a>
+<h3 id="BDSPA-GUID-5A746BA6-9A5F-45B9-AA4B-5576F07B9E77" class="sect3"><span class="enumeration_section">7.4.7</span> Examples and Training Materials for Detecting Faces</h3>
+<div>
+<p>Several examples and training materials are provided to help you get started detecting faces.</p>
+<p>$MMA_HOME contains these directories:</p>
+<pre dir="ltr">
+video/ (contains a sample video file in mp4 and avi formats)
+facetrain/
+analytics/
+</pre>
+<p><code class="codeph">facetrain/</code> contains an example for training, <code class="codeph">facetrain/config/</code> contains the sample configuration files, and <code class="codeph">facetrain/faces/</code> contains images to create the training model and the mapping file that maps labels to images.</p>
+<p><code class="codeph">runFaceTrainExample.sh</code> is a bash example script to run the training step.</p>
+<p>You can create the training model as follows:</p>
+<pre dir="ltr">
+$ ./runFaceTrainExample.sh
+</pre>
+<p>The training model will be written to <code class="codeph">ordfacemodel_bigdata.dat</code>.</p>
+<p>For detecting faces in videos, <code class="codeph">analytics/</code> contains an example for running a Hadoop job to detect faces in the input video file. This directory contains <code class="codeph">conf/</code> with configuration files for the example.</p>
+<p>You can run the job as follows (includes copying the video file to HDFS directory <code class="codeph">vinput</code>)</p>
+<pre dir="ltr">
+$ ./runFaceDetectionExample.sh
+</pre>
+<p>The output of the job will be in the HDFS directory <code class="codeph">voutput</code>.</p>
+<p>For recognizing faces in videos, <code class="codeph">analytics/</code> contains an example for running a Hadoop job to recognize faces in the input video file. This directory contains <code class="codeph">conf/</code> with configuration files for the example. You can run the job as follows (includes copying the video file to the HDFS directory <code class="codeph">vinput</code>):</p>
+<pre dir="ltr">
+$ ./runFaceRecognizerExample.sh
+</pre>
+<p>After the face recognition job, you can display the output images:</p>
+<pre dir="ltr">
+$ ./runPlayImagesExample.sh
+</pre></div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-7ECE895B-8891-4093-855D-3BEC1F63C3BE"></a>
+<h2 id="BDSPA-GUID-7ECE895B-8891-4093-855D-3BEC1F63C3BE" class="sect2"><span class="enumeration_section">7.5</span> Configuration Properties for Multimedia Analytics</h2>
+<div>
+<p>The multimedia analytics framework uses the standard methods for specifying configuration properties in the <code class="codeph">hadooop</code> command.</p>
+<p>You can use the <code class="codeph">&ndash;conf</code> option to identify configuration files, and the <code class="codeph">-D</code> option to specify individual properties.</p>
+<p>This topic presents reference information about the configuration properties, grouped into the following subtopics:</p>
+</div>
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0">Configuration Properties for Processing Stored Videos and Images</a><br /></li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-01F5A97D-859A-450B-8ABB-1E25D7665355">Configuration Properties for Processing Streaming Video</a><br /></li>
+<li class="ulchildlink"><a href="using-multimedia-analytics.htm#GUID-6016B567-B307-46BB-B59B-99E34F9D3A06">Configuration Properties for Training Images for Face Recognition</a><br /></li>
+</ul>
+</div>
+<div class="props_rev_3"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0"></a>
+<h3 id="BDSPA-GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0" class="sect3"><span class="enumeration_section">7.5.1</span> Configuration Properties for Processing Stored Videos and Images</h3>
+<div>
+<p>This category of multimedia analytics framework configuration properties applies to the processing of stored videos and images.</p>
+<p>These property names all start with <code class="codeph">oracle.ord</code>. They can be grouped into two subcategories:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Generic Framework Properties</p>
+</li>
+<li>
+<p>Face Recognition Properties (contain the string <code class="codeph">recognizer</code>)</p>
+</li>
+</ul>
+<p>Within each subcategory, the available configuration properties are listed in alphabetical order. For each property the property name is listed, then information about the property.</p>
+<div class="section">
+<p class="subhead3">Generic Framework Properties</p>
+<dl class="1.46* 2.55*" id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__ORACLE.ORD.HADOOP.DATASINKSTRING.ST-FA001D78">
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__ORACLE.ORD.HADOOP.DATASINKSTRING.ST-FA0023C5"><!-- --></a><span class="bold">oracle.ord.hadoop.datasink</span></dt>
+<dd>
+<p>String. Storage option for the output of multimedia analysis: <code class="codeph">HBase</code> to use an HBase table to store the output; otherwise, <code class="codeph">HDFS</code>. Default value: <code class="codeph">HDFS</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.datasink&lt;/name&gt;
+  &lt;value&gt;hbase&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__ORACLE.ORD.HADOOP.DATASOURCESTRING.-FA0027F8"><!-- --></a><span class="bold">oracle.ord.hadoop.datasource</span></dt>
+<dd>
+<p>String. Storage option for input data: <code class="codeph">HBase</code> if the input data is in an HBase database; <code class="codeph">kvstore</code> if the input data is in an Oracle NoSQL Database; otherwise, <code class="codeph">HDFS</code>. Default value: HDFS: Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.datasource&lt;/name&gt;
+  &lt;value&gt;hbase&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-216BBBF1-EB47-42F0-B617-3A0952B97237"><!-- --></a><span class="bold">oracle.ord.hadoop.frameinterval</span></dt>
+<dd>
+<p>String. Timestamp interval (in seconds) to extract frames for processing. Allowable values: positive integers and floating point numbers. Default value: 1. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.frameinterval&lt;/name&gt;
+  &lt;value&gt;1&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-29271021-63B3-4C17-94A3-E248165331CF"><!-- --></a><span class="bold">oracle.ord.hadoop.inputformat</span></dt>
+<dd>
+<p>Sring. The <code class="codeph">InputFormat</code> class name in the framework, which represents the input file type in the framework. Default value: <code class="codeph">oracle.ord.hadoop.OrdVideoInputFormat</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.inputformat&lt;/name&gt;
+  &lt;value&gt;oracle.ord.hadoop.OrdVideoInputFormat&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-EBAF4041-8CF3-4E08-83BF-419F8F3C82A0"><!-- --></a><span class="bold">oracle.ord.hadoop.inputtype</span></dt>
+<dd>
+<p>String. Type of input data: <code class="codeph">video</code> or <code class="codeph">image</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.inputtype&lt;/name&gt;
+  &lt;value&gt;video&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-1976B198-77CE-4513-8159-AA86DFDABBA4"><!-- --></a><span class="bold">oracle.ord.hadoop.numofsplits</span></dt>
+<dd>
+<p>Positive integer. Number of the splits of the video files on the Hadoop cluster, with one split able to be analyzed in each node of the Hadoop cluster. Recommended value: the number of nodes/processors in the cluster. Default value: 1. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt;oracle.ord.hadoop.numofsplits&lt;/name&gt;
+   &lt;value&gt;1&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-DC0E1A38-99CF-44E1-AB6F-33780EB47772"><!-- --></a><span class="bold">oracle.ord.hadoop.ordfacemodel</span></dt>
+<dd>
+<p>String. Name of the file that stores the model created by the training. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt; oracle.ord.hadoop.ordfacemodel &lt;/name&gt;
+   &lt;value&gt;ordfacemodel_bigdata.dat&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-7E62860A-3BF9-4E37-99BD-D83483FDACCA"><!-- --></a><span class="bold">oracle.ord.hadoop.ordfacereader</span></dt>
+<dd>
+<p>String. Name of the Java class that reads images used for training the face recognition model. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt; oracle.ord.hadoop.ordfacereader &lt;/name&gt;
+   &lt;value&gt; oracle.ord.hadoop.OrdSimpleFaceReader &lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-B0602CA9-E843-492C-A180-FFAFA87D416B"><!-- --></a><span class="bold">oracle.ord.hadoop.ordfacereaderconfig</span></dt>
+<dd>
+<p>String. File containing additional configuration properties for the specific application. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt; oracle.ord.hadoop.ordfacereaderconfig &lt;/name&gt;
+   &lt;value&gt;config/ordsimplefacereader_bigdata.xml&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-72DE43C8-BBB3-46A3-B3A5-F1C74F804A9D"><!-- --></a><span class="bold">oracle.ord.hadoop.ordframegrabber</span></dt>
+<dd>
+<p>String. Name of the Java class that decodes a video file. This is the implemented class for <code class="codeph">OrdFrameGrabber</code>, and it is used by the mapper to decode the video file. Available installed implementations with the product: <code class="codeph">oracle.ord.hadoop.OrdJCodecFrameGrabber</code> (the default) and <code class="codeph">oracle.ord.hadoop.OrdFFMPEGFrameGrabber</code> (when FFMPEG is installed by the user). You can add custom implementations. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+    &lt;name&gt;oracle.ord.hadoop.ordframegrabber&lt;/name&gt;
+    &lt;value&gt;oracle.ord.hadoop.OrdJCodecFrameGrabber&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-81FAAC68-8B0D-4F68-B205-8B3D1BE108A8"><!-- --></a><span class="bold">oracle.ord.hadoop.ordframeprocessor</span></dt>
+<dd>
+<p>String. Name of the implemented Java class of interface OrdFrameProcessor, which is used by the mapper to process the frame and recognize the object of interest. Default value: oracle.ord.hadoop.mapreduce.OrdOpenCVFaceRecognizerMulti. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.ordframeprocessor &lt;/name&gt;
+  &lt;value&gt;oracle.ord.hadoop.mapreduce.OrdOpenCVFaceRecognizerMulti&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-0DE64806-38E2-4B58-9E12-D1A8A0E7AB3D"><!-- --></a><span class="bold">oracle.ord.hadoop.ordframeprocessor.k2</span></dt>
+<dd>
+<p>String. Java class name, output key class of the implemented class of interface <code class="codeph">OrdFrameProcessor</code>. Default value: <code class="codeph">org.apache.hadoop.io.Text</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.ordframeprocessor.k2&lt;/name&gt;
+  &lt;value&gt;org.apache.hadoop.io.Text&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__ORACLE.ORD.HADOOP.ORDFRAMEPROCESSOR-FA004C74"><!-- --></a><span class="bold">oracle.ord.hadoop.ordframeprocessor.v2</span></dt>
+<dd>
+<p>String. Java class name, output value class of the implemented class of interface <code class="codeph">OrdFrameProcessor</code> . Default value: <code class="codeph">oracle.ord.hadoop.mapreduce.OrdImageWritable</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.ordframeprocessor.v2 &lt;/name&gt;
+  &lt;value&gt;oracle.ord.hadoop.mapreduce.OrdImageWritable&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-65F65DB1-220D-4681-A146-71951C886506"><!-- --></a><span class="bold">oracle.ord.hadoop.ordoutputprocessor</span></dt>
+<dd>
+<p>String. Only only relevant for custom (user-specified) plug-ins: name of the implemented Java class of interface&nbsp;<code class="codeph">OrdOutputProcessor</code> that processes the key-value pair from the map output in the reduce phase. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.ordframeprocessor&lt;/name&gt;
+  &lt;value&gt;mypackage.MyOutputProcessorClass&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-8C028AC1-3087-410D-B015-D064102D2F25"><!-- --></a><span class="bold">oracle.ord.hadoop.ordsimplefacereader.dirmap</span></dt>
+<dd>
+<p>String. Mapping file that maps face labels to directory names and face images. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt; oracle.ord.hadoop.ordsimplefacereader.dirmap &lt;/name&gt;
+   &lt;value&gt;faces/bigdata/dirmap.txt&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-D731A8CF-D667-4D8F-AA55-C5BFBAB0FA73"><!-- --></a><span class="bold">oracle.ord.hadoop.ordsimplefacereader.imagedir</span></dt>
+<dd>
+<p>String. File system directory containing faces used to create a model. This is typically in a local file system. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt; oracle.ord.hadoop.ordsimplefacereader.imagedir &lt;/name&gt;
+   &lt;value&gt;faces/bigdata&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-2077C978-388A-4266-88C4-C02A4565C536"><!-- --></a><span class="bold">oracle.ord.hadoop.outputformat</span></dt>
+<dd>
+<p>String. Name of the OutputFormat class, which represents the output file type in the framework. Default value: <code class="codeph">org.apache.hadoop.mapreduce.lib.output.TextOutputFormat</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.outputformat&lt;/name&gt;
+  &lt;value&gt; org.apache.hadoop.mapreduce.lib.output.TextOutputFormat; &lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-D76798E9-06DE-4E18-AAF4-DC28D184BD90"><!-- --></a><span class="bold">oracle.ord.hadoop.outputtype</span></dt>
+<dd>
+<p>String. Format of output that contains face labels of identified faces with the time stamp, location, and confidence of the match: must be <code class="codeph">json</code>, <code class="codeph">image</code>, or <code class="codeph">text</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.outputtype&lt;/name&gt;
+  &lt;value&gt;json&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-F78C363B-9B88-4A77-8ABE-74890A199636"><!-- --></a><span class="bold">oracle.ord.hadoop.parameterfile</span></dt>
+<dd>
+<p>String. File containing additional configuration properties for the specific job. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hadoop.parameterfile &lt;/name&gt;
+  &lt;value&gt;oracle_multimedia_face_recognition.xml&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__ORACLE.ORD.HADOOP.RECOGNIZER.CASCAD-FA0051ED"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.cascadeclassifier.flags</span></dt>
+<dd>
+<p>String. Use this property to select the type of object detection. Must be <code class="codeph">CASCADE_DO_CANNY_PRUNING</code>, <code class="codeph">CASCADE_SCALE_IMAGE</code>, <code class="codeph">CASCADE_FIND_BIGGEST_OBJECT</code> (look only for the largest face), or <code class="codeph">CASCADE_DO_ROUGH_SEARCH</code>. . Default: <code class="codeph">CASCADE_SCALE_IMAGE | CASCADE_DO_ROUGH_SEARCH</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.cascadeclassifier.flags&lt;/name&gt;
+  &lt;value&gt;CASCADE_SCALE_IMAGE&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__ORACLE.ORD.HADOOP.RECOGNIZER.CASCAD-FA00562F"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.cascadeclassifier.maxconfidence</span></dt>
+<dd>
+<p>Floating point value. Specifies how large the distance (difference) between a face in the model and a face in the input data can be. Larger valuse will give more matches but might be less accurate (more false positives). Smaller values will give fewer matches, but be more accurate.&nbsp;Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.cascadeclassifier.maxconfidence&lt;/name&gt;
+  &lt;value&gt;200.0&lt;/value&gt;
+&lt;/property
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-9BEF0838-FE74-499A-9EB9-D034D1522A02"><!-- --></a><span class="bold">oracle.ord.hbase.input.column</span></dt>
+<dd>
+<p>String. Name of the HBase column containing the input data. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hbase.input.column&lt;/name&gt;
+  &lt;value&gt;binary_data&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-2D3D58C8-0459-46ED-9399-DA3C954D88FB"><!-- --></a><span class="bold">oracle.ord.hbase.input.columnfamily</span></dt>
+<dd>
+<p>String. Name of the HBase column family containing the input data. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hbase.input.columnfamily&lt;/name&gt;
+  &lt;value&gt;image_data&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-7527DE3F-E11B-4B08-B3C1-E8C813E20EA5"><!-- --></a><span class="bold">oracle.ord.hbase.input.table</span></dt>
+<dd>
+<p>String. Name of the HBase table containing the input data. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hbase.input.table&lt;/name&gt;
+  &lt;value&gt;images&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-60BB7C1B-5512-43C9-A81B-D4DE939D2400"><!-- --></a><span class="bold">oracle.ord.hbase.output.columnfamily</span></dt>
+<dd>
+<p>String. Name of the HBase column family in the output HBase table. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hbase.output.columnfamily&lt;/name&gt;
+  &lt;value&gt;face_data&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-55F453AB-EAA8-41BC-9D4F-AA9AF3DC439A"><!-- --></a><span class="bold">oracle.ord.hbase.output.table</span></dt>
+<dd>
+<p>String. Name of the HBase table for output data. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;oracle.ord.hbase.output.table&lt;/name&gt;
+  &lt;value&gt;results&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-FDACB301-770E-4B57-94B5-3151BE14DF0C"><!-- --></a><span class="bold">oracle.ord.kvstore.get.consistency</span></dt>
+<dd>
+<p>String. Defines the consistency constraints during read. Read operations can be serviced at a Master or Replica node. The default value of <code class="codeph">ABSOLUTE</code> ensures the read operation is serviced at the Master node. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+    &lt;name&gt;oracle.ord.kvstore.get.consistency&lt;/name&gt;
+    &lt;value&gt;absolute&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-9CFADED9-190C-4B49-B644-33A3E772FD7A"><!-- --></a><span class="bold">oracle.ord.kvstore.get.timeout</span></dt>
+<dd>
+<p>Number. Upper bound on the time interval for retrieving a chunk of the large object or its associated metadata. A best effort is made not to exceed the specified limit. If zero, the <code class="codeph">KVStoreConfig.getLOBTimeout(java.util.concurrent.TimeUnit)</code> value is used. Default value is 5. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+    &lt;name&gt;oracle.ord.kvstore.get.timeout&lt;/name&gt;
+    &lt;value&gt;5&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-8B210C43-8F97-4B51-B127-0877153727EA"><!-- --></a><span class="bold">oracle.ord.kvstore.get.timeunit</span></dt>
+<dd>
+<p>String. Unit of the <code class="codeph">timeout</code> parameter, can be NULL only if <code class="codeph">timeout</code> is zero. Default value is <code class="codeph">seconds</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+    &lt;name&gt;oracle.ord.kvstore.get.timeunit&lt;/name&gt;
+    &lt;value&gt;seconds&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-409E38B1-D0BD-47F3-AF29-683413461983"><!-- --></a><span class="bold">oracle.ord.kvstore.input.hosts</span></dt>
+<dd>
+<p>String. Host and port of an active node in Oracle NoSQL Database store. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+    &lt;name&gt;oracle.ord.kvstore.input.hosts&lt;/name&gt;
+    &lt;value&gt;localhost:5000&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-BF40BF4E-01A9-43FF-8C4D-7F26E8304F72"><!-- --></a><span class="bold">oracle.ord.kvstore.input.lob.prefix</span> and <span class="bold">oracle.ord.kvstore.input.lob.suffix</span></dt>
+<dd>
+<p>Oracle NoSQL Database uses these to construct the keys used to load and retrieve large objects (LOBs). Default value for <code class="codeph">oracle.ord.kvstore.input.lob.prefix</code> is <code class="codeph">lobprefix</code>. Default value for <code class="codeph">oracle.ord.kvstore.input.lob.suffix</code> is <code class="codeph">lobsuffix.lob</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+    &lt;name&gt;oracle.ord.kvstore.lob.prefix&lt;/name&gt;
+    &lt;value&gt;lobprefix&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;oracle.ord.kvstore.lob.suffix&lt;/name&gt;
+    &lt;value&gt;lobsuffix.lob&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-43A57279-1200-493A-9AC3-E3D1FF11A285"><!-- --></a><span class="bold">oracle.ord.kvstore.input.name</span></dt>
+<dd>
+<p>String. Name of Oracle NoSQL Database store. The name provided here must be identical to the name used when the store was installed. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+    &lt;name&gt;oracle.ord.kvstore.input.name&lt;/name&gt;
+    &lt;value&gt;kvstore&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-3C38B004-CB4B-48BD-ADB3-3553604EB4DF"><!-- --></a><span class="bold">oracle.ord.kvstore.input.primarykey</span></dt>
+<dd>
+<p>String. Primary key of the Oracle NoSQL Database table. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+    &lt;name&gt;oracle.ord.kvstore.input.primarykey&lt;/name&gt;
+    &lt;value&gt;filename&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-4AAC0FDF-4FBD-4FEB-8BA0-C1FE43525330"><!-- --></a><span class="bold">oracle.ord.kvstore.input.table</span></dt>
+<dd>
+<p>String. Name of the Oracle NoSQL Database table containing the input data. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+    &lt;name&gt;oracle.ord.kvstore.input.table&lt;/name&gt;
+    &lt;value&gt;images&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Face Recognition Properties (contain the string <code class="codeph">recognizer</code>)</p>
+<dl class="1.46* 2.55*">
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-D6CA15A6-ECD2-496D-9046-1F09E9B53394"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.cascadeclassifier.flags</span></dt>
+<dd>
+<p>String. Use this property to select the type of object detection. Must be <code class="codeph">CASCADE_DO_CANNY_PRUNING</code>, <code class="codeph">CASCADE_SCALE_IMAGE</code>, <code class="codeph">CASCADE_FIND_BIGGEST_OBJECT</code> (look only for the largest face), or <code class="codeph">CASCADE_DO_ROUGH_SEARCH</code>. . Default: <code class="codeph">CASCADE_SCALE_IMAGE | CASCADE_DO_ROUGH_SEARCH</code>. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.cascadeclassifier.flags&lt;/name&gt;
+  &lt;value&gt;CASCADE_SCALE_IMAGE&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-563F1DC0-697C-4356-A386-20617F0A2388"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.cascadeclassifier.maxconfidence</span></dt>
+<dd>
+<p>Floating point value. Specifies how large the distance (difference) between a face in the model and a face in the input data can be. Larger valuse will give more matches but might be less accurate (more false positives). Smaller values will give fewer matches, but be more accurate.&nbsp;Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.cascadeclassifier.maxconfidence&lt;/name&gt;
+  &lt;value&gt;200.0&lt;/value&gt;
+&lt;/property
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-82B2C173-E472-4627-8EBA-3B3FD0A4FE9A"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.cascadeclassifier.maxsize</span></dt>
+<dd>
+<p>String, specifically a pair of values. Specifies the maximum size of the bounding box for the object detected. If the object is close by, the bounding box is larger; if the object is far away, like faces on a beach, the bounding box is smaller. Objects with a larger bounding box than the maximum size are ignored. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.cascadeclassifier.maxsize&lt;/name&gt;
+  &lt;value&gt;(500,500)&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-67B4B124-D334-46EF-B620-9D7842720CF4"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.cascadeclassifier.minneighbor</span></dt>
+<dd>
+<p>Integer. Determines the size of the sliding window used to detect the object in the input data. Higher values will detect fewer objects but with higher quality. Default value: 1. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.cascadeclassifier.minneighbor&lt;/name&gt;
+  &lt;value&gt;1&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-7C2C7B7E-2F91-45F5-8369-219F3042F020"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.cascadeclassifier.minsize</span></dt>
+<dd>
+<p>String, specifically a pair of values. Specifies the minimum size of the bounding box for the object detected. If the object is close by, the bounding box is larger; if the object is far away, like faces on a beach, the bounding box is smaller. Objects with a smaller bounding box than the minimum size are ignored. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.cascadeclassifier.minsize&lt;/name&gt;
+  &lt;value&gt;(100,100)&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-8845897F-03B3-4976-9071-1B5181E4EF81"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.cascadeclassifier.scalefactor</span></dt>
+<dd>
+<p>Floating pointnumber. Scale factor to be used with the mapping file that maps face labels to directory names and face images. A value of 1.1 means to perform no scaling before comparing faces in the run-time input with images stored in subdirectories during the training process. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.cascadeclassifier.scalefactor&lt;/name&gt;
+  &lt;value&gt;1.1&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-2FFD5EF2-B322-4729-A800-367729388B21"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.classifier</span></dt>
+<dd>
+<p>String. XML file containing classifiers for face. The feature can be used with any of the frontal face pre-trained classifiers available with OpenCV. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.classifier&lt;/name&gt;
+  &lt;value&gt;haarcascade_frontalface_alt2.xml&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-2F357CED-F335-4A24-BB6E-BDF98E42555C"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.labelnamefile</span></dt>
+<dd>
+<p>String. Mapping file that maps face labels to directory names and face images. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.labelnamefiler&lt;/name&gt;
+  &lt;value&gt;haarcascade_frontalface_alt2.xml&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-2C628F68-F704-4A4D-8009-04A06EE7F4E0__GUID-09A5FA56-EED7-4255-8BD1-14575C126E77"><!-- --></a><span class="bold">oracle.ord.hadoop.recognizer.modelfile</span></dt>
+<dd>
+<p>String. File containing the model generated in the training step. The file must be in a shared location, accessible by all cluster nodes. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt; oracle.ord.hadoop.recognizer.modelfile&lt;/name&gt;
+  &lt;value&gt;myface_model.dat&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+</dl>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355"></a>
+<h3 id="BDSPA-GUID-01F5A97D-859A-450B-8ABB-1E25D7665355" class="sect3"><span class="enumeration_section">7.5.2</span> Configuration Properties for Processing Streaming Video</h3>
+<div>
+<p>This category of multimedia analytics framework configuration properties applies to the processing of streaming video.</p>
+<p>These property names all start with <code class="codeph">spark.oracle.ord</code>. They can be grouped into two subcategories:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Generic Framework Properties</p>
+</li>
+<li>
+<p>Face Recognition and Face Detection Properties (contain the string <code class="codeph">recognizer</code>)</p>
+</li>
+</ul>
+<p>Within each subcategory, the available configuration properties are listed in alphabetical order. For each property the property name is listed, then information about the property.</p>
+<div class="section">
+<p class="subhead3">Generic Framework Properties</p>
+<dl class="1.46* 2.55*">
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-E0B07C26-633A-4C54-AE51-0446BB7504FB"><!-- --></a><span class="bold">spark.oracle.ord.demo.imageplayer.framerate</span></dt>
+<dd>
+<p>String. Frame rate when the sample image player displays the results as frames containing the results of the processing. The player will show a new frame each <span class="italic">n</span> seconds. Default is 1.</p>
+<p>Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.demo.imageplayer.framerate=1
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-0DC2FEDC-3E64-4FBC-8F01-D826E46DC7DF"><!-- --></a><span class="bold">spark.oracle.ord.demo.localfswriter.outputcsvpath</span></dt>
+<dd>
+<p>String. Local file system directory that receives the CSV output of video frame processing. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.demo.localfswriter.outputcsvpath=/home/oracle/example/spark/facerecognizer/output/csv
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-216BBBF1-EB47-42F0-B617-3A0952B97237"><!-- --></a><span class="bold">spark.oracle.ord.demo.localfswriter.outputimagepath</span></dt>
+<dd>
+<p>String. Local file system directory that receives the image output of video frame processing. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.demo.localfswriter.outputimagepath=/home/oracle/example/spark/facerecognizer/output/image
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-29271021-63B3-4C17-94A3-E248165331CF"><!-- --></a><span class="bold">spark.oracle.ord.demo.localfswriter.outputjsonpath</span></dt>
+<dd>
+<p>String. Local file system directory that receives the JSON output of video frame processing. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.demo.localfswriter.outputjsonpath=/home/oracle/example/spark/facerecognizer/output/json
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-C00E536F-60C5-4E24-87D2-B6737AB0F136"><!-- --></a><span class="bold">spark.oracle.ord.inputdirectory</span></dt>
+<dd>
+<p>String. HDFS directory that receives video frames from the Spark streaming adapter. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.inputdirectory=spark_input
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-1976B198-77CE-4513-8159-AA86DFDABBA4"><!-- --></a><span class="bold">spark.oracle.ord.demo.localfswriter.outputimagepath</span></dt>
+<dd>
+<p>String. Local file system directory that receives the image output of video frame processing. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.demo.localfswriter.outputimagepath=/home/oracle/example/spark/facerecognizer/output/image
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-DC0E1A38-99CF-44E1-AB6F-33780EB47772"><!-- --></a><span class="bold">spark.oracle.ord.demo.localfswriter.outputjsonpath</span></dt>
+<dd>
+<p>String. Local file system directory that receives the JSON output of video frame processing. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.demo.localfswriter.outputjsonpath=/home/oracle/example/spark/facerecognizer/output/json
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-35C710F5-D815-449E-8010-0E2DCCDC9930"><!-- --></a><span class="bold">spark.oracle.ord.ordsparkframeprocessor</span></dt>
+<dd>
+<p>String. Processor to use to process the video frame. You can use the Java classes available with the product for face detection and recognition, or you can provide an implementation for the abstraction. Examples:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">spark.oracle.ord.ordsparkframeprocessor=oracle.ord.spark.demo.OrdSparkFaceDetector</code> detects that there is a face in a video frame.</p>
+</li>
+<li>
+<p><code class="codeph">spark. oracle.ord.ordsparkframeprocessor=oracle.ord.spark.demo.OrdSparkFaceRecognizer</code> recognizes the face using the training model.</p>
+</li>
+</ul>
+<p><code class="codeph">OrdSparkFaceDetector</code> and <code class="codeph">OrdSparkFaceRecognizer</code> are available with the product as sample implementations for use with <code class="codeph">spark.oracle.ord.ordsparkframeprocessor</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-72DE43C8-BBB3-46A3-B3A5-F1C74F804A9D"><!-- --></a><span class="bold">spark.oracle.ord.ordsparkresultwriter</span></dt>
+<dd>
+<p>String. Name of the class that implements an image player that plays the video frames. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.ordsparkresultwriter=oracle.ord.spark.demo.OrdSparkImagePlayer
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-81FAAC68-8B0D-4F68-B205-8B3D1BE108A8"><!-- --></a><span class="bold">spark.oracle.ord.outputdirectory</span></dt>
+<dd>
+<p>String. HDFS directory that receives the output of video frame processing. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.outputdirectory=spark_output
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-0DE64806-38E2-4B58-9E12-D1A8A0E7AB3D"><!-- --></a><span class="bold">spark.oracle.ord.outputtypes</span></dt>
+<dd>
+<p>String. Format of generated results (<code class="codeph">JSON</code>/<code class="codeph">CSV</code>/<code class="codeph">image</code>). Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.outputtypes=JSON
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-A765BFA6-8115-42F7-9D0E-B2BE7CAA5794"><!-- --></a><span class="bold">spark.oracle.ord.streamingduration</span></dt>
+<dd>
+<p>Number. The time interval that determines the set of frames processed as a batch. The unit is milliseconds. Default is 5. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.streamingduration=5
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-65F65DB1-220D-4681-A146-71951C886506"><!-- --></a><span class="bold">spark.oracle.ord.streamsink</span></dt>
+<dd>
+<p>String. Output of the Spark job process. By default the output is written to HDFS, but custom writers can be implemented. The product includes a custom writer for writing to the local file system and an image player. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.streamsink=HDFS
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-8C028AC1-3087-410D-B015-D064102D2F25"><!-- --></a><span class="bold">spark.oracle.ord.streamsource</span></dt>
+<dd>
+<p>Input data for the Spark job. This can be HTTP or RTSP streaming servers, or HDFS. Default is <code class="codeph">HDFS</code>. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.streamsource=HDFS
+</pre></dd>
+</dl>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Face Recognition and Face Detection Properties (contain the string <code class="codeph">recognizer</code>)</p>
+<dl class="1.46* 2.55*">
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-D6CA15A6-ECD2-496D-9046-1F09E9B53394"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.classifier</span></dt>
+<dd>
+<p>String. XML file containing classifiers for face. The feature can be used with any of the frontal face pre-trained classifiers available with OpenCV. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.classifier=haarcascade_frontalface_alt2_opencv3.0.xml
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-563F1DC0-697C-4356-A386-20617F0A2388"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.flags</span></dt>
+<dd>
+<p>String. Use this property to select the type of object detection. Must be&nbsp;<code class="codeph">CASCADE_DO_CANNY_PRUNING</code>,&nbsp;<code class="codeph">CASCADE_SCALE_IMAGE</code>,&nbsp;<code class="codeph">CASCADE_FIND_BIGGEST_OBJECT</code>&nbsp;(look only for the largest face), or&nbsp;<code class="codeph">CASCADE_DO_ROUGH_SEARCH</code>. Default:&nbsp;<code class="codeph">CASCADE_SCALE_IMAGE | CASCADE_DO_ROUGH_SEARCH</code>. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.flags=CASCADE_SCALE_IMAGE|CASCADE_DO_ROUGH_SEARCH
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-82B2C173-E472-4627-8EBA-3B3FD0A4FE9A"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.gridx</span></dt>
+<dd>
+<p>Number. The number of grid cells on the X axis used in each frame to extract histograms. A typical value is 8. The greater the value, higher will be the dimensionality of the resulting feature vector. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.gridx=8
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-67B4B124-D334-46EF-B620-9D7842720CF4"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.gridy</span></dt>
+<dd>
+<p>Number. The number of grid cells on the Y axis used in each frame to extract histograms. A typical value is 8 .Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.gridy=8
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-7C2C7B7E-2F91-45F5-8369-219F3042F020"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.labelfilepath</span></dt>
+<dd>
+<p>String. Mapping file that maps face labels to directory names and face images. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.labelfilepath=faces/bigdata/dirmap.txt
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-8845897F-03B3-4976-9071-1B5181E4EF81"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.maxsize</span></dt>
+<dd>
+<p>String. Specifies the maximum size of the bounding box (in number of pixels on the X and Y axis) for the object detected.. If the object is nearby, the bounding box is larger; if the object is far away, such as faces on a beach, the bounding box is smaller. Objects with a larger bounding box than the maximum size are ignored. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.maxsize=500
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-2FFD5EF2-B322-4729-A800-367729388B21"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.minneighbors</span></dt>
+<dd>
+<p>Integer. Available options are 1, 2, or 3. 1 will recognize more faces, but might also recognize objects that are not faces. 3 is the most accurate, but might miss some faces. . Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.minneighbors=1
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-2F357CED-F335-4A24-BB6E-BDF98E42555C"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.minsize</span></dt>
+<dd>
+<p>String. Specifies the minimum size of the bounding box (in number of pixels on the X and Y axis) for the object detected. If the object is nearby, the bounding box is larger; if the object is far away, such as faces on a beach, the bounding box is smaller. Objects with a smaller bounding box than the minimum size are ignored. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.minsize=100
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-2960D9A2-B68F-4088-9F92-EA64A66E1A58"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.neighbors</span></dt>
+<dd>
+<p>Number. Number of sample points to build a circular local binary pattern. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.neighbors=8
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-CDC6EE50-2520-4A27-94F9-585A4606D0B8"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.scalefactor</span></dt>
+<dd>
+<p>Floating point number. Specifies how quickly the algorithm should increase the scale as it makes multiple passes over an image. Setting this higher makes the detector run faster (since it results in fewer passes), but a very high value might miss information as it jumps to a new scale. The default is 1.1, which means the scale increases by 10% in each pass. This parameter can have value 1.1, 1.2, 1.3, or 1.4. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.scalefactor=1.1
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-C35813CD-F1E8-42DC-ADB5-BE065BC96310"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.threshold</span></dt>
+<dd>
+<p>Number. The value that determines whether a face is matched or not. If the output value when comparing a face with a face in the video is higher than this value, the face is considered not a match. Otherwise it is considered a match.. Default is <code class="codeph">130</code>. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.threshold=130
+</pre></dd>
+<dt class="dlterm"><a id="GUID-01F5A97D-859A-450B-8ABB-1E25D7665355__GUID-32AFFF6C-3AC9-43CF-BD01-416D533D71B8"><!-- --></a><span class="bold">spark.oracle.ord.recognizer.trainingmodelpath</span></dt>
+<dd>
+<p>String. Name of the file that stores the model created by the training. Example:</p>
+<pre dir="ltr">
+spark.oracle.ord.recognizer.trainingmodelpath=ordfacemodel_bigdata.data
+</pre></dd>
+</dl>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-6016B567-B307-46BB-B59B-99E34F9D3A06"></a>
+<h3 id="BDSPA-GUID-6016B567-B307-46BB-B59B-99E34F9D3A06" class="sect3"><span class="enumeration_section">7.5.3</span> Configuration Properties for Training Images for Face Recognition</h3>
+<div>
+<p>This category of multimedia analytics framework configuration properties applies to the training of images for face recognition.</p>
+<p>These properties contain the string <code class="codeph">face</code>, and they are listed in alphabetical order. For each property the property name is listed, then information about the property.</p>
+<dl class="1.46* 2.55*">
+<dt class="dlterm"><a id="GUID-6016B567-B307-46BB-B59B-99E34F9D3A06__GUID-DC0E1A38-99CF-44E1-AB6F-33780EB47772"><!-- --></a><span class="bold">oracle.ord.hadoop.ordfacemodel</span></dt>
+<dd>
+<p>String. Name of the file that stores the model created by the training. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt; oracle.ord.hadoop.ordfacemodel &lt;/name&gt;
+   &lt;value&gt;ordfacemodel_bigdata.dat&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-6016B567-B307-46BB-B59B-99E34F9D3A06__GUID-7E62860A-3BF9-4E37-99BD-D83483FDACCA"><!-- --></a><span class="bold">oracle.ord.hadoop.ordfacereader</span></dt>
+<dd>
+<p>String. Name of the Java class that reads images used for training the face recognition model. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt; oracle.ord.hadoop.ordfacereader &lt;/name&gt;
+   &lt;value&gt; oracle.ord.hadoop.OrdSimpleFaceReader &lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-6016B567-B307-46BB-B59B-99E34F9D3A06__GUID-B0602CA9-E843-492C-A180-FFAFA87D416B"><!-- --></a><span class="bold">oracle.ord.hadoop.ordfacereaderconfig</span></dt>
+<dd>
+<p>String. File containing additional configuration properties for the specific application. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt; oracle.ord.hadoop.ordfacereaderconfig &lt;/name&gt;
+   &lt;value&gt;config/ordsimplefacereader_bigdata.xml&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-6016B567-B307-46BB-B59B-99E34F9D3A06__GUID-8C028AC1-3087-410D-B015-D064102D2F25"><!-- --></a><span class="bold">oracle.ord.hadoop.ordsimplefacereader.dirmap</span></dt>
+<dd>
+<p>String. Mapping file that maps face labels to directory names and face images. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt; oracle.ord.hadoop.ordsimplefacereader.dirmap &lt;/name&gt;
+   &lt;value&gt;faces/bigdata/dirmap.txt&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+<dt class="dlterm"><a id="GUID-6016B567-B307-46BB-B59B-99E34F9D3A06__GUID-D731A8CF-D667-4D8F-AA55-C5BFBAB0FA73"><!-- --></a><span class="bold">oracle.ord.hadoop.ordsimplefacereader.imagedir</span></dt>
+<dd>
+<p>String. File system directory containing faces used to create a model. This is typically in a local file system. Example:</p>
+<pre dir="ltr">
+&lt;property&gt;
+   &lt;name&gt; oracle.ord.hadoop.ordsimplefacereader.imagedir &lt;/name&gt;
+   &lt;value&gt;faces/bigdata&lt;/value&gt;
+&lt;/property&gt;
+</pre></dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-090BD058-396D-41F8-814E-D407DF0941F6"></a>
+<h2 id="BDSPA-GUID-090BD058-396D-41F8-814E-D407DF0941F6" class="sect2"><span class="enumeration_section">7.6</span> Using the Multimedia Analytics Framework with Third-Party Software</h2>
+<div>
+<p>You can implement and install custom modules for multimedia decoding and processing.</p>
+<p>You can use a custom video decoder in the framework by implementing the abstract class <code class="codeph">oracle.ord.hadoop.decoder.OrdFrameGrabber</code>. See the Javadoc for additional details. The product includes two implementations of the video decoder that extend <code class="codeph">OrdFrameGrabber</code> for JCodec and FFMPEG (requires a separate installation of FFMPEG).</p>
+<p>You can use custom multimedia analysis in the framework by implementing two abstract classes.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.ord.hadoop.mapreduce.OrdFrameProcessor&lt;K1,V1,K2,V2&gt;</code>. The extended class of <code class="codeph">OrdFrameProcessor</code> is used in the map phase of the MapReduce job that processes the video frames or images. (K1, V1) is the input key-value pair types and (K2, V2) is the output key-value pair type. See the Javadoc for additional details. The product includes an implementation using OpenCV.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.ord.hadoop.mapreduce.OrdOutputProcessor&lt;K1,V1,K2,V2&gt;</code>. The extended class of <code class="codeph">OrdFrameProcessor</code> is used in the reducer phase of the MapReduce job that processes the video frames or images. (K1, V1) is the input key-value pair types and (K2, V2) is the output key-value pair type. See the Javadoc for additional details. Most implementations do not require implementing this class.</p>
+</li>
+</ul>
+<p>An example of framework configuration parameters is available in <code class="codeph">$MMA_HOME/example/analytics/conf/oracle_multimedia_analysis_framework.xml</code>.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-71D95F34-5D2B-4AEA-B60D-D250BC4EF7E6"></a>
+<h2 id="BDSPA-GUID-71D95F34-5D2B-4AEA-B60D-D250BC4EF7E6" class="sect2"><span class="enumeration_section">7.7</span> Displaying Images in Output</h2>
+<div>
+<p>If the output is displayed as images, <code class="codeph">oracle.ord.hadoop.OrdPlayImages</code> can be used to display all the images in the output HDFS directory.</p>
+<p>This will display the image frames marked with labels for identified faces. For example:</p>
+<pre dir="ltr">
+$ java oracle.ord.hadoop.demo.OrdPlayImages &ndash;hadoop_conf_dir $HADOOP_CONF_DIR &ndash;image_file_dir voutput
+</pre></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment323">
+<tr>
+<td class="cellalignment360">
+<table class="cellalignment328">
+<tr>
+<td class="cellalignment327"><a href="using-in-memory-analyst.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment327"><a href="big-data-spatial-third-party-licenses.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment362">
+<table class="cellalignment326">
+<tr>
+<td class="cellalignment327"><a href="http://docs.oracle.com/bigdata/bda49/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment327"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment327"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

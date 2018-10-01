@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Securing Big Data SQL</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-30T10:38:15Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E77165-10" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds31/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="adaptingtochange.htm" title="Previous" type="text/html" />
+<link rel="Next" href="additionaltools.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77165-10.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-4D61AACF-BEE7-497C-8CE0-14DF1F9DC204"></a> <span id="PAGE" style="display:none;">9/13</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-4D61AACF-BEE7-497C-8CE0-14DF1F9DC204" class="sect1"><span class="enumeration_chapter">6</span> Securing Big Data SQL</h1>
+<div>
+<p>This section describes measures you can take to secure Big Data SQL and to configure the software within secured environments.</p>
+</div>
+<div class="sect2"><a id="GUID-DDCB8B7F-C7B7-4B6A-8C3D-9AF4A18A67C8"></a>
+<h2 id="BDSIG-GUID-DDCB8B7F-C7B7-4B6A-8C3D-9AF4A18A67C8" class="sect2"><span class="enumeration_section">6.1</span> Big Data SQL Communications and Secure Hadoop Clusters</h2>
+<div>
+<p>It is generally a good security practice to ensure that HDFS file access permissions are minimized in order to prevent unauthorized write/read access. This is true regardless of whether or not the Hadoop cluster is secured by Kerberos.</p>
+<p>Please refer to MOS Document 2123125.1 at <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a> for detailed guidelines on securing Hadoop clusters for use with Oracle Big Data SQL.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-04DE627E-D60B-4F0A-833F-44A98A190AC9"></a>
+<h2 id="BDSIG-GUID-04DE627E-D60B-4F0A-833F-44A98A190AC9" class="sect2"><span class="enumeration_section">6.2</span> Installing a Kerberos Client on the Database Server</h2>
+<div>
+<p>If Kerberos is enabled on the Hadoop system, you must configure Oracle Big Data SQL on the database server to work with Kerberos. This requires a Kerberos client on each node of the database.</p>
+<p>For commodity servers, download the Kerberos client software from a repository of your choice. If the database server is an Oracle Exadata Database Machine, download and install the software from the Oracle repository as shown below. The process should be similar for downloads from non-Oracle repositories.</p>
+<p>Log on to the database server as root and use yum to install the <code class="codeph">krb5-libs</code> and <code class="codeph">krb5-workstation</code> packages. Download from the Oracle Linux 6 or Oracle Linux 5 repository as appropriate.</p>
+<ol>
+<li>
+<p>Check that the Oracle <code class="codeph">public-yum-ol6</code> or <code class="codeph">public-yum-ol5</code> repository ID is installed.</p>
+<pre dir="ltr">
+# yum repolist
+</pre></li>
+<li>
+<div class="p">Temporarily disable all repository IDs and then enable the Oracle repository only ( Oracle Linux 6 in this example).
+<pre dir="ltr">
+# yum --disablerepo="*" --enablerepo="public-yum-ol6" list available 
+</pre></div>
+</li>
+<li>
+<p>Install the Kerberos packages.</p>
+<pre dir="ltr">
+# yum install krb5-libs krb5-workstation 
+</pre></li>
+<li>
+<p>Copy the <code>/etc/krb5.conf</code> file from the Key Distribution Center (KDC) to the same path on the database server.</p>
+</li>
+</ol>
+<p>These steps must be performed for each Oracle Database node.</p>
+<p>You must also register the <code class="codeph">oracle</code> Linux user (or other Linux user) and password in the KDC for the cluster as described in <a href="securing.htm#GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9" title="You must configure Oracle Big Data SQL to use Kerberos in environments where user access is Kerberos-controlled.">Enabling Oracle Big Data SQL Access to a Kerberized Cluster</a></p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9"></a>
+<h2 id="BDSIG-GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9" class="sect2"><span class="enumeration_section">6.3</span> Enabling Oracle Big Data SQL Access to a Kerberized Cluster</h2>
+<div>
+<p>You must configure Oracle Big Data SQL to use Kerberos in environments where user access is Kerberos-controlled.</p>
+<p>There are two situations when this is required:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>When enabling Oracle Big Data SQL on a Kerberos-enabled cluster.</p>
+</li>
+<li>
+<p>When enabling Kerberos on a cluster where Oracle Big Data SQL is already installed.</p>
+</li>
+</ul>
+<p>Oracle Big Data SQL processes run on the nodes of the Hadoop cluster as the <code class="codeph">oracle</code> Linux user. On the Oracle Database server, the owner of the Oracle Database process is also (usually) the <code class="codeph">oracle</code> Linux user. When Kerberos is enabled on the Hadoop system, the following is required in order to give the user access to HDFS.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The <code class="codeph">oracle</code> Linux user needs to be able to authenticate as a principal in the Kerberos database on the Kerberos Key Distribution Center (KDC) server. The principal name in Kerberos does not have to be 'oracle'. However, the principal must have access to the underlying Hadoop data being requested by Oracle Big Data SQL.</p>
+</li>
+<li>
+<p>The following are required on all Oracle Database nodes and all Hadoop cluster nodes running Oracle Big Data SQL:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Kerberos client software installed.</p>
+</li>
+<li>
+<p>A copy of the Kerberos configuration file from the KDC.</p>
+</li>
+<li>
+<p>A copy of the Kerberos keytab file generated on the KDC for the <code class="codeph">oracle</code> user.</p>
+</li>
+<li>
+<p>A valid Kerberos ticket for the <code class="codeph">oracle</code> Linux user.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section">
+<p class="subhead2">Installing the Kerberos Client</p>
+<p>If the Kerberos client is not installed, see <a href="securing.htm#GUID-04DE627E-D60B-4F0A-833F-44A98A190AC9" title="If Kerberos is enabled on the Hadoop system, you must configure Oracle Big Data SQL on the database server to work with Kerberos. This requires a Kerberos client on each node of the database.">Installing a Kerberos Client on the Database Server</a> for instructions on installing the Kerberos client.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Creating a Kerberos Principal for the oracle User</p>
+<p>On the Kerberos Key Distribution Center (KDC) server, become <code class="codeph">root</code> and use <code class="codeph">kadmin.local</code> to add a principal for the <code class="codeph">oracle</code> user.</p>
+<ol>
+<li><code class="codeph"># kadmin.local</code></li>
+<li>
+<p>Within kadmin.local, type:</p>
+<pre dir="ltr">
+add_principal &lt;<span class="italic">user</span>&gt;@&lt;<span class="italic">realm</span>&gt;
+quit
+</pre>
+<p>You have the option to include the password, as in:</p>
+<pre dir="ltr">
+add_principal &lt;<span class="italic">user</span>&gt;@&lt;<span class="italic">realm</span>&gt; -pw &lt;<span class="italic">password</span>&gt; 
+quit
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Creating a Kerberos Keytab for the oracle User</p>
+<ol>
+<li>
+<p>On the KDC, become <code class="codeph">root</code> and run the following:</p>
+<pre dir="ltr">
+# kadmin.local
+</pre></li>
+<li>
+<div class="p">Within <code class="codeph">kadmin.local</code>, type:
+<pre dir="ltr">
+xst &ndash;norandkey -k /home/oracle/oracle.keytab oracle
+quit
+</pre></div>
+<p>This creates the <code class="codeph">oracle.keytab</code> file for the Kerberos <code class="codeph">oracle</code> user in the <code>/home/oracle</code> directory.</p>
+</li>
+<li>
+<div class="p">Ensure that <code>oracle.keytab</code> is owned by the <code class="codeph">oracle</code> Linux user and is readable by that user only.
+<pre dir="ltr">
+$ chown oracle oracle.keytab 
+$ chmod 400 oracle.keytab
+</pre></div>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Distributing the Keytab and Kerberos Configuration Files</p>
+<p>Log on to the KDC and copy these local files to the same path on each Hadoop cluster node and all Oracle Database compute nodes that use Oracle Big Data SQL.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Become the <code class="codeph">oracle</code> user and copy <code>/home/oracle/oracle.keytab</code> to <code>/home/oracle/oracle.keytab</code> on each node.</p>
+</li>
+<li>
+<p>Become <code class="codeph">root</code> and copy the Kerberos configuration file <code>/etc/krb5.conf</code> to <code>/etc/krb5.conf</code> on each node.</p>
+</li>
+</ul>
+<p>Be sure you have retained the original permissions on the files.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Acquiring a Kerberos Ticket for oracle on Each Node</p>
+<p>The <code class="codeph">oracle</code> user on each Hadoop DataNode and the database owner on each Oracle Database compute node (usually the <code class="codeph">oracle</code> Linux user as well) need a valid ticket to connect through Kerberos.</p>
+<p>After the Kerberos client is installed and the <code>krb5.conf</code> and <code>oracle.keytab</code> files are in place, log onto each node as the <code class="codeph">oracle</code> user and obtain a ticket for the user.</p>
+<ol>
+<li>
+<p>Log on as the <code class="codeph">oracle</code> user.</p>
+</li>
+<li>
+<p>Run <code class="codeph">kinit</code> on the <code class="codeph">oracle</code> account.</p>
+<pre dir="ltr">
+ $ /usr/bin/kinit oracle -k -t /home/oracle/oracle.keytab
+</pre>
+<p>A password is not required if a keytab for the user is defined as shown in this example. You can also use <code>/usr/bin/kinit oracle</code> without passing in a keytab file, but in that case you are prompted for the password defined for the principal.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Checking for a Valid Ticket</p>
+<p>After you acquire a ticket for each node (or if you are unsure about the validity of a ticket), you can check for a valid ticket using <code class="codeph">klist</code>.</p>
+<pre dir="ltr">
+$ /usr/bin/klist
+
+Kerberos Utilities for Linux: Version 12.1.0.2.0 - Production on 19-SEP-2016 07:45:20
+Copyright (c) 1996, 2014 Oracle. All rights reserved.
+Ticket cache: /u01/app/oracle/product/12.1.0/dbhome_1/network/admin/krbcache
+Default principal: &lt;<span class="italic">userID</span>&gt;@&lt;<span class="italic">realm</span>&gt;
+</pre>
+<p>If there is no valid ticket you will see a message similar to this:</p>
+<code class="codeph">klist: No credentials cache found</code></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Cleaning up After Ticket Expirations</p>
+<p>When the bd_cell process is running on the nodes of a secured Hadoop cluster but the Kerberos ticket is not valid, then the cell goes to quarantine status. You should drop all such quarantines.</p>
+<ol>
+<li>
+<p>Check that the <code class="codeph">oracle</code> user has a valid Kerberos ticket on all Hadoop cluster nodes.</p>
+</li>
+<li>
+<p>On each cluster node, become <code class="codeph">oracle</code> and run the following:</p>
+<pre dir="ltr">
+$ /opt/oracle/bd_cell/cellsrv/bin/bdscli
+</pre></li>
+<li>
+<p>In the bdscli shell, type:</p>
+<pre dir="ltr">
+list quarantine
+</pre></li>
+<li>
+<div class="p">While still in bdscli, drop each quarantine on the list:
+<pre dir="ltr">
+drop quarantine &lt;<span class="italic">id</span>&gt;
+</pre></div>
+</li>
+<li>
+<p>Type <code class="codeph">exit</code> to exit bdscli.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Automating Kerberos Ticket Renewal to Avoid Expirations</p>
+</div>
+<!-- class="section" -->
+<p>The <code class="codeph">oracle</code> user needs a valid Kerberos ticket on every Oracle Database instance that is accessing the Hadoop cluster. A valid ticket is also required for the <code class="codeph">oracle</code> user on the Hadoop nodes, since this user owns each Big Data SQL process.</p>
+<p>It is best to automate the ticket renewal. Use&nbsp;<code class="codeph">cron</code>&nbsp;or a similar utility to run&nbsp;<code class="codeph">kinit</code> to acquire a new ticket for the user on a schedule that is prior to the ticket expiration date. (The ticket lifetime is recorded in <code>/etc/krb5.conf</code>.)</p>
+<p>For example, on all nodes you could add a job to the <code class="codeph">oracle</code> user&rsquo;s crontab as follows.</p>
+<ol>
+<li>
+<p>Log on as the user (<code class="codeph">oracle</code> or other).</p>
+</li>
+<li>
+<p>Use <code class="codeph">crontab -e</code> to edit the user&rsquo;s crontab.</p>
+<pre dir="ltr">
+$ crontab -e
+</pre></li>
+<li>
+<p>Add a line with a schedule and the command to renew the ticket before the ticket expiry. For example, if the ticket expires every two weeks then you may want to renew it every 13 days, as in this example.</p>
+<pre dir="ltr">
+15 1,13 * * * /usr/bin/kinit oracle -k -t /home/oracle/oracle.keytab
+</pre></li>
+</ol>
+</div>
+</div>
+<div class="sect2"><a id="GUID-2326934B-DA41-430C-A1EB-6AA6A4B351DA"></a>
+<h2 id="BDSIG-GUID-2326934B-DA41-430C-A1EB-6AA6A4B351DA" class="sect2"><span class="enumeration_section">6.4</span> Using Oracle Secure External Password Store to Manage Database access for Oracle Big Data SQL</h2>
+<div>
+<p>On the Oracle Database server, you can use the Oracle Secure External Password Store (SEPS) to manage database access credentials for Oracle Big Data SQL.</p>
+<p>This is done by creating an Oracle wallet for the <code class="codeph">oracle</code> Linux user (or other database owner).&nbsp;An&nbsp;Oracle wallet&nbsp;is a password-protected container used to store authentication and signing credentials, including private keys, certificates, and trusted certificates needed by SSL.</p>
+<p>See <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=423899369571644&amp;id=2126903.1&amp;_adf.ctrl-state=11jfouoh96_67" target="_blank">MOS Document 2126903.1</a> at <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a> for information on using SEPS with Oracle Big Data SQL.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-6DFA4938-73FF-4371-9591-38E3B39A94E9"></a>
+<h2 id="BDSIG-GUID-6DFA4938-73FF-4371-9591-38E3B39A94E9" class="sect2"><span class="enumeration_section">6.5</span> About Data Security on Oracle Big Data Appliance</h2>
+<div>
+<p>If your Hadoop system is an Oracle Big Data Appliance, the following tools to strengthen security are already available.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Kerberos authentication</span>: Requires users and client software to provide credentials before accessing the cluster.</p>
+</li>
+<li>
+<p><span class="bold">Apache Sentry authorization</span>: Provides fine-grained, role-based authorization to data and metadata.</p>
+</li>
+<li>
+<p><a id="d7062e512" class="indexterm-anchor"></a><span class="bold">HDFS Transparent Encryption</span>: Protects the data on disk and at rest. Data encryption and decryption is transparent to applications using the data.</p>
+</li>
+<li>
+<p><a id="d7062e519" class="indexterm-anchor"></a><span class="bold">HTTPS/ Network Encryption</span></p>
+: Provides HTTPS for Cloudera Manager, Hue, Oozie, and Hadoop Web UIs. Also Enables network encryption for other internal Hadoop data transfers, such as those made through YARN shuffle and RPC.</li>
+<li>
+<p><a id="d7062e526" class="indexterm-anchor"></a><a id="d7062e530" class="indexterm-anchor"></a><span class="bold">Oracle Audit Vault and Database Firewall monitoring</span>: The Audit Vault plug-in on Oracle Big Data Appliance collects audit and logging data from MapReduce, HDFS, and Oozie services. You can then use Audit Vault Server to monitor these services on Oracle Big Data Appliance</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-6DFA4938-73FF-4371-9591-38E3B39A94E9__GUID-83B5C9DA-21FD-42B7-AA53-78145096D2B1">
+<p class="notep1">See Also:</p>
+The <span class="italic">Oracle Big Data Appliance Guide</span> provides details on available security features. You can find this guide and other documentation for your release of the Oracle Big Data Appliance software in the &ldquo;Big Data&rdquo; section of the <a href="https://docs.oracle.com//en/bigdata/" target="_blank">Oracle Help Center</a>.</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="adaptingtochange.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="additionaltools.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds31/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

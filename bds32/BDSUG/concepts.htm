@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Introducing Oracle Big Data SQL</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="external tables, about, access drivers, Statistics, Cell XT" />
+<meta name="dcterms.created" content="2018-08-03T19:40:42Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User's Guide" />
+<meta name="dcterms.identifier" content="E99050-01" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds32/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="preface.htm" title="Previous" type="text/html" />
+<link rel="Next" href="bigsql.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E99050-01.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-ECF201F6-24F1-4937-A524-80F9FC1EA46C"></a> <span id="PAGE" style="display:none;">4/13</span> <!-- End Header -->
+<a id="BIGUG107"></a>
+<h1 id="BDSUG-GUID-ECF201F6-24F1-4937-A524-80F9FC1EA46C" class="sect1"><span class="enumeration_chapter">1</span> Introducing Oracle Big Data SQL</h1>
+<a id="BIGUG21116"></a>
+<div class="props_rev_3"><a id="GUID-24A1FF10-EDAD-454C-B02F-5CFC89A36F51"></a>
+<h2 id="BDSUG-GUID-24A1FF10-EDAD-454C-B02F-5CFC89A36F51" class="sect2"><span class="enumeration_section">1.1</span> What Is Oracle Big Data SQL?</h2>
+<div>
+<p><a id="d2426e33" class="indexterm-anchor"></a>Oracle Big Data SQL supports queries against non-relational data stored in multiple big data sources, including Apache Hive, HDFS, Oracle NoSQL Database, Apache HBase, and other NoSQL databases. It enables unified query for distributed data and therefore the ability to view and analyze data from disparate data stores seamlessly, as if it were all stored in an Oracle database.</p>
+<p>Oracle Big Data SQL enables you to execute highly complex SQL <code class="codeph">SELECT</code> statements against data in the Hadoop ecosystem, either manually or through your existing applications. For example, if you are a user of Oracle Advanced Analytics, Oracle Big Data SQL enables you to extend your Oracle Database data mining models to big data in Hadoop.</p>
+<div class="section">
+<p class="subhead2">Components of an Oracle Big Data SQL Installation</p>
+<p>The Oracle Big Data SQL architecture consists of an installation on an Oracle Database system (single node or RAC) that works in conjunction with a parallel installation on a Hadoop (or NoSQL) cluster. The two systems may be networked via either Ethernet or InfiniBand. Hadoop and Hive clients on the compute nodes of the Oracle Database system enable communication between the database and the Oracle Big Data SQL process (known a Oracle Big Data SQL &ldquo;<span class="italic">cell</span>&rdquo;) that runs on each of the DataNodes of the Hadoop cluster. Through this mechanism, Oracle Database can query data on the Hadoop cluster.</p>
+<p>Since data in the Hadoop HDFS file system is stored in an undetermined format, SQL queries require some constructs to parse and interpret data for it to be processed in rows and columns. Oracle Big Data SQL leverages available Hadoop constructs to accomplish this, notably InputFormat and SerDe Java classes, optionally through Hive metadata definitions. The Oracle Big Data SQL processing cells on the DataNodes are a layer on top of this generic Hadoop infrastructure. Two key features provided by the cells are <span class="italic">Smart Scan</span> and <span class="italic">Storage Indexes</span>, which are described in this chapter.</p>
+<div class="infoboxnotealso" id="GUID-24A1FF10-EDAD-454C-B02F-5CFC89A36F51__GUID-23BB8468-1146-487C-B8DB-B89F7C700A7B">
+<p class="notep1">See Also:</p>
+The <a class="olink BDSIG-GUID-29BAFB68-E852-4AD3-931B-30DF65BBCD44" target="_blank" href="../BDSIG/introduction.htm#BDSIG-GUID-29BAFB68-E852-4AD3-931B-30DF65BBCD44">Oracle Big Data SQL Installation Guide</a> describes how to install and configure the software on the two sides of an Oracle Big Data SQL configuration.</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The following sections of this guide provide details on using Oracle Big Data SQL:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="concepts.htm#GUID-F5F71283-1E85-4AD5-ABCD-E6A70C6BE03E">About Oracle External Tables</a></p>
+</li>
+<li>
+<p><a href="concepts.htm#GUID-60CE9B2C-91E1-4F0A-88EE-8C14F4AEBDE6">About the Access Drivers for Oracle Big Data SQL</a></p>
+</li>
+<li>
+<p><a href="concepts.htm#GUID-C0AACB97-1BC4-447F-87C8-305AE744853E">About Smart Scan for HDFS</a></p>
+</li>
+<li>
+<p><a href="concepts.htm#GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926">About Storage Indexes</a></p>
+</li>
+<li>
+<p><a href="concepts.htm#GUID-5F5D41D3-24B0-4528-B7F3-26C1E57BDE35">About Predicate Push Down</a></p>
+</li>
+<li>
+<p><a href="concepts.htm#GUID-6D36AE78-D33B-4923-B680-8B7E43242D7B" title="Oracle Big Data SQL provides a number of statistics that can contribute data for performance analyses.">About Oracle Big Data SQL Statistics</a></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+<a id="BIGUG21117"></a>
+<div class="props_rev_3"><a id="GUID-F5F71283-1E85-4AD5-ABCD-E6A70C6BE03E"></a>
+<h3 id="BDSUG-GUID-F5F71283-1E85-4AD5-ABCD-E6A70C6BE03E" class="sect3"><span class="enumeration_section">1.1.1</span> About Oracle External Tables</h3>
+<div>
+<p><a id="d2426e121" class="indexterm-anchor"></a>Oracle Big Data SQL provides external tables with next generation performance gains. An <span class="bold">external table</span> is an Oracle Database object that identifies and describes the location of data outside of a database. You can query an external table using the same SQL <code class="codeph">SELECT</code> syntax that you use for any other database tables.</p>
+<p>External tables use <span class="bold">access drivers</span> to parse the data outside the database. Each type of external data requires a unique access driver. Oracle Big Data SQL includes two access drivers for big data: one for data that has metadata defined in Apache Hive, and the other for accessing data stored in the Hadoop Distributed File System, with metadata specified only by an Oracle administrator.</p>
+</div>
+</div>
+<a id="BIGUG21118"></a>
+<div class="props_rev_3"><a id="GUID-60CE9B2C-91E1-4F0A-88EE-8C14F4AEBDE6"></a>
+<h3 id="BDSUG-GUID-60CE9B2C-91E1-4F0A-88EE-8C14F4AEBDE6" class="sect3"><span class="enumeration_section">1.1.2</span> About the Access Drivers for Oracle Big Data SQL</h3>
+<div>
+<p>By querying external tables, you can access data stored in HDFS and Hive tables as if that data was stored in tables in an Oracle database. Oracle Database accesses the data by using the metadata provided when the external table was created.</p>
+<p>Oracle Database supports these access drivers for Oracle Big Data SQL:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ORACLE_HIVE</code>: Enables you to create Oracle external tables over Apache Hive data sources. Use this access driver when you already have Hive tables defined for your HDFS data sources. <code class="codeph">ORACLE_HIVE</code> can also access data stored in other locations, such as HBase, that have Hive tables defined for them.</p>
+</li>
+<li>
+<p><code class="codeph">ORACLE_HDFS</code>: Enables you to create Oracle external tables directly over files stored in HDFS. This access driver uses Hive syntax to describe a data source, assigning default column names of <code class="codeph">COL_1</code>, <code class="codeph">COL_2</code>, and so forth. You do not need to create a Hive table manually as a separate step.</p>
+<p>Instead of acquiring the metadata from a Hive metadata store the way that <code class="codeph">ORACLE_HIVE</code> does, the <code class="codeph">ORACLE_HDFS</code> access driver acquires all of the necessary information from the access parameters. The <code class="codeph">ORACLE_HDFS</code> access parameters are required to specify the metadata, and are stored as part of the external table definition in Oracle Database.</p>
+</li>
+</ul>
+<p>Oracle Big Data SQL uses these access drivers to optimize query performance.</p>
+</div>
+</div>
+<a id="BIGUG76676"></a>
+<div class="props_rev_3"><a id="GUID-C0AACB97-1BC4-447F-87C8-305AE744853E"></a>
+<h3 id="BDSUG-GUID-C0AACB97-1BC4-447F-87C8-305AE744853E" class="sect3"><span class="enumeration_section">1.1.3</span> About Smart Scan for HDFS</h3>
+<div>
+<p>Oracle external tables do not have traditional indexes. Queries against these external tables typically require a full table scan. The Oracle Big Data SQL processing agent on the DataNodes of the Hadoop cluster extends <a id="d2426e209" class="indexterm-anchor"></a>Smart Scan capabilities (such as filter-predicate off-loads) to Oracle external tables. Smart Scan has been used for some time on the Oracle Exadata Database Machine to do column and predicate filtering in the Storage Layer before query results are sent back to the Database Layer. In Oracle Big Data SQL, Smart Scan is a final filtering pass done locally on the Hadoop server to ensure that only requested elements are sent to Oracle Database. Oracle storage servers running on the Hadoop DataNodes are capable of doing Smart Scans against various data formats in HDFS, such as CSV text, Avro, and Parquet.</p>
+<p>This implementation of Smart Scan leverages the massively parallel processing power of the Hadoop cluster to filter data at its source. It can preemptively discard a huge portion of irrelevant data&mdash;up to 99 percent of the total. This has several benefits:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Greatly reduces data movement and network traffic between the cluster and the database</p>
+</li>
+<li>
+<p>Returns much smaller result sets to the Oracle Database server.</p>
+</li>
+</ul>
+<p>Query results are returned significantly faster. This is the direct result reduced traffic on the network and reduced load on Oracle Database.</p>
+<div class="infoboxnotealso" id="GUID-C0AACB97-1BC4-447F-87C8-305AE744853E__GUID-5205F413-33A2-4005-927A-5A292DA99EDE">
+<p class="notep1">See Also:</p>
+<p>See <span class="italic"><a href="copy2bda.htm#GUID-D5907C17-ABA1-487A-8D34-C81A46A9035C" title="You can store Oracle read-only tablespaces on HDFS and use Big Data SQL Smart Scan to off-load query processing of data stored in that tablespace to the Hadoop cluster.&nbsp;Big Data SQL Smart Scan performs data local processing - filtering query results on the Hadoop cluster prior to the return of the data to Oracle Database. In most circumstances, this can be a significant performance optimization. In addition to Smart Scan, querying tablespaces in HDFS also leverages native Oracle Database access structures and performance features.&nbsp;This includes features such as indexes, Hybrid Columnar Compression, Partition Pruning, and Oracle Database In-Memory.">Storing Oracle Tablespaces in HDFS</a></span> for instructions on how to set up data files for smart scanning.</p>
+<p>See <a href="http://docs.oracle.com/database/122/CNCPT/preface.htm#CNCPT88773" target="_blank"><span class="italic">Oracle Database Concepts</span></a> for a general introduction to external tables and pointers to more detailed information in the Oracle Database documentation library</p>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926"></a>
+<h3 id="BDSUG-GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926" class="sect3"><span class="enumeration_section">1.1.4</span> About Storage Indexes</h3>
+<div>
+<p>Oracle Big Data SQL maintains Storage Indexes automatically, which is transparent to Oracle Database. Storage Indexes contain the summary of data distribution on a hard disk for the data that is stored in HDFS. Storage Indexes reduce the I/O operations cost and the CPU cost of converting data from flat files to Oracle Database blocks. You can think of a storage index as a "negative index". It tells Smart Scan that data does not fall within a block of data, which enables Smart Scan to skip reading that block. This can lead to significant I/O avoidance.</p>
+<p>Storage Indexes can be used only for the external tables that are based on HDFS and are created using either the ORACLE_HDFS driver or the ORACLE_HIVE driver. Storage Indexes cannot be used for the external tables that use StorageHandlers, such as Apache HBase and Oracle NoSQL.</p>
+<p>A Storage Index is a collection of in-memory region indexes, and each region index stores summaries for up to 32 columns. There is one region index for each split. The content stored in one region index is independent of the other region indexes. This makes them highly scalable, and avoids latch contention.</p>
+<p>Storage Indexes maintain the minimum and maximum values of the columns of a region for each region index. The minimum and maximum values are used to eliminate unnecessary I/O, also known as I/O filtering. The cell XT granule I/O bytes saved by the Storage Indexes statistic, available in the <code class="codeph">V$SYSSTAT</code> view, shows the number of bytes of I/O saved using Storage Indexes.</p>
+<div class="infoboxnotealso" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-88F6E8B7-97B9-4137-AE7C-608EA2B4AF31">
+<p class="notep1">See Also:</p>
+<p><a class="olink REFRN-GUID-250136E5-E07E-4A78-9F67-28C0D3C6E922" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E87336-01&amp;id=REFRN-GUID-250136E5-E07E-4A78-9F67-28C0D3C6E922"><span class="italic">Oracle&reg; Database Reference</span></a> for information about <code class="codeph">V$SYSSTAT</code> view</p>
+</div>
+<p>Queries using the following comparisons are improved by the Storage Indexes:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Equality (=)</p>
+</li>
+<li>
+<p>Inequality (&lt;, !=, or &gt;)</p>
+</li>
+<li>
+<p>Less than or equal (&lt;=)</p>
+</li>
+<li>
+<p>Greater than or equal (&gt;=)</p>
+</li>
+<li>
+<p>IS NULL</p>
+</li>
+<li>
+<p>IS NOT NULL</p>
+</li>
+</ul>
+<p>Storage Indexes are built automatically after Oracle Big Data SQL service receives a query with a comparison predicate that is greater than the maximum or less than the minimum value for the column in a region.</p>
+<div class="infobox-note" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-F3688B34-E703-4FDA-B5EF-8E40130F0AFE">
+<p class="notep1">Note:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The effectiveness of Storage Indexes can be improved by ordering the rows in a table based on the columns that frequently appear in the WHERE query clause.</p>
+</li>
+<li>
+<p>Storage Indexes work with any non-linguistic data type, and works with linguistic data types similar to non-linguistic index.</p>
+</li>
+</ul>
+</div>
+<div class="example" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-B887914B-A927-4288-BBFA-4D661F2AC9B0">
+<p class="titleinexample">Example 1-1 Elimination of Disk I/O with Storage Indexes</p>
+<p>The following figure shows a table and region indexes. The values in <span class="bold">column B</span> in the table range from 1 to 8. One region index stores the minimum 1, and the maximum of 5. The other region index stores the minimum of 3, and the maximum of 8.</p>
+<div class="figure" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-46453C72-D0B9-424A-A056-412011001728"><img width="600" height="261" src="img/GUID-79453BB0-2261-4A43-A333-35AEEE54190C-default.png" alt="Description of GUID-79453BB0-2261-4A43-A333-35AEEE54190C-default.png follows" title="Description of GUID-79453BB0-2261-4A43-A333-35AEEE54190C-default.png follows" /><br />
+<a href="img_text/GUID-79453BB0-2261-4A43-A333-35AEEE54190C-default.htm">Description of the illustration GUID-79453BB0-2261-4A43-A333-35AEEE54190C-default.png</a></div>
+<!-- class="figure" -->
+<div class="p">For a query such as the one below, only the first set of rows match. Disk I/O is eliminated because the minimum and maximum of the second set of rows do not match the WHERE clause of the query.
+<pre dir="ltr">
+SELECT * 
+FROM TABLE 
+WHERE B &lt; 2;
+</pre></div>
+</div>
+<!-- class="example" -->
+<div class="example" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-F2BA1909-DFCA-484A-B669-AAF27316142A">
+<p class="titleinexample">Example 1-2 Improved Join Performance Using Storage Indexes</p>
+<p>Using Storage Indexes allows table joins to skip unnecessary I/O operations. For example, the following query would perform an I/O operation and apply a Bloom filter to only the first block of the fact table. Bloom filters are the key to improved join performance. In the example, a predicate is on the dimension table - not the fact table. The Bloom Filter is created based on "<code class="codeph">dim.name=Hard drive</code>" and this filter is then applied to the fact table. Therefore, even though the filter is on the dimension table, you are able to filter the data at its source (i.e. Hadoop) based on the results of the dimension query. This also enables optimizations like Storage Indexes to engage.</p>
+<pre dir="ltr">
+SELECT count(*) 
+FROM fact, dimension dim  
+WHERE fact.m=dim.m and dim.product="Hard drive";
+</pre>
+<div class="figure" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-E8E4C52A-C11D-4E1E-B4C6-1B9A70C61C82"><img width="591" height="258" src="img/GUID-666A8530-7DD6-44E9-AE92-B196E5085524-default.png" alt="Description of GUID-666A8530-7DD6-44E9-AE92-B196E5085524-default.png follows" title="Description of GUID-666A8530-7DD6-44E9-AE92-B196E5085524-default.png follows" /><br />
+<a href="img_text/GUID-666A8530-7DD6-44E9-AE92-B196E5085524-default.htm">Description of the illustration GUID-666A8530-7DD6-44E9-AE92-B196E5085524-default.png</a></div>
+<!-- class="figure" -->
+<p>The I/O for the second block of the fact table is completely eliminated by Storage Indexes as its minimum/maximum range (5,8) is not present in the Bloom filter.</p>
+</div>
+<!-- class="example" --></div>
+</div>
+<div class="sect3"><a id="GUID-5F5D41D3-24B0-4528-B7F3-26C1E57BDE35"></a>
+<h3 id="BDSUG-GUID-5F5D41D3-24B0-4528-B7F3-26C1E57BDE35" class="sect3"><span class="enumeration_section">1.1.5</span> About Predicate Push Down</h3>
+<div>
+<p>Many Big Data systems support some level of predicate off-loading, either through the filetype itself (e.g. Apache Parquet), or through Hive&rsquo;s partitioning and StorageHandler APIs. Oracle Big Data SQL takes advantage of these off-load capabilities by pushing predicates from the Oracle Database into supporting systems. For example, predicate push down enables the following automatic behaviors:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Queries against partitioned Hive tables are pruned, based on filter predicates on partition columns.</p>
+</li>
+<li>
+<p>Queries against Apache Parquet and Apache ORC files reduce I/O by testing predicates against the internal index-like structures contained within these file formats.</p>
+<div class="infobox-note" id="GUID-5F5D41D3-24B0-4528-B7F3-26C1E57BDE35__GUID-3A745BA0-E273-426B-B2C4-062E2AA46DCD">
+<p class="notep1">Note:</p>
+Predicate pushdown in queries against Parquet files is inefficient unless the files are generated through Hive using the workaround described in the next section.</div>
+</li>
+<li>
+<p>Queries against Oracle NoSQL Database or Apache HBase use SARGable predicates to drive subscans of data in the remote data store.</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead3">Required Datatypes to Enable Predicate Push Down</p>
+<p>Predicate push down requires that certain mappings between Hive Datatypes and Oracle Datatypes be present. These mappings are described in the following table.</p>
+<div class="tblformal" id="GUID-5F5D41D3-24B0-4528-B7F3-26C1E57BDE35__GUID-98704E30-1CC5-4193-9B12-6861D81AFE7D">
+<table class="cellalignment18" summary="Column one lists the Hive datatypes. Column two lists the valid mappings to the corresponding Oracle datatypes.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment20" id="d2426e380"><span class="bold">Hive Datatype</span></th>
+<th class="cellalignment20" id="d2426e383"><span class="bold">Mapped To Oracle Datatype</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment2" rowspan="1" colspan="1" id="d2426e388" headers="d2426e380">
+<p>CHAR(m)</p>
+</td>
+<td class="cellalignment2" rowspan="1" colspan="1" headers="d2426e388 d2426e383">
+<p>CHAR(n), VARCHAR2(n) where n is &gt;= m</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" rowspan="1" colspan="1" id="d2426e395" headers="d2426e380">
+<p>VARCHAR(m)</p>
+</td>
+<td class="cellalignment2" rowspan="1" colspan="1" headers="d2426e395 d2426e383">
+<p>CHAR(n), VARCHAR2(n) where n is &gt;= m.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" rowspan="1" colspan="1" id="d2426e402" headers="d2426e380">
+<p>string</p>
+</td>
+<td class="cellalignment2" rowspan="1" colspan="1" headers="d2426e402 d2426e383">
+<p>CHAR(n), VARCHAR2(n)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" rowspan="1" colspan="1" id="d2426e409" headers="d2426e380">
+<p>DATE</p>
+</td>
+<td class="cellalignment2" rowspan="1" colspan="1" headers="d2426e409 d2426e383">
+<p>DATE</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" rowspan="1" colspan="1" id="d2426e416" headers="d2426e380">
+<p>TIMESTAMP</p>
+</td>
+<td class="cellalignment2" rowspan="1" colspan="1" headers="d2426e416 d2426e383">
+<p>TIMESTAMP(9) Hive TIMESTAMP has nanoseconds, 9 digit fractional seconds.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" rowspan="1" colspan="1" id="d2426e423" headers="d2426e380">
+<p>TINYINT</p>
+</td>
+<td class="cellalignment2" rowspan="1" colspan="1" headers="d2426e423 d2426e383">
+<p>NUMBER(3) preferably, but NUMBER or NUMBER(n) for any value of n is valid.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" rowspan="1" colspan="1" id="d2426e430" headers="d2426e380">
+<p>SMALLINT&nbsp;</p>
+</td>
+<td class="cellalignment2" rowspan="1" colspan="1" headers="d2426e430 d2426e383">
+<p>NUMBER(5) preferably, but NUMBER or NUMBER(n) for any value of n is valid.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" rowspan="1" colspan="1" id="d2426e437" headers="d2426e380">
+<p>INT &nbsp;</p>
+</td>
+<td class="cellalignment2" rowspan="1" colspan="1" headers="d2426e437 d2426e383">
+<p>NUMBER(10) preferably, but NUMBER or NUMBER(n) for any value of n is valid.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e444" headers="d2426e380">
+<p>BIGINT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td class="cellalignment21" headers="d2426e444 d2426e383">
+<p>NUMBER(19) preferably, but NUMBER or NUMBER(n) for any value of n is OK</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e451" headers="d2426e380">
+<p>DECIMAL(m)</p>
+</td>
+<td class="cellalignment21" headers="d2426e451 d2426e383">
+<p>NUMBER(n) where m = n preferably, but NUMBER or NUMBER(n) for any value of n is valid.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e458" headers="d2426e380">
+<p>FLOAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td class="cellalignment21" headers="d2426e458 d2426e383">
+<p>BINARY_FLOAT</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e466" headers="d2426e380">
+<p>DOUBLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td class="cellalignment21" headers="d2426e466 d2426e383">
+<p>BINARY_DOUBLE</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e473" headers="d2426e380">
+<p>BINARY</p>
+</td>
+<td class="cellalignment21" headers="d2426e473 d2426e383">
+<p>RAW(n)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e480" headers="d2426e380">
+<p>BOOLEAN</p>
+</td>
+<td class="cellalignment21" headers="d2426e480 d2426e383">
+<p>CHAR(n), VARCHAR2(n) where n is &gt;= 5, values 'TRUE', 'FALSE'</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e487" headers="d2426e380">
+<p>BOOLEAN</p>
+</td>
+<td class="cellalignment21" headers="d2426e487 d2426e383">
+<p>NUMBER(1) preferably, but NUMBER or NUMBER(n) for any value of n is valid. Values 0 (false), 1 (true).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-40460C65-EF5D-4EB0-8C64-43FF84B134EE"></a>
+<h3 id="BDSUG-GUID-40460C65-EF5D-4EB0-8C64-43FF84B134EE" class="sect3"><span class="enumeration_section">1.1.6</span> Predicate Pushdown Issue with Parquet Files Created From Hive Source</h3>
+<div>
+<p>Parquet maintains <code class="codeph">min</code>/<code class="codeph">max</code> values for each column per rowgroup. However, there is a difference between the Hive/Parquet interpretation and the Oracle interpretation of empty strings that can make predicate pushdown inefficient. There is an easy solution, which is provided at the end of the problem description.</p>
+<div class="section">
+<p class="subhead3">Problem Description</p>
+<p>A Hive VARCHAR or Hive STRING type containing an empty string (a zero-length string, such as <code class="codeph">''</code>) is stored in Parquet as a zero-length string and is considered a real value (not NULL).</p>
+<p>Also, when Hive CHAR fields containing an empty string are stored in Parquet, these are padded with blanks to the full length of the string.</p>
+<div class="tblformal" id="GUID-40460C65-EF5D-4EB0-8C64-43FF84B134EE__GUID-53DCF820-96E7-4971-A9A6-617C1201272A">
+<table class="cellalignment18" summary="Column 1 lists the Hive string data types. Column 2 identifies the values for each Hive/Parquet data type. Column 3 describes how Oracle Database interprets these values.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment20" id="d2426e539">Data Type</th>
+<th class="cellalignment20" id="d2426e541">Stored in Parquet</th>
+<th class="cellalignment20" id="d2426e543">When Mapped From Parquet to Oracle Database VARCHAR2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e547" headers="d2426e539">Hive VARCHAR and Hive String</td>
+<td class="cellalignment21" headers="d2426e547 d2426e541">
+<ul style="list-style-type: disc;">
+<li>
+<p>Real values, such as <code class="codeph">&lsquo;Bob&rsquo;</code>.</p>
+</li>
+<li>
+<p>Empty, zero-length strings, which are considered a value per the ANSI VARCHAR definition. These are not considered NULL.</p>
+</li>
+<li>
+<p>NULL.</p>
+</li>
+</ul>
+</td>
+<td class="cellalignment21" headers="d2426e547 d2426e543">
+<ul style="list-style-type: disc;">
+<li>
+<p>Real values, such as <code class="codeph">&lsquo;Bob&rsquo;</code>.</p>
+</li>
+<li>
+<p>NULL. (Empty, zero-length strings are considered NULL, not real values.)</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e575" headers="d2426e539">Hive CHAR</td>
+<td class="cellalignment21" headers="d2426e575 d2426e541">
+<ul style="list-style-type: disc;">
+<li>
+<p>Real values such as: <code class="codeph">&lsquo;Bob&rsquo;</code>. (Note that the CHAR length is always padded to the defined length. For example, in the case of CHAR(4) <code class="codeph">&lsquo;Bob&rsquo;</code> is stored as <code class="codeph">&lsquo;Bob &rsquo;</code>.)</p>
+</li>
+<li>
+<p>Empty, zero-length strings are blank-padded to the length of the CHAR. For example, empty CHAR(2) is store as <code class="codeph">&lsquo; &lsquo;</code>.</p>
+</li>
+<li>
+<p>NULL.</p>
+</li>
+</ul>
+</td>
+<td class="cellalignment21" headers="d2426e575 d2426e543">
+<ul style="list-style-type: disc;">
+<li>
+<p>Real values such as: <code class="codeph">&lsquo;Bob&rsquo;</code>. (Note that the string length is not padded with trailing blanks. For example, VARCHAR2(4) <code class="codeph">&lsquo;Bob&rsquo;</code> is stored as <code class="codeph">&lsquo;Bob&rsquo;</code>.</p>
+</li>
+<li>
+<p>NULL. (Empty, zero-length strings are also considered NULL.)</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p>Oracle VARCHAR2 regards an empty string (a zero-length string) as NULL and, of course, NULL as NULL.&nbsp; Only a non-zero-length value is considered non-NULL. In Hive and Parquet, the empty string is not NULL. Hive and Parquet store NULL as a separate value for a column. This can result in a discrepancy in Storage Index evaluation. For example, Storage Index may compute the following:</p>
+<pre dir="ltr">
+min='Ohio', max='Washington', number of nulls = 23
+</pre>
+<p>Parquet statistics for the same data may be:</p>
+<pre dir="ltr">
+min=", max='Washington', number of nulls = 0
+</pre>
+<p>In the Parquet statistics above, NULL = 0 because the data loaded into the file included 23 empty strings. These were stored as a zero-length values &ndash; actual values, not NULLs.</p>
+<p>The problem for predicate pushdown is that when <code class="codeph">min="</code>, empty strings are stored as actual values, this prevents any filtering beyond the bottom end of the min/max range. Therefore, predicate pushdown is much less efficient. It also means that we cannot directly turn Parquet statistics into Storage Index statistics.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Solution</p>
+<p>There are various ways to adjust Parquet files created from Hive source so that they work well with predicate pushdown. The easiest is to go back to the Hive source, redefine the empty string as NULL, and recreate the Parquet file. For example:</p>
+<ol>
+<li>
+<p>Create a Hive textfile (source) table with:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ROW FORMAT DELIMITED</code></p>
+</li>
+<li>
+<p><code class="codeph">FIELDS TERMINATED BY '|'</code></p>
+</li>
+<li>
+<p><code class="codeph">NULL DEFINED AS ''</code> (Two single-quotes in a row, no space in between.)</p>
+</li>
+<li>
+<p><code class="codeph">STORED AS textfile</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Use Hive to do <code class="codeph">CREATE TABLE AS SELECT</code> from the above textfile to recreate the Parquet file.</p>
+<pre dir="ltr">
+CREATE TABLE parquet_str_fix
+STORED AS PARQUET 
+LOCATION '&lt;<span class="italic">path...</span>&gt;'
+AS SELECT * FROM hive_str_fix_txt;
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+<div class="sect4"><a id="GUID-1A02E1E2-3AEA-4DCB-9BC5-A20738802F1E"></a>
+<h4 id="BDSUG-GUID-1A02E1E2-3AEA-4DCB-9BC5-A20738802F1E" class="sect4"><span class="enumeration_section">1.1.6.1</span> Other Issues With Parquet Statistics</h4>
+<div>
+<div class="section">
+<p class="subhead3">In Parquet File Creation, Statistics are Optional</p>
+<p>Because Parquet statistics are optional, we cannot always assume they are present. Some tools provide an options to create Parquet files with or without statistics. Some (like Impala) do not create statistics at all. Therefore, Parquet files created by Impala (as well as by other tools when they do not include statistics) perform poorly when accessed by Hive and Oracle Big Data SQL. Both Hive and Oracle Big Data SQL use Parquet statistics for optimization. &nbsp;</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Not All Datatypes Are Included in Parquet min/max Column Statistics</p>
+<p>Although min/max values for critical datatypes are present (INT, FLOAT, DOUBLE, string, VARCHAR and CHAR), min/max values for the TIMESTAMP datatype are not included in column statistics.&nbsp;</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<div class="sect3"><a id="GUID-3508EC59-D251-469B-A968-91FC40CD6C88"></a>
+<h3 id="BDSUG-GUID-3508EC59-D251-469B-A968-91FC40CD6C88" class="sect3"><span class="enumeration_section">1.1.7</span> About Pushdown of Character Large Object (CLOB) Processing</h3>
+<div>
+<p>Queries against Hadoop data may involve processing large objects with potentially millions of records. It is inefficient to return these objects to Oracle Database for filtering and parsing. Oracle Big Data SQL can provide significant performance gains by pushing CLOB processing down to its own processing cells on the Hadoop cluster. Filtering in Hadoop reduces the number of rows returned to Oracle Database. Parsing reduces the amount of data returned from a column within each filtered row.</p>
+<p>Customers can disable or re-enable CLOB processing pushdown to suit their own needs.</p>
+<p>In Release 3.2, this functionality currently applies only to JSON expressions returning CLOB data. The eligible JSON filter expressions for storage layer evaluation include simplified syntax, JSON_VALUE, and JSON_QUERY.</p>
+<p>The same support will be provided for other CLOB types (such as substr and instr) as well as for BLOB data in a future release.</p>
+<div class="section">
+<p>Oracle Big Data SQL can push processing down to Hadoop for CLOBs within these size constraints:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Filtering for CLOB columns up to 1 MB in size.</p>
+<p>The actual amount of data that can be consumed for evaluation in the storage server may vary, depending upon the character set used.</p>
+</li>
+<li>
+<p>Parsing for columns up to 32 KB.</p>
+<p>This limit refers to the select list projection from storage for the CLOB datatype.</p>
+</li>
+</ul>
+<p>Processing falls back to the Oracle Database only when column sizes exceed these two values.</p>
+<div class="infobox-note" id="GUID-3508EC59-D251-469B-A968-91FC40CD6C88__GUID-46313C44-D9AB-4566-805B-30BE9AB6D7D4">
+<p class="notep1">Note:</p>
+The new JSON CLOB predicate pushdown functionality requires Oracle Database version 12.1.0.2.180417 or greater, as well as the following patches:
+<ul style="list-style-type: disc;">
+<li>
+<p>The April 2018 Proactive DBBP (Database Bundle Patch). This is patch 27486326.</p>
+</li>
+<li>
+<p>The one-off patch 27767148.</p>
+<p>Install the one-off patch on all database compute nodes.</p>
+<p>The one-off patch 26170659, which is required on top the earlier DBBPs, is not required on top of the April DBBP.</p>
+</li>
+</ul>
+<p>This functionality is not available through the earlier January 2018 and August 2017 Proactive DBBPs</p>
+<p>See the <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=400361405103392&amp;id=2119369.1&amp;_adf.ctrl-state=j8ryazrl8_77" target="_blank">Oracle Big Data SQL Master Compatibility Matrix</a> (Doc ID 2119369.1 in <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a>) for the most up-to-date information on software version and patch requirements.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-3508EC59-D251-469B-A968-91FC40CD6C88__GUID-E25B2B84-CA23-4730-81EB-6173FBC89ED3">
+<p class="titleinexample">Example 1-3 JSON Document Processing</p>
+<div class="p">For queries into large JSON documents, pushdown of CLOB processing to Oracle Big Data SQL processing cells in Hadoop can be highly effective. Consider the following example, where purchase orders information is stored in JSON. Assume that this record could be up to 25K in size and several millions of such records must processed.
+<pre dir="ltr">
+{"ponumber":9764,"reference":"LSMITH-20141017","requestor":"Lindsey Smith","email&rdquo;: &ldquo;Lindsey@myco.com&rdquo;, &ldquo;company&rdquo;:&rdquo;myco&rdquo; &hellip;}
+</pre></div>
+<div class="p">You can create the external table to access this data as follows. Notice there is a single CLOB column.
+<pre dir="ltr">
+CREATE TABLE POS_DATA
+  ( pos_info CLOB )
+  ORGANIZATION EXTERNAL
+  ( TYPE ORACLE_HDFS
+    DEFAULT DIRECTORY DEFAULT_DIR
+    LOCATION ('/data/pos/*')
+  )
+ REJECT LIMIT UNLIMITED;
+</pre></div>
+<div class="p">You can then query the data with this simple syntax:
+<pre dir="ltr">
+SELECT p.pos_info.email, p.pos_info.requestor
+FROM POS_DATA p
+WHERE p.pos_info.company=&rsquo;myco&rsquo;
+</pre></div>
+<p>The query example above engages two data elimination optimizations:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The data is filtered by the Oracle Big Data SQL cells in the Hadoop cluster. Only records pertaining to the company &ldquo;myco&rdquo; are parsed (and after parsing only selected data from these records is returned to the database).</p>
+</li>
+<li>
+<p>The Oracle Big Data SQL cells in the cluster parse the filtered set of records and from each record only the values for the two attributes requested (<code class="codeph">p.pos_info.email</code> and <code class="codeph">p.pos_info.requestor</code>) are returned to the database.</p>
+</li>
+</ul>
+<p>The table below shows some other examples where CLOB processing pushdown is supported. Remember that projections (references on the select side of the CLOB column) are limited to 32 KB of CLOB data, while predicate pushdown is limited to 1 MB of CLOB data.</p>
+<div class="tblformal" id="GUID-3508EC59-D251-469B-A968-91FC40CD6C88__GUID-8D4AF213-0B5D-4B8F-A5C5-3743D6BBD99C">
+<table class="cellalignment18" summary="Column 1 shows a SELECT statement. Column 2 explains the significance of the query for CLOB processing.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment20" id="d2426e803">Query</th>
+<th class="cellalignment20" id="d2426e805">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e809" headers="d2426e803"><code class="codeph">SELECT count(*) FROM pos_data p WHERE pos_info is json;</code></td>
+<td class="cellalignment21" headers="d2426e809 d2426e805">In this case, the predicate ensures that only columns which comply with JSON format are returned.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e815" headers="d2426e803"><code class="codeph">SELECT pos_info FROM pos_data p WHERE pos_info is json;</code></td>
+<td class="cellalignment21" headers="d2426e815 d2426e805">The same predicate as in the previous case, but now the CLOB value is projected.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e821" headers="d2426e803"><code class="codeph">SELECT json_value(pos_info, '$.reference') FROM pos_data p WHERE json_value(pos_info, '$.ponumber')&nbsp;&gt;&nbsp;9000</code></td>
+<td class="cellalignment21" headers="d2426e821 d2426e805">Here, the predicate is issued on a field of the JSON document, and we also execute a JSON value to retrieve field "reference" on top of the projected CLOB JSON value.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e827" headers="d2426e803"><code class="codeph">SELECT p.pos_info.reference FROM pos_data p WHERE p.pos_info.ponumber &gt; 9000;</code></td>
+<td class="cellalignment21" headers="d2426e827 d2426e805">This is functionally the same query as the previous example, but expressed in simplified syntax.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment21" id="d2426e833" headers="d2426e803"><code class="codeph">SELECT p.pos_info.email FROM po_data p WHERE json_exists(pos_info, '$.requestor') and json_query(pos_info, '$.requestor') is not null;</code></td>
+<td class="cellalignment21" headers="d2426e833 d2426e805">This example shows how <code class="codeph">json_exists</code> and <code class="codeph">json_query</code> can also be used as predicates.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="example" --></div>
+</div>
+<div class="sect3"><a id="GUID-6D36AE78-D33B-4923-B680-8B7E43242D7B"></a>
+<h3 id="BDSUG-GUID-6D36AE78-D33B-4923-B680-8B7E43242D7B" class="sect3"><span class="enumeration_section">1.1.8</span> About Oracle Big Data SQL Statistics</h3>
+<div>
+<p>Oracle Big Data SQL provides a number of statistics that can contribute data for performance analyses.</p>
+<div class="section">
+<p class="subhead3">Five Key Cell XT and Storage Index Statistics</p>
+<p>If a query is off-loadable, the following XT-related statistics that can help you to determine what kind of I/O savings you can expect from the offload and from Smart Scan.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">cell XT granules requested for predicate offload</span></p>
+<p>Note that number of granules requested depends on a number of a factors, including the HDFS block size, Hadoop data source splittability, and the effectiveness of Hive partition elimination.</p>
+</li>
+<li>
+<p><span class="bold">cell XT granule bytes requested for predicate offload</span></p>
+<p>The number of bytes requested for the scan. This is the size of the data on Hadoop to be investigated after Hive partition elimination and before Storage Index evaluation.</p>
+</li>
+<li>
+<p><span class="bold">cell interconnect bytes returned by XT smart scan</span></p>
+<p>The number of bytes of I/O returned by an XT smart scan to Oracle Database.</p>
+</li>
+<li>
+<p><span class="bold">cell XT granule predicate offload retries</span></p>
+<p>The number of times that a Big Data SQL process running on a DataNode could not complete the requested action. Oracle Big Data SQL automatically retries failed requests on other DataNodes that have a replica of the data. The retries value should be zero.</p>
+</li>
+<li>
+<p><span class="bold">cell XT granule IO bytes saved by storage index</span></p>
+<p>The number of bytes filtered out by storage indexes at the storage cell level. This is data that was not scanned, based information provided by the storage indexes.</p>
+</li>
+</ul>
+<p>You can check these statistics before and after running queries as follows. This example shows the values at null, before running any queries.</p>
+<pre dir="ltr">
+SQL&gt; SELECT sn.name,ms.value 
+FROM V$MYSTAT ms, V$STATNAME sn 
+WHERE ms.STATISTIC#=sn.STATISTIC# AND sn.name LIKE '%XT%'; 
+
+NAME                                                      VALUE
+-----------------------------------------------------     -----
+cell XT granules requested for predicate offload          0 
+cell XT granule bytes requested for predicate offload     0
+cell interconnect bytes returned by XT smart scan         0 
+cell XT granule predicate offload retries                 0
+cell XT granule IO bytes saved by storage index           0 
+</pre>
+<p>You can check some or all of these statistics after execution of a query to test the effectiveness of the query, as in:</p>
+<pre dir="ltr">
+SQL&gt; SELECT n.name, round(s.value/1024/1024) 
+FROM v$mystat s, v$statname n
+WHERE s.statistic# IN (462,463)
+AND s.statistic# = n.statistic#;
+
+cell XT granule bytes requested for predicate offload  32768
+cell interconnect bytes returned by XT smart scan   32
+</pre>
+<div class="infobox-tip" id="GUID-6D36AE78-D33B-4923-B680-8B7E43242D7B__GUID-F526D2F1-D85C-4978-8026-6C0BFF6D8887">
+<p class="notep1">Tip:</p>
+<p>The <a href="https://blogs.oracle.com/datawarehousing/entry/big_data_sql_quick_start" target="_blank">Oracle Big Data SQL Quickstart</a> blog, published in the <a href="https://blogs.oracle.com/datawarehousing/" target="_blank">Data Warehouse Insider</a>, provides a series of code and functionality walkthroughs that show you how to use these statistics to analyze the performance of Oracle Big Data SQL. See <a href="https://blogs.oracle.com/datawarehousing/entry/big_data_sql_quick_start1" target="_blank">Part 2</a>, <a href="https://blogs.oracle.com/datawarehousing/entry/big_data_sql_quick_start6" target="_blank">Part 7</a>, and <a href="https://blogs.oracle.com/datawarehousing/entry/big_data_sql_quick_start9" target="_blank">Part 10</a>.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-2C4F2B56-A23F-4E0D-9B17-99F439F8ECA5"></a>
+<h2 id="BDSUG-GUID-2C4F2B56-A23F-4E0D-9B17-99F439F8ECA5" class="sect2"><span class="enumeration_section">1.2</span> Installation</h2>
+<div>
+<p>Oracle Big Data SQL requires installation of components on the Hadoop system where the data resides and also on the Oracle Database server which queries the data.</p>
+<p>See the following resources for installation information:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a class="olink BDSIG-GUID-FD8320C5-48C0-4834-9730-AAF4193CE3CA" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E87336-01&amp;id=BDSIG-GUID-FD8320C5-48C0-4834-9730-AAF4193CE3CA">Oracle Big Data SQL Installation Guide</a></p>
+<p>This guide describes installation and configuration procedures for supported Hadoop system/Oracle Database server combinations.</p>
+</li>
+<li>
+<p><span class="italic"><a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=400361405103392&amp;id=2119369.1&amp;_adf.ctrl-state=j8ryazrl8_77" target="_blank">Oracle Big Data SQL Master Compatibility Matrix</a></span></p>
+<div class="p">This is Document 2119369.1 in <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a>. Check the matrix for up-to-date information on Big Data SQL compatibility with the following:
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Engineered Systems.</p>
+</li>
+<li>
+<p>Other systems.</p>
+</li>
+<li>
+<p>Linux OS distributions and versions.</p>
+</li>
+<li>
+<p>Hadoop distributions.</p>
+</li>
+<li>
+<p>Oracle Database releases, including required patches.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="preface.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="bigsql.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="http://docs.oracle.com/bigdata/bds32/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

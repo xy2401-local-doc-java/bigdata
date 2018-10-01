@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Diagnostic Tips and Details</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Not Big Data SQL Cloud Service Topic This topic does not apply to Oracle Big Data SQL Cloud Service." />
+<meta name="dcterms.created" content="2018-05-01T12:27:20Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User&rsquo;s Guide" />
+<meta name="dcterms.identifier" content="E77162-12" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds31/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="using_copy_to_hadoop_direct_copy.htm" title="Previous" type="text/html" />
+<link rel="Next" href="licensing_info.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77162-12.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"322179",ustr:"",originlat:"0",clientrtt:"2",ghostip:"23.212.3.15",ipv6:false,pct:"10",clientip:"45.78.37.67",requestid:"147c3c5",region:"32996",protocol:"",blver:14,akM:"dsca",akN:"ae",akTT:"O",akTX:"1",akTI:"147c3c5",ai:"206465",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-06CA49FF-39AF-45B3-85D9-C3EB65B971CC"></a> <span id="PAGE" style="display:none;">11/13</span> <!-- End Header -->
+<h1 id="BDSUG-GUID-06CA49FF-39AF-45B3-85D9-C3EB65B971CC" class="sect1"><span class="enumeration_chapter">C</span> Diagnostic Tips and Details</h1>
+<div>
+<p><span><img width="34" height="32" src="img/GUID-C72DC198-E369-4550-B147-149B67FDFDDB-default.png" alt="Not Big Data SQL Cloud Service Topic" title="Not Big Data SQL Cloud Service Topic" /> This topic does not apply to Oracle Big Data SQL Cloud Service.</span></p>
+<div class="infobox-note" id="GUID-06CA49FF-39AF-45B3-85D9-C3EB65B971CC__GUID-8BBF31F6-BE51-4D3B-AA3C-4FB3D8CE152D">
+<p class="notep1">Note:</p>
+<p>This section contains diagnostic information that is relevant to on-premises Oracle Big Data SQL. These details may be of interest to Oracle Big Data SQL Cloud Service users, but they are not needed in order to use the service.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-F77B1873-9347-464E-B3A0-26F8F9F6DCD2"></a>
+<h2 id="BDSUG-GUID-F77B1873-9347-464E-B3A0-26F8F9F6DCD2" class="sect2"><span class="enumeration_section">C.1</span> Running Diagnostics with bdschecksw</h2>
+<div>
+<p>On the Oracle Database server, you can use the Big Data SQL Diagnostics Collection tool, <code class="codeph">bdschecksw</code>, to do a simple sanity test of Oracle Big Data SQL. This script gathers and analyzes diagnostic information about the Oracle Big Data SQL installation from both the Oracle Database and the Hadoop cluster sides of the installation. The script is in <code>$ORACLE_HOME/bin.</code></p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<p><code class="codeph">bdschecksw <span class="codeinlineitalic">Required_Params</span> [<span class="codeinlineitalic">Options</span>]</code></p>
+<p>The table below describes the requireed and optional parameters used with <code class="codeph">bdschecksw</code>.</p>
+<div class="tblformal" id="GUID-F77B1873-9347-464E-B3A0-26F8F9F6DCD2__BDSCHECKSWOPTIONS-69356204">
+<p class="titleintable">Table C-1 bdschecksw Parameters</p>
+<table class="cellalignment31" title="bdschecksw Parameters" summary="The first column identifies the options recognized by the script. The second column describes the action performed by bdschecksw when each of the options is applied. The third column states whether the parameter is required or optional.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment32" id="d22985e76">Parameter</th>
+<th class="cellalignment32" id="d22985e78">Description</th>
+<th class="cellalignment32" id="d22985e80">Required or Optional</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e84" headers="d22985e76"><code class="codeph">-h, --help</code></td>
+<td class="cellalignment33" headers="d22985e84 d22985e78">Display command help and exit.</td>
+<td class="cellalignment33" headers="d22985e84 d22985e80">Optional</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e92" headers="d22985e76"><code class="codeph">-d, --dbhome <span class="codeinlineitalic">ORACLE_HOME</span></code></td>
+<td class="cellalignment33" headers="d22985e92 d22985e78">The path to the Oracle installation on the Oracle Database server.</td>
+<td class="cellalignment33" headers="d22985e92 d22985e80">Required only if the <code class="codeph">ORACLE_HOME</code> environment variable is not defined on the Oracle Database server where <code class="codeph">bdschecksw</code> is executed.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e109" headers="d22985e76"><code class="codeph">&nbsp;-s, --sid=[<span class="codeinlineitalic">ORACLE_SID</span>]</code></td>
+<td class="cellalignment33" headers="d22985e109 d22985e78">The SID of the Oracle Database server.</td>
+<td class="cellalignment33" headers="d22985e109 d22985e80">Required only if the <code class="codeph">ORACLE_SID</code> environment variable is not defined on the Oracle Database server where bdschecksw is executed.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e123" headers="d22985e76"><code class="codeph">&nbsp;-g, --gihome=<span class="codeinlineitalic">Grid_Infrastructure_home</span> <span class="codeinlineitalic">Oracle_Database_node_IP_address</span></code></td>
+<td class="cellalignment33" headers="d22985e123 d22985e78">The Grid Infrastructure path on the Oracle Database server.</td>
+<td class="cellalignment33" headers="d22985e123 d22985e80">Required only if the <code class="codeph">GI_HOME</code> environment variable is not defined on the Oracle Database server where bdschecksw is executed.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e140" headers="d22985e76"><code class="codeph">-q, --sqlplus <span class="codeinlineitalic">Oracle_Database_node_IP_address</span> <span class="codeinlineitalic">username</span></code></td>
+<td class="cellalignment33" headers="d22985e140 d22985e78">SQLPlus username on the Oracle Database server. The user is prompted for the password.</td>
+<td class="cellalignment33" headers="d22985e140 d22985e80">Required.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e154" headers="d22985e76"><code class="codeph">-c, --cell <span class="codeinlineitalic">DNS short name</span> [...n]</code></td>
+<td class="cellalignment33" headers="d22985e154 d22985e78">The Hadoop cluster cell nodes. Use DNS short names (FQDN minus domain name) with a space as a delimiter. IP addresses are not recommended, because a node may exist on multiple networks.</td>
+<td class="cellalignment33" headers="d22985e154 d22985e80">Required for Hortonworks HDP only.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e165" headers="d22985e76"><code class="codeph">-u, --uname <span class="codeinlineitalic">Hadoop_cluster_node_username</span></code></td>
+<td class="cellalignment33" headers="d22985e165 d22985e78">Credentials to run remote commands on the Hadoop cluster from the Oracle Database server. This is usually the <code class="codeph">oracle</code> user.</td>
+<td class="cellalignment33" headers="d22985e165 d22985e80">The username and password are always required.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e179" headers="d22985e76"><code class="codeph">-p,--pdb=<span class="codeinlineitalic">PDB_CONTAINER</span></code></td>
+<td class="cellalignment33" headers="d22985e179 d22985e78">The Pluggable Database container name on the Oracle Database server.</td>
+<td class="cellalignment33" headers="d22985e179 d22985e80">Required only if the Pluggable Database (PDB) container is configured on the Oracle Database server where bdschecksw is executed.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e189" headers="d22985e76"><code class="codeph">&nbsp;&nbsp;-k, --key <span class="codeinlineitalic">SSH_identity_key_file</span></code></td>
+<td class="cellalignment33" headers="d22985e189 d22985e78">Path to an SSH (Secure Shell) key file.</td>
+<td class="cellalignment33" headers="d22985e189 d22985e80">The optional SSH identity (or key) file is used on top of <code class="codeph">-u</code> and <code class="codeph">-p</code> to selects a file from which the identity (private key) for public key authentication is read.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e205" headers="d22985e76"><code class="codeph">&nbsp;&nbsp;-r, --cluster <span class="codeinlineitalic">Hadoop_cluster_name</span></code></td>
+<td class="cellalignment33" headers="d22985e205 d22985e78">Hadoop cluster name.</td>
+<td class="cellalignment33" headers="d22985e205 d22985e80">Optional.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e215" headers="d22985e76"><code class="codeph">-t, --trace</code></td>
+<td class="cellalignment33" headers="d22985e215 d22985e78">Turn on extproc and log4j tracing during test execution.</td>
+<td class="cellalignment33" headers="d22985e215 d22985e80">Optional.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e224" headers="d22985e76"><code class="codeph">&nbsp;&nbsp;-f, --file=<span class="codeinlineitalic">file_path</span></code></td>
+<td class="cellalignment33" headers="d22985e224 d22985e78">Redirect output to the file.</td>
+<td class="cellalignment33" headers="d22985e224 d22985e80">Optional.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e234" headers="d22985e76"><code class="codeph">&nbsp;&nbsp;-i, --interactive</code></td>
+<td class="cellalignment33" headers="d22985e234 d22985e78">Enter command line arguments interactively (rather than all at once).</td>
+<td class="cellalignment33" headers="d22985e234 d22985e80">Optional.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e242" headers="d22985e76"><code class="codeph">&nbsp;&nbsp;-v, --verbose</code></td>
+<td class="cellalignment33" headers="d22985e242 d22985e78">Verbose reporting mode.</td>
+<td class="cellalignment33" headers="d22985e242 d22985e80">Optional. (Recommended for full details in the report.)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Exit Status</p>
+<p>The <code class="codeph">bdschecksw</code> script returns one of the following status codes.</p>
+<div class="tblformal" id="GUID-F77B1873-9347-464E-B3A0-26F8F9F6DCD2__GUID-83A34AF1-A94B-4192-9974-6247DDD46C33">
+<p class="titleintable">Table C-2 Status Codes for bdschecksw</p>
+<table class="cellalignment31" title="Status Codes for bdschecksw" summary="The first column lists the status codes. The second column describes each code.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment40" id="d22985e267">Status</th>
+<th class="cellalignment40" id="d22985e269">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e273" headers="d22985e267">0</td>
+<td class="cellalignment2" headers="d22985e273 d22985e269">Success</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e278" headers="d22985e267">1</td>
+<td class="cellalignment2" headers="d22985e278 d22985e269">Minor problem (for example, no response in interactive mode).</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e283" headers="d22985e267">2</td>
+<td class="cellalignment2" headers="d22985e283 d22985e269">Significant problem (for example, an invalid command line argument.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-F77B1873-9347-464E-B3A0-26F8F9F6DCD2__GUID-3B9F5332-71BB-4849-9672-0EB2757F9134"><code class="codeph">$ ./bdschecksw -d /u03/app/oracle/product/12.1.0/dbhome_1 -s orcl -p pdborcl -g /u03/app/oracle/product/12.1.0/grid -q sys -u oracle -v</code></div>
+<!-- class="example" --></div>
+</div>
+<div class="sect2"><a id="GUID-56DD3366-5CF6-4125-87FE-A64F6CE4448C"></a>
+<h2 id="BDSUG-GUID-56DD3366-5CF6-4125-87FE-A64F6CE4448C" class="sect2"><span class="enumeration_section">C.2</span> How to do a Quick Test</h2>
+<div>
+<p>Here is an all-around series of basic checks to ensure that Oracle Big Data SQL is working.</p>
+<div class="section">
+<ol>
+<li>
+<p>On the Oracle Database server, source the environment using the <code>hadoop_&lt;hcluster&gt;.env</code> file in <code>$ORACLE_HOME/bigdatasql</code>.</p>
+</li>
+<li>
+<div class="p">If Kerberos is enabled, <code class="codeph">kinit</code> as the <code class="codeph">oracle</code> Linux user on the Oracle Database server. If possible, also <code class="codeph">kinit</code> on each of the Big Data SQL datanodes as the <code class="codeph">oracle</code> user.
+<div class="infobox-note" id="GUID-56DD3366-5CF6-4125-87FE-A64F6CE4448C__GUID-9E906479-08CA-459E-A389-9AB72812B4DC">
+<p class="notep1">Note:</p>
+You can run this test without running <code class="codeph">kinit</code> on the datanodes, but then offloading in the test will not work. You will eventually need to <code class="codeph">kinit</code> on the datanodes in order to verify that offloading is working.</div>
+</div>
+</li>
+<li>
+<p>Create a text file and add several of lines of random text.</p>
+</li>
+<li>
+<p>Copy the text file into hdfs as <code>/user/oracle/test.txt</code>.</p>
+<pre dir="ltr">
+$ hadoop fs -put test.txt /user/oracle/test.txt
+</pre></li>
+<li>
+<p>Define an Oracle external table of type <code class="codeph">ORACLE_HDFS</code>:</p>
+<ol>
+<li>
+<div class="p">
+<pre dir="ltr">
+CREATE TABLE bds_test (line VARCHAR2(4000)) 
+  ORGANIZATION EXTERNAL
+     ( TYPE ORACLE_HDFS DEFAULT DIRECTORY DEFAULT_DIR LOCATION ('/user/oracle/test.txt') ) 
+  REJECT LIMIT UNLIMITED;  
+</pre></div>
+</li>
+<li>
+<p><code class="codeph">Select * from bds_test;</code></p>
+</li>
+<li>
+<p><code class="codeph">select n.name, s.value /* , s.inst_id, s.sid */ from v$statname n, gv$mystat s where n.name like '%XT%' and s.statistic# = n.statistic#;</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Define a Hive table:</p>
+<ol>
+<li>
+<p>Connect to Hive via Hue, the Hive/Beeline command line, or using Oracle SQL Developer with a Hive JDBC driver.</p>
+</li>
+<li>
+<p><code class="codeph">CREATE TABLE bds_test_hive (line string);</code></p>
+</li>
+<li>
+<p><code class="codeph">LOAD DATA INPATH '/user/oracle/test.txt' OVERWRITE INTO TABLE bds_test_hive;</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Define an external <code class="codeph">ORACLE_HIVE</code> table:</p>
+<pre dir="ltr">
+CREATE TABLE bds_test_hive (line VARCHAR2(4000))   
+    ORGANIZATION EXTERNAL
+    ( TYPE ORACLE_HIVE DEFAULT DIRECTORY DEFAULT_DIR
+      ACCESS PARAMETERS
+        (com.oracle.bigdata.tablename=default.bds_test_hive)  
+    )
+  REJECT LIMIT UNLIMITED;  
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-E603434A-F1DB-44F4-9B2B-9F3210160586"></a>
+<h2 id="BDSUG-GUID-E603434A-F1DB-44F4-9B2B-9F3210160586" class="sect2"><span class="enumeration_section">C.3</span> Oracle Big Data SQL Database Objects</h2>
+<div>
+<div class="section">
+<div class="tblformal" id="GUID-E603434A-F1DB-44F4-9B2B-9F3210160586__GUID-CF65D020-BF61-4286-8820-C5302A7A73AE">
+<p class="titleintable">Table C-3 Database Objects in Big Data SQL</p>
+<table class="cellalignment31" title="Database Objects in Big Data SQL" summary="The first column describes the type of database object. The second column names and describes the object.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment32" id="d22985e425">Type</th>
+<th class="cellalignment32" id="d22985e427">Object</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e431" headers="d22985e425">
+<p>Directories</p>
+</td>
+<td class="cellalignment33" headers="d22985e431 d22985e427">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">DEFAULT_DIR</code> &ndash; points to <code>$ORACLE_HOME/bigdatasql/default_dir</code>.</p>
+</li>
+<li>
+<p><code class="codeph">ORACLE_BIGDATA_CONFIG</code> &ndash; points to <code>$ORACLE_HOME/bigdatasql/bigdata_config</code>.</p>
+</li>
+<li>
+<p><code class="codeph">ORA_BIGDATA_CL_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> &ndash; expected to have a null value for its path.</p>
+<p>This is a way of limiting access. There always must be a directory object associated with an external table. Because the directory object is used for privilege checking, this is a requirement even for Hive/HDFS, where the files do not reside under the directory.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e463" headers="d22985e425">
+<p>Database Links (public)</p>
+<p>These allow Big Data SQL to reach the MTA (multi-threaded agent)</p>
+</td>
+<td class="cellalignment33" headers="d22985e463 d22985e427">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">BDSQL$_DEFAULT_CLUSTER</code> &ndash; the connect string&rsquo;s SID should equal <code class="codeph">bds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> . And the <code class="codeph">&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> should be the default cluster (as defined by <code class="codeph">bigdata.cluster.default</code>) in <code>$ORACLE_HOME/bigdatasql/bigdata_config /bigdata.properties</code>.</p>
+</li>
+<li>
+<p><code class="codeph">BDSQL$_&lt;hcluster&gt;</code> - the connect string&rsquo;s SID should equal <code class="codeph">bds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code>.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e511" headers="d22985e425">
+<p>Data Dictionary Views</p>
+</td>
+<td class="cellalignment33" headers="d22985e511 d22985e427">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">User_hive_tables, all_hive_tables, dba_hive_tables</code> &ndash; queries all Hive tables for all Hive databases for all Hadoop clusters.</p>
+</li>
+<li>
+<p><code class="codeph">User_hive_databases, all_hive_databases, dba_hive_databases</code> &ndash; queries all Hive databases for all Hadoop clusters.</p>
+</li>
+<li>
+<p><code class="codeph">User_hive_columns, all_hive_columns, dba_hive_columns</code> &ndash; queries all hHive tables for all Hive databases for all Hadoop clusters.</p>
+</li>
+<li>
+<p><code class="codeph">V$cell</code> &ndash; the Oracle Big Data SQL server processes running on datanodes will appear here (if properly detected by the diskmon).</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e537" headers="d22985e425">
+<p>Functions and Procedures for Hive Data Dictionary</p>
+<p>See <code>cathive.sql</code>, <code class="codeph">dbmshadp.sql</code>.</p>
+</td>
+<td class="cellalignment33" headers="d22985e537 d22985e427">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">DBMS_HADOOP</code></p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">Create_extddl_for_hive()</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code class="codeph">GetHiveTable</code> &ndash; pipeline function that returns data back from the <code class="codeph">extproc</code> external procedure. Used by the <code class="codeph">*_hive_[tables/databases/columns]</code> views and <code class="codeph">DBMS_HADOOP</code>.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">HiveMetadata</code> &ndash; ODCI framework defining the external procedure<code class="codeph">GetHiveTable</code>.</p>
+</li>
+<li>
+<p><code class="codeph">SYS.DBMSHADOOPLIB (libkubsagt12.so)</code> &ndash; C library for the external procedure.</p>
+</li>
+<li>
+<p><code class="codeph">HiveMetadata.jar</code> &ndash; java library called by <code class="codeph">libkubsagt12.so</code>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e596" headers="d22985e425">
+<p>Tables</p>
+</td>
+<td class="cellalignment33" headers="d22985e596 d22985e427"><code class="codeph">SYS.HIVE_URI$</code> &ndash; security table for non-DBA users.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e604" headers="d22985e425">
+<p>Statistics</p>
+</td>
+<td class="cellalignment33" headers="d22985e604 d22985e427">
+<ul style="list-style-type: disc;">
+<li>
+<p>All statistics have %XT% in the name:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>cell XT granules requested for predicate offload</p>
+</li>
+<li>
+<p>cell XT granule bytes requested for predicate offload</p>
+</li>
+<li>
+<p>cell interconnect bytes returned by XT smart scan</p>
+</li>
+<li>
+<p>cell XT granule predicate offload retries</p>
+</li>
+<li>
+<p>cell XT granule IO bytes saved by storage index</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Use this query:</p>
+<pre dir="ltr">
+select n.name, s.value /* , s.inst_id, s.sid */ from v$statname n, v$mystat s
+where n.name like '%XT%' and s.statistic# = n.statistic# ;
+</pre>
+<p>If needed, also use: <code class="codeph">grant select any catalog to &lt;<span class="codeinlineitalic">dbuser</span>&gt;;</code></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-551B309A-AD65-4690-AD04-DFBDB8378217"></a>
+<h2 id="BDSUG-GUID-551B309A-AD65-4690-AD04-DFBDB8378217" class="sect2"><span class="enumeration_section">C.4</span> Other Database-Side Artifacts</h2>
+<div>
+<div class="section">
+<div class="tblformal" id="GUID-551B309A-AD65-4690-AD04-DFBDB8378217__GUID-4A8DA25A-B10C-4622-915D-9840E83095F5">
+<p class="titleintable">Table C-4 $ORACLE_HOME/bigdatasql Directory</p>
+<table class="cellalignment31" title="$ORACLE_HOME/bigdatasql Directory" summary="The first column identifies the general type of the object. The second column identifies specific instances and provides a description.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment40" id="d22985e667">Subdirectory or Filename</th>
+<th class="cellalignment40" id="d22985e669">Description of Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e673" headers="d22985e667">
+<p><code class="codeph">bigdata_config</code> directory</p>
+</td>
+<td class="cellalignment2" headers="d22985e673 d22985e669">
+<ul style="list-style-type: disc;">
+<li>
+<p><code>bigdata.properties</code> &ndash; Defines the location of JAR files. If your Hive tables use non-standard Java libraries, you may need to copy those libraries to the database and update the <code class="codeph">classpath</code> entries in this file. Also defines the Hadoop cluster list and default cluster. Restart the <code class="codeph">extprocbds_&lt;dbname&gt;_&lt;hcluster&gt;</code> after changing.</p>
+</li>
+<li>
+<p><code>bigdata-log4j.properties</code> - This controls the logging of the Java pieces, such as the metadata discovery phase of querying external tables or the query fetch phase if the cells are unavailable. Change <code>log4j.logger.oracle.hadoop.sql</code> to <code class="codeph">INFO</code> to log more. Restart the <code class="codeph">extprocbds_&lt;dbname&gt;_&lt;hcluster&gt;</code> after changing.</p>
+</li>
+<li>
+<p><code>&lt;hcluster&gt;</code> directory &ndash; contains the client configuration files (like <code>hive-site.xml</code>) copied from the Hadoop cluster.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e714" headers="d22985e667">
+<p><code class="codeph">default_dir</code> directory</p>
+</td>
+<td class="cellalignment2" headers="d22985e714 d22985e669">
+<p>This directory is usually empty.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e723" headers="d22985e667">
+<p><code class="codeph">log</code> directory</p>
+</td>
+<td class="cellalignment2" headers="d22985e723 d22985e669">
+<p>Contains Java log files from the two type of extprocs. Use the PID that is part of the filename to identify which extproc you are looking at (only one log file will have the PID of the currently running <code class="codeph">extprocbds_ &lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span></code>&gt; process).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e740" headers="d22985e667">
+<p><code>hadoop_&lt;hcluster&gt;.env</code></p>
+</td>
+<td class="cellalignment2" headers="d22985e740 d22985e669">
+<p>You can source this file and then run <code class="codeph">hadoop fs</code> commands to quickly test Hadoop connectivity</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="tblformal" id="GUID-551B309A-AD65-4690-AD04-DFBDB8378217__GUID-1AD21889-995F-4850-A8D1-BDA66A514089">
+<p class="titleintable">Table C-5 External Procedure Agents</p>
+<table class="cellalignment31" title="External Procedure Agents" summary="The left column names the agent. The right column describes the agent.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment40" id="d22985e760">Agent</th>
+<th class="cellalignment40" id="d22985e762">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e766" headers="d22985e760">
+<p><code class="codeph">extproc</code></p>
+</td>
+<td class="cellalignment2" headers="d22985e766 d22985e762">
+<p>Runs the external procedure code used by the <code class="codeph">*_hive_tables</code>, <code class="codeph">*_hive_databases</code> views and the <code class="codeph">DBMS_HADOOP</code> procedure.</p>
+<p><code>$ORACLE_HOME/hs/admin/extproc.ora</code> configures the extproc. You can add <code class="codeph">TRACE_LEVEL=ON</code> to get more trace (but may need to first comment out<code class="codeph">SET EXTPROC_DLLS=</code> to fix the &ldquo;Error in assignment statement&rdquo; message). The C portion&rsquo;s log files are in <code>$ORACLE_HOME/hs/log/orcl_agt*</code> , but these are usually not interesting for diagnostic purposes. The JVM portion&rsquo;s log files are written to <code>$ORACLE_HOME/bigdatasql/log</code> (but you need to set up <code class="codeph">bigdata-log4j.properties</code> first).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e802" headers="d22985e760">
+<p><code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code></p>
+</td>
+<td class="cellalignment2" headers="d22985e802 d22985e762">
+<p>The BDS Multi-threaded Agent that is used when querying external tables. This is started/stopped by Oracle Clusterware which in turn runs the <code class="codeph">mtactl</code> utility. This is registered to Oracle Clusterware when <code>bds_exa_install.sh</code> runs on the last database server node.</p>
+<div class="p">If you don&rsquo;t have this <code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> running, then you probably didn&rsquo;t run <code>bds_exa_install.sh</code> on every database server in your RAC cluster. The C portion&rsquo;s log files are in <code>$ORACLE_HOME/hs/log</code> (but you need to edit <code>$ORACLE_HOME/hs/admin/initbds</code> &ndash; add <code class="codeph">TRACE_LEVEL=ON</code> and then restart to see logging). The JVM portion&rsquo;s log files go into <code>$ORACLE_HOME/bigdatasql/log</code> (but you need to setup <code class="codeph">bigdata-log4j.properties</code> and restart). This is the recommended way to restart (although the quicker way is to run <code class="codeph">kill -9</code> on the process):
+<pre dir="ltr">
+$ crsctl stop resource bds_&lt;<span class="italic">dbname</span>&gt;_&lt;<span class="italic">hcluster</span>&gt;
+$ crsctl start resource bds_&lt;<span class="italic">dbname</span>&gt;_&lt;<span class="italic">hcluster</span>&gt;
+</pre></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infobox-note" id="GUID-551B309A-AD65-4690-AD04-DFBDB8378217__GUID-E67D500E-64F8-42BA-A323-4052A4BCFC52">
+<p class="notep1">Note:</p>
+Both of External Procedures in the table above make callbacks to the database, which can be blocked by the use of the Secure External Password Store feature. If you use Secure External Password Store (<code class="codeph">SQLNET.WALLET_OVERRIDE=TRUE</code>), see Document 2126903.1 in <a href="https://support.oracle.com/epmos/faces/documentdisplay?_afrloop=70424289933567&amp;id=2126903.1&amp;_adf.ctrl-state=axygy6w4a_134" target="_blank">My Oracle Support</a>.</div>
+<div class="tblformal" id="GUID-551B309A-AD65-4690-AD04-DFBDB8378217__GUID-3460D72E-D73A-4344-A3E9-79A47A1B36C9">
+<p class="titleintable">Table C-6 Log Files and Trace Files</p>
+<table class="cellalignment31" title="Log Files and Trace Files" summary="The left column names the directory or filename. The right column describes the directory or filename.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment32" id="d22985e887">Directory or Filename</th>
+<th class="cellalignment32" id="d22985e889">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e893" headers="d22985e887">
+<p><code>$ORACLE_HOME/bigdatasql/log</code></p>
+</td>
+<td class="cellalignment33" headers="d22985e893 d22985e889">
+<p>Contains log files from Java code run via the <code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> &ndash; one shared file with PID equal to the <code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> PID and <code class="codeph">extproc</code> (one per session if the session uses <code>*_hive_tables</code> or <code class="codeph">DBMS_HADOOP</code>). Tip: This is good diagnostic information.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e928" headers="d22985e887">
+<p><code>$ORACLE_HOME/hs/log</code></p>
+</td>
+<td class="cellalignment33" headers="d22985e928 d22985e889">
+<p>Contains log files from the C code of the <code class="codeph">extproc</code> processes (one per session) and the multi-threaded<code class="codeph">extbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> process. The <code class="codeph">exproc</code> is usually not interesting for diagnostic purposes. The <code class="codeph">extprocbds_*</code> has a bit more interesting information (but you need to set <code class="codeph">TRACE_LEVEL=ON</code> in <code>initbds_*.ora</code>).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e961" headers="d22985e887">
+<p>Database <code>diag</code> directory</p>
+</td>
+<td class="cellalignment33" headers="d22985e961 d22985e889">
+<p>Contains log files from the database session. These can yield good information.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To identify the exact database session log file location:</p>
+<pre dir="ltr">
+select value from v$diag_info WHERE name = 'Default Trace File';
+</pre></li>
+<li>
+<p>To turn on external table logging:</p>
+<pre dir="ltr">
+alter session set "_xt_trace"="low","compilation","execution"; 
+</pre></li>
+<li>
+<p>To turn on additional logging:</p>
+<pre dir="ltr">
+alter session set events 'trace[KCFIS] disk high, memory high';
+</pre></li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e987" headers="d22985e887">
+<p><code class="codeph">/u01/oracle/diag/crs/&lt;<span class="codeinlineitalic">hostname</span>&gt;/crs/trace/diskmon.trc</code></p>
+</td>
+<td class="cellalignment33" headers="d22985e987 d22985e889">
+<p>Contains <code class="codeph">diskmon</code> logs and errors. In a commodity Oracle Database server to commodity Hadoop environment (support in Oracle Big Data SQL 3.0 and greater), check this trace file for communication errors or fencing (<code class="codeph">ENTITY_FENCED</code>). Restart <code class="codeph">diskmon</code> if needed (use <code class="codeph">crsctl</code>). In a commodity-to-commodity environment, you can simply kill the <code class="codeph">diskmon</code> process, but do not do that in an Oracle Exadata Database Machine environment.</p>
+<p>If you want to get additional <code class="codeph">diskmon</code> tracing, you can set environment parameters before you invoke the <code class="codeph">crsctl</code> command to start the cluster. Since the cluster is likely already running, you&rsquo;ll first have to shut the cluster down. Then, set the environment and then start it back up. Here is how you do it in the Oracle Big Data SQL 3.x commodity database server scenario using Oracle Restart. (Note that the <code class="codeph">crsctl</code> commands will be different if using RAC, ASM, and/or Exadata):</p>
+<pre dir="ltr">
+crsctl stop has export CELLCLIENT_TRACE_LEVEL="all,4"
+export CELLCLIENT_AUTOFLUSH_LEVEL="all,4"
+crsctl start has
+</pre></td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e1026" headers="d22985e887">
+<p><code>/etc/oracle/cell/network-config/cellinit.ora</code></p>
+<p><code>/etc/oracle/cell/network-config/celliniteth.ora</code></p>
+</td>
+<td class="cellalignment33" headers="d22985e1026 d22985e889">
+<p>Record the IP address and subnet range for the database server. For Oracle Big Data SQL on commodity servers, this file also includes parameters which switch the protocol away from InfiniBand RDS to TCP/UDP (<code class="codeph">_skgxp_dynamic_protocol=2</code>). On commodity servers , the database server&rsquo;s <code class="codeph">diskmon</code> (running out of the Oracle Grid home) communicates with the BDS processes on the data nodes listening on TCP port 5042.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d22985e1043" headers="d22985e887">
+<p>Kerberos files: <code class="codeph">kinit, klist, etc/krb5.conf, krb5-workstation*.rpm</code></p>
+</td>
+<td class="cellalignment33" headers="d22985e1043 d22985e889">
+<p>If your Hadoop cluster uses Kerberos, you&rsquo;ll need to setup Kerberos on the database and have a mechanism (such as crontab) to keep a valid Kerberos ticket at all times for the <code class="codeph">oracle</code> Linux user. You will need a similar ticket renewal mechanism on the BDS datanodes as well.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-29E767A8-8975-4328-9369-D7B6BD6CB67C"></a>
+<h2 id="BDSUG-GUID-29E767A8-8975-4328-9369-D7B6BD6CB67C" class="sect2"><span class="enumeration_section">C.5</span> Hadoop Datanode Artifacts</h2>
+<div>
+<div class="section">
+<p>The table below identifies objects on the Hadoop server that can provide helpful information for troubleshooting Big Data SQL.</p>
+<div class="tblformal" id="GUID-29E767A8-8975-4328-9369-D7B6BD6CB67C__GUID-31B9F73B-1345-4D9D-A88E-9F83DDF8B169">
+<p class="titleintable">Table C-7 Hadoop-side Datanode Artifacts That are Useful for Troubleshooting</p>
+<table class="cellalignment31" title=" Hadoop-side Datanode Artifacts That are Useful for Troubleshooting" summary="Column 1 lists various items of interest found on datanodes. Column 2 describes each item.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment40" id="d22985e1084">Datanode Artifact</th>
+<th class="cellalignment40" id="d22985e1086">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e1090" headers="d22985e1084">
+<p><code>bdscli</code> command</p>
+</td>
+<td class="cellalignment2" headers="d22985e1090 d22985e1086">
+<ul style="list-style-type: disc;">
+<li>
+<p>List quarantine detail</p>
+</li>
+<li>
+<p>Drop quarantine all</p>
+</li>
+<li>
+<p>List alerthistory</p>
+</li>
+<li>
+<p>Drop alerthistory</p>
+</li>
+<li>
+<p>List bdsql detail</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e1113" headers="d22985e1084">
+<p>Log files</p>
+</td>
+<td class="cellalignment2" headers="d22985e1113 d22985e1086">
+<ul style="list-style-type: disc;">
+<li>
+<p><code>/var/log/bigdatasql/DM</code> &ndash; installer log files</p>
+</li>
+<li>
+<p><code>/var/log/bigdatasql/cloudera</code> or <code>/var/log/bigdatasql/ambari</code> &ndash; Ambari or CM service log files.</p>
+</li>
+<li>
+<p><code>/opt/oracle/bigdatasql/bdcell-12.1/bigdata.properties</code></p>
+</li>
+<li>
+<p><code>/opt/oracle/bigdatasql/bdcell-12.1/bigdata-log4j.properties</code></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>This defaults to logging off. Change to<code>log4j.logger.oracle.hadoop.sql=INFO</code> and restart.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>/opt/oracle/bigdatasql/bdcell-12.1/log</code> directory</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>bigdata-log4j.log</code> &ndash; logs entries from the JVM pieces of Big Data SQL (logging defaults to off, so edit <code>bigdata-log4j.properties</code> first and restart). This can be particularly useful information.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>/var/log/oracle/diag/bdsql/cell/&lt;hostname&gt;/trace/</code> &ndash; general cell trace files for the Management Server, Restart Server, and Monitor Server. The <code>alert.log</code> file will have details about quarantine and de-quarantine events.</p>
+</li>
+<li>
+<p><code>/var/log/oracle/diag/bdsql/cell/SYS_*/trace/</code> &ndash; Oracle Big Data SQL offload server trace files for the C portion. These are not useful for troubleshooting in most cases.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d22985e1174" headers="d22985e1084">Other datanode artifacts</td>
+<td class="cellalignment2" headers="d22985e1174 d22985e1086">
+<p><code>/opt/oracle/cell/cellsrv/deploy/config/cellinit.ora</code> &ndash; records the cell&rsquo;s IP address.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-E3BF2376-0A97-4634-A6AB-7A46CA077042"></a>
+<h2 id="BDSUG-GUID-E3BF2376-0A97-4634-A6AB-7A46CA077042" class="sect2"><span class="enumeration_section">C.6</span> Step-by-Step Process for Querying an External Table</h2>
+<div>
+<div class="section">
+<ol>
+<li>
+<p>User issues a SELECT query involving an Oracle Big Data SQL external table.</p>
+</li>
+<li>
+<p>Database sees that one of the objects in the SQL is an External table of type ORACLE_HIVE</p>
+</li>
+<li>
+<p>Database identifies the cluster name from the <code class="codeph">com.oracle.bigdata.cluster</code> parameter on the External table definition else uses the default cluster.</p>
+</li>
+<li>
+<p>Database identifies the Hive table name from the <code class="codeph">com.oracle.bigdata.tablename</code> parameter, else assumes the Hive table name is the same as the Oracle table name.</p>
+</li>
+<li>
+<p>Database knows that the ORACLE_HIVE External table implementation uses an external procedure which is invoked through the <code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> multi-threaded agent.</p>
+<div class="infobox-note" id="GUID-E3BF2376-0A97-4634-A6AB-7A46CA077042__GUID-7642F55E-B2B0-4C4D-81C9-974F7998009C">
+<p class="notep1">Note:</p>
+The first phase of the query requires getting the Hive metadata. If you get an error during this first phase, you&rsquo;ll likely see an error that begins as follows. Notice the &ldquo;OPEN&rdquo; in <code class="codeph">ODCIEXTTABLEOPEN</code>)
+<p><code class="codeph">ORA-29913: error in executing ODCIEXTTABLEOPEN callout</code></p>
+</div>
+</li>
+<li>
+<p>Database uses the public database link <code class="codeph">BDSQL$_DEFAULT_CLUSTER</code> or <code class="codeph">BDSQL$_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> to find the connect string to ask the listener to connect the database session to a thread of the extprocbds_dbname&gt;_hcluster&gt; multi-threaded agent</p>
+<ol>
+<li>
+<p><code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> was previously started by Oracle Clusterware and is using configuration information from the <code>$ORACLE_HOME/bigdatasql/bigdata_config</code> directory.</p>
+</li>
+<li>
+<p><code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> has spawned a JVM running Hadoop client libraries using the above configuration information. The Hadoop client libraries were copied from the Oracle Big Data Appliance to the Oracle Database server when you ran the <code>bds-exa-install.sh</code> script.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> uses its JVM and the Hive metastore client library to call the Hive metastore (using a URL such as <code>thrift://hostname&gt;:9083</code>) to get metadata (columns, inputformat, serde, other table properties) for the Hive table.</p>
+<ol>
+<li>
+<p>At this point, if the Hive metastore is protected by Kerberos authentication, the Hive client libraries running in the <code class="codeph">extprocbds</code> JVM on the Oracle Database server will try to send the local Kerberos ticket to the Hive server. This will be the ticket owned by the <code class="codeph">oracle</code> Linux user account who is running the database</p>
+</li>
+</ol>
+</li>
+<li>
+<p><code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> calls the Hive metastore to get a list of input paths that hold the data behind the Hive table.</p>
+</li>
+<li>
+<p><code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> converts the list of input paths into a list of splits/blocks using Hadoop MapReduce libraries and logic. Then it asks the HDFS namenode for the location (including replicas) of all of the splits /blocks.</p>
+<ol>
+<li>
+<p>Again, if HDFS is protected by Kerberos, the Kerberos ticket from the <code class="codeph">oracle</code> Linux user account on the database will be need to be used.</p>
+</li>
+<li>
+<p>If compression is used, at this point the JVM might have to load specific compression Java or native libraries. If these are non-standard libraries, you will need to install them on both the Oracle Database server and the Hadoop side. For instance, LZO compression requires an additional install and configuration performed on both the database-side on the Hadoop-side.</p>
+</li>
+</ol>
+<p>At this point, the &ldquo;description&rdquo; phase is done and the database knows the structure of the Hive table as well as the location of all of the blocks of data (including replicas). This information is also known as the metadata payload. We now begin the &ldquo;fetch&rdquo; phase.</p>
+</li>
+<li>
+<p>The database intelligent storage layer, KCFIS (Kernel Cache File Intelligent Storage), which is also used on Oracle Exadata systems, compares the hostnames of where the blocks of data are stored to a list of active BDSQL server hosts being maintained by the Grid&rsquo;s diskmon process. (You can see diskmon&rsquo;s list of BDSQL server hosts in V$CELL).</p>
+<div class="infobox-note" id="GUID-E3BF2376-0A97-4634-A6AB-7A46CA077042__GUID-A10B3747-39C7-444C-B274-F5AED8D97D26">
+<p class="notep1">Note:</p>
+The second phase of the query requires fetching the data. If you get an error during this second phase, you&rsquo;ll likely see an error that begins as folllows. Notice the &ldquo;FETCH&rdquo; in <code class="codeph">ODCIEXTTABLEFETCH</code>) :
+<pre dir="ltr">
+ORA-29913: error in executing ODCIEXTTABLEFETCH callout
+</pre></div>
+</li>
+<li>
+<p>Assuming that the list of datanode hostnames matches the list of BDSQL hostnames, the database sends a list of local blocks (also called Granules) to each of the BDSQL servers. The database also sends the BDSQL servers metadata about the table, columns, and structure it is accessing. It does this in parallel and asynchronously for performance</p>
+<div class="infobox-note" id="GUID-E3BF2376-0A97-4634-A6AB-7A46CA077042__GUID-243116AF-6889-410D-9C85-045911AFC7E5">
+<p class="notep1">Note:</p>
+The database statistics &ldquo;cell XT granules requested for predicate offload&rdquo; and &ldquo;<code class="codeph">cell XT granule bytes requested for predicate offload</code>&rdquo; are updated at this point</div>
+</li>
+<li>
+<p>The BDSQL process running on the data nodes checks the <code class="codeph">SQL_ID</code> against its local list of quarantined <code class="codeph">SQL_ID</code>s. If the <code class="codeph">SQL_ID</code> matches the quarantine list, then the BDSQL process on the datanode will return an error. However, the user should not see this error. Instead, the database will first try another cell, then try to do the work itself. (See Steps 15 and 16).</p>
+</li>
+<li>
+<p>Assuming the <code class="codeph">SQL_ID</code> is not quarantined by the BDSQL process on the datanode, the BDSQL process will do its SmartScan work against the list of blocks/granules sent to it.</p>
+<div class="infobox-tip" id="GUID-E3BF2376-0A97-4634-A6AB-7A46CA077042__GUID-2638C467-BD56-40CF-8D8D-2AC2DBA3C4D7">
+<p class="notep1">Tip:</p>
+See the blog entry <a href="https://blogs.oracle.com/datawarehousing/entry/big_data_sql_quick_start9" target="_blank">Big Data SQL Quick Start. Storage Indexes - Part10</a> in <a href="https://blogs.oracle.com/datawarehousing/" target="_blank">The Data Warehouse Insider</a> for details about Storage Indexes and other aspects of SmartScan processing.</div>
+<ol>
+<li>
+<p>The BDSQL offload process has previously read its configuration information from <code>/opt/oracle/bigdatasql/bdcell-12.1/bigdata.properties</code>.</p>
+</li>
+<li>
+<p>The BDSQL process has previously loaded a JVM based on the properties defined in the above configuration.</p>
+</li>
+<li>
+<p>If the Hive table has special InputFormat or Serde classes, the JVM will load those classes assuming it can find them based on the classpath defined in the above configuration. For some common InputFormats (such as delimited text), Oracle has written C code that can handle those formats faster than regular Java code.</p>
+</li>
+<li>
+<p>If Kerberos authentication is used, then the BDSQL&rsquo;s JVM will send its local Kerberos ticket to the HDFS datanode process. This is the Kerberos ticket associated with the <code class="codeph">oracle</code> Linux user on the datanode where BDSQL is running.</p>
+</li>
+<li>
+<p>If Sentry authorization is used, the <code class="codeph">oracle</code> Linux user&rsquo;s Kerberos ticket&rsquo;s identity needs to have been granted access to the Hive table and underlying HDFS data.</p>
+</li>
+<li>
+<p>The BDSQL server will update statistics like &ldquo;cell XT granule IO bytes saved by StorageIndex&rdquo; as it runs.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>The database kcfis layer will collect results as they are returned from the BDSQL processes on the datanodes and send the next batch of blocks/granules to the BDSQL processes.</p>
+<ol>
+<li>
+<p>The database will update the &ldquo;<code class="codeph">cell interconnect bytes returned by XT smart scan</code>&rdquo; statistic as bytes are returned</p>
+</li>
+</ol>
+</li>
+<li>
+<p>If there are issues with a BDSQL process for a given block, the database will try to send the work to a different BDSQL process (it will pick a location that has a replica of the block that failed).</p>
+<ol>
+<li>
+<p>The database will update the &ldquo;<code class="codeph">cell XT granule predicate offload retries</code>&rdquo; statistic.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>If the database is unable to get the BDSQL processes to successfully offload a block even after retrying, then the database will &ldquo;fallback&rdquo; and have the JVM in the <code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">db</span>&gt;_&lt;<span class="codeinlineitalic">cluster</span>&gt;</code> do the work.</p>
+<ol>
+<li>
+<p>This will be slower as the raw data will need to be moved to the database server for processing.</p>
+</li>
+<li>
+<p>If the Hive table has any special InputFormats or Serdes, the <code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">db</span>&gt;_&lt;<span class="codeinlineitalic">cluster</span>&gt;</code>&rsquo;s JVM will need to load them based on the classpath configuration defined on the database&rsquo;s <code>bigdata.properties</code> file.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>The results from the external table data source continue to be collected until all input paths/blocks/granules are handled.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-3D8A368C-4FBA-43CC-92B7-1C1616B39B82"></a>
+<h2 id="BDSUG-GUID-3D8A368C-4FBA-43CC-92B7-1C1616B39B82" class="sect2"><span class="enumeration_section">C.7</span> Step-by-Step for a Hive Data Dictionary Query</h2>
+<div>
+<div class="section">
+<ol>
+<li>
+<p>User queries one of the Oracle Big Data SQL data dictionary views, such as <code class="codeph">all_hive_tables</code>.</p>
+<p>In Oracle Big Data SQL 2.0 and earlier, if this was the <code class="codeph">user_hive_*</code> view and the user was not a DBA, then the user needed to be listed in the <code class="codeph">SYS.HIVE_URI$</code> table. Oracle Big Data SQL 3.0 removed the <code class="codeph">HIVE_URI$</code> check.</p>
+</li>
+<li>
+<p>The view accesses the <code class="codeph">GetHiveTable</code> pl/sql pipelined table function.</p>
+</li>
+<li>
+<p>The <code class="codeph">GetHiveTable</code> function is implemented by the <code class="codeph">HiveMetadata</code> type which is implemented as an external procedure using the <code class="codeph">SYS.DBMSHADOOPLIB</code> library.</p>
+</li>
+<li>
+<p>The Oracle Database spawns a new instance of the &ldquo;extproc&rdquo; for this database session. The extproc reads the <code>$ORACLE_HOME/hs/admin/extproc.ora</code> file for settings.</p>
+<p>You can set <code class="codeph">TRACE_LEVEL=ON</code> for tracing of the C code. Log file will be written to <code>$ORACLE_HOME/hs/log</code>.</p>
+<p>By default, there may be an error in the <code class="codeph">extproc.ora</code>, causing an &ldquo;<code class="codeph">Error in assignment statement</code>&rdquo; message in the log . The statement &ldquo;<code class="codeph">SET EXTPROC_DLLS=</code>&rdquo; (with no value after the equal sign) is not valid. Comment this line out if you want to use <code class="codeph">TRACE_LEVEL=ON</code> .</p>
+</li>
+<li>
+<p>The extproc attaches the <code class="codeph">libkubsagt.so</code> library (as in <code class="codeph">SYS.DBMSHADOOPLIB</code>).</p>
+</li>
+<li>
+<p><code class="codeph">Libkubsagt12.so</code> initiates a JVM and loads the <code class="codeph">HiveMetadata.jar</code>.</p>
+<ol>
+<li>
+<p>The JVM uses the configuration information in <code>$ORACLE_HOME/bigdatasql/bigdata_config/</code> to identify the list of clusters and their Hive metastore connection information.</p>
+</li>
+<li>
+<p>Logging for the JVM is based on <code>$ORACLE_HOME/bigdatasql/bigdata_config/bigdata-log4j.properties</code>. Log files will be written to <code>$ORACLE_HOME/bigdatasql/log</code> . There will be a new log file for each database session.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>The Java code in <code class="codeph">HiveMetadata.jar</code> uses the Hive metastore client libraries to connect to the Hive metastore to retrieve data about all of the databases and all of the tables.</p>
+<ol>
+<li>
+<p>If the Hive metastore is protected by Kerberos, the JVM will try to send the Kerberos ticket of the <code class="codeph">oracle</code> Linux user who is running the database</p>
+</li>
+</ol>
+</li>
+<li>
+<p>The Java code returns the request data back to the database.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-E4C6E3FF-132D-44F1-8F3A-2E22167D35C1"></a>
+<h2 id="BDSUG-GUID-E4C6E3FF-132D-44F1-8F3A-2E22167D35C1" class="sect2"><span class="enumeration_section">C.8</span> Key Adminstration Tasks for Oracle Big Data SQL</h2>
+<div>
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Restarting the <code class="codeph">extprocbds_&lt;db&gt;_&lt;hcluster&gt;</code>:</p>
+<pre dir="ltr">
+$  crsctl stop res bds_&lt;<span class="italic">dbname</span>&gt;_&lt;<span class="italic">hcluster</span>&gt;
+</pre>
+<p>Quick way, but not the best way: kill the <code class="codeph">extprocbds_*</code> process and wait for it to come back</p>
+</li>
+<li>
+<p>Restarting the extproc.</p>
+<p>This begins a new database session.</p>
+</li>
+<li>
+<p>Restarting the Oracle Big Data SQL software on the datanodes:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Use Cloudera Manager or the Ambari Web UI.</p>
+</li>
+<li>
+<p>Quick way, but not the best way: kill the <code class="codeph">bdsqloflsrv</code> process and wait for it to come back.</p>
+</li>
+<li>
+<p>Command line method on an Oracle Big Data Appliance (logged on as <code class="codeph">root</code> on node1):</p>
+<pre dir="ltr">
+$ bdacli stop big_data_sql_cluster
+$ bdacli start big_data_sql_cluster
+</pre></li>
+</ul>
+</li>
+<li>
+<p>Checking for Oracle Big Data SQL quarantines on a single datanode:</p>
+<pre dir="ltr">
+$ bdscli -e list quarantine detail 
+</pre>
+<p>To check for quarantines on all datanodes:</p>
+<pre dir="ltr">
+$ dcli -g cells.lst bdscli -e list quarantine detail
+</pre></li>
+<li>
+<p>Clearing Oracle Big Data SQL quarantines on a single datanode:</p>
+<pre dir="ltr">
+ $ bdscli -e drop quarantine all
+</pre>
+<p>To clear quarantines on all datanodes:</p>
+<code class="codeph">$ dcli -g cells.lst bdscli -e drop quarantine all</code></li>
+<li>
+<p>Checking statistics for proper offloading:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Use the Sql Monitor hint: <code class="codeph">/*+ MONITOR*/</code>.</p>
+</li>
+<li>
+<p>Query XT statistics. Ensure that &ldquo;retries&rdquo; is zero and &ldquo;bytes returned&rdquo; is greater than zero.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Looking for log files on the datanodes:</p>
+<ol>
+<li>
+<p>Clear quarantines on all datanodes</p>
+</li>
+<li>
+<p>Set <code class="codeph">Log</code> property in <code>/opt/oracle/bigdatasql/bdcell-12.1/bigdata-log4j.properties</code> on datanodes.</p>
+</li>
+<li>
+<p>Restart <code class="codeph">bdsqloflsrv</code> on datanodes.</p>
+</li>
+<li>
+<p>Cd to the log file directory: <code>/opt/oracle/bigdatasql/bdcell-12.1/log</code>.</p>
+</li>
+<li>
+<p><code class="codeph">tail -f bigdata-log4j.log</code></p>
+</li>
+<li>
+<p>Ensure that your query has data on the node you are looking at (i.e. your query should need to access files with many blocks. If you only touch a small number of blocks, the result may be that your datanode is not be asked to do any work)</p>
+</li>
+<li>
+<p>Make a new database session (to reset XT statistics) and Run query.</p>
+<div class="infobox-tip" id="GUID-E4C6E3FF-132D-44F1-8F3A-2E22167D35C1__GUID-EC1C3522-B4E2-4FBD-971B-E386E5099F68">
+<p class="notep1">Tip:</p>
+Use the <code class="codeph">/*+MONITOR*/ hint</code> if you want to be sure to see it in SQL Monitor.</div>
+<p>You should see new entries in the datanode&rsquo;s <code>bigdata-log4j.log</code>.</p>
+</li>
+<li>
+<p>On the Oracle Database server, query XT statistics and check that <code class="codeph">retries=0</code> and <code class="codeph">bytes returned&gt;0</code>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Looking for log files on the database:</p>
+<ol>
+<li>
+<p>Clear quarantines on all data nodes</p>
+</li>
+<li>
+<p>Make a new database session (to reset XT statistics)</p>
+</li>
+<li>
+<div class="p">Find out what instance your session is connected to (in case you got load-balanced to a different database server than the one you logged on to):
+<pre dir="ltr">
+select host_name from v$instance;
+</pre></div>
+</li>
+<li>
+<p>Log in to that instance&rsquo;s database server at the Linux level.</p>
+</li>
+<li>
+<p>Set log properties in <code>$ORACLE_HOME/bigdatasql/bigdata-log4j.properties</code>.</p>
+</li>
+<li>
+<p>Restart <code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">db</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> on that instance to pick up the log property changes</p>
+</li>
+<li>
+<p>Turn on XT tracing:</p>
+<p>This command turns on external table logging:</p>
+<pre dir="ltr">
+alter session set "_xt_trace"="low","compilation","execution";
+</pre>
+<p>This command adds additional tracing:</p>
+<pre dir="ltr">
+alter session set events 'trace[KCFIS] disk high, memory high';
+</pre></li>
+<li>
+<p>Run the query.</p>
+<div class="infobox-tip" id="GUID-E4C6E3FF-132D-44F1-8F3A-2E22167D35C1__GUID-940C05FA-1A14-48B6-8B3D-11E45742C769">
+<p class="notep1">Tip:</p>
+Use the <code class="codeph">/*+ MONITOR */ hint</code> if you want to be sure to see it in SQL Monitor.</div>
+</li>
+<li>
+<p>Query XT statistics and see if <code class="codeph">retries=0</code> and <code class="codeph">bytes returned&gt;0</code>.</p>
+<pre dir="ltr">
+select n.name, s.value /* , s.inst_id, s.sid */ from v$statname n, gv$mystat s where n.name like '%XT%' and s.statistic# = n.statistic# ;
+</pre></li>
+<li>
+<p>Look at JVM log file: <code>$ORACLE_HOME/bigdatasql</code>. (Look for the one with the same PID as the <code class="codeph">extprocbds_*</code> process.)</p>
+</li>
+<li>
+<p>Look at database <code>trace_file</code>:</p>
+<pre dir="ltr">
+ select value from v$diag_info WHERE name = 'Default Trace File';
+</pre></li>
+</ol>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-368AA518-6347-4CDA-939A-1D5C6BBD34BD"></a>
+<h2 id="BDSUG-GUID-368AA518-6347-4CDA-939A-1D5C6BBD34BD" class="sect2"><span class="enumeration_section">C.9</span> Additional Java Diagnostics</h2>
+<div>
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>You can add JVM properties to the bigdata.properties file as shown below. This can be good for hard-to-spot low-level Kerberos issues.</p>
+<pre dir="ltr">
+java.options=-Dsun.security.krb5.debug=true
+</pre></li>
+<li>
+<p>The <code class="codeph">extproc</code> and <code class="codeph">extprocbds_&lt;<span class="codeinlineitalic">dbname</span>&gt;_&lt;<span class="codeinlineitalic">hcluster</span>&gt;</code> processes run the JVMs on the database and the <code class="codeph">bdsqloflsrv</code> process runs the JVM on the datanode. You can see this by running the &ldquo;jps&rdquo; command:</p>
+<pre dir="ltr">
+$ORACLE_HOME/bigdatasql/jdk*/bin/jps
+</pre></li>
+<li>
+<p>If you are very comfortable with your Java skills, you can also use Oracle JVisualVM or Oracle JConsole to connect to the JVMs.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-10F47126-A0B8-4631-9ACE-5F40E822A17B"></a>
+<h2 id="BDSUG-GUID-10F47126-A0B8-4631-9ACE-5F40E822A17B" class="sect2"><span class="enumeration_section">C.10</span> Checking for Correct Oracle Big Data SQL Patches</h2>
+<div>
+<p>Patch and Datapatch errors can have a number of different causes and effects. One thing you can do is check to ensure that the expected patches are loaded.</p>
+<div class="section">
+<p class="subhead2">If you see "wrong number or types of arguments in a call to 'FETCH_OPEN' in the error stack</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-10F47126-A0B8-4631-9ACE-5F40E822A17B__GUID-0C08E976-A48C-45E6-B9DE-28A091E3E960">
+<p>Here is an example of an error stack that may warrant a query of <code class="codeph">DBA_REGISTRY_SQLPATCH</code> to determine if the correct patches are loaded:</p>
+<pre dir="ltr">
+ORA-29913: error in executing ODCIEXTTABLEFETCH callout
+ORA-29400: data cartridge error
+ORA-06550: line 1, column 25:
+PLS-00306: wrong number or types of arguments in call to 'FETCH_OPEN'
+ORA-06550: line 1, column 14:PL/SQL: Statement ignored
+</pre>
+<p>This may indicate one of several problems.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A Bundle Patch was not applied correctly</p>
+</li>
+<li>
+<p>Datapatch did not run and therefore a patch required by the installed version of Oracle Big Data SQL is not installed</p>
+</li>
+</ul>
+<p>In this case, run the following query to determine if patches identified as requirements for this installation&nbsp;in the<span class="italic">Oracle Big Data SQL Master Compatibility Matrix</span> (Doc ID 2119369.1 in <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a>) have been applied.</p>
+<pre dir="ltr">
+select PATCH_ID, PATCH_UID, VERSION, STATUS, DESCRIPTION from DBA_REGISTRY_SQLPATCH order by BUNDLE_SERIES
+</pre>
+<p>For example, for Oracle Big Data SQL 3.0.1 with BP &nbsp;12.1.0.2.160419 (22806133), &nbsp;the query should return these results.</p>
+<pre dir="ltr">
+ PATCH_ID    PATCH_UID   VERSION              STATUS           DESCRIPTION                                                                                        
+----------  ----------  -------  ----  ------- --  ------------  
+22806133     19983161    12.1.0.2             SUCCESS          DATABASE BUNDLE PATCH: 12.1.0.2.160419 (22806133)                                                  
+</pre>
+<p>If the query fails or the correct patch for the installed bundle is not found, see <a href="https://mosemp.us.oracle.com/epmos/faces/DocumentDisplay?id=1609718.1&amp;_adf.ctrl-state=dt4nn54fm_66&amp;_afrLoop=578764318098638" target="_blank">1609718.1</a> in My Oracle Support for more information about issues with Datapatch.</p>
+</div>
+<!-- class="example" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="using_copy_to_hadoop_direct_copy.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="licensing_info.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="http://docs.oracle.com/bigdata/bds31/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

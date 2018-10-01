@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Changes in Oracle Big Data SQL 3.1</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="The following are changes in Oracle Big Data SQL Release 3.1." />
+<meta name="dcterms.created" content="2018-08-03T19:37:49Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E99049-01" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds32/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="GUID-3756BDC3-98EA-4BE7-A91E-28B5B72E1CC7.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-3FB3E7BA-399B-4016-9E27-4237AFB61642.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E99049-01.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-012827C4-FE2A-4946-9588-D5D210C19661"></a> <span id="PAGE" style="display:none;">19/21</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-012827C4-FE2A-4946-9588-D5D210C19661" class="sect1"><span class="enumeration_section">F.1</span> Changes in Oracle Big Data SQL 3.1</h1>
+<div>
+<p>The following are changes in Oracle Big Data SQL Release 3.1.</p>
+<div class="section">
+<p class="subhead1">Expanded Deployments</p>
+<p>Release 3.1 broadens support for Oracle Big Data SQL connectivity between Oracle Engineered Systems and commodity servers.</p>
+<p>In earlier Oracle Big Data SQL releases, the following Oracle Database/Hadoop connections are possible:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Exadata Database Machine to Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Oracle Database on commodity servers to commodity Hadoop systems.</p>
+</li>
+</ul>
+<p>As of Release 3.1, Oracle Big Data SQL supports all of the following Oracle Database/Hadoop system connections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Database on commodity servers to Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Oracle Database on commodity servers to commodity Hadoop systems.</p>
+</li>
+<li>
+<p>Oracle Exadata Database Machine to Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Oracle Exadata Database Machine to commodity Hadoop systems.</p>
+</li>
+</ul>
+<p>The phrase &ldquo;Oracle Database on commodity servers&rdquo; refers to non-Exadata Linux systems that are officially-supported as Oracle Database platforms. &ldquo;Commodity Hadoop systems&rdquo; refers to Hortonworks HDP systems or to Cloudera CDH-based systems other than Oracle Big Data Appliance. In all cases, Oracle Database servers and Hadoop systems must meet the prerequisites identified in the <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=400361405103392&amp;id=2119369.1&amp;_adf.ctrl-state=j8ryazrl8_77" target="_blank">Oracle Big Data SQL Master Compatibility Matrix</a> (Doc ID 2119369.1 in <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a>).</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Oracle SPARC SuperCluster Support</p>
+<p>Release 3.1 provides support for Oracle SPARC SuperCluster, with certain limitations:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Ethernet connections between BDA (and commodity Hadoop systems) and SPARC SuperCluster are not supported.</p>
+</li>
+<li>
+<p>Oracle Database Tablepaces in HDFS (with Smart Scan technology) is not supported on this platform.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Ethernet Option for Connections to the Exadata Database Machine</p>
+<p>The preferred method of connecting Oracle Big Data Appliance and Oracle Exadata Database for any purpose is through InfiniBand. Previous releases of Oracle Big Data SQL have required InfiniBand for these connections. In Release 3.1, Ethernet networking between the Exadata Database Machine and Oracle Big Data Appliance is now supported. This enables you to use Oracle Big Data SQL with these two Engineered Systems in environments where InfiniBand is not feasible, such as when the two systems are geographically distant from each other.</p>
+<p>Release 3.1 also enables Ethernet connections between commodity Hadoop systems and the Oracle Exadata Database Machine.</p>
+<p>Oracle Big Data SQL connectivity between commodity Hadoop systems and commodity Oracle Database servers has been Ethernet-based throughout previous releases.</p>
+<p>Note that Ethernet connections between Oracle Big Data Appliance (or commodity Hadoop systems) and Oracle SPARC SuperCluster are not supported at this time.</p>
+</div>
+<!-- class="section" -->
+<div class="section" id="GUID-012827C4-FE2A-4946-9588-D5D210C19661__GRIDINFRASTRUCTURENOLONGERREQUIREDF-5EFE72D3">
+<p class="subhead1">Simplified Deployment on Oracle Database Servers &ndash; Oracle Grid Infrastructure is now Optional</p>
+<p>In previous releases of Oracle Big Data SQL, Oracle Grid Infrastructure is a prerequisite of the installation for all Oracle Database servers, including standalone servers that are not part of an Oracle RAC system. In Release 3.1, you have the option to install Oracle Big Data SQL on servers where Oracle Grid Infrastructure is not present. Note that in these cases, the installer makes some configuration file changes that require a restart of Oracle Database.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Unified Platform Support in the Oracle Big Data SQL Installer</p>
+<p>Previous Oracle Big Data SQL releases included two separate installation procedures &ndash; one for Oracle Engineered Systems and another for commodity servers. In Release 3.1, you use the same installation process for both Oracle and non-Oracle platforms. This is also true for maintenance. For all of the supported Hadoop/Oracle Database combinations there is a uniform set of steps to update the Oracle Big Data SQL configuration when there are changes to the Hadoop cluster or Oracle Database server.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">New Features to Simplify ILM &ndash; Oracle Database Tablespaces in HDFS (With Smart Scan Technology)</p>
+<p>Oracle Database ILM (Information Lifecycle Management) can now be extended to use Hadoop to store read-only Oracle Database tablespaces. When you move tablespaces from Oracle Database to HDFS, the tables, partitions, and data retain their original Oracle Database internal format, remain accessible to queries, and support the full range of Oracle Database performance optimizations and security features, including the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Smart Scan for HDFS, which enables off-load of query processing to Oracle Big Data SQL on the Hadoop cluster. Smart Scan also provides filtering of query results in Hadoop prior to the return of the data to Oracle Database. In most circumstances, this can be a significant performance optimization. Indexing, Hybrid Columnar Compression, Partition Pruning, and Oracle Database In-Memory are also supported.</p>
+</li>
+<li>
+<p>Oracle Advanced Security Option (ASO) Transparent Encryption and Data Redaction.</p>
+</li>
+</ul>
+<p>Tablespaces stored in HDFS are read-only, therefore this storage is best suited to data archiving.</p>
+<p>See Section 3.2 in the <span class="italic">Oracle Big Data SQL User&rsquo;s Guide</span> for details.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Enhancements in Oracle Shell for Hadoop Loaders 1.2</p>
+<p>Oracle Shell for Hadoop Loaders (OHSH) is an intuitive command line tool for data migration. You can set up resources to connect to Hive, HDFS, or Oracle Database, and then access each of these data sources through the uniform OHSH interface. OHSH is one of the ways to use Copy to Hadoop. Copy to Hadoop users can download OHSH from <a href="http://www.oracle.com/technetwork/database/database-technologies/bdc/big-data-connectors/downloads/index.html" target="_blank">OTN</a>.</p>
+<p>OHSH 1.2 includes the following changes:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>On-disk logging of load operations in the <code>$HOME/.ohsh</code> shadow directory.</p>
+</li>
+<li>
+<p>The ability to minimize output when doing load commands. (See the help command for <code class="codeph">set outputlevel</code>.)</p>
+</li>
+<li>
+<p>Loading Hive tables from Oracle tables not living in the <code class="codeph">oracle</code> user's schema.</p>
+</li>
+<li>
+<p>Wallet and TNS usage by OHSH relies on the setting of environmental variables WALLET_LOCATION and TNS_ADMIN. The <code class="codeph">set tnsadmin</code> and <code class="codeph">set walletlocation</code> commands are no longer supported.</p>
+</li>
+</ul>
+<p>In addition, you no longer set <code class="codeph">HIVE0_URL</code> to the fully-qualified URL of remote HiveServer2 in order to create a <code class="codeph">%hive0</code> resource. In OHSH 1.2, set the environmental variable <code class="codeph">HS2_HOST_PORT</code> in <code>bin/ohsh</code>, which is the <code class="codeph">&lt;<span class="codeinlineitalic">hostname</span>&gt;:&lt;<span class="codeinlineitalic">port</span>&gt;</code> pair of HiveServer2.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Enhancements to Copy To Hadoop</p>
+<p>The new method <code class="codeph">directcopy</code> is added to Copy to Hadoop.</p>
+<p>This is a direct, single-step method of copying data from Oracle Database to HDFS. See <span class="italic">Using Copy to Hadoop to do Direct Copies</span> in the <span class="italic">Oracle Big Data SQL User&rsquo;s Guide</span> for more information.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Granting Access &ndash; Users Now Require the BDSQL_USER Role</p>
+<p>In prior Oracle Big Data SQL releases, all users are granted Big Data SQL access implicitly. Release 3.1 introduces the <code class="codeph">BDSQL_USER</code> role. Users requiring Oracle Big Data SQL access must be granted this role explicitly.</p>
+<p>You must also now grant read privileges on the BigDataSQL configuration directory object.</p>
+<p><a id="d13959e196" class="indexterm-anchor"></a><a id="d13959e198" class="indexterm-anchor"></a><a id="d13959e202" class="indexterm-anchor"></a> For example, to grant access to <code class="codeph">user1</code>:</p>
+<pre dir="ltr">
+SQL&gt; grant BDSQL_USER to user1; 
+SQL&gt; grant read on directory ORACLE_BIGDATA_CONFIG to user1;
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Installation Instructions Moved to Oracle Big Data SQL Installation Guide</p>
+<p>The <span class="italic">Oracle Big Data SQL Installation Guide</span> provides instructions how to install and uninstall the software. In releases prior to Oracle Big Data Appliance 3.1, installation instructions are in the user&rsquo;s guide.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="GUID-3756BDC3-98EA-4BE7-A91E-28B5B72E1CC7.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="GUID-3FB3E7BA-399B-4016-9E27-4237AFB61642.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds32/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

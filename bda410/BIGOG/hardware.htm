@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Connecting Multiple Oracle Big Data Appliance Racks</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="cabling, multirack, multirack cabling, two racks, three to eight" />
+<meta name="dcterms.created" content="2018-08-05T17:35:45Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E93282-04" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda49/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="configure_expansion.htm" title="Previous" type="text/html" />
+<link rel="Next" href="part-software-installation.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-621F1684-9BC9-41B0-9BE8-E5F88F5782CA"></a> <span id="PAGE" style="display:none;">15/38</span> <!-- End Header -->
+<a id="BIGOG291"></a>
+<h1 id="BIGOG-GUID-621F1684-9BC9-41B0-9BE8-E5F88F5782CA" class="sect1"><span class="enumeration_chapter">9</span> Connecting Multiple Oracle Big Data Appliance Racks</h1>
+<div>
+<p>This chapter describes how to combine multiple Oracle Big Data Appliance racks into one large cluster. It contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="hardware.htm#GUID-1CEB6A58-80E1-4A9E-91D8-541399FDA4C3">Extending a Rack by Adding Another Rack</a></p>
+</li>
+<li>
+<p><a href="hardware.htm#GUID-86D7B736-D440-4811-B6A2-30A64D1CE8FD">Prerequisites for Multirack Cabling</a></p>
+</li>
+<li>
+<p><a href="hardware.htm#GUID-6CB979AE-561C-47F5-846F-65BEA0D002A0">Cabling Two Racks Together</a></p>
+</li>
+<li>
+<p><a href="hardware.htm#GUID-1C01CE1D-176D-433B-93A9-819D38D47FF7">Cabling Several Racks Together</a></p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-621F1684-9BC9-41B0-9BE8-E5F88F5782CA__GUID-16680DBF-CAE9-4EA7-A4BA-387FC81D002E">
+<p class="notep1">See Also:</p>
+<p><a href="app_multi.htm#GUID-F763B287-56C7-4319-9966-E0BBABD39875">Multirack Cabling Tables</a></p>
+</div>
+</div>
+<a id="BIGOG292"></a>
+<div class="props_rev_3"><a id="GUID-1CEB6A58-80E1-4A9E-91D8-541399FDA4C3"></a>
+<h2 id="BIGOG-GUID-1CEB6A58-80E1-4A9E-91D8-541399FDA4C3" class="sect2"><span class="enumeration_section">9.1</span> Extending a Rack by Adding Another Rack</h2>
+<div>
+<p><a id="d42054e58" class="indexterm-anchor"></a><a id="d42054e62" class="indexterm-anchor"></a>When creating a multirack Hadoop cluster or providing access to Oracle Big Data Appliance from an Oracle Exadata Database Machine, you must connect multiple racks to each other. Racks can be cabled together with no downtime.</p>
+<p>During the cabling procedure, note the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>There is some performance degradation while you are cabling the racks together. This degradation results from reduced network bandwidth, and the data retransmission due to packet loss when a cable is unplugged.</p>
+</li>
+<li>
+<p>The environment is not a high-availability environment because one leaf switch must be off. All traffic goes through the remaining leaf switch.</p>
+</li>
+<li>
+<p>Only the existing rack is operational, and any new rack is powered down.</p>
+</li>
+<li>
+<p>The software running on the systems must not have problems related to InfiniBand restarts.</p>
+</li>
+<li>
+<p>The new racks must be configured with the appropriate IP addresses to be migrated into the expanded system before any cabling, and duplicate IP addresses are not allowed.</p>
+</li>
+<li>
+<p>The existing spine switch is set to priority 10 during the cabling procedure. This setting gives the spine switch a higher priority than any other switch in the network fabric. The spine switch is first to take the Subnet Manager Master role whenever a new Subnet Manager Master is set during the cabling procedure.</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-1CEB6A58-80E1-4A9E-91D8-541399FDA4C3__GUID-33B8F0A7-6BE0-416F-9C51-4E83150CE274">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="app_multi.htm#GUID-F763B287-56C7-4319-9966-E0BBABD39875">Multirack Cabling Tables</a> for the physical connections among the racks</p>
+</li>
+<li>
+<p><span><cite>Monitoring the Subnet Manager</cite> at <a href="http://docs.oracle.com/cd/E36265_01/html/E36266/z400029a2024434.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36265_01/html/E36266/z400029a2024434.html#scrolltoc</code></a></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGOG77016"></a>
+<div class="props_rev_3"><a id="GUID-86D7B736-D440-4811-B6A2-30A64D1CE8FD"></a>
+<h2 id="BIGOG-GUID-86D7B736-D440-4811-B6A2-30A64D1CE8FD" class="sect2"><span class="enumeration_section">9.2</span> Prerequisites for Multirack Cabling</h2>
+<div>
+<p>Verify that all Sun Network QDR InfiniBand Gateway switches on all connected Oracle Big Data Appliance and Oracle Exadata Database Machine racks are running firmware version 2.1.3-4 NM2 or later. Update the firmware as necessary.</p>
+<p>When updating the firmware of Sun Network QDR InfiniBand Gateway switches from v2.0.x to v2.1.x or higher, be careful to update them in descending order of the gateway instance numbers. Start with the switch with the highest gateway instance number.</p>
+<p>From the Oracle ILOM interface, use this hardware command to obtain the gateway instance number:</p>
+<pre dir="ltr">
+setgwinstance --list
+</pre>
+<p>See My Oracle Support Doc ID 1534255.1 about upgrading the firmware for Oracle Big Data Appliance.</p>
+</div>
+</div>
+<a id="BIGOG294"></a>
+<div class="props_rev_3"><a id="GUID-6CB979AE-561C-47F5-846F-65BEA0D002A0"></a>
+<h2 id="BIGOG-GUID-6CB979AE-561C-47F5-846F-65BEA0D002A0" class="sect2"><span class="enumeration_section">9.3</span> Cabling Two Racks Together</h2>
+<div>
+<div class="section">
+<p>The following procedure describes how to cable two racks together. This procedure assumes that the racks are adjacent to each other. In the procedure, the existing rack is R1, and the new rack is R2.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To cable two racks together:</p>
+<ol>
+<li>
+<p>Set the priority of the current, active Subnet Manager Master to <code class="codeph">10</code> on the spine switch, as follows:</p>
+<ol>
+<li>
+<p>Log in to any InfiniBand switch on the active system.</p>
+</li>
+<li id="GUID-6CB979AE-561C-47F5-846F-65BEA0D002A0__CACJCEJC">
+<p>Use the <a id="d42054e182" class="indexterm-anchor"></a><code class="codeph">getmaster</code> command to verify that the <a id="d42054e187" class="indexterm-anchor"></a>Subnet Manager Master is running on the spine switch.</p>
+</li>
+<li>
+<p>Log in to the spine switch.</p>
+</li>
+<li>
+<p>Use the <a id="d42054e196" class="indexterm-anchor"></a><code class="codeph">disablesm</code> command to stop the Subnet Manager.</p>
+</li>
+<li>
+<p>Use the <code class="codeph">setsmpriority 10</code> command to set the priority to 10.</p>
+</li>
+<li>
+<p>Use the <code class="codeph">enablesm</code> command to restart the Subnet Manager.</p>
+</li>
+<li>
+<p>Repeat Step <a href="hardware.htm#GUID-6CB979AE-561C-47F5-846F-65BEA0D002A0__CACJCEJC">1.b</a> to ensure that the Subnet Manager Master is running on the spine switch.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Ensure that the new rack is near the existing rack. The InfiniBand cables must be able to reach the servers in each rack.</p>
+</li>
+<li>
+<p>Completely shut down the new rack (R2).</p>
+</li>
+<li>
+<p>Cable the leaf switch in the new rack according to <a href="app_multi.htm#GUID-776BADE5-5298-4DE5-BCF9-C979D0E59A63__CIAIJJGG" title="Rack 1, spine switch connections in a two-rack system.">Table F-2</a>.</p>
+</li>
+<li>
+<p>Shut down leaf switch R1 IB2. This causes all servers to fail over their InfiniBand traffic to R1 IB3.</p>
+</li>
+<li>
+<p>Disconnect all interswitch links between R1 IB2 and R1 IB3.</p>
+</li>
+<li>
+<p>Cable leaf switch R1 IB2 according to <a href="app_multi.htm#GUID-776BADE5-5298-4DE5-BCF9-C979D0E59A63__CIADGGAH" title="Rack 1, spine switch connections in a two-rack system.">Table F-1</a>.</p>
+</li>
+<li>
+<p>Power on leaf switch R1 IB2.</p>
+</li>
+<li>
+<p>Wait for 3 minutes for R1 IB2 to become completely operational.</p>
+<p>To check the switch, log in to it and run the <code class="codeph">ibswitches</code> command. The output should show three switches: R1 IB1, R1 IB2, and R1 IB3.</p>
+</li>
+<li>
+<p>Shut down leaf switch R1 IB3. This causes all servers to fail over their InfiniBand traffic to R1 IB2.</p>
+</li>
+<li>
+<p>Cable leaf switch R1 IB3 according to <a href="app_multi.htm#GUID-776BADE5-5298-4DE5-BCF9-C979D0E59A63__CIADGGAH" title="Rack 1, spine switch connections in a two-rack system.">Table F-1</a>.</p>
+</li>
+<li>
+<p>Power on leaf switch R1 IB3.</p>
+</li>
+<li>
+<p>Wait for 3 minutes for R1 IB3 to become completely operational.</p>
+<p>To check the switch, log in to it and run the <code class="codeph">ibswitches</code> command. The output should show three switches: R1 IB1, R1 IB2, and R1 IB3.</p>
+</li>
+<li>
+<p>Power on all the InfiniBand switches in R2.</p>
+</li>
+<li>
+<p>Wait for 3 minutes for the switches to become completely operational.</p>
+<p>To check the switch, log in to it and run the <code class="codeph">ibswitches</code> command. The output should show six switches: R1 IB1, R1 IB2, R1 IB3, R2 IB1, R2 IB2, and R2 IB3.</p>
+</li>
+<li>
+<p>Ensure that the Subnet Manager Master is running on R1 IB1 by running the <code class="codeph">getmaster</code> command from any switch.</p>
+</li>
+<li>
+<p>Power on all servers in R2.</p>
+</li>
+<li>
+<p>Log in to spine switch R1 IB1, and lower its priority to 8 as follows:</p>
+<ol>
+<li>
+<p>Use the <code class="codeph">disablesm</code> command to stop the Subnet Manager.</p>
+</li>
+<li>
+<p>Use the <code class="codeph">setsmpriority 8</code> command to set the priority to 8.</p>
+</li>
+<li>
+<p>Use the <code class="codeph">enablesm</code> command to restart the Subnet Manager.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Ensure that the Subnet Manager Master is running on one of the spine switches.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>After cabling the racks together, proceed to configure the racks.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG295"></a>
+<div class="props_rev_3"><a id="GUID-1C01CE1D-176D-433B-93A9-819D38D47FF7"></a>
+<h2 id="BIGOG-GUID-1C01CE1D-176D-433B-93A9-819D38D47FF7" class="sect2"><span class="enumeration_section">9.4</span> Cabling Several Racks Together</h2>
+<div>
+<div class="section">
+<p>The following procedure describes how to cable several racks together. This procedure assumes that the racks are adjacent to each other. In the procedure, the existing racks are R1, R2,... R<span class="italic">n</span>, the new rack is R<span class="italic">n</span>+1, and the Subnet Manager Master is running on R1 IB1.</p>
+<p>You can cable up to 18 racks together without additional switches.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To cable several racks together:</p>
+<ol>
+<li>
+<p>Set the priority of the current, active Subnet Manager Master to <code class="codeph">10</code> on the spine switch, as follows:</p>
+<ol>
+<li>
+<p>Log in to any InfiniBand switch on the active system.</p>
+</li>
+<li>
+<p>Use the <a id="d42054e381" class="indexterm-anchor"></a><code class="codeph">getmaster</code> command to verify that the <a id="d42054e386" class="indexterm-anchor"></a>Subnet Manager Master is running on the spine switch.</p>
+</li>
+<li>
+<p>Log in to the spine switch.</p>
+</li>
+<li>
+<p>Use the <a id="d42054e395" class="indexterm-anchor"></a><code class="codeph">disablesm</code> command to stop the Subnet Manager.</p>
+</li>
+<li>
+<p>Use the <code class="codeph">setsmpriority 10</code> command to set the priority to 10.</p>
+</li>
+<li>
+<p>Use the <a id="d42054e409" class="indexterm-anchor"></a><code class="codeph">enablesm</code> command to restart the Subnet Manager.</p>
+</li>
+<li>
+<p>Repeat Step <a href="hardware.htm#GUID-6CB979AE-561C-47F5-846F-65BEA0D002A0__CACJCEJC">1.b</a> to ensure that the Subnet Manager Master is running on the spine switch.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Ensure that the new rack is near the existing rack. The InfiniBand cables must be able to reach the servers in each rack.</p>
+</li>
+<li>
+<p>Completely shut down the new rack (R<span class="italic">n</span>+1).</p>
+</li>
+<li>
+<p>Cable the leaf switch in the new rack according to the appropriate table in <a href="app_multi.htm#GUID-F763B287-56C7-4319-9966-E0BBABD39875">Multirack Cabling Tables</a>. For example, if rack R<span class="italic">n</span>+1 was R4, then use <a href="app_multi.htm#GUID-4B4EA248-C117-444B-8685-C00C67A2F6C2__CIAHHFAF" title="Rack 1, spine switch connections in a two-rack system.">Table F-9</a>.</p>
+</li>
+<li>
+<p>Complete the following procedure for each of the original racks. In these steps, R<span class="italic">x</span> represents a rack number from R1 to R<span class="italic">n</span>.</p>
+<ol>
+<li>
+<p>Shut down leaf switch R<span class="italic">x</span> IB2. This causes all servers to fail over their InfiniBand traffic to R<span class="italic">x</span> IB3.</p>
+</li>
+<li>
+<p>Cable leaf switch R<span class="italic">x</span> IB2 according to <a href="app_multi.htm#GUID-F763B287-56C7-4319-9966-E0BBABD39875">Multirack Cabling Tables</a>.</p>
+</li>
+<li>
+<p>Power on leaf switch R<span class="italic">x</span> IB2.</p>
+</li>
+<li>
+<p>Wait for 3 minutes for R<span class="italic">x</span> IB2 to become completely operational.</p>
+<p>To check the switch, log in it and run the <code class="codeph">ibswitches</code> command. The output should show <span class="italic">n</span>*3 switches for IB1, IB2, and IB3 in racks R1, R2,... R<span class="italic">n</span>.</p>
+</li>
+<li>
+<p>Shut down leaf switch Rx IB3. This causes all servers to fail over their InfiniBand traffic to Rx IB2.</p>
+</li>
+<li>
+<p>Cable leaf switch Rx IB3 according to <a href="app_multi.htm#GUID-F763B287-56C7-4319-9966-E0BBABD39875">Multirack Cabling Tables</a>.</p>
+</li>
+<li>
+<p>Power on leaf switch Rx IB3.</p>
+</li>
+<li>
+<p>Wait for 3 minutes for Rx IB3 to become completely operational.</p>
+<p>To check the switch, log in to the switch and enter the <code class="codeph">ibswitches</code> command. The output should show <span class="italic">n</span>*3 switches for IB1, IB2, and IB3 in racks R1, R2,... R<span class="italic">n</span>.</p>
+<p>All racks should now be rewired according to <a href="app_multi.htm#GUID-F763B287-56C7-4319-9966-E0BBABD39875">Multirack Cabling Tables</a>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Power on all the InfiniBand switches in R<span class="italic">n</span>+1.</p>
+</li>
+<li>
+<p>Wait for 3 minutes for the switches to become completely operational.</p>
+<p>To check the switch, log in to the switch and run the <code class="codeph">ibswitches</code> command. The output should show (<span class="italic">n</span>+1)*3 switches for IB1, IB2, and IB3 in racks R1, R2,... R<span class="italic">n</span>+1.</p>
+</li>
+<li>
+<p>Ensure that the Subnet Manager Master is running on R1 IB1 by entering the <a id="d42054e548" class="indexterm-anchor"></a><code class="codeph">getmaster</code> command from any switch.</p>
+</li>
+<li>
+<p>Power on all servers in R<span class="italic">n</span>+1.</p>
+</li>
+<li>
+<p>Log in to spine switch R1 IB1, and lower its priority to 8 as follows:</p>
+<ol>
+<li>
+<p>Enter the <a id="d42054e566" class="indexterm-anchor"></a><code class="codeph">disablesm</code> command to stop the Subnet Manager.</p>
+</li>
+<li>
+<p>Enter the <code class="codeph">setsmpriority 8</code> command to set the priority to 8.</p>
+</li>
+<li>
+<p>Enter the <a id="d42054e580" class="indexterm-anchor"></a><code class="codeph">enablesm</code> command to restart the Subnet Manager.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Ensure that the <a id="d42054e588" class="indexterm-anchor"></a>Subnet Manager Master is running on one of the spine switches by entering the <code class="codeph">getmaster</code> command from any switch.</p>
+</li>
+<li>
+<p>Ensure that the Subnet Manager is running on every spine switch by entering the following command from any switch:</p>
+<pre dir="ltr">
+ibdiagnet -r 
+</pre>
+<p>Each spine switch should show as running in the Summary Fabric SM-<span class="italic">state</span>-<span class="italic">priority</span> section of the output. If a spine switch is not running, then log in to the switch and enable the Subnet Manager by entering the <code class="codeph">enablesm</code> command.</p>
+</li>
+<li>
+<p>If there are now four or more racks, then log in to the leaf switches in each rack and disable the Subnet Manager by entering the <code class="codeph">disablesm</code> command.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment164">
+<tr>
+<td class="cellalignment197">
+<table class="cellalignment169">
+<tr>
+<td class="cellalignment168"><a href="configure_expansion.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment168"><a href="part-software-installation.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment199">
+<table class="cellalignment167">
+<tr>
+<td class="cellalignment168"><a href="http://docs.oracle.com/bigdata/bda49/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment168"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment168"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment168"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Ease of Use Tools for Oracle Big Data Connectors</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-07-30T11:38:18Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Connectors User's Guide" />
+<meta name="dcterms.identifier" content="E93614-03" />
+<meta name="dcterms.isVersionOf" content="BDCUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="olh.htm" title="Previous" type="text/html" />
+<link rel="Next" href="xquery-part.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDCUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-65C0E3F8-6644-458D-A81A-9548442C42EA"></a> <span id="PAGE" style="display:none;">9/22</span> <!-- End Header -->
+<h1 id="BDCUG-GUID-65C0E3F8-6644-458D-A81A-9548442C42EA" class="sect1"><span class="enumeration_chapter">4</span> Ease of Use Tools for Oracle Big Data Connectors</h1>
+<div>
+<p>Oracle Big Data Connectors are a powerful toolset for data interchange between Hadoop and Oracle Database. Learning how to set up the environment for these tools and use them to full potential is worthwhile, but there are ways to get started and be productive without fully completing that learning curve. Oracle is developing a set of ease-of-use tools for this purpose.</p>
+<p>Oracle Shell for Hadoop Loaders is the first ease-of-use tool for Oracle Big Data Connectors.</p>
+</div>
+<div class="sect2"><a id="GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A"></a>
+<h2 id="BDCUG-GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A" class="sect2"><span class="enumeration_section">4.1</span> Introducing Oracle Shell for Hadoop Loaders</h2>
+<div>
+<div class="section">
+<p class="subhead2">What is Oracle Shell for Hadoop Loaders?</p>
+</div>
+<!-- class="section" -->
+<p>Oracle Shell for Hadoop Loaders (OHSH) is a helper shell that provides an easy-to-use command line interface to Oracle Loader for Hadoop, Oracle SQL Connector for HDFS, and Copy to Hadoop.&nbsp;It has basic shell features such as command line recall, history, inheriting environment variables from the parent process,&nbsp;setting new or existing environment variables, and performing environmental substitution in the command line.&nbsp;</p>
+<p>The core functionality of Oracle Shell for Hadoop Loaders includes the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Defining named external resources with which Oracle Shell for Hadoop Loaders interacts to perform loading tasks.</p>
+</li>
+<li>
+<p>Setting default values for load operations.</p>
+</li>
+<li>
+<p>Running load commands.</p>
+</li>
+<li>
+<p>Delegating simple pre and post load tasks to the Operating System, HDFS, Hive and Oracle.&nbsp;These tasks include viewing the data to be loaded, and viewing the data in the target table after loading.</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A__GUID-0FB9EACF-7B3F-4D33-8614-7FF49C1DDD27">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To set up OHSH, follow the instructions in the <a class="olink BDSIG-GUID-82BFB573-1991-406E-8C09-DA9C7630142B" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E93613-01&amp;id=BDSIG-GUID-82BFB573-1991-406E-8C09-DA9C7630142B">Oracle Big Data SQL Installation Guide</a>.</p>
+</li>
+<li>
+<p>The examples directory in the OHSH kit contains many examples that define resources and load data using Oracle Shell for Hadoop Loaders. &nbsp;See <code>&lt;OHSH_KIT&gt;/examples/README.txt</code> for a description of the examples and instructions on how to run OHSH load methods.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3"><a id="GUID-94625AB7-2FF9-41AB-A422-25E1574DF992"></a>
+<h3 id="BDCUG-GUID-94625AB7-2FF9-41AB-A422-25E1574DF992" class="sect3"><span class="enumeration_section">4.1.1</span> Getting Started with Oracle Shell for Hadoop Loaders</h3>
+<div>
+<div class="section">
+<p class="subhead3">Starting an OHSH Interactive Session</p>
+<p>To start an interactive session, enter <code class="codeph">ohsh</code> on the command line. This brings you to the OHSH shell (if you have ohsh in your path):</p>
+<pre dir="ltr">
+$ ohsh
+ohsh&gt;
+</pre>
+<p>You can execute OHSH commands in this shell (using the OHSH syntax). You can also execute commands for Beeline/Hive, Hadoop, Bash, and SQL*Plus. For non-OHSH commands, you add a delegation operator prefix (&ldquo;%&rdquo;) to the name of the resource used to execute the command. For example:</p>
+<code class="codeph">ohsh&gt; %bash0 ls &mdash;l</code></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Scripting OHSH</p>
+<p>You can also script the same commands that work in the CLI. The <code class="codeph">ohsh</code> command provides three parameters for working with scripts.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ohsh &mdash;i &lt;<span class="codeinlineitalic">filename</span>&gt;.ohsh</code></p>
+<p>The <code class="codeph">&mdash;i</code> parameter tells OHSH to initialize an interactive session with the commands in the script before the prompt appears. This is a useful way to set up the required session resources and automate other preliminary tasks before you start working within the shell.</p>
+<pre dir="ltr">
+$ ohsh &ndash;i initresources.ohsh
+</pre></li>
+<li>
+<p><code class="codeph">ohsh &mdash;f &lt;<span class="codeinlineitalic">filename</span>&gt;.ohsh</code></p>
+<p>The <code class="codeph">ohsh</code> command with the <code class="codeph">&mdash;f</code> parameter starts a non-interactive session and runs the commands in the script.</p>
+<pre dir="ltr">
+$ ohsh &ndash;f myunattendedjobs.ohsh
+</pre></li>
+<li>
+<p><code class="codeph">ohsh &mdash;i &mdash;f &lt;<span class="codeinlineitalic">filename</span>&gt;.ohsh</code></p>
+<p>You can use <code class="codeph">&mdash;i</code> and <code class="codeph">&mdash;f</code> together to initialize a non-interactive session and then run another script in the session.</p>
+<pre dir="ltr">
+$ ohsh -i mysetup.ohsh &ndash;f myunattendedjobs.ohsh
+</pre></li>
+<li>
+<p><code class="codeph">ohsh &mdash;c</code></p>
+<p>This command dumps all Hadoop configuration properties that an OHSH session inherits at start up.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Working With OHSH Resources</p>
+<p>A resource is some named entity that OHSH interacts with. For example: a Hadoop cluster is a resource, as is a JDBC connection to an Oracle database, a Hive database, a SQL*Plus session with an Oracle database, and a Bash shell on the local OS.</p>
+<p>OHSH provides two default resources at start up: <code class="codeph">hive0</code> (to connect to the <code class="codeph">default</code> Hive database) and <code class="codeph">hadoop0</code>.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Using <code class="codeph">hive0</code> resource to execute a Hive command:</p>
+<pre dir="ltr">
+ohsh&gt; %hive0 show tables;
+</pre>
+<p>You can create additional Hive resources to connect to other Hive databases.</p>
+</li>
+<li>
+<p>Using the <code class="codeph">hadoop0</code> resource to execute a Hadoop command:</p>
+<pre dir="ltr">
+ohsh&gt; %hadoop0 fs -ls
+</pre></li>
+</ul>
+<p>Within an interactive or scripted session, you can create instances of additional resources, such as SQL*Plus and JDBC. You need to create these two resources in order to connect to Oracle Database through OHSH.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Creating an SQL*Plus resource:</p>
+<pre dir="ltr">
+ohsh&gt; create sqlplus resource sql0 connectid=&rdquo;bigdatalite.localdomain:1521/orcl&rdquo;
+</pre></li>
+<li>
+<p>Creating a JDBC resource:</p>
+<pre dir="ltr">
+ohsh&gt; create jdbc resource jdbc0 connectid=&lt;<span class="italic">database connection URL</span>&gt;
+</pre></li>
+<li>
+<p>Showing resources:</p>
+<pre dir="ltr">
+ohsh&gt; show resources
+</pre>
+<p>This command lists default resources and any additional resources created within the session.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Getting Help</p>
+<p>The OHSH shell provides online help for all commands.</p>
+<p>To get a list of all OHSH commands:</p>
+<pre dir="ltr">
+ohsh&gt; help
+</pre>
+<p>To get help on a specific command, enter <code class="codeph">help</code>, followed by the command:&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<pre dir="ltr">
+ohsh&gt; help show
+</pre>
+<p>The table below describes the help categories available.</p>
+<div class="tblformal" id="GUID-94625AB7-2FF9-41AB-A422-25E1574DF992__THELEFTCOLUMNLISTSOSHELLHELPCOMMAND-353C0657">
+<table class="cellalignment65" summary="The first column lists OHSH help commands. The second column provides the description for each command.">
+<thead>
+<tr class="cellalignment26">
+<th class="cellalignment64" id="d33476e252">Help Command</th>
+<th class="cellalignment64" id="d33476e254">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment26">
+<td class="cellalignment26" id="d33476e258" headers="d33476e252"><code class="codeph">help load</code></td>
+<td class="cellalignment26" headers="d33476e258 d33476e254">Describes load commands for Oracle and Hadoop tables.</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment26" id="d33476e264" headers="d33476e252"><code class="codeph">help set</code></td>
+<td class="cellalignment26" headers="d33476e264 d33476e254">Shows help for setting defaults for load operations. It also describes what load methods are impacted by a particular setting.</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment26" id="d33476e270" headers="d33476e252"><code class="codeph">help show</code></td>
+<td class="cellalignment26" headers="d33476e270 d33476e254">Shows help for inspecting default settings.</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment26" id="d33476e276" headers="d33476e252"><code class="codeph">help shell</code></td>
+<td class="cellalignment26" headers="d33476e276 d33476e254">Shows shell-like commands.</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment26" id="d33476e282" headers="d33476e252"><code class="codeph">help resource</code></td>
+<td class="cellalignment26" headers="d33476e282 d33476e254">Show commands for creating and dropping named resources.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-1E4E51AF-4C84-4BE1-84CC-220E4A034518"></a>
+<h3 id="BDCUG-GUID-1E4E51AF-4C84-4BE1-84CC-220E4A034518" class="sect3"><span class="enumeration_section">4.1.2</span> Third-Party Licenses for Bundled Software</h3>
+<div>
+<div class="section">
+<p><a id="d33476e306" class="indexterm-anchor"></a><a id="d33476e308" class="indexterm-anchor"></a>Oracle Shell for Hadoop Loaders includes the following third-party products:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="easofusetools.htm#GUID-0404C893-4DE4-4D34-A9E9-16DC40DE32D4">ANTLR 4.7</a></p>
+</li>
+<li>
+<p><a href="easofusetools.htm#GUID-F8A636AB-8B51-4900-A299-DA0B88E99780">Apache Commons Exec 1.3</a></p>
+</li>
+</ul>
+<p>These software packages are licensed under the <a href="apachelic.htm#GUID-6AE555DE-5B16-42C9-9AF6-5BDB555497C5">Apache 2.0 License</a></p>
+<p><span class="bold">Unless otherwise specifically noted, or as required under the terms of the third party license (e.g., LGPL), the licenses and statements herein, including all statements regarding Apache-licensed code, are intended as notices only.</span></p>
+</div>
+<!-- class="section" --></div>
+<div class="sect4"><a id="GUID-F8A636AB-8B51-4900-A299-DA0B88E99780"></a>
+<h4 id="BDCUG-GUID-F8A636AB-8B51-4900-A299-DA0B88E99780" class="sect4"><span class="enumeration_section">4.1.2.1</span> Apache Commons Exec 1.3</h4>
+<div>
+<div class="section">
+<p>Include the following License ONLY ONCE in the documentation even if there are multiple products licensed under the license.</p>
+<p>The following applies to all products licensed under the Apache 2.0 License:</p>
+<p>You may not use the identified files except in compliance with the Apache License, Version 2.0 (the "License.").</p>
+<p>You may obtain a copy of the License at <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">http://www.apache.org/licenses/LICENSE-2.0</a>. A copy of the license is also reproduced below.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect4"><a id="GUID-0404C893-4DE4-4D34-A9E9-16DC40DE32D4"></a>
+<h4 id="BDCUG-GUID-0404C893-4DE4-4D34-A9E9-16DC40DE32D4" class="sect4"><span class="enumeration_section">4.1.2.2</span> ANTLR 4.7</h4>
+<div>
+<div class="section">
+<p>Copyright (c) 2015 Terence Parr, Sam Harwell</p>
+<p>All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ol>
+<li>
+<p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+</li>
+<li>
+<p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
+</li>
+<li>
+<p>The name of the author may not be used to endorse or promote products derived from this software without specific prior written permission.</p>
+</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-356A3CC3-4E8D-416F-9805-61574614C1FE"></a>
+<h2 id="BDCUG-GUID-356A3CC3-4E8D-416F-9805-61574614C1FE" class="sect2"><span class="enumeration_section">4.2</span> Using Oracle SQL Developer With Oracle Big Data Connectors</h2>
+<div>
+<p>Oracle SQL Developer is an essentially a graphical version SQL*Plus. Among its features is a user-friendly interface to tools for moving data between Hadoop and Oracle Database. It includes support for Copy to Hadoop, Oracle Loader for Hadoop, and Oracle SQL Connector for Hadoop Distributed File System (as well as Oracle Big Data SQL). There are wizards in the interface to assist with use of all of of these tools.</p>
+<div class="section">
+<p>Follow these steps to set up Oracle SQL Developer to work with Oracle Big Data Connectors.</p>
+<ol>
+<li>
+<p>Download and install Oracle SQL Developer.</p>
+</li>
+<li>
+<p>Download the Hive JDBC Drivers.</p>
+</li>
+<li>
+<p>Add the new Hive JDBC Drivers to Oracle SQL Developer.</p>
+</li>
+<li>
+<p>Set environment variables required for Oracle Big Data Connectors.</p>
+</li>
+<li>
+<p>Set up the necessary connections.</p>
+</li>
+</ol>
+<p>After you have installed the drivers, configured the environment, and created connections between Oracle Database and Hadoop, you can start using Oracle Big Data Connectors from within Oracle SQL Developer.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Downloading and Installing Oracle SQL Developer</p>
+<p>Install Oracle SQL Developer 4.2 or greater. Release 4.2 is recommended, because it is the first release to include support for <span class="italic">Copy To Hadoop</span>.</p>
+<p>The installation is simple. Just download the package and extract it.</p>
+<ol>
+<li>
+<p>Go to the <a href="http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html" target="_blank">Oracle SQL Developer download site</a> on the Oracle Technology Network (OTN).</p>
+</li>
+<li>
+<p>Accept the license agreement and download the version that is appropriate for your platform.</p>
+</li>
+<li>
+<p>Extract the downloaded ZIP file to your local drive.</p>
+<p>You can extract to any folder name.</p>
+</li>
+</ol>
+<p>See <span class="italic">Installing and Getting Started with SQL Developer</span> in the <span class="italic">Oracle SQL Developer User&rsquo;s Guide</span> for further installation and configuration details.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Downloading and Installing the Hive JDBC Drivers for Cloudera Enterprise</p>
+<p>To connect Oracle SQL Developer to Hive in the Hadoop environment, you need to download and install the Hive JDBC drivers for Cloudera Enterprise. These drivers are not included in the Oracle SQL Developer download package.</p>
+<div class="infobox-note" id="GUID-356A3CC3-4E8D-416F-9805-61574614C1FE__GUID-BBDBAD2B-C5DA-45E7-9B55-C5F48048D883">
+<p class="notep1">Note for HDP Users:</p>
+At this time, SQL Developer 4.2 requires the Cloudera JDBC drivers for Hive. However, these drivers appear to work against Hortonworks clusters as well. HDP users should test to determine if these drivers meet their needs.</div>
+<ol>
+<li>
+<p>Download the latest Cloudera JDBC drivers for Hive from the <a href="https://www.cloudera.com" target="_blank">Cloudera</a> website to any local directory.</p>
+<p>You can search for &ldquo;<code class="codeph">cloudera hive jdbc drivers download</code>&rdquo; on the Cloudera website to locate the available driver packages.</p>
+<p>You are prompted to select the driver version, OS, and OS version (32/64 bit). At this time, the latest drive version is 2.5.18. You can choose the newest version available.</p>
+</li>
+<li>
+<p>Unzip the archive:</p>
+<pre dir="ltr">
+unzip hive_jdbc_<span class="italic">&lt;version</span>&gt;.zip
+</pre></li>
+<li>
+<p>View the extracted content. Notice that under the top-level folder there are multiple ZIP files. Each is for a different JDBC version. For this setup, only JBDC 4.0 is usable. Select the <span class="bold">JDBC4_</span> ZIP file (<code class="codeph">JDBC4_&lt;<span class="codeinlineitalic">version</span>&gt;.zip</code>).</p>
+<div class="infobox-note" id="GUID-356A3CC3-4E8D-416F-9805-61574614C1FE__GUID-62B1AD30-FE78-48E9-AD1F-316019D45C60">
+<p class="notep1">Important:</p>
+Choose <span class="italic">only</span> the <span class="bold">JDBC4_</span> ZIP file, which contains the drivers for JDBC 4.0. This is the only compatible version. The drivers in other packages, such as <code class="codeph">JDBC41_*</code>, are not compatible with SQL Developer 4.2 and will return errors upon connection attempts.</div>
+</li>
+<li>
+<p>Unzip the JDBC4 archive to a target directory that is accessible to Oracle SQL Developer, for example, <code class="codeph">./home/oracle/jdbc</code> :</p>
+<pre dir="ltr">
+# unzip Cloudera_HiveJDBC4_&lt;<span class="italic">version</span>&gt;.zip -d /home/oracle/jdbc/
+</pre>
+<p>The extracted content should be similar to this:</p>
+<pre dir="ltr">
+Cloudera_HiveJDBC4_2.5.18.1050\Cloudera-JDBC-Driver-for-Apache-Hive-Install-Guide.pdf
+Cloudera_HiveJDBC4_2.5.18.1050\Cloudera-JDBC-Driver-for-Apache-Hive-Release-Notes.pdf
+Cloudera_HiveJDBC4_2.5.18.1050\commons-codec-1.3.jar
+Cloudera_HiveJDBC4_2.5.18.1050\commons-logging-1.1.1.jar
+Cloudera_HiveJDBC4_2.5.18.1050\HiveJDBC4.jar
+Cloudera_HiveJDBC4_2.5.18.1050\hive_metastore.jar
+Cloudera_HiveJDBC4_2.5.18.1050\hive_service.jar
+Cloudera_HiveJDBC4_2.5.18.1050\httpclient-4.1.3.jar
+Cloudera_HiveJDBC4_2.5.18.1050\httpcore-4.1.3.jar
+Cloudera_HiveJDBC4_2.5.18.1050\libfb303-0.9.0.jar
+Cloudera_HiveJDBC4_2.5.18.1050\libthrift-0.9.0.jar
+Cloudera_HiveJDBC4_2.5.18.1050\log4j-1.2.14.jar
+Cloudera_HiveJDBC4_2.5.18.1050\out.txt
+Cloudera_HiveJDBC4_2.5.18.1050\ql.jar
+Cloudera_HiveJDBC4_2.5.18.1050\slf4j-api-1.5.11.jar
+Cloudera_HiveJDBC4_2.5.18.1050\slf4j-log4j12-1.5.11.jar
+Cloudera_HiveJDBC4_2.5.18.1050\TCLIServiceClient.jar
+Cloudera_HiveJDBC4_2.5.18.1050\zookeeper-3.4.6.jar
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Adding the new Hive JDBC Drivers to Oracle SQL Developer</p>
+<p>Next, start up SQL Developer and copy all of the extracted driver files into &ldquo;Third Party JDBC Drivers&rdquo; in the <span class="bold">Preferences</span> window.</p>
+<ol>
+<li>
+<p>Navigate to the folder where you downloaded and extracted Oracle SQL Developer.</p>
+</li>
+<li>
+<p>Click the <code>sqldeveloper</code> subfolder. Then, click <code>sqldeveloper.exe</code> in this folder.</p>
+</li>
+<li>
+<p>In the SQL Developer menu bar, select <span class="bold">Tools&gt;Preferences</span>.</p>
+</li>
+<li>
+<p>In the file explorer of the <span class="bold">Preferences</span> window, expand <span class="bold">Database</span> and then click <span class="bold">Third Party JDBC Drivers</span>.</p>
+</li>
+<li>
+<p>Click <span class="bold">Add Entry</span>.</p>
+</li>
+<li>
+<p>Navigate to the folder where you sent the files extracted from <code class="codeph">Cloudera_HiveJDBC4_&lt;<span class="codeinlineitalic">version</span>&gt;.zip</code>. Copy all of the JAR files from the ZIP extraction into this window and then click <span class="bold">OK</span>.</p>
+</li>
+<li>
+<p>Restart Oracle SQL Developer.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Setting up Environment Variables for Using Oracle Big Data Connectors With Oracle SQL Developer</p>
+<p>SQL Developer with Oracle Big Data Connectors requires the user to make an SSH connection from SQL Developer to a Hadoop client, Hadoop node, or Hadoop edge node. The home directory of this account requires a specific environment file for each of the Big Data Connectors it runs</p>
+<div class="infobox-note" id="GUID-356A3CC3-4E8D-416F-9805-61574614C1FE__GUID-1AAB2DC1-B426-4FF4-81C3-2678A7AC8160">
+<p class="notep1">Note:</p>
+If you want to do <span class="italic">staged copies</span> in Copy to Hadoop, then Copy to Hadoop requires an additional SSH connection to the <code class="codeph">oracle</code> OS account on the database system.</div>
+<p>You must create and populate the environment files. The following table provides the exact filenames and the content you must add to each file. The file must be readable by the account using the Big Data Connector.</p>
+<div class="tblformal" id="GUID-356A3CC3-4E8D-416F-9805-61574614C1FE__GUID-A38F4301-AA3A-4104-8041-FA20C246FE51">
+<table class="cellalignment65" summary="Column 1 states the connector and the required environment file name for that connector. Column 2 shows the required contents of that file. It includes some extra comments to explain entries to the reader.">
+<thead>
+<tr class="cellalignment26">
+<th class="cellalignment37" id="d33476e631">Environment File Name</th>
+<th class="cellalignment37" id="d33476e633">Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment26">
+<td class="cellalignment40" id="d33476e637" headers="d33476e631">For Copy to Hadoop:
+<pre dir="ltr">
+.sqldev_cp2hadoop_env
+</pre></td>
+<td class="cellalignment40" headers="d33476e637 d33476e633">
+<pre dir="ltr">
+#!/bin/bash
+# Environment file for Copy to Hadoop
+
+export CP2HADOOP_HOME=&lt;<span class="italic">Parent directory of the directory containing Copy to Hadoop JARs</span>&gt;  
+# On Oracle Big Data Appliance, the Copy to Hadoop JARs are in /opt/oracle/bigdatasql/bdcell-12.1
+export HADOOP_CLASSPATH=${CP2HADOOP_HOME}/jlib/*
+# ----------------------------------------------
+# If using Oracle Wallet, add the following four variables:
+export WALLET_LOCATION=&lt;<span class="italic">Location of the Oracle Wallet files</span>&gt;
+#For example: export WALLET_LOCATION=/home/${USER}/wallet
+export TNS_ADMIN=&lt;<span class="italic">Like WALLET_LOCATION, this also points to the location of the Oracle Wallet files</span>&gt;
+export CLUSTER_WALLET_LOCATION=${WALLET_LOCATION}
+export CLUSTER_TNS_ADMIN=${TNS_ADMIN}
+</pre></td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment40" id="d33476e654" headers="d33476e631">For Oracle Loader for Hadoop:
+<pre dir="ltr">
+.sqldev_olh_env
+</pre></td>
+<td class="cellalignment40" headers="d33476e654 d33476e633">
+<pre dir="ltr">
+#!/bin/bash
+# Environment file for Oracle Loader for Hadoop
+
+export HIVE_HOME=&lt;<span class="italic">For example: /opt/cloudera/parcels/CDH/lib/hive</span>&gt;
+export HIVE_CONF_DIR=&lt;<span class="italic">For example: /etc/hive/conf</span>&gt;
+export OLH_HOME=&lt;For example (<span class="italic">on Oracle Big Data Appliance): /opt/oracle/olh</span>&gt;
+export HADOOP_CLASSPATH=${OLH_HOME}/jlib/*:${HIVE_CONF_DIR}:${HIVE_HOME}/lib/*
+export OLH_LIB_JARS=${HIVE_HOME}/lib/hive-exec.jar,${HIVE_HOME}/lib/hive-metastore.jar,${HIVE_HOME}/lib/libfb303-0.9.2.jar
+# ----------------------------------------------
+# If using Oracle Wallet, add the following four variables:
+export WALLET_LOCATION=&lt;<span class="italic">Location of the Oracle Wallet files</span>&gt;
+export TNS_ADMIN=&lt;<span class="italic">Same path as WALLET_LOCATION</span>&gt;
+export CLUSTER_WALLET_LOCATION=${WALLET_LOCATION}
+export CLUSTER_TNS_ADMIN=${TNS_ADMIN}
+</pre></td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment40" id="d33476e677" headers="d33476e631">For Oracle SQL Connector for HDFS:
+<pre dir="ltr">
+.sqldev_osch_env
+</pre></td>
+<td class="cellalignment40" headers="d33476e677 d33476e633">
+<pre dir="ltr">
+#!/bin/bash
+# Environment file for Oracle SQL Connector for HDFS
+
+export HIVE_HOME=&lt;<span class="italic">For example: /opt/cloudera/parcels/CDH/lib/hive</span>&gt;
+export HIVE_CONF_DIR=&lt;<span class="italic">For example: /etc/hive/conf</span>&gt;
+export OSCH_HOME=&lt;For example (<span class="italic">on Oracle Big Data Appliance): /opt/oracle/osch</span>&gt;
+export HADOOP_CLASSPATH=${OSCH_HOME}/jlib/*:${HIVE_CONF_DIR}:${HIVE_HOME}/lib/*
+# ----------------------------------------------
+# If using Oracle Wallet, add the following four variables:
+export WALLET_LOCATION=&lt;<span class="italic">Location of the Oracle Wallet files</span>&gt;
+export TNS_ADMIN=&lt;<span class="italic">Same path as WALLET_LOCATION</span>&gt;
+export CLUSTER_WALLET_LOCATION=${WALLET_LOCATION}
+export CLUSTER_TNS_ADMIN=${TNS_ADMIN}
+</pre></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Setting Up Secure Connections for Oracle Big Data Connectors</p>
+<p>See <a class="olink RPTUG-GUID-495A87B6-9F1E-400E-9096-79B483EE9A9A" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E93613-01&amp;id=RPTUG-GUID-495A87B6-9F1E-400E-9096-79B483EE9A9A">Apache Hadoop Connectors Support in SQL Developer</a> in the <span class="italic">Oracle SQL Developer User&rsquo;s Guide</span> for instructions on how to create SSH connections required for Oracle Big Data Connectors access to Hadoop.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment25">
+<tr>
+<td class="cellalignment66">
+<table class="cellalignment30">
+<tr>
+<td class="cellalignment29"><a href="olh.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment29"><a href="xquery-part.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment68">
+<table class="cellalignment28">
+<tr>
+<td class="cellalignment29"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment29"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment29"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment29"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment29"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

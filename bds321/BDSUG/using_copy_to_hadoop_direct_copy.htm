@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using Copy to Hadoop With Direct Copy</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Copy to Hadoop with the direct copy option copies data from an Oracle Database table directly to Oracle Datapump files stored in HDFS." />
+<meta name="dcterms.created" content="2018-08-05T17:02:43Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User's Guide" />
+<meta name="dcterms.identifier" content="E87609-07" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds321/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="generate_data_pump_file.htm" title="Previous" type="text/html" />
+<link rel="Next" href="diagnostic_tips.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E87609-07.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-030DDEF6-1C20-41A1-B73C-36A7203CBC96"></a> <span id="PAGE" style="display:none;">10/13</span> <!-- End Header -->
+<h1 id="BDSUG-GUID-030DDEF6-1C20-41A1-B73C-36A7203CBC96" class="sect1"><span class="enumeration_chapter">B</span> Using Copy to Hadoop With Direct Copy</h1>
+<div>
+<p>Copy to Hadoop with the direct copy option copies data from an Oracle Database table directly to Oracle Datapump files stored in HDFS.</p>
+<p>Copy to Hadoop simplifies the data copy because it does not require intermediate storage on the database server. The rest of steps needed to make the data accessible to the Hadoop ecosystem such as creating Hive external table to access the copied data and running Hive queries is common to both copy options. (stage and direct).</p>
+<p>The intended audience for this section are power users of Hadoop with specialized requirements . All other users should use the Oracle Shell for Hadoop Loader (OHSH) CLI for Copy to Hadoop operations. See <a href="copy2bda.htm#GUID-6BE23F64-C08A-40A7-95A9-11DBC3F9FAE2">Using Oracle Shell for Hadoop Loaders With Copy to Hadoop</a>.</p>
+</div>
+<div class="sect2"><a id="GUID-954CE487-C588-4A58-B238-6505761DBF06"></a>
+<h2 id="BDSUG-GUID-954CE487-C588-4A58-B238-6505761DBF06" class="sect2"><span class="enumeration_section">B.1</span> Manual Steps for Using Copy to Hadoop for Direct Copies</h2>
+<div>
+<p>Follow these steps.</p>
+<div class="section">
+<p class="subhead2">Getting Started</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ol>
+<li>
+<p>First confirm that Copy to Hadoop is installed and configured.</p>
+</li>
+<li>
+<p>Ensure that the user account has sufficient privileges to copy a database table. (See <a href="copy2bda.htm#GUID-A54345A9-D762-4F96-B0B8-3A96F739FC3C" title="To copy table using Copy to Hadoop, an Oracle Database user must meet one of these requirements.">Table Access Requirements for Copy to Hadoop</a>.)</p>
+</li>
+<li>
+<p>Make sure that the table contains supported column types. (See <a href="copy2bda.htm#GUID-92B3095C-207C-4054-AB2F-98C64FD12C31">About Column Mappings and Data Type Conversions</a>.)</p>
+</li>
+<li>
+<p>Log in to either a node in the Hadoop cluster or a system set up as a Hadoop client for the cluster.</p>
+</li>
+<li>
+<p>If you are connecting to a secure cluster then run <code class="codeph">kinit</code> to authenticate the user.</p>
+</li>
+<li>
+<p>Run the Copy To Hadoop job using direct copy. See &ldquo;Running the Copy to Hadoop Job for Direct Copy&rdquo; below.</p>
+</li>
+<li>
+<p>After the job succeeds, check the <code>jobReport.log</code> file in the <code>_ctoh</code> subdirectory of the output directory in HDFS. Check that the RowCount listed in the log file is equal to the number of rows in the database table.</p>
+</li>
+<li>
+<p>Connect to Apache Hive and create an external table from the Data Pump files. (See <a href="generate_data_pump_file.htm#GUID-D6014CA4-B53A-4DE6-80E4-D22656FC1FDA">Creating a Hive Table</a>.)</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Running the Copy to Hadoop Job (Using Direct Copy)</p>
+<ol>
+<li>
+<p>Set the environment variables required by Copy to Hadoop.</p>
+<div class="p">Locate the installation directory of Copy to Hadoop and set the <code class="codeph">CP2HADOOP_HOME</code> Bash shell variable. For example:
+<pre dir="ltr">
+# export CP2HADOOP_HOME=&rdquo;/opt/oracle/orahivedp-3.1.0&rdquo;
+</pre></div>
+<div class="p">Add the Copy to Hadoop JARs to <code class="codeph">HADOOP_CLASSPATH</code>. For example:
+<pre dir="ltr">
+# export HADOOP_CLASSPATH="${CP2HADOOP_HOME}/jlib/*:${HADOOP_CLASSPATH}"
+</pre>
+<div class="infobox-tip" id="GUID-954CE487-C588-4A58-B238-6505761DBF06__GUID-6EA4BEB4-54CD-4E26-9264-A864B32A2AD9">
+<p class="notep1">Tip:</p>
+When using Copy to Hadoop, you should always list <code>$CP2HADOOP_HOME/jlib/*</code> first in <code class="codeph">HADOOP_CLASSPATH</code>. Another way to avoid JAR conflicts is to define an appropriately ordered <code class="codeph">HADOOP_CLASSPATH</code> within a script that uses it.</div>
+</div>
+</li>
+<li>
+<p>Run the Job.</p>
+<div class="p">This is the command syntax:
+<pre dir="ltr">
+# hadoop jar ${CP2HADOOP_HOME}/jlib/orahivedp.jar oracle.hadoop.ctoh.CtohDriver \
+[-D &lt;configuration-property&gt;=&lt;configuration-value&gt;]+
+</pre></div>
+</li>
+</ol>
+<p><span class="bold">Example 1: Running the Job on a Secure Cluster Using Oracle Wallet</span></p>
+<pre dir="ltr">
+# hadoop jar ${CP2HADOOP_HOME}/jlib/orahivedp.jar oracle.hadoop.ctoh.CtohDriver \
+-D oracle.hadoop.ctoh.connection.tnsEntry=&lt;my-oracle-tns-entry&gt; \
+-D oracle.hadoop.ctoh.connection.walletLoc=&lt;local-oracle-wallet-dir&gt; \
+-D oracle.hadoop.ctoh.connection.tnsAdmin=&lt;local-oracle-wallet-dir&gt; \
+-D oracle.hadoop.ctoh.connection.clusterWalletLoc=&lt;oracle-wallet-dir-on-hadoop-cluster&gt; \
+-D oracle.hadoop.ctoh.connection.clusterTnsAdmin=&lt;oracle-wallet-dir-on-hadoop-cluster&gt; \
+-D mapreduce.output.fileoutputformat.outputdir=&lt;mytab-hdfs-output-dir&gt; \
+-D oracle.hadoop.ctoh.splitterType="BLOCK_SPLITTER" \
+-D oracle.hadoop.ctoh.table=&lt;dbSchema.dbTable&gt; \
+-D oracle.hadoop.ctoh.maxSplits=10
+</pre>
+<p><span class="bold">Example 2: Running the Job on A Unsecured Hadoop Cluster (<span class="italic">for Demo Purposes Only</span>)</span></p>
+<pre dir="ltr">
+# hadoop jar ${CP2HADOOP_HOME}/jlib/orahivedp.jar oracle.hadoop.ctoh.CtohDriver \
+-D oracle.hadoop.ctoh.jdbc.url="jdbc:oracle:thin:@myhost:1521/myservice" \
+-D oracle.hadoop.ctoh.connection.username="myuser" \
+-D oracle.hadoop.ctoh.connection.password="mypassword" \
+-D mapreduce.output.fileoutputformat.outputdir="mytable_output_dir" \
+-D oracle.hadoop.ctoh.splitterType="BLOCK_SPLITTER" \
+-D oracle.hadoop.ctoh.table="otherUser.mytable" \
+-D oracle.hadoop.ctoh.maxSplits=10
+</pre>
+<p><span class="bold">Performance Tuning Tips</span></p>
+<p>You can control the degree of parallelism of the Copy to Hadoop job by specifying the number of map processes using the <code class="codeph">oracle.hadoop.ctoh.maxSplits</code> property. The higher the number of map processes, the higher the parallelism. Note that each process connects to the database, so this value also determines the number of simultaneous connections to the database. Typically, a number such as 64 works well.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Required Configuration Properties</p>
+<p>See Section &ldquo;Configuration Properties Reference&rdquo; for more information on these and other properties.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.table</code></p>
+</li>
+<li>
+<p><code class="codeph">mapreduce.output.fileoutputformat.outputdir</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.maxSplits</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.splitterType</code></p>
+</li>
+</ul>
+<p><span class="bold">Connection Properties for a secure Hadoop cluster using Oracle Wallet:</span></p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.walletLoc</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.tnsAdmin</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.tnsEntry</code></p>
+</li>
+<li>
+<p>The following properties are also required if the Oracle Wallet directory on the Hadoop cluster is different from the directory on the Hadoop client:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.clusterWalletLoc</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.clusterTnsAdmin</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><span class="bold">Connection Properties for Unsecured Hadoop clusters (<span class="italic">for Demo Purposes Only</span>):</span></p>
+<p>For demo purposes, use the following properties in place of the properties used with secured clusters.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.username</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.password</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.jdbc.url</code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">An Incremental Copy using Copy to Hadoop</p>
+<p>To incrementally copy data from the same Oracle table to a pre-existing destination directory in HDFS, the following additional properties are required. (This configuration assumes that a Copy To Hadoop job was run initially to copy data from an Oracle Database table to datapump files in an HDFS directory. )</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.whereClause</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.datapump.output</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.datapump.basename</code></p>
+</li>
+</ul>
+<p><code class="codeph">oracle.hadoop.ctoh.datapump.output</code> specifies a preexisting HDFS location that contains the datapump files from a previous run of Copy To Hadoop.</p>
+<p><code class="codeph">oracle.hadoop.ctoh.whereClause</code> identifies the subset of rows to be copied from the Oracle table for the incremental load.</p>
+<p><code class="codeph">oracle.hadoop.ctoh.datapump.basename</code> specifies a unique prefix for the datapump files. This property is used to generate unique datapump file names to prevent file name collisions during an incremental load.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-9072109C-9073-400B-8D8F-FB8ACA6D76F3"></a>
+<h2 id="BDSUG-GUID-9072109C-9073-400B-8D8F-FB8ACA6D76F3" class="sect2"><span class="enumeration_section">B.2</span> Copy to Hadoop Property Reference</h2>
+<div>
+<p>This reference describes customer-accessible properties of Copy to Hadoop.</p>
+<div class="section">
+<p class="subhead2">Copy to Hadoop Configuration Property Reference (for Direct Copy)</p>
+<div class="tblformal" id="GUID-9072109C-9073-400B-8D8F-FB8ACA6D76F3__GUID-5849A25A-9991-433F-8A13-DB2334A46E8C">
+<table class="cellalignment18" summary="Column 1 identifies each property. Column 2 describes each property. It includes the property type, default, value, and general description.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment19" id="d24018e283">Property</th>
+<th class="cellalignment19" id="d24018e285">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e289" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.home</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e289 d24018e285">
+<p><span class="bold">Type:</span> String</p>
+<p><span class="bold">Default Value</span>: Value of the <code class="codeph">CP2HADOOP_HOME</code> environment variable.</p>
+<p><span class="bold">Description</span>: This configuration property is used to locate jars required for the Copy to Hadoop job.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e310" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.table</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e310 d24018e285">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: The name of the database table whose content is copied to Hdoop as datapump files. It can also be schema qualified. For example, to specify the table EMPLOYEE in schema MANAGER, you can use <code class="codeph">MANAGER.EMPLOYEE</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e330" headers="d24018e283">
+<p><span class="bold">mapreduce.output.fileoutputformat.outputdir</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e330 d24018e285">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: The name of the output directory where datapump files are created by the Hadoop job. The job output logs are also stored in the<code class="codeph">_ctoh</code> subdirectory.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e351" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.datapump.output</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e351 d24018e285">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: Specifies the destination directory for datapump files. If this property is not specified,the datapump files will live in the directory specified by the <code class="codeph">mapreduce.output.fileoutputformat.outputdir</code> property.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e372" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.datapump.basename</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e372 d24018e285">
+<p><span class="bold">Type</span>: String.</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">dppart</code></p>
+<p><span class="bold">Description</span>: The prefix or base-name of generated data pump files. For example if a user specifies this property as &ldquo;dp_tbl&rdquo;, then the generated datapump file is <code>dp_tbl-m-00000.dmp</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e395" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.datapump.extension</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e395 d24018e285">
+<p><span class="bold">Type</span>:</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">dmp</code></p>
+<p><span class="bold">Description</span>: The suffix of generated data pump files. For example if a user specifies this property as &ldquo;.dp&rdquo;, then the generated datapump file is <code>dppart&mdash;m-00000.dp</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e418" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.maxSplits</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e418 d24018e285">
+<p><span class="bold">Type</span>: Integer.</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: The number of datapump files that are created by the Hadoop job. This is also the number of mappers that will be produced by the Hadoop job.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e436" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.splitterType</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e436 d24018e285">
+<p><span class="bold">Type</span>:</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: The type of splitters that will be used to split the table data.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">BLOCK_SPLITTER</code>: This splitter divides the table into block ranges.</p>
+</li>
+<li>
+<p><code class="codeph">ROW_SPLITTER</code>: The splitter divides the table into row ranges.</p>
+</li>
+<li>
+<p><code class="codeph">PARTITION_SPLITTER</code>: If a table is partitioned, the partition splitter can be used. When this splitter is specified, the number of datapump files created by the Hadoop job is at most equal to the number of partitions in the table.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e470" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.columns</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e470 d24018e285">
+<p><span class="bold">Type</span>:</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: Specifies the subset of columns to be copied. For example if a user specifies &ldquo;NAME,MANAGER&rdquo; then the data for columns <code class="codeph">NAME</code> and <code class="codeph">MANAGER</code> are copied. If this property is not specified then all columns are copied (unless filtered by a WHERE clause).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e494" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.whereClause</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e494 d24018e285">
+<p><span class="bold">Type</span>: String.</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: This property is used to copy a subset of rows. For example, to copy employees whose ids are less than 1000 and greater than 500, then specify the following WHERE clause: <code class="codeph">EMPLOYEE_ID &lt; 1000 AND EMPLOYEE_ID &gt; 500</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e515" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.jdbc.url</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e515 d24018e285">
+<p><span class="bold">Type</span>: String.</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: The JDBC url to connect to the database. This property can used for demo purposes and non-secure clusters. Use Oracle Wallet with Secure Hadoop clusters in production environments.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e534" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.connection.username</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e534 d24018e285">
+<p><span class="bold">Type</span>: String.</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: The name of the Oracle Database user. This property can used for demo purposes and non secure clusters. Use Oracle Wallet with Secure Hadoop clusters in production environments.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e552" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.connection.password</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e552 d24018e285">
+<p><span class="bold">Type</span>: String.</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: The password of the Oracle Database user. This property can used for demo purposes and non secure clusters. Use Oracle Wallet with Secure Hadoop clusters in production environments.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e570" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.connection.walletLoc</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e570 d24018e285">
+<p><span class="bold">Type</span>: String.</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: Location of the Oracle Wallet directory on the Hadoop client.</p>
+<p>When using an Oracle Wallet, you must also set the following properties:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.tnsAdmin</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.tnsEntry</code></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e599" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.connection.clusterWalletLoc</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e599 d24018e285">
+<p><span class="bold">Type</span>:</p>
+<p><span class="bold">Default Value</span>: Value of <code class="codeph">oracle.hadoop.ctoh.connection.walletLoc</code>.</p>
+<p><span class="bold">Description</span>: Location of the Oracle wallet directory on the Hadoop cluster. NOTE: This directory must be visible to all nodes in the Hadoop cluster. When using this property, you must also set the following properties:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.clusterTnsAdmin</code></p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.ctoh.connection.tnsEntry</code></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e629" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.connection.tnsAdmin</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e629 d24018e285">
+<p><span class="bold">Type</span>: String.</p>
+<p><span class="bold">Default Value</span>: Not Defined.</p>
+<p><span class="bold">Description</span>: Location of the directory on the Hadoop client, containing the SQL*Net configuration files such as <code class="codeph">sqlnet.ora</code> and <code class="codeph">tnsnames.ora</code>. Set this property so that you can use TNS entry names in the database connection strings. When using Oracle Wallet, this property value can be the same as the value of the <code class="codeph">oracle.hadoop.ctoh.connection.walletLoc</code> property.</p>
+<p>You must set this property when using an Oracle Wallet as an external password store. See <code class="codeph">oracle.hadoop.ctoh.connection.walletLoc</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e661" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.connection.clusterTnsAdmin</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e661 d24018e285">
+<p><span class="bold">Type</span>: String.</p>
+<p><span class="bold">Default Value</span>: Value of the property <code class="codeph">oracle.hadoop.ctoh.connection.tnsAdmin</code>.</p>
+<p><span class="bold">Description</span>: Location of the directory on the Hadoop cluster containing SQL*Net configuration files such as <code class="codeph">sqlnet.ora</code> and <code class="codeph">tnsnames.ora</code>. NOTE: This directory must be visible to all nodes in the Hadoop cluster.</p>
+<p>Set this property so that you can use TNS entry names in database connection strings. When using Oracle Wallet, this property value can be the same as the value of <code class="codeph">oracle.hadoop.ctoh.connection.clusterWalletLoc</code>.</p>
+<p>You must set this property when using an Oracle Wallet as an external password store (as Oracle recommends). See <code class="codeph">oracle.hadoop.ctoh.connection.clusterWalletLoc</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e698" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.connection.tnsEntry</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e698 d24018e285">
+<p><span class="bold">Type</span>: String.</p>
+<p><span class="bold">Default Value</span>: None.</p>
+<p><span class="bold">Description</span>: The TNS entry name defined in the <code class="codeph">tnsnames.ora</code> file. Use this property with <code class="codeph">oracle.hadoop.ctoh.connection.tnsAdmin</code>. When using Oracle Wallet, make sure that the <code class="codeph">tnsEntry</code> name matches your wallet credential.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24018e725" headers="d24018e283">
+<p><span class="bold">oracle.hadoop.ctoh.cachePath</span></p>
+</td>
+<td class="cellalignment2" headers="d24018e725 d24018e285">
+<p><span class="bold">Type</span>: String.</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">${mapreduce.output.fileoutputformat.outputdir}/../ctohCache</code></p>
+<p><span class="bold">Description</span>: Identifies the full path to an HDFS directory where cCopy to Hadoop can create files that are loaded into the MapReduce distributed cache. The distributed cache is a facility for caching large, application-specific files and distributing them efficiently across the nodes in a cluster.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="generate_data_pump_file.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="diagnostic_tips.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="http://docs.oracle.com/bigdata/bds321/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

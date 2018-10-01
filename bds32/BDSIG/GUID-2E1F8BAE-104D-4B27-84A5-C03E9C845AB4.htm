@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Installation Quick Reference</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="This condensed description of the installation steps may be useful if you have installed the release before, or, feel that you do not need a detailed explanation of the steps. You can refer back to the full instructions in the main body of the guide for more information." />
+<meta name="dcterms.created" content="2018-08-03T19:37:49Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E99049-01" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds32/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="additionaltools.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-F615A82D-D02F-4B92-B9E4-3F580905EC8D.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E99049-01.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-2E1F8BAE-104D-4B27-84A5-C03E9C845AB4"></a> <span id="PAGE" style="display:none;">13/21</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-2E1F8BAE-104D-4B27-84A5-C03E9C845AB4" class="sect1"><span class="enumeration_appendix">A</span> Installation Quick Reference</h1>
+<div>
+<p>This condensed description of the installation steps may be useful if you have installed the release before, or, feel that you do not need a detailed explanation of the steps. You can refer back to the full instructions in the main body of the guide for more information.</p>
+<div class="section">
+<p class="subhead1">About Restarts</p>
+<p><span class="bold">Hadoop Side:</span></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Cloudera Configuration Manager (or Ambari) may be restarted by the installation. This in itself does not interrupt any services.</p>
+</li>
+<li>
+<p>Hive, YARN , and any other services that have a dependency on Hive or YARN (such as Impala) are restarted.</p>
+<p>The Hive libraries parameter is updated in order to include Oracle Big Data SQL JARs. On Cloudera installations, if the YARN Resource Manager is enabled, then it is restarted in order to set cgroup memory limit for Oracle Big Data SQL and the other Hadoop services. On Oracle Big Data Appliance, the YARN Resource Manager is always enabled and therefore always restarted.</p>
+</li>
+</ul>
+<p><span class="bold">Database Side:</span></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>In some cases where Grid infrastructure is present, it must be restarted. If the system uses Grid then you should have the Grid user credentials on hand in case a restart is required</p>
+</li>
+<li>
+<p>The Linux users grid and oracle (or other database owner) must both in the same group (usually <code class="codeph">oinstall</code>).</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-2E1F8BAE-104D-4B27-84A5-C03E9C845AB4__GUID-3F817939-1FA5-4D7D-B79A-D4E17E127D18">
+<p class="titleintable">Table A-1 Checking Prerequisites and Patches</p>
+<table class="cellalignment74" title="Checking Prerequisites and Patches" summary="Column 1 describes the step. Column 2 provides a link for more information in this guide or elsewhere, if available.">
+<thead>
+<tr class="cellalignment54">
+<th class="cellalignment75" id="d11420e56">Step</th>
+<th class="cellalignment75" id="d11420e58">For More Information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e62" headers="d11420e56">
+<p><span class="bold">1.</span> Check for the prerequisites on both the Hadoop or Oracle Database systems. (The installation will alert you if any are missing.)</p>
+</td>
+<td class="cellalignment76" headers="d11420e62 d11420e58">
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="introduction.htm#GUID-BE75588A-626F-491C-9005-446FDB0408A5">Prerequisites for Installation on the Hadoop Cluster</a></p>
+</li>
+<li>
+<p><a href="introduction.htm#GUID-1FBF04F0-EF9E-43BF-AC5A-2B50096CDB6A" title="Installation prerequisites vary, depending on type of Hadoop system and Oracle Database system where Oracle Big Data SQL will be installed.">Prerequisites for Installation on Oracle Database Nodes</a></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e81" headers="d11420e56"><span class="bold">2.</span> Ensure that the latest Database Proactive Bundle Patch is installed on database as well as any one-off patches required for this product.
+<p><span class="bold">NOTE:</span> The Database Proactive Bundle Patch is different than the Patch Set Update. Refer to the Master Compatibility Matrix for complete details on required patches.</p>
+</td>
+<td class="cellalignment76" headers="d11420e81 d11420e58">
+<p><a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=400361405103392&amp;id=2119369.1&amp;_adf.ctrl-state=j8ryazrl8_77" target="_blank">Oracle Big Data SQL Master Compatibility Matrix</a> (Doc ID 2119369.1 in <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a></p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e99" headers="d11420e56">
+<p><span class="bold">3.</span> On the database server, check that <code class="codeph">opatch</code> is included in <code class="codeph">PATH</code> . Then run <code class="codeph">opatch</code> to see what patches are installed on the database: <code class="codeph">$ ./opatch lspatches</code></p>
+</td>
+<td class="cellalignment76" headers="d11420e99 d11420e58">&nbsp;</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e117" headers="d11420e56">
+<p><span class="bold">4.</span> Copy patch 26170659 to the database server if not already installed.</p>
+</td>
+<td class="cellalignment76" headers="d11420e117 d11420e58">&nbsp;</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e124" headers="d11420e56">
+<p><span class="bold">5.</span> Make sure database and listener are down.</p>
+</td>
+<td class="cellalignment76" headers="d11420e124 d11420e58"><a class="olink TDPRC-GUID-1E6F18E0-99D5-49DC-8041-938EB8E4664E" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E87336-01&amp;id=TDPRC-GUID-1E6F18E0-99D5-49DC-8041-938EB8E4664E">Managing Oracle Software and Applying Patches</a> (<span class="italic">Database 2 Day + Real Application Clusters Guide</span>)</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e138" headers="d11420e56">
+<p><span class="bold">6.</span> Unzip the patch archive on the database server. Navigate to the patch and apply it: <code class="codeph">$ ./opatch apply</code></p>
+<p>If the database server has both a database and Grid home, then you must apply the one-off patch to BOTH the grid home and database home.</p>
+</td>
+<td class="cellalignment76" headers="d11420e138 d11420e58">&nbsp;</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e149" headers="d11420e56">
+<p><span class="bold">7.</span> Navigate to <code class="codeph">$ORACLE_HOME/Opatch</code> and run the <code class="codeph">datapatch</code> command: <code class="codeph">$ ./datapatch</code></p>
+</td>
+<td class="cellalignment76" headers="d11420e149 d11420e58">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="tblformal" id="GUID-2E1F8BAE-104D-4B27-84A5-C03E9C845AB4__GUID-1FD69470-FFB5-439A-BBEF-82638BD1F6F6">
+<p class="titleintable">Table A-2 Installing the Hadoop Side of Oracle Big Data SQL</p>
+<table class="cellalignment74" title="Installing the Hadoop Side of Oracle Big Data SQL" summary="Column 1 describes the step. Column 2 provides a link for more information in this guide or elsewhere, if available.">
+<thead>
+<tr class="cellalignment54">
+<th class="cellalignment75" id="d11420e173">Step</th>
+<th class="cellalignment75" id="d11420e175">For More Information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e179" headers="d11420e173">
+<p><span class="bold">8.</span> Download the Oracle Big Data SQL installation bundle from OTN or eDelivery (Oracle Software Delivery Cloud).</p>
+</td>
+<td class="cellalignment76" headers="d11420e179 d11420e175">
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="http://www.oracle.com/technetwork/indexes/downloads/index.html" target="_blank">OTN</a></p>
+</li>
+<li>
+<p><a href="https://edelivery.oracle.com/" target="_blank">Oracle Software Delivery Cloud</a></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e197" headers="d11420e173">
+<p><span class="bold">9.</span> Copy this file on to master node of the Hadoop cluster (where Ambari or CM is running). Unzip it and navigate to extracted directory.</p>
+</td>
+<td class="cellalignment76" headers="d11420e197 d11420e175">&nbsp;</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e204" headers="d11420e173">
+<p><span class="bold">10.</span> Create a configuration file:</p>
+<pre dir="ltr">
+{
+"cluster": {
+  "name": &lt;Your cluster name&gt;
+  }
+}
+</pre>
+<div class="p">Database Authentication is enabled by default. You can create a configuration file where Database Authentication is disabled:
+<pre dir="ltr">
+{
+"cluster": {
+  "name": &lt;Your cluster name&gt;
+  },
+"security": {
+  "database_auth_enabled": "false"
+  }
+}
+</pre>
+Other configuration options are available.</div>
+</td>
+<td class="cellalignment76" headers="d11420e204 d11420e175">
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="installhadoopside.htm#GUID-91773A49-ABB4-4BC8-9068-3238DF50A108">Jaguar Configuration Parameter and Command Reference</a></p>
+</li>
+<li>
+<p><a href="installhadoopside.htm#GUID-D9E5CC9B-39A0-4A8B-8804-8F22C7A4B388">Steps for Installing on the Hadoop Cluster</a></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e230" headers="d11420e173">
+<p><span class="bold">11.</span> As <code class="codeph">root</code>, run : <code class="codeph">./jaguar install &lt;<span class="codeinlineitalic">config file</span>&gt;</code></p>
+<p>If you want to generate a key for Database Authentication, then include the <code class="codeph">--requestdb</code> parameter and list the databases that should accept the key:</p>
+<pre dir="ltr">
+./jaguar --requestdb orcl,testdb,proddb install &lt;<span class="italic">config file</span>&gt;
+</pre></td>
+<td class="cellalignment76" headers="d11420e230 d11420e175">&nbsp;</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e255" headers="d11420e173">
+<p><span class="bold">12.</span> Copy the database-side installation bundle generated in <code class="codeph">&lt;<span class="codeinlineitalic">Big Data SQL Install directory</span>&gt;/BDSjaguar/dbundles</code> to the database server. If you used <code class="codeph">--requestdb</code> to generate a request key, find the <code class="codeph">.reqkey</code> file under <code class="codeph">/BDSjaguar/dbkeys</code> and copy it to the database server as well.</p>
+</td>
+<td class="cellalignment76" headers="d11420e255 d11420e175">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="tblformal" id="GUID-2E1F8BAE-104D-4B27-84A5-C03E9C845AB4__GUID-B3DF4874-8C05-4734-A658-279D31FE5E71">
+<p class="titleintable">Table A-3 Installing the Database Side of Oracle Big Data SQL</p>
+<table class="cellalignment74" title=" Installing the Database Side of Oracle Big Data SQL" summary="Column 1 describes the step. Column 2 provides a link for more information in this guide or elsewhere, if available.">
+<thead>
+<tr class="cellalignment54">
+<th class="cellalignment75" id="d11420e286">Step</th>
+<th class="cellalignment75" id="d11420e288">For More Information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e292" headers="d11420e286"><span class="bold">13.</span> Log on as the database owner, locate the database-side installation bundle, and unzip it.</td>
+<td class="cellalignment76" headers="d11420e292 d11420e288"><a href="installdbside.htm#GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59" title="To install the database side of Oracle Big Data SQL, copy over the ZIP file containing the database-side installation bundle that was created on the Hadoop cluster management server, unzip it, execute the run file it contains, then run the installer.">Steps for Installing on Oracle Database Nodes</a></td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e303" headers="d11420e286"><span class="bold">14.</span> Execute the <code class="codeph">.run</code> file extracted from the ZIP file.</td>
+<td class="cellalignment76" headers="d11420e303 d11420e288">&nbsp;</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e312" headers="d11420e286"><span class="bold">15.</span> Navigate to <code class="codeph">$ORACLE_HOME/BDSJaguar-3.2.0</code> and find the installation directory created by the <code class="codeph">.run</code> file . The directory name will indicate the cluster, node, and domain where the installation bundle originated. Cd into the directory and run the installer:
+<pre dir="ltr">
+$ cd cdh510-6-node1.my.domain.com
+$ ./bds-database-install.sh
+</pre>
+<p>You may need to include some parameters with this command.</p>
+</td>
+<td class="cellalignment76" headers="d11420e312 d11420e288"><a href="installdbside.htm#GUID-13459397-904F-4250-9130-8C674020E36F">Command Line Parameter Reference for bds-database-install.sh</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p>Perform the steps in the table below if <code class="codeph">database_auth_enabled</code> and/or <code class="codeph">impersonation_enabled</code> was set to <code class="codeph">&ldquo;true&rdquo;</code> in the configuration.</p>
+<div class="tblformal" id="GUID-2E1F8BAE-104D-4B27-84A5-C03E9C845AB4__GUID-F1DA8FB7-4C41-4187-A860-20F8E9CAEA57">
+<p class="titleintable">Table A-4 Extra Steps to Complete the Configuration for Database Authentication and/or Multi-User Authorization</p>
+<table class="cellalignment74" title="Extra Steps to Complete the Configuration for Database Authentication and/or Multi-User Authorization" summary="Column 1 describes the step. Column 2 provides a link for more information in this guide or elsewhere, if available.">
+<thead>
+<tr class="cellalignment54">
+<th class="cellalignment75" id="d11420e353">Step</th>
+<th class="cellalignment75" id="d11420e355">For More Information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e359" headers="d11420e353">
+<p><span class="bold">16.</span> If Database Authentication and/or Multi-User Authorization are enabled, the database-side installation generates a ZIP file. Find this file in the installation directory and copy it back to the path indicated below on the Hadoop cluster management server:</p>
+<pre dir="ltr">
+$ ls $ORACLE_HOME/BDSJaguar-3.2.0/cdh510-6-node1.my.domain.com/*.zip
+  mycluster1-18-mycluster1node03.mydomain.com-myoradb1.mydomain.com.zip
+$ scp mycluster1-18-mycluster1node03.mydomain.com-myoradb1.mydomain.com.zip root@node1:/opt/oracle/DM/databases/conf
+</pre></td>
+<td class="cellalignment76" headers="d11420e359 d11420e355"><a href="installdbside.htm#GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59" title="To install the database side of Oracle Big Data SQL, copy over the ZIP file containing the database-side installation bundle that was created on the Hadoop cluster management server, unzip it, execute the run file it contains, then run the installer.">Steps for Installing on Oracle Database Nodes</a></td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e373" headers="d11420e353"><span class="bold">17.</span> Log on to the Hadoop cluster management server as <code class="codeph">root</code> and run the Database Acknowledge operation:
+<pre dir="ltr">
+# cd &lt;Big Data SQL Install Directory&gt;/BDSJaguar
+# ./jaguar databaseack &lt;<span class="italic">config file</span>&gt;
+</pre></td>
+<td class="cellalignment76" headers="d11420e373 d11420e355">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="tblformal" id="GUID-2E1F8BAE-104D-4B27-84A5-C03E9C845AB4__GUID-E7F5FFF2-2ED3-486F-9EDE-21B294FAB43E">
+<p class="titleintable">Table A-5 Creating Users and Setting Up Mappings for Multi-User Authorization</p>
+<table class="cellalignment74" title="Creating Users and Setting Up Mappings for Multi-User Authorization" summary="Column 1 describes the step. Column 2 provides a link for more information in this guide or elsewhere, if available.">
+<thead>
+<tr class="cellalignment54">
+<th class="cellalignment75" id="d11420e396">Action</th>
+<th class="cellalignment75" id="d11420e398">For More Information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e402" headers="d11420e396">
+<p><span class="bold">18.</span> To grant a user access:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Grant the <code class="codeph">BDSQL_USER</code> role.</p>
+</li>
+<li>
+<p>Grant read privileges on the <code class="codeph">BigDataSQL</code> configuration directory object.</p>
+<pre dir="ltr">
+</pre></li>
+</ul>
+<pre dir="ltr">
+SQL&gt; grant BDSQL_USER to user1;
+SQL&gt; grant read on directory ORACLE_BIGDATA_CONFIG to user1;
+</pre></td>
+<td class="cellalignment76" headers="d11420e402 d11420e398">&nbsp;</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d11420e425" headers="d11420e396">
+<p><span class="bold">19.</span> To grant users Hadoop access through the Multi-User Authorization feature, use the procedures of the DBMS_BDSQL PL/SQL Package:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Grant the <code class="codeph">BDSQL_ADMIN</code> role to designated administrators in order to allow them to invoke these procedures.</p>
+</li>
+<li>
+<p>Use the <code class="codeph">ADD_USER_MAP</code> procedure to define the rules for a user. This creates a row in the <code class="codeph">BDSQL_USER_MAP</code> table.</p>
+</li>
+<li>
+<p>Use <code class="codeph">REMOVE_USER_MAP</code> to remove a row from the <code class="codeph">BDSQL_USER_MAP</code> table.</p>
+</li>
+</ul>
+</td>
+<td class="cellalignment76" headers="d11420e425 d11420e398"><a class="olink BDSUG-GUID-0CAD2118-8953-4CFD-B0E4-540F3CE94BC8" target="_blank" href="../BDSUG/bigsqlref.htm#BDSUG-GUID-0CAD2118-8953-4CFD-B0E4-540F3CE94BC8">DBMS_BDSQL PL/SQL Package</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">See Also</p>
+<p>These workflow diagrams provide a visual overview of the installation process as a whole and a close-up view of the steps needed to complete the setup of Database Authentication:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="introduction.htm#GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9__GUID-BEEF801C-7179-42CA-93EB-6C84ABE899B0" title="This flowchart shows the tasks in the installation process. It is a graphical depiction of the numbered steps in this same overview section. No additional information is provided by the diagram.">Figure 1-1</a></p>
+</li>
+<li>
+<p><a href="introduction.htm#GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9__GUID-8F764EC3-72C3-496F-8D1F-EF4499F9B36B" title="This diagram shows the steps for generation a request key, copying that key to the database server, generating the acknowledge key pair, and copying the key back to the Hadoop server for installation.">Figure 1-2</a></p>
+</li>
+</ul>
+<p>The next two sections of this guide provide useful code examples:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="GUID-F615A82D-D02F-4B92-B9E4-3F580905EC8D.htm" title="The following is an example of a fully-populated bds-config.json file, which includes all available configuration parameters.">bds-config.json Configuration Example</a></p>
+</li>
+<li>
+<p><a href="installoutput.htm#GUID-D15A3626-F4F6-4EBB-A6BE-476EBC137CC9" title="The following are samples of the console output for the Oracle Big Data SQL installation.">Oracle Big Data SQL Installation Examples</a></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="additionaltools.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="GUID-F615A82D-D02F-4B92-B9E4-3F580905EC8D.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds32/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

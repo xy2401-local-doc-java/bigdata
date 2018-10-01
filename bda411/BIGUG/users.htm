@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Supporting User Access to Oracle Big Data Appliance</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="CDH, security, Kerberos authentication, authentication, NameNode, JobTracker, Kerberos commands, remote client access, client configuration, installing CDH client, client access, HDFS cluster, HDFS secured cluster, user groups, groups, hive group, hadoop group, oinstall group, oracle user, files, recovering HDFS, recovering HDFS files, trash facility, trash facility, disabling" />
+<meta name="dcterms.created" content="2018-07-23T19:23:12Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Software User's Guide" />
+<meta name="dcterms.identifier" content="E89799-05" />
+<meta name="dcterms.isVersionOf" content="BIGUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://www.docs.oracle.com/bigdata/411/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="admin.htm" title="Previous" type="text/html" />
+<link rel="Next" href="exadata.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-373DCB9E-09B8-4DAB-9291-A5A048D7D48D"></a> <span id="PAGE" style="display:none;">7/14</span> <!-- End Header -->
+<a id="BIGUG251"></a>
+<h1 id="BIGUG-GUID-373DCB9E-09B8-4DAB-9291-A5A048D7D48D" class="sect1"><span class="enumeration_chapter">3</span> Supporting User Access to Oracle Big Data Appliance</h1>
+<div>
+<p>This chapter describes how you can support users who run MapReduce jobs on Oracle Big Data Appliance or use Oracle Big Data Connectors. It contains these sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="users.htm#GUID-B3DF5303-305E-4D0F-8E18-A8667FCDA485">About Accessing a Kerberos-Secured Cluster</a></p>
+</li>
+<li>
+<p><a href="users.htm#GUID-C513C5F2-FF99-4BF4-B0AB-A5641DC7C0D4">Providing Remote Client Access to CDH</a></p>
+</li>
+<li>
+<p><a href="users.htm#GUID-FA2AC67A-02D1-48AD-86F0-413436249AF7">Providing Remote Client Access to Hive</a></p>
+</li>
+<li>
+<p><a href="users.htm#GUID-26EC56A5-BAC5-48F0-8DF5-7F39A88F24F1">Managing User Accounts</a></p>
+</li>
+<li>
+<p><a href="users.htm#GUID-0DF4B97D-95A2-4822-AB84-699DCC148CBC">Recovering Deleted Files</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG326"></a><a id="BIGUG325"></a>
+<div class="props_rev_3"><a id="GUID-B3DF5303-305E-4D0F-8E18-A8667FCDA485"></a>
+<h2 id="BIGUG-GUID-B3DF5303-305E-4D0F-8E18-A8667FCDA485" class="sect2"><span class="enumeration_section">3.1</span> About Accessing a Kerberos-Secured Cluster</h2>
+<div>
+<p>Apache Hadoop is not an inherently secure system. It is protected only by network security. After a connection is established, a client has full access to the system.</p>
+<p>To counterbalance this open environment, Oracle Big Data Appliance supports Kerberos security as a software installation option. Kerberos is a network authentication protocol that helps prevent malicious impersonation. Oracle Big Data Appliance support two forms of Kerberos Hadoop security: MIT Kerberos and Microsoft&nbsp; Active Directory Kerberos.</p>
+<p>CDH provides these securities when configured to use Kerberos:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The CDH master nodes, NameNodes, and JournalNodes resolve the group name so that users cannot manipulate their group memberships.</p>
+</li>
+<li>
+<p>Map tasks run under the identity of the user who submitted the job.</p>
+</li>
+<li>
+<p>Authorization mechanisms in HDFS and <a id="d20806e92" class="indexterm-anchor"></a>MapReduce help control user access to data.</p>
+</li>
+</ul>
+<p>Oracle Big Data Appliance provides the ability to configure Kerberos security directly using a Microsoft Active Directory (AD) server for Kerberos support (as supported by Cloudera Manager).&nbsp;</p>
+<p>You have the option of enabling either form of Kerberos as part of the Mammoth configuration. You can also enable or disable Kerberos later through the <code class="codeph">bdacli</code> utility.</p>
+<p>If the Oracle Big Data Appliance cluster is secured with Kerberos, then you must take additional steps to authenticate a CDH client and individual users, as described in this chapter. Users must know their Kerberos user name, password, and realm.</p>
+<p>The following table describes some frequently used Kerberos commands. For more information, see the MIT Kerberos documentation.</p>
+<div class="tblformal" id="GUID-B3DF5303-305E-4D0F-8E18-A8667FCDA485__CIHHCBHB">
+<p class="titleintable">Table 3-1 Kerberos User Commands</p>
+<table class="cellalignment132" title="Kerberos User Commands" summary="Kerberos commands">
+<thead>
+<tr class="cellalignment103">
+<th class="cellalignment160" id="d20806e116">Command</th>
+<th class="cellalignment161" id="d20806e119">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment103">
+<td class="cellalignment162" id="d20806e124" headers="d20806e116">
+<p><code class="codeph">kinit</code> <span class="italic"><code class="codeph">userid@realm</code></span></p>
+</td>
+<td class="cellalignment163" headers="d20806e124 d20806e119">
+<p>Obtains a Kerberos ticket.</p>
+</td>
+</tr>
+<tr class="cellalignment103">
+<td class="cellalignment162" id="d20806e136" headers="d20806e116">
+<p><code class="codeph">klist</code></p>
+</td>
+<td class="cellalignment163" headers="d20806e136 d20806e119">
+<p>Lists a Kerberos ticket if you have one already.</p>
+</td>
+</tr>
+<tr class="cellalignment103">
+<td class="cellalignment162" id="d20806e144" headers="d20806e116">
+<p><code class="codeph">kdestroy</code></p>
+</td>
+<td class="cellalignment163" headers="d20806e144 d20806e119">
+<p>Invalidates a ticket before it expires.</p>
+</td>
+</tr>
+<tr class="cellalignment103">
+<td class="cellalignment162" id="d20806e152" headers="d20806e116">
+<p><code class="codeph">kpasswd</code> <span class="italic"><code class="codeph">userid@realm</code></span></p>
+</td>
+<td class="cellalignment163" headers="d20806e152 d20806e119">
+<p>Changes your password.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infoboxnotealso" id="GUID-B3DF5303-305E-4D0F-8E18-A8667FCDA485__GUID-B68B490F-C809-4877-821F-CB22861E9712">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>MIT Kerberos Documentation at <a href="http://web.mit.edu/kerberos/krb5-latest/doc/" target="_blank"><code class="codeph">http://web.mit.edu/kerberos/krb5-latest/doc/</code></a></p>
+</li>
+<li>
+<p>CDH 5 Security Guide at <a href="https://www.cloudera.com/documentation/cdh/5-0-x/CDH5-Security-Guide/CDH5-Security-Guide.htmlL" target="_blank">https://www.cloudera.com/documentation/cdh/5-0-x/CDH5-Security-Guide/CDH5-Security-Guide.html</a>.</p>
+</li>
+<li>
+<p>If you choose to enable Active Directory Kerberos, either with Mammoth or with the bdacli utility, first read MOS (My Oracle Support) documents 2029378.1 and 2013585.1. These documents explain required preliminary steps and provide important information on known issues.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGUG207"></a>
+<div class="props_rev_3"><a id="GUID-C513C5F2-FF99-4BF4-B0AB-A5641DC7C0D4"></a>
+<h2 id="BIGUG-GUID-C513C5F2-FF99-4BF4-B0AB-A5641DC7C0D4" class="sect2"><span class="enumeration_section">3.2</span> Providing Remote Client Access to CDH</h2>
+<div>
+<p>Oracle Big Data Appliance supports full local access to all commands and utilities in Cloudera's Distribution including Apache Hadoop (CDH).</p>
+<p>You can use a browser on any computer that has access to the client network of Oracle Big Data Appliance to access Cloudera Manager, Hadoop Map/Reduce Administration, the Hadoop Task Tracker interface, and other browser-based Hadoop tools.</p>
+<p>To issue Hadoop commands remotely, however, you must connect from a system configured as a CDH client with access to the Oracle Big Data Appliance client network. This section explains how to set up a computer so that you can access HDFS and submit MapReduce jobs on Oracle Big Data Appliance.</p>
+<div class="infoboxnotealso" id="GUID-C513C5F2-FF99-4BF4-B0AB-A5641DC7C0D4__GUID-D6762898-3AD9-4CEC-8E04-8C4102F07BB8">
+<p class="notep1">See Also:</p>
+<p>My Oracle Support ID 1506203.1</p>
+</div>
+</div>
+<a id="BIGUG252"></a>
+<div class="props_rev_3"><a id="GUID-67438929-B5BB-43E7-B556-75EE8430994E"></a>
+<h3 id="BIGUG-GUID-67438929-B5BB-43E7-B556-75EE8430994E" class="sect3"><span class="enumeration_section">3.2.1</span> Prerequisites</h3>
+<div>
+<div class="section">
+<p>Ensure that you have met the following prerequisites:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>You must have these access privileges:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Sudo access to the client system</p>
+</li>
+<li>
+<p>Login access to Cloudera Manager</p>
+</li>
+</ul>
+<p>If you do not have these privileges, then contact your system administrator for help.</p>
+</li>
+<li>
+<p>The client system must run an operating system that Cloudera supports for CDH5. See the <span class="italic">Cloudera CDH5 Installation Guide</span> at</p>
+<p><a href="http://www.cloudera.com/content/www/en-us/documentation/cdh/5-0-x/CDH5-Installation-Guide/CDH5-Installation-Guide.html" target="_blank"><code class="codeph">http://www.cloudera.com/content/www/en-us/documentation/cdh/5-0-x/CDH5-Installation-Guide/CDH5-Installation-Guide.html</code></a></p>
+</li>
+<li>
+<p>The client system must run Oracle JDK 1.7.0_25 or later.</p>
+<p>To verify the version, use this command:</p>
+<pre dir="ltr">
+$ <span class="bold">java -version</span>
+java version "1.7.0_65"
+Java(TM) SE Runtime Environment (build 1.7.0_65-b17)
+Java HotSpot(TM) 64-Bit Server VM (build 24.65-b04, mixed mode)
+</pre></li>
+<li>
+<p>In the client configuration, ensure that the HDFS property <code class="codeph">dfs.client.use.datanode.hostname</code> is set to &ldquo;<code class="codeph">true</code>&rdquo;.</p>
+<pre dir="ltr">
+&lt;property&gt;
+  &lt;name&gt;dfs.client.use.datanode.hostname&lt;/name&gt;
+  &lt;value&gt;true&lt;/value&gt;
+  &lt;description&gt;Whether clients should use datanode hostnames when
+ connecting to datanodes.
+  &lt;/description&gt;
+&lt;/property&gt;
+</pre>
+<p>This is property is already set to &ldquo;<code class="codeph">true</code>&rdquo; if you download the configuration from Cloudera Manager on Oracle Big Data Appliance. It may not be set to &ldquo;<code class="codeph">true</code>&rdquo; if you acquire the configuration from other sources, including Cloudera.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG208"></a>
+<div class="props_rev_3"><a id="GUID-F0D9CB3E-2F8B-45F2-BC3B-1824376F3A8E"></a>
+<h3 id="BIGUG-GUID-F0D9CB3E-2F8B-45F2-BC3B-1824376F3A8E" class="sect3"><span class="enumeration_section">3.2.2</span> Installing a CDH Client on Any Supported Operating System</h3>
+<div>
+<div class="section">
+<p>To install a CDH client on any operating system identified as supported by Cloudera, follow these instructions.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To install the CDH client software:</p>
+<ol>
+<li>
+<p>Log in to the client system.</p>
+</li>
+<li>
+<p>If an earlier version of Hadoop is already installed, then remove it.</p>
+<p>See the Cloudera documentation for removing an earlier CDH version at</p>
+<p><a href="https://www.cloudera.com/documentation/enterprise/latest/topics/cdh_ig_cdh_comp_uninstall.html" target="_blank">https://www.cloudera.com/documentation/enterprise/latest/topics/cdh_ig_cdh_comp_uninstall.html</a></p>
+</li>
+<li>
+<p>Copy the CDH software from any node in a CDH cluster on Oracle Big Data Appliance. For example, the following file contains the CDH 5.8.0 software:</p>
+<pre dir="ltr">
+/opt/oss/src/CDH/5.8.0-ol5/hadoop-2.6.0-cdh5.8.0.tar.gz
+</pre></li>
+<li>
+<p>Decompress the file into a permanent location, which will be the Hadoop home directory. The following command unzips the files into <code class="codeph">hadoop-2.6.0-cdh5.8.0</code> in the current directory:</p>
+<pre dir="ltr">
+tar -xvzf hadoop-2.6.0-cdh5.8.0.tar.gz
+</pre></li>
+<li>
+<p>Configure the CDH client, as described in the next procedure.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG210"></a>
+<div class="props_rev_3"><a id="GUID-A3672F55-B23F-43AE-A9C3-02EC226961C1"></a>
+<h3 id="BIGUG-GUID-A3672F55-B23F-43AE-A9C3-02EC226961C1" class="sect3"><span class="enumeration_section">3.2.3</span> Configuring a CDH Client for an Unsecured Cluster</h3>
+<div>
+<div class="section">
+<p>After installing CDH, you must configure it for use with Oracle Big Data Appliance.</p>
+<p>The commands in this procedure that reference <code class="codeph">HADOOP_HOME</code> are used to support older Hadoop clients that require this environment variable. The cluster uses YARN (MRv2) and does not use <code class="codeph">HADOOP_HOME</code>. If no older clients access the cluster, then you can omit these commands.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To configure the Hadoop client:</p>
+<ol>
+<li>
+<p>Log in to the client system and download the MapReduce client configuration from Cloudera Manager. In this example, Cloudera Manager listens on port 7180 (the default) of <code class="codeph">bda01node03.example.com</code>, and the configuration is stored in a file named <code class="codeph">yarn-conf.zip</code>.</p>
+<pre dir="ltr">
+$ wget -O yarn-conf.zip http://bda01node03.example.com:7180/cmf/services/3/client-config
+</pre></li>
+<li id="GUID-A3672F55-B23F-43AE-A9C3-02EC226961C1__CHDDIDCH">
+<p>Unzip <code class="codeph">mapreduce-config.zip</code> into a permanent location on the client system.</p>
+<pre dir="ltr">
+$ <span class="bold">unzip yarn-config.zip</span>
+Archive:  yarn-config.zip
+  inflating: yarn-conf/hadoop-env.sh
+  inflating: yarn-conf/hdfs-site.xml
+  inflating: yarn-conf/core-site.xml
+  inflating: yarn-conf/mapred-site.xml
+  inflating: yarn-conf/log4j.properties
+  inflating: yarn-conf/yarn-site.xml
+</pre>
+<p>All files are stored in a subdirectory named <code class="codeph">yarn-config</code>.</p>
+</li>
+<li>
+<p>Set the symbolic links:</p>
+<pre dir="ltr">
+ln -s $HADOOP_HOME/../../../bin-mapreduce1 $HADOOP_HOME/bin
+ln -s $HADOOP_HOME/../../../etc/hadoop-mapreduce1 $HADOOP_HOME/conf
+rm -f $HADOOP_HOME/lib/slf4j-log4j*jar
+</pre></li>
+<li>
+<p>Open <code class="codeph">hadoop-env.sh</code> in a text editor and set the environment variables to the actual paths on your system:</p>
+<pre dir="ltr">
+export HADOOP_HOME=<span class="italic">hadoop-home-dir</span>/share/hadoop/mapreduce1
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_CONF_DIR=<span class="italic">yarn-conf-dir</span>
+export JAVA_HOME=/usr/java/<span class="italic">version</span>
+alias hadoop=$HADOOP_HOME/bin/hadoop
+alias hdfs=$HADOOP_HOME/../../../bin/hdfs
+</pre></li>
+<li>
+<p>Make a backup copy of the Hadoop configuration files:</p>
+<pre dir="ltr">
+# cp /<span class="italic">full_path</span>/yarn-conf /<span class="italic">full_path</span>/yarn-conf-bak
+</pre></li>
+<li>
+<p>Overwrite the existing configuration files with the downloaded configuration files in Step <a href="users.htm#GUID-A3672F55-B23F-43AE-A9C3-02EC226961C1__CHDDIDCH">2</a>.</p>
+<pre dir="ltr">
+# cd /<span class="italic">full_path</span>/yarn-conf
+# cp * /usr/lib/hadoop/conf
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG327"></a>
+<div class="props_rev_3"><a id="GUID-72E0B3C1-4871-44AB-A2BE-A0AC8E25BE72"></a>
+<h3 id="BIGUG-GUID-72E0B3C1-4871-44AB-A2BE-A0AC8E25BE72" class="sect3"><span class="enumeration_section">3.2.4</span> Configuring a CDH Client for a Kerberos-Secured Cluster</h3>
+<div>
+<div class="section">
+<p>Follow these steps to enable the CDH client to work with a secure CDH cluster.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To configure a CDH client for Kerberos:</p>
+<ol>
+<li>
+<p>Log in to the system where you created the CDH client.</p>
+</li>
+<li>
+<p>Install the Java Cryptography Extension Unlimited Strength Jurisdiction Policy Files:</p>
+<ol>
+<li>
+<p>Download the files for your Java version:</p>
+<p>Java 6: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html</code></a></p>
+<p>Java 7: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</code></a></p>
+<p>Java 8: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</code></a></p>
+</li>
+<li>
+<p>Decompress the downloaded file. This example unzips JCE-8:</p>
+<pre dir="ltr">
+$ <span class="bold">unzip UnlimitedJCEPolicyJDK8.zip</span>
+Archive:  UnlimitedJCEPolicyJDK8.zip
+   creating: UnlimitedJCEPolicy/
+  inflating: UnlimitedJCEPolicy/US_export_policy.jar
+  inflating: UnlimitedJCEPolicy/local_policy.jar
+  inflating: UnlimitedJCEPolicy/README.txt
+</pre>
+<div class="infobox-note" id="GUID-72E0B3C1-4871-44AB-A2BE-A0AC8E25BE72__GUID-DB79E787-BA19-43CB-BE7C-96750D276B1A">
+<p class="notep1">Note:</p>
+<p>The JCE-6 files unzip into a directory named jce instead of UnlimitedJCEPolicy.</p>
+</div>
+</li>
+<li>
+<p>Copy the unzipped files into the Java security directory. For example:</p>
+<pre dir="ltr">
+$ cp UnlimitedJCEPolicy/* /usr/java/latest/jre/lib/security/
+</pre></li>
+</ol>
+</li>
+<li>
+<p>Follow the steps for configuring an unsecured client.</p>
+<p>See <span class="q">"<a href="users.htm#GUID-A3672F55-B23F-43AE-A9C3-02EC226961C1">Configuring a CDH Client for an Unsecured Cluster</a>."</span></p>
+</li>
+<li>
+<p>Ensure that you have a user ID on the CDH cluster that had been added to the Kerberos realm.</p>
+<p>See <span class="q">"<a href="users.htm#GUID-83F19E66-58C1-487C-8112-D6C24FB58CD9">Creating Hadoop Cluster Users</a>."</span></p>
+</li>
+<li>
+<p>On the CDH client system, create a file named <code class="codeph">krb5.conf</code> in the <code class="codeph">$HADOOP_CONF_DIR</code> directory. Enter configuration settings like the following, using values appropriate for your installation for the server names, domain, and realm:</p>
+<pre dir="ltr">
+[libdefaults]
+     default_realm = EXAMPLE.COM
+     dns_lookup_realm = false
+     dns_lookup_kdc = false
+     clockskew = 3600
+     ticket_lifetime = 24h
+     renew_lifetime = 7d
+     forwardable = true
+[realms]
+     EXAMPLE.COM = {
+          kdc = bda01node01.example:88
+          admin_server = bda01node07:749
+          default_domain = example.com
+ }
+[domain_realm]
+      .com = EXAMPLE.COM 
+</pre></li>
+<li>
+<p>Activate the new configuration file:</p>
+<pre dir="ltr">
+export KRB5_CONFIG=$HADOOP_CONF_DIR/krb5.conf
+export HADOOP_OPTS="-Djava.security.krb5.conf=$HADOOP_CONF_DIR/krb5.conf"
+export KRB5CCNAME=$HADOOP_CONF_DIR/krb5cc_$USER
+</pre></li>
+<li>
+<p>Verify that you have access to the Oracle Big Data Appliance cluster.</p>
+<p>See <span class="q">"<a href="users.htm#GUID-DCCBF22B-9C61-4F3A-A44C-4C8EDE575B33">Verifying Access to a Cluster from the CDH Client</a>."</span></p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG254"></a><a id="BIGUG328"></a>
+<div class="props_rev_3"><a id="GUID-DCCBF22B-9C61-4F3A-A44C-4C8EDE575B33"></a>
+<h3 id="BIGUG-GUID-DCCBF22B-9C61-4F3A-A44C-4C8EDE575B33" class="sect3"><span class="enumeration_section">3.2.5</span> Verifying Access to a Cluster from the CDH Client</h3>
+<div>
+<div class="section">
+<p>Follow this procedure to ensure that you have access to the Oracle Big Data Appliance cluster.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To verify cluster access:</p>
+<ol>
+<li>
+<p>To access a Kerberos-protected CDH cluster, first obtain a ticket granting ticket (TGT):</p>
+<pre dir="ltr">
+$ kinit <span class="italic">userid</span>@<span class="italic">realm</span>
+</pre></li>
+<li>
+<p>Verify that you can access HDFS on Oracle Big Data Appliance from the client, by entering a simple Hadoop file system command like the following:</p>
+<pre dir="ltr">
+$ <span class="bold">hadoop fs -ls /user</span>
+Found 6 items
+drwxr-xr-x   - jdoe      hadoop              0 2014-04-03 00:08 /user/jdoe
+drwxrwxrwx   - mapred    hadoop              0 2014-04-02 23:25 /user/history
+drwxr-xr-x   - hive      supergroup          0 2014-04-02 23:27 /user/hive
+drwxrwxr-x   - impala    impala              0 2014-04-03 10:45 /user/impala
+drwxr-xr-x   - oozie     hadoop              0 2014-04-02 23:27 /user/oozie
+drwxr-xr-x   - oracle    hadoop              0 2014-04-03 11:49 /user/oracle
+</pre>
+<p>Check the output for HDFS users defined on Oracle Big Data Appliance, and not on the client system. You should see the same results as you would after entering the command directly on Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Submit a MapReduce job. You must be logged in to the client system under the same user name as your HDFS user name on Oracle Big Data Appliance.</p>
+<p>The following example calculates the value of <span class="italic">pi</span>:</p>
+<pre dir="ltr">
+$ <span class="bold">hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples-*jar pi 10 1000000</span>
+Number of Maps  = 10
+Samples per Map = 1000000
+Wrote input for Map #0
+Wrote input for Map #1
+     .
+     .
+     .
+Job Finished in 12.403 seconds
+Estimated value of Pi is 3.14158440000000000000
+</pre></li>
+<li>
+<p>Use Cloudera Manager to verify that the job ran on Oracle Big Data Appliance instead of the local system. Select <span class="bold">mapreduce Jobs</span> from the Activities menu for a list of jobs.</p>
+</li>
+</ol>
+<p>The following figure shows the job created by the previous example.</p>
+<div class="figure" id="GUID-DCCBF22B-9C61-4F3A-A44C-4C8EDE575B33__CHDHFIII">
+<p class="titleinfigure">Figure 3-1 Monitoring a YARN Job in Cloudera Manager</p>
+<img width="887" height="426" src="img/GUID-1B076F27-0BE7-41B5-866B-68E4405FA0D1-default.png" alt="Description of Figure 3-1 follows" title="Description of Figure 3-1 follows" /><br />
+<a href="img_text/GUID-1B076F27-0BE7-41B5-866B-68E4405FA0D1-default.htm">Description of "Figure 3-1 Monitoring a YARN Job in Cloudera Manager"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG329"></a>
+<div class="props_rev_3"><a id="GUID-FA2AC67A-02D1-48AD-86F0-413436249AF7"></a>
+<h2 id="BIGUG-GUID-FA2AC67A-02D1-48AD-86F0-413436249AF7" class="sect2"><span class="enumeration_section">3.3</span> Providing Remote Client Access to Hive</h2>
+<div>
+<div class="section">
+<p><a id="d20806e671" class="indexterm-anchor"></a><a id="d20806e675" class="indexterm-anchor"></a><a id="d20806e679" class="indexterm-anchor"></a>Follow this procedure to provide remote client access to Hive.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To set up a Hive client:</p>
+<ol>
+<li>
+<p>Set up a CDH client. See <span class="q">"<a href="users.htm#GUID-C513C5F2-FF99-4BF4-B0AB-A5641DC7C0D4">Providing Remote Client Access to CDH</a>."</span></p>
+</li>
+<li>
+<p>Log in to the client system and download the Hive client configuration from Cloudera Manager. In this example, Cloudera Manager listens on port 7180 (the default) of <code class="codeph">bda01node03.example.com</code>, and the configuration is stored in a file named <code class="codeph">hive-conf.zip</code>.</p>
+<pre dir="ltr">
+$ <span class="bold">wget -O hive-conf.zip http://bda01node03.example.com:7180/cmf/services/5/client-config</span>
+Length: 1283 (1.3K) [application/zip]
+Saving to: 'hive-conf.zip'
+100%[======================================&gt;] 1,283       --.-K/s   in 0.001s
+2016-05-15 08:19:06 (2.17 MB/s) - `hive-conf.zip' saved [1283/1283]
+</pre></li>
+<li id="GUID-FA2AC67A-02D1-48AD-86F0-413436249AF7__CIHJDEGC">
+<p>Unzip the file into a permanent installation directory, which will be the Hive configuration directory:</p>
+<pre dir="ltr">
+$ <span class="bold">unzip hive-conf.zip</span>
+Archive:  hive-conf.zip
+  inflating: hive-conf/hive-env.sh
+  inflating: hive-conf/hive-site.xml
+</pre></li>
+<li>
+<p>Download the Hive software from the Cloudera website:</p>
+<pre dir="ltr">
+$ <span class="bold">wget http://archive.cloudera.com/cdh5/cdh/5/hive-&lt;<span class="italic">version</span>&gt;-cdh5.&lt;<span class="italic">version</span>&gt;.tar.gz</span>
+Length: 49637596 (47M) [application/x-gzip]
+Saving to: 'hive-&lt;<span class="italic">version</span>&gt;-cdh5.&lt;<span class="italic">version</span>&gt;.tar.gz'
+100%[======================================&gt;] 49,637,596   839K/s   in 47s
+2016-05-15 08:22:18 (1.02 MB/s) - `hive-&lt;<span class="italic">version</span>&gt;-cdh5.&lt;<span class="italic">version</span>&gt;.tar.gz' saved [49637596/49637596]
+</pre></li>
+<li id="GUID-FA2AC67A-02D1-48AD-86F0-413436249AF7__CIHEACCG">
+<p>Decompress the file into a permanent installation directory, which will be the Hive home directory. The following command unzips the files into the current directory in a subdirectory named <code class="codeph">hive-0.12.0-cdh5.0.0</code>:</p>
+<pre dir="ltr">
+$ <span class="bold">tar -xvzf hive-&lt;<span class="italic">version</span>&gt;-cdh5.&lt;<span class="italic">version</span>&gt;.tar.gz</span>
+hive-&lt;<span class="italic">version</span>&gt;-cdh5.&lt;<span class="italic">version</span>&gt;/
+hive-&lt;<span class="italic">version</span>&gt;-cdh5.&lt;<span class="italic">version</span>&gt;/examples/
+     .
+     .
+     .
+</pre></li>
+<li>
+<p>Set the following variables, replacing <span class="italic">hive-home-dir</span> and <span class="italic">hive-conf-dir</span> with the directories you created in steps <a href="users.htm#GUID-FA2AC67A-02D1-48AD-86F0-413436249AF7__CIHJDEGC">3</a> and <a href="users.htm#GUID-FA2AC67A-02D1-48AD-86F0-413436249AF7__CIHEACCG">5</a>.</p>
+<pre dir="ltr">
+export HIVE_HOME=<span class="italic">hive-home-dir</span>
+export HIVE_CONF_DIR=<span class="italic">hive-conf-dir</span>
+alias hive=$HIVE_HOME/bin/hive
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The following steps test whether you successfully set up a Hive client.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To verify Hive access:</p>
+<ol>
+<li>
+<p>To access a Kerberos-protected CDH cluster, first obtain a ticket granting ticket (TGT):</p>
+<pre dir="ltr">
+$ kinit <span class="italic">userid</span>@<span class="italic">realm</span>
+</pre></li>
+<li>
+<p>Open the Hive console:</p>
+<pre dir="ltr">
+$ <span class="bold">hive</span>
+Logging initialized using configuration in jar:file:/usr/lib/hive/lib/hive-common-&lt;<span class="italic">version</span>&gt;-cdh5.&lt;<span class="italic">version</span>&gt;.jar!/hive-log4j.properties
+Hive history file=/tmp/oracle/hive_job_log_e10527ee-9637-4c08-9559-a2e5cea6cef1_831268640.txt
+hive&gt;
+</pre></li>
+<li>
+<p>List all tables:</p>
+<pre dir="ltr">
+hive&gt; <span class="bold">show tables;</span>
+OK
+src
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG212"></a>
+<div class="props_rev_3"><a id="GUID-26EC56A5-BAC5-48F0-8DF5-7F39A88F24F1"></a>
+<h2 id="BIGUG-GUID-26EC56A5-BAC5-48F0-8DF5-7F39A88F24F1" class="sect2"><span class="enumeration_section">3.4</span> Managing User Accounts</h2>
+<div>
+<p>This section describes how to create users who can access HDFS, MapReduce, and Hive. It contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="users.htm#GUID-83F19E66-58C1-487C-8112-D6C24FB58CD9">Creating Hadoop Cluster Users</a></p>
+</li>
+<li>
+<p><a href="users.htm#GUID-C42BF05D-85BF-4E14-97C6-196CAAB47C90">Providing User Login Privileges (Optional)</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG255"></a>
+<div class="props_rev_3"><a id="GUID-83F19E66-58C1-487C-8112-D6C24FB58CD9"></a>
+<h3 id="BIGUG-GUID-83F19E66-58C1-487C-8112-D6C24FB58CD9" class="sect3"><span class="enumeration_section">3.4.1</span> Creating Hadoop Cluster Users</h3>
+<div>
+<div class="section">
+<p>When creating <a id="d20806e896" class="indexterm-anchor"></a>user accounts, define them as follows:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>To run <a id="d20806e904" class="indexterm-anchor"></a>MapReduce jobs, users must either be in the <code class="codeph">hadoop</code> group or be granted the equivalent permissions.</p>
+</li>
+<li>
+<p>To create and modify tables in <a id="d20806e913" class="indexterm-anchor"></a><a id="d20806e917" class="indexterm-anchor"></a>Hive, users must either be in the <code class="codeph">hive</code> group or be granted the equivalent permissions.</p>
+</li>
+<li>
+<p>To create <a id="d20806e926" class="indexterm-anchor"></a>Hue users, open Hue in a browser and click the User Admin icon. See <span class="q">"<a href="admin.htm#GUID-40F319FF-B9DE-44E0-8801-E83D58CC28CB">Using Cloudera Hue to Interact With Hadoop</a>."</span></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+<a id="BIGUG256"></a><a id="BIGUG345"></a>
+<div class="props_rev_3"><a id="GUID-29BBA941-0DD5-49B4-8962-7FBE76B5DAB4"></a>
+<h4 id="BIGUG-GUID-29BBA941-0DD5-49B4-8962-7FBE76B5DAB4" class="sect4"><span class="enumeration_section">3.4.1.1</span> Creating Users on an Unsecured Cluster</h4>
+<div>
+<div class="section">
+<p>To create a user on an unsecured Hadoop cluster:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Open an ssh connection as the <code class="codeph">root</code> user to a noncritical node (node04 to node18).</span></li>
+<li class="stepexpand"><span>Create the user's home directory:</span>
+<div>
+<pre dir="ltr">
+# sudo -u hdfs hadoop fs -mkdir /user/<span class="italic">user_name</span>
+</pre>
+<p>You use <code class="codeph">sudo</code> because the HDFS super user is <code class="codeph">hdfs</code> (not <code class="codeph">root</code>).</p>
+</div>
+</li>
+<li class="stepexpand"><span>Change the ownership of the directory:</span>
+<div>
+<pre dir="ltr">
+# sudo -u hdfs hadoop fs -chown <span class="italic">user_name</span>:hadoop /user/<span class="italic">user_name</span>
+</pre></div>
+</li>
+<li class="stepexpand"><span>Verify that the directory is set up correctly:</span>
+<div>
+<pre dir="ltr">
+# hadoop fs -ls /user
+</pre></div>
+</li>
+<li class="stepexpand"><span>Create the operating system user across all nodes in the cluster:</span>
+<div>
+<pre dir="ltr">
+# dcli useradd -G hadoop,hive[,<span class="italic">group_name</span>...] -m <span class="italic">user_name</span>
+</pre>
+<p>In this syntax, replace <span class="italic">group_name</span> with an existing group and <span class="italic">user_name</span> with the new name.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Verify that the operating system user belongs to the correct groups:</span>
+<div>
+<pre dir="ltr">
+# dcli id <span class="italic">user_name</span>
+</pre></div>
+</li>
+<li class="stepexpand"><span>Verify that the user's home directory was created on all nodes:</span>
+<div>
+<pre dir="ltr">
+# dcli ls /home | grep <span class="italic">user_name</span>
+</pre></div>
+</li>
+</ol>
+<div class="example" id="GUID-29BBA941-0DD5-49B4-8962-7FBE76B5DAB4__CHDBCEAG">
+<p class="titleinexample">Example 3-1 Creating a Hadoop User</p>
+<pre dir="ltr">
+# <span class="bold">sudo -u hdfs hadoop fs -mkdir /user/jdoe</span>
+# <span class="bold">sudo -u hdfs hadoop fs -chown jdoe:hadoop /user/jdoe</span>
+# <span class="bold">hadoop fs -ls /user</span>
+Found 5 items
+drwx------   - hdfs     supergroup          0 2013-01-16 13:50 /user/hdfs
+drwxr-xr-x   - hive     supergroup          0 2013-01-16 12:58 /user/hive
+drwxr-xr-x   - jdoe     jdoe                0 2013-01-18 14:04 /user/jdoe
+drwxr-xr-x   - oozie    hadoop              0 2013-01-16 13:01 /user/oozie
+drwxr-xr-x   - oracle   hadoop              0 2013-01-16 13:01 /user/oracle
+# <span class="bold">dcli useradd -G hadoop,hive -m jdoe</span>
+# <span class="bold">dcli id jdoe</span>
+bda1node01: uid=1001(jdoe) gid=1003(jdoe) groups=1003(jdoe),127(hive),123(hadoop)
+bda1node02: uid=1001(jdoe) gid=1003(jdoe) groups=1003(jdoe),123(hadoop),127(hive)
+bda1node03: uid=1001(jdoe) gid=1003(jdoe) groups=1003(jdoe),123(hadoop),127(hive)
+     .
+     .
+     .
+# <span class="bold">dcli ls /home | grep jdoe</span>
+bda1node01: jdoe
+bda1node02: jdoe
+bda1node03: jdoe
+</pre></div>
+<!-- class="example" -->
+<div class="section">
+<p><a href="users.htm#GUID-29BBA941-0DD5-49B4-8962-7FBE76B5DAB4__CHDBCEAG">Example 3-1</a> creates a user named <code class="codeph">jdoe</code> with a primary group of <code class="codeph">hadoop</code> and an addition group of <code class="codeph">hive</code>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG346"></a>
+<div class="props_rev_3"><a id="GUID-20977C07-CBD4-4960-8702-18B79490345A"></a>
+<h4 id="BIGUG-GUID-20977C07-CBD4-4960-8702-18B79490345A" class="sect4"><span class="enumeration_section">3.4.1.2</span> Creating Users on a Secured Cluster</h4>
+<div>
+<div class="section">
+<p>To create a user on a Kerberos-secured cluster:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Connect to <a id="d20806e1097" class="indexterm-anchor"></a>Kerberos as the HDFS principal and execute the following commands, replacing <code class="codeph">jdoe</code> with the actual user name:</span>
+<div>
+<pre dir="ltr">
+hdfs dfs -mkdir /user/jdoe
+hdfs dfs -chown jdoe /user/jdoe
+dcli -C useradd -G hadoop,hive -m jdoe
+hash=$(echo "hadoop" | openssl passwd -1 -stdin)
+dcli -C "usermod --pass='$hash' jdoe"
+</pre></div>
+</li>
+<li class="stepexpand"><span>Log in to the key distribution center (KDC) and add a principal for the user. In the following example, replace jdoe, bda01node01, and example.com with the correct user name, server name, domain, and realm.</span>
+<div>
+<pre dir="ltr">
+ssh -l root <span class="italic">bda01node01.example.com</span> kadmin.local
+add_principal user_name@EXAMPLE.COM
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="BIGUG243"></a>
+<div class="props_rev_3"><a id="GUID-C42BF05D-85BF-4E14-97C6-196CAAB47C90"></a>
+<h3 id="BIGUG-GUID-C42BF05D-85BF-4E14-97C6-196CAAB47C90" class="sect3"><span class="enumeration_section">3.4.2</span> Providing User Login Privileges (Optional)</h3>
+<div>
+<div class="section">
+<p>Users do not need <a id="d20806e1138" class="indexterm-anchor"></a>login privileges on Oracle Big Data Appliance to run MapReduce jobs from a remote client. However, for those who want to log in to Oracle Big Data Appliance, you must set a password. You can set or reset a password the same way.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To set a user password across all Oracle Big Data Appliance servers:</p>
+<ol>
+<li>
+<p>Create a Hadoop cluster user as described in <span class="q">"<a href="users.htm#GUID-83F19E66-58C1-487C-8112-D6C24FB58CD9">Creating Hadoop Cluster Users</a>."</span>.</p>
+</li>
+<li>
+<p>Confirm that the user does not have a password:</p>
+<pre dir="ltr">
+# <span class="bold">dcli passwd -S </span><span class="italic"><span class="bold">user_name</span></span>
+bda1node01.example.com: jdoe NP 2013-01-22 0 99999 7 -1 (Empty password.)
+bda1node02.example.com: jdoe NP 2013-01-22 0 99999 7 -1 (Empty password.)
+bda1node03.example.com: jdoe NP 2013-01-22 0 99999 7 -1 (Empty password.)
+</pre>
+<p>If the output shows either "Empty password" or "Password locked," then you must set a password.</p>
+</li>
+<li>
+<p>Set the password:</p>
+<pre dir="ltr">
+ hash=$(echo '<span class="italic">password</span>' | openssl passwd -1 -stdin); dcli "usermod --pass='$hash' <span class="italic">user_name</span>"
+</pre></li>
+<li>
+<p>Confirm that the password is set across all servers:</p>
+<pre dir="ltr">
+# <span class="bold">dcli passwd -S </span><span class="italic"><span class="bold">user_name</span></span>
+bda1node01.example.com: jdoe PS 2013-01-24 0 99999 7 -1 (Password set, MD5 crypt.)
+bda1node02.example.com: jdoe PS 2013-01-24 0 99999 7 -1 (Password set, MD5 crypt.)
+bda1node03.example.com: jdoe PS 2013-01-24 0 99999 7 -1 (Password set, MD5 crypt.)
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-C42BF05D-85BF-4E14-97C6-196CAAB47C90__GUID-E293FFC1-CF97-4BC0-B7D8-0D73B205BAC2">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a class="olink BIGOG76614" target="_blank" href="../BIGOG/dcli.htm#BIGOG76614"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> for information about <code class="codeph">dcli</code>.</p>
+</li>
+<li>
+<p>The Linux <code class="codeph">man</code> page for the full syntax of the <code class="codeph">useradd</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG224"></a>
+<div class="props_rev_3"><a id="GUID-0DF4B97D-95A2-4822-AB84-699DCC148CBC"></a>
+<h2 id="BIGUG-GUID-0DF4B97D-95A2-4822-AB84-699DCC148CBC" class="sect2"><span class="enumeration_section">3.5</span> Recovering Deleted Files</h2>
+<div>
+<p>CDH provides an optional trash facility, so that a deleted file or directory is moved to a trash directory for a set period, instead of being deleted immediately from the system. By default, the trash facility is enabled for HDFS and all HDFS clients.</p>
+</div>
+<a id="BIGUG225"></a>
+<div class="props_rev_3"><a id="GUID-89422800-2523-4E2A-B38B-6EB480A60C99"></a>
+<h3 id="BIGUG-GUID-89422800-2523-4E2A-B38B-6EB480A60C99" class="sect3"><span class="enumeration_section">3.5.1</span> Restoring Files from the Trash</h3>
+<div>
+<div class="section">
+<p>When the trash facility is enabled, you can easily restore files that were previously deleted.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To restore a file from the trash directory:</p>
+<ol>
+<li>
+<p>Check that the deleted file is in the trash. The following example checks for files deleted by the <code class="codeph">oracle</code> user:</p>
+<pre dir="ltr">
+$ <span class="bold">hadoop fs -ls .Trash/Current/user/oracle</span>
+Found 1 items
+-rw-r--r--  3 oracle hadoop  242510990 2012-08-31 11:20 /user/oracle/.Trash/Current/user/oracle/ontime_s.dat
+</pre></li>
+<li>
+<p>Move or copy the file to its previous location. The following example moves <code class="codeph">ontime_s.dat</code> from the trash to the HDFS <code class="codeph">/user/oracle</code> directory.</p>
+<pre dir="ltr">
+$ hadoop fs -mv .Trash/Current/user/oracle/ontime_s.dat /user/oracle/ontime_s.dat
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG228"></a><a id="BIGUG227"></a>
+<div class="props_rev_3"><a id="GUID-0C8FF253-8083-473B-BFA6-742F8D6EDBDE"></a>
+<h3 id="BIGUG-GUID-0C8FF253-8083-473B-BFA6-742F8D6EDBDE" class="sect3"><span class="enumeration_section">3.5.2</span> Changing the Trash Interval</h3>
+<div>
+<div class="section">
+<p>The <a id="d20806e1308" class="indexterm-anchor"></a><span class="bold">trash interval</span> is the minimum number of minutes that a file remains in the trash directory before being deleted permanently from the system. The default value is 1 day (24 hours).</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To change the trash interval:</p>
+<ol>
+<li>
+<p>Open Cloudera Manager. See <span class="q">"<a href="admin.htm#GUID-8E8F0C00-3499-45E9-ADF7-71D1FC434D2F">Managing Operations Using Cloudera Manager</a>"</span>.</p>
+</li>
+<li>
+<p>On the Home page under Status, click <span class="bold">hdfs</span>.</p>
+</li>
+<li>
+<p>On the hdfs page, click the Configuration subtab, and then select <span class="bold">View and Edit</span>.</p>
+</li>
+<li>
+<p>Search for or scroll down to the Filesystem Trash Interval property under NameNode Default Group. See <a href="users.htm#GUID-0C8FF253-8083-473B-BFA6-742F8D6EDBDE__CACJDCAD">Figure 3-2</a>.</p>
+</li>
+<li>
+<p>Click the current value, and enter a new value in the pop-up form.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>Expand the Actions menu at the top of the page and choose <span class="bold">Restart</span>.</p>
+</li>
+<li>
+<p>Open a connection as <code class="codeph">root</code> to a node in the cluster.</p>
+</li>
+<li>
+<p>Deploy the new configuration:</p>
+<pre dir="ltr">
+dcli -C bdagetclientconfig
+</pre></li>
+</ol>
+<p>The following figure shows the Filesystem Trash Interval property in Cloudera Manager.</p>
+<div class="figure" id="GUID-0C8FF253-8083-473B-BFA6-742F8D6EDBDE__CACJDCAD">
+<p class="titleinfigure">Figure 3-2 HDFS Property Settings in Cloudera Manager</p>
+<img width="919" height="486" src="img/GUID-F4DC94F1-A702-422D-8B51-81D304C90AA9-default.png" alt="Description of Figure 3-2 follows" title="Description of Figure 3-2 follows" /><br />
+<a href="img_text/GUID-F4DC94F1-A702-422D-8B51-81D304C90AA9-default.htm">Description of "Figure 3-2 HDFS Property Settings in Cloudera Manager"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG226"></a>
+<div class="props_rev_3"><a id="GUID-AD3E50F4-B747-4640-85F7-EBD6EAAA02FA"></a>
+<h3 id="BIGUG-GUID-AD3E50F4-B747-4640-85F7-EBD6EAAA02FA" class="sect3"><span class="enumeration_section">3.5.3</span> Disabling the Trash Facility</h3>
+<div>
+<p>The trash facility on Oracle Big Data Appliance is enabled by default. You can change this configuration for a cluster. When the trash facility is disabled, deleted files and directories are not moved to the trash. They are not recoverable.</p>
+</div>
+<a id="BIGUG244"></a>
+<div class="props_rev_3"><a id="GUID-A01C048C-6D5C-4484-8E95-93F0AF3DC445"></a>
+<h4 id="BIGUG-GUID-A01C048C-6D5C-4484-8E95-93F0AF3DC445" class="sect4"><span class="enumeration_section">3.5.3.1</span> Completely Disabling the Trash Facility</h4>
+<div>
+<div class="section">
+<p>The following procedure disables the trash facility for HDFS. When the trash facility is completely disabled, the client configuration is irrelevant.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To completely disable the trash facility:</p>
+<ol>
+<li>
+<p>Open Cloudera Manager. See <span class="q">"<a href="admin.htm#GUID-8E8F0C00-3499-45E9-ADF7-71D1FC434D2F">Managing Operations Using Cloudera Manager</a>"</span>.</p>
+</li>
+<li>
+<p>On the Home page under Status, click <span class="bold">hdfs</span>.</p>
+</li>
+<li>
+<p>On the hdfs page, click the Configuration subtab, and then select <span class="bold">View and Edit</span>.</p>
+</li>
+<li>
+<p>Search for or scroll down to the Filesystem Trash Interval property under NameNode Default Group. See <a href="users.htm#GUID-0C8FF253-8083-473B-BFA6-742F8D6EDBDE__CACJDCAD">Figure 3-2</a>.</p>
+</li>
+<li>
+<p>Click the current value, and enter a value of 0 (zero) in the pop-up form.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>Expand the Actions menu at the top of the page and choose <span class="bold">Restart</span>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG245"></a>
+<div class="props_rev_3"><a id="GUID-8C0DADEA-EB5C-40AD-B904-C20369FE2684"></a>
+<h4 id="BIGUG-GUID-8C0DADEA-EB5C-40AD-B904-C20369FE2684" class="sect4"><span class="enumeration_section">3.5.3.2</span> Disabling the Trash Facility for Local HDFS Clients</h4>
+<div>
+<div class="section">
+<p>All HDFS clients that are installed on Oracle Big Data Appliance are configured to use the trash facility. An <span class="bold">HDFS client</span> is any software that connects to HDFS to perform operations such as listing HDFS files, copying files to and from HDFS, and creating directories.</p>
+<p>You can use Cloudera Manager to change the local client configuration setting, although the trash facility is still enabled.</p>
+<div class="infobox-note" id="GUID-8C0DADEA-EB5C-40AD-B904-C20369FE2684__GUID-68E0E210-338B-4C59-9B57-44A348AEAA6A">
+<p class="notep1">Note:</p>
+<p>If you do not want any clients to use the trash, then you can completely disable the trash facility. See <span class="q">"<a href="users.htm#GUID-A01C048C-6D5C-4484-8E95-93F0AF3DC445">Completely Disabling the Trash Facility</a>."</span></p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To disable the trash facility for local HDFS clients:</p>
+<ol>
+<li>
+<p>Open Cloudera Manager. See <span class="q">"<a href="admin.htm#GUID-8E8F0C00-3499-45E9-ADF7-71D1FC434D2F">Managing Operations Using Cloudera Manager</a>"</span>.</p>
+</li>
+<li>
+<p>On the Home page under Status, click <span class="bold">hdfs</span>.</p>
+</li>
+<li>
+<p>On the hdfs page, click the <span class="bold">Configuration</span> subtab, and then select <span class="bold">View and Edit</span>.</p>
+</li>
+<li>
+<p>Search for or scroll down to the Filesystem Trash Interval property under Gateway Default Group. See <a href="users.htm#GUID-0C8FF253-8083-473B-BFA6-742F8D6EDBDE__CACJDCAD">Figure 3-2</a>.</p>
+</li>
+<li>
+<p>Search for or scroll down to the Use Trash property under Client Settings. See <a href="users.htm#GUID-0C8FF253-8083-473B-BFA6-742F8D6EDBDE__CACJDCAD">Figure 3-2</a>.</p>
+</li>
+<li>
+<p>Deselect the Use Trash check box.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>. This setting is used to configure all new HDFS clients downloaded to Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Open a connection as <code class="codeph">root</code> to a node in the cluster.</p>
+</li>
+<li>
+<p>Deploy the new configuration:</p>
+<pre dir="ltr">
+dcli -C bdagetclientconfig
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG246"></a>
+<div class="props_rev_3"><a id="GUID-D79A6E29-43CE-4D84-BCDC-09B5C31141F0"></a>
+<h4 id="BIGUG-GUID-D79A6E29-43CE-4D84-BCDC-09B5C31141F0" class="sect4"><span class="enumeration_section">3.5.3.3</span> Disabling the Trash Facility for a Remote HDFS Client</h4>
+<div>
+<div class="section">
+<p>Remote HDFS clients are typically configured by downloading and installing a CDH client, as described in <span class="q">"<a href="users.htm#GUID-C513C5F2-FF99-4BF4-B0AB-A5641DC7C0D4">Providing Remote Client Access to CDH</a>."</span> Oracle SQL Connector for HDFS and Oracle R Advanced Analytics for Hadoop are examples of remote clients.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To disable the trash facility for a remote HDFS client:</p>
+<ol>
+<li>
+<p>Open a connection to the system where the CDH client is installed.</p>
+</li>
+<li>
+<p>Open <code class="codeph">/etc/hadoop/conf/hdfs-site.xml</code> in a text editor.</p>
+</li>
+<li>
+<p>Set the trash interval to zero:</p>
+<pre dir="ltr">
+&lt;property&gt;
+     &lt;name&gt;fs.trash.interval&lt;/name&gt;
+     &lt;value&gt;0&lt;/value&gt;
+&lt;/property&gt;
+</pre></li>
+<li>
+<p>Save the file.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment102">
+<tr>
+<td class="cellalignment145">
+<table class="cellalignment107">
+<tr>
+<td class="cellalignment106"><a href="admin.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment106"><a href="exadata.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment147">
+<table class="cellalignment105">
+<tr>
+<td class="cellalignment106"><a href="http://www.docs.oracle.com/bigdata/411/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment106"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment106"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment106"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

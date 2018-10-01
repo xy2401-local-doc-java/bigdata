@@ -1,0 +1,2906 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Replacement Units</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="LED status indicators, status indicators, hardware status indicators, server LEDs, switch LEDs, InfiniBand switch LEDs" />
+<meta name="dcterms.created" content="2018-07-20T02:39:11Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E81302-05" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda47/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="app_error.htm" title="Previous" type="text/html" />
+<link rel="Next" href="app_cablex5.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"322179",ustr:"",originlat:"0",clientrtt:"1",ghostip:"23.212.3.15",ipv6:false,pct:"10",clientip:"45.78.37.67",requestid:"201fd35",region:"32996",protocol:"",blver:14,akM:"dsca",akN:"ae",akTT:"O",akTX:"1",akTI:"201fd35",ai:"206465",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-F7B7E8E5-C5A4-4A42-AE5A-7C5AAF163DAD"></a> <span id="PAGE" style="display:none;">26/31</span> <!-- End Header -->
+<a id="BIGOG310"></a>
+<h1 id="BIGOG-GUID-F7B7E8E5-C5A4-4A42-AE5A-7C5AAF163DAD" class="sect1"><span class="enumeration_chapter">B</span> Replacement Units</h1>
+<div>
+<div class="section">
+<p><a id="d75284e18" class="indexterm-anchor"></a><a id="d75284e20" class="indexterm-anchor"></a>This appendix lists the replacement units for the components in Oracle Big Data Appliance racks. All replacement units are field replaceable units (FRUs), which are installed by Oracle field engineers.</p>
+<p>This appendix contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="app_fru.htm#GUID-CA13D356-27F1-4026-98B8-4F01A1309571">Understanding Repair Categories</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-60508A7B-9CDF-45C5-AEA9-0C2FE1C7DC0C">Disk Controller Batteries</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-9B17B2D3-9E74-4610-96D3-8950F0D401C3">LED Status Descriptions</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-1244F012-7851-4717-9B6C-A761355888E4">Parts for Oracle Big Data Appliance Servers</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-37C767A8-E5D7-487A-8536-84A528403BCE">Parts for Sun Datacenter InfiniBand Switch 36</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-36FA618A-70D0-4B3E-8E33-0052243F1002">Parts for Sun Network QDR InfiniBand Gateway Switch</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-72EF7B54-3F42-4870-A63F-4B8F1CEF72EC">Parts for the Cisco Ethernet Switch</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-98BCA234-EB3A-412B-9024-15B0D664A83F">Parts for Power Distribution Units</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-2E8E33CA-BCEF-48AF-ABC6-00C368883377">Cables and Cable Accessories for an Oracle Big Data Appliance Rack</a></p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-F7B7E8E5-C5A4-4A42-AE5A-7C5AAF163DAD__GUID-27CF8FDF-C36E-4923-B8FE-F52552BFB7EC">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="intro.htm#GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D">Spare Parts Kit Components</a>"</span></p>
+</div>
+</div>
+<!-- class="section" --></div>
+<a id="BIGOG312"></a><a id="BIGOG311"></a>
+<div class="props_rev_3"><a id="GUID-CA13D356-27F1-4026-98B8-4F01A1309571"></a>
+<h2 id="BIGOG-GUID-CA13D356-27F1-4026-98B8-4F01A1309571" class="sect2"><span class="enumeration_section">B.1</span> Understanding Repair Categories</h2>
+<div>
+<div class="section">
+<p><a id="d75284e88" class="indexterm-anchor"></a>Repair categories describe the potential effects of a repair action. <a href="app_fru.htm#GUID-CA13D356-27F1-4026-98B8-4F01A1309571__CHDCBBHG" title="FRU/CRU categories">Table B-1</a> describes the categories and related actions.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-CA13D356-27F1-4026-98B8-4F01A1309571__CHDCBBHG">
+<p class="titleintable">Table B-1 Oracle Big Data Appliance Repair Categories</p>
+<table class="cellalignment184" title="Oracle Big Data Appliance Repair Categories" summary="FRU/CRU categories">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment209" id="d75284e107">Category</th>
+<th class="cellalignment280" id="d75284e110">Description</th>
+<th class="cellalignment224" id="d75284e113">Scenario Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment211" id="d75284e118" headers="d75284e107">
+<p><a id="d75284e120" class="indexterm-anchor"></a><a id="d75284e122" class="indexterm-anchor"></a>Hot Swap (HS)</p>
+</td>
+<td class="cellalignment281" headers="d75284e118 d75284e110">
+<p>The repair part is hot swappable and can be replaced without shutting down the host system. Procedures may be needed before and after replacement to protect the data.</p>
+</td>
+<td class="cellalignment226" headers="d75284e118 d75284e113">
+<ul style="list-style-type: disc;">
+<li>
+<p>Disks</p>
+</li>
+<li>
+<p>Fans</p>
+</li>
+<li>
+<p>Power supplies</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment211" id="d75284e140" headers="d75284e107">
+<p><a id="d75284e142" class="indexterm-anchor"></a><a id="d75284e144" class="indexterm-anchor"></a>Infrastructure Repair (IR)</p>
+</td>
+<td class="cellalignment281" headers="d75284e140 d75284e110">
+<p>Repair of a connectivity component within an Oracle Big Data Appliance rack. No downtime of the rack is required; however, individual components may require downtime.</p>
+</td>
+<td class="cellalignment226" headers="d75284e140 d75284e113">
+<ul style="list-style-type: disc;">
+<li>
+<p>External cables</p>
+</li>
+<li>
+<p>InfiniBand switch</p>
+</li>
+<li>
+<p>Ethernet switch</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment211" id="d75284e162" headers="d75284e107">
+<p>BDA Server Offline (<a id="d75284e165" class="indexterm-anchor"></a><a id="d75284e167" class="indexterm-anchor"></a>BDA-O)</p>
+</td>
+<td class="cellalignment281" headers="d75284e162 d75284e110">
+<p>Repair of the part requires shutting down one Big Data Appliance server. No downtime of the rack is required; however, individual servers may require downtime and temporary removal from the cluster. Rebalancing the workload and data duplication may temporarily affect performance.</p>
+<p>If the system is currently running, then shut it down gracefully. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>"</span> for additional information.</p>
+<p>If you monitor the system using Oracle Enterprise Manager Cloud Control, then prevent unnecessary alerts by putting the target in a blackout state. Refer to <a class="olink EMADM9031" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E80756-01&amp;id=EMADM9031"><span class="italic">Oracle Enterprise Manager Administration</span></a> for additional information.</p>
+</td>
+<td class="cellalignment226" headers="d75284e162 d75284e113">
+<ul style="list-style-type: disc;">
+<li>
+<p>System boards</p>
+</li>
+<li>
+<p>PCIe cards</p>
+</li>
+<li>
+<p>Memory</p>
+</li>
+<li>
+<p>Processors</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG314"></a>
+<div class="props_rev_3"><a id="GUID-60508A7B-9CDF-45C5-AEA9-0C2FE1C7DC0C"></a>
+<h2 id="BIGOG-GUID-60508A7B-9CDF-45C5-AEA9-0C2FE1C7DC0C" class="sect2"><span class="enumeration_section">B.2</span> Disk Controller Batteries</h2>
+<div>
+<div class="section">
+<p><a id="d75284e220" class="indexterm-anchor"></a><a id="d75284e224" class="indexterm-anchor"></a>The disk controllers in the servers have battery-backed write cache to accelerate write performance. If the battery charge capacity degrades such that the battery cannot protect the cached data for a power loss of 48 hours or more, then the write cache is disabled and the disk controller switches to write through mode. This results in reduced write performance but no data loss. The servers generate an alert when the battery charge is insufficient, when the temperature is high, and when the battery should be replaced.</p>
+<p>Battery charge capacity degrades over time, and the life expectancy of a battery is inversely proportional to the operating temperature. The worst-case life expectancy of a battery in an Oracle Big Data Appliance rack is as follows:</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-60508A7B-9CDF-45C5-AEA9-0C2FE1C7DC0C__GUID-1CFB6BC5-2DE4-459A-8F0F-6BE345D21B88">
+<table class="cellalignment184" summary="battery lifetime">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment282" id="d75284e239">Inlet Ambient Temperature</th>
+<th class="cellalignment283" id="d75284e242">Battery Lifetime</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment284" id="d75284e247" headers="d75284e239">
+<p>&lt; 25 degrees Celsius (77 degrees Fahrenheit)</p>
+</td>
+<td class="cellalignment285" headers="d75284e247 d75284e242">
+<p>3 years</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment284" id="d75284e254" headers="d75284e239">
+<p>&lt; 32 degrees Celsius (90 degrees Fahrenheit)</p>
+</td>
+<td class="cellalignment285" headers="d75284e254 d75284e242">
+<p>2 years</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p>Oracle replaces failed batteries at no extra charge if the battery charge capacity in the disk controllers falls below the minimum threshold. As part of Oracle Premier Support for Systems, Oracle attempts to proactively replace the batteries in an Oracle Big Data Appliance rack before the end of the estimated lifetime, on a best effort basis.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG317"></a>
+<div class="props_rev_3"><a id="GUID-9B17B2D3-9E74-4610-96D3-8950F0D401C3"></a>
+<h2 id="BIGOG-GUID-9B17B2D3-9E74-4610-96D3-8950F0D401C3" class="sect2"><span class="enumeration_section">B.3</span> LED Status Descriptions</h2>
+<div>
+<p>This section describes the light-emitting diodes (LEDs) in an Oracle Big Data Appliance rack. It contains these topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="app_fru.htm#GUID-3DB2CFC0-556A-41D2-B76E-C6396E12D28E">Sun Server LEDs</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-D49F56C0-DEF0-440C-8C10-0B173FD6D4B6">Sun InfiniBand Switch LEDs</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG319"></a><a id="BIGOG318"></a>
+<div class="props_rev_3"><a id="GUID-3DB2CFC0-556A-41D2-B76E-C6396E12D28E"></a>
+<h3 id="BIGOG-GUID-3DB2CFC0-556A-41D2-B76E-C6396E12D28E" class="sect3"><span class="enumeration_section">B.3.1</span> Sun Server LEDs</h3>
+<div>
+<div class="section">
+<p><a href="app_fru.htm#GUID-3DB2CFC0-556A-41D2-B76E-C6396E12D28E__CHDJEGGH" title="LED status">Table B-2</a> identifies some <a id="d75284e331" class="indexterm-anchor"></a><a id="d75284e333" class="indexterm-anchor"></a>LED status indicators on the Sun Server X4-2L and X3-2L that can indicate a fault.</p>
+<div class="infoboxnotealso" id="GUID-3DB2CFC0-556A-41D2-B76E-C6396E12D28E__GUID-770B4298-F5F3-44F3-92DD-B1E87E54C364">
+<p class="notep1">See Also:</p>
+<p>"About Server and Component Status Indicators" in the <span class="italic">Sun Server X4-2 Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E36975_01/html/E38045/z4000be71405942.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36975_01/html/E38045/z4000be71405942.html#scrolltoc</code></a></p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-3DB2CFC0-556A-41D2-B76E-C6396E12D28E__CHDJEGGH">
+<p class="titleintable">Table B-2 Sun Server LED Status Descriptions</p>
+<table class="cellalignment184" title="Sun Server LED Status Descriptions" summary="LED status">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment231" id="d75284e359">Component</th>
+<th class="cellalignment286" id="d75284e362">LED Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment232" id="d75284e367" headers="d75284e359">
+<p>General Status</p>
+</td>
+<td class="cellalignment287" headers="d75284e367 d75284e362">
+<p>The following LEDs are located on the front and back panels of each server:</p>
+<p>Service Required (amber)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Off indicates normal operation.</p>
+</li>
+<li>
+<p>Steady on indicates a fault in the server.</p>
+</li>
+</ul>
+<p>Power/OK (green)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Steady on indicates that the server is powered on.</p>
+</li>
+<li>
+<p>A slow blink indicates that the server is starting up.</p>
+</li>
+<li>
+<p>A steady blink indicates that standby power is on, but chassis power is off.</p>
+</li>
+<li>
+<p>Off indicates no AC power or an incomplete startup of Oracle ILOM.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment232" id="d75284e398" headers="d75284e359">
+<p>Fans</p>
+</td>
+<td class="cellalignment287" headers="d75284e398 d75284e362">
+<p>Each <a id="d75284e404" class="indexterm-anchor"></a>fan module has one bicolored LED, which you can see when the top cover fan door is open.</p>
+<p>Fan Status (amber/green)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Amber indicates that the fan module is faulty. The front and rear panel Service Required LEDs are also lit when the system detects a fan module fault.</p>
+</li>
+<li>
+<p>Green indicates that the system is powered on, and the fan module is functioning correctly.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment232" id="d75284e419" headers="d75284e359">
+<p>Drives</p>
+</td>
+<td class="cellalignment287" headers="d75284e419 d75284e362">
+<p>The following LEDs are located on the storage and boot <a id="d75284e425" class="indexterm-anchor"></a>drives:</p>
+<p>Service Required (amber)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Off indicates normal operation.</p>
+</li>
+<li>
+<p>Steady on indicates a fault in the drive.</p>
+</li>
+</ul>
+<p>OK/Activity (green)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Steady on indicates normal inactivity.</p>
+</li>
+<li>
+<p>A steady blink indicates normal activity.</p>
+</li>
+<li>
+<p>Off indicates that the power is off, or the system does not recognize the drive.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment232" id="d75284e452" headers="d75284e359">
+<p>Power supply</p>
+</td>
+<td class="cellalignment287" headers="d75284e452 d75284e362">
+<p>The following LEDs are on each <a id="d75284e458" class="indexterm-anchor"></a>power supply. You can see them from the back of the server.</p>
+<p>Service Required (amber)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Off indicates normal operation.</p>
+</li>
+<li>
+<p>Steady on indicates that the system has detected a problem in the power supply regarding the voltage, current, temperature, or fans.</p>
+</li>
+</ul>
+<p>AC OK/DC OK (green)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Steady on indicates normal operation for both AC and DC power.</p>
+</li>
+<li>
+<p>A slow blink indicates that input AC power is normal and output DC power is disabled.</p>
+</li>
+<li>
+<p>Off indicates no input AC power.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG321"></a><a id="BIGOG320"></a>
+<div class="props_rev_3"><a id="GUID-D49F56C0-DEF0-440C-8C10-0B173FD6D4B6"></a>
+<h3 id="BIGOG-GUID-D49F56C0-DEF0-440C-8C10-0B173FD6D4B6" class="sect3"><span class="enumeration_section">B.3.2</span> Sun InfiniBand Switch LEDs</h3>
+<div>
+<div class="section">
+<p><a href="app_fru.htm#GUID-D49F56C0-DEF0-440C-8C10-0B173FD6D4B6__CHDBEDGF" title="LED status">Table B-3</a> identifies some <a id="d75284e510" class="indexterm-anchor"></a><a id="d75284e512" class="indexterm-anchor"></a>LED status indicators on Sun Datacenter InfiniBand Switch 36 and Sun Network QDR InfiniBand Gateway switches that can indicate a fault.</p>
+<div class="infoboxnotealso" id="GUID-D49F56C0-DEF0-440C-8C10-0B173FD6D4B6__GUID-4A277C3B-1470-4B1C-A975-19D8940F842E">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>"Identifying LEDs" in the <span class="italic">Sun Datacenter InfiniBand Switch 36 Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/z40000fe1394411.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/z40000fe1394411.html</code></a></p>
+</li>
+<li>
+<p>"Identifying LEDs" in the <span class="italic">Sun Network QDR InfiniBand Gateway Switch Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26699_01/html/E26706/z40000fe1394411.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/html/E26706/z40000fe1394411.html</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-D49F56C0-DEF0-440C-8C10-0B173FD6D4B6__CHDBEDGF">
+<p class="titleintable">Table B-3 Sun InfiniBand Switch LED Status Descriptions</p>
+<table class="cellalignment184" title="Sun InfiniBand Switch LED Status Descriptions" summary="LED status">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment168" id="d75284e551">Component</th>
+<th class="cellalignment169" id="d75284e554">LED Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d75284e559" headers="d75284e551">
+<p>Chassis</p>
+</td>
+<td class="cellalignment171" headers="d75284e559 d75284e554">
+<p>The following LEDs are located on the left side of the rear panel.</p>
+<p>Attention (amber)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Steady on indicates a fault.</p>
+</li>
+<li>
+<p>Off indicates normal operation.</p>
+</li>
+<li>
+<p>Flashing indicates no function.</p>
+</li>
+</ul>
+<p>OK (green)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Steady on indicates normal operation.</p>
+</li>
+<li>
+<p>Off indicates that the switch is off or initializing.</p>
+</li>
+<li>
+<p>Flashing indicates no function.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d75284e590" headers="d75284e551">
+<p>Link status</p>
+</td>
+<td class="cellalignment171" headers="d75284e590 d75284e554">
+<p>The link status LEDs are located by the data cable connectors on the rear panel.</p>
+<p>Link (green)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Steady on indicates that a link is established.</p>
+</li>
+<li>
+<p>Off indicates that the link is down.</p>
+</li>
+<li>
+<p>Flashing indicates that there are symbol errors.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d75284e609" headers="d75284e551">
+<p>Network management ports</p>
+</td>
+<td class="cellalignment171" headers="d75284e609 d75284e554">
+<p>The following LEDs are located on the network management connector on the rear panel.</p>
+<p>Link Speed (amber/green):</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Green steady on indicates a 1000BASE-T link.</p>
+</li>
+<li>
+<p>Amber steady on indicates a 100BASE-T link.</p>
+</li>
+<li>
+<p>Off indicates no link.</p>
+</li>
+<li>
+<p>Flashing indicates no function.</p>
+</li>
+</ul>
+<p>Activity (green):</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Flashing indicates packet activity.</p>
+</li>
+<li>
+<p>On indicates no function.</p>
+</li>
+<li>
+<p>Off indicates no activity.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d75284e643" headers="d75284e551">
+<p>Power supply</p>
+</td>
+<td class="cellalignment171" headers="d75284e643 d75284e554">
+<p>The following LEDs are located on the <a id="d75284e649" class="indexterm-anchor"></a>power supply at the front of the chassis.</p>
+<p>Attention (amber)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Steady on indicates a fault, and 12 VDC is shut down.</p>
+</li>
+<li>
+<p>Off indicates normal operation.</p>
+</li>
+<li>
+<p>Flashing indicates no function.</p>
+</li>
+</ul>
+<p>OK (green)</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Steady on indicates 12 VDC.</p>
+</li>
+<li>
+<p>Off indicates no DC voltage.</p>
+</li>
+<li>
+<p>Flashing indicates no function.</p>
+</li>
+</ul>
+<p>AC LED is green</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Steady on indicates AC power is supplied.</p>
+</li>
+<li>
+<p>Off indicates that AC power is not present.</p>
+</li>
+<li>
+<p>Flashing indicates no function.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment170" id="d75284e691" headers="d75284e551">
+<p>Fan</p>
+</td>
+<td class="cellalignment171" headers="d75284e691 d75284e554">
+<p><a id="d75284e696" class="indexterm-anchor"></a>The following LED is located on the air inlet on the front of the chassis.</p>
+<p>FT</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>On indicates a problem with the fan.</p>
+</li>
+<li>
+<p>Off indicates normal operation</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+</div>
+<a id="BIGOG322"></a>
+<div class="props_rev_3"><a id="GUID-1244F012-7851-4717-9B6C-A761355888E4"></a>
+<h2 id="BIGOG-GUID-1244F012-7851-4717-9B6C-A761355888E4" class="sect2"><span class="enumeration_section">B.4</span> Parts for Oracle Big Data Appliance Servers</h2>
+<div>
+<p>The following topics identify the replacement parts for the Oracle Big Data Appliance storage servers:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="app_fru.htm#GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0">Oracle Server X6-2L and X5-2L Parts</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-285A68AA-AD0B-444D-9CB3-85178E68EA96">Sun Server X4-2L Parts</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-F63A2D7D-F66A-4D5B-BDC4-3D841785360E">Sun Server X3-2L Parts</a></p>
+</li>
+<li>
+<p><a href="app_fru.htm#GUID-6634665D-33AA-4C36-BC13-0C864A77A68E">Sun Fire X4270 M2 Parts</a></p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-1244F012-7851-4717-9B6C-A761355888E4__GUID-0941A084-AEE9-48FF-9442-6AFAFEDE6998">
+<p class="notep1">Note:</p>
+<p>Oracle Big Data Appliance ships with two <a id="d75284e750" class="indexterm-anchor"></a>spare drives. If a drive is faulty, then the customer can replace the drive before an Oracle service representative arrives if circumstances warrant immediate action.</p>
+</div>
+</div>
+<a id="BIGOG76965"></a><a id="BIGOG77043"></a><a id="BIGOG77044"></a><a id="BIGOG77042"></a>
+<div class="props_rev_3"><a id="GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0"></a>
+<h3 id="BIGOG-GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0" class="sect3"><span class="enumeration_section">B.4.1</span> Oracle Server X6-2L and X5-2L Parts</h3>
+<div>
+<div class="section">
+<p><a href="app_fru.htm#GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0__CHDGEBIE">Figure B-1</a> shows the front view of the <a id="d75284e780" class="indexterm-anchor"></a><a id="d75284e784" class="indexterm-anchor"></a>Oracle Server X6-2L and X5-2L. The hard drives are numbered from left to right, starting in the lower left. The drives in the bottom row are numbers 0, 1, 2, and 3. The drives in the middle row are numbers 4, 5, 6, and 7. The drives in the top row are numbers 8, 9, 10, and 11.</p>
+<div class="figure" id="GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0__CHDGEBIE">
+<p class="titleinfigure">Figure B-1 Front View of Oracle Servers X6-2L and X5-2L</p>
+<img width="590" height="109" src="img/GUID-0353582E-5AC7-4332-B759-F0F64E451C5C-default.png" alt="Description of Figure B-1 follows" title="Description of Figure B-1 follows" /><br />
+<a href="img_text/GUID-0353582E-5AC7-4332-B759-F0F64E451C5C-default.htm">Description of "Figure B-1 Front View of Oracle Servers X6-2L and X5-2L"</a></div>
+<!-- class="figure" -->
+<p><a href="app_fru.htm#GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0__CHDJGHHA">Figure B-2</a> shows the rear view of a Oracle Server X6-2L or X5-2L storage server.</p>
+<div class="figure" id="GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0__CHDJGHHA">
+<p class="titleinfigure">Figure B-2 Rear View of Oracle Servers X6-2L and X5-2L</p>
+<img width="590" height="117" src="img/GUID-91B5B34F-ED38-4753-ADF9-91EEE8AFDE23-default.png" alt="Description of Figure B-2 follows" title="Description of Figure B-2 follows" /><br />
+<a href="img_text/GUID-91B5B34F-ED38-4753-ADF9-91EEE8AFDE23-default.htm">Description of "Figure B-2 Rear View of Oracle Servers X6-2L and X5-2L"</a></div>
+<!-- class="figure" -->
+<p><a id="d75284e803" class="indexterm-anchor"></a><a href="app_fru.htm#GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0__CHDJIGIB" title="Replaceable parts for Oracle Database X6-2L and X5-2L servers. The list provides each part number, description, repair category, and a link to the corresponding repair procedure in the hardware service documentation. The parts listed are common to both Oracle Server X6-2L and X5-2L, unless otherwise noted.">Table B-4</a> lists the replaceable parts for the Oracle Server X6-2L and X5-2L, which are covered under the Oracle Premier Support for Systems warranty. The parts list for X6-2L and X5-2L are nearly the same except for CPUs and DIMMs. Unless otherwise noted, the repair procedures are in the <span class="italic">Oracle Server X5-2L Service Manual</span>.</p>
+<div class="infobox-note" id="GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0__GUID-B33FAA42-9FD3-4DA8-A076-5493E1AA38CD">
+<p class="notep1">Note:</p>
+<p>All replacement parts listed in the following table are FRUs when covered under Premier Support of Systems warranty.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0__CHDJIGIB">
+<p class="titleintable">Table B-4 Replacement Parts for Oracle Server X6-2L and X5-2L Storage Servers</p>
+<table class="cellalignment184" title="Replacement Parts for Oracle Server X6-2L and X5-2L Storage Servers" summary="Replaceable parts for Oracle Database X6-2L and X5-2L servers. The list provides each part number, description, repair category, and a link to the corresponding repair procedure in the hardware service documentation. The parts listed are common to both Oracle Server X6-2L and X5-2L, unless otherwise noted.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment288" id="d75284e830">Part Number</th>
+<th class="cellalignment202" id="d75284e833">Description</th>
+<th class="cellalignment288" id="d75284e836">Repair Category</th>
+<th class="cellalignment289" id="d75284e839">Repair Procedure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e844" headers="d75284e830">
+<p>350-1719</p>
+</td>
+<td class="cellalignment205" headers="d75284e844 d75284e833">
+<p>Assembly, 1U-2U Snap-in, slim rail rack</p>
+</td>
+<td class="cellalignment290" headers="d75284e844 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e844 d75284e839">
+<ol>
+<li>
+<p>If the server is currently running, then shut it down gracefully. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>"</span>.</p>
+</li>
+<li>
+<p>See "Reinstall the Server in the Rack" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40004191003899.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40004191003899.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e871" headers="d75284e830">
+<p>370-5621</p>
+</td>
+<td class="cellalignment205" headers="d75284e871 d75284e833">
+<p>3V lithium battery</p>
+</td>
+<td class="cellalignment290" headers="d75284e871 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e871 d75284e839">
+<p>See "Servicing the Battery" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000f91037456.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000f91037456.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e889" headers="d75284e830">
+<p>7014226</p>
+</td>
+<td class="cellalignment205" headers="d75284e889 d75284e833">
+<p>Cable, interlock, 125 mm</p>
+</td>
+<td class="cellalignment290" headers="d75284e889 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e889 d75284e839">
+<p>See "Servicing SAS Cables" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.baecfjbc.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.baecfjbc.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e907" headers="d75284e830">
+<p>7017231</p>
+</td>
+<td class="cellalignment205" headers="d75284e907 d75284e833">
+<p>Indicator assembly, right</p>
+</td>
+<td class="cellalignment290" headers="d75284e907 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e907 d75284e839">
+<p>See "Servicing the Front LED/USB Indicator Modules" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40001d31014236.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40001d31014236.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e925" headers="d75284e830">
+<p>7023515</p>
+</td>
+<td class="cellalignment205" headers="d75284e925 d75284e833">
+<p>Disk backplane assembly, 2 rear</p>
+</td>
+<td class="cellalignment290" headers="d75284e925 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e925 d75284e839">
+<p>See "Servicing the Front and Rear Storage Drive Backplanes" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40007ac1419009.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40007ac1419009.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e943" headers="d75284e830">
+<p>7044130</p>
+</td>
+<td class="cellalignment205" headers="d75284e943 d75284e833">
+<p>Power Supply, A258, 1000W, AC Input</p>
+</td>
+<td class="cellalignment290" headers="d75284e943 d75284e836">
+<p>HS</p>
+</td>
+<td class="cellalignment291" headers="d75284e943 d75284e839">
+<ol>
+<li>
+<p>Remove rear left side of the CMA, and then swing it back and out to the right.</p>
+<p>The telescopic cross member supporting the cables directly behind the server can be retracted to access both power supplies.</p>
+</li>
+<li>
+<p>See "Servicing Power Supplies" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000091014153.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000091014153.html</code></a></p>
+</li>
+<li>
+<p>Replace the CMA.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e971" headers="d75284e830">
+<p>7045042</p>
+</td>
+<td class="cellalignment205" headers="d75284e971 d75284e833">
+<p>Fan assembly, 2U, 80 x 80, Ferrite, center rotate</p>
+</td>
+<td class="cellalignment290" headers="d75284e971 d75284e836">
+<p>HS</p>
+</td>
+<td class="cellalignment291" headers="d75284e971 d75284e839">
+<p>See "Servicing Fan Modules" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000091014194.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000091014194.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e989" headers="d75284e830">
+<p>7046442</p>
+</td>
+<td class="cellalignment205" headers="d75284e989 d75284e833">
+<p>Assembly, dual port, QDR CX3, host channel adapter</p>
+</td>
+<td class="cellalignment290" headers="d75284e989 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e989 d75284e839">
+<ol>
+<li>
+<p>If the server is currently running, then shut it down gracefully. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>"</span>.</p>
+</li>
+<li>
+<p>See "Servicing PCIe Cards" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000f91037409.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000f91037409.html</code></a></p>
+</li>
+<li>
+<p><a id="d75284e1017" class="indexterm-anchor"></a><a id="d75284e1021" class="indexterm-anchor"></a>Verify that the new hardware meets the hardware and firmware specifications:</p>
+<pre dir="ltr">
+# bdacheckhw
+</pre></li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1029" headers="d75284e830">
+<p>7064884</p>
+</td>
+<td class="cellalignment205" headers="d75284e1029 d75284e833">
+<p>Heat sink, CPU (Oracle Server X5-2L)</p>
+</td>
+<td class="cellalignment290" headers="d75284e1029 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e1029 d75284e839">
+<p>See "Servicing Storage Drives (CRU)" in <span class="italic">Sun Server X5-2 Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40001d31037480.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40001d31037480.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1050" headers="d75284e830">
+<p>7067728</p>
+</td>
+<td class="cellalignment205" headers="d75284e1050 d75284e833">
+<p>Pre-Greased 1U CPU Heatsink (Oracle Server X6-2L)</p>
+</td>
+<td class="cellalignment290" headers="d75284e1050 d75284e836">&nbsp;</td>
+<td class="cellalignment291" headers="d75284e1050 d75284e839">
+<p>See "Servicing Storage Drives (CRU)" in <span class="italic">Sun Server X5-2 Service Manual</span> at</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1065" headers="d75284e830">
+<p>7066824</p>
+</td>
+<td class="cellalignment205" headers="d75284e1065 d75284e833">
+<p>Assembly, drive, 8 TB, 3.5 inch, SAS/7200rpm</p>
+</td>
+<td class="cellalignment290" headers="d75284e1065 d75284e836">
+<p>HS</p>
+</td>
+<td class="cellalignment291" headers="d75284e1065 d75284e839">
+<p>See "Servicing Storage Drives and Rear Drives" in <span class="italic">Sun Server X5-2 Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000091011460.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40000091011460.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1087" headers="d75284e830">
+<p>7069337</p>
+</td>
+<td class="cellalignment205" headers="d75284e1087 d75284e833">
+<p>Assembly, backplane, 12X3.5, W/SAS expansion, 2U</p>
+</td>
+<td class="cellalignment290" headers="d75284e1087 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e1087 d75284e839">
+<p>See "Servicing the Front and Rear Storage Drive Backplanes" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40007ac1419009.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40007ac1419009.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1105" headers="d75284e830">
+<p>7078071</p>
+</td>
+<td class="cellalignment205" headers="d75284e1105 d75284e833">
+<p>DIMM 16 GB (Oracle Server X5-2L)</p>
+</td>
+<td class="cellalignment290" headers="d75284e1105 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e1105 d75284e839">
+<p>See "Servicing the DIMMs" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.ceicjagi.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.ceicjagi.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1123" headers="d75284e830">
+<p>7310210</p>
+</td>
+<td class="cellalignment205" headers="d75284e1123 d75284e833">
+<p>32GB DDR4-2400 DIMM (Oracle Server X6-2L)</p>
+</td>
+<td class="cellalignment290" headers="d75284e1123 d75284e836">&nbsp;</td>
+<td class="cellalignment291" headers="d75284e1123 d75284e839">
+<p>See &ldquo;Servicing the DIMMs&rdquo; at</p>
+<p><a href="http://docs.oracle.com/cd/E62172_01/html/E62184/ceicjagi.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E62172_01/html/E62184/ceicjagi.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1139" headers="d75284e830">
+<p>7085209</p>
+</td>
+<td class="cellalignment205" headers="d75284e1139 d75284e833">
+<p>HBA, 12 Gb SAS PCIe 8-port RAID internal with flash module</p>
+</td>
+<td class="cellalignment290" headers="d75284e1139 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e1139 d75284e839">
+<p>See "Servicing the Oracle Storage 12 Gb/s SAS PCIe RAID HBA Card" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.gocfy.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.gocfy.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1157" headers="d75284e830">
+<p>7086345</p>
+</td>
+<td class="cellalignment205" headers="d75284e1157 d75284e833">
+<p>Assembly, super cap, 13.5 volt, 6.4F, SAS3 HBA</p>
+</td>
+<td class="cellalignment290" headers="d75284e1157 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e1157 d75284e839">
+<p>See "Servicing the Oracle Storage 12 Gb/s SAS PCIe RAID HBA Card" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.gocfy.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.gocfy.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1175" headers="d75284e830">
+<p>7086346</p>
+</td>
+<td class="cellalignment205" headers="d75284e1175 d75284e833">
+<p>Cable, super cap, 620M, 6-pin, straight, SAS3 HBA</p>
+</td>
+<td class="cellalignment290" headers="d75284e1175 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e1175 d75284e839">
+<p>See "Servicing SAS Cables" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.baecfjbc.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.baecfjbc.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1193" headers="d75284e830">
+<p>7090170</p>
+</td>
+<td class="cellalignment205" headers="d75284e1193 d75284e833">
+<p>Flash drive, MLC, OSA ID, USB, 8 GB</p>
+</td>
+<td class="cellalignment290" headers="d75284e1193 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e1193 d75284e839">
+<p>See "Servicing the Internal USB Flash Drives" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.ceiicfbd.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.ceiicfbd.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1211" headers="d75284e830">
+<p>7095106</p>
+</td>
+<td class="cellalignment205" headers="d75284e1211 d75284e833">
+<p>CPU, 2.3GHz 18-Core E5-2699 (Oracle Server X5-2L)</p>
+</td>
+<td class="cellalignment290" headers="d75284e1211 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e1211 d75284e839">
+<div class="infobox-note" id="GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0__GUID-C542F3C2-D1A6-47DE-8745-CBB7985D1E79">
+<p class="notep1">Caution:</p>
+Processors should be removed and replaced only by authorized Oracle Service personnel.</div>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40001d31037480.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40001d31037480.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1229" headers="d75284e830">
+<p>7313670</p>
+</td>
+<td class="cellalignment205" headers="d75284e1229 d75284e833">
+<p>CPU, 22-Core 2.2GHz Intel E5-2699 v4, 145W (Oracle Server X6&ndash;2L)</p>
+</td>
+<td class="cellalignment290" headers="d75284e1229 d75284e836">&nbsp;</td>
+<td class="cellalignment291" headers="d75284e1229 d75284e839">
+<div class="infobox-note" id="GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0__GUID-E7F4B399-B304-42B0-8739-5E02E19F35E7">
+<p class="notep1">Caution:</p>
+Processors should be removed and replaced only by authorized Oracle Service personnel.</div>
+<p><a href="http://docs.oracle.com/cd/E62172_01/html/E62184/z40001d31037480.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E62172_01/html/E62184/z40001d31037480.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1245" headers="d75284e830">
+<p>7096185</p>
+</td>
+<td class="cellalignment205" headers="d75284e1245 d75284e833">
+<p>Assembly, indicator, left</p>
+</td>
+<td class="cellalignment290" headers="d75284e1245 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e1245 d75284e839">
+<p>See "Servicing the Front LED/USB Indicator Modules" at</p>
+<p><a href="http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40001d31014236.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E41033_01/html/E48325/cnpsm.z40001d31014236.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment290" id="d75284e1263" headers="d75284e830">
+<p>7098504</p>
+</td>
+<td class="cellalignment205" headers="d75284e1263 d75284e833">
+<p>ASM, MOBO tray</p>
+</td>
+<td class="cellalignment290" headers="d75284e1263 d75284e836">
+<p>EBO</p>
+</td>
+<td class="cellalignment291" headers="d75284e1263 d75284e839">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76956"></a><a id="BIGOG77045"></a>
+<div class="props_rev_3"><a id="GUID-285A68AA-AD0B-444D-9CB3-85178E68EA96"></a>
+<h3 id="BIGOG-GUID-285A68AA-AD0B-444D-9CB3-85178E68EA96" class="sect3"><span class="enumeration_section">B.4.2</span> Sun Server X4-2L Parts</h3>
+<div>
+<div class="section">
+<p><a id="d75284e1294" class="indexterm-anchor"></a><a href="app_fru.htm#GUID-F63A2D7D-F66A-4D5B-BDC4-3D841785360E__CHDHHDDC" title="Replaceable parts for Oracle Database servers with X4270 M2 servers.">Table B-6</a> lists the replaceable parts for the Sun Server X4-2L, which are covered under the Oracle Premier Support for Systems warranty. Unless otherwise noted, the repair procedures are in the <span class="italic">Sun Server X4-2 Service Manual</span>.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-285A68AA-AD0B-444D-9CB3-85178E68EA96__GUID-0C8B6F53-82EF-4C44-B003-DED10CE49DC7">
+<p class="titleintable">Table B-5 Replacement Parts for a Sun Server X4-2L Server</p>
+<table class="cellalignment184" title="Replacement Parts for a Sun Server X4-2L Server" summary="Replaceable parts for Oracle Database servers with X4270 M2 servers.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment196" id="d75284e1318">Part Number</th>
+<th class="cellalignment228" id="d75284e1321">Description</th>
+<th class="cellalignment200" id="d75284e1324">Repair Category</th>
+<th class="cellalignment292" id="d75284e1327">Repair Procedure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1332" headers="d75284e1318">
+<p>150-3993</p>
+</td>
+<td class="cellalignment230" headers="d75284e1332 d75284e1321">
+<p>Battery, 3V, 390 MAH, LITH, COIN</p>
+</td>
+<td class="cellalignment201" headers="d75284e1332 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1332 d75284e1327">
+<p>See "Servicing the Battery" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40000f91037456.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40000f91037456.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1350" headers="d75284e1318">
+<p>7090170</p>
+</td>
+<td class="cellalignment230" headers="d75284e1350 d75284e1321">
+<p>8 GB USB flash drive</p>
+</td>
+<td class="cellalignment201" headers="d75284e1350 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1350 d75284e1327">
+<p>See "Servicing the Internal USB Flash Drives" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/ceiicfbd.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/ceiicfbd.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1368" headers="d75284e1318">
+<p>371-4985</p>
+</td>
+<td class="cellalignment230" headers="d75284e1368 d75284e1321">
+<p>6 Gigabit SAS RAID PCI battery module, RoHS:Y (LION), BBU-08</p>
+</td>
+<td class="cellalignment201" headers="d75284e1368 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1368 d75284e1327">
+<ol>
+<li>
+<p>Power down the server gracefully. See "Powering Off the Server for Orderly Shutdown" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40002401396307.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40002401396307.html#scrolltoc</code></a></p>
+</li>
+<li>
+<p>See <span class="italic">Sun Storage 6 Gb SAS PCIe HBA, Internal Installation Guide For HBA Models SGX-SAS6-INT-Z and SG-SAS6-INT-Z</span> (internal only) at</p>
+<p><a href="http://docs.oracle.com/cd/E19337-01/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19337-01/index.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1399" headers="d75284e1318">
+<p>7047503</p>
+</td>
+<td class="cellalignment230" headers="d75284e1399 d75284e1321">
+<p>Niwot card</p>
+</td>
+<td class="cellalignment201" headers="d75284e1399 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1399 d75284e1327">
+<ol>
+<li>
+<p>Power down the server gracefully. See "Powering Off the Server for Orderly Shutdown" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40002401396307.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40002401396307.html#scrolltoc</code></a></p>
+</li>
+<li>
+<p>See "Servicing PCIe Cards" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40000f91037409.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40000f91037409.html#scrolltoc</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1427" headers="d75284e1318">
+<p>7057184</p>
+</td>
+<td class="cellalignment230" headers="d75284e1427 d75284e1321">
+<p>Assembly Battery Carrier Remote</p>
+</td>
+<td class="cellalignment201" headers="d75284e1427 d75284e1324">
+<p>HS</p>
+</td>
+<td class="cellalignment293" headers="d75284e1427 d75284e1327">
+<p>Oracle internal service documentation</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1440" headers="d75284e1318">
+<p>7082397</p>
+</td>
+<td class="cellalignment230" headers="d75284e1440 d75284e1321">
+<p>InfiniBand dual port, QDR CX3, HCA</p>
+</td>
+<td class="cellalignment201" headers="d75284e1440 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1440 d75284e1327">
+<ol>
+<li>
+<p>Power down the server gracefully. See "Powering Off the Server for Orderly Shutdown" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40002401396307.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40002401396307.html#scrolltoc</code></a></p>
+</li>
+<li>
+<p>See "Servicing PCIe Cards" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40000f91037409.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40000f91037409.html#scrolltoc</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1468" headers="d75284e1318">
+<p>375-3701</p>
+</td>
+<td class="cellalignment230" headers="d75284e1468 d75284e1321">
+<p>6 Gbps SAS RAID disk PCIe HBA, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e1468 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1468 d75284e1327">
+<ol>
+<li>
+<p>Power down the server gracefully. See "Powering Off the Server for Orderly Shutdown" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40002401396307.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40002401396307.html#scrolltoc</code></a></p>
+</li>
+<li>
+<p>See "Servicing PCIe Cards" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40000f91037409.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40000f91037409.html#scrolltoc</code></a></p>
+</li>
+</ol>
+<p><span class="bold">Note</span>: Do not run any controller commands when replacing the disk.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1500" headers="d75284e1318">
+<p>7066826</p>
+</td>
+<td class="cellalignment230" headers="d75284e1500 d75284e1321">
+<p>Drive, 8 TB, 3.5", SAS/7200 RPM, CORAL</p>
+</td>
+<td class="cellalignment201" headers="d75284e1500 d75284e1324">
+<p>HS</p>
+</td>
+<td class="cellalignment293" headers="d75284e1500 d75284e1327">
+<p>See "Servicing Storage Drives" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40000091011460.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40000091011460.html#scrolltoc</code></a></p>
+<p>Do not run any controller commands when replacing the disk.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1520" headers="d75284e1318">
+<p>7014391</p>
+</td>
+<td class="cellalignment230" headers="d75284e1520 d75284e1321">
+<p>SAS expander assembly</p>
+</td>
+<td class="cellalignment201" headers="d75284e1520 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1520 d75284e1327">
+<p>See "Servicing the SAS Expander Module" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/ceieidja.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/ceieidja.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1538" headers="d75284e1318">
+<p>7020486</p>
+</td>
+<td class="cellalignment230" headers="d75284e1538 d75284e1321">
+<p>DIMM, 8 GB, DDR3, 1600 MHz, 1.3V</p>
+</td>
+<td class="cellalignment201" headers="d75284e1538 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1538 d75284e1327">
+<p>See "Servicing the DIMMs" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/ceicjagi.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/ceicjagi.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1556" headers="d75284e1318">
+<p>7018704</p>
+</td>
+<td class="cellalignment230" headers="d75284e1556 d75284e1321">
+<p>DIMM, 16 GB, DDR3, 1600 MHz, 1.35V</p>
+</td>
+<td class="cellalignment201" headers="d75284e1556 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1556 d75284e1327">
+<p>See "Servicing the DIMMs" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/ceicjagi.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/ceicjagi.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1575" headers="d75284e1318">
+<p>7071891</p>
+</td>
+<td class="cellalignment230" headers="d75284e1575 d75284e1321">
+<p>LRDIMM,32GB,DDR3,1600,4Rx4,1.35V</p>
+</td>
+<td class="cellalignment201" headers="d75284e1575 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1575 d75284e1327">
+<p>See "Servicing the DIMMs" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/ceicjagi.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/ceicjagi.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1593" headers="d75284e1318">
+<p>7020774</p>
+</td>
+<td class="cellalignment230" headers="d75284e1593 d75284e1321">
+<p>Pregreased CPU heatsink</p>
+</td>
+<td class="cellalignment201" headers="d75284e1593 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1593 d75284e1327">
+<p>See "Servicing Processors" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40001d31037480.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40001d31037480.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1611" headers="d75284e1318">
+<p>7075289</p>
+</td>
+<td class="cellalignment230" headers="d75284e1611 d75284e1321">
+<p>CPU, Intel E5-2650 v2 8-core 2.6 GHz</p>
+</td>
+<td class="cellalignment201" headers="d75284e1611 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1611 d75284e1327">
+<p>See "Servicing Processors" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40001d31037480.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40001d31037480.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1629" headers="d75284e1318">
+<p>7044130</p>
+</td>
+<td class="cellalignment230" headers="d75284e1629 d75284e1321">
+<p>Power supply, AC, A258, F, 12V, 1000W</p>
+</td>
+<td class="cellalignment201" headers="d75284e1629 d75284e1324">
+<p>HS</p>
+</td>
+<td class="cellalignment293" headers="d75284e1629 d75284e1327">
+<p>See "Servicing Power Supplies" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40000091014153.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40000091014153.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1647" headers="d75284e1318">
+<p>7045042</p>
+</td>
+<td class="cellalignment230" headers="d75284e1647 d75284e1321">
+<p>Dual counter rotating fan module, 80x80 mm</p>
+</td>
+<td class="cellalignment201" headers="d75284e1647 d75284e1324">
+<p>HS</p>
+</td>
+<td class="cellalignment293" headers="d75284e1647 d75284e1327">
+<p>See "Servicing Fan Modules" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40000091014194.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40000091014194.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1665" headers="d75284e1318">
+<p>7047257</p>
+</td>
+<td class="cellalignment230" headers="d75284e1665 d75284e1321">
+<p>12-slot backplane cable kit with the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Disk drive flex cable</p>
+</li>
+<li>
+<p>Dual backplane power cable</p>
+</li>
+<li>
+<p>Single backplane power cable</p>
+</li>
+<li>
+<p>Disk data cable, iPass+ HD to iPass+ HD, 600 mm</p>
+</li>
+</ul>
+</td>
+<td class="cellalignment201" headers="d75284e1665 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1665 d75284e1327">
+<ol>
+<li>
+<p>Shut down the rack. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>"</span>.</p>
+</li>
+<li>
+<p>See "Servicing the Front and Rear Storage Drive Backplanes" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40007ac1419009.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40007ac1419009.html#scrolltoc</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1705" headers="d75284e1318">
+<p>7047768</p>
+</td>
+<td class="cellalignment230" headers="d75284e1705 d75284e1321">
+<p>12-slot 3.5" disk cage, including fan door, and left and right ear assembly</p>
+</td>
+<td class="cellalignment201" headers="d75284e1705 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1705 d75284e1327">
+<ol>
+<li>
+<p>Shut down the rack. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>"</span>.</p>
+</li>
+<li>
+<p>See "Servicing the Front and Rear Storage Drive Backplanes" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40007ac1419009.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40007ac1419009.html#scrolltoc</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1732" headers="d75284e1318">
+<p>7049382</p>
+</td>
+<td class="cellalignment230" headers="d75284e1732 d75284e1321">
+<p>System board assembly, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e1732 d75284e1324">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1732 d75284e1327">
+<ol>
+<li>
+<p>Shut down the rack. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>"</span>.</p>
+</li>
+<li>
+<p>"Servicing the Motherboard Assembly" at</p>
+<p><a href="http://docs.oracle.com/cd/E36974_01/html/E38145/z40001d31037512.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E36974_01/html/E38145/z40001d31037512.html#scrolltoc</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG325"></a><a id="BIGOG77046"></a>
+<div class="props_rev_3"><a id="GUID-F63A2D7D-F66A-4D5B-BDC4-3D841785360E"></a>
+<h3 id="BIGOG-GUID-F63A2D7D-F66A-4D5B-BDC4-3D841785360E" class="sect3"><span class="enumeration_section">B.4.3</span> Sun Server X3-2L Parts</h3>
+<div>
+<div class="section">
+<p><a id="d75284e1780" class="indexterm-anchor"></a><a href="app_fru.htm#GUID-F63A2D7D-F66A-4D5B-BDC4-3D841785360E__CHDHHDDC" title="Replaceable parts for Oracle Database servers with X4270 M2 servers.">Table B-6</a> lists the replaceable parts for the Sun Server X3-2L, which are covered under the Oracle Premier Support for Systems warranty. Unless otherwise noted, the repair procedures are in the <span class="italic">Sun Server X3-2L Service Manual</span>.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-F63A2D7D-F66A-4D5B-BDC4-3D841785360E__CHDHHDDC">
+<p class="titleintable">Table B-6 Replacement Parts for a Sun Server X3-2L Server</p>
+<table class="cellalignment184" title="Replacement Parts for a Sun Server X3-2L Server" summary="Replaceable parts for Oracle Database servers with X4270 M2 servers.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment196" id="d75284e1804">Part Number</th>
+<th class="cellalignment228" id="d75284e1807">Description</th>
+<th class="cellalignment200" id="d75284e1810">Repair Category</th>
+<th class="cellalignment292" id="d75284e1813">Repair Procedure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1818" headers="d75284e1804">
+<p>150-3993</p>
+</td>
+<td class="cellalignment230" headers="d75284e1818 d75284e1807">
+<p>Battery, 3V, 390 MAH, LITH, COIN</p>
+</td>
+<td class="cellalignment201" headers="d75284e1818 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1818 d75284e1813">
+<p>See "Servicing the Battery" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40000f91037456.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40000f91037456.html#scrolltoc</code></a></p>
+<p><span class="bold">Note</span>: Rear storage drive 1 might be populated with a remote battery module for the host bus adapter (HBA) card. See "Remove a Rear Storage Drive" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/bbggjgea.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/bbggjgea.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1845" headers="d75284e1804">
+<p>7090170</p>
+</td>
+<td class="cellalignment230" headers="d75284e1845 d75284e1807">
+<p>8 GB USB flash drive</p>
+</td>
+<td class="cellalignment201" headers="d75284e1845 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1845 d75284e1813">
+<p>See "Servicing the Internal USB Flash Drives" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/ceiicfbd.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/ceiicfbd.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1863" headers="d75284e1804">
+<p>371-4985</p>
+</td>
+<td class="cellalignment230" headers="d75284e1863 d75284e1807">
+<p>6 Gigabit SAS RAID PCI battery module, RoHS:Y (LION), BBU-08</p>
+</td>
+<td class="cellalignment201" headers="d75284e1863 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1863 d75284e1813">
+<ol>
+<li>
+<p>Power down the server gracefully. See "Powering Down the Server" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z400061b1011735.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z400061b1011735.html</code></a></p>
+</li>
+<li>
+<p>See <span class="italic">Sun Storage 6 Gb SAS PCIe HBA, Internal Installation Guide For HBA Models SGX-SAS6-INT-Z and SG-SAS6-INT-Z</span> (internal only) at</p>
+<p><a href="http://docs.oracle.com/cd/E19337-01/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19337-01/index.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1894" headers="d75284e1804">
+<p>7047503</p>
+</td>
+<td class="cellalignment230" headers="d75284e1894 d75284e1807">
+<p>Niwot card</p>
+</td>
+<td class="cellalignment201" headers="d75284e1894 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1894 d75284e1813">
+<ol>
+<li>
+<p>Power down the server gracefully. See "Powering Down the Server" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z400061b1011735.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z400061b1011735.html</code></a></p>
+</li>
+<li>
+<p>See "Servicing PCIe Cards" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40000f91037409.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40000f91037409.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1922" headers="d75284e1804">
+<p>7057184</p>
+</td>
+<td class="cellalignment230" headers="d75284e1922 d75284e1807">
+<p>Assembly Battery Carrier Remote</p>
+</td>
+<td class="cellalignment201" headers="d75284e1922 d75284e1810">
+<p>HS</p>
+</td>
+<td class="cellalignment293" headers="d75284e1922 d75284e1813">
+<p>See "Remove a Rear Storage Drive" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/bbggjgea.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/bbggjgea.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1940" headers="d75284e1804">
+<p>375-3696</p>
+</td>
+<td class="cellalignment230" headers="d75284e1940 d75284e1807">
+<p>InfiniBand (CX2) dual port CX2 4x QDR PCI-e</p>
+</td>
+<td class="cellalignment201" headers="d75284e1940 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1940 d75284e1813">
+<ol>
+<li>
+<p>Power down the server gracefully. See "Powering Down the Server" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z400061b1011735.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z400061b1011735.html</code></a></p>
+</li>
+<li>
+<p>See "Servicing PCIe Cards" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40000f91037409.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40000f91037409.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e1968" headers="d75284e1804">
+<p>375-3701</p>
+</td>
+<td class="cellalignment230" headers="d75284e1968 d75284e1807">
+<p>6 Gbps SAS RAID disk PCIe HBA, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e1968 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e1968 d75284e1813">
+<ol>
+<li>
+<p>Power down the server gracefully. See "Powering Down the Server" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z400061b1011735.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z400061b1011735.html</code></a></p>
+</li>
+<li>
+<p>See "Servicing PCIe Cards" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40000f91037409.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40000f91037409.html</code></a></p>
+</li>
+</ol>
+<p><span class="bold">Note</span>: Do not run any controller commands when replacing the disk.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2000" headers="d75284e1804">
+<p>7010036</p>
+</td>
+<td class="cellalignment230" headers="d75284e2000 d75284e1807">
+<p>DR 3 TB, 3.5-inch, SAS/7200, CORAL</p>
+</td>
+<td class="cellalignment201" headers="d75284e2000 d75284e1810">
+<p>HS</p>
+</td>
+<td class="cellalignment293" headers="d75284e2000 d75284e1813">
+<p>See "Servicing Storage Drives and Rear Drives" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40000091011460.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40000091011460.html</code></a></p>
+<p>Do not run any controller commands when replacing the disk.</p>
+<p><span class="bold">Note</span>: Rear storage drive 1 might be populated with a remote battery module for the host bus adapter (HBA) card. See "Remove a Rear Storage Drive" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/bbggjgea.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/bbggjgea.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2029" headers="d75284e1804">
+<p>7014391</p>
+</td>
+<td class="cellalignment230" headers="d75284e2029 d75284e1807">
+<p>SAS expander assembly</p>
+</td>
+<td class="cellalignment201" headers="d75284e2029 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2029 d75284e1813">
+<p>See "Servicing the SAS Expander Module" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/ceieidja.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/ceieidja.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2047" headers="d75284e1804">
+<p>7020486</p>
+</td>
+<td class="cellalignment230" headers="d75284e2047 d75284e1807">
+<p>DIMM, 8 GB, DDR3, 1600 MHz, 1.3V</p>
+</td>
+<td class="cellalignment201" headers="d75284e2047 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2047 d75284e1813">
+<p>See "Servicing the DIMMs" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/ceicjagi.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/ceicjagi.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2065" headers="d75284e1804">
+<p>7018704</p>
+</td>
+<td class="cellalignment230" headers="d75284e2065 d75284e1807">
+<p>DIMM, 16 GB, DDR3, 1600 MHz, 1.35V</p>
+</td>
+<td class="cellalignment201" headers="d75284e2065 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2065 d75284e1813">
+<p>See "Servicing the DIMMs" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/ceicjagi.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/ceicjagi.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2084" headers="d75284e1804">
+<p>7071891</p>
+</td>
+<td class="cellalignment230" headers="d75284e2084 d75284e1807">
+<p>LRDIMM,32GB,DDR3,1600,4Rx4,1.35V</p>
+</td>
+<td class="cellalignment201" headers="d75284e2084 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2084 d75284e1813">
+<p>See "Servicing the DIMMs" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/ceicjagi.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/ceicjagi.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2102" headers="d75284e1804">
+<p>7020774</p>
+</td>
+<td class="cellalignment230" headers="d75284e2102 d75284e1807">
+<p>Pregreased CPU heatsink</p>
+</td>
+<td class="cellalignment201" headers="d75284e2102 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2102 d75284e1813">
+<p>See "Servicing Processors" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40001d31037480.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40001d31037480.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2120" headers="d75284e1804">
+<p>7026881</p>
+</td>
+<td class="cellalignment230" headers="d75284e2120 d75284e1807">
+<p>CPU,Intel,E5-2660,2.2 GHz, 8-core</p>
+</td>
+<td class="cellalignment201" headers="d75284e2120 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2120 d75284e1813">
+<p>See "Servicing Processors" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40001d31037480.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40001d31037480.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2138" headers="d75284e1804">
+<p>7044130</p>
+</td>
+<td class="cellalignment230" headers="d75284e2138 d75284e1807">
+<p>Power supply, AC, A258, F, 12V, 1000W</p>
+</td>
+<td class="cellalignment201" headers="d75284e2138 d75284e1810">
+<p>HS</p>
+</td>
+<td class="cellalignment293" headers="d75284e2138 d75284e1813">
+<p>See "Servicing Power Supplies" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40000091014153.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40000091014153.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2156" headers="d75284e1804">
+<p>7045042</p>
+</td>
+<td class="cellalignment230" headers="d75284e2156 d75284e1807">
+<p>Dual counter rotating fan module, 80x80 mm</p>
+</td>
+<td class="cellalignment201" headers="d75284e2156 d75284e1810">
+<p>HS</p>
+</td>
+<td class="cellalignment293" headers="d75284e2156 d75284e1813">
+<p>See "Servicing Fan Modules" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40000091014194.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40000091014194.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2174" headers="d75284e1804">
+<p>7047257</p>
+</td>
+<td class="cellalignment230" headers="d75284e2174 d75284e1807">
+<p>12-slot backplane cable kit with the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Disk drive flex cable</p>
+</li>
+<li>
+<p>Dual backplane power cable</p>
+</li>
+<li>
+<p>Single backplane power cable</p>
+</li>
+<li>
+<p>Disk data cable, iPass+ HD to iPass+ HD, 600 mm</p>
+</li>
+</ul>
+</td>
+<td class="cellalignment201" headers="d75284e2174 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2174 d75284e1813">
+<ol>
+<li>
+<p>Shut down the rack. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>"</span>.</p>
+</li>
+<li>
+<p>See "Servicing the Front and Rear Storage Drive Backplanes" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40007ac1419009.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40007ac1419009.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2214" headers="d75284e1804">
+<p>7047768</p>
+</td>
+<td class="cellalignment230" headers="d75284e2214 d75284e1807">
+<p>12-slot 3.5" disk cage, including fan door, and left and right ear assembly</p>
+</td>
+<td class="cellalignment201" headers="d75284e2214 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2214 d75284e1813">
+<ol>
+<li>
+<p>Shut down the rack. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>"</span>.</p>
+</li>
+<li>
+<p>See "Servicing the Front and Rear Storage Drive Backplanes" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40007ac1419009.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40007ac1419009.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2241" headers="d75284e1804">
+<p>7049382</p>
+</td>
+<td class="cellalignment230" headers="d75284e2241 d75284e1807">
+<p>System board assembly, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2241 d75284e1810">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2241 d75284e1813">
+<ol>
+<li>
+<p>Shut down the rack. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>"</span>.</p>
+</li>
+<li>
+<p>"Servicing the Motherboard Assembly" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40001d31037512.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40001d31037512.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76819"></a><a id="BIGOG77047"></a>
+<div class="sect3"><a id="GUID-6634665D-33AA-4C36-BC13-0C864A77A68E"></a>
+<h3 id="BIGOG-GUID-6634665D-33AA-4C36-BC13-0C864A77A68E" class="sect3"><span class="enumeration_section">B.4.4</span> Sun Fire X4270 M2 Parts</h3>
+<div>
+<p><a href="app_fru.htm#GUID-6634665D-33AA-4C36-BC13-0C864A77A68E__CHDICAFF" title="Replaceable parts for Oracle Database servers with X4270 M2 servers.">Table B-7</a> lists the replaceable parts for the Sun Fire X4270 M2, which are covered under the Oracle Premier Support for Systems warranty. Unless otherwise noted, the repair procedures are in the <span class="italic">Sun Fire X4270 M2 Server Service Manual</span>.</p>
+<div class="tblformal" id="GUID-6634665D-33AA-4C36-BC13-0C864A77A68E__CHDICAFF">
+<p class="titleintable">Table B-7 Replacement Parts for Sun Fire X4270 M2 Servers</p>
+<table class="cellalignment184" title="Replacement Parts for Sun Fire X4270 M2 Servers" summary="Replaceable parts for Oracle Database servers with X4270 M2 servers.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment196" id="d75284e2307">Part Number</th>
+<th class="cellalignment228" id="d75284e2310">Description</th>
+<th class="cellalignment200" id="d75284e2313">Repair Category</th>
+<th class="cellalignment292" id="d75284e2316">Repair Procedure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2321" headers="d75284e2307">
+<p>150-3993</p>
+</td>
+<td class="cellalignment230" headers="d75284e2321 d75284e2310">
+<p>Battery, 3V, 390 MAH, LITH, COIN</p>
+</td>
+<td class="cellalignment201" headers="d75284e2321 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2321 d75284e2316">
+<p>See Section 4.6, "Servicing the Server Battery" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_71528" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_71528</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2342" headers="d75284e2307">
+<p>300-2235</p>
+</td>
+<td class="cellalignment230" headers="d75284e2342 d75284e2310">
+<p>Power supply, A249, 1200W, 12V, 2U, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2342 d75284e2313">
+<p>HS</p>
+</td>
+<td class="cellalignment293" headers="d75284e2342 d75284e2316">
+<p>See Section 3.4, "Servicing Power Supplies" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/hotswap.html#50438178_11706" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/hotswap.html#50438178_11706</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2363" headers="d75284e2307">
+<p>350-1502</p>
+</td>
+<td class="cellalignment230" headers="d75284e2363 d75284e2310">
+<p>Universal rack mount kit</p>
+</td>
+<td class="cellalignment201" headers="d75284e2363 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2363 d75284e2316">
+<ol>
+<li>
+<p>If the system is currently running, then shut it down gracefully. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>."</span></p>
+</li>
+<li>
+<p>See Chapter 2, "Installing the Server Into a Rack With Slide-Rails" in <span class="italic">Sun Fire X4170 M2 and X4270 M2 Servers Installation Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/E27205/z4000c671007752.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/E27205/z4000c671007752.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2393" headers="d75284e2307">
+<p>7090170</p>
+</td>
+<td class="cellalignment230" headers="d75284e2393 d75284e2310">
+<p>8 GB USB flash drive</p>
+</td>
+<td class="cellalignment201" headers="d75284e2393 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2393 d75284e2316">
+<p>Not applicable</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2406" headers="d75284e2307">
+<p>371-4966</p>
+</td>
+<td class="cellalignment230" headers="d75284e2406 d75284e2310">
+<p>LV DIMM, 8 GB, DDR3, 1RX4, 1333 MHz</p>
+</td>
+<td class="cellalignment201" headers="d75284e2406 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2406 d75284e2316">
+<p>See Section 4.2, "Servicing Memory Modules (DIMMs)" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_71526" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_71526</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2427" headers="d75284e2307">
+<p>371-4982</p>
+</td>
+<td class="cellalignment230" headers="d75284e2427 d75284e2310">
+<p>6 Gigabit SAS RAID PCI battery module, RoHS:Y (LION), BBU-08</p>
+</td>
+<td class="cellalignment201" headers="d75284e2427 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2427 d75284e2316">
+<ol>
+<li>
+<p>If the system is currently running, then shut it down gracefully. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>."</span></p>
+</li>
+<li>
+<p>See <span class="italic">Sun Storage 6 Gb SAS PCIe HBA, Internal Installation Guide For HBA Models SGX-SAS6-INT-Z and SG-SAS6-INT-Z</span> (internal only) at</p>
+<p><a href="http://docs.oracle.com/cd/E19337-01/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19337-01/index.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2457" headers="d75284e2307">
+<p>375-3696</p>
+</td>
+<td class="cellalignment230" headers="d75284e2457 d75284e2310">
+<p>InfiniBand (CX2) dual port CX2 4x QDR PCI-e</p>
+</td>
+<td class="cellalignment201" headers="d75284e2457 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2457 d75284e2316">
+<ol>
+<li>
+<p>If the system is currently running, then shut it down gracefully. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>."</span></p>
+</li>
+<li>
+<p>See Section 4.5, "Servicing PCIe Cards" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_86021" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_86021</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2487" headers="d75284e2307">
+<p>375-3701</p>
+</td>
+<td class="cellalignment230" headers="d75284e2487 d75284e2310">
+<p>6 Gbps SAS RAID disk PCIe HBA, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2487 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2487 d75284e2316">
+<ol>
+<li>
+<p>If the system is currently running, then shut it down gracefully. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>."</span></p>
+</li>
+<li>
+<p>See Section 4.5, "Servicing PCIe Cards" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_86021" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_86021</code></a></p>
+</li>
+</ol>
+<p><span class="bold">Note</span>: Do not run any controller commands in the service manual when replacing the disk.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2521" headers="d75284e2307">
+<p>530-3927</p>
+</td>
+<td class="cellalignment230" headers="d75284e2521 d75284e2310">
+<p>Cable, PDB, MB, 1U+2U, ribbon</p>
+</td>
+<td class="cellalignment201" headers="d75284e2521 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2521 d75284e2316">
+<p>See Section 5.10, "Servicing Cables " in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_58217" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_58217</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2542" headers="d75284e2307">
+<p>530-4228</p>
+</td>
+<td class="cellalignment230" headers="d75284e2542 d75284e2310">
+<p>Cable, mini-SAS, 36 POS LONG, LY, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2542 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2542 d75284e2316">
+<p>See Section 5.10, "Servicing Cables" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_78806" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_78806</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2563" headers="d75284e2307">
+<p>541-2075</p>
+</td>
+<td class="cellalignment230" headers="d75284e2563 d75284e2310">
+<p>Bus_bar, power, 1U+2U, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2563 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2563 d75284e2316">
+<p>See Section 5.6, "Servicing the Power Distribution Board" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_85936" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_85936</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2585" headers="d75284e2307">
+<p>541-2884</p>
+</td>
+<td class="cellalignment230" headers="d75284e2585 d75284e2310">
+<p>Assembly, riser, X8, X8, 2U, PCI-E, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2585 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2585 d75284e2316">
+<p>See Section 4.4, "Servicing PCIe Risers" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_53252" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_53252</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2606" headers="d75284e2307">
+<p>541-3310</p>
+</td>
+<td class="cellalignment230" headers="d75284e2606 d75284e2310">
+<p>Xeon Heatsink with grease, RoHS:Y, 2U</p>
+</td>
+<td class="cellalignment201" headers="d75284e2606 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2606 d75284e2316">
+<p>See Section 4.7, "Servicing CPUs" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_23425" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_23425</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2627" headers="d75284e2307">
+<p>541-3356</p>
+</td>
+<td class="cellalignment230" headers="d75284e2627 d75284e2310">
+<p>x8/x8 switched PCIe riser assembly, RoHS:Y with the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>x8/x8 switch PCIe riser</p>
+</li>
+<li>
+<p>bracket</p>
+</li>
+</ul>
+</td>
+<td class="cellalignment201" headers="d75284e2627 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2627 d75284e2316">
+<ol>
+<li>
+<p>If the system is currently running, then shut it down gracefully. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>."</span></p>
+</li>
+<li>
+<p>See Section 4.4, "Servicing PCIe Risers" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_53252" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_53252</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2664" headers="d75284e2307">
+<p>541-4081</p>
+</td>
+<td class="cellalignment230" headers="d75284e2664 d75284e2310">
+<p>System board assembly, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2664 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2664 d75284e2316">
+<ol>
+<li>
+<p>If the system is currently running, then shut it down gracefully. See <span class="q">"<a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4">Powering On and Off Oracle Big Data Appliance</a>."</span></p>
+</li>
+<li>
+<p>See Section 4.8, "Servicing the Motherboard" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_98526" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_98526</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2694" headers="d75284e2307">
+<p>541-4124</p>
+</td>
+<td class="cellalignment230" headers="d75284e2694 d75284e2310">
+<p>Fan deck, Hyde, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2694 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2694 d75284e2316">
+<p>See Section 5.3, "Servicing the Fan Board" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_71556" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_71556</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2715" headers="d75284e2307">
+<p>541-4222</p>
+</td>
+<td class="cellalignment230" headers="d75284e2715 d75284e2310">
+<p>Assembly, fan, CR, 2U, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2715 d75284e2313">
+<p>HS</p>
+</td>
+<td class="cellalignment293" headers="d75284e2715 d75284e2316">
+<p>See Section 3.3, "Servicing Fan Modules" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/hotswap.html#50438178_28930" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/hotswap.html#50438178_28930</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2736" headers="d75284e2307">
+<p>541-4223</p>
+</td>
+<td class="cellalignment230" headers="d75284e2736 d75284e2310">
+<p>Power distribution board, 2U, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2736 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2736 d75284e2316">
+<p>See Section 5.6, "Servicing the Power Distribution Board" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_71558" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_71558</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2757" headers="d75284e2307">
+<p>541-4304</p>
+</td>
+<td class="cellalignment230" headers="d75284e2757 d75284e2310">
+<p>Indicator, right, Hyde 12/24, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2757 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2757 d75284e2316">
+<p>See Section 5.5, "Servicing the Front Panel LED Modules" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_71563" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_71563</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2778" headers="d75284e2307">
+<p>541-4305</p>
+</td>
+<td class="cellalignment230" headers="d75284e2778 d75284e2310">
+<p>Assembly, disk, SAS2, XP_DC, Hyde, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2778 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2778 d75284e2316">
+<p>See Section 5.2, "Servicing the SAS Expander Board" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_28246" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_28246</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2799" headers="d75284e2307">
+<p>541-4306</p>
+</td>
+<td class="cellalignment230" headers="d75284e2799 d75284e2310">
+<p>Assembly, connector board bracket, Hyde</p>
+</td>
+<td class="cellalignment201" headers="d75284e2799 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2799 d75284e2316">
+<p>See Section 5.7, "Servicing the Connector Board" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_pgfId-1296581" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_pgfId-1296581</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2820" headers="d75284e2307">
+<p>541-4363</p>
+</td>
+<td class="cellalignment230" headers="d75284e2820 d75284e2310">
+<p>12-slot disk backplane, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2820 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2820 d75284e2316">
+<p>See Section 5.4, "Servicing the Disk Backplane" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_71557" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_71557</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2842" headers="d75284e2307">
+<p>541-4371</p>
+</td>
+<td class="cellalignment230" headers="d75284e2842 d75284e2310">
+<p>Indicator, left, Hyde 12/24, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e2842 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2842 d75284e2316">
+<p>See Section 5.5, "Servicing the Front Panel LED Modules" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_71563" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/infrastructure_x4270_M2.html#50438167_71563</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2863" headers="d75284e2307">
+<p>560-2952</p>
+</td>
+<td class="cellalignment230" headers="d75284e2863 d75284e2310">
+<p>Cable kit, Hyde, RoHS:Y with the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Disk backplane power cable</p>
+</li>
+<li>
+<p>24-slot DBP power cable</p>
+</li>
+<li>
+<p>12/24 slot disk backplane signal cable</p>
+</li>
+<li>
+<p>Fan signal cable</p>
+</li>
+<li>
+<p>Fan power cable</p>
+</li>
+</ul>
+</td>
+<td class="cellalignment201" headers="d75284e2863 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2863 d75284e2316">
+<p>Refer to the entries for the individual items in the kit.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2892" headers="d75284e2307">
+<p>7010036</p>
+</td>
+<td class="cellalignment230" headers="d75284e2892 d75284e2310">
+<p>FRU DR 3 TB 3.5-inch SAS/7200, CORAL</p>
+</td>
+<td class="cellalignment201" headers="d75284e2892 d75284e2313">
+<p>--</p>
+</td>
+<td class="cellalignment293" headers="d75284e2892 d75284e2316">
+<p>See Section 3.2, "Servicing Storage Drives and Boot Drives" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/hotswap.html#50438178_61628" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/hotswap.html#50438178_61628</code></a></p>
+<p><span class="bold">Note:</span> Do not run any controller commands in the service manual when replacing the disk.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e2917" headers="d75284e2307">
+<p>7012433</p>
+</td>
+<td class="cellalignment230" headers="d75284e2917 d75284e2310">
+<p>3.06 GHz processor</p>
+</td>
+<td class="cellalignment201" headers="d75284e2917 d75284e2313">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment293" headers="d75284e2917 d75284e2316">
+<p>See Section 4.7, "Servicing CPUs" in <span class="italic">Sun Fire X4270 M2 Server Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_23425" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19245-01/821-0488-12/motherboard.html#50438179_23425</code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+</div>
+<a id="BIGOG327"></a><a id="BIGOG326"></a>
+<div class="props_rev_3"><a id="GUID-37C767A8-E5D7-487A-8536-84A528403BCE"></a>
+<h2 id="BIGOG-GUID-37C767A8-E5D7-487A-8536-84A528403BCE" class="sect2"><span class="enumeration_section">B.5</span> Parts for Sun Datacenter InfiniBand Switch 36</h2>
+<div>
+<div class="section">
+<p><a href="app_fru.htm#GUID-37C767A8-E5D7-487A-8536-84A528403BCE__CHDFIBEE" title="Replacement parts for InfiniBand switches">Table B-8</a> <a id="d75284e2963" class="indexterm-anchor"></a><a id="d75284e2967" class="indexterm-anchor"></a>lists the replaceable parts for the Sun Datacenter InfiniBand Switch 36, which are covered under the Oracle Premier Support for Systems warranty. Unless otherwise noted, the repair procedures reference the <span class="italic">Sun Datacenter InfiniBand Switch 36 Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/index.html</code></a></p>
+<p>See <span class="q">"<a href="app_fru.htm#GUID-2E8E33CA-BCEF-48AF-ABC6-00C368883377">Cables and Cable Accessories for an Oracle Big Data Appliance Rack</a>"</span> for information about InfiniBand cables.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-37C767A8-E5D7-487A-8536-84A528403BCE__CHDFIBEE">
+<p class="titleintable">Table B-8 Replacement Parts for the Sun Datacenter InfiniBand Switch 36</p>
+<table class="cellalignment184" title="Replacement Parts for the Sun Datacenter InfiniBand Switch 36" summary="Replacement parts for InfiniBand switches">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment196" id="d75284e2998">Part Number</th>
+<th class="cellalignment208" id="d75284e3001">Description</th>
+<th class="cellalignment200" id="d75284e3004">Repair Category</th>
+<th class="cellalignment280" id="d75284e3007">Repair Procedure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3012" headers="d75284e2998">
+<p>7081595</p>
+</td>
+<td class="cellalignment210" headers="d75284e3012 d75284e3001">
+<p>A247A, 12V, 760-watt power supply, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3012 d75284e3004">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3012 d75284e3007">
+<p>See "Servicing Power Supplies" at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/z40001f49112.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/z40001f49112.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3030" headers="d75284e2998">
+<p>350-1312</p>
+</td>
+<td class="cellalignment210" headers="d75284e3030 d75284e3001">
+<p>Fan module for Sun Datacenter InfiniBand Switch 36, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3030 d75284e3004">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3030 d75284e3007">
+<p>See "Servicing Fans" at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/z40001f59112.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/z40001f59112.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3048" headers="d75284e2998">
+<p>371-2210</p>
+</td>
+<td class="cellalignment210" headers="d75284e3048 d75284e3001">
+<p>CR2032 3V battery, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3048 d75284e3004">
+<p>IR</p>
+</td>
+<td class="cellalignment281" headers="d75284e3048 d75284e3007">
+<p>See "Servicing the Battery" at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/z40001f79112.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/z40001f79112.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3066" headers="d75284e2998">
+<p>541-3495</p>
+</td>
+<td class="cellalignment210" headers="d75284e3066 d75284e3001">
+<p>Sun Datacenter InfiniBand Switch 36, RoHS:YL</p>
+</td>
+<td class="cellalignment201" headers="d75284e3066 d75284e3004">
+<p>IR</p>
+</td>
+<td class="cellalignment281" headers="d75284e3066 d75284e3007">
+<ol>
+<li>
+<p>See <span class="q">"<a href="maintenance.htm#GUID-CABDF02D-5671-4F4D-9BD2-2BF3F163840E">Replacing a Failed InfiniBand Switch</a>"</span>.</p>
+</li>
+<li>
+<p>See "Installing the Switch" in the <span class="italic">Sun Datacenter InfiniBand Switch 36 Installation Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/cggfbhhf.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/cggfbhhf.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3096" headers="d75284e2998">
+<p>594-6603</p>
+</td>
+<td class="cellalignment210" headers="d75284e3096 d75284e3001">
+<p>10 Gbps QSFP short wavelength transceiver</p>
+</td>
+<td class="cellalignment201" headers="d75284e3096 d75284e3004">
+<p>IR</p>
+</td>
+<td class="cellalignment281" headers="d75284e3096 d75284e3007">
+<p>See "Servicing Data Cables" at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/z40001f69112.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/z40001f69112.html</code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76784"></a><a id="BIGOG76783"></a>
+<div class="props_rev_3"><a id="GUID-36FA618A-70D0-4B3E-8E33-0052243F1002"></a>
+<h2 id="BIGOG-GUID-36FA618A-70D0-4B3E-8E33-0052243F1002" class="sect2"><span class="enumeration_section">B.6</span> Parts for Sun Network QDR InfiniBand Gateway Switch</h2>
+<div>
+<div class="section">
+<p><a href="app_fru.htm#GUID-36FA618A-70D0-4B3E-8E33-0052243F1002__CHDEHHEB" title="Replacement parts for InfiniBand switches">Table B-9</a> <a id="d75284e3140" class="indexterm-anchor"></a><a id="d75284e3144" class="indexterm-anchor"></a>lists the replaceable parts for the Sun Network QDR InfiniBand Gateway switch, which are covered under the Oracle Premier Support for Systems warranty. Unless otherwise noted, the repair procedures refer to the <span class="italic">Sun Network QDR InfiniBand Gateway Switch Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26699_01/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/index.html</code></a></p>
+<p>See <span class="q">"<a href="app_fru.htm#GUID-2E8E33CA-BCEF-48AF-ABC6-00C368883377">Cables and Cable Accessories for an Oracle Big Data Appliance Rack</a>"</span> for information about InfiniBand cables.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-36FA618A-70D0-4B3E-8E33-0052243F1002__CHDEHHEB">
+<p class="titleintable">Table B-9 Replacement Parts for the Sun Network QDR InfiniBand Gateway Switch</p>
+<table class="cellalignment184" title="Replacement Parts for the Sun Network QDR InfiniBand Gateway Switch" summary="Replacement parts for InfiniBand switches">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment196" id="d75284e3175">Part Number</th>
+<th class="cellalignment208" id="d75284e3178">Description</th>
+<th class="cellalignment200" id="d75284e3181">Repair Category</th>
+<th class="cellalignment280" id="d75284e3184">Repair Procedure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3189" headers="d75284e3175">
+<p>7081595</p>
+</td>
+<td class="cellalignment210" headers="d75284e3189 d75284e3178">
+<p>A247A, 12V, 760-watt power supply, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3189 d75284e3181">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3189 d75284e3184">
+<p>See "Servicing Power Supplies" at</p>
+<p><a href="http://docs.oracle.com/cd/E26699_01/html/E26706/z40001f49112.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/html/E26706/z40001f49112.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3207" headers="d75284e3175">
+<p>350-1312</p>
+</td>
+<td class="cellalignment210" headers="d75284e3207 d75284e3178">
+<p>Fan module, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3207 d75284e3181">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3207 d75284e3184">
+<p>See "Servicing Fans" at</p>
+<p><a href="http://docs.oracle.com/cd/E26699_01/html/E26706/z40001f59112.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/html/E26706/z40001f59112.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3225" headers="d75284e3175">
+<p>371-2210</p>
+</td>
+<td class="cellalignment210" headers="d75284e3225 d75284e3178">
+<p>CR2032 3V battery, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3225 d75284e3181">
+<p>IR</p>
+</td>
+<td class="cellalignment281" headers="d75284e3225 d75284e3184">
+<p>See "Servicing the Battery" at</p>
+<p><a href="http://docs.oracle.com/cd/E26699_01/html/E26706/z40001f79112.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/html/E26706/z40001f79112.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3243" headers="d75284e3175">
+<p>594-6603</p>
+</td>
+<td class="cellalignment210" headers="d75284e3243 d75284e3178">
+<p>10 Gbps QSFP short wavelength transceiver</p>
+</td>
+<td class="cellalignment201" headers="d75284e3243 d75284e3181">
+<p>IR</p>
+</td>
+<td class="cellalignment281" headers="d75284e3243 d75284e3184">
+<p>See "Servicing Data Cables" at</p>
+<p><a href="http://docs.oracle.com/cd/E26699_01/html/E26706/z40001f69112.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/html/E26706/z40001f69112.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3261" headers="d75284e3175">
+<p>7014378</p>
+</td>
+<td class="cellalignment210" headers="d75284e3261 d75284e3178">
+<p>Assembly, system, NM2-Gateway</p>
+</td>
+<td class="cellalignment201" headers="d75284e3261 d75284e3181">
+<p>IR</p>
+</td>
+<td class="cellalignment281" headers="d75284e3261 d75284e3184">
+<ol>
+<li>
+<p>See <span class="q">"<a href="maintenance.htm#GUID-CABDF02D-5671-4F4D-9BD2-2BF3F163840E">Replacing a Failed InfiniBand Switch</a>"</span>.</p>
+</li>
+<li>
+<p>See "Installing the Gateway" in the <span class="italic">Sun Network QDR InfiniBand Gateway Switch Installation Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26699_01/html/E26706/cggfbhhf.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/html/E26706/cggfbhhf.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG329"></a><a id="BIGOG328"></a>
+<div class="props_rev_3"><a id="GUID-72EF7B54-3F42-4870-A63F-4B8F1CEF72EC"></a>
+<h2 id="BIGOG-GUID-72EF7B54-3F42-4870-A63F-4B8F1CEF72EC" class="sect2"><span class="enumeration_section">B.7</span> Parts for the Cisco Ethernet Switch</h2>
+<div>
+<div class="section">
+<p><a href="app_fru.htm#GUID-72EF7B54-3F42-4870-A63F-4B8F1CEF72EC__CHDGDAEC" title="Replacement parts for Cisco switches">Table B-10</a> lists replaceable parts for the <a id="d75284e3316" class="indexterm-anchor"></a><a id="d75284e3320" class="indexterm-anchor"></a><a id="d75284e3324" class="indexterm-anchor"></a>Cisco Ethernet switch, which are covered under the Oracle Premier Support for Systems warranty.</p>
+<div class="infoboxnotealso" id="GUID-72EF7B54-3F42-4870-A63F-4B8F1CEF72EC__GUID-96D33B2D-ABEC-4C61-B00F-55E4971B81FB">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Cisco Catalyst 4948E and Catalyst 4948E-F Switch Installation Guide</span> at</p>
+<p><a href="http://www.cisco.com/en/US/docs/switches/lan/catalyst4900/4948E/installation/guide/4948E_ins.html" target="_blank"><code class="codeph">http://www.cisco.com/en/US/docs/switches/lan/catalyst4900/4948E/installation/guide/4948E_ins.html</code></a></p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-72EF7B54-3F42-4870-A63F-4B8F1CEF72EC__CHDGDAEC">
+<p class="titleintable">Table B-10 Replacement Parts for Cisco Catalyst Ethernet</p>
+<table class="cellalignment184" title="Replacement Parts for Cisco Catalyst Ethernet" summary="Replacement parts for Cisco switches">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment196" id="d75284e3351">Part Number</th>
+<th class="cellalignment208" id="d75284e3354">Description</th>
+<th class="cellalignment200" id="d75284e3357">Repair Category</th>
+<th class="cellalignment280" id="d75284e3360">Repair</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3365" headers="d75284e3351">
+<p>7055121</p>
+</td>
+<td class="cellalignment210" headers="d75284e3365 d75284e3354">
+<p>Cooling fan tray</p>
+</td>
+<td class="cellalignment201" headers="d75284e3365 d75284e3357">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3365 d75284e3360">
+<p>See Chapter 4 of the <span class="italic">Cisco Catalyst 4948E and Catalyst 4948E-F Switch Installation Guide</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3381" headers="d75284e3351">
+<p>7055122</p>
+</td>
+<td class="cellalignment210" headers="d75284e3381 d75284e3354">
+<p>Power supply, redundant</p>
+</td>
+<td class="cellalignment201" headers="d75284e3381 d75284e3357">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3381 d75284e3360">
+<p>See Chapter 4 of the <span class="italic">Cisco Catalyst 4948E and Catalyst 4948E-F Switch Installation Guide</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3397" headers="d75284e3351">
+<p>7055123</p>
+</td>
+<td class="cellalignment210" headers="d75284e3397 d75284e3354">
+<p>SNET, WS-C4948E-F</p>
+</td>
+<td class="cellalignment201" headers="d75284e3397 d75284e3357">
+<p>IR</p>
+</td>
+<td class="cellalignment281" headers="d75284e3397 d75284e3360">
+<p>See Chapter 3 of the <span class="italic">Cisco Catalyst 4948E and Catalyst 4948E-F Switch Installation Guide</span>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG333"></a><a id="BIGOG332"></a>
+<div class="props_rev_3"><a id="GUID-98BCA234-EB3A-412B-9024-15B0D664A83F"></a>
+<h2 id="BIGOG-GUID-98BCA234-EB3A-412B-9024-15B0D664A83F" class="sect2"><span class="enumeration_section">B.8</span> Parts for Power Distribution Units</h2>
+<div>
+<div class="section">
+<p><a href="app_fru.htm#GUID-98BCA234-EB3A-412B-9024-15B0D664A83F__CHDDIAED" title="Replacement parts for PDUs.">Table B-11</a> <a id="d75284e3438" class="indexterm-anchor"></a>lists the replacement parts for the power distribution units (PDUs), which are covered under the Oracle Premier Support for Systems warranty. The repair procedures references the <span class="italic">Sun Rack II Power Distribution Units User's Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19844-01/html/E23956/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19844-01/html/E23956/index.html</code></a></p>
+<p>Because of the number of cables and connections, Oracle recommends shutting down the Oracle Big Data Appliance rack during the replacement of power distribution unit parts.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-98BCA234-EB3A-412B-9024-15B0D664A83F__CHDDIAED">
+<p class="titleintable">Table B-11 Replacement Parts for Power Distribution Units</p>
+<table class="cellalignment184" title="Replacement Parts for Power Distribution Units" summary="Replacement parts for PDUs.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment196" id="d75284e3465">Part Number</th>
+<th class="cellalignment237" id="d75284e3468">Description</th>
+<th class="cellalignment200" id="d75284e3471">Repair Category</th>
+<th class="cellalignment272" id="d75284e3474">Repair Procedures</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3479" headers="d75284e3465">
+<p>180-2379</p>
+</td>
+<td class="cellalignment238" headers="d75284e3479 d75284e3468">
+<p>13A/250V 90 degree IEC 320 Sheet E to IEC 320 C13 cord, 1 meter, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3479 d75284e3471">
+<p>HS</p>
+</td>
+<td class="cellalignment273" headers="d75284e3479 d75284e3474">
+<p>Not applicable</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3492" headers="d75284e3465">
+<p>180-2380</p>
+</td>
+<td class="cellalignment238" headers="d75284e3492 d75284e3468">
+<p>13A/250V 90 degree IEC 320 Sheet E to IEC 320 C13 cord, 2 meter, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3492 d75284e3471">
+<p>HS</p>
+</td>
+<td class="cellalignment273" headers="d75284e3492 d75284e3474">
+<p>Not applicable</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3505" headers="d75284e3465">
+<p>371-3995</p>
+</td>
+<td class="cellalignment238" headers="d75284e3505 d75284e3468">
+<p>Three-phase PDU: 15 kVA, IEC309 60A, 4-pin, 250 VAC, three-phase IP67, North America, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3505 d75284e3471">
+<p>IR</p>
+</td>
+<td class="cellalignment273" headers="d75284e3505 d75284e3474">
+<p>See "Removing and Replacing PDUs" at</p>
+<p><a href="http://docs.oracle.com/cd/E19844-01/html/E23956/z4000546165586.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19844-01/html/E23956/z4000546165586.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3523" headers="d75284e3465">
+<p>371-4976</p>
+</td>
+<td class="cellalignment238" headers="d75284e3523 d75284e3468">
+<p>Three-phase PDU: 15 kVA, 5-pin, IEC309 32A, 5-pin 230/400V, three-phase IP44, international, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3523 d75284e3471">
+<p>IR</p>
+</td>
+<td class="cellalignment273" headers="d75284e3523 d75284e3474">
+<p>See "Removing and Replacing PDUs" at</p>
+<p><a href="http://docs.oracle.com/cd/E19844-01/html/E23956/z4000546165586.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19844-01/html/E23956/z4000546165586.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3541" headers="d75284e3465">
+<p>371-4199</p>
+</td>
+<td class="cellalignment238" headers="d75284e3541 d75284e3468">
+<p>Single-phase PDU: 15 kVA, with three 30A/250V 2-pole/3-wire NEMA L6-30P plugs, North America, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3541 d75284e3471">
+<p>IR</p>
+</td>
+<td class="cellalignment273" headers="d75284e3541 d75284e3474">
+<p>See "Removing and Replacing PDUs" at</p>
+<p><a href="http://docs.oracle.com/cd/E19844-01/html/E23956/z4000546165586.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19844-01/html/E23956/z4000546165586.html#scrolltoc</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3559" headers="d75284e3465">
+<p>371-5040</p>
+</td>
+<td class="cellalignment238" headers="d75284e3559 d75284e3468">
+<p>Single-phase PDU: 22 kVA, with three blue 32A/240V splash-proof 2-pole/3-wire IEC 60309 plugs, international, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3559 d75284e3471">
+<p>IR</p>
+</td>
+<td class="cellalignment273" headers="d75284e3559 d75284e3474">
+<p>See "Removing and Replacing PDUs" at</p>
+<p><a href="http://docs.oracle.com/cd/E19844-01/html/E23956/z4000546165586.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19844-01/html/E23956/z4000546165586.html#scrolltoc</code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG335"></a><a id="BIGOG334"></a>
+<div class="props_rev_3"><a id="GUID-2E8E33CA-BCEF-48AF-ABC6-00C368883377"></a>
+<h2 id="BIGOG-GUID-2E8E33CA-BCEF-48AF-ABC6-00C368883377" class="sect2"><span class="enumeration_section">B.9</span> Cables and Cable Accessories for an Oracle Big Data Appliance Rack</h2>
+<div>
+<div class="section">
+<p><a href="app_fru.htm#GUID-2E8E33CA-BCEF-48AF-ABC6-00C368883377__CHDHHAEF" title="Replacement cables.">Table B-12</a> lists the replacement <a id="d75284e3603" class="indexterm-anchor"></a>cables and cable accessories for an Oracle Big Data Appliance rack, which are covered under the Oracle Premier Support for Systems warranty.</p>
+<div class="infoboxnotealso" id="GUID-2E8E33CA-BCEF-48AF-ABC6-00C368883377__GUID-B74A1F5D-3AC5-4CF4-A3BB-AF8E5CAEF5B4">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="italic">Sun Network QDR InfiniBand Gateway Switch Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26699_01/html/E26706/gentextid-26783.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26699_01/html/E26706/gentextid-26783.html#scrolltoc</code></a></p>
+</li>
+<li>
+<p><span class="italic">Sun Datacenter InfiniBand Switch 36 Service Manual</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/gentextid-21904.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/gentextid-21904.html#scrolltoc</code></a></p>
+</li>
+<li>
+<p>See <span class="italic">Cisco Catalyst 4948E and Catalyst 4948E-F Switch Installation Guide</span> at</p>
+<p><a href="http://www.cisco.com/en/US/docs/switches/lan/catalyst4900/4948E/installation/guide/4948E_ins.html" target="_blank"><code class="codeph">http://www.cisco.com/en/US/docs/switches/lan/catalyst4900/4948E/installation/guide/4948E_ins.html</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-2E8E33CA-BCEF-48AF-ABC6-00C368883377__CHDHHAEF">
+<p class="titleintable">Table B-12 Replacement Cables for an Oracle Big Data Appliance Rack</p>
+<table class="cellalignment184" title="Replacement Cables for an Oracle Big Data Appliance Rack" summary="Replacement cables.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment196" id="d75284e3653">Part Number</th>
+<th class="cellalignment208" id="d75284e3656">Description</th>
+<th class="cellalignment200" id="d75284e3659">Repair Category</th>
+<th class="cellalignment280" id="d75284e3662">Repair</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3667" headers="d75284e3653">
+<p>350-1287</p>
+</td>
+<td class="cellalignment210" headers="d75284e3667 d75284e3656">
+<p>Slim rail, CMA, 1U-2U for Sun servers</p>
+</td>
+<td class="cellalignment201" headers="d75284e3667 d75284e3659">
+<p>BDA-O</p>
+</td>
+<td class="cellalignment281" headers="d75284e3667 d75284e3662">
+<ol>
+<li>
+<p>Power down the server gracefully. See "Powering Down the Server" at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z400061b1011735.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z400061b1011735.html</code></a></p>
+</li>
+<li>
+<p>See "Install Cable Management Arm" in the <span class="italic">Sun Server X3-2L Installation Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E23393_01/html/E27229/z40000401014951.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E23393_01/html/E27229/z40000401014951.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3698" headers="d75284e3653">
+<p>350-1519</p>
+</td>
+<td class="cellalignment210" headers="d75284e3698 d75284e3656">
+<p>Serial cable kit, RoHS:Y with the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>USB to DB 9-pin M serial cable</p>
+</li>
+<li>
+<p>DB 9-pin F to DB 9-pin F null modem cable</p>
+</li>
+</ul>
+</td>
+<td class="cellalignment201" headers="d75284e3698 d75284e3659">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3698 d75284e3662">
+<p>See "Understanding Cabling" in the <span class="italic">Sun Datacenter InfiniBand Switch 36 Installation Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/cggfhjcc.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/cggfhjcc.html</code></a></p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3726" headers="d75284e3653">
+<p>530-4567</p>
+</td>
+<td class="cellalignment210" headers="d75284e3726 d75284e3656">
+<p>4x QSFP copper QDR InfiniBand cable, 2 m, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3726 d75284e3659">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3726 d75284e3662">
+<ol>
+<li>
+<p>See <span class="q">"<a href="maintenance.htm#GUID-3DBF29E1-0632-4505-A6F7-E0C4A27A1C4E">Maintaining the InfiniBand Network</a>"</span>.</p>
+</li>
+<li>
+<p>See "Understanding Cabling" in the <span class="italic">Sun Datacenter InfiniBand Switch 36 Installation Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/cggfhjcc.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/cggfhjcc.html</code></a></p>
+</li>
+</ol>
+<p><span class="bold">Note</span>: Redundancy is lost during cable replacement.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3760" headers="d75284e3653">
+<p>530-4445</p>
+</td>
+<td class="cellalignment210" headers="d75284e3760 d75284e3656">
+<p>4x QSFP copper QDR InfiniBand cable, 3 m, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3760 d75284e3659">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3760 d75284e3662">
+<ol>
+<li>
+<p>See <span class="q">"<a href="maintenance.htm#GUID-3DBF29E1-0632-4505-A6F7-E0C4A27A1C4E">Maintaining the InfiniBand Network</a>"</span>.</p>
+</li>
+<li>
+<p>See "Understanding Cabling" in the <span class="italic">Sun Datacenter InfiniBand Switch 36 Installation Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/cggfhjcc.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/cggfhjcc.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3790" headers="d75284e3653">
+<p>530-4446</p>
+</td>
+<td class="cellalignment210" headers="d75284e3790 d75284e3656">
+<p>4x QSFP copper QDR InfiniBand cable, 5 m, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3790 d75284e3659">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3790 d75284e3662">
+<ol>
+<li>
+<p>See <span class="q">"<a href="maintenance.htm#GUID-3DBF29E1-0632-4505-A6F7-E0C4A27A1C4E">Maintaining the InfiniBand Network</a>"</span>.</p>
+</li>
+<li>
+<p>See "Understanding Cabling" in the <span class="italic">Sun Datacenter InfiniBand Switch 36 Installation Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E26698_01/html/E26434/cggfhjcc.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E26698_01/html/E26434/cggfhjcc.html</code></a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3820" headers="d75284e3653">
+<p>530-4432</p>
+</td>
+<td class="cellalignment210" headers="d75284e3820 d75284e3656">
+<p>Ethernet cable, Cat 5/5E, RJ45 to RJ45, 7 foot, blue, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3820 d75284e3659">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3820 d75284e3662">
+<p>See <span class="italic">Cisco Catalyst 4948E and Catalyst 4948E-F Switch Installation Guide</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3836" headers="d75284e3653">
+<p>530-4433</p>
+</td>
+<td class="cellalignment210" headers="d75284e3836 d75284e3656">
+<p>Ethernet cable, Cat 5/5E, RJ45 to RJ45, 10 foot, red, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3836 d75284e3659">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3836 d75284e3662">
+<p>See <span class="italic">Cisco Catalyst 4948E and Catalyst 4948E-F Switch Installation Guide</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3852" headers="d75284e3653">
+<p>530-4434</p>
+</td>
+<td class="cellalignment210" headers="d75284e3852 d75284e3656">
+<p>Ethernet cable, Cat 5/5E, RJ45 to RJ45, 7 foot, red, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3852 d75284e3659">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3852 d75284e3662">
+<p>See <span class="italic">Cisco Catalyst 4948E and Catalyst 4948E-F Switch Installation Guide</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3868" headers="d75284e3653">
+<p>530-4435</p>
+</td>
+<td class="cellalignment210" headers="d75284e3868 d75284e3656">
+<p>Ethernet cable, Cat 5/5E, RJ45 to RJ45, 10 foot, black, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3868 d75284e3659">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3868 d75284e3662">
+<p>See <span class="italic">Cisco Catalyst 4948E and Catalyst 4948E-F Switch Installation Guide</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment198" id="d75284e3884" headers="d75284e3653">
+<p>530-4436</p>
+</td>
+<td class="cellalignment210" headers="d75284e3884 d75284e3656">
+<p>Ethernet cable, Cat 5/5E, RJ45 to RJ45, 7 foot, black, RoHS:Y</p>
+</td>
+<td class="cellalignment201" headers="d75284e3884 d75284e3659">
+<p>HS</p>
+</td>
+<td class="cellalignment281" headers="d75284e3884 d75284e3662">
+<p>See <span class="italic">Cisco Catalyst 4948E and Catalyst 4948E-F Switch Installation Guide</span>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment160">
+<tr>
+<td class="cellalignment193">
+<table class="cellalignment165">
+<tr>
+<td class="cellalignment164"><a href="app_error.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment164"><a href="app_cablex5.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment195">
+<table class="cellalignment163">
+<tr>
+<td class="cellalignment164"><a href="http://docs.oracle.com/bigdata/bda47/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment164"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment164"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment164"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

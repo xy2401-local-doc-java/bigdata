@@ -1,0 +1,1947 @@
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Getting Started with Oracle Big Data Connectors</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="software downloads, downloading software, Oracle SQL Connector for HDFS, installation, Oracle Loader for Hadoop, installing, OHSH, Oracle Shell for Hadoop Loaders Setup, Oracle R Advanced Analytics for Hadoop, Sqoop utility, installing on a Hadoop cluster, configuration settings, ORCH package, orch.tgz package, Hadoop client, configuring, clients, configuring Hadoop, configuring a Hadoop client, installing on a Hadoop client, Oracle Data Integrator Application Adapter for Hadoop" />
+<meta name="dcterms.created" content="2018-07-30T11:38:18Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Connectors User's Guide" />
+<meta name="dcterms.identifier" content="E93614-03" />
+<meta name="dcterms.isVersionOf" content="BDCUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="setup-part.htm" title="Previous" type="text/html" />
+<link rel="Next" href="connectors-part.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDCUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-2EBC43C8-784E-40E2-BA6D-8D51F2500439"></a> <span id="PAGE" style="display:none;">5/22</span> <!-- End Header -->
+<script  >
+//<![CDATA[
+window.name='start'
+//]]>
+</script> <script  >
+    function footdisplay(footnum,footnote) {
+    var msg = window.open('about:blank', 'NewWindow' + footnum,
+        'directories=no,height=100,location=no,menubar=no,resizable=yes,' +
+        'scrollbars=yes,status=no,toolbar=no,width=598');
+    msg.document.open('text/html');
+    msg.document.write('<!DOCTYPE html ');
+    msg.document.write('PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" ');
+    msg.document.write('"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'); 
+    msg.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" ><head><title>');
+   
+    msg.document.write('Footnote&amp;nbsp; ' + footnum);
+    msg.document.write('<\/title><meta http-equiv="Content-Type" ');
+    msg.document.write('content="text/html; charset=utf-8" />');
+    msg.document.write('');
+    msg.document.write('<style> <![CDATA[ ');
+    msg.document.write('h1 {text-align: center; font-size: 14pt;}');
+    msg.document.write('fieldset {border: none;}');
+    msg.document.write('form {text-align: center;}');
+    msg.document.write(' ]]\u003e <\/style>');
+    msg.document.write('<\/head><body><div id="footnote"><h1>Footnote&nbsp; ' + footnum + '<\/h1><p>');
+    msg.document.write(footnote);
+    msg.document.write('<\/p><form action="" method="post"><fieldset>');
+    msg.document.write('<input type="button" value="OK" ');
+    msg.document.write('onclick="window.close();" />');
+    msg.document.write('<\/fieldset><\/form><\/div><\/body><\/html>');
+    msg.document.close();
+    setTimeout(function() {
+        var height = msg.document.getElementById('footnote').offsetHeight;
+        msg.resizeTo(598, height + 100);
+    }
+    , 100);
+    msg.focus();
+}
+</script><noscript>
+<p>The script content on this page is for navigation purposes only and does not alter the content in any way.</p>
+</noscript><a id="BDCUG107"></a>
+<h1 id="BDCUG-GUID-2EBC43C8-784E-40E2-BA6D-8D51F2500439" class="sect1"><span class="enumeration_chapter">1</span> Getting Started with Oracle Big Data Connectors</h1>
+<div>
+<p><a id="d4355e17" class="indexterm-anchor"></a>This chapter describes the Oracle Big Data Connectors and provides installation instructions.</p>
+<p>This chapter contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="start.htm#GUID-DC07D7F9-81FB-482E-B750-88F70E3A2602">About Oracle Big Data Connectors</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-3EA4E259-5746-4499-9A97-403B187068DC">Big Data Concepts and Technologies</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-038F6AF2-2D71-47B5-9574-B675D46DFB3C">Downloading and Installing Oracle Big Data Connectors</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-0C502703-D303-44DC-8F7C-4BD858DF62BC">Oracle SQL Connector for Hadoop Distributed File System Setup</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-F6C3C7EA-60A3-47A7-BE31-5E8B4C19988B">Oracle Loader for Hadoop Setup</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-708821F3-6162-4536-B45B-A9003B43791F" title="Oracle Shell for Hadoop Loaders (OHSH) is integrated with Big Data Connectors. It provides a set of declarative commands you can use to load content from Hadoop and Hive to Oracle Database tables using Oracle Loader for Hadoop (OLH) and Oracle SQL Connector for Hadoop Distributed File System (OSCH). It also enables you to load contents from Oracle Database tables to Hadoop and Hive using Copy to Hadoop.">Oracle Shell for Hadoop Loaders Setup</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-1E70571A-EAF2-43BE-895E-F9A57AC37C04">Oracle XQuery for Hadoop Setup</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-D7EB910C-949B-438B-8832-AF1422C0A5B1">Oracle R Advanced Analytics for Hadoop Setup</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-DA112DAB-1D7A-4909-9824-F6840A5FB506">Oracle Data Integrator</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-C3C85DE0-1F52-48D8-B2D6-52D399745F5A">Oracle Datasource for Apache Hadoop Setup</a></p>
+</li>
+</ul>
+</div>
+<a id="BDCUG108"></a>
+<div class="props_rev_3"><a id="GUID-DC07D7F9-81FB-482E-B750-88F70E3A2602"></a>
+<h2 id="BDCUG-GUID-DC07D7F9-81FB-482E-B750-88F70E3A2602" class="sect2"><span class="enumeration_section">1.1</span> About Oracle Big Data Connectors</h2>
+<div>
+<p>Oracle Big Data Connectors facilitate access to data stored in an Apache Hadoop cluster. They can be licensed for use on either Oracle Big Data Appliance or a Hadoop cluster running on commodity hardware.</p>
+<p>These are the connectors:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Oracle SQL Connector for Hadoop Distributed File System</span>: Enables an Oracle external table to access data stored in Hadoop Distributed File System (HDFS) files or a table in Apache Hive. The data can remain in HDFS or the Hive table, or it can be loaded into an Oracle database.</p>
+</li>
+<li>
+<p><span class="bold">Oracle Loader for Hadoop</span>: Provides an efficient and high-performance loader for fast movement of data from a Hadoop cluster into a table in an Oracle database. Oracle Loader for Hadoop prepartitions the data if necessary and transforms it into a database-ready format. It optionally sorts records by primary key or user-defined columns before loading the data or creating output files.</p>
+</li>
+<li>
+<p><span class="bold">Oracle XQuery for Hadoop</span>: Runs transformations expressed in the XQuery language by translating them into a series of MapReduce jobs, which are executed in parallel on the Hadoop cluster. The input data can be located in a file system accessible through the Hadoop File System API, such as the Hadoop Distributed File System (HDFS), or stored in Oracle NoSQL Database. Oracle XQuery for Hadoop can write the transformation results to HDFS, Oracle NoSQL Database, Apache Solr, or Oracle Database. An additional XML processing capability is through XML Extensions for Hive.</p>
+</li>
+<li>
+<p><span class="bold">Oracle Shell for Hadoop Loaders:</span> A helper shell that provides a simple-to-use command line interface to Oracle Loader for Hadoop, Oracle SQL Connector for HDFS, and Copy to Hadoop (a feature of Big Data SQL). It has basic shell features such as command line recall, history, inheriting environment variables from the parent process, setting new or existing environment variables, and performing environmental substitution in the command line.</p>
+</li>
+<li>
+<p><span class="bold">Oracle R Advanced Analytics for Hadoop</span>: Provides a general computation framework, in which you can use the R language to write your custom logic as mappers or reducers. A collection of R packages provides predictive analytic techniques that run as MapReduce jobs. The code executes in a distributed, parallel manner using the available compute and storage resources on the Hadoop cluster. Oracle R Advanced Analytics for Hadoop includes interfaces to work with Apache Hive tables, the Apache Hadoop compute infrastructure, the local R environment, and Oracle database tables. <a id="d4355e116" class="indexterm-anchor"></a></p>
+</li>
+<li>
+<p><span class="bold">Oracle Data Integrator</span>: Extracts, loads, and transforms data from sources such as files and databases into Hadoop and from Hadoop into Oracle or third-party databases. Oracle Data Integrator provides a graphical user interface to utilize the native Hadoop tools and transformation engines such as Hive, HBase, Sqoop, Oracle Loader for Hadoop, and Oracle SQL Connector for Hadoop Distributed File System.</p>
+</li>
+<li>
+<p><span class="bold">Oracle Datasource for Hadoop</span>: Provides direct, fast, parallel, secure and consistent access to master data in Oracle Database using Hive SQL, Spark SQL, as well as Hadoop APIs that support SerDes, HCatalog, InputFormat and StorageHandler.</p>
+</li>
+</ul>
+<p>Individual connectors may require that software components be installed in Oracle Database and either the Hadoop cluster or an external system set up as a Hadoop client for the cluster. Users may also need additional access privileges in Oracle Database. For details on integrating Oracle Database and Apache Hadoop visit the <a href="http://www.oracle.com/us/products/database/big-data-connectors/certifications/index.html" target="_blank">Certification Matrix</a>.</p>
+<div class="infoboxnotealso" id="GUID-DC07D7F9-81FB-482E-B750-88F70E3A2602__GUID-9C13B519-4D23-4A1D-9203-8DFAB83090E0">
+<p class="notep1">See Also:</p>
+<p>My Oracle Support Information Center: Big Data Connectors (ID 1487399.2) and its related information centers.</p>
+</div>
+</div>
+</div>
+<a id="BDCUG326"></a>
+<div class="props_rev_3"><a id="GUID-3EA4E259-5746-4499-9A97-403B187068DC"></a>
+<h2 id="BDCUG-GUID-3EA4E259-5746-4499-9A97-403B187068DC" class="sect2"><span class="enumeration_section">1.2</span> Big Data Concepts and Technologies</h2>
+<div>
+<p>Enterprises are seeing large amounts of data coming from multiple sources. Click-stream data in web logs, GPS tracking information, data from retail operations, sensor data, and multimedia streams are just a few examples of vast amounts of data that can be of tremendous value to an enterprise if analyzed. The unstructured and semi-structured information provided by raw data feeds is of little value in and of itself. The data must be processed to extract information of real value, which can then be stored and managed in the database. Analytics of this data along with the structured data in the database can provide new insights into the data and lead to substantial business benefits.</p>
+</div>
+<a id="BDCUG327"></a>
+<div class="props_rev_3"><a id="GUID-D59A9428-F4C8-4FC2-93FF-5ECC4ED0F9ED"></a>
+<h3 id="BDCUG-GUID-D59A9428-F4C8-4FC2-93FF-5ECC4ED0F9ED" class="sect3"><span class="enumeration_section">1.2.1</span> What is MapReduce?</h3>
+<div>
+<p>MapReduce is a <a id="d4355e179" class="indexterm-anchor"></a>parallel programming model for processing data on a distributed system. It can process vast amounts of data quickly and can scale linearly. It is particularly effective as a mechanism for batch processing of unstructured and semi-structured data. MapReduce abstracts lower level operations into computations over a set of keys and values.</p>
+<p>A simplified definition of a MapReduce job is the successive alternation of two phases, the map phase and the reduce phase. Each map phase applies a transform function over each record in the input data to produce a set of records expressed as key-value pairs. The output from the map phase is input to the reduce phase. In the reduce phase, the map output records are sorted into key-value sets so that all records in a set have the same key value. A reducer function is applied to all the records in a set and a set of output records are produced as key-value pairs. The map phase is logically run in parallel over each record while the reduce phase is run in parallel over all key values.</p>
+<div class="infobox-note" id="GUID-D59A9428-F4C8-4FC2-93FF-5ECC4ED0F9ED__GUID-FFC80EBF-1B4A-4F8E-B9F9-E1B18C453BE0">
+<p class="notep1">Note:</p>
+<p>Oracle Big Data Connectors 3.0 and later supports the Yet Another Resource Negotiator (YARN) implementation of MapReduce.</p>
+</div>
+</div>
+</div>
+<a id="BDCUG328"></a>
+<div class="props_rev_3"><a id="GUID-CE7A831C-CCF0-4864-826A-499B9052646C"></a>
+<h3 id="BDCUG-GUID-CE7A831C-CCF0-4864-826A-499B9052646C" class="sect3"><span class="enumeration_section">1.2.2</span> What is Apache Hadoop?</h3>
+<div>
+<p><a id="d4355e206" class="indexterm-anchor"></a>Apache Hadoop is the software framework for the development and deployment of data processing jobs based on the MapReduce programming model. At the core, Hadoop provides a reliable shared storage and analysis system<a id="fn_1" href="#fn_1" onclick="footdisplay(1,"><sup>Foot&nbsp;1</sup></a>. Analysis is provided by MapReduce. Storage is provided by the Hadoop Distributed File System (HDFS), a shared storage system designed for MapReduce jobs.</p>
+<p>The Hadoop ecosystem includes several other projects including Apache Avro, a data serialization system that is used by Oracle Loader for Hadoop.</p>
+<p>Cloudera's Distribution including Apache Hadoop (CDH) is installed on Oracle Big Data Appliance. You can use Oracle Big Data Connectors on a Hadoop cluster running CDH or the equivalent Apache Hadoop components, as described in the setup instructions in this chapter.</p>
+<div class="infoboxnotealso" id="GUID-CE7A831C-CCF0-4864-826A-499B9052646C__GUID-4940705C-8EC1-44D1-B019-115894EF7C3E">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>For conceptual information about the Hadoop technologies, the following third-party publication:</p>
+<p><span class="italic">Hadoop: The Definitive Guide, Third Edition</span> by Tom White (O'Reilly Media Inc., 2012, ISBN: 978-1449311520).</p>
+</li>
+<li>
+<p>For information about Cloudera's Distribution including Apache Hadoop (CDH5), the Oracle Cloudera website at</p>
+<p><a href="http://www.oracle.com/pls/lookup?ctx=E71937-01&amp;id=cloudera" target="_blank"><code class="codeph">http://oracle.cloudera.com/</code></a></p>
+</li>
+<li>
+<p>For information about Apache Hadoop, the website at</p>
+<p><a href="http://hadoop.apache.org/" target="_blank"><code class="codeph">http://hadoop.apache.org/</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<a id="BDCUG260"></a>
+<div class="props_rev_3"><a id="GUID-038F6AF2-2D71-47B5-9574-B675D46DFB3C"></a>
+<h2 id="BDCUG-GUID-038F6AF2-2D71-47B5-9574-B675D46DFB3C" class="sect2"><span class="enumeration_section">1.3</span> Downloading and Installing Oracle Big Data Connectors</h2>
+<div>
+<div class="section">
+<p>You can download Oracle Big Data Connectors from <a id="d4355e272" class="indexterm-anchor"></a>Oracle Technology Network or <a id="d4355e277" class="indexterm-anchor"></a>Oracle Software Delivery Cloud. Both sites are cross-browser compatible.</p>
+<div class="infobox-note" id="GUID-038F6AF2-2D71-47B5-9574-B675D46DFB3C__GUID-7184AC25-80E7-42EE-B597-28BEC83AD598">
+<p class="notep1">Note:</p>
+Oracle Big Data Appliance customers do not need to download Oracle Big Data Connectors from an external source. Oracle Big Data Connectors are included in the Oracle Big Data Appliance deployment bundle. See <a class="olink BIGOG-GUID-DCA05BF1-0E4B-4907-A42D-E0B0B3D12E62" target="_blank" href="../BIGOG/mammoth.htm#BIGOG-GUID-DCA05BF1-0E4B-4907-A42D-E0B0B3D12E62">Enabling and Disabling Oracle Big Data Connectors</a> in the <span class="italic">Oracle Big Data Appliance Owner&rsquo;s Guide</span>. All other customers should download the software as described here.</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>To download from Oracle Technology Network:</p>
+<ol>
+<li>Go to
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E87334-01&amp;id=bdc_downloads" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/bdc/big-data-connectors/downloads/index.html</code></a></p>
+</li>
+<li>
+<p>Click the name of each connector to download a zip file containing the installation files.</p>
+</li>
+</ol>
+<p>To download from Oracle Software Delivery Cloud:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Go to <a href="https://edelivery.oracle.com/" target="_blank"><code class="codeph">https://edelivery.oracle.com/</code></a></span></li>
+<li class="stepexpand"><span>Sign in and accept the Export Restrictions.</span></li>
+<li class="stepexpand"><span>Type in the product name in the Product field and select the platform:</span>
+<div>
+<p><span class="bold">Product</span>: Oracle Big Data Connectors</p>
+<p><span class="bold">Platform</span>: Linux x86-64</p>
+</div>
+</li>
+<li class="stepexpand"><span>When Oracle Big Data Connectors appears in the Product List, click <span class="bold">Continue</span>. The most recent major release of Oracle Big Data Connectors will appear as the selected option.</span></li>
+<li class="stepexpand"><span>To choose a different release, click <span class="bold">Select Alternate Release</span> and choose another package from the list. Click <span class="bold">Continue</span>.</span></li>
+<li class="stepexpand"><span>Read the Terms and Conditions. Click the checkbox if you accept them, then click <span class="bold">Continue</span>.</span></li>
+<li class="stepexpand"><span>On the download site, select the zip files for individual Oracle Big Data Connectors or click <span class="bold">Download All.</span></span></li>
+</ol>
+<div class="section">Each download package includes a README file with installation instructions and a set of examples.</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-6F3CB3A5-D405-42FF-B82A-80F59EF624F0"></a>
+<h2 id="BDCUG-GUID-6F3CB3A5-D405-42FF-B82A-80F59EF624F0" class="sect2"><span class="enumeration_section">1.4</span> Certified Hadoop Platforms</h2>
+<div>
+<p>All Oracle Big Data Connectors run on both CDH (Cloudera Distribution Including Apache Hadoop) and HDP (Hortonworks Data Platform).</p>
+<div class="section">
+<p>See the <a href="https://www.oracle.com/database/big-data-connectors/certifications.html" target="_blank">Oracle Big Data Connectors Certification Matrix</a> for currently supported releases of CDH and HDP</p>
+.</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG109"></a>
+<div class="props_rev_3"><a id="GUID-0C502703-D303-44DC-8F7C-4BD858DF62BC"></a>
+<h2 id="BDCUG-GUID-0C502703-D303-44DC-8F7C-4BD858DF62BC" class="sect2"><span class="enumeration_section">1.5</span> Oracle SQL Connector for Hadoop Distributed File System Setup</h2>
+<div>
+<p>You install and configure Oracle SQL Connector for Hadoop Distributed File System (HDFS) on the system where Oracle Database runs. If Hive tables are used as the data source, then you must also install and run Oracle SQL Connector for HDFS on a Hadoop client where users access Hive.</p>
+<p>On Oracle Big Data Appliance, there is an option to include Oracle Big Data Connectors in the installation. If this was selected in the Configuration Generation Utility, then Oracle SQL Connector for HDFS is already available on the appliance. (See Chapter 4, <span class="italic">Using Oracle Big Data Appliance Configuration Generation Utility</span>, in the <span class="italic">Big Data Appliance Owner&rsquo;s Guide</span>.)</p>
+<p>This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="start.htm#GUID-399B07EC-E708-4C03-9BB4-453539B3EF69">Software Requirements</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-1DC6751B-13F9-4AC6-9779-B9B767F9A125">Installing and Configuring a Hadoop Client on the Oracle Database System</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-AF1ED141-F0DF-418F-B8D6-024C56401615">Installing Oracle SQL Connector for HDFS</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-31C3A137-0424-4425-9236-64B06E67012C">Oracle Database Privileges for OSCH Users</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-3CF6C2E9-B91B-48CB-ADFC-9D5FA25FBCBE">OS-Level Requirements for OSCH Users</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-969D15F2-D7A1-4742-8A44-0041B346CDAC">Using Oracle SQL Connector for HDFS on a Secure Hadoop Cluster</a></p>
+</li>
+</ul>
+</div>
+<a id="BDCUG110"></a>
+<div class="props_rev_3"><a id="GUID-399B07EC-E708-4C03-9BB4-453539B3EF69"></a>
+<h3 id="BDCUG-GUID-399B07EC-E708-4C03-9BB4-453539B3EF69" class="sect3"><span class="enumeration_section">1.5.1</span> Software Requirements</h3>
+<div>
+<p>Oracle SQL Connector for HDFS requires the following software:</p>
+<div class="section">
+<p class="subhead3">Hadoop Requirements:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A certified release of either CDH (Cloudera Distribution Including Apache Hadoop) or HDP (Hadoop Data Platform).</p>
+</li>
+<li>
+<p>Apache Hive 1.1.0, or 1.2.1 (required for Hive table access, otherwise optional)</p>
+</li>
+<li>
+<p>Java Development Kit (JDK). Consult the distributor of your Hadoop software (Cloudera or Apache) for the recommended version.</p>
+</li>
+</ul>
+<p>For supported CDH and HDP releases, see the <a href="https://www.oracle.com/database/big-data-connectors/certifications.html" target="_blank">Oracle Big Data Connectors Certification Matrix</a></p>
+</div>
+<!-- class="section" -->
+<p>Oracle Big Data Appliance already meets these requirements. If you are using CDH or HDP on a commodity server platform, check to ensure that the system meets them.</p>
+<div class="section">
+<p class="subhead3">Oracle Database System and Hadoop Client System Requirements:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A version of Oracle Database that is currently supported by Oracle.</p>
+</li>
+<li>
+<p>The same version of Hadoop that is installed on your Hadoop cluster: CDH5, or Hortonworks Data Platform 2.4.0 and 2.5.0. <a id="d4355e500" class="indexterm-anchor"></a>.</p>
+<p>If you have a secure Hadoop cluster configured with Kerberos, then the Hadoop client on the database system must be set up to access a secure cluster.</p>
+</li>
+<li>
+<p>The same version of the JDK that is installed on your Hadoop cluster.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-399B07EC-E708-4C03-9BB4-453539B3EF69__GUID-80235B74-0BD5-45D8-A222-333E28E72A54">
+<p class="notep1">Note:</p>
+Oracle SQL Connector for HDFS requires a Hadoop client on the OS platform of the database system. This is straightforward for Linux systems. Platforms other than Linux require a tarball installation of the Hadoop client. Refer to this Oracle Blog post <a href="https://blogs.oracle.com/bigdataconnectors/entry/oracle_sql_connector_for_hdfs" target="_blank">Connecting Hadoop with Oracle</a>. See the following documents in My Oracle Support for details:
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=57643753237655&amp;id=2101331.1&amp;_adf.ctrl-state=ea0w96whc_77" target="_blank">Installation Instructions for Oracle SQL Connector for HDFS on Solaris (Doc ID 2101331.1)</a></p>
+</li>
+<li>
+<p><a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=57692826018296&amp;id=2101354.1&amp;_adf.ctrl-state=ea0w96whc_134" target="_blank">Using Oracle Big Data Connectors with Hadoop clusters on commodity hardware and Oracle Databases on commodity hardware (Doc ID 2101354.1)</a></p>
+</li>
+<li>
+<p><a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=57766110119717&amp;id=2152000.1&amp;_adf.ctrl-state=ea0w96whc_191" target="_blank">Configuring Oracle SQL Connector for HDFS for Oracle Database systems on IBM AIX (Doc ID 2152000.1)</a></p>
+</li>
+</ul>
+</div>
+<div class="infoboxnotealso" id="GUID-399B07EC-E708-4C03-9BB4-453539B3EF69__GUID-A3C36A5B-0F16-4EFE-88C0-5E5F0F075D9D">
+<p class="notep1">See Also:</p>
+<a href="start.htm#GUID-969D15F2-D7A1-4742-8A44-0041B346CDAC">Using Oracle SQL Connector for HDFS on a Secure Hadoop Cluster</a>.</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG261"></a>
+<div class="props_rev_3"><a id="GUID-1DC6751B-13F9-4AC6-9779-B9B767F9A125"></a>
+<h3 id="BDCUG-GUID-1DC6751B-13F9-4AC6-9779-B9B767F9A125" class="sect3"><span class="enumeration_section">1.5.2</span> Installing and Configuring a Hadoop Client on the Oracle Database System</h3>
+<div>
+<div class="section">
+<p>Oracle SQL Connector for HDFS requires a Hadoop client on the Oracle Database System. The Hadoop installation can be minimally configured for Hadoop client use only. The full configuration of Hadoop is not needed. The only parts of Hadoop needed for Oracle SQL Connector for HDFS are the Hadoop JAR files and the configuration files from the Hadoop installation.<a id="d4355e555" class="indexterm-anchor"></a><a id="d4355e559" class="indexterm-anchor"></a><a id="d4355e563" class="indexterm-anchor"></a></p>
+<div class="infobox-note" id="GUID-1DC6751B-13F9-4AC6-9779-B9B767F9A125__GUID-1952A4FC-6E81-4445-AC7C-A7C899C17451">
+<p class="notep1">Note:</p>
+Even if there is a complete Hadoop installation on the Oracle Database system, do not start Hadoop on this system at any time. If Hadoop is running locally, then Oracle SQL Connector for HDFS attempts to connect to it instead of to the Hadoop cluster.</div>
+<p>For<a id="d4355e569" class="indexterm-anchor"></a> Oracle RAC systems including <a id="d4355e572" class="indexterm-anchor"></a>Oracle Exadata Database Machine, you must install and configure Oracle SQL Connector for HDFS using identical paths on all systems running Oracle instances.</p>
+<p><span class="bold">Adding a Hadoop Client for use with Oracle Big Data Appliance</span></p>
+<p>Oracle Big Data Appliance requires that you follow its own system-supported procedures for installing a Hadoop client. If your Hadoop system is an Oracle Big Data Appliance, see <a class="olink BIGUG-GUID-C513C5F2-FF99-4BF4-B0AB-A5641DC7C0D4" target="_blank" href="../BIGUG/users.htm#BIGUG-GUID-C513C5F2-FF99-4BF4-B0AB-A5641DC7C0D4">Providing Remote Access to CDH</a> in the <span><cite>Oracle Big Data Appliance Software User's Guide</cite></span>. This section describes how to install the CDH client, configure it for use in a Kerberos-secured or non-secured environment, and verify HDFS access.</p>
+<p><span class="bold">Adding a Hadoop Client for use with Other Hadoop Systems</span></p>
+<p>For connections to Hadoop systems other than Oracle Big Data Appliance, download and install the Hadoop client provide by the Hadoop distributor (Cloudera or Apache). The following example shows how to connect a Hadoop client to a CDH system that is not an Oracle Big Data Appliance. You can use these steps to install the client, configure it for use in Kerberos-secured or a non-secured environment, and test to verify HDFS access.</p>
+<p>In this case also you need set up Kerberos access (if Kerberos is installed) and should include a final test to make sure HDFS access is working.</p>
+<ol>
+<li>
+<p>Use one of these methods to obtain the files:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Download the tarball from the Cloudera tarball downloads page. Check that the Hadoop version in the filename (as in hadoop-<span class="italic">2.5.0</span>-cdh5.2.5.tar.gz) that matches the version of the Hadoop cluster.</p>
+</li>
+<li>
+<p>Click on the <span class="bold">hdfs</span> service in Cloudera Manager, and select the action <span class="bold">Download Client Configuration</span>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Extract the files and copy them to a permanent path of your choice on the database system.</p>
+</li>
+<li>
+<p>Set the HADOOP_HOME environment variable to this path and add HADOOP_HOME/bin to the PATH variable.</p>
+</li>
+<li>
+<p>Ensure that JAVA_HOME points to a JDK installation with the version required by the Hadoop installation.</p>
+</li>
+<li>
+<p>If your cluster is secured with Kerberos, then configure the Oracle system to permit Kerberos authentication. See <a href="http://docs.oracle.com/cd/E63064_01/doc.42/e63063/start.htm#CIHHEEFD" target="_blank">"Using Oracle SQL Connector for HDFS on a Secure Hadoop Cluster."</a></p>
+</li>
+<li>
+<p>Test HDFS access from the Oracle Database system:</p>
+<ol>
+<li>
+<p>Log in to the system where Oracle Database is running by using the Oracle Database account.</p>
+</li>
+<li>
+<div class="p">Open a Bash shell and enter this command:
+<pre dir="ltr">
+$ hdfs dfs -ls /user
+</pre></div>
+<p>You might need to add the directory containing the Hadoop executable file to the environment variable. The default path for CDH is <code class="codeph">/usr/bin</code>.</p>
+<p>You should see the same list of directories that you see when you run the command directly on the Hadoop cluster. If not, then first ensure that the Hadoop cluster is up and running. If the problem persists, then you must correct the Hadoop client configuration so that Oracle Database has access to the Hadoop cluster file system.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>For an Oracle RAC system, repeat this procedure for every Oracle Database instance.</p>
+</li>
+</ol>
+<p><span class="bold">Setting up Hadoop Clients on Additional Systems</span></p>
+<p>You have the option to set up Hadoop clients on other servers in addition to the Oracle Database system. If you do, use the procedure provided in this section and install the same version of CDH or Apache Hadoop consistently.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG421"></a><a id="BDCUG112"></a><a id="BDCUG111"></a>
+<div class="props_rev_3"><a id="GUID-AF1ED141-F0DF-418F-B8D6-024C56401615"></a>
+<h3 id="BDCUG-GUID-AF1ED141-F0DF-418F-B8D6-024C56401615" class="sect3"><span class="enumeration_section">1.5.3</span> Installing Oracle SQL Connector for HDFS</h3>
+<div>
+<div class="section">
+<p>Follow this procedure to install Oracle SQL Connector for HDFS on the Oracle Database system.</p>
+<p>In addition to this required installation on the database system, you can also install Oracle SQL Connector for HDFS on any system configured as a compatible Hadoop client. This will give you the option to create Oracle Database external tables from that node.</p>
+<p>To install Oracle SQL Connector for HDFS on the Oracle Database system:</p>
+<ol>
+<li>
+<p>Download the zip file to a directory on the system where Oracle Database runs.</p>
+</li>
+<li>
+<p>Unpack the content of <a id="d4355e694" class="indexterm-anchor"></a><code class="codeph">oraosch-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">.zip</code>.</p>
+<pre dir="ltr">
+$ <span class="bold">unzip oraosch-&lt;version&gt;.zip</span>
+Archive:  oraosch-&lt;version&gt;.zip
+ extracting: orahdfs-&lt;version&gt;.zip
+  inflating: README.txt
+</pre></li>
+<li>
+<p>Unpack <a id="d4355e715" class="indexterm-anchor"></a><code class="codeph">orahdfs-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">.zip</code> into a permanent directory:</p>
+<pre dir="ltr">
+$ <span class="bold">unzip orahdfs-&lt;version&gt;.zip</span>
+unzip orahdfs-&lt;version&gt;.zip
+Archive:  orahdfs-&lt;version&gt;.zip
+   creating: orahdfs-&lt;version&gt;/
+   creating: orahdfs-&lt;version&gt;/log/
+  inflating: orahdfs-&lt;version&gt;/examples.zip   
+   creating: orahdfs-&lt;version&gt;/doc/
+  inflating: orahdfs-&lt;version&gt;/doc/README.txt
+   creating: orahdfs-&lt;version&gt;/jlib/
+  inflating: orahdfs-&lt;version&gt;/jlib/osdt_cert.jar
+  inflating: orahdfs-&lt;version&gt;/jlib/oraclepki.jar
+  inflating: orahdfs-&lt;version&gt;/jlib/osdt_core.jar
+  inflating: orahdfs-&lt;version&gt;/jlib/ojdbc7.jar
+  inflating: orahdfs-&lt;version&gt;/jlib/orahdfs.jar
+  inflating: orahdfs-&lt;version&gt;/jlib/ora-hadoop-common.jar
+   creating: orahdfs-&lt;version&gt;/bin/
+  inflating: orahdfs-&lt;version&gt;/bin/hdfs_stream
+  inflating: orahdfs-&lt;version&gt;/bin/hdfs_stream.cmd
+</pre>
+<p>The unzipped files have the structure shown in <a href="start.htm#GUID-AF1ED141-F0DF-418F-B8D6-024C56401615__CHDBCFCH">Example 1-1</a>. The <code class="codeph">examples.zip</code> file is not unzipped. Unzip that file later when you want to work with the examples.</p>
+</li>
+<li>
+<p>Open the <a id="d4355e743" class="indexterm-anchor"></a><code class="codeph">orahdfs-&lt;version&gt;/bin/hdfs_stream</code> Bash shell script in a text editor, and make the changes indicated by the comments in the script, if necessary</p>
+<p><span class="italic">The hdfs_stream script does not inherit any environment variable settings</span>, and so they are set in the script if Oracle SQL Connector for HDFS needs them:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">PATH</code>: If the <code class="codeph">hadoop</code> script is not in <code class="codeph">/usr/bin:bin</code> (the path initially set in <code class="codeph">hdfs_stream</code>), then add the Hadoop bin directory, such as <code class="codeph">/usr/lib/hadoop/bin</code>.</p>
+</li>
+<li>
+<p><code class="codeph">JAVA_HOME</code>: If Hadoop does not detect Java, then set this variable to the Java installation directory. For example, <code class="codeph">/usr/bin/java</code>.</p>
+</li>
+</ul>
+<p>See the comments in the script for more information about these environment variables.</p>
+<p>The <code class="codeph">hdfs_stream</code> script is the preprocessor for the Oracle Database external table created by Oracle SQL Connector for HDFS.</p>
+</li>
+<li>
+<p>If your cluster is secured with Kerberos and the account does not already have a Kerberos ticket, then obtain one:</p>
+<pre dir="ltr">
+$ kinit
+</pre>
+<p>See <a href="start.htm#GUID-969D15F2-D7A1-4742-8A44-0041B346CDAC">Using Oracle SQL Connector for HDFS on a Secure Hadoop Cluster</a> in this guide for information on acquiring and maintaining Kerberos tickets.</p>
+</li>
+<li>
+<p>Run <code class="codeph">hdfs_stream</code> from the Oracle SQL Connector for HDFS <code class="codeph">/bin</code> directory. You should see this usage information:</p>
+<pre dir="ltr">
+$ <span class="bold">./hdfs_stream</span>
+Usage: hdfs_stream locationFile
+</pre>
+<p>If you do not see the usage statement, then ensure that the operating system user that <a id="d4355e811" class="indexterm-anchor"></a><a id="d4355e813" class="indexterm-anchor"></a>Oracle Database is running under (such as <code class="codeph">oracle</code>) has the following permissions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Read and execute permissions on the hdfs_stream script:</p>
+<pre dir="ltr">
+$ <span class="bold">ls -l </span><span class="italic"><span class="bold">OSCH_HOME</span></span><span class="bold">/bin/hdfs_stream</span>
+-rwxr-xr-x 1 oracle oinstall Nov 27 15:51 hdfs_stream
+</pre></li>
+<li>
+<p>Read permission on orahdfs.jar.</p>
+<pre dir="ltr">
+$ <span class="bold">ls -l </span><span class="italic"><span class="bold">OSCH_HOME</span></span><span class="bold">/jlib/orahdfs.jar</span>
+-rwxr-xr-x 1 oracle oinstall Nov 27 15:51 orahdfs.jar
+</pre></li>
+</ul>
+<p>If you do not see these permissions, then enter a <code class="codeph">chmod</code> command to fix them, for example:</p>
+<pre dir="ltr">
+$ <span class="bold">chmod 755 </span><span class="italic"><span class="bold">OSCH_HOME</span></span><span class="bold">/bin/hdfs_stream</span>
+</pre>
+<p>In the previous commands, <span class="italic"><code class="codeph">OSCH_HOME</code></span> represents the <a id="d4355e866" class="indexterm-anchor"></a>Oracle SQL Connector for HDFS home directory.</p>
+</li>
+<li>
+<p>For an Oracle RAC system, repeat the previous steps for every Oracle instance, using identical path locations.</p>
+</li>
+<li>
+<p>Log in to Oracle Database and create a <a id="d4355e877" class="indexterm-anchor"></a><a id="d4355e881" class="indexterm-anchor"></a>database directory for the <a id="d4355e884" class="indexterm-anchor"></a><code class="codeph">orahdfs-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">/bin</code> directory where hdfs_stream resides. For Oracle RAC systems, this directory must be accessible by all Oracle instances through identical paths.</p>
+<p>In this example, Oracle SQL Connector for HDFS is installed in <code class="codeph">/etc:</code></p>
+<pre dir="ltr">
+SQL&gt; CREATE OR REPLACE DIRECTORY osch_bin_path AS '/etc/orahdfs-&lt;version&gt;/bin';
+</pre></li>
+<li>
+<p>To support access to Hive tables:</p>
+<ol>
+<li>
+<p>Ensure that the system is configured as a Hive client.</p>
+</li>
+<li>
+<p>Add the Hive JAR files and the Hive conf directory to the <code class="codeph">HADOOP_CLASSPATH</code> environment variable. To avoid JAR conflicts among the various Hadoop products, Oracle recommends that you set <code class="codeph">HADOOP_CLASSPATH</code> in your local shell initialization script instead of making a global change to <code class="codeph">HADOOP_CLASSPATH</code>. If there are multiple JAR file paths in <code class="codeph">HADOOP_CLASSPATH</code> ensure that the JARs for the current product are listed first.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>The following figure illustrates shows the flow of data and the components locations.</p>
+<div class="figure" id="GUID-AF1ED141-F0DF-418F-B8D6-024C56401615__CHDFICGB">
+<p class="titleinfigure">Figure 1-1 Oracle SQL Connector for HDFS Installation for HDFS and Data Pump Files</p>
+<img width="630" height="930" src="img/GUID-48E86AF1-D906-4766-9EF4-29AEF5899373-default.png" alt="Description of Figure 1-1 follows" title="Description of Figure 1-1 follows" /><br />
+<a href="img_text/GUID-48E86AF1-D906-4766-9EF4-29AEF5899373-print.htm">Description of "Figure 1-1 Oracle SQL Connector for HDFS Installation for HDFS and Data Pump Files"</a></div>
+<!-- class="figure" -->
+<p>The unzipped files have the structure shown in the following example.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-AF1ED141-F0DF-418F-B8D6-024C56401615__CHDBCFCH">
+<p class="titleinexample">Example 1-1 Structure of the orahdfs Directory</p>
+<pre dir="ltr">
+orahdfs-<span class="italic">&lt;version&gt;</span>
+   bin/
+      hdfs_stream
+      hdfs_stream.cmd   
+   doc/
+      README.txt
+   jlib/ 
+      ojdbc7.jar
+      oraloader.jar      
+      ora-hadoop-common.jar
+      oraclepki.jar
+      orahdfs.jar
+      osdt_cert.jar
+      osdt_core.jar
+   log/
+   examples.zip 
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BDCUG114"></a><a id="BDCUG113"></a>
+<div class="props_rev_3"><a id="GUID-31C3A137-0424-4425-9236-64B06E67012C"></a>
+<h3 id="BDCUG-GUID-31C3A137-0424-4425-9236-64B06E67012C" class="sect3"><span class="enumeration_section">1.5.4</span> Oracle Database Privileges for OSCH Users</h3>
+<div>
+<div class="section">
+<p><a id="d4355e963" class="indexterm-anchor"></a><a id="d4355e967" class="indexterm-anchor"></a><a id="d4355e969" class="indexterm-anchor"></a><a id="d4355e971" class="indexterm-anchor"></a>Oracle Database users require these privileges in order to use Oracle SQL Connector for HDFS to create external tables:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">CREATE SESSION</code></p>
+</li>
+<li>
+<p><a id="d4355e982" class="indexterm-anchor"></a><code class="codeph">CREATE TABLE</code></p>
+</li>
+<li>
+<p><code class="codeph">CREATE VIEW</code></p>
+</li>
+<li>
+<p><code class="codeph">EXECUTE</code> on the <a id="d4355e995" class="indexterm-anchor"></a><code class="codeph">UTL_FILE</code> PL/SQL package</p>
+</li>
+<li>
+<p><code class="codeph">READ</code> and <code class="codeph">EXECUTE</code> on the <a id="d4355e1008" class="indexterm-anchor"></a><code class="codeph">OSCH_BIN_PATH</code> directory created during the installation of Oracle SQL Connector for HDFS. Do not grant write access to anyone. Grant <code class="codeph">EXECUTE</code> only to those who intend to use Oracle SQL Connector for HDFS.</p>
+</li>
+<li>
+<p><code class="codeph">READ</code> and <code class="codeph">WRITE</code> on a database directory for storing external tables, or the <code class="codeph">CREATE ANY DIRECTORY</code> system privilege. For Oracle RAC systems, this directory must be on a shared disk that all Oracle instances can access.</p>
+</li>
+<li>
+<p>A tablespace and quota for copying data into the Oracle database. Optional.</p>
+</li>
+</ul>
+<p>The following example shows the SQL commands granting these privileges to <code class="codeph">HDFSUSER</code>.</p>
+<div class="infobox-note" id="GUID-31C3A137-0424-4425-9236-64B06E67012C__GUID-1C608A6D-8B85-4B74-8B7C-E916479638B9">
+<p class="notep1">Note:</p>
+<p>To query an external table that uses Oracle SQL Connector for HDFS, users need <code class="codeph">READ</code> privilege for Oracle Database 12c or later and <code class="codeph">SELECT</code> privilege for older versions of the database.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-31C3A137-0424-4425-9236-64B06E67012C__CHDFHFBJ">
+<p class="titleinexample">Example 1-2 Granting Users Access to Oracle SQL Connector for HDFS</p>
+<pre dir="ltr">
+CONNECT / AS sysdba;
+CREATE USER hdfsuser IDENTIFIED BY <span class="italic">password</span>
+   DEFAULT TABLESPACE hdfsdata
+   QUOTA UNLIMITED ON hdfsdata;
+GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW TO hdfsuser;
+GRANT EXECUTE ON sys.utl_file TO hdfsuser;
+GRANT READ, EXECUTE ON DIRECTORY osch_bin_path TO hdfsuser;
+GRANT READ, WRITE ON DIRECTORY external_table_dir TO hdfsuser;
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BDCUG424"></a>
+<div class="props_rev_3"><a id="GUID-3CF6C2E9-B91B-48CB-ADFC-9D5FA25FBCBE"></a>
+<h3 id="BDCUG-GUID-3CF6C2E9-B91B-48CB-ADFC-9D5FA25FBCBE" class="sect3"><span class="enumeration_section">1.5.5</span> OS-Level Requirements for OSCH Users</h3>
+<div>
+<div class="section">
+<p>Wherever Oracle SQL Connector for HDFS is installed (on the Oracle Database system, a Hadoop cluster node, or a separate system set up as a Hadoop client), the OS-level user account that logs in to use OSCH requires access to the shell variable <code class="codeph">HADOOP_CLASSPATH</code>. This variable must include the OSCH path on the Hadoop cluster &ndash; <span class="italic"><code class="codeph">path</code></span><code class="codeph">/orahdfs-&lt;version&gt;/jlib/*</code></p>
+<p>Set the HADOOP_CLASSPATH as shown in the following example, where the OSCH path is prepended to the current <code class="codeph">HADOOP_CLASSPATH</code>. Putting OSCH first gives it precedence over other JARs in the path.</p>
+<pre dir="ltr">
+$ export HADOOP_CLASSPATH="/etc/orahdfs-&lt;version&gt;/jlib/*:$HADOOP_CLASSPATH"
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG505"></a>
+<div class="props_rev_3"><a id="GUID-969D15F2-D7A1-4742-8A44-0041B346CDAC"></a>
+<h3 id="BDCUG-GUID-969D15F2-D7A1-4742-8A44-0041B346CDAC" class="sect3"><span class="enumeration_section">1.5.6</span> Using Oracle SQL Connector for HDFS on a Secure Hadoop Cluster</h3>
+<div>
+<div class="section">
+<p>When users access an external table that was created using Oracle SQL Connector for HDFS, the external table behaves like a Hadoop client. On the system where the Oracle database is running, it connects as the OS user of the Oracle process (usually<code class="codeph">oracle</code>). For OSCH to work, this account requires read permission on the files of all OSCH users. On a non-secure cluster these files are world-readable, but on a Kerberos-secured cluster this access requires a Kerberos ticket.</p>
+<p>For a user to authenticate using <code class="codeph">kinit</code>:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>A Hadoop administrator must register the operating system user (such as <code class="codeph">oracle</code>) and password in the Key Distribution Center (KDC) for the cluster.</p>
+</li>
+<li>
+<p>A system administrator for the Oracle Database system must configure <code class="codeph">/etc/krb5.conf</code> and add a domain definition that refers to the KDC managed by the secure cluster.</p>
+</li>
+</ul>
+<p>These steps enable the operating system user to authenticate with the <code class="codeph">kinit</code> utility before submitting Oracle SQL Connector for HDFS jobs. The <code class="codeph">kinit</code> utility typically uses a Kerberos keytab file for authentication without an interactive prompt for a password.</p>
+<p>The system should run <code class="codeph">kinit</code> on a regular basis, before letting the Kerberos ticket expire, to enable Oracle SQL Connector for HDFS to authenticate transparently. Use <code class="codeph">cron</code> or a similar utility to run <code class="codeph">kinit</code>. For example, if Kerberos tickets expire every two weeks, then set up a <code class="codeph">cron</code> job to renew the ticket weekly.</p>
+<p>Be sure to schedule the <code class="codeph">cron</code> job to run when Oracle SQL Connector for HDFS is not actively being used.</p>
+<p>Do not call <code class="codeph">kinit</code> within the Oracle SQL Connector for HDFS preprocessor script (<code class="codeph">hdfs_stream</code>), because it could trigger a high volume of concurrent calls to <code class="codeph">kinit</code> and create internal Kerberos caching errors.</p>
+<div class="infobox-note" id="GUID-969D15F2-D7A1-4742-8A44-0041B346CDAC__GUID-7529E016-EACB-4519-BF58-DF4FC7A57B64">
+<p class="notep1">Note:</p>
+<p>Oracle Big Data Appliance configures Kerberos security automatically as a configuration option.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-878F0779-2E12-4082-B150-6311739CF004"></a>
+<h3 id="BDCUG-GUID-878F0779-2E12-4082-B150-6311739CF004" class="sect3"><span class="enumeration_section">1.5.7</span> Using OSCH in Oracle SQL Developer</h3>
+<div>
+<p>Oracle SQL Developer is a free graphical IDE that includes integration with Oracle Database and Oracle Big Data Connectors (among many other products). It provides wizards to help you access and use Oracle Big Data Connectors. See <a href="easofusetools.htm#GUID-356A3CC3-4E8D-416F-9805-61574614C1FE" title="Oracle SQL Developer is an essentially a graphical version SQL*Plus. Among its features is a user-friendly interface to tools for moving data between Hadoop and Oracle Database. It includes support for Copy to Hadoop, Oracle Loader for Hadoop, and Oracle SQL Connector for Hadoop Distributed File System (as well as Oracle Big Data SQL). There are wizards in the interface to assist with use of all of of these tools.">Using Oracle SQL Developer With Oracle Big Data Connectors</a> in this guide for instructions on downloading Oracle SQL Developer and configuring it for use with Oracle Big Data Connectors.</p>
+</div>
+</div>
+</div>
+<a id="BDCUG115"></a>
+<div class="props_rev_3"><a id="GUID-F6C3C7EA-60A3-47A7-BE31-5E8B4C19988B"></a>
+<h2 id="BDCUG-GUID-F6C3C7EA-60A3-47A7-BE31-5E8B4C19988B" class="sect2"><span class="enumeration_section">1.6</span> Oracle Loader for Hadoop Setup</h2>
+<div>
+<div class="section">
+<p>Follow the instructions in these sections for setting up Oracle Loader for Hadoop:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="start.htm#GUID-7C8CCFD8-E8A9-42EF-8659-B550012B25EE">Software Requirements</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-B8290781-1082-456F-9987-27A977BF3441">Installing Oracle Loader for Hadoop</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-DE70C4E0-438A-48FA-B151-93751F2A4D32">Providing Support for Offline Database Mode</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-DB393FBD-48E6-483E-9762-91700CEA26C3">Using Oracle Loader for Hadoop on a Secure Hadoop Cluster</a></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+<a id="BDCUG116"></a>
+<div class="props_rev_3"><a id="GUID-7C8CCFD8-E8A9-42EF-8659-B550012B25EE"></a>
+<h3 id="BDCUG-GUID-7C8CCFD8-E8A9-42EF-8659-B550012B25EE" class="sect3"><span class="enumeration_section">1.6.1</span> Software Requirements</h3>
+<div>
+<div class="section">
+<p><a id="d4355e1267" class="indexterm-anchor"></a><a id="d4355e1271" class="indexterm-anchor"></a>Oracle Loader for Hadoop requires the following software:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A certified release of CDH or HDP.</p>
+<p>See the <a href="https://www.oracle.com/database/big-data-connectors/certifications.html" target="_blank">Oracle Big Data Connectors Certification Matrix</a></p>
+</li>
+<li>
+<p>A target database system running a version of Oracle Database that is currently supported by Oracle.</p>
+</li>
+<li>
+<p><a id="d4355e1288" class="indexterm-anchor"></a><a id="d4355e1290" class="indexterm-anchor"></a>Apache Hive 0.12.0, 0.13.0, 0.13.1, 1.1.0, or 1.2.1 if you are loading data from Hive tables.</p>
+</li>
+</ul>
+<p>Oracle Big Data Appliance already meets these requirements. If you are using CDH or HDP on a commodity server platform, check to ensure that the system meets them.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG117"></a>
+<div class="props_rev_3"><a id="GUID-B8290781-1082-456F-9987-27A977BF3441"></a>
+<h3 id="BDCUG-GUID-B8290781-1082-456F-9987-27A977BF3441" class="sect3"><span class="enumeration_section">1.6.2</span> Installing Oracle Loader for Hadoop</h3>
+<div>
+<div class="section">
+<p><a id="d4355e1315" class="indexterm-anchor"></a><a id="d4355e1317" class="indexterm-anchor"></a><a id="d4355e1319" class="indexterm-anchor"></a>Oracle Loader for Hadoop is packaged with the Oracle Database 12c (12.1.0.2 and 12.2.0.1) client libraries and Oracle Instant Client libraries for connecting to Oracle Database 11.2.0.4, 12.1.0.2, or 12.2.0.1.</p>
+<p>To install Oracle Loader for Hadoop:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Unpack the content of <a id="d4355e1328" class="indexterm-anchor"></a><code class="codeph">oraloader-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">.x86_64.zip</code> into a directory on your Hadoop cluster or on a system configured as a Hadoop client.</span></li>
+<li class="stepexpand"><span>Unzip <code class="codeph">oraloader-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">-h2.x86_64.zip</code> into a directory on your Hadoop cluster.</span>
+<div>
+<p>A directory named<a id="d4355e1355" class="indexterm-anchor"></a> <code class="codeph">oraloader-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">-h2</code> is created with the following subdirectories along with the <code class="codeph">examples. zip</code> file, which you must unzip yourself.</p>
+<pre dir="ltr">
+doc
+jlib
+lib
+examples.zip
+</pre></div>
+</li>
+<li class="stepexpand"><span>Create a variable named <code class="codeph">OLH_HOME</code> and set it to the installation directory.</span></li>
+<li class="stepexpand"><span>Add the following paths to the <code class="codeph">HADOOP_CLASSPATH</code> variable:</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>For all installations:</p>
+<pre dir="ltr">
+$OLH_HOME/jlib/*
+</pre>
+<p>When using OLH, $OLH_HOME/jlib/* should always be listed first in <code class="codeph">HADOOP_CLASSPATH</code>. Alternatively, you can avoid conflict with other scripts by defining HADOOP_CLASSPATH within a script that uses it.</p>
+</li>
+<li>
+<p>To support data loads from Hive tables:</p>
+<pre dir="ltr">
+/usr/lib/hive/lib/*
+/etc/hive/conf
+</pre>
+<p>See <span class="q">"<a href="olh.htm#GUID-AB7AC6F3-B6A1-468D-889E-E3CC767511DC">oracle.hadoop.xquery.lib.share</a>."</span></p>
+</li>
+<li>
+<p>To read data from Oracle NoSQL Database Release 2:</p>
+<pre dir="ltr">
+$KVHOME/lib/kvstore.jar
+</pre></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BDCUG453"></a>
+<div class="props_rev_3"><a id="GUID-DE70C4E0-438A-48FA-B151-93751F2A4D32"></a>
+<h3 id="BDCUG-GUID-DE70C4E0-438A-48FA-B151-93751F2A4D32" class="sect3"><span class="enumeration_section">1.6.3</span> Providing Support for Offline Database Mode</h3>
+<div>
+<div class="section">
+<p>In a typical installation, Oracle Loader for Hadoop can connect to the Oracle Database system from the Hadoop cluster or a Hadoop client. If this connection is impossible&mdash;for example, the systems are located on distinct networks&mdash;then you can use Oracle Loader for Hadoop in offline database mode.</p>
+<p>To support offline database mode, you must install Oracle Loader for Hadoop on two systems:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>The Hadoop cluster or a system set up as a Hadoop client.</p>
+</li>
+<li>
+<p>The Oracle Database system or a system with network access to Oracle Database, as described in the following procedure.</p>
+</li>
+</ul>
+<p>To support Oracle Loader for Hadoop in offline database mode:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Unpack the content of <a id="d4355e1453" class="indexterm-anchor"></a><code class="codeph">oraloader-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">.zip</code> into a directory on the Oracle Database system or a system with network access to Oracle Database. You must use the same version of the software as you installed on the Hadoop cluster.</span></li>
+<li class="stepexpand"><span>Unzip <code class="codeph">oraloader-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">-h2.x86_64.zip.</code></span></li>
+<li class="stepexpand"><span>Create a variable named <code class="codeph">OLH_HOME</code> and set it to the installation directory. This example uses the Bash shell syntax:</span>
+<div>
+<pre dir="ltr">
+$ export OLH_HOME="/usr/bin/oraloader-&lt;version&gt;-h2/"
+</pre></div>
+</li>
+<li class="stepexpand"><span>Add the Oracle Loader for Hadoop JAR files to the <code class="codeph">HADOOP_CLASSPATH</code> environment variable. If there are other JAR file paths in <code class="codeph">HADOOP_CLASSPATH</code>, ensure that the Oracle Loader for Hadoop JAR file path is listed first when using Oracle Loader for Hadoop . This example uses the Bash shell syntax:</span>
+<div>
+<pre dir="ltr">
+$ export HADOOP_CLASSPATH=$OLH_HOME/jlib/*:$HADOOP_CLASSPATH
+</pre></div>
+</li>
+</ol>
+</div>
+<div>
+<div class="relinfo">
+<p><strong>Related Topics</strong></p>
+<ul>
+<li><a href="olh.htm#GUID-3D76103E-6620-42F9-924B-36DEAA1BF483">About the Modes of Operation</a></li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BDCUG506"></a>
+<div class="props_rev_3"><a id="GUID-DB393FBD-48E6-483E-9762-91700CEA26C3"></a>
+<h3 id="BDCUG-GUID-DB393FBD-48E6-483E-9762-91700CEA26C3" class="sect3"><span class="enumeration_section">1.6.4</span> Using Oracle Loader for Hadoop on a Secure Hadoop Cluster</h3>
+<div>
+<div class="section">
+<p>A secure Hadoop cluster has Kerberos installed and configured to authenticate client activity. An operating system user must be authenticated before initiating an Oracle Loader for Hadoop job to run on a secure Hadoop cluster. For authentication, the user must log in to the operating system where the job will be submitted and use the standard Kerberos <code class="codeph">kinit</code> utility.</p>
+<p>For a user to authenticate using <code class="codeph">kinit</code>:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A Hadoop administrator must register the operating system user and password in the Key Distribution Center (KDC) for the cluster.</p>
+</li>
+<li>
+<p>A system administrator for the client system, where the operating system user will initiate an Oracle Loader for Hadoop job, must configure <code class="codeph">/etc/krb5.conf</code> and add a domain definition that refers to the KDC managed by the secure cluster.</p>
+</li>
+</ul>
+<p>Typically, the <code class="codeph">kinit</code> utility obtains an authentication ticket that lasts several days. Subsequent Oracle Loader for Hadoop jobs authenticate transparently using the unexpired ticket.</p>
+<p>Oracle Big Data Appliance configures Kerberos security automatically as a configuration option.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-708821F3-6162-4536-B45B-A9003B43791F"></a>
+<h2 id="BDCUG-GUID-708821F3-6162-4536-B45B-A9003B43791F" class="sect2"><span class="enumeration_section">1.7</span> <span class="bold">Oracle Shell for Hadoop Loaders Setup</span></h2>
+<div>
+<p>Oracle Shell for Hadoop Loaders (OHSH) is integrated with Big Data Connectors. It provides a set of declarative commands you can use to load content from Hadoop and Hive to Oracle Database tables using Oracle Loader for Hadoop (OLH) and Oracle SQL Connector for Hadoop Distributed File System (OSCH). It also enables you to load contents from Oracle Database tables to Hadoop and Hive using Copy to Hadoop.</p>
+<div class="section">
+<p class="subhead2">Prerequisites</p>
+<p>OHSH can work with OLH and OSCH to load data into Oracle Database tables from any of these environments:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A Hadoop client</p>
+</li>
+<li>
+<p>An edge node</p>
+</li>
+<li>
+<p>A Hadoop node</p>
+</li>
+<li>
+<p>The Oracle Database server</p>
+</li>
+</ul>
+<p>OHSH can be set up in any of the environments above (Hadoop client, Hadoop node, edge node, or Oracle Database server). To use OHSH, you need to install the software in only one of these environments.</p>
+<p>Each environment has its own prerequisites. Check the relevant column in table below and install any software packages that are missing from the environment where you choose to run OHSH. As the table indicates, JDBC connectivity is required in all cases.</p>
+<div class="tblformal" id="GUID-708821F3-6162-4536-B45B-A9003B43791F__PREREQUISITESFORRUNNINGOSHELL-3541AB04">
+<p class="titleintable">Table 1-1 Prerequisites for Running OHSH</p>
+<table class="cellalignment65" title=" Prerequisites for Running OHSH " summary="There are two columns and two rows. The left column identifies environments where OHSH can be used. The right column describes prerequisites for these environments.">
+<thead>
+<tr class="cellalignment26">
+<th class="cellalignment64" id="d4355e1616">If You Plan to run OHSH From...</th>
+<th class="cellalignment64" id="d4355e1618">The Prerequisites are...</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment26">
+<td class="cellalignment26" id="d4355e1622" headers="d4355e1616">A Hadoop node, a Hadoop client, or an edge node.
+<div class="infobox-note" id="GUID-708821F3-6162-4536-B45B-A9003B43791F__GUID-ED73EDE2-B18B-43E3-8D00-EC4A25D3E593">
+<p class="notep1">Note:</p>
+<p>When Big Data Connectors is licensed on Oracle Big Data Appliance, all of the prerequisite software and OHSH itself are pre-installed.</p>
+</div>
+</td>
+<td class="cellalignment26" headers="d4355e1622 d4355e1618">
+<ul style="list-style-type: disc;">
+<li>
+<p>SQL*Plus</p>
+</li>
+<li>
+<p>OLH and OSCH</p>
+</li>
+<li>
+<p>JDBC access to Oracle Database</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment26">
+<td class="cellalignment26" id="d4355e1639" headers="d4355e1616">The Oracle Database server.</td>
+<td class="cellalignment26" headers="d4355e1639 d4355e1618">
+<ul style="list-style-type: disc;">
+<li>
+<p>Hadoop and Hive libraries (installed and configured).</p>
+</li>
+<li>
+<p>OLH and OSCH</p>
+</li>
+<li>
+<p>JDBC access to Oracle Database</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2"><span class="bold">Installing Oracle Shell for Hadoop Loaders</span></p>
+<p>Follow these instructions for setting up Oracle Shell for Hadoop Loaders. The instructions are applicable to set up on a Hadoop client, an edge node, a Hadoop node, or, on the Oracle Database server.</p>
+<ol>
+<li>
+<p>Extract the contents of ohsh-<span class="italic">&lt;version&gt;</span>.zip to a directory on the system where you plan to run OHSH.&nbsp;</p>
+<p>The extraction creates a directory named ohsh-<span class="italic">&lt;version&gt;</span> with a <code class="codeph">README.txt</code> file, the examples package (<code class="codeph">examples.zip</code>) and four subdirectories:</p>
+<pre dir="ltr">
+README.txt
+examples.zip
+/bin
+/conf
+/doc
+/jlib
+</pre>
+<p>You must unzip <code class="codeph">examples.zip</code> yourself.</p>
+<p>The directory ohsh-<span class="italic">&lt;version&gt;</span> is referred to as &lt;OHSH_HOME&gt; later in these instructions.</p>
+</li>
+<li>
+<p>Follow the instructions contained in <code class="codeph">README.txt</code> to configure Oracle Shell for Hadoop Loaders. Below are instructions to install and configure Oracle Shell for Hadoop Loaders on a Hadoop node.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+<div class="sect3"><a id="GUID-AA0A199F-D040-4037-8FAE-DEA429825008"></a>
+<h3 id="BDCUG-GUID-AA0A199F-D040-4037-8FAE-DEA429825008" class="sect3"><span class="enumeration_section">1.7.1</span> Installing Oracle Shell for Hadoop Loaders on a Hadoop Node</h3>
+<div>
+<p>This procedure applies to installation on a Hadoop Node only. See the <code class="codeph">OHSH README.txt</code> file for installation on other systems.</p>
+<div class="section">
+<div class="infobox-note" id="GUID-AA0A199F-D040-4037-8FAE-DEA429825008__GUID-4E6EE4A5-2BFD-4A44-9CE5-1809AB934E53">
+<p class="notep1">Note:</p>
+These instructions use placeholders for the absolute paths that you will set as the value of some variables. These are in italic font and are framed in brackets. For example, &lt;<span class="italic">OHSH_HOME</span>&gt; is the path where OHSH is installed.</div>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Install and set up SQL*Plus if it is not already on the node.</span>
+<ol>
+<li class="substepexpand"><span>Download the Oracle Instant Client for Linux along with the corresponding Instant Client Package for SQL*Plus from the <a href="http://www.oracle.com/technetwork/database/database-technologies/instant-client/downloads/index.html" target="_blank">Oracle Technology Network</a>. Select the client version that matches the version of the Oracle Database.</span>
+<div>For example, you can find the client downloads for Oracle Database 12.2.0.1.0 at this address:
+<p><a href="http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html" target="_blank">http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html</a></p>
+</div>
+</li>
+</ol>
+</li>
+<li class="stepexpand"><span>Extract both clients into the same directory ( &lt;<span class="italic"><code class="codeph">SQLPLUS_DIR</code></span>&gt; ).</span></li>
+<li class="stepexpand"><span>Copy the <code class="codeph">tnsnames.ora</code> and <code class="codeph">sqlnet.ora</code> files from <code class="codeph">${TNS_ADMIN}</code> on the Oracle Database host to a directory of your choice on the Hadoop node (<code class="codeph">&lt;<span class="codeinlineitalic">TNS_ADMIN_DIR</span>&gt;</code>).</span>
+<div>If an Oracle Wallet is created for the Oracle Database host, copy the wallet file to a directory of your choice on the Hadoop node (<code class="codeph">&lt;<span class="codeinlineitalic">WALLET_LOCATION_DIR</span>&gt;.</code>).</div>
+</li>
+<li class="stepexpand"><span>Edit <code class="codeph">sqlnet.ora</code> . Set <code class="codeph">WALLET_LOCATION</code> to <code class="codeph">&lt;<span class="codeinlineitalic">WALLET_LOCATION_DIR</span>&gt;</code>. Also check to be sure that <code class="codeph">sqlnet.wallet_override</code> is set to <code class="codeph">&ldquo;true&rdquo;</code>.</span>
+<div>
+<pre dir="ltr">
+   WALLET_LOCATION=
+      (SOURCE=(METHOD=FILE)(METHOD_DATA=
+        (DIRECTORY=&lt;<span class="italic">WALLET_LOCATION_DIR</span>&gt;)))
+   sqlnet.wallet_override=true
+</pre></div>
+</li>
+<li class="stepexpand"><span>Install OLH and OSCH on the Hadoop node if they are not already installed.</span>
+<div>Note that OSCH requires installation and configuration steps on the Oracle Database host as well as on the Hadoop node. For both OLH and OSCH, follow the setup instructions in the <span class="italic">Big Data Connectors User&rsquo;s Guide</span>.</div>
+</li>
+<li class="stepexpand"><span>Edit <code class="codeph">&lt;<span class="codeinlineitalic">OHSH_HOME</span>&gt;/bin/ohsh_config.sh</code>, to configure the home directories of OHSH dependencies</span>
+<div>
+<pre dir="ltr">
+   export HADOOP_HOME=&lt;<span class="italic">HADOOP_CLIENT_KIT</span>&gt;   
+   export HADOOP_CONF_DIR=&lt;<span class="italic">HADOOP_CONF</span>&gt;
+   export HIVE_HOME=&lt;<span class="italic">HIVE_CLIENT_KIT</span>&gt;
+   export HIVE_CONF_DIR=&lt;<span class="italic">HIVE_CONF</span>&gt;
+   export OLH_HOME=&lt;<span class="italic">OLH_HOME</span>&gt;
+   export OSCH_HOME=&lt;<span class="italic">OSCH_HOME</span>&gt;
+   export CP2HADOOP_HOME=&lt;<span class="italic">CP2HADOOP_HOME</span>&gt;
+   export HS2_HOST_PORT=&lt;<span class="italic">HS2_HOST</span>&gt;:&lt;<span class="italic">HS2_PORT</span>&gt;
+   export HIVE_SESS_VAR_LIST=&lt;<span class="italic">semicolon_separated_variable_list</span>&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>If TNS admin and Oracle Wallet are enabled, then also set the following variables:</span>
+<div>
+<pre dir="ltr">
+export WALLET_LOCATION="&lt;<span class="italic">WALLET_LOCATION_DIR</span>&gt;"
+export TNS_ADMIN="&lt;<span class="codeinlineitalic">TNS_ADMIN_DIR</span>&gt;"
+</pre></div>
+<div>These values are assigned to OHSH <code class="codeph">tnsadmin</code> and <code class="codeph">walletlocation</code> defaults at the start of an OHSH session. They are used for all TNS and Oracle Wallet authentication in the session.</div>
+</li>
+<li class="stepexpand"><span>Add <code class="codeph">&lt;<span class="codeinlineitalic">OHSH_HOME</span>&gt;/bin</code> to the <code class="codeph">PATH</code> environment variable.</span></li>
+<li class="stepexpand"><span>Start an OHSH session.</span>
+<div>
+<pre dir="ltr">
+$ ohsh
+</pre></div>
+<div>Under the banner you should see a list of the kits that were found (OSCH, OLH, and CP2HADOOP).</div>
+<div>You can use the show resources command to see what resources are available.
+<pre dir="ltr">
+ohsh&gt; show resources
+</pre>
+You will always see the three predefined resources: <code class="codeph">hadoop0</code>, <code class="codeph">hive0</code>, and <code class="codeph">bash0</code>.</div>
+</li>
+</ol>
+<div class="section">
+<div class="infoboxnotealso" id="GUID-AA0A199F-D040-4037-8FAE-DEA429825008__GUID-9215FCD7-896B-4AEB-AFB7-DCCABCAD6F25">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Unzip <code class="codeph">examples.zip</code> into the installation directory at <code class="codeph"><span class="codeinlineitalic">&lt;OHSH_HOME&gt;</span></code>. The <code class="codeph">README.txt</code> file in the unzipped examples directory shows how to run OHSH load methods in the examples.</p>
+</li>
+<li>
+<p>In the <span class="italic">Big Data Connectors User&rsquo;s Guide</span>:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a class="olink BDCUG-GUID-F6C3C7EA-60A3-47A7-BE31-5E8B4C19988B" target="_blank" href="../BDCUG/start.htm#BDCUG-GUID-F6C3C7EA-60A3-47A7-BE31-5E8B4C19988B">Oracle Loader for Hadoop Setup</a></p>
+</li>
+<li>
+<p><a class="olink BDCUG-GUID-0C502703-D303-44DC-8F7C-4BD858DF62BC" target="_blank" href="../BDCUG/start.htm#BDCUG-GUID-0C502703-D303-44DC-8F7C-4BD858DF62BC">Oracle SQL Connector for Hadoop Distributed FileSystem Setup</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the Oracle Big Data Connectors blog space:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="https://blogs.oracle.com/bigdataconnectors/how-to-load-oracle-and-hive-tables-using-ohsh-part-1-introductionGUID-03254C3C-3C8F-4C88-AD9D-91ADFDBC488D" target="_blank">How to Load Oracle and Hive Tables using OHSH (Part 1 - Introduction)</a></p>
+</li>
+<li>
+<p><a href="https://blogs.oracle.com/bigdataconnectors/how-to-load-oracle-and-hive-tables-using-ohsh-part-2-ohsh-configuration-and-cli-usageGUID-03254C3C-3C8F-4C88-AD9D-91ADFDBC488D" target="_blank">How to Load Oracle and Hive Tables using OHSH (Part 2 - OHSH Configuration and CLI Usage)</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-8C5FEC0C-E58E-4D0F-9DA7-A5BFAD6A6C00"></a>
+<h3 id="BDCUG-GUID-8C5FEC0C-E58E-4D0F-9DA7-A5BFAD6A6C00" class="sect3"><span class="enumeration_section">1.7.2</span> Configuring OHSH to Enable Job Monitoring</h3>
+<div>
+<p>When OHSH jobs are executed, status and other information about the job is recorded into a back-end database. To access information from the OHSH command line, you must first configure the connection to the database.</p>
+<div class="section">
+<p class="subhead3">Configuration Steps</p>
+<p>Configure the following properties in <code class="codeph">conf/smartloader-conf.xml</code> in order to enable a database instance where job history is stored.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.hadoop.smartloader.diagnostics.jobhistory.jdbc.driver</code></p>
+<p>Specifies the JDBC driver for the supported back-end database type. Currently, <code class="codeph">MYSQL</code> and <code class="codeph">ORACLE</code> are valid values. If this property is not specified, the job history commands fail.</p>
+</li>
+</ul>
+<p>Additional properties must be set. These differ, depending upon which database type is defined as the supported back-end database</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If <code class="codeph">jdc.driver</code> = <code class="codeph">ORACLE</code>:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.hadoop.smartloader.diagnostics.jobhistory.jdbc.oracleConnectId</code></p>
+A TNS entry name defined in the <code class="codeph">tnsnames.ora</code> file.</li>
+<li>
+<p><code class="codeph">oracle.hadoop.smartloader.diagnostics.jobhistory.jdbc.oracleWalletDir</code></p>
+<p>The OS directory containing the Oracle Wallet used to connect to an Oracle Database schema through JDBC.</p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.smartloader.diagnostics.jobhistory.jdbc.oracleTnsDir</code></p>
+<p>The file path to a directory on the node where OHSH runs. This directory contains SQL*Net configuration files such as <code class="codeph">sqlnet.ora</code> and <code class="codeph">tnsnames.ora</code>. Typically, this is <code class="codeph">${ORACLE_HOME}/network/admin</code>.</p>
+<div class="infobox-note" id="GUID-8C5FEC0C-E58E-4D0F-9DA7-A5BFAD6A6C00__GUID-BE664B56-34A2-4344-AB7C-498BB3E7008B">
+<p class="notep1">Note:</p>
+If you are running OHSH from a Hadoop client and want to use Oracle Wallet, copy <code class="codeph">tnsnames.ora</code> and the wallet files to any directory on the Hadoop client.</div>
+</li>
+</ul>
+</li>
+<li>
+<p>If <code class="codeph">jdbc.driver</code> = <code class="codeph">MYSQL</code>:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">oracle.hadoop.smartloader.diagnostics.jobhistory.jdbc.mysqlConnectUrl</code></p>
+<p>The URL used to make a JDBC connection to the MySQL database</p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.smartloader.diagnostics.jobhistory.jdbc.mysqlUser</code></p>
+<p>MySQL user of job history schema</p>
+</li>
+<li>
+<p><code class="codeph">oracle.hadoop.smartloader.diagnostics.jobhistory.jdbc.mysqlPW</code></p>
+<p>Password of the MySQL user account.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Commands for Monitoring OHSH Jobs</p>
+<p>After this configuration is completed, you will be able to execute the following OHSH commands:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ohsh&gt; show job &lt;<span class="codeinlineitalic">job_id</span>&gt;</code></p>
+<p>Shows the detailed information of the job specified by ID.</p>
+</li>
+<li>
+<p><code class="codeph">ohsh&gt; show job summary &lt;<span class="codeinlineitalic">job_id</span>&gt;</code></p>
+<p>Shows the performance of the completed job specified by ID.</p>
+</li>
+<li>
+<p><code class="codeph">ohsh&gt; show job abstract &lt;<span class="codeinlineitalic">job_id</span>&gt;</code></p>
+<p>Provides a functional description of the job.</p>
+</li>
+<li>
+<p><code class="codeph">ohsh&gt; &nbsp;show jobs [failed|running|completed|finished] [extended] [&lt;<span class="codeinlineitalic">integer</span>&gt;]</code></p>
+<p>Shows the last <code class="codeph"><span class="codeinlineitalic">n</span></code> jobs of a particular job status.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The first parameter specifies job status. If the status is not specified, all jobs are shown, regardless of job status.</p>
+</li>
+<li>
+<p>The second parameter specifies whether to show details. &nbsp;</p>
+</li>
+<li>
+<p>The third parameter specifies that the last <code class="codeph"><span class="codeinlineitalic">n</span></code> jobs of the specified status should be shown. If <code class="codeph"><span class="codeinlineitalic">n</span></code> is not specified, then all jobs of that status are shown.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code class="codeph">ohsh&gt; &nbsp;truncate jobs [&lt;<span class="codeinlineitalic">integer</span>&gt;]</code></p>
+<p>Removes the last <code class="codeph"><span class="codeinlineitalic">n</span></code> jobs from the database. If the integer is not specified, &nbsp;the command removes all jobs</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDCUG507"></a>
+<div class="props_rev_3"><a id="GUID-1E70571A-EAF2-43BE-895E-F9A57AC37C04"></a>
+<h2 id="BDCUG-GUID-1E70571A-EAF2-43BE-895E-F9A57AC37C04" class="sect2"><span class="enumeration_section">1.8</span> Oracle XQuery for Hadoop Setup</h2>
+<div>
+<p>You install and configure Oracle XQuery for Hadoop on the Hadoop cluster. If you are using Oracle Big Data Appliance, then the software is already installed.</p>
+<p>The following topics describe the software installation:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="start.htm#GUID-32023FA5-8EEF-478E-892A-0C1C30CC43DE">Software Requirements</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-E5EB1E76-518C-4FF6-9369-AF4C81F7B12D">Installing Oracle XQuery for Hadoop</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-FC45521E-DF7B-4A72-88D2-3B5F47EE4E0D">Troubleshooting the File Paths</a></p>
+</li>
+<li>
+<p><a href="start.htm#GUID-91F4FDCA-1FFD-40D8-8CC2-13A761355819">Configuring Oozie for the Oracle XQuery for Hadoop Action</a></p>
+</li>
+</ul>
+</div>
+<a id="BDCUG508"></a>
+<div class="props_rev_3"><a id="GUID-32023FA5-8EEF-478E-892A-0C1C30CC43DE"></a>
+<h3 id="BDCUG-GUID-32023FA5-8EEF-478E-892A-0C1C30CC43DE" class="sect3"><span class="enumeration_section">1.8.1</span> Software Requirements</h3>
+<div>
+<div class="section">
+<p>Oracle Big Data Appliance Release 4.3 and later releases meet the requirements below. However, if you are installing Oracle XQuery for Hadoop on a third-party cluster, then you must ensure that these components are installed.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Java 8.<span class="italic">x</span> or 7.<span class="italic">x</span>.</p>
+</li>
+<li>
+<p>A certified release of either CDH (Cloudera's Distribution including Apache Hadoop) or HDP (Hortonworks Data Platform).</p>
+</li>
+<li>
+<p>Oracle NoSQL Database 3.<span class="italic">x</span> or 2.<span class="italic">x</span> to support reading and writing to Oracle NoSQL Database</p>
+</li>
+<li>
+<p>Oracle Loader for Hadoop 3.8.0 or greater to support writing tables in Oracle databases</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-32023FA5-8EEF-478E-892A-0C1C30CC43DE__GUID-EB044C05-16BE-4FE2-BD09-520FCF7BA05D">
+<p class="notep1">See Also:</p>
+For supported CDH and HDP version, see the <a href="https://www.oracle.com/database/big-data-connectors/certifications.html" target="_blank">Oracle Big Data Connectors Certification Matrix</a></div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG509"></a>
+<div class="props_rev_3"><a id="GUID-E5EB1E76-518C-4FF6-9369-AF4C81F7B12D"></a>
+<h3 id="BDCUG-GUID-E5EB1E76-518C-4FF6-9369-AF4C81F7B12D" class="sect3"><span class="enumeration_section">1.8.2</span> Installing Oracle XQuery for Hadoop</h3>
+<div>
+<div class="section">
+<p>Take the following steps to install Oracle XQuery for Hadoop.</p>
+<p>To install Oracle XQuery for Hadoop:</p>
+<ol>
+<li>
+<p>Unpack the contents of <code class="codeph">oxh-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">.zip</code> into the installation directory:</p>
+<pre dir="ltr">
+$ unzip oxh-&lt;version&gt;-cdh-&lt;version&gt;.zip
+Archive:  oxh-&lt;version&gt;-cdh-&lt;version&gt;.zip
+   creating: oxh-&lt;version&gt;-cdh&lt;version&gt;/
+   creating: oxh-&lt;version&gt;-cdh&lt;version&gt;/lib/
+   creating: oxh-&lt;version&gt;-cdh&lt;version&gt;/oozie/
+   creating: oxh-&lt;version&gt;-cdh&lt;version&gt;/oozie/lib/
+  inflating: oxh-&lt;version&gt;-cdh&lt;version&gt;/lib/ant-launcher.jar
+  inflating: oxh-&lt;version&gt;-cdh&lt;version&gt;/lib/ant.jar
+     .
+     .
+     .
+</pre>
+<p>You can now run Oracle XQuery for Hadoop.</p>
+</li>
+<li>
+<p>For the fastest execution time, copy the libraries into the Hadoop distributed cache:</p>
+<ol>
+<li>
+<p>Copy all Oracle XQuery for Hadoop and third-party libraries into an HDFS directory. To use the <code class="codeph">-exportliboozie</code> option to copy the files, see <span class="q">"<a href="oxh.htm#GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B">Oracle XQuery for Hadoop Options</a>"</span>. Alternatively, you can copy the libraries manually using the HDFS command line interface.</p>
+<p>If you use Oozie, then use the same folder for all files. See <span class="q">"<a href="start.htm#GUID-91F4FDCA-1FFD-40D8-8CC2-13A761355819">Configuring Oozie for the Oracle XQuery for Hadoop Action</a>"</span></p>
+</li>
+<li>
+<p>Set the <code class="codeph"><a href="oxh.htm#GUID-A98B2F83-05B1-487C-B1C5-580D675155C2__BABCJADD">oracle.hadoop.xquery.lib.share</a></code> property or use the <code class="codeph">-sharelib</code> option on the command line to identify the directory for the Hadoop distributed cache.</p>
+</li>
+</ol>
+</li>
+<li id="GUID-E5EB1E76-518C-4FF6-9369-AF4C81F7B12D__CIHICCFB">
+<p>To support data loads into Oracle Database, install Oracle Loader for Hadoop:</p>
+<ol>
+<li>
+<p>Unpack the content of <a id="d4355e2315" class="indexterm-anchor"></a><code class="codeph">oraloader-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">.x86_64.zip</code> into a directory on your Hadoop cluster or on a system configured as a Hadoop client. This archive contains an archive and a <code class="codeph">README</code> file.</p>
+</li>
+<li>
+<p>Unzip the archive into a directory on your Hadoop cluster:</p>
+<pre dir="ltr">
+unzip oraloader-<span class="italic">&lt;version&gt;</span>-h2.x86_64.zip
+</pre>
+<p>A directory named<a id="d4355e2341" class="indexterm-anchor"></a> <code class="codeph">oraloader-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">-h2</code> is created with the following subdirectories and the examples.zip file:</p>
+<pre dir="ltr">
+doc
+jlib
+lib
+examples.zip
+</pre>
+<p>Unzip the <code class="codeph">example.zip</code> file yourself.</p>
+</li>
+<li>
+<p>Create an environment variable named <code class="codeph">OLH_HOME</code> and set it to the installation directory. Do not set <code class="codeph">HADOOP_CLASSPATH</code>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>To support data loads into Oracle NoSQL Database, install it, and then set an environment variable named <code class="codeph">KVHOME</code>to the Oracle NoSQL Database installation directory.</p>
+<div class="infobox-note" id="GUID-E5EB1E76-518C-4FF6-9369-AF4C81F7B12D__GUID-A7A669E8-B072-43B4-9E5F-AE0C36E71683">
+<p class="notep1">Note:</p>
+<p>Do not add NoSQL Database jar files to a <code class="codeph">HADOOP_CLASSPATH</code>.</p>
+</div>
+</li>
+<li>
+<p>To support indexing by Apache Solr:</p>
+<ol>
+<li>
+<p>Ensure that Solr is installed and configured in your Hadoop cluster. Solr is included in Cloudera Search, which is installed automatically on Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Create a collection in your Solr installation into which you will load documents. To create a collection, use the <code class="codeph">solrctl</code> utility.</p>
+<div class="infoboxnotealso" id="GUID-E5EB1E76-518C-4FF6-9369-AF4C81F7B12D__GUID-263F9899-CBF9-49A1-89A1-593DCF8B4E64">
+<p class="notep1">See Also:</p>
+<p>For the <code class="codeph">solrctl</code> utility, <span class="italic">Cloudera Search User Guide</span> at</p>
+<p><a href="http://www.cloudera.com/content/cloudera-content/cloudera-docs/Search/latest/Cloudera-Search-User-Guide/csug_solrctl_ref.html" target="_blank"><code class="codeph">http://www.cloudera.com/content/cloudera-content/cloudera-docs/Search/latest/Cloudera-Search-User-Guide/csug_solrctl_ref.html</code></a></p>
+</div>
+</li>
+<li>
+<p>Configure Oracle XQuery for Hadoop to use your Solr installation by setting the <code class="codeph">OXH_SOLR_MR_HOME</code> environment variable to the local directory containing <code class="codeph">search-mr-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">.jar</code> and <code class="codeph">search-mr-</code><span class="italic"><code class="codeph">&lt;version&gt;</code></span><code class="codeph">-job.jar</code>. For example:</p>
+<pre dir="ltr">
+$ export OXH_SOLR_MR_HOME="/usr/lib/solr/contrib/mr"
+</pre>
+<div class="infobox-note" id="GUID-E5EB1E76-518C-4FF6-9369-AF4C81F7B12D__GUID-0702C780-5520-4812-9CA2-24A6141A719C">
+<p class="notep1">Note:</p>
+<p>Configure Oracle XQuery for Hadoop and set the <code class="codeph">OXH_SOLR_MR_HOME</code> environment variable to the local directory before using Apache Tika adapter as well.</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG510"></a>
+<div class="props_rev_3"><a id="GUID-FC45521E-DF7B-4A72-88D2-3B5F47EE4E0D"></a>
+<h3 id="BDCUG-GUID-FC45521E-DF7B-4A72-88D2-3B5F47EE4E0D" class="sect3"><span class="enumeration_section">1.8.3</span> Troubleshooting the File Paths</h3>
+<div>
+<div class="section">
+<p>If Oracle XQuery for Hadoop fails to find its own or third-party libraries when running queries, first ensure that the environment variables were set correctly during Oracle XQuery for Hadoop installation.</p>
+<div class="infobox-note" id="GUID-FC45521E-DF7B-4A72-88D2-3B5F47EE4E0D__GUID-534F88E3-EAED-4427-8EFA-2A0001BCC6ED">
+<p class="notep1">Note:</p>
+<p>The <code class="codeph">HADOOP_CLASSPATH</code> environment variable or <code class="codeph">-libjars</code> command line option must not contain either an OXH or third-party library.</p>
+</div>
+<p>If they are set correctly, then you may need to edit <code class="codeph">lib/oxh-lib.xml</code>. This file identifies the location of Oracle XQuery for Hadoop system JAR files and other libraries, such as Avro, Oracle Loader for Hadoop, and Oracle NoSQL Database.</p>
+<p>If necessary, you can reference environment variables in this file as <code class="codeph">${env.</code><span class="italic"><code class="codeph">variable</code></span><code class="codeph">}</code>, such as <code class="codeph">${env.OLH_HOME}</code>. You can also reference Hadoop properties as <code class="codeph">${</code><span class="italic"><code class="codeph">property</code></span><code class="codeph">}</code>, such as <code class="codeph">${mapred.output.dir}</code>.</p>
+</div>
+<!-- class="section" --></div>
+<div>
+<div class="relinfo">
+<p><strong>Related Topics</strong></p>
+<ul>
+<li><a href="start.htm#GUID-E5EB1E76-518C-4FF6-9369-AF4C81F7B12D">Installing Oracle XQuery for Hadoop</a></li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BDCUG747"></a>
+<div class="props_rev_3"><a id="GUID-91F4FDCA-1FFD-40D8-8CC2-13A761355819"></a>
+<h3 id="BDCUG-GUID-91F4FDCA-1FFD-40D8-8CC2-13A761355819" class="sect3"><span class="enumeration_section">1.8.4</span> Configuring Oozie for the Oracle XQuery for Hadoop Action</h3>
+<div>
+<div class="section">
+<p>You can use Apache Oozie workflows to run your queries, as described in <span class="q">"<a href="oxh.htm#GUID-2A58FB5A-3B92-45B9-9246-CA925703D744">Running Queries from Apache Oozie</a>"</span>. The software is already installed and configured on Oracle Big Data Appliance.</p>
+<p>For other Hadoop clusters, you must first configure Oozie to use the Oracle XQuery for Hadoop action. These are the general steps to install the Oracle XQuery for Hadoop action:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Modify the Oozie configuration. If you run CDH on third-party hardware, then use Cloudera Manager to change the Oozie server configuration. For other Hadoop installations, edit <code class="codeph">oozie-site.htm</code>.</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>Add <code class="codeph">oracle.hadoop.xquery.oozie.OXHActionExecutor</code> to the value of the <code class="codeph">oozie.service.ActionService.executor.ext.classes</code> property.</p>
+</li>
+<li>
+<p>Add <code class="codeph">oxh-action-v1.xsd</code> to the value of the <code class="codeph">oozie.service.SchemaService.wf.ext.schemas</code> property.</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="stepexpand"><span>Add <code class="codeph">oxh-oozie.jar</code> to the Oozie server class path. For example, in a CDH5 installation, copy <code class="codeph">oxh-oozie.jar</code> to <code class="codeph">/var/lib/oozie</code> on the server.</span></li>
+<li class="stepexpand"><span>Add all Oracle XQuery for Hadoop dependencies to the Oozie shared library in a subdirectory named <code class="codeph">oxh</code>. You can use the CLI <code class="codeph">-exportliboozie</code> option. See <span class="q">"<a href="oxh.htm#GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B">Oracle XQuery for Hadoop Options</a>"</span>.</span></li>
+<li class="stepexpand"><span>Restart Oozie for the changes to take effect.</span></li>
+</ol>
+<div class="section">
+<p>The specific steps depend on your Oozie installation, such as whether Oozie is already installed and which version you are using.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDCUG122"></a>
+<div class="props_rev_3"><a id="GUID-D7EB910C-949B-438B-8832-AF1422C0A5B1"></a>
+<h2 id="BDCUG-GUID-D7EB910C-949B-438B-8832-AF1422C0A5B1" class="sect2"><span class="enumeration_section">1.9</span> Oracle R Advanced Analytics for Hadoop Setup</h2>
+<div>
+<p>An overview of Oracle R Advanced Analytics for Hadoop (ORAAH) is provided in Part IV of this guide .</p>
+<p>Release notes, installation instructions, comprehensive reference material, and a list of changes in the current release are published separately on the Oracle Technology Network.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="http://www.oracle.com/technetwork/database/database-technologies/bdc/r-advanalytics-for-hadoop/documentation/oraah-2-8-0-install-guide-4861774.pdf" target="_blank">ORAAH 2.8.0 Installation Guide</a>.</p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/technetwork/database/database-technologies/bdc/r-advanalytics-for-hadoop/documentation/oraah-2-8-0-release-notes-4861780.pdf" target="_blank">Oracle R Advanced Analytics for Hadoop 2.8.0 Release Notes</a> .</p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/technetwork/database/database-technologies/bdc/r-advanalytics-for-hadoop/documentation/oraah-2-8-0-reference-manual-4861778.pdf" target="_blank">Oracle R Advanced Analytics for Hadoop 2.8.0 Reference Manual</a>.</p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/technetwork/database/database-technologies/bdc/r-advanalytics-for-hadoop/documentation/oraah-2-8-0-change-list-4861775.pdf" target="_blank">ORAAH 2.8.0 Change List Summary</a>.</p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/technetwork/database/database-technologies/bdc/r-advanalytics-for-hadoop/documentation/oraah-2-8-0-formula-4861781.pdf" target="_blank">ORAAH 2.8.0 Oracle Formula and Data Preprocessing</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/technetwork/database/database-technologies/bdc/r-advanalytics-for-hadoop/documentation/oraah-2-8-0-hive-impala-support-4861782.pdf" target="_blank">Supported Features for Apache Hive/Impala in ORAAH 2.8.0</a></p>
+</li>
+</ul>
+<p>Each ORAAH release is compatible with a number of Oracle Big Data Appliance releases and releases of CDH running on non-Oracle platforms.</p>
+<p>For a complete ORAAH compatibility matrix, see Document <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=408679426765807&amp;id=2225633.1&amp;_adf.ctrl-state=1bu5xt4y9c_77" target="_blank">2225633.1</a> on My Oracle Support.</p>
+</div>
+<a id="BDCUG123"></a>
+<div class="props_rev_3"><a id="GUID-E3512653-9AC2-4111-9503-5C59A37EA71E"></a>
+<h3 id="BDCUG-GUID-E3512653-9AC2-4111-9503-5C59A37EA71E" class="sect3"><span class="enumeration_section">1.9.1</span> Installing the Software on Hadoop</h3>
+<div>
+<div class="section">
+<p>Oracle Big Data Appliance supports Oracle R Advanced Analytics for Hadoop without any additional software installation or configuration. However, to use Oracle R Advanced Analytics for Hadoop on a third-party Hadoop cluster, you must create the necessary environment.</p>
+</div>
+<!-- class="section" --></div>
+<a id="BDCUG280"></a>
+<div class="props_rev_3"><a id="GUID-F7109BAA-44AA-48D0-8C9E-F78CC0D22039"></a>
+<h4 id="BDCUG-GUID-F7109BAA-44AA-48D0-8C9E-F78CC0D22039" class="sect4"><span class="enumeration_section">1.9.1.1</span> Software Requirements for a Third-Party Hadoop Cluster</h4>
+<div>
+<p>You must install several software components on a third-party Hadoop cluster to support Oracle R Advanced Analytics for Hadoop.</p>
+<div class="section">
+<p class="subhead3">Install these components on third-party servers:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A certified release of CDH (Cloudera's Distribution including Apache Hadoop) or HDP (Hadoop Data Platform), or, <a id="d4355e2719" class="indexterm-anchor"></a>Apache Hadoop 0.20.2+923.479 or later. See the <a href="https://www.oracle.com/database/big-data-connectors/certifications.html" target="_blank">Oracle Big Data Connectors Certification Matrix</a>.</p>
+<p>Complete the instructions provided by the distributor.</p>
+</li>
+<li>
+<p>Apache Hive 0.10.0+67 or later</p>
+<p>See <span class="q">"<a href="start.htm#GUID-C3312412-82DA-4711-B3B3-D7BC6A2DB047">Installing Hive on a Third-Party Hadoop Cluster</a>."</span></p>
+</li>
+<li>
+<p>Sqoop 1.3.0+5.95 or later for the execution of functions that connect to Oracle Database. Oracle R Advanced Analytics for Hadoop does not require Sqoop to install or load.</p>
+<p>See <span class="q">"<a href="start.htm#GUID-77A55188-1880-4D03-91A0-77F88D826881">Installing Sqoop on a Third-Party Hadoop Cluster</a>."</span></p>
+</li>
+<li>
+<p>Mahout for the execution of (<code class="codeph">orch_lmf_mahout_als.R</code>).</p>
+</li>
+<li>
+<p>Java Virtual Machine (JVM), preferably Java HotSpot Virtual Machine 6.</p>
+<p>Complete the instructions provided at the <a id="d4355e2757" class="indexterm-anchor"></a><a id="d4355e2759" class="indexterm-anchor"></a>download site at</p>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/java/javase/downloads/index.html</code></a></p>
+</li>
+<li>
+<p><a id="d4355e2769" class="indexterm-anchor"></a>Oracle R Distribution 3.0.1 with all base libraries on all nodes in the Hadoop cluster.</p>
+<p>See <span class="q">"<a href="start.htm#GUID-FCFED7EC-69E7-46A4-9083-75C66F7DF0F8">Installing R on a Third-Party Hadoop Cluster</a>."</span></p>
+</li>
+<li>
+<p>The <a id="d4355e2781" class="indexterm-anchor"></a>ORCH package on each R engine, which must exist on every node of the Hadoop cluster.</p>
+<p>See <span class="q">"<a href="start.htm#GUID-B676A346-DF8D-4E5D-816D-355B3E56B581">Installing the ORCH Package on a Third-Party Hadoop Cluster</a>"</span>.</p>
+</li>
+<li>
+<p>Oracle Loader for Hadoop to support the OLH driver (optional).</p>
+<p>See <span class="q">"<a href="start.htm#GUID-F6C3C7EA-60A3-47A7-BE31-5E8B4C19988B">Oracle Loader for Hadoop Setup</a>."</span></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="infobox-note" id="GUID-F7109BAA-44AA-48D0-8C9E-F78CC0D22039__GUID-39F34C4D-CF37-4EFB-A54D-B407023CAB70">
+<p class="notep1">Note:</p>
+<p>Do not set <a id="d4355e2804" class="indexterm-anchor"></a><code class="codeph">HADOOP_HOME</code> on the Hadoop cluster. CDH5 does not need it, and it interferes with Oracle R Advanced Analytics for Hadoop. If you must set <code class="codeph">HADOOP_HOME</code> for another application, then also set <a id="d4355e2812" class="indexterm-anchor"></a><code class="codeph">HADOOP_LIBEXEC_DIR</code> in the <code class="codeph">/etc/bashrc</code> file. For example:</p>
+<pre dir="ltr">
+export HADOOP_LIBEXEC_DIR=/usr/lib/hadoop/libexec
+</pre></div>
+</div>
+</div>
+<a id="BDCUG281"></a>
+<div class="props_rev_3"><a id="GUID-77A55188-1880-4D03-91A0-77F88D826881"></a>
+<h4 id="BDCUG-GUID-77A55188-1880-4D03-91A0-77F88D826881" class="sect4"><span class="enumeration_section">1.9.1.2</span> Installing Sqoop on a Third-Party Hadoop Cluster</h4>
+<div>
+<div class="section">
+<p>Sqoop provides a SQL-like interface to Hadoop, which is a Java-based environment. Oracle R Advanced Analytics for Hadoop uses Sqoop for access to Oracle Database.</p>
+<div class="infobox-note" id="GUID-77A55188-1880-4D03-91A0-77F88D826881__GUID-32CCB167-E24A-49DB-AEF3-0DC34B91BEA5">
+<p class="notep1">Note:</p>
+<p>Sqoop is required even when using Oracle Loader for Hadoop as a driver for loading data into Oracle Database. Sqoop performs additional functions, such as copying data from a database to HDFS and sending free-form queries to a database. The driver also uses Sqoop to perform operations that Oracle Loader for Hadoop does not support.</p>
+</div>
+<p>To install and configure Sqoop for use with Oracle Database:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Install Sqoop if it is not already installed on the server.</span>
+<div>
+<p>For Cloudera's Distribution including Apache Hadoop, see the Sqoop installation instructions in the <span class="italic">CDH Installation Guide</span> at</p>
+<p><a href="http://www.oracle.com/pls/lookup?ctx=E71937-01&amp;id=cloudera" target="_blank"><code class="codeph">http://oracle.cloudera.com/</code></a></p>
+</div>
+</li>
+<li class="stepexpand"><span><a id="d4355e2879" class="indexterm-anchor"></a><a id="d4355e2881" class="indexterm-anchor"></a>Download the appropriate Java Database Connectivity (JDBC) <a id="d4355e2884" class="indexterm-anchor"></a><a id="d4355e2888" class="indexterm-anchor"></a>driver for Oracle Database from <a id="d4355e2891" class="indexterm-anchor"></a>Oracle Technology Network at</span>
+<div>
+<p><a href="http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html</code></a></p>
+</div>
+</li>
+<li class="stepexpand"><span>Copy the driver JAR file to <code class="codeph">$SQOOP_HOME</code>/lib, which is a <a id="d4355e2908" class="indexterm-anchor"></a>directory such as <code class="codeph">/usr/lib/sqoop/lib</code>.</span></li>
+<li class="stepexpand"><span>Provide Sqoop with the connection string to Oracle Database.</span>
+<div>
+<pre dir="ltr">
+$ sqoop import --connect <span class="italic">jdbc_connection_string</span>
+</pre>
+<p>For example, <code class="codeph">sqoop import --connect jdbc:oracle:thin@myhost:1521/orcl</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BDCUG346"></a>
+<div class="props_rev_3"><a id="GUID-C3312412-82DA-4711-B3B3-D7BC6A2DB047"></a>
+<h4 id="BDCUG-GUID-C3312412-82DA-4711-B3B3-D7BC6A2DB047" class="sect4"><span class="enumeration_section">1.9.1.3</span> Installing Hive on a Third-Party Hadoop Cluster</h4>
+<div>
+<div class="section">
+<p>Hive provides an alternative storage and retrieval mechanism to HDFS files through a querying language called HiveQL. Oracle R Advanced Analytics for Hadoop uses the data preparation and analysis features of HiveQL, while enabling you to use R language constructs.</p>
+<p>To install Hive:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Follow the instructions provided by the distributor (Cloudera or Apache) for installing Hive.</span></li>
+<li><span>Verify that the installation is working correctly:</span></li>
+<li><span>$ <span class="bold">hive -H</span> usage: hive -d,--define &lt;key=value&gt; Variable subsitution to apply to hive commands. e.g. -d A=B or --define A=B . . .</span></li>
+<li><span>If the command fails or you see warnings in the output, then fix the Hive installation.</span></li>
+</ol>
+</div>
+</div>
+<a id="BDCUG287"></a>
+<div class="props_rev_3"><a id="GUID-ECBEBD46-6A55-4AE9-BE1B-BA3E0A44BF28"></a>
+<h4 id="BDCUG-GUID-ECBEBD46-6A55-4AE9-BE1B-BA3E0A44BF28" class="sect4"><span class="enumeration_section">1.9.1.4</span> Installing R on a Hadoop Client</h4>
+<div>
+<div class="section">
+<p>You can <a id="d4355e2992" class="indexterm-anchor"></a><a id="d4355e2994" class="indexterm-anchor"></a>download R 2.13.2 and get the installation instructions from the Oracle <a id="d4355e2997" class="indexterm-anchor"></a>R Distribution website at</p>
+<p><a href="http://www.oracle.com/pls/lookup?ctx=E83411_01&amp;id=ord_downloads" target="_blank"><code class="codeph">http://oss.oracle.com/ORD/</code></a></p>
+<p>When you are done, ensure that users have the necessary permissions to connect to the Linux server and run R.</p>
+<p>You may also want to install RStudio Server to facilitate access by R users. See the RStudio website at</p>
+<p><a href="http://www.oracle.com/pls/lookup?ctx=E83411_01&amp;id=rstudio" target="_blank"><code class="codeph">http://rstudio.org/</code></a></p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG282"></a>
+<div class="props_rev_3"><a id="GUID-FCFED7EC-69E7-46A4-9083-75C66F7DF0F8"></a>
+<h4 id="BDCUG-GUID-FCFED7EC-69E7-46A4-9083-75C66F7DF0F8" class="sect4"><span class="enumeration_section">1.9.1.5</span> Installing R on a Third-Party Hadoop Cluster</h4>
+<div>
+<div class="section">
+<p>You can <a id="d4355e3035" class="indexterm-anchor"></a><a id="d4355e3037" class="indexterm-anchor"></a>download Oracle <a id="d4355e3040" class="indexterm-anchor"></a>R Distribution 3.0.1 and get the installation instructions from the website at</p>
+<p><a href="http://www.oracle.com/technetwork/database/database-technologies/r/r-distribution/downloads/index.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/database/database-technologies/r/r-distribution/downloads/index.html</code></a></p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG283"></a>
+<div class="props_rev_3"><a id="GUID-B676A346-DF8D-4E5D-816D-355B3E56B581"></a>
+<h4 id="BDCUG-GUID-B676A346-DF8D-4E5D-816D-355B3E56B581" class="sect4"><span class="enumeration_section">1.9.1.6</span> Installing the ORCH Package on a Third-Party Hadoop Cluster</h4>
+<div>
+<div class="section">
+<p>ORCH is the name of the Oracle R Advanced Analytics for Hadoop package.</p>
+<p>To install the ORCH package:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Log in as <code class="codeph">root</code> to the first node of the cluster.</span></li>
+<li class="stepexpand"><span>Set the environment variables for the supporting software:</span>
+<div>
+<pre dir="ltr">
+$ export JAVA_HOME="/usr/lib/jdk7"
+$ export R_HOME="/usr/lib64/R"
+$ export SQOOP_HOME "/usr/lib/sqoop"
+</pre></div>
+</li>
+<li class="stepexpand"><span>Unzip the downloaded file:</span>
+<div>
+<pre dir="ltr">
+$ <span class="bold">unzip orch-</span><span class="italic"><span class="bold">&lt;version&gt;</span></span><span class="bold">.zip</span>
+$ unzip orch-linux-x86_64-&lt;version&gt;.zip 
+Archive:  orch-linux-x86_64-&lt;version&gt;.zip
+   creating: ORCH&lt;version&gt;/
+ extracting: ORCH&lt;version&gt;/ORCH_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz  
+  inflating: ORCH&lt;version&gt;/ORCHcore_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz  
+     .
+     .
+     .
+</pre></div>
+</li>
+<li class="stepexpand"><span>Change to the new directory:</span>
+<div>
+<pre dir="ltr">
+$ cd ORCH&lt;version&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Install the packages in the exact order shown here:</span>
+<div>
+<pre dir="ltr">
+R --vanilla CMD INSTALL OREbase_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz
+R --vanilla CMD INSTALL OREstats_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz
+R --vanilla CMD INSTALL OREmodels_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz
+R --vanilla CMD INSTALL OREserver_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz
+R --vanilla CMD INSTALL ORCHcore_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz
+R --vanilla CMD INSTALL ORCHstats_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz
+R --vanilla CMD INSTALL ORCH_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz
+</pre></div>
+</li>
+<li class="stepexpand"><span>You must also install these packages on all other nodes of the cluster:</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>OREbase</p>
+</li>
+<li>
+<p>OREmodels</p>
+</li>
+<li>
+<p>OREserver</p>
+</li>
+<li>
+<p>OREstats</p>
+</li>
+</ul>
+<p>The following examples use the <code class="codeph">dcli</code> utility, which is available on Oracle Big Data Appliance but not on third-party clusters, to copy and install the <code class="codeph">OREserver</code> package:</p>
+<pre dir="ltr">
+$ dcli -C -f OREserver_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz -d /tmp/ OREserver_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz
+
+$ dcli -C " R --vanilla CMD INSTALL /tmp/OREserver_&lt;version&gt;_R_x86_64-unknown-linux-gnu.tar.gz"
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="BDCUG426"></a>
+<div class="props_rev_3"><a id="GUID-00C33EBE-E2BE-438E-ABE2-FC9BDAC1A950"></a>
+<h3 id="BDCUG-GUID-00C33EBE-E2BE-438E-ABE2-FC9BDAC1A950" class="sect3"><span class="enumeration_section">1.9.2</span> Installing Additional R Packages</h3>
+<div>
+<div class="section">
+<p>Your Hadoop cluster must have <code class="codeph">libpng-devel</code> installed on every node. If you are using a cluster running on commodity hardware, then you can follow the same basic procedures. However, you cannot use the <code class="codeph">dcli</code> utility to replicate the commands across all nodes. See <a class="olink BIGOG76614" target="_blank" href="../BIGOG/dcli.htm#BIGOG76614"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> for the syntax of the <code class="codeph">dcli</code> utility.</p>
+<p>To install libpng-devel:</p>
+<ol>
+<li>
+<p>Log in as <code class="codeph">root</code> to any node in your Hadoop cluster.</p>
+</li>
+<li>
+<p>Check whether <code class="codeph">libpng-devel</code> is already installed:</p>
+<pre dir="ltr">
+# <span class="bold">dcli rpm -qi libpng-devel</span>
+bda1node01: package libpng-devel is not installed
+bda1node02: package libpng-devel is not installed
+     .
+     .
+     .
+</pre>
+<p>If the package is already installed on all servers, then you can skip this procedure.</p>
+</li>
+<li>
+<p>If you need a proxy server to go outside a firewall, then set the <code class="codeph">HTTP_PROXY</code> environment variable. This example uses dcli, which is available only on Oracle Big Data Appliance:</p>
+<pre dir="ltr">
+# dcli export HTTP_PROXY="<span class="italic">http://proxy.example.com</span>"
+</pre></li>
+<li>
+<p>Change to the <code class="codeph">yum</code> directory:</p>
+<pre dir="ltr">
+# cd /etc/yum.repos.d
+</pre></li>
+<li>
+<p>Download and configure the appropriate configuration file for your version of Linux:</p>
+<p>For Enterprise Linux 5 (EL5):</p>
+<ol>
+<li>
+<p>Download the yum configuration file:</p>
+<pre dir="ltr">
+# wget http://public-yum.oracle.com/public-yum-el5.repo
+</pre></li>
+<li>
+<p>Open <code class="codeph">public-yum-el5.repo</code> in a text editor and make these changes:</p>
+<p>Under <code class="codeph">el5_latest</code>, set <code class="codeph">enabled=1</code></p>
+<p>Under <code class="codeph">el5_addons</code>, set <code class="codeph">enabled=1</code></p>
+</li>
+<li>
+<p>Save your changes and exit.</p>
+</li>
+<li>
+<p>Copy the file to the other Oracle Big Data Appliance servers:</p>
+<pre dir="ltr">
+# dcli -d /etc/yum.repos.d -f public-yum-el5.repo
+</pre></li>
+</ol>
+<p>For Oracle Linux 6 (OL6):</p>
+<ol>
+<li>
+<p>Download the yum configuration file:</p>
+<pre dir="ltr">
+# wget http://public-yum.oracle.com/public-yum-ol6.repo
+</pre></li>
+<li>
+<p>Open <code class="codeph">public-yum-ol6.repo</code> in a text editor and make these changes:</p>
+<p>Under <code class="codeph">ol6_latest</code>, set <code class="codeph">enabled=1</code></p>
+<p>Under <code class="codeph">ol6_addons</code>, set <code class="codeph">enabled=1</code></p>
+</li>
+<li>
+<p>Save your changes and exit.</p>
+</li>
+<li>
+<p>Copy the file to the other Oracle Big Data Appliance servers:</p>
+<pre dir="ltr">
+# dcli -d /etc/yum.repos.d -f public-yum-ol6.repo
+</pre></li>
+</ol>
+</li>
+<li>
+<p>Install the package on all servers:</p>
+<pre dir="ltr">
+# <span class="bold">dcli yum -y install libpng-devel</span>
+bda1node01: Loaded plugins: rhnplugin, security
+bda1node01: Repository 'bda' is missing name in configuration, using id
+bda1node01: This system is not registered with ULN.
+bda1node01: ULN support will be disabled.
+bda1node01: http://bda1node01-master.abcd.com/bda/repodata/repomd.xml:
+bda1node01: [Errno 14] HTTP Error 502: notresolvable
+bda1node01: Trying other mirror.
+     .
+     .
+     .
+bda1node01: Running Transaction
+bda1node01: Installing     : libpng-devel                    1/2
+bda1node01: Installing     : libpng-devel                    2/2
+ 
+bda1node01: Installed:
+bda1node01: libpng-devel.i386 2:1.2.10-17.el5_8  ibpng-devel.x86_64 2:1.2.10-17.el5_8
+ 
+bda1node01: Complete!
+bda1node02: Loaded plugins: rhnplugin, security
+     .
+     .
+     .
+</pre></li>
+<li>
+<p>Verify that the installation was successful on all servers:</p>
+<pre dir="ltr">
+# <span class="bold">dcli rpm -qi libpng-devel</span>
+bda1node01: Name        : libpng-devel Relocations: (not relocatable)
+bda1node01: Version     : 1.2.10       Vendor: Oracle America
+bda1node01: Release     : 17.el5_8      Build Date: Wed 25 Apr 2012 06:51:15 AM PDT
+bda1node01: Install Date: Tue 05 Feb 2013 11:41:14 AM PST  Build Host: ca-build56.abcd.com
+bda1node01: Group       : Development/Libraries  Source RPM: libpng-1.2.10-17.el5_8.src.rpm
+bda1node01: Size        : 482483                 License: zlib
+bda1node01: Signature   : DSA/SHA1, Wed 25 Apr 2012 06:51:41 AM PDT, Key ID 66ced3de1e5e0159
+bda1node01: URL         : http://www.libpng.org/pub/png/
+bda1node01: Summary     : Development tools for programs to manipulate PNG image format files.
+bda1node01: Description :
+bda1node01: The libpng-devel package contains the header files and static
+bda1node01: libraries necessary for developing programs using the PNG (Portable
+bda1node01: Network Graphics) library.
+     .
+     .
+     .
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG124"></a>
+<div class="props_rev_3"><a id="GUID-3E639783-5C07-4594-8F13-083E99F2A6D1"></a>
+<h3 id="BDCUG-GUID-3E639783-5C07-4594-8F13-083E99F2A6D1" class="sect3"><span class="enumeration_section">1.9.3</span> Providing Remote Client Access to R Users</h3>
+<div>
+<p>Whereas R users will run their programs as MapReduce jobs on the Hadoop cluster, they do not typically have individual accounts on that platform. Instead, an external Linux server provides remote access.</p>
+</div>
+<a id="BDCUG284"></a>
+<div class="props_rev_3"><a id="GUID-70BF6D47-6FCE-4719-A099-08B1E6DF9D83"></a>
+<h4 id="BDCUG-GUID-70BF6D47-6FCE-4719-A099-08B1E6DF9D83" class="sect4"><span class="enumeration_section">1.9.3.1</span> Software Requirements for Remote Client Access</h4>
+<div>
+<p>To provide access to a Hadoop cluster to R users, install these components on a Linux server:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The same version of Hadoop as your Hadoop cluster; otherwise, unexpected issues and failures can occur</p>
+</li>
+<li>
+<p>The same version of Sqoop as your Hadoop cluster; required only to support copying data in and out of Oracle databases</p>
+</li>
+<li>
+<p>Mahout; required only for the <code class="codeph">orch.ls</code> function with the Mahout ALS-WS algorithm</p>
+</li>
+<li>
+<p>The same version of the Java Development Kit (JDK) as your Hadoop cluster</p>
+</li>
+<li>
+<p><a id="d4355e3372" class="indexterm-anchor"></a>Oracle R distribution 3.0.1 with all base libraries</p>
+</li>
+<li>
+<p>ORCH R package</p>
+</li>
+</ul>
+<p>To provide access to database objects, you must have the Oracle Advanced Analytics option to Oracle Database. Then you can install this additional component on the Hadoop client:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle R Enterprise Client Packages</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDCUG285"></a>
+<div class="props_rev_3"><a id="GUID-734D0842-4D6B-471B-9132-9956D7DFD540"></a>
+<h4 id="BDCUG-GUID-734D0842-4D6B-471B-9132-9956D7DFD540" class="sect4"><span class="enumeration_section">1.9.3.2</span> Configuring the Server as a Hadoop Client</h4>
+<div>
+<div class="section">
+<p>You must install Hadoop on the client and minimally configure it for HDFS client use.</p>
+<p>To install and configure Hadoop on the client system:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Install and configure CDH5 or Apache Hadoop 2.2.0 on the client system. This system can be the host for Oracle Database. <span>If you are using Oracle Big Data Appliance, then complete the procedures for providing remote client access in the <a class="olink BIGUG207" target="_blank" href="../BIGUG/users.htm#BIGUG207"><span class="italic">Oracle Big Data Appliance Software User's Guide</span></a>. Otherwise, follow the installation instructions provided by the distributor (Cloudera or Apache).</span></span></li>
+<li class="stepexpand"><span>Log in to the client system as an R user.</span></li>
+<li class="stepexpand"><span>Open a Bash shell and enter this Hadoop file system command:</span>
+<div>
+<pre dir="ltr">
+$HADOOP_HOME/bin/hdfs dfs -ls /user
+</pre></div>
+</li>
+<li class="stepexpand"><span>If you see a list of files, then you are done. If not, then ensure that the Hadoop cluster is up and running. If that does not fix the problem, then you must debug your client Hadoop installation.</span></li>
+</ol>
+</div>
+</div>
+<a id="BDCUG286"></a>
+<div class="props_rev_3"><a id="GUID-D2F55315-0E56-41FA-89D7-EEABFC1A018E"></a>
+<h4 id="BDCUG-GUID-D2F55315-0E56-41FA-89D7-EEABFC1A018E" class="sect4"><span class="enumeration_section">1.9.3.3</span> Installing Sqoop on a Hadoop Client</h4>
+<div>
+<div class="section">
+<p>Complete the same procedures on the client system for installing and configuring Sqoop as those provided in <span class="q">"<a href="start.htm#GUID-77A55188-1880-4D03-91A0-77F88D826881">Installing Sqoop on a Third-Party Hadoop Cluster</a>"</span>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="unique_1994468688"></a>
+<h4 id="BDCUG-unique_1994468688" class="sect4"><span class="enumeration_section">1.9.3.4</span> Installing R on a Hadoop Client</h4>
+<div>
+<div class="section">
+<p>You can <a id="d4355e3501" class="indexterm-anchor"></a><a id="d4355e3503" class="indexterm-anchor"></a>download R 2.13.2 and get the installation instructions from the Oracle <a id="d4355e3506" class="indexterm-anchor"></a>R Distribution website at</p>
+<p><a href="http://www.oracle.com/pls/lookup?ctx=E83411_01&amp;id=ord_downloads" target="_blank"><code class="codeph">http://oss.oracle.com/ORD/</code></a></p>
+<p>When you are done, ensure that users have the necessary permissions to connect to the Linux server and run R.</p>
+<p>You may also want to install RStudio Server to facilitate access by R users. See the RStudio website at</p>
+<p><a href="http://www.oracle.com/pls/lookup?ctx=E83411_01&amp;id=rstudio" target="_blank"><code class="codeph">http://rstudio.org/</code></a></p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG288"></a>
+<div class="props_rev_3"><a id="GUID-0D361F1B-CE3F-42CB-8BBF-ECB81C27E48F"></a>
+<h4 id="BDCUG-GUID-0D361F1B-CE3F-42CB-8BBF-ECB81C27E48F" class="sect4"><span class="enumeration_section">1.9.3.5</span> Installing the ORCH Package on a Hadoop Client</h4>
+<div>
+<div class="section">
+<p>To install ORCH on your Hadoop client system:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Download the ORCH package and unzip it on the client system.</span></li>
+<li class="stepexpand"><span>Change to the installation directory.</span></li>
+<li class="stepexpand"><span>Run the client script:</span>
+<div>
+<pre dir="ltr">
+# ./install-client.sh
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BDCUG289"></a>
+<div class="props_rev_3"><a id="GUID-674FD2C3-5713-4A7E-BB06-96D34CC5B096"></a>
+<h4 id="BDCUG-GUID-674FD2C3-5713-4A7E-BB06-96D34CC5B096" class="sect4"><span class="enumeration_section">1.9.3.6</span> Installing the Oracle R Enterprise Client Packages (Optional)</h4>
+<div>
+<div class="section">
+<p>To support full access to Oracle Database using R, install the Oracle R Enterprise client packages. Without them, Oracle R Advanced Analytics for Hadoop does not have access to the advanced statistical algorithms provided by Oracle R Enterprise.</p>
+<div class="infoboxnotealso" id="GUID-674FD2C3-5713-4A7E-BB06-96D34CC5B096__GUID-9C9E27FF-EDC3-4734-AF62-EB3E4AD1ED0E">
+<p class="notep1">See Also:</p>
+<p><a class="olink OREUG" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E93613-01&amp;id=OREUG"><span class="italic">Oracle R Enterprise User's Guide</span></a> for information about installing R and Oracle R Enterprise</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+<a id="BDCUG1047"></a>
+<div class="props_rev_3"><a id="GUID-DA112DAB-1D7A-4909-9824-F6840A5FB506"></a>
+<h2 id="BDCUG-GUID-DA112DAB-1D7A-4909-9824-F6840A5FB506" class="sect2"><span class="enumeration_section">1.10</span> Oracle Data Integrator</h2>
+<div>
+<p>For the instructions to set up and use Oracle Data Integrator refer to <a href="http://docs.oracle.com/middleware/1221/odi/odi-big-data/index.html" target="_blank"><span class="italic">Oracle Fusion Middleware Integrating Big Data with Oracle Data Integrator</span></a>.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-C3C85DE0-1F52-48D8-B2D6-52D399745F5A"></a>
+<h2 id="BDCUG-GUID-C3C85DE0-1F52-48D8-B2D6-52D399745F5A" class="sect2"><span class="enumeration_section">1.11</span> Oracle Datasource for Apache Hadoop Setup</h2>
+<div>
+<div class="section">
+<p class="subhead2">Software Requirements</p>
+<p>Oracle Datasource for Apache Hadoop requires the following software:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A target database system running Oracle Database 12c, 11.2.0.4, or earlier Oracle database releases that can be queried with the Oracle JDBC driver for 12c.</p>
+<p>Note that Oracle Database 11.2.0.4 and potentially earlier Oracle Database release may work. However, some of the SPLIT patterns have dependencies on Oracle Database 12c and might not provide accurate splits for parallel hadoop jobs when used to query earlier releases of Oracle Database.</p>
+</li>
+<li>
+<p>Cloudera's Distribution including Apache Hadoop version 5 (CDH5), Hortonworks Data Platform (HDP) 2.x, or, Apache Hadoop 2.2.0 to 2.6.0.</p>
+</li>
+<li>
+<p>Apache Hive 0.13.0, 0.13.1 or 1.1.0 (in order to query data from Oracle Database tables).</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Installing Oracle Datasource for Hadoop</p>
+<p>Ensure that the OD4H jars in $OD4H_HOME/jlib are accessible to Hive commands using OD4H. You can do this in the following ways:</p>
+<p>1. Configure HiveServer 2 and make jars available cluster wide. This will enable Hive client beeline and other tools (such as SQL Developer) to work with OD4H.</p>
+<p>2. To isolate configuration to a particular session, add jars manually. You can use this method for situations when you use OD4H and do not want the OD4H jars to interfere with other applications.</p>
+</div>
+<!-- class="section" --></div>
+<div class="sect3"><a id="GUID-0926601C-6BD3-4F1C-8104-69B2C76F6659"></a>
+<h3 id="BDCUG-GUID-0926601C-6BD3-4F1C-8104-69B2C76F6659" class="sect3"><span class="enumeration_section">1.11.1</span> Configuring HiveServer2</h3>
+<div>
+<p>Following are the steps to configure HiveServer2:</p>
+<p>1. Login to Cloudera Manager</p>
+<p>2. Click on <span class="bold">Hive.</span></p>
+<div class="figure" id="GUID-0926601C-6BD3-4F1C-8104-69B2C76F6659__GUID-2DAF4C07-C3E1-44C0-9E2B-B0ADDB24CB35">
+<p class="titleinfigure">Figure 1-2 Hive UI</p>
+<img width="1160" height="439" src="img/GUID-1ED63A05-51BA-416D-A67D-32FEF98575D8-default.png" alt="Description of Figure 1-2 follows" title="Description of Figure 1-2 follows" /><br />
+<a href="img_text/GUID-1ED63A05-51BA-416D-A67D-32FEF98575D8-default.htm">Description of "Figure 1-2 Hive UI"</a></div>
+<!-- class="figure" -->
+<div class="figure" id="GUID-0926601C-6BD3-4F1C-8104-69B2C76F6659__GUID-78D194C1-7D3C-40BD-987A-EE713B26378B">
+<p class="titleinfigure">Figure 1-3 Cloudera Manager</p>
+</div>
+<!-- class="figure" -->
+<p>3. Under Status Summary, click <span class="bold">HiveServer2</span>.</p>
+<div class="figure" id="GUID-0926601C-6BD3-4F1C-8104-69B2C76F6659__GUID-B907C407-7F38-4550-AB62-386800BBCD0B">
+<p class="titleinfigure">Figure 1-4 Hive Server2</p>
+<img width="1140" height="327" src="img/GUID-11DEA4FE-AA5D-4D83-A275-626A213A68AE-default.png" alt="Description of Figure 1-4 follows" title="Description of Figure 1-4 follows" /><br />
+<a href="img_text/GUID-11DEA4FE-AA5D-4D83-A275-626A213A68AE-default.htm">Description of "Figure 1-4 Hive Server2"</a></div>
+<!-- class="figure" -->
+<p>4. Click on <span class="bold">Configuration</span>.</p>
+<div class="figure" id="GUID-0926601C-6BD3-4F1C-8104-69B2C76F6659__GUID-36AA63A0-20F9-4588-B11B-55A0032332CB">
+<p class="titleinfigure">Figure 1-5 Configuring HiveServer2</p>
+<img width="1155" height="635" src="img/GUID-84250198-445C-49C0-B047-6A4B4A3CC447-default.png" alt="Description of Figure 1-5 follows" title="Description of Figure 1-5 follows" /><br />
+<a href="img_text/GUID-84250198-445C-49C0-B047-6A4B4A3CC447-default.htm">Description of "Figure 1-5 Configuring HiveServer2"</a></div>
+<!-- class="figure" -->
+<p>5. Click on <span class="bold">Service Configuration</span>.</p>
+<div class="figure" id="GUID-0926601C-6BD3-4F1C-8104-69B2C76F6659__GUID-515E06D7-6C59-4AD3-B538-5AE0B050769A">
+<p class="titleinfigure">Figure 1-6 Service Configuration</p>
+<img width="1150" height="335" src="img/GUID-43DA7219-7559-4B93-9097-9CCBD6D9E70F-default.png" alt="Description of Figure 1-6 follows" title="Description of Figure 1-6 follows" /><br />
+<a href="img_text/GUID-43DA7219-7559-4B93-9097-9CCBD6D9E70F-default.htm">Description of "Figure 1-6 Service Configuration"</a></div>
+<!-- class="figure" -->
+<p>6. Type &lsquo;AUX&rsquo; in the search box. Under the property &lsquo;Service-Wide/Advanced&rsquo;, add the directory containing jars you want to add in HiveServer2.</p>
+<div class="figure" id="GUID-0926601C-6BD3-4F1C-8104-69B2C76F6659__GUID-DB72EDA8-8C77-4297-9DD3-C42861C620BC">
+<p class="titleinfigure">Figure 1-7 Adding Jars</p>
+<img width="1175" height="695" src="img/GUID-7FBA9E04-43CA-4F10-8DD4-EEB70C633AA1-default.png" alt="Description of Figure 1-7 follows" title="Description of Figure 1-7 follows" /><br />
+<a href="img_text/GUID-7FBA9E04-43CA-4F10-8DD4-EEB70C633AA1-default.htm">Description of "Figure 1-7 Adding Jars"</a></div>
+<!-- class="figure" -->
+<p>7. Restart Hive.</p>
+<div class="section">
+<p class="subhead3">Add Jars to Hive CLI</p>
+<p>To enable jars to be present locally to a Hive CLI session, add the jars via Hive CLI as follows:</p>
+<p><code class="codeph">$ hive</code></p>
+<p><code class="codeph">hive&gt; Add jar &lt;jar name&gt;</code></p>
+<p><code class="codeph">hive&gt; Add jar &lt;jar name&gt;</code></p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<hr />
+<br />
+<p style="text-decoration:underline">Footnote Legend</p>
+Footnote&nbsp;1:
+<p><span class="italic">Hadoop: The Definitive Guide, Third Edition</span> by Tom White (O'Reilly Media Inc., 2012, 978-1449311520).</p>
+<br /></div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment25">
+<tr>
+<td class="cellalignment66">
+<table class="cellalignment30">
+<tr>
+<td class="cellalignment29"><a href="setup-part.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment29"><a href="connectors-part.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment68">
+<table class="cellalignment28">
+<tr>
+<td class="cellalignment29"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment29"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment29"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment29"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment29"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+</body>
+</html>

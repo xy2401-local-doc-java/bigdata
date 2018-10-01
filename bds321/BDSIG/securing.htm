@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Securing Big Data SQL</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-08-03T19:36:02Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E87608-09" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds321/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="uninstall.htm" title="Previous" type="text/html" />
+<link rel="Next" href="additionaltools.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E87608-09.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-4D61AACF-BEE7-497C-8CE0-14DF1F9DC204"></a> <span id="PAGE" style="display:none;">11/18</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-4D61AACF-BEE7-497C-8CE0-14DF1F9DC204" class="sect1"><span class="enumeration_chapter">7</span> Securing Big Data SQL</h1>
+<div>
+<p>This section describes security features provided by Oracle Big Data SQL, measures you can take to secure Big Data SQL, and to pointers to the information you need in order to configure Oracle Big Data SQL within secured environments.</p>
+</div>
+<div class="sect2"><a id="GUID-AC694FFD-081B-4360-8B80-B36CA498C55A"></a>
+<h2 id="BDSIG-GUID-AC694FFD-081B-4360-8B80-B36CA498C55A" class="sect2"><span class="enumeration_section">7.1</span> Security Overview</h2>
+<div>
+<div class="section">
+<p class="subhead2">Network Security</p>
+<p>In Oracle Big Data SQL, network traffic between the database and the Hadoop cluster, is no longer guaranteed to be over a private InfiniBand network, but can occur over a client network. This network traffic is not currently secured. Therefore when operating a secured Hadoop cluster (e.g., Kerberos-enabled, RPC encryption), Oracle Big Data SQL requires either that all members of the client network be trusted, or that private network connectivity is used exclusively for communication between the Hadoop nodes and Oracle database instances. This private network is commonly referred to as the <span class="italic">Big Data SQL interconnect network</span>. The interconnect network must be a private network with only trusted users, use at least one switch, and 10 Gigabit Ethernet adapters. Ensure that only the nodes in the Hadoop cluster and Oracle RAC cluster can access the interconnect network. Do not use the interconnect network for other user communication.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Installer File Security</p>
+<p>The new Jaguar installer incorporates the following best practices for secure Linux installers and applications:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>No persistent or temporary world-writable files are created.</p>
+</li>
+<li>
+<p>No setuid or setgid files are used.</p>
+</li>
+</ul>
+<p>In addition, the installer works with hardened Oracle Database environments as well as hardened CDH and HDP clusters as described in the Cloudera CDH and Hortonworks HDP security documentation</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Password Safety</p>
+<p>The Jaguar installer provides these password security measures:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Passwords for the Ambari and Cloudera Manager servers (management servers) are not be passed in on the command line and are not be saved on any persistent file during and/or after the installation is complete.</p>
+</li>
+<li>
+<p>Passwords are not be logged to any log or trace files.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Security of Related Software</p>
+<p>Oracle Big Data SQL relies on other installed software, including third party projects. It is the customer&rsquo;s responsibility to ensure that such software is kept up-to-date with the latest security patches. This software includes is (but not limited to):</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Java JDK</p>
+</li>
+<li>
+<p>Python</p>
+</li>
+<li>
+<p>Perl</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-DDCB8B7F-C7B7-4B6A-8C3D-9AF4A18A67C8"></a>
+<h2 id="BDSIG-GUID-DDCB8B7F-C7B7-4B6A-8C3D-9AF4A18A67C8" class="sect2"><span class="enumeration_section">7.2</span> Big Data SQL Communications and Secure Hadoop Clusters</h2>
+<div>
+<p>It is generally a good security practice to ensure that HDFS file access permissions are minimized in order to prevent unauthorized write/read access. This is true regardless of whether or not the Hadoop cluster is secured by Kerberos.</p>
+<p>Please refer to MOS Document 2123125.1 at <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a> for detailed guidelines on securing Hadoop clusters for use with Oracle Big Data SQL.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-0462B09F-CBD9-4E13-9AE2-036D4329748D"></a>
+<h2 id="BDSIG-GUID-0462B09F-CBD9-4E13-9AE2-036D4329748D" class="sect2"><span class="enumeration_section">7.3</span> Configuring Oracle Big Data SQL in a Kerberos-Secured Environment</h2>
+<div>
+<p>If Kerberos is enabled on the Hadoop system, you must configure Oracle Big Data SQL on the database server to work with Kerberos. This requires a Kerberos client on each database node where Oracle Big Data SQL is installed. Also, the OS account that owns the database (<code class="codeph">oracle</code> or another account ) must be provisioned as a user principal.</p>
+<p>When operating a secured Hadoop cluster (e.g., Kerberos enabled, RPC encryption), Oracle Big Data SQL requires either that all members of the client network be trusted, or that private network connectivity is used exclusively for communication between the Hadoop nodes and Oracle database instances. This private network is commonly referred to as the Big Data SQL interconnect network. The interconnect network must be a private network with only trusted users, use at least one switch, and 10 Gigabit Ethernet adapters. Ensure that only the nodes in the Hadoop cluster and Oracle RAC cluster can access the interconnect network. Do not use the interconnect network for other user communication.</p>
+</div>
+<div class="sect3"><a id="GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9"></a>
+<h3 id="BDSIG-GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9" class="sect3"><span class="enumeration_section">7.3.1</span> Enabling Oracle Big Data SQL Access to a Kerberized Cluster</h3>
+<div>
+<p>You must configure Oracle Big Data SQL to use Kerberos in environments where user access is Kerberos-controlled.</p>
+<p>There are two situations when this is required:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>When enabling Oracle Big Data SQL on a Kerberos-enabled cluster.</p>
+</li>
+<li>
+<p>When enabling Kerberos on a cluster where Oracle Big Data SQL is already installed.</p>
+</li>
+</ul>
+<p>Oracle Big Data SQL processes run on the nodes of the Hadoop cluster as the <code class="codeph">oracle</code> Linux user. On the Oracle Database server, the owner of the Oracle Database process is also (usually) the <code class="codeph">oracle</code> Linux user. When Kerberos is enabled on the Hadoop system, the following is required in order to give the user access to HDFS.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The <code class="codeph">oracle</code> Linux user needs to be able to authenticate as a principal in the Kerberos database on the Kerberos Key Distribution Center (KDC) server. The principal name in Kerberos does not have to be 'oracle'. However, the principal must have access to the underlying Hadoop data being requested by Oracle Big Data SQL.</p>
+</li>
+<li>
+<p>The following are required on all Oracle Database nodes and all Hadoop cluster nodes running Oracle Big Data SQL:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Kerberos client software installed.</p>
+</li>
+<li>
+<p>A copy of the Kerberos configuration file from the KDC.</p>
+</li>
+<li>
+<p>A copy of the Kerberos keytab file generated on the KDC for the <code class="codeph">oracle</code> user.</p>
+</li>
+<li>
+<p>A valid Kerberos ticket for the <code class="codeph">oracle</code> Linux user.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section">
+<p class="subhead3">Installing the Kerberos Client</p>
+<p>If the Kerberos client is not installed, see <a href="securing.htm#GUID-04DE627E-D60B-4F0A-833F-44A98A190AC9" title="If the Oracle Database system is Kerberos secured, then Oracle Big Data SQL requires a Kerberos client. The client must be installed on each compute node of the database.">Installing a Kerberos Client on the Oracle Database Nodes</a> for instructions on installing the Kerberos client.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Creating a Kerberos Principal for the oracle User</p>
+<p>On the Kerberos Key Distribution Center (KDC) server, become <code class="codeph">root</code> and use <code class="codeph">kadmin.local</code> to add a principal for the <code class="codeph">oracle</code> user.</p>
+<ol>
+<li><code class="codeph"># kadmin.local</code></li>
+<li>
+<p>Within kadmin.local, type:</p>
+<pre dir="ltr">
+add_principal &lt;<span class="italic">user</span>&gt;@&lt;<span class="italic">realm</span>&gt;
+quit
+</pre>
+<p>You have the option to include the password, as in:</p>
+<pre dir="ltr">
+add_principal &lt;<span class="italic">user</span>&gt;@&lt;<span class="italic">realm</span>&gt; -pw &lt;<span class="italic">password</span>&gt; 
+quit
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Creating a Kerberos Keytab for the oracle User</p>
+<ol>
+<li>
+<p>On the KDC, become <code class="codeph">root</code> and run the following:</p>
+<pre dir="ltr">
+# kadmin.local
+</pre></li>
+<li>
+<div class="p">Within <code class="codeph">kadmin.local</code>, type:
+<pre dir="ltr">
+xst &ndash;norandkey -k /home/oracle/oracle.keytab oracle
+quit
+</pre></div>
+<p>This creates the <code class="codeph">oracle.keytab</code> file for the Kerberos <code class="codeph">oracle</code> user in the <code>/home/oracle</code> directory.</p>
+</li>
+<li>
+<div class="p">Ensure that <code>oracle.keytab</code> is owned by the <code class="codeph">oracle</code> Linux user and is readable by that user only.
+<pre dir="ltr">
+$ chown oracle oracle.keytab 
+$ chmod 400 oracle.keytab
+</pre></div>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Kerberos Tasks Automated by Oracle Big Data SQL</p>
+<p>The following Kerberos tasks are now automated:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Distributing Keytab and Kerberos configuration file distrbution files.</p>
+<p>The Oracle Big Data SQL installation can now be configured to automatically distribute the keytab and Kerberos configuration files for the <code class="codeph">oracle</code> user or other database owner to the Hadoop DataNodes (and Oracle Database compute nodes). This is done if the principal name and keytab file location parameters are set in the Jaguar configuration file. This is automation is performed on both the Hadoop and Oracle Database side.</p>
+<p>On Oracle Big Data Appliance, the keytab file distribution is done default for the <code class="codeph">oracle</code> account and you do not need to add the principal and keytab file path for this account to the configuration file.</p>
+</li>
+<li>
+<p>Acquiring a Kerberos Ticket for designated principals.</p>
+<p>For <code class="codeph">oracle</code> and other principals that were listed in the Jaguar configuration file, the installation acquires a Kerberos ticket on each Hadoop DataNode and Oracle DB compute node</p>
+</li>
+<li>
+<p>Ticket renewal</p>
+<p>The installation automatically sets up cron jobs in the Hadoop cluster and on Oracle Database to kinit for new ticket for each principal in the configuration four times daily.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Cleaning up After Ticket Expirations</p>
+<p>When the bd_cell process is running on the nodes of a secured Hadoop cluster but the Kerberos ticket is not valid, then the cell goes to quarantine status. You should drop all such quarantines.</p>
+<ol>
+<li>
+<p>Check that the <code class="codeph">oracle</code> user has a valid Kerberos ticket on all Hadoop cluster nodes.</p>
+</li>
+<li>
+<p>On each cluster node, become <code class="codeph">oracle</code> and run the following:</p>
+<pre dir="ltr">
+$ /opt/oracle/bd_cell/cellsrv/bin/bdscli
+</pre></li>
+<li>
+<p>In the bdscli shell, type:</p>
+<pre dir="ltr">
+list quarantine
+</pre></li>
+<li>
+<div class="p">While still in bdscli, drop each quarantine on the list:
+<pre dir="ltr">
+drop quarantine &lt;<span class="italic">id</span>&gt;
+</pre></div>
+</li>
+<li>
+<p>Type <code class="codeph">exit</code> to exit bdscli.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-04DE627E-D60B-4F0A-833F-44A98A190AC9"></a>
+<h3 id="BDSIG-GUID-04DE627E-D60B-4F0A-833F-44A98A190AC9" class="sect3"><span class="enumeration_section">7.3.2</span> Installing a Kerberos Client on the Oracle Database Nodes</h3>
+<div>
+<p>If the Oracle Database system is Kerberos secured, then Oracle Big Data SQL requires a Kerberos client. The client must be installed on each compute node of the database.</p>
+<p>For commodity servers, download the Kerberos client software from a repository of your choice. If the database server is an Oracle Exadata Database Machine, download and install the software from the Oracle repository as shown below. The process should be similar for downloads from non-Oracle repositories.</p>
+<p>Log on to the database server as root and use yum to install the <code class="codeph">krb5-libs</code> and <code class="codeph">krb5-workstation</code> packages. Download from the Oracle Linux 6 or Oracle Linux 5 repository as appropriate.</p>
+<ol>
+<li>
+<p>Check that the Oracle <code class="codeph">public-yum-ol6</code> or <code class="codeph">public-yum-ol5</code> repository ID is installed.</p>
+<pre dir="ltr">
+# yum repolist
+</pre></li>
+<li>
+<div class="p">Temporarily disable all repository IDs and then enable the Oracle repository only ( Oracle Linux 6 in this example).
+<pre dir="ltr">
+# yum --disablerepo="*" --enablerepo="public-yum-ol6" list available 
+</pre></div>
+</li>
+<li>
+<p>Install the Kerberos packages.</p>
+<pre dir="ltr">
+# yum install krb5-libs krb5-workstation 
+</pre></li>
+<li>
+<p>Copy the <code>/etc/krb5.conf</code> file from the Key Distribution Center (KDC) to the same path on the database server.</p>
+</li>
+</ol>
+<p>These steps must be performed for each Oracle Database node.</p>
+<p>You must also register the <code class="codeph">oracle</code> Linux user (or other Linux user) and password in the KDC for the cluster as described in <a href="securing.htm#GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9" title="You must configure Oracle Big Data SQL to use Kerberos in environments where user access is Kerberos-controlled.">Enabling Oracle Big Data SQL Access to a Kerberized Cluster</a></p>
+</div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-2326934B-DA41-430C-A1EB-6AA6A4B351DA"></a>
+<h2 id="BDSIG-GUID-2326934B-DA41-430C-A1EB-6AA6A4B351DA" class="sect2"><span class="enumeration_section">7.4</span> Using Oracle Secure External Password Store to Manage Database access for Oracle Big Data SQL</h2>
+<div>
+<p>On the Oracle Database server, you can use the Oracle Secure External Password Store (SEPS) to manage database access credentials for Oracle Big Data SQL.</p>
+<p>This is done by creating an Oracle wallet for the <code class="codeph">oracle</code> Linux user (or other database owner).&nbsp;An&nbsp;Oracle wallet&nbsp;is a password-protected container used to store authentication and signing credentials, including private keys, certificates, and trusted certificates needed by SSL.</p>
+<p>See <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=423899369571644&amp;id=2126903.1&amp;_adf.ctrl-state=11jfouoh96_67" target="_blank">MOS Document 2126903.1</a> at <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a> for information on using SEPS with Oracle Big Data SQL.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-6DFA4938-73FF-4371-9591-38E3B39A94E9"></a>
+<h2 id="BDSIG-GUID-6DFA4938-73FF-4371-9591-38E3B39A94E9" class="sect2"><span class="enumeration_section">7.5</span> About Data Security on Oracle Big Data Appliance</h2>
+<div>
+<p>If your Hadoop system is an Oracle Big Data Appliance, the following tools to strengthen security are already available.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Kerberos authentication</span>: Requires users and client software to provide credentials before accessing the cluster.</p>
+</li>
+<li>
+<p><span class="bold">Apache Sentry authorization</span>: Provides fine-grained, role-based authorization to data and metadata.</p>
+</li>
+<li>
+<p><a id="d10191e487" class="indexterm-anchor"></a><span class="bold">HDFS Transparent Encryption</span>: Protects the data on disk and at rest. Data encryption and decryption is transparent to applications using the data.</p>
+</li>
+<li>
+<p><a id="d10191e494" class="indexterm-anchor"></a><span class="bold">HTTPS/ Network Encryption</span>: Provides HTTPS for Cloudera Manager, Hue, Oozie, and Hadoop Web UIs. Also Enables network encryption for other internal Hadoop data transfers, such as those made through YARN shuffle and RPC.</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-6DFA4938-73FF-4371-9591-38E3B39A94E9__GUID-83B5C9DA-21FD-42B7-AA53-78145096D2B1">
+<p class="notep1">See Also:</p>
+The <a class="olink BIGUG-GUID-3B4A0B01-B35E-44EE-B4AE-0C624AD8DAEA" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E96999-01&amp;id=BIGUG-GUID-3B4A0B01-B35E-44EE-B4AE-0C624AD8DAEA">Oracle Big Data Appliance Software User&rsquo;s Guide</a> provides details on available security features. You can find this guide and other documentation for your release of the Oracle Big Data Appliance software in the &ldquo;Big Data&rdquo; section of the <a href="https://docs.oracle.com//en/bigdata/" target="_blank">Oracle Help Center</a>.</div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-115F91E7-F8A4-4783-B0FF-249C08DCC982"></a>
+<h2 id="BDSIG-GUID-115F91E7-F8A4-4783-B0FF-249C08DCC982" class="sect2"><span class="enumeration_section">7.6</span> Authentication Between Oracle Database and Oracle Big Data SQL Offload Cell Server Processes</h2>
+<div>
+<p>The Database Authentication feature described in this guide prevents unauthorized and potentially malicious processes (which can originate from anywhere) from connecting to Oracle Big Data SQL cell server processes in the DataNodes of the Hadoop cluster.</p>
+<p>When Ethernet is selected for the connection between Oracle Databases and Oracle Big Data SQL, then by default this secured authentication framework is set up automatically during the installation. Database Authentication is also available as a configuration option for InfiniBand connections.</p>
+<div class="infoboxnotealso" id="GUID-115F91E7-F8A4-4783-B0FF-249C08DCC982__GUID-C02B59BF-BF4E-4ACC-8CFB-8E20988575CB">
+<p class="notep1">See Also:</p>
+<a href="installhadoopside.htm#GUID-91773A49-ABB4-4BC8-9068-3238DF50A108">Jaguar Configuration Parameter and Command Reference</a></div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-98A73C7C-AEB6-4005-AE2D-2A7D4A24D47F"></a>
+<h2 id="BDSIG-GUID-98A73C7C-AEB6-4005-AE2D-2A7D4A24D47F" class="sect2"><span class="enumeration_section">7.7</span> The Multi-User Authorization Model</h2>
+<div>
+<p>Multi-User Authorization gives you the ability to use Hadoop Secure Impersonation to direct the <code class="codeph">oracle</code> account to execute tasks on behalf of other designated users. This enables HDFS data access based on the user that is currently executing the query, rather than the singular <code class="codeph">oracle</code> user.</p>
+<p>Administrators set up the rules for identifying the query user (the currently connected user) and for mapping this user to the user that is impersonated. Because there are numerous ways in which users can connect to Oracle Database, this user may be a database user, a user sourced from LDAP, from Kerberos, or other sources. Authorization rules on the files apply to the query user and audits will identify the user as the query user.</p>
+<div class="infoboxnotealso" id="GUID-98A73C7C-AEB6-4005-AE2D-2A7D4A24D47F__GUID-AC254306-42B9-486C-BF30-EF4BAA59D11D">
+<p class="notep1">See Also:</p>
+The <a class="olink BIGOG-GUID-0CAD2118-8953-4CFD-B0E4-540F3CE94BC8" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E96999-01&amp;id=BIGOG-GUID-0CAD2118-8953-4CFD-B0E4-540F3CE94BC8">DBMS_BDSQL PL/SQL Package</a>in the <span class="italic">Oracle Big Data SQL User&rsquo;s Guide</span> describes the Multi-User Authorization security table and the procedures for adding user maps to the table and removing them from the table.</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="uninstall.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="additionaltools.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds321/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

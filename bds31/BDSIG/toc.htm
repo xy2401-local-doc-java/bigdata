@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Big Data SQL Installation Guide - Contents</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Describes the Oracle Big Data SQL software available to administrators and software developers." />
+<meta name="dcterms.created" content="2018-04-30T10:38:15Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E77165-10" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds31/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"   src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"   src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Next" href="title.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77165-10.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript"  src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript"  src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript"  src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript"  src="../dcommon/js/foundation.min.js"></script>
+<script type="application/javascript"  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript"  src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript"  src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">1/13</span> <!-- End Header -->
+<h1 class="toc">Contents</h1>
+<h2 class="tocheader"><a href="title.htm">Title and Copyright Information</a></h2>
+<h2 class="tocheader"><a href="preface.htm#GUID-1870FB3D-84BF-4FBB-B10D-4CA49B3ACCC5">Preface</a></h2>
+<ul style="list-style-type: none">
+<li><a href="preface.htm#GUID-C5DBC506-CB69-47A4-BC38-77B603408C46">Audience</a></li>
+<li><a href="preface.htm#GUID-744AF32F-4F23-4DC4-99D9-DC3838B13683">Related Documents</a></li>
+<li><a href="preface.htm#GUID-6EF8BEA8-A885-4C67-83B6-676A00501B17">Conventions</a></li>
+<li><a href="preface.htm#GUID-88E10D63-C959-42BB-986B-128FA34AA7A9">Backus-Naur Form Syntax</a></li>
+<li><a href="preface.htm#GUID-012827C4-FE2A-4946-9588-D5D210C19661">Changes in Oracle Big Data SQL 3.1</a></li>
+</ul>
+<h2 class="tocheader"><a href="introduction.htm#GUID-29BAFB68-E852-4AD3-931B-30DF65BBCD44"><span class="secnum">1</span> Introduction</a></h2>
+<ul style="list-style-type: none">
+<li><a href="introduction.htm#GUID-FD0216F4-B340-4056-ADC0-EAEA03C82EA1"><span class="secnum">1.1</span> Oracle Big Data SQL Master Compatibility Matrix</a></li>
+<li><a href="introduction.htm#GUID-D56FF53C-8F81-49E3-9ADA-E2F3342AE9E9"><span class="secnum">1.2</span> Installation Overview</a></li>
+<li><a href="introduction.htm#GUID-5CDA332E-8CB8-42CC-8922-09295E22B0E5"><span class="secnum">1.3</span> Downloading Oracle Big Data SQL</a></li>
+<li><a href="introduction.htm#GUID-389C27EA-A393-414F-BF4F-0AD60B85C35C"><span class="secnum">1.4</span> Upgrading From a Prior Release of Oracle Big Data SQL</a></li>
+</ul>
+<h2 class="tocheader"><a href="installhadoopside.htm#GUID-CB4E25D4-B406-4CED-9097-D897C1AEAA58"><span class="secnum">2</span> Installing the Hadoop Side of Oracle Big Data SQL</a></h2>
+<ul style="list-style-type: none">
+<li><a href="installhadoopside.htm#GUID-BE75588A-626F-491C-9005-446FDB0408A5"><span class="secnum">2.1</span> Installation Prerequisites</a>
+<ul style="list-style-type: none">
+<li><a href="installhadoopside.htm#GUID-2592E917-8C40-4313-AEDF-ED645671707C"><span class="secnum">2.1.1</span> Checking for Prerequisites on the Hadoop DataNodes</a></li>
+</ul>
+</li>
+<li><a href="installhadoopside.htm#GUID-8553EEF4-4D29-4D1A-B256-580A9021AC12"><span class="secnum">2.2</span> Installing on the Hadoop Cluster Management Server</a></li>
+<li><a href="installhadoopside.htm#GUID-DB114461-5B9F-4418-B258-23440D69682B"><span class="secnum">2.3</span> Creating the Database-Side Installation Bundle</a></li>
+</ul>
+<h2 class="tocheader"><a href="installdbside.htm#GUID-E0E62C0F-F4FA-436A-95E8-0EB3287802A4"><span class="secnum">3</span> Installing the Oracle Database Side of Oracle Big Data SQL</a></h2>
+<ul style="list-style-type: none">
+<li><a href="installdbside.htm#GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59"><span class="secnum">3.1</span> Installing on the Oracle Database Server</a></li>
+<li><a href="installdbside.htm#GUID-E3375284-C5C6-4FF3-8E11-1F70E2649F2A"><span class="secnum">3.2</span> Potential Requirement to Restart Grid Infrastructure</a>
+<ul style="list-style-type: none">
+<li><a href="installdbside.htm#GUID-E74A54CB-A16F-4672-B108-D82AE13E75BE"><span class="secnum">3.2.1</span> Understanding When Grid or Database Restart is Required</a></li>
+</ul>
+</li>
+<li><a href="installdbside.htm#GUID-2E0E833A-199A-4C9F-9811-66EC6680909D"><span class="secnum">3.3</span> Granting Oracle Big Data Access to Users</a></li>
+</ul>
+<h2 class="tocheader"><a href="uninstall.htm#GUID-3634DD3B-5878-406D-BC08-8A4EE48CC406"><span class="secnum">4</span> Uninstalling Oracle Big Data SQL</a></h2>
+<ul style="list-style-type: none">
+<li><a href="uninstall.htm#GUID-F4A55E32-C2AF-42D9-9ABB-F9054C23378B"><span class="secnum">4.1</span> General Guidelines for Removing the Software</a></li>
+<li><a href="uninstall.htm#GUID-FBF3B1B3-B6E7-4DED-8B7D-510091BEB2D4"><span class="secnum">4.2</span> Uninstalling From an Oracle Database Server</a></li>
+<li><a href="uninstall.htm#GUID-659B5BBB-3BE9-491A-895D-16AEE160C6F3"><span class="secnum">4.3</span> Removing Oracle Big Data SQL From Hadoop Cluster Nodes</a></li>
+<li><a href="uninstall.htm#GUID-CB0E3BC7-0A7E-4A6A-92F0-191641AD8302"><span class="secnum">4.4</span> Uninstalling From the Hadoop Cluster Management Server</a></li>
+</ul>
+<h2 class="tocheader"><a href="adaptingtochange.htm#GUID-1C979747-3CAD-4C43-9A50-201C4494AAFF"><span class="secnum">5</span> Adapting to Hadoop Cluster and Oracle Database Changes</a></h2>
+<ul style="list-style-type: none">
+<li><a href="adaptingtochange.htm#GUID-3FDEE25B-8CF2-4992-B1FF-71FBCBFC522E"><span class="secnum">5.1</span> Installing on New Hadoop DataNodes After a Cluster Extension</a></li>
+<li><a href="adaptingtochange.htm#GUID-2298CDEF-31D7-48CC-A7FE-AA150DB0ABAD"><span class="secnum">5.2</span> Reconfiguring an Existing Oracle Big Data SQL Installation on Database Nodes</a></li>
+<li><a href="adaptingtochange.htm#GUID-01F2C180-E367-4ED0-B5D8-26E6272A2C1E"><span class="secnum">5.3</span> Extending an Existing Installation to New Database Nodes</a></li>
+</ul>
+<h2 class="tocheader"><a href="securing.htm#GUID-4D61AACF-BEE7-497C-8CE0-14DF1F9DC204"><span class="secnum">6</span> Securing Big Data SQL</a></h2>
+<ul style="list-style-type: none">
+<li><a href="securing.htm#GUID-DDCB8B7F-C7B7-4B6A-8C3D-9AF4A18A67C8"><span class="secnum">6.1</span> Big Data SQL Communications and Secure Hadoop Clusters</a></li>
+<li><a href="securing.htm#GUID-04DE627E-D60B-4F0A-833F-44A98A190AC9"><span class="secnum">6.2</span> Installing a Kerberos Client on the Database Server</a></li>
+<li><a href="securing.htm#GUID-715E3BA7-5B27-4314-B2B2-A107AD7C53E9"><span class="secnum">6.3</span> Enabling Oracle Big Data SQL Access to a Kerberized Cluster</a></li>
+<li><a href="securing.htm#GUID-2326934B-DA41-430C-A1EB-6AA6A4B351DA"><span class="secnum">6.4</span> Using Oracle Secure External Password Store to Manage Database access for Oracle Big Data SQL</a></li>
+<li><a href="securing.htm#GUID-6DFA4938-73FF-4371-9591-38E3B39A94E9"><span class="secnum">6.5</span> About Data Security on Oracle Big Data Appliance</a></li>
+</ul>
+<h2 class="tocheader"><a href="additionaltools.htm#GUID-82BFB573-1991-406E-8C09-DA9C7630142B"><span class="secnum">7</span> Additional Tools Installed</a></h2>
+<ul style="list-style-type: none">
+<li><a href="additionaltools.htm#GUID-8136D74D-0BA9-4B7E-A46E-7B0A2F5DED84"><span class="secnum">7.1</span> Copy to Hadoop and OHSH</a>
+<ul style="list-style-type: none">
+<li><a href="additionaltools.htm#GUID-9745340D-54F5-41B9-BAAF-034F33549A75"><span class="secnum">7.1.1</span> Completing the OHSH Configuration on Oracle Database Nodes</a></li>
+<li><a href="additionaltools.htm#GUID-11D199F1-4040-4E69-9EE1-310C070A8638"><span class="secnum">7.1.2</span> Completing the OHSH Configuration on the Hadoop Cluster</a></li>
+<li><a href="additionaltools.htm#GUID-9D8B7391-5CCC-4B98-B308-845B71E48981"><span class="secnum">7.1.3</span> Getting Started Using Copy to Hadoop and OHSH</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="installoutput.htm#GUID-D15A3626-F4F6-4EBB-A6BE-476EBC137CC9"><span class="secnum">A</span> Oracle Big Data SQL Install/Uninstall/Reconfigure Examples</a></h2>
+<h2 class="tocheader"><a href="licensing.htm#GUID-8E911C46-3FAA-44BA-BCEE-FB9EF94E494E"><span class="secnum">B</span> Oracle Big Data SQL Licensing</a></h2>
+<ul style="list-style-type: none">
+<li><a href="licensing.htm#GUID-5EFA2B7C-E00A-4396-ABB8-AD1C33A7C984"><span class="secnum">B.1</span> ANTLR 4.5.3</a></li>
+<li><a href="licensing.htm#GUID-F8A636AB-8B51-4900-A299-DA0B88E99780"><span class="secnum">B.2</span> Apache Commons Exec 1.3</a></li>
+<li><a href="licensing.htm#GUID-9320A8D4-1D32-4E7E-B9B3-9D9F85B490D3"><span class="secnum">B.3</span> Apache Licensed Code</a></li>
+<li><a href="licensing.htm#GUID-6AE555DE-5B16-42C9-9AF6-5BDB555497C5"><span class="secnum">B.4</span> Apache License</a></li>
+</ul>
+<h2 class="tocheader"><a href="index.htm">Index</a></h2>
+</div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment64">
+<tr>
+<td class="cellalignment57"><a href="title.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment63">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds31/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

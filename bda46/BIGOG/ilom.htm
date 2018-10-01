@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using Oracle Integrated Lights Out Manager</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="network diagrams, administrative network diagram, Oracle ILOM, Ethernet connections, opening serial connections" />
+<meta name="dcterms.created" content="2018-07-23T02:05:52Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E77517-03" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda46/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="dcli.htm" title="Previous" type="text/html" />
+<link rel="Next" href="appendices.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77517-03.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-AB39F905-92FA-4571-9585-8F95FC04E99A"></a> <span id="PAGE" style="display:none;">23/31</span> <!-- End Header -->
+<a id="BIGOG20999"></a>
+<h1 id="BIGOG-GUID-AB39F905-92FA-4571-9585-8F95FC04E99A" class="sect1"><span class="enumeration_chapter">15</span> Using Oracle Integrated Lights Out Manager</h1>
+<div>
+<p>Oracle Integrated Lights Out Manager (Oracle <a id="d72508e18" class="indexterm-anchor"></a><a id="d72508e20" class="indexterm-anchor"></a><a id="d72508e22" class="indexterm-anchor"></a><a id="d72508e24" class="indexterm-anchor"></a><a id="d72508e28" class="indexterm-anchor"></a><a id="d72508e32" class="indexterm-anchor"></a>ILOM) is a preinstalled component of Oracle Big Data Appliance that you can use to monitor the servers and switches. You use Oracle ILOM in <a href="configure.htm#GUID-BD34C9EF-67C1-4871-A6AA-27E3534DE682">Configuring an Oracle Big Data Appliance Full Rack or Starter Rack</a>.</p>
+<p>This chapter contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="ilom.htm#GUID-058F077D-C47C-4E40-AE82-45B71489162A">Oracle ILOM Overview</a></p>
+</li>
+<li>
+<p><a href="ilom.htm#GUID-793FBFC3-CD69-430A-97AC-87581B77EDED">Administrative Network Diagram</a></p>
+</li>
+<li>
+<p><a href="ilom.htm#GUID-DA0F9C7E-A09E-48A7-89B9-81B8EB1B60FE">Oracle ILOM IP Addresses for Oracle Big Data Appliance Components</a></p>
+</li>
+<li>
+<p><a href="ilom.htm#GUID-B366C8F3-D134-4031-A061-BE35F6C9FAF0">Connecting to Oracle ILOM Using the Network</a></p>
+</li>
+<li>
+<p><a href="ilom.htm#GUID-0BDA96BA-CD9D-446D-8136-0B34A08DF64C">Connecting to Oracle ILOM Using a Serial Connection</a></p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-AB39F905-92FA-4571-9585-8F95FC04E99A__GUID-23D80F3C-DDC5-4830-81FE-D2B7DD0EAADE">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>For Sun Server X4-2L and Sun Server X3-2L servers, the Oracle Integrated Lights Out Manager 3.1 documentation library at</p>
+<p><a href="http://docs.oracle.com/cd/E24707_01/index.html" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E24707_01/index.html</code></a></p>
+</li>
+<li>
+<p>For Sun Fire X4270 M2 servers, Oracle Integrated Lights Out Manager 3.0 documentation library at</p>
+<p><a href="http://docs.oracle.com/cd/E19860-01/" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19860-01/</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGOG76230"></a>
+<div class="props_rev_3"><a id="GUID-058F077D-C47C-4E40-AE82-45B71489162A"></a>
+<h2 id="BIGOG-GUID-058F077D-C47C-4E40-AE82-45B71489162A" class="sect2"><span class="enumeration_section">15.1</span> Oracle ILOM Overview</h2>
+<div>
+<p>Oracle Integrated Lights Out Manager (<a id="d72508e101" class="indexterm-anchor"></a><a id="d72508e105" class="indexterm-anchor"></a>Oracle ILOM) provides advanced service processor (SP) hardware and software that you can use to manage and monitor the servers and switches in an Oracle Big Data Appliance rack. Oracle ILOM dedicated hardware and software is preinstalled on these components. It automatically initializes as soon as power is applied.</p>
+<p>Oracle ILOM enables you to actively manage and monitor servers in Oracle Big Data Appliance regardless of the operating system state, providing you with a reliable lights-out management (LOM) system.</p>
+<p>With Oracle ILOM, you can proactively:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Learn about hardware errors and faults as they occur</p>
+</li>
+<li>
+<p>Remotely control the power state of a server</p>
+</li>
+<li>
+<p>View the graphical and nongraphical consoles</p>
+</li>
+<li>
+<p>View the current status of sensors and indicators on the system</p>
+</li>
+<li>
+<p>Determine the hardware configuration of your system</p>
+</li>
+<li>
+<p>Receive generated <a id="d72508e133" class="indexterm-anchor"></a><a id="d72508e135" class="indexterm-anchor"></a>alerts about system events in advance</p>
+</li>
+</ul>
+<p>The Oracle ILOM service processor runs its own embedded operating system and has a dedicated Ethernet port, which together provide out-of-band management capability. In addition, you can access Oracle ILOM from the server operating system (Oracle Linux). Using Oracle ILOM, you can remotely manage Oracle Big Data Appliance as if you were using a local KVM.</p>
+</div>
+<a id="BIGOG76232"></a><a id="BIGOG76233"></a><a id="BIGOG76231"></a>
+<div class="props_rev_3"><a id="GUID-ECE29109-FC19-426E-B494-77206C0DE5A6"></a>
+<h3 id="BIGOG-GUID-ECE29109-FC19-426E-B494-77206C0DE5A6" class="sect3"><span class="enumeration_section">15.1.1</span> Oracle ILOM Interfaces</h3>
+<div>
+<p><a id="d72508e161" class="indexterm-anchor"></a><a id="d72508e165" class="indexterm-anchor"></a><a id="d72508e167" class="indexterm-anchor"></a>Oracle ILOM supports two interfaces for accessing its features and functions. You can choose to use a browser-based web interface or a command-line interface.</p>
+<div class="section">
+<p class="subhead3">Web Interface</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The web interface enables you use a browser to log in to the SP, and then to perform system management and monitoring.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Command-Line Interface</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The command-line interface (CLI) enables you to operate Oracle ILOM using keyboard commands. It adheres to industry-standard DMTF-style CLI and scripting protocols. Oracle ILOM supports SSH v2.0 and v3.0 for secure access to the CLI. From the CLI, you can reuse existing scripts and automate tasks using familiar interfaces.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76639"></a>
+<div class="props_rev_3"><a id="GUID-C90317B1-1148-4E55-92A2-BCC1C75BB70D"></a>
+<h3 id="BIGOG-GUID-C90317B1-1148-4E55-92A2-BCC1C75BB70D" class="sect3"><span class="enumeration_section">15.1.2</span> Oracle ILOM Users</h3>
+<div>
+<p>The Oracle Big Data Appliance servers are configured initially with only the <code class="codeph">root</code> user.</p>
+<p>The InfiniBand switches are configured with these additional users:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ilom-admin</code>: Provides the write privileges needed to change the system configuration, without the full power of <code class="codeph">root</code>.</p>
+</li>
+<li>
+<p><code class="codeph">ilom-operator</code>: Provides read-only privileges to monitor the system.</p>
+</li>
+</ul>
+<p>As <code class="codeph">root</code>, you can create additional ILOM users if you want.</p>
+</div>
+</div>
+</div>
+<a id="BIGOG76334"></a><a id="BIGOG76333"></a>
+<div class="props_rev_3"><a id="GUID-793FBFC3-CD69-430A-97AC-87581B77EDED"></a>
+<h2 id="BIGOG-GUID-793FBFC3-CD69-430A-97AC-87581B77EDED" class="sect2"><span class="enumeration_section">15.2</span> Administrative Network Diagram</h2>
+<div>
+<p><a href="ilom.htm#GUID-793FBFC3-CD69-430A-97AC-87581B77EDED__CHDCAAFJ">Figure 15-1</a> illustrates the administrative Oracle ILOM network. It shows two of the 18 servers and the two Sun Network QDR InfiniBand Gateway Switches. The Cisco Ethernet management switch is connected to the servers and the InfiniBand switches.</p>
+<div class="figure" id="GUID-793FBFC3-CD69-430A-97AC-87581B77EDED__CHDCAAFJ">
+<p class="titleinfigure">Figure 15-1 Administrative Network in Oracle Big Data Appliance</p>
+<img width="411" height="257" src="img/GUID-F6F38BDF-180E-4DDA-ACC2-FAA91D28277E-default.png" alt="Description of Figure 15-1 follows" title="Description of Figure 15-1 follows" /><br />
+<a href="img_text/GUID-F6F38BDF-180E-4DDA-ACC2-FAA91D28277E-print.htm">Description of "Figure 15-1 Administrative Network in Oracle Big Data Appliance"</a></div>
+<!-- class="figure" --></div>
+</div>
+<a id="BIGOG76026"></a>
+<div class="props_rev_3"><a id="GUID-DA0F9C7E-A09E-48A7-89B9-81B8EB1B60FE"></a>
+<h2 id="BIGOG-GUID-DA0F9C7E-A09E-48A7-89B9-81B8EB1B60FE" class="sect2"><span class="enumeration_section">15.3</span> Oracle ILOM IP Addresses for Oracle Big Data Appliance Components</h2>
+<div>
+<p>You require at least one static IP address for service processor (Oracle ILOM) access. For the list of default Oracle ILOM IP addresses assigned to Oracle Big Data Appliance components at the time of manufacturing, see <span class="q">"<a href="network.htm#GUID-70BDE0E8-9478-4B80-888A-C28079B86336">Factory Network Settings</a>"</span>.</p>
+<p>After you reconfigure these IP addresses using Oracle Big Data Appliance Configuration Generation Utility, you must use the reconfigured IP addresses to access Oracle ILOM.</p>
+</div>
+</div>
+<a id="BIGOG76234"></a>
+<div class="props_rev_3"><a id="GUID-B366C8F3-D134-4031-A061-BE35F6C9FAF0"></a>
+<h2 id="BIGOG-GUID-B366C8F3-D134-4031-A061-BE35F6C9FAF0" class="sect2"><span class="enumeration_section">15.4</span> Connecting to Oracle ILOM Using the Network</h2>
+<div>
+<p>You can typically access Oracle ILOM using the network over an Ethernet connection. You must know the Oracle ILOM Ethernet address. Before system configuration, the address is the factory IP address setting. After system configuration, you can use either the component name or the IP address listed in the Installation Template. You can use either the CLI or the browser interface to access Oracle ILOM. Alternatively, you can launch a remote KVM session (Sun Fire X4270 M2-based racks only).</p>
+<div class="infobox-note" id="GUID-B366C8F3-D134-4031-A061-BE35F6C9FAF0__GUID-59245FCD-CAE5-434C-A934-E27EC024017F">
+<p class="notep1">Note:</p>
+<p>You can use this connection method when Oracle ILOM IP addresses can be accessed over the network. Oracle recommends that you use this connection method. See <a href="configure.htm#GUID-BD34C9EF-67C1-4871-A6AA-27E3534DE682">Configuring an Oracle Big Data Appliance Full Rack or Starter Rack</a></p>
+</div>
+<p>This section discusses the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="ilom.htm#GUID-7C0D2F15-395E-4B3C-9AC2-C3D52D78F200">Connecting to the Command-Line Interface</a></p>
+</li>
+<li>
+<p><a href="ilom.htm#GUID-9E293020-76E8-446C-97C3-103FA14F8638">Connecting to the Web GUI</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76235"></a>
+<div class="props_rev_3"><a id="GUID-7C0D2F15-395E-4B3C-9AC2-C3D52D78F200"></a>
+<h3 id="BIGOG-GUID-7C0D2F15-395E-4B3C-9AC2-C3D52D78F200" class="sect3"><span class="enumeration_section">15.4.1</span> Connecting to the Command-Line Interface</h3>
+<div>
+<div class="section">
+<p>To connect to the <a id="d72508e349" class="indexterm-anchor"></a>Oracle ILOM command-line interface:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Open a secure shell (SSH) client, such as PuTTY.</span></li>
+<li class="stepexpand"><span>In the <span class="bold">Host Name (or IP address)</span> field, enter the Oracle ILOM name or IP address of the component to connect to. For example, before configuration, you might enter the factory default IP address of <code class="codeph">192.168.1.203</code> for a Sun Network QDR InfiniBand Gateway switch. After configuration, you might enter the new IP address or a name such as <code class="codeph">bda1sw-ib2</code>.</span></li>
+<li class="stepexpand"><span>Ensure that <span class="bold">SSH</span> is chosen as the <span class="bold">Connection Type</span>.</span></li>
+<li class="stepexpand"><span>Type the user name and the password, when prompted. The default user name is <code class="codeph">root</code>, and the default password is <code class="codeph">welcome1</code>.</span>
+<div>
+<p>The CLI command prompt (#) is displayed.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Enter <code class="codeph">help</code> for a list of commands.</span></li>
+</ol>
+<div class="section">
+<div class="infoboxnotealso" id="GUID-7C0D2F15-395E-4B3C-9AC2-C3D52D78F200__GUID-792E89FB-C29A-42DA-9970-3825E4CF96FA">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Oracle ILOM Daily Management -- CLI Procedures Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19860-01/" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19860-01/</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76607"></a><a id="BIGOG76236"></a>
+<div class="props_rev_3"><a id="GUID-9E293020-76E8-446C-97C3-103FA14F8638"></a>
+<h3 id="BIGOG-GUID-9E293020-76E8-446C-97C3-103FA14F8638" class="sect3"><span class="enumeration_section">15.4.2</span> Connecting to the Web GUI</h3>
+<div>
+<div class="section">
+<p>To connect to the <a id="d72508e430" class="indexterm-anchor"></a>Oracle ILOM web interface:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Open a web browser and navigate to the Oracle ILOM name or the IP address of an Oracle Big Data Appliance server or switch.</span>
+<div>
+<p>The login screen is displayed.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Enter your user name and password. See <span class="q">"<a href="ilom.htm#GUID-C90317B1-1148-4E55-92A2-BCC1C75BB70D">Oracle ILOM Users</a>"</span> for the factory-configured user names. The initial password is <code class="codeph">welcome1</code>.</span>
+<div>
+<p><span class="bold">Note</span>: Use the <code class="codeph">passwd</code> command to change the password.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Click <span class="bold">Log In</span>.</span>
+<div>
+<p>The web GUI is displayed, as shown in <a href="ilom.htm#GUID-9E293020-76E8-446C-97C3-103FA14F8638__CACHDAAI">Figure 15-2</a>.</p>
+<div class="figure" id="GUID-9E293020-76E8-446C-97C3-103FA14F8638__CACHDAAI">
+<p class="titleinfigure">Figure 15-2 Oracle ILOM 3.1 Web Interface</p>
+<img width="816" height="500" src="img/GUID-CFF552EC-2D62-4A79-89F4-80C5AAD89F84-default.png" alt="Description of Figure 15-2 follows" title="Description of Figure 15-2 follows" /><br />
+<a href="img_text/GUID-CFF552EC-2D62-4A79-89F4-80C5AAD89F84-default.htm">Description of "Figure 15-2 Oracle ILOM 3.1 Web Interface"</a></div>
+<!-- class="figure" --></div>
+</li>
+</ol>
+<div class="section">
+<div class="infoboxnotealso" id="GUID-9E293020-76E8-446C-97C3-103FA14F8638__GUID-9931FCB6-F4EC-4F3C-8DD2-B7D07241681F">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="italic">Oracle ILOM 3.1 Quick Start</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E24707_01/html/E24528/gentextid-219.html#scrolltoc" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E24707_01/html/E24528/gentextid-219.html#scrolltoc</code></a></p>
+</li>
+<li>
+<p><span class="italic">Oracle ILOM 3.0 Daily Management &mdash;Web Procedures Guide</span> at</p>
+<p><a href="http://docs.oracle.com/cd/E19860-01/" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19860-01/</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG76237"></a>
+<div class="props_rev_3"><a id="GUID-0BDA96BA-CD9D-446D-8136-0B34A08DF64C"></a>
+<h2 id="BIGOG-GUID-0BDA96BA-CD9D-446D-8136-0B34A08DF64C" class="sect2"><span class="enumeration_section">15.5</span> Connecting to Oracle ILOM Using a Serial Connection</h2>
+<div>
+<p>You servers: connecting to Oracle ILOM can connect to Oracle ILOM using a serial connection if you are unable to access it using the network due to any of the following problems:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Misconfiguration of the network</p>
+</li>
+<li>
+<p>Misconfiguration of Oracle ILOM IP addresses</p>
+</li>
+<li>
+<p>Misconfiguration of Cisco Ethernet switch ports</p>
+</li>
+<li>
+<p>Sideband configuration issues</p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76608"></a>
+<div class="props_rev_3"><a id="GUID-A9C5A304-4E49-4A43-8836-34D662C254EF"></a>
+<h3 id="BIGOG-GUID-A9C5A304-4E49-4A43-8836-34D662C254EF" class="sect3"><span class="enumeration_section">15.5.1</span> Connecting to the Oracle ILOM of a Server</h3>
+<div>
+<div class="section">
+<p>To connect to Oracle ILOM of a server<a id="d72508e559" class="indexterm-anchor"></a> using a serial connection:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Attach a serial cable from a terminal or a PC running terminal emulation software to the SER MGT port of an Oracle Big Data Appliance server. The cable should be 15 feet or shorter.</span></li>
+<li class="stepexpand"><span>Verify that your terminal or laptop is operational.</span></li>
+<li class="stepexpand"><span>Configure the terminal device or the terminal emulation software to use the following settings:</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>8N1: eight data bits, no parity, one stop bit</p>
+</li>
+<li>
+<p>9600 baud (default, but can be set to any standard rate up to 115200)</p>
+</li>
+<li>
+<p>Disable software flow control (XON/XOFF)</p>
+</li>
+<li>
+<p>Disable hardware control</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="stepexpand"><span>Verify that power is supplied to either PSU.</span>
+<div>
+<p>If power is supplied to either PSU, then Oracle ILOM is functional regardless of the power state of the servers.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Press Enter on the terminal device. A connection between the terminal device and Oracle ILOM is established.</span>
+<div>
+<p>The Oracle ILOM login prompt is displayed.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Log in to the CLI as <code class="codeph">root</code> using the default password of <code class="codeph">welcome1</code>.</span>
+<div>
+<p>The Oracle ILOM default command prompt is displayed.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BIGOG76609"></a>
+<div class="props_rev_3"><a id="GUID-EEA9E38F-A4CE-4AA2-9914-19F1B9FD9F4A"></a>
+<h3 id="BIGOG-GUID-EEA9E38F-A4CE-4AA2-9914-19F1B9FD9F4A" class="sect3"><span class="enumeration_section">15.5.2</span> Connecting to the Oracle ILOM of an InfiniBand Switch</h3>
+<div>
+<div class="section">
+<p>To connect to Oracle ILOM of an InfiniBand <a id="d72508e633" class="indexterm-anchor"></a>switch using a serial connection:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Attach a USB-to-serial connector to the USB port of the switch.</span></li>
+<li class="stepexpand"><span>Verify that your terminal or laptop is operational.</span></li>
+<li class="stepexpand"><span>Configure the terminal device or the terminal emulation software to use the following settings:</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>8N1: eight data bits, no parity, one stop bit</p>
+</li>
+<li>
+<p>115200 baud</p>
+</li>
+<li>
+<p>Disable software flow control (XON/XOFF)</p>
+</li>
+<li>
+<p>Disable hardware control</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="stepexpand"><span>Press the Return or Enter key on the serial device several times to synchronize the connection.</span>
+<div>
+<p>You may see text similar to the following:</p>
+<p><code class="codeph">where nm2name is the host name of the management controller. The name might be the word hostname.</code></p>
+<p>Even if you do not see the text, go to Step 5.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Log in using the administrative user name and password (<code class="codeph">ilom-admin</code> and <code class="codeph">welcome1</code>). The # prompt is displayed.</span>
+<div>
+<div class="infobox-note" id="GUID-EEA9E38F-A4CE-4AA2-9914-19F1B9FD9F4A__GUID-9D738430-195B-4B84-9E2E-FF7536AAF9A2">
+<p class="notep1">Note:</p>
+<p>If you do not see this output or prompt, there is a problem with the serial configuration, the USB-to-serial connector, or the CLI.</p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment106">
+<tr>
+<td class="cellalignment139">
+<table class="cellalignment111">
+<tr>
+<td class="cellalignment110"><a href="dcli.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment110"><a href="appendices.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment141">
+<table class="cellalignment109">
+<tr>
+<td class="cellalignment110"><a href="http://docs.oracle.com/bigdata/bda46/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment110"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment110"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment110"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment110"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

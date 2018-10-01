@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Optimizing MapReduce Jobs Using Perfect&nbsp;Balance</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="skew, data skew, Job Analyzer, Counting Reducer, Load Balancer, mapred configuration properties, mapreduce configuration properties, tools.* configuration properties, jobconfPath property, jobHistoryPath configuration property, writeKeyBytes configuration property, oracle.hadoop.balancer.* configuration properties, autoAnalyze configuration property, autoBalance configuration property, confidence configuration property, enableSorting configuration property, chopped keys, inputFormat.mapred.* configuration properties, map.tasks property, max.split.size configuration property, keyLoad.minChopBytes configuration property, minChopBytes configuration property, linearKeyLoad.* configuration properties, byteWeight configuration property, feedbackDir configuration property, keyWeight configuration property, rowWeight configuration property, maxLoadFactor configuration property, maxSamplesPct configuration property, minSplits configuration property, numThreads configuration property, report.overwrite configuration property, reportPath configuration property, tmpDir configuration property, useClusterStats configuration property, useMapreduceApi configuration property" />
+<meta name="dcterms.created" content="2017-02-14T15:05:00Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Software User's Guide" />
+<meta name="dcterms.identifier" content="E81303-03" />
+<meta name="dcterms.isVersionOf" content="BIGUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda47/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="part-oracle-big-data-appliance-software.htm" title="Previous" type="text/html" />
+<link rel="Next" href="part-oracle-table-access.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-6768B636-CD3C-4E5F-A0ED-740C1C839997"></a> <span id="PAGE" style="display:none;">10/14</span> <!-- End Header -->
+<a id="BIGUG279"></a>
+<h1 id="BIGUG-GUID-6768B636-CD3C-4E5F-A0ED-740C1C839997" class="sect1"><span class="enumeration_chapter">5</span> Optimizing MapReduce Jobs Using Perfect&nbsp;Balance</h1>
+<div>
+<p>This chapter describes how you can shorten the run time of some MapReduce jobs by using Perfect Balance. It contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="balance.htm#GUID-6CFA7E22-CEC6-4893-A99F-F6DD5F4D82E9">What is Perfect Balance?</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-559327B5-0D2E-4DE7-9EBB-5E72BD864136">Application Requirements</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-09CD1BEA-8E71-4E19-ADEF-F25C4E807251">Getting Started with Perfect Balance</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-09208F93-7494-41BA-94CB-08DE81C8F7C7">Analyzing a Job's Reducer Load</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-68A678B1-DC49-4C43-B978-9295EF0CA277">About Configuring Perfect Balance</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-7C26F1B6-3EEC-42E1-A5ED-37DAE8A6F051">Running a Balanced MapReduce Job Using Perfect Balance</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-D1E24829-B994-4119-ACB5-387B9888F70D">About Perfect Balance Reports</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-B4985864-ADE0-4AA8-A8FF-780A683687E6">About Chopping</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-600D3847-14D6-4BD4-9446-5799BE288E26">Troubleshooting Jobs Running with Perfect Balance</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-BB92353F-F70E-4748-B075-82E79588B5BA">Using the Perfect Balance API</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-67C7D953-5AE0-4F29-A2E7-70D4F2BA5256">About the Perfect Balance Examples</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459">Perfect Balance Configuration Property Reference</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG280"></a>
+<div class="props_rev_3"><a id="GUID-6CFA7E22-CEC6-4893-A99F-F6DD5F4D82E9"></a>
+<h2 id="BIGUG-GUID-6CFA7E22-CEC6-4893-A99F-F6DD5F4D82E9" class="sect2"><span class="enumeration_section">5.1</span> What is Perfect Balance?</h2>
+<div>
+<p>The <a id="d24382e94" class="indexterm-anchor"></a>Perfect Balance feature of Oracle Big Data Appliance distributes the reducer load in a MapReduce application so that each reduce task does approximately the same amount of work. While the default Hadoop method of distributing the reduce load is appropriate for many jobs, it does not distribute the load evenly for jobs with significant data skew.</p>
+<p><span class="bold">Data skew</span> is an imbalance in the load assigned to different reduce tasks. The <span class="bold">load</span> is a function of:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The number of keys assigned to a reducer.</p>
+</li>
+<li>
+<p>The number of records and the number of bytes in the values per key.</p>
+</li>
+</ul>
+<p>The total run time for a job is extended, to varying degrees, by the time that the <a id="d24382e115" class="indexterm-anchor"></a><a id="d24382e117" class="indexterm-anchor"></a><a id="d24382e119" class="indexterm-anchor"></a><a id="d24382e121" class="indexterm-anchor"></a>reducer with the greatest load takes to finish. In jobs with a skewed load, some reducers complete the job quickly, while others take much longer. Perfect Balance can significantly shorten the total run time by distributing the load evenly, enabling all reducers to finish at about the same time.</p>
+<p>Your MapReduce job can be written using either the <code>mapred</code> or <code>mapreduce</code> APIs; Perfect Balance supports both of them.</p>
+</div>
+<a id="BIGUG281"></a>
+<div class="props_rev_3"><a id="GUID-7A576FA2-6FBE-44F9-824C-A687B8D2116D"></a>
+<h3 id="BIGUG-GUID-7A576FA2-6FBE-44F9-824C-A687B8D2116D" class="sect3"><span class="enumeration_section">5.1.1</span> About Balancing Jobs Across Map and Reduce Tasks</h3>
+<div>
+<p>A typical Hadoop job has map and reduce tasks. Hadoop distributes the <a id="d24382e152" class="indexterm-anchor"></a><span class="italic">mapper</span> workload uniformly across Hadoop Distributed File System (HDFS) and across map tasks, while preserving the data locality. In this way, it reduces skew in the mappers.</p>
+<p>Hadoop also hashes the map-output keys uniformly across all <span class="italic">reducers</span>. This strategy works well when there are many more keys than reducers, and each key represents a very small portion of the workload. However, it is not effective when the mapper output is concentrated into a small number of keys. Hashing these keys results in skew and does not work in applications like sorting, which require <a id="d24382e162" class="indexterm-anchor"></a>range partitioning.</p>
+<p>Perfect Balance distributes the load evenly across reducers by first sampling the data, optionally chopping large <a id="d24382e167" class="indexterm-anchor"></a><a id="d24382e169" class="indexterm-anchor"></a><a id="d24382e171" class="indexterm-anchor"></a>keys into two or more smaller keys, and using a load-aware partitioning strategy to assign keys to reduce tasks.</p>
+</div>
+</div>
+<a id="BIGUG282"></a>
+<div class="props_rev_3"><a id="GUID-0792D3DE-F7D3-4ECB-A212-0CFF2F73F97E"></a>
+<h3 id="BIGUG-GUID-0792D3DE-F7D3-4ECB-A212-0CFF2F73F97E" class="sect3"><span class="enumeration_section">5.1.2</span> Ways to Use Perfect Balance Features</h3>
+<div>
+<p>You can choose from two methods of running Perfect Balance features:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Perfect Balance</span>: You can run a job without changing your application code by properly configuring Perfect Balance. This is the preferred method and appropriate for most jobs.</p>
+<p>This method is described in <span class="q">"<a href="balance.htm#GUID-7C26F1B6-3EEC-42E1-A5ED-37DAE8A6F051">Running a Balanced MapReduce Job Using Perfect Balance</a>"</span>, and is the primary focus of this chapter.</p>
+</li>
+<li>
+<p><span class="bold">Perfect Balance API</span>: You can add the code to run Perfect Balance to your application code. Use this method when your application setup code must run before using Perfect Balance. Otherwise, you should use the previous method, which requires no change to your code.</p>
+<p>This method is described in <span class="q">"<a href="balance.htm#GUID-BB92353F-F70E-4748-B075-82E79588B5BA">Using the Perfect Balance API</a>"</span>.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGUG283"></a>
+<div class="props_rev_3"><a id="GUID-D9FEFD9E-F36C-4400-BB43-38FE9C6BF2D8"></a>
+<h3 id="BIGUG-GUID-D9FEFD9E-F36C-4400-BB43-38FE9C6BF2D8" class="sect3"><span class="enumeration_section">5.1.3</span> Perfect Balance Components</h3>
+<div>
+<div class="section">
+<p>Perfect Balance has these components:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Job Analyzer</span>: Gathers and reports statistics about the MapReduce job so that you can determine whether to use Perfect Balance.</p>
+</li>
+<li>
+<p><span class="bold">Counting Reducer</span>: Provides additional statistics to the Job Analyzer to help gauge the effectiveness of Perfect Balance.</p>
+</li>
+<li>
+<p><span class="bold">Load Balancer</span>: Runs before the MapReduce job to generate a static partition plan, and reconfigures the job to use the plan. The balancer includes a user-configurable, progressive sampler that stops sampling the data as soon as it can generate a good partitioning plan.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG332"></a>
+<div class="props_rev_3"><a id="GUID-559327B5-0D2E-4DE7-9EBB-5E72BD864136"></a>
+<h2 id="BIGUG-GUID-559327B5-0D2E-4DE7-9EBB-5E72BD864136" class="sect2"><span class="enumeration_section">5.2</span> Application Requirements</h2>
+<div>
+<p>To use <a id="d24382e283" class="indexterm-anchor"></a>Perfect Balance successfully, your application must meet the following requirements:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The job is distributive, so that splitting a group of records associated with a reduce key does not produce incorrect results for the application.</p>
+<p>To balance a load, Perfect Balance subpartitions the values of large reduce keys and sends each subpartition to a different reducer. This distribution contrasts with the standard Hadoop practice of sending all values for a single reduce key to the same reducer. Your application must be able to handle output from the reducers that is not fully aggregated, so that it does not produce incorrect results.</p>
+<p>This partitioning of values is called <span class="bold">chopping</span>. Applications that support chopping have <span class="bold">distributive reduce functions</span>. See <span class="q">"<a href="balance.htm#GUID-B4985864-ADE0-4AA8-A8FF-780A683687E6">About Chopping</a>"</span>.</p>
+<p>If your application is not distributive, then you can still run Perfect Balance after disabling the key-splitting feature. The job still benefits from using Perfect Balance, but the load is not as evenly balanced as it is when key splitting is in effect. See the <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABCHEE">oracle.hadoop.balancer.keyLoad.minChopBytes</a></code> configuration property to disable key splitting.</p>
+</li>
+<li>
+<p>This release does not support combiners. Perfect Balance detects the presence of combiners and does not balance when they are present.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGUG284"></a>
+<div class="props_rev_3"><a id="GUID-09CD1BEA-8E71-4E19-ADEF-F25C4E807251"></a>
+<h2 id="BIGUG-GUID-09CD1BEA-8E71-4E19-ADEF-F25C4E807251" class="sect2"><span class="enumeration_section">5.3</span> Getting Started with Perfect Balance</h2>
+<div>
+<div class="section">
+<p>Take the following steps to use <a id="d24382e338" class="indexterm-anchor"></a>Perfect Balance:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Ensure that your application meets the requirements listed in <span class="q">"<a href="balance.htm#GUID-559327B5-0D2E-4DE7-9EBB-5E72BD864136">Application Requirements</a>."</span></span></li>
+<li class="stepexpand"><span>Log in to the server where you will submit the job.</span></li>
+<li class="stepexpand"><span>Run the examples provided with Perfect Balance to become familiar with the product. All examples shown in this chapter are based on the shipped examples and use the same data set. See <span class="q">"<a href="balance.htm#GUID-67C7D953-5AE0-4F29-A2E7-70D4F2BA5256">About the Perfect Balance Examples</a>."</span></span></li>
+<li class="stepexpand"><span>Set the following variables using the Bash <code>export</code> command:</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>BALANCER_HOME</code>: Set to the Perfect Balance installation directory, such as <code>/opt/oracle/orabalancer-&lt;version&gt;-h2</code> on Oracle Big Data Appliance (optional). The examples in this chapter use this variable, and you can also define it for your convenience. Perfect Balance does not require <code>BALANCER_HOME</code>.</p>
+</li>
+<li>
+<p><code>HADOOP_CLASSPATH</code>: PREPEND <code>${BALANCER_HOME}/jlib/orabalancer-&lt;version&gt;.jar</code> and <code>${BALANCER_HOME}/jlib/commons-math-2.2.jar</code> to the existing value. Also prepend the JAR files for your application.</p>
+<p>To enable Perfect Balance, prepend <code>${BALANCER_HOME}/jlib/orabalancerclient-&lt;version&gt;.jar</code>. (API mode does not use this JAR file.)</p>
+</li>
+<li>
+<p><code>HADOOP_USER_CLASSPATH_FIRST</code>: Set to <code>true</code> to enable Perfect Balance; API mode does not need this variable.</p>
+</li>
+</ul>
+<p>You do not need to set these variables unless you are using Perfect Balance.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Run Job Analyzer without the balancer and use the generated report to decide whether the job is a good candidate for using Perfect Balance.</span>
+<div>
+<p>See <span class="q">"<a href="balance.htm#GUID-09208F93-7494-41BA-94CB-08DE81C8F7C7">Analyzing a Job's Reducer Load</a>."</span></p>
+</div>
+</li>
+<li class="stepexpand"><span>Decide which configuration properties to set. Create a configuration file or enter the settings individually in the <code>hadoop</code> command.</span>
+<div>
+<p>See <span class="q">"<a href="balance.htm#GUID-68A678B1-DC49-4C43-B978-9295EF0CA277">About Configuring Perfect Balance</a>."</span></p>
+</div>
+</li>
+<li class="stepexpand"><span>Run the job using Perfect Balance.</span>
+<div>
+<p>See <span class="q">"<a href="balance.htm#GUID-7C26F1B6-3EEC-42E1-A5ED-37DAE8A6F051">Running a Balanced MapReduce Job Using Perfect Balance</a>."</span></p>
+</div>
+</li>
+<li class="stepexpand"><span>Use the Job Analyzer report to evaluate the effectiveness of using Perfect Balance. See <span class="q">"<a href="balance.htm#GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061">Reading the Job Analyzer Report</a>."</span></span></li>
+<li class="stepexpand"><span>Modify the job configuration properties as desired before rerunning the job with Perfect Balance. See <span class="q">"<a href="balance.htm#GUID-68A678B1-DC49-4C43-B978-9295EF0CA277">About Configuring Perfect Balance</a>."</span></span></li>
+</ol>
+</div>
+</div>
+<a id="BIGUG285"></a>
+<div class="props_rev_3"><a id="GUID-09208F93-7494-41BA-94CB-08DE81C8F7C7"></a>
+<h2 id="BIGUG-GUID-09208F93-7494-41BA-94CB-08DE81C8F7C7" class="sect2"><span class="enumeration_section">5.4</span> Analyzing a Job's Reducer Load</h2>
+<div>
+<p>Job Analyzer is a component of Perfect Balance that identifies imbalances in a load, and how effective Perfect Balance is in correcting the imbalance when actually running the job. This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="balance.htm#GUID-523C09EB-A1D6-4573-8A66-53D3439D955F">About Job Analyzer</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-12ADB6FB-14D8-4110-A8BF-B52C9163F815">Running Job Analyzer as a Standalone Utility</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-D5C004C4-3402-4EFB-9521-14A8063AA497">Running Job Analyzer Using Perfect Balance</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061">Reading the Job Analyzer Report</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG286"></a>
+<div class="props_rev_3"><a id="GUID-523C09EB-A1D6-4573-8A66-53D3439D955F"></a>
+<h3 id="BIGUG-GUID-523C09EB-A1D6-4573-8A66-53D3439D955F" class="sect3"><span class="enumeration_section">5.4.1</span> About Job Analyzer</h3>
+<div>
+<p>You can use Job Analyzer to decide whether a job is a candidate for load balancing with Perfect Balance. Job Analyzer uses the output logs of a MapReduce job to generate a simple report with statistics like the elapsed time and the load for each reduce task. By default, it uses the standard Hadoop counters displayed by the JobTracker user interface, but organizes the data to emphasize the relative performance and load of the reduce tasks, so that you can more easily interpret the results.</p>
+<p>If the report shows that the data is skewed (that is, the reducers processed very different loads and the run times varied widely), then the application is a good candidate for Perfect Balance.</p>
+</div>
+<a id="BIGUG287"></a>
+<div class="props_rev_3"><a id="GUID-792EAD88-CE70-4557-BED7-F4321CCC0F83"></a>
+<h4 id="BIGUG-GUID-792EAD88-CE70-4557-BED7-F4321CCC0F83" class="sect4"><span class="enumeration_section">5.4.1.1</span> Methods of Running Job Analyzer</h4>
+<div>
+<p>You can choose between two methods of running Job Analyzer:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">As a standalone utility</span>: Job Analyzer runs against existing job output logs. This is a good choice when you want to analyze a job that previously ran.</p>
+</li>
+<li>
+<p><span class="bold">While using Perfect Balance</span>: Job Analyzer runs against the output logs for the current job running with Perfect Balance. This is a good choice when you want to analyze the current job.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGUG288"></a>
+<div class="props_rev_3"><a id="GUID-12ADB6FB-14D8-4110-A8BF-B52C9163F815"></a>
+<h3 id="BIGUG-GUID-12ADB6FB-14D8-4110-A8BF-B52C9163F815" class="sect3"><span class="enumeration_section">5.4.2</span> Running Job Analyzer as a Standalone Utility</h3>
+<div>
+<div class="section">
+<p>As a standalone utility, Job Analyzer provides a quick way to analyze the reduce load of a previously run job.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To run Job Analyzer as a standalone utility:</p>
+<ol>
+<li>
+<p>Log in to the server where you will run Job Analyzer.</p>
+</li>
+<li>
+<p>Locate the output logs from the job to analyze:</p>
+<p>Set <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__CIACBHEC">oracle.hadoop.balancer.application_id</a></code> to the job ID of the job you want to analyze.</p>
+<p>You can obtain the job ID from the YARN Resource Manager web interface. Click the application ID of a job, and then click <span class="bold">Tracking URL</span>. The job ID typically begins with "job_".</p>
+<p>Alternately, if you already ran Perfect Balance or Job Analyzer on this job, you can read the job ID from the <code>application_id</code> file generated by Perfect Balance in its report directory (<code>outdir/_balancer</code> by default).</p>
+</li>
+<li>
+<p>Run the Job Analyzer utility as described in <span class="q">"<a href="balance.htm#GUID-61EE6E95-3811-4E06-BC6F-0860F077D011">Job Analyzer Utility Syntax</a>."</span></p>
+</li>
+<li>
+<p>View the Job Analyzer report in a browser.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+<a id="BIGUG290"></a><a id="BIGUG289"></a>
+<div class="props_rev_3"><a id="GUID-BA5B63A3-4A31-4396-8355-AABF7FB7C782"></a>
+<h4 id="BIGUG-GUID-BA5B63A3-4A31-4396-8355-AABF7FB7C782" class="sect4"><span class="enumeration_section">5.4.2.1</span> Job Analyzer Utility Example</h4>
+<div>
+<div class="section">
+<p><a href="balance.htm#GUID-BA5B63A3-4A31-4396-8355-AABF7FB7C782__BBABHDEG">Example 5-1</a> runs a script that sets the required variables, uses the MapReduce job logs for a job with an application ID of job_1396563311211_0947, and creates the report in the default location. It then copies the HTML version of the report from HDFS to the <code>/home/jdoe</code> local directory and opens the report in a browser.</p>
+<p>To run this example on a YARN cluster, replace the application ID with the application ID of the job. The application ID of the job looks like this example: <code>job_1396563311211_0947</code>.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-BA5B63A3-4A31-4396-8355-AABF7FB7C782__BBABHDEG">
+<p class="titleinexample">Example 5-1 Running the Job Analyzer Utility</p>
+<pre dir="ltr">
+$ <span class="bold">cat runja.sh</span>
+
+BALANCER_HOME=/opt/oracle/orabalancer-&lt;version&gt;-h2
+export HADOOP_CLASSPATH=${BALANCER_HOME}/jlib/orabalancer-&lt;version&gt;.jar:${BALANCER_HOME}/jlib/commons-math-2.2.jar:$HADOOP_CLASSPATH
+export HADOOP_USER_CLASSPATH_FIRST=true
+
+# Command on YARN cluster
+hadoop jar orabalancer-&lt;version&gt;.jar oracle.hadoop.balancer.tools.JobAnalyzer \
+-D oracle.hadoop.balancer.application_id=job_1396563311211_0947
+
+$ <span class="bold">sh ./runja.sh</span>
+$
+$ <span class="bold">hadoop fs -get jdoe_nobal_outdir/_balancer/jobanalyzer-report.html /home/jdoe</span>
+$ <span class="bold">cd /home/jdoe</span>
+$ <span class="bold">firefox jobanalyzer-report.html</span>
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BIGUG291"></a>
+<div class="props_rev_3"><a id="GUID-61EE6E95-3811-4E06-BC6F-0860F077D011"></a>
+<h4 id="BIGUG-GUID-61EE6E95-3811-4E06-BC6F-0860F077D011" class="sect4"><span class="enumeration_section">5.4.2.2</span> Job Analyzer Utility Syntax</h4>
+<div>
+<div class="section">
+<p>The following is the syntax to run the Job Analyzer utility:</p>
+<pre dir="ltr">
+hadoop jar ${BALANCER_HOME}/jlib/orabalancer-&lt;version&gt;.jar oracle.hadoop.balancer.tools.JobAnalyzer \
+-D oracle.hadoop.balancer.application_id=<span class="italic">job_number</span> \
+[<span class="italic">ja_report_path</span>]
+</pre>
+<dl>
+<dt class="dlterm"><a id="GUID-61EE6E95-3811-4E06-BC6F-0860F077D011__GUID-26DED5FD-3B35-43BB-AF5E-9999E52D2906"><!-- --></a>job_number</dt>
+<dd>
+<p>The application ID previously assigned to the job.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-61EE6E95-3811-4E06-BC6F-0860F077D011__GUID-8D421F29-2383-4897-B398-F336FD86B3CE"><!-- --></a>ja_report_path</dt>
+<dd>
+<p>An HDFS directory where Job Analyzer creates its report (optional). The default directory is <span class="italic"><code>job_output_dir</code></span><code>/_balancer</code>.</p>
+</dd>
+</dl>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG333"></a>
+<div class="props_rev_3"><a id="GUID-D5C004C4-3402-4EFB-9521-14A8063AA497"></a>
+<h3 id="BIGUG-GUID-D5C004C4-3402-4EFB-9521-14A8063AA497" class="sect3"><span class="enumeration_section">5.4.3</span> Running Job Analyzer Using Perfect Balance</h3>
+<div>
+<p>When you run a job using Perfect Balance, you can configure it to run Job Analyzer automatically. This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="balance.htm#GUID-200DCF94-5474-4609-A421-2037493F0037">Running Job Analyzer Using Perfect Balance</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-8753E2D7-F618-43F0-888B-556641698726">Collecting Additional Metrics</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG335"></a><a id="BIGUG334"></a>
+<div class="props_rev_3"><a id="GUID-200DCF94-5474-4609-A421-2037493F0037"></a>
+<h4 id="BIGUG-GUID-200DCF94-5474-4609-A421-2037493F0037" class="sect4"><span class="enumeration_section">5.4.3.1</span> Running Job Analyzer Using Perfect Balance</h4>
+<div>
+<div class="section">
+<p>Follow these steps to run Job Analyzer using Perfect Balance:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Log in to the server where you will submit the job that uses Perfect Balance.</span></li>
+<li class="stepexpand"><span>Set up Perfect Balance by taking the steps in <span class="q">"<a href="balance.htm#GUID-09CD1BEA-8E71-4E19-ADEF-F25C4E807251">Getting Started with Perfect Balance</a>."</span></span></li>
+<li class="stepexpand"><span>To enable Job Analyzer, set the <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIJGDD">oracle.hadoop.balancer.autoAnalyze</a></code> configuration property to one of these values:</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>BASIC_REPORT</code>: Enables Job Analyzer. If you set <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHBDFE">oracle.hadoop.balancer.autoBalance</a></code> to <code>true</code>, then Perfect Balance automatically sets <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIJGDD">oracle.hadoop.balancer.autoAnalyze</a></code> to <code>BASIC_REPORT</code>.</p>
+</li>
+<li>
+<p><code>REDUCER_REPORT</code>: Configures Job Analyzer to collect additional load statistics. See <span class="q">"<a href="balance.htm#GUID-8753E2D7-F618-43F0-888B-556641698726">Collecting Additional Metrics</a>."</span></p>
+</li>
+</ul>
+</div>
+</li>
+<li class="stepexpand"><span>Decide which additional configuration properties to set, if any.</span>
+<div>
+<p>See <span class="q">"<a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459">Perfect Balance Configuration Property Reference</a>."</span></p>
+</div>
+</li>
+<li class="stepexpand"><span>Run the job.</span></li>
+</ol>
+<div class="example" id="GUID-200DCF94-5474-4609-A421-2037493F0037__BBAICIIG">
+<p class="titleinexample">Example 5-2 Running Job Analyzer with Perfect Balance</p>
+<pre dir="ltr">
+$ <span class="bold">cat ja_nobalance.sh</span>
+ 
+# set up perfect balance
+BALANCER_HOME=/opt/oracle/orabalancer-&lt;version&gt;-h2
+export HADOOP_CLASSPATH=${BALANCER_HOME}/jlib/orabalancerclient-&lt;version&gt;.jar:${BALANCER_HOME}/jlib/orabalancer-&lt;version&gt;.jar:${BALANCER_HOME}/jlib/commons-math-2.2.jar:${HADOOP_CLASSPATH}
+export HADOOP_USER_CLASSPATH_FIRST=true
+ 
+# run the job
+hadoop jar application_jarfile.jar ApplicationClass \
+ -D application_config_property \
+ -D mapreduce.input.fileinputformat.inputdir=jdoe_application/input \
+ -D mapreduce.output.fileoutputformat.outputdir=jdoe_nobal_outdir \
+ -D mapreduce.job.name=nobal \
+ -D mapreduce.job.reduces=10 \
+ -D oracle.hadoop.balancer.autoBalance=false \
+ -D oracle.hadoop.balancer.autoAnalyze=REDUCER_REPORT \
+ -conf application_config_file.xml 
+ 
+$ <span class="bold">sh ja_nobalance.sh</span>
+14/04/14 14:52:42 INFO input.FileInputFormat: Total input paths to process : 5
+14/04/14 14:52:42 INFO mapreduce.JobSubmitter: number of splits:5
+14/04/14 14:52:42 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1397066986369_3478
+14/04/14 14:52:43 INFO impl.YarnClientImpl: Submitted application application_1397066986369_3478
+     .
+     .
+     .
+File Input Format Counters 
+Bytes Read=112652976
+File Output Format Counters 
+Bytes Written=384974202
+ 
+$ <span class="bold">hadoop fs -get jdoe_nobal_outdir/_balancer/jobanalyzer-report.html /home/jdoe</span>
+$ <span class="bold">cd /home/jdoe</span>
+$ <span class="bold">firefox jobanalyzer-report.html</span>
+</pre></div>
+<!-- class="example" -->
+<div class="section">
+<p><a href="balance.htm#GUID-200DCF94-5474-4609-A421-2037493F0037__BBAICIIG">Example 5-2</a> runs a script that sets the required variables, uses Perfect Balance to run a job with Job Analyzer and without load balancing, and creates the report in the default location. It then copies the HTML version of the report from HDFS to the <code>/home/jdoe</code> local directory and opens the report in a browser. The output includes warnings, which you can ignore.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG337"></a>
+<div class="props_rev_3"><a id="GUID-8753E2D7-F618-43F0-888B-556641698726"></a>
+<h4 id="BIGUG-GUID-8753E2D7-F618-43F0-888B-556641698726" class="sect4"><span class="enumeration_section">5.4.3.2</span> Collecting Additional Metrics</h4>
+<div>
+<p>The Job Analyzer report includes the load metrics for each key, if you set the <a id="d24382e869" class="indexterm-anchor"></a><a id="d24382e871" class="indexterm-anchor"></a><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIJGDD">oracle.hadoop.balancer.autoAnalyze</a></code> property to <code>REDUCER_REPORT</code>. This additional information provides a more detailed picture of the load for each reducer, with metrics that are not available in the standard Hadoop counters.</p>
+<p>The Job Analyzer report also compares its predicted load with the actual load. The difference between these values measures how effective Perfect Balance was in balancing the job.</p>
+<p>Job Analyzer might recommend key load coefficients for the Perfect Balance key load model, based on its analysis of the job load. To use these recommended coefficients when running a job with Perfect Balance, set the <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGADJC">oracle.hadoop.balancer.linearKeyLoad.feedbackDir</a></code> property to the directory containing the Job Analyzer report of a previously analyzed run of the job.</p>
+<p>If the report contains recommended coefficients, then Perfect Balance automatically uses them. If Job Analyzer encounters an error while collecting the additional metrics, then the report does not contain the additional metrics.</p>
+<p>Use the <code>feedbackDir</code> property when you do not know the values of the load model coefficients for a job, but you have the Job Analyzer output from a previous run of the job. Then you can set the value of <code>feedbackDir</code> to the directory where that output is stored. The values recommended from those files typically perform better than the Perfect Balance default values, because the recommended values are based on an analysis of your job's load.</p>
+<p>Alternately, if you already know good values of the load model coefficients for your job, you can set the load model properties:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGHDID">oracle.hadoop.balancer.linearKeyLoad.byteWeight</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFBGCE">oracle.hadoop.balancer.linearKeyLoad.keyWeight</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACIGAG">oracle.hadoop.balancer.linearKeyLoad.rowWeight</a></code></p>
+</li>
+</ul>
+<p>Running the job with these coefficients results in a more balanced job.</p>
+</div>
+</div>
+</div>
+<a id="BIGUG297"></a><a id="BIGUG296"></a>
+<div class="props_rev_3"><a id="GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061"></a>
+<h3 id="BIGUG-GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061" class="sect3"><span class="enumeration_section">5.4.4</span> Reading the Job Analyzer Report</h3>
+<div>
+<div class="section">
+<p>Job Analyzer writes its report in two formats: HTML for you, and XML for Perfect Balance. You can open the report in a browser, either directly in HDFS or after copying it to the local file system</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To open a Job Analyzer report in HDFS in a browser:</p>
+<ol>
+<li>
+<p>Open the HDFS web interface on port 50070 of a NameNode node (node01 or node02), using a URL like the following:</p>
+<pre dir="ltr">
+http://bda1node01.example.com:50070
+</pre></li>
+<li>
+<p>From the Utilities menu, choose <span class="bold">Browse the File System</span>.</p>
+</li>
+<li>
+<p>Navigate to the <code>job_output_dir/_balancer</code> directory.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To open a Job Analyzer report in the local file system in a browser:</p>
+<ol>
+<li>
+<p>Copy the report from HDFS to the local file system:</p>
+<pre dir="ltr">
+$ hadoop fs -get <span class="italic">job_output_dir</span>/_balancer/jobanalyzer-report.html /home/jdoe
+</pre></li>
+<li>
+<p>Switch to the local directory:</p>
+<pre dir="ltr">
+$ cd /home/jdoe
+</pre></li>
+<li>
+<p>Open the file in a browser:</p>
+<pre dir="ltr">
+$ firefox jobanalyzer-report.html
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>When inspecting the Job Analyzer report, look for indicators of skew such as:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The execution time of some reducers is longer than others.</p>
+</li>
+<li>
+<p>Some reducers process more records or bytes than others.</p>
+</li>
+<li>
+<p>Some map output keys have more records than others.</p>
+</li>
+<li>
+<p>Some map output records have more bytes than others.</p>
+</li>
+</ul>
+<p><a href="balance.htm#GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061__BBABHFIG">Figure 5-1</a> shows the beginning of the analyzer report for the inverted index (<code>invindx</code>) example. It displays the key load coefficient recommendations, because this job ran with the appropriate configuration settings. See <span class="q">"<a href="balance.htm#GUID-8753E2D7-F618-43F0-888B-556641698726">Collecting Additional Metrics</a>."</span></p>
+<p>The task IDs are links to tables that show the analysis of specific tasks, enabling you to drill down for more details from the first, summary table.</p>
+<p>This example uses an extremely small data set, but notice the differences between tasks 7 and 8: The input records range from 3% to 29%, and their corresponding elapsed times range from 5 to 15 seconds. This variation indicates skew.</p>
+<div class="figure" id="GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061__BBABHFIG">
+<p class="titleinfigure">Figure 5-1 Job Analyzer Report for Unbalanced Inverted Index Job</p>
+<img width="957" height="886" src="img/GUID-0AB8B860-5905-4678-AC6B-1BB5E3BE0F9B-default.png" alt="Description of Figure 5-1 follows" title="Description of Figure 5-1 follows" /><br />
+<a href="img_text/GUID-0AB8B860-5905-4678-AC6B-1BB5E3BE0F9B-default.htm">Description of "Figure 5-1 Job Analyzer Report for Unbalanced Inverted Index Job"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG307"></a>
+<div class="props_rev_3"><a id="GUID-68A678B1-DC49-4C43-B978-9295EF0CA277"></a>
+<h2 id="BIGUG-GUID-68A678B1-DC49-4C43-B978-9295EF0CA277" class="sect2"><span class="enumeration_section">5.5</span> About Configuring Perfect Balance</h2>
+<div>
+<p>Perfect Balance uses the standard Hadoop methods of specifying configuration properties in the command line. You can use the <code>-conf</code> option to identify a configuration file, or the <code>-D</code> option to specify individual properties. All Perfect Balance configuration properties have default values, and so setting them is optional.</p>
+<p><span class="q">"<a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459">Perfect Balance Configuration Property Reference</a>"</span> lists the configuration properties in alphabetical order with a full description. The following are functional groups of properties.</p>
+<div class="section">
+<p class="subhead2">Perfect Balance Basic Properties</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIJGDD">oracle.hadoop.balancer.autoAnalyze</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHBDFE">oracle.hadoop.balancer.autoBalance</a></code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Job Analyzer Properties</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__CIACBHEC">oracle.hadoop.balancer.application_id</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACFJGB">oracle.hadoop.balancer.tools.writeKeyBytes</a></code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Key Chopping Properties</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__ORACLE.HADOOP.BALANCER.CHOPPINGSTRA-C58C3F67">oracle.hadoop.balancer.choppingStrategy</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABCHEE">oracle.hadoop.balancer.keyLoad.minChopBytes</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAEBJEC">oracle.hadoop.balancer.enableSorting (deprecated)</a></code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Load Balancing Properties</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIBGCC">oracle.hadoop.balancer.confidence</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHBIDE">oracle.hadoop.balancer.maxLoadFactor</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIEHGB">oracle.hadoop.balancer.maxSamplesPct</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABHFJA">oracle.hadoop.balancer.minSplits</a></code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Load Model Properties</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGADJC">oracle.hadoop.balancer.linearKeyLoad.feedbackDir</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGHDID">oracle.hadoop.balancer.linearKeyLoad.byteWeight</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFBGCE">oracle.hadoop.balancer.linearKeyLoad.keyWeight</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACIGAG">oracle.hadoop.balancer.linearKeyLoad.rowWeight</a></code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">MapReduce-Related Properties</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFABFG">oracle.hadoop.balancer.useMapreduceApi</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAJEFAF">oracle.hadoop.balancer.inputFormat.mapred.map.tasks</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHCFAJ">oracle.hadoop.balancer.inputFormat.mapred.max.split.size</a></code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Partition Report Properties</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABACHA">oracle.hadoop.balancer.report.overwrite</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFEIGB">oracle.hadoop.balancer.reportPath</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAJJIBG">oracle.hadoop.balancer.tmpDir</a></code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Sampler Properties</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABHFJA">oracle.hadoop.balancer.minSplits</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIAHDJ">oracle.hadoop.balancer.numThreads</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGGJCC">oracle.hadoop.balancer.runMode</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABDFJC">oracle.hadoop.balancer.useClusterStats</a></code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG339"></a><a id="BIGUG298"></a>
+<div class="props_rev_3"><a id="GUID-7C26F1B6-3EEC-42E1-A5ED-37DAE8A6F051"></a>
+<h2 id="BIGUG-GUID-7C26F1B6-3EEC-42E1-A5ED-37DAE8A6F051" class="sect2"><span class="enumeration_section">5.6</span> Running a Balanced MapReduce Job Using Perfect Balance</h2>
+<div>
+<div class="section">
+<p>Perfect Balance does not require you to make any changes to your application code. It works by automatically running Perfect Balance for your job when you submit it to Hadoop for execution.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To run a job with Perfect Balance:</p>
+<ol>
+<li>
+<p>Log in to the server where you will submit the job.</p>
+</li>
+<li>
+<p>Set up Perfect Balance by following the steps in <span class="q">"<a href="balance.htm#GUID-09CD1BEA-8E71-4E19-ADEF-F25C4E807251">Getting Started with Perfect Balance</a>."</span></p>
+</li>
+<li>
+<p>Configure the job with these Perfect Balance properties:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To enable balancing, set <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHBDFE">oracle.hadoop.balancer.autoBalance</a></code> to <code>true</code>. This setting also runs Job Analyzer. Load balancing is not enabled by default.</p>
+</li>
+<li>
+<p>To allow Job Analyzer to collect additional metrics, set <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIJGDD">oracle.hadoop.balancer.autoAnalyze</a></code> to <code>REDUCER_REPORT</code>.</p>
+<p>See <span class="q">"<a href="balance.htm#GUID-8753E2D7-F618-43F0-888B-556641698726">Collecting Additional Metrics</a>."</span></p>
+</li>
+<li>
+<p>Decide which additional configuration properties to set, if any.</p>
+<p>See <span class="q">"<a href="balance.htm#GUID-68A678B1-DC49-4C43-B978-9295EF0CA277">About Configuring Perfect Balance</a>."</span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Run your job as usual, using the following syntax:</p>
+<pre dir="ltr">
+bin/hadoop jar <span class="italic">application_jarfile</span>.jar ApplicationClass\
+-D <span class="italic">application_config_property</span> \
+-D oracle.hadoop.balancer.autoBalance=true \
+-D <span class="italic">other_perfect_balance_config_property</span> \
+-conf <span class="italic">application_config_file</span>.xml \
+-conf <span class="italic">perfect_balance_config_file</span>.xml 
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>You do not need to make any code changes to your application. You can provide Perfect Balance configuration properties either on the command line or in a configuration file. You can also combine Perfect Balance properties and MapReduce properties in the same configuration file. <span class="q">"<a href="balance.htm#GUID-68A678B1-DC49-4C43-B978-9295EF0CA277">About Configuring Perfect Balance</a>."</span></p>
+<p><a href="balance.htm#GUID-7C26F1B6-3EEC-42E1-A5ED-37DAE8A6F051__BBACJAHF">Example 5-3</a> runs a script named <code>pb_balance.sh</code>, which sets up Perfect Balance for a job, and then runs the job. The key load metric properties are set to the values recommended in the Job Analyzer report shown in <a href="balance.htm#GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061__BBABHFIG">Figure 5-1</a>.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-7C26F1B6-3EEC-42E1-A5ED-37DAE8A6F051__BBACJAHF">
+<p class="titleinexample">Example 5-3 Running a Job Using Perfect Balance</p>
+<pre dir="ltr">
+$ <span class="bold">cat pb_balance.sh</span>
+ 
+#setup perfect balance as described in <a href="balance.htm#GUID-09CD1BEA-8E71-4E19-ADEF-F25C4E807251">Getting Started with Perfect Balance</a>
+BALANCER_HOME=/opt/oracle/orabalancer-&lt;version&gt;-h2
+export HADOOP_CLASSPATH=${BALANCER_HOME}/jlib/orabalancerclient-&lt;version&gt;.jar:${BALANCER_HOME}/jlib/orabalancer-&lt;version&gt;.jar:${BALANCER_HOME}/jlib/commons-math-2.2.jar:$HADOOP_CLASSPATH
+export HADOOP_USER_CLASSPATH_FIRST=true
+ 
+# setup  optional properties like java heap size and garbage collector
+export HADOOP_CLIENT_OPTS="&ndash;Xmx1024M ${HADOOP_CLIENT_OPTS}"
+ 
+# run the job with balancing and job analyzer enabled 
+hadoop jar  application_jarfile.jarApplicationClass
+ -D application_config_property \
+ -D mapreduce.input.fileinputformat.inputdir=jdoe_application/input  \
+ -D mapreduce.output.fileoutputformat.outputdir=jdoe_outdir \
+ -D mapreduce.job.name="autoinvoke" \
+ -D mapreduce.job.reduces=10 \
+ -D oracle.hadoop.balancer.autoBalance=true \
+ -D oracle.hadoop.balancer.autoAnalyze=REDUCER_REPORT \
+ -D oracle.hadoop.balancer.linearKeyLoad.keyWeight=93.98 \
+ -D oracle.hadoop.balancer.linearKeyLoad.rowWeight=0.001126 \
+ -D oracle.hadoop.balancer.linearKeyLoad.byteWeight=0.0 \
+ -conf application_config_file.xml 
+ 
+ 
+$ <span class="bold">sh ./pb_balance.sh</span>
+14/04/14 14:59:42 INFO balancer.Balancer: Creating balancer
+14/04/14 14:59:42 INFO balancer.Balancer: Starting Balancer
+14/04/14 14:59:43 INFO input.FileInputFormat: Total input paths to process : 5
+14/04/14 14:59:46 INFO balancer.Balancer: Balancer completed
+14/04/14 14:59:47 INFO input.FileInputFormat: Total input paths to process : 5
+14/04/14 14:59:47 INFO mapreduce.JobSubmitter: number of splits:5
+14/04/14 14:59:47 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1397066986369_3500
+14/04/14 14:59:47 INFO impl.YarnClientImpl: Submitted application application_1397066986369_3500
+14/04/14 14:59:47 INFO mapreduce.Job: The url to track the job: 
+     .
+     .
+     .
+Map-Reduce Framework
+Map input records=1000000
+Map output records=20000000
+Map output bytes=872652976
+Map output materialized bytes=175650573
+Input split bytes=580
+Combine input records=0
+Combine output records=0
+Reduce input groups=106
+Reduce shuffle bytes=175650573
+Reduce input records=20000000
+Reduce output records=13871794
+Spilled Records=60000000
+Shuffled Maps =50
+Failed Shuffles=0
+Merged Map outputs=50
+GC time elapsed (ms)=1573
+CPU time spent (ms)=242850
+Physical memory (bytes) snapshot=6789033984
+Virtual memory (bytes) snapshot=24548044800
+Total committed heap usage (bytes)=11921457152
+Shuffle Errors
+BAD_ID=0
+CONNECTION=0
+IO_ERROR=0
+WRONG_LENGTH=0
+WRONG_MAP=0
+WRONG_REDUCE=0
+File Input Format Counters 
+Bytes Read=112652976
+File Output Format Counters 
+Bytes Written=384974202
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BIGUG306"></a>
+<div class="props_rev_3"><a id="GUID-D1E24829-B994-4119-ACB5-387B9888F70D"></a>
+<h2 id="BIGUG-GUID-D1E24829-B994-4119-ACB5-387B9888F70D" class="sect2"><span class="enumeration_section">5.7</span> About Perfect Balance Reports</h2>
+<div>
+<p>Perfect Balance generates these reports when it runs a job:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Job Analyzer report</span>: Contains various indicators about the distribution of the load in a job. The report is saved in HTML for you, and XML for Perfect Balance to use. The report is always named <code>jobanalyzer-report.html</code> and <code>-.xml</code>. See <span class="q">"<a href="balance.htm#GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061">Reading the Job Analyzer Report</a>."</span></p>
+</li>
+<li>
+<p><span class="bold">Partition report</span>: Identifies the keys that are assigned to the various reducers. This report is saved in JSON for Perfect Balance to use; it does not contain information of use to you. The report is named <code>${job_output_dir}/_balancer/orabalancer_report.json</code>. It is only generated for balanced jobs.</p>
+</li>
+<li>
+<p><span class="bold">Reduce key metric reports</span>: Perfect Balance generates a report for each file partition, when the appropriate configuration properties are set. The reports are saved in XML for Perfect Balance to use; they do not contain information of use to you. They are named <code>${job_output_dir}/_balancer/ReduceKeyMetricList-attempt_</code><span class="italic"><code>jobid_taskid_task_attemptid</code></span><code>.xml</code>. They are generated only when the counting reducer is used (that is, <code>oracle.hadoop.balancer.autoAnalyze=REDUCER_REPORT</code> when using Perfect Balance, or a call to the <code>Balancer.configureCountingReducer</code> method when using the API.</p>
+<p>See <span class="q">"<a href="balance.htm#GUID-8753E2D7-F618-43F0-888B-556641698726">Collecting Additional Metrics</a>."</span></p>
+</li>
+</ul>
+<p>The reports are stored by default in the job output directory (<code>${mapreduce.output.fileoutputformat.outputdir}</code> in YARN. Following is the structure of that directory:</p>
+<pre dir="ltr">
+<span class="italic">job_output_directory</span>
+   /_SUCCESS
+   /_balancer
+      ReduceKeyMetricList-attempt_201305031125_0016_r_000000_0.xml
+      ReduceKeyMetricList-attempt_201305031125_0016_r_000001_0.xml
+        .
+        .
+        .
+     jobanalyzer-report.html
+     jobanalyzer-report.xml
+     orabalancer_report.json
+   /part-r-00000
+   /part-r-00001
+     .
+     .
+     .
+</pre></div>
+</div>
+<a id="BIGUG371"></a>
+<div class="props_rev_3"><a id="GUID-B4985864-ADE0-4AA8-A8FF-780A683687E6"></a>
+<h2 id="BIGUG-GUID-B4985864-ADE0-4AA8-A8FF-780A683687E6" class="sect2"><span class="enumeration_section">5.8</span> About Chopping</h2>
+<div>
+<p>To balance a load, Perfect Balance might subpartition the values of a single reduce key and send each subpartition to a different reducer. This partitioning of values is called <span class="bold">chopping</span>.</p>
+</div>
+<a id="BIGUG372"></a>
+<div class="props_rev_3"><a id="GUID-25C1B1B2-FA5D-45FE-A5D4-C2483A7045F6"></a>
+<h3 id="BIGUG-GUID-25C1B1B2-FA5D-45FE-A5D4-C2483A7045F6" class="sect3"><span class="enumeration_section">5.8.1</span> Selecting a Chopping Method</h3>
+<div>
+<p>You can configure how Perfect Balance chops the values by setting the <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__ORACLE.HADOOP.BALANCER.CHOPPINGSTRA-C58C3F67">oracle.hadoop.balancer.choppingStrategy</a></code> configuration property:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Chopping by hash partitioning</span>: Set <code>choppingStrategy=hash</code> when sorting is not required. This is the default chopping strategy.</p>
+</li>
+<li>
+<p><span class="bold">Chopping by round robin</span>: Set <code>choppingStrategy=roundRobin</code> as an alternative strategy when total-order chopping is not required. If the load for a hash chopped key is unbalanced among reducers, try to use this chopping strategy.</p>
+</li>
+<li>
+<p><span class="bold">Chopping by total-order partitioning</span>: Set <code>choppingStrategy=range</code> to sort the values in each subpartition and order them across all subpartitions. In any parallel sort job, each task sort the rows within the task. The job must ensure that the values in reduce task 2 are greater than values in reduce task 1, the values in reduce task 3 are greater than the values in reduce task 2, and so on. The job generates multiple files containing data in sorted order, instead of one large file with sorted data.</p>
+<p>For example, if a key is chopped into three subpartitions, and the subpartitions are sent to reducers 5, 8 and 9, then the values for that key in reducer 9 are greater than all values for that key in reducer 8, and the values for that key in reducer 8 are greater than all values for that key in reducer 5. When <code>choppingStrategy=range,</code> Perfect Balance ensures this ordering across reduce tasks.</p>
+</li>
+</ul>
+<p>If an application requires that the data is aggregated across files, then you can disable chopping by setting <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABCHEE">oracle.hadoop.balancer.keyLoad.minChopBytes</a>=-1</code>. Perfect Balance still offers performance gains by combining smaller reduce keys, called <span class="bold">bin packing</span>.</p>
+</div>
+</div>
+<a id="BIGUG373"></a>
+<div class="props_rev_3"><a id="GUID-EA2AB62F-A752-4624-A958-B5B158F4BCA5"></a>
+<h3 id="BIGUG-GUID-EA2AB62F-A752-4624-A958-B5B158F4BCA5" class="sect3"><span class="enumeration_section">5.8.2</span> How Chopping Impacts Applications</h3>
+<div>
+<p>If a MapReduce job aggregates the data by reduce key, then each reduce task aggregates the values for each key within that task. However, when chopping is enabled in Perfect Balance, the rows associated with a reduce key might be in different reduce tasks, leading to partial aggregation. Thus, values for a reduce key are aggregated within a reduce task, but not across reduce tasks. (The values for a reduce key across reduce tasks can be sorted, as discussed in <span class="q">"<a href="balance.htm#GUID-25C1B1B2-FA5D-45FE-A5D4-C2483A7045F6">Selecting a Chopping Method</a>"</span>.)</p>
+<p>When complete aggregation is required, you can disable chopping. Alternatively, you can examine the application that consumes the output of your MapReduce job. The application might work well with partial aggregation.</p>
+<p>For example, a search engine might read in parallel the output from a MapReduce job that creates an inverted index. The output of a reduce task is a list of words, and for each word, a list of documents in which the word occurs. The word is the key, and the list of documents is the value. With partial aggregation, some words have multiple document lists instead of one aggregated list. Multiple lists are convenient for the search engine to consume in parallel. A parallel search engine might even require document lists to be split instead of aggregated into one list. See <span class="q">"<a href="balance.htm#GUID-67C7D953-5AE0-4F29-A2E7-70D4F2BA5256">About the Perfect Balance Examples</a>"</span> for a Hadoop job that creates an inverted index from a document collection.</p>
+<p>As another example, Oracle Loader for Hadoop loads data from multiple files to the correct partition of a target table. The load step is faster when there are multiple files for a reduce key, because they enable a higher degree of parallelism than loading from one file for a reduce key.</p>
+</div>
+</div>
+</div>
+<a id="BIGUG340"></a>
+<div class="props_rev_3"><a id="GUID-600D3847-14D6-4BD4-9446-5799BE288E26"></a>
+<h2 id="BIGUG-GUID-600D3847-14D6-4BD4-9446-5799BE288E26" class="sect2"><span class="enumeration_section">5.9</span> Troubleshooting Jobs Running with Perfect Balance</h2>
+<div>
+<p>If you get Java "<a id="d24382e1588" class="indexterm-anchor"></a>out of heap space" or "GC overhead limit exceeded" errors on the client node while running the Perfect Balance sampler, then increase the client JVM heap size for the job.</p>
+<p>Use the Java JVM <code>-Xmx</code> option.You can specify client JVM options before running the Hadoop job, by setting the <code>HADOOP_CLIENT_OPTS</code> variable:</p>
+<pre dir="ltr">
+$ export HADOOP_CLIENT_OPTS="-Xmx1024M $HADOOP_CLIENT_OPTS"
+</pre>
+<p>Setting <code>HADOOP_CLIENT_OPTS</code> changes the JVM options only on the client node. It does not change JVM options in the map and reduce tasks. See the <code>invindx</code> script for an example of setting this variable.</p>
+<p>Setting <code>HADOOP_CLIENT_OPTS</code> is sufficient to increase the heap size for the sampler, regardless of whether <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGGJCC">oracle.hadoop.balancer.runMode</a></code> is set to <code>local</code> or <code>distributed</code>. When <code>runMode=local</code>, the sampler runs on the client node, and <code>HADOOP_CLIENT_OPTS</code> sets the heap size on the client node. When <code>runMode=distributed</code>, Perfect Balance automatically sets the heap size for the sampler Hadoop job based on the <code>-Xmx</code> setting you provide in <code>HADOOP_CLIENT_OPTS</code>. Perfect Balance never changes the heap size for the map and reduce tasks of your job, only for its sampler job.</p>
+</div>
+</div>
+<a id="BIGUG301"></a>
+<div class="props_rev_3"><a id="GUID-BB92353F-F70E-4748-B075-82E79588B5BA"></a>
+<h2 id="BIGUG-GUID-BB92353F-F70E-4748-B075-82E79588B5BA" class="sect2"><span class="enumeration_section">5.10</span> Using the Perfect Balance API</h2>
+<div>
+<p>The <a id="d24382e1661" class="indexterm-anchor"></a><code>oracle.hadoop.balancer.Balancer</code> class contains methods for creating a partitioning plan, saving the plan to a file, and running the MapReduce job using the plan. You only need to add the code to the application's job driver Java class, not redesign the application. When you run a shell script to run the application, you can include Perfect Balance configuration settings.</p>
+</div>
+<a id="BIGUG303"></a><a id="BIGUG302"></a>
+<div class="props_rev_3"><a id="GUID-87FCBBA2-F355-4C62-9F7B-250B64866059"></a>
+<h3 id="BIGUG-GUID-87FCBBA2-F355-4C62-9F7B-250B64866059" class="sect3"><span class="enumeration_section">5.10.1</span> Modifying Your Java Code to Use Perfect Balance</h3>
+<div>
+<p>The Perfect Balance installation directory contains a complete example, including input data, of a Java MapReduce program that uses the Perfect Balance API.</p>
+<p>For a description of the inverted index example and execution instructions, see <code>orabalancer-&lt;version&gt;-h2/examples/invindx/README.txt</code>.</p>
+<p>To explore the modified Java code, see <code>orabalancer-&lt;version&gt;-h2/examples/jsrc/oracle/hadoop/balancer/examples/invindx/InvertedIndexMapred.java</code> or <code>InvertedIndexMapreduce.java</code>.</p>
+<p>The modifications to run Perfect Balance include the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The <code>createBalancer</code> method validates the configuration properties and returns a <code>Balancer</code> instance.</p>
+</li>
+<li>
+<p>The <code>waitForCompletion</code> method samples the data and creates a partitioning plan.</p>
+</li>
+<li>
+<p>The <code>addBalancingPlan</code> method adds the partitioning plan to the job configuration settings.</p>
+</li>
+<li>
+<p>The <code>configureCountingReducer</code> method collects additional load statistics.</p>
+</li>
+<li>
+<p>The <code>save</code> method saves the partition report and generates the Job Analyzer report.</p>
+</li>
+</ul>
+<p><a href="balance.htm#GUID-87FCBBA2-F355-4C62-9F7B-250B64866059__BBAHBDHH">Example 5-4</a> shows fragments from the inverted index Java code.</p>
+<div class="infoboxnotealso" id="GUID-87FCBBA2-F355-4C62-9F7B-250B64866059__GUID-3FD3014D-473D-40E4-9B02-B0C5F455CE9B">
+<p class="notep1">See Also:</p>
+<p><a class="olink BIGPB" target="_blank" href="../BIGPB/toc.htm"><span class="italic">Oracle Big Data Appliance Perfect Balance Java API Reference</span></a></p>
+</div>
+<div class="example" id="GUID-87FCBBA2-F355-4C62-9F7B-250B64866059__BBAHBDHH">
+<p class="titleinexample">Example 5-4 Running Perfect Balance in a MapReduce Job</p>
+<pre dir="ltr">
+     .
+     .
+     .
+import oracle.hadoop.balancer.Balancer;
+     .
+     .
+     .
+///// BEGIN: CODE TO INVOKE BALANCER (PART-1, before job submission) //////
+    Configuration conf = job.getConfiguration();
+    
+    Balancer balancer = null;
+    
+    boolean useBalancer =
+        conf.getBoolean("oracle.hadoop.balancer.driver.balance", true);
+    if(useBalancer)
+    {
+      balancer = Balancer.createBalancer(conf);
+      balancer.waitForCompletion();
+      balancer.addBalancingPlan(conf);
+    }
+    
+    if(conf.getBoolean("oracle.hadoop.balancer.tools.useCountingReducer", true))
+    {
+      Balancer.configureCountingReducer(conf);
+    }
+    ////////////// END: CODE TO INVOKE BALANCER (PART-1) //////////////////////
+    
+    boolean isSuccess = job.waitForCompletion(true);
+    
+    ///////////////////////////////////////////////////////////////////////////
+    // BEGIN: CODE TO INVOKE BALANCER (PART-2, after job completion, optional)
+    // If balancer ran, this saves the partition file report into the _balancer
+    // sub-directory of the job output directory. It also writes a JobAnalyzer
+    // report.
+    Balancer.save(job);
+    ////////////// END: CODE TO INVOKE BALANCER (PART-2) //////////////////////
+     .
+     .
+     .
+}
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BIGUG305"></a><a id="BIGUG304"></a>
+<div class="props_rev_3"><a id="GUID-DBFB26F4-D8D3-4B52-B086-1CCF4F1373F4"></a>
+<h3 id="BIGUG-GUID-DBFB26F4-D8D3-4B52-B086-1CCF4F1373F4" class="sect3"><span class="enumeration_section">5.10.2</span> Running Your Modified Java Code with Perfect Balance</h3>
+<div>
+<div class="section">
+<p>When you run your modified Java code, you can set the Perfect Balance properties by using the standard <code>hadoop</code> command syntax:</p>
+<pre dir="ltr">
+bin/hadoop jar <span class="italic">application_jarfile</span>.jar <span class="italic">ApplicationClass</span> \
+-conf <span class="italic">application_config</span>.xml \
+-conf <span class="italic">perfect_balance_config</span>.xml \
+-D <span class="italic">application_config_property</span> \
+-D <span class="italic">perfect_balance_config_property</span> \
+-libjars <span class="italic">application_jar_path.jar...</span>
+</pre>
+<p><a href="balance.htm#GUID-DBFB26F4-D8D3-4B52-B086-1CCF4F1373F4__BBAFHCBD">Example 5-5</a> runs a script named <code>pb_balanceapi.sh</code>, which runs the <code>InvertedIndexMapreduce</code> class example packaged in the Perfect Balance JAR file. The key load metric properties are set to the values recommended in the Job Analyzer report shown in <a href="balance.htm#GUID-1C9FDD7F-B81B-4512-958B-9B36A6528061__BBABHFIG">Figure 5-1</a>.</p>
+<p>To run the InvertedIndexMapreduce class example, see <span class="q">"<a href="balance.htm#GUID-67C7D953-5AE0-4F29-A2E7-70D4F2BA5256">About the Perfect Balance Examples</a>."</span></p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-DBFB26F4-D8D3-4B52-B086-1CCF4F1373F4__BBAFHCBD">
+<p class="titleinexample">Example 5-5 Running the InvertedIndexMapreduce Class</p>
+<pre dir="ltr">
+$ <span class="bold">cat pb_balanceapi.sh</span>
+BALANCER_HOME=/opt/oracle/orabalancer-&lt;version&gt;-h2
+APP_JAR_FILE=/opt/oracle/orabalancer-&lt;version&gt;-h2/jlib/orabalancer-&lt;version&gt;.jar
+export HADOOP_CLASSPATH=${BALANCER_HOME}/jlib/orabalancer-&lt;version&gt;.jar:${BALANCER_HOME}/jlib/commons-math-2.2.jar:$HADOOP_CLASSPATH
+export HADOOP_USER_CLASSPATH_FIRST=true
+
+hadoop jar ${APP_JAR_FILE} oracle.hadoop.balancer.examples.invindx.InvertedIndexMapreduce \
+ -D mapreduce.input.fileinputformat.inputdir=invindx/input \
+ -D mapreduce.output.fileoutputformat.outputdir=jdoe_outdir_api \
+ -D mapreduce.job.name=jdoe_invindx_api \
+ -D mapreduce.job.reduces=10 \
+ -D oracle.hadoop.balancer.linearKeyLoad.keyWeight=93.981394 \
+ -D oracle.hadoop.balancer.linearKeyLoad.rowWeight=0.001126 \
+ -D oracle.hadoop.balancer.linearKeyLoad.byteWeight=0.0
+
+$ <span class="bold">sh ./balanceapi.sh</span>
+14/04/14 15:03:51 INFO balancer.Balancer: Creating balancer
+14/04/14 15:03:51 INFO balancer.Balancer: Starting Balancer
+14/04/14 15:03:51 INFO input.FileInputFormat: Total input paths to process : 5
+14/04/14 15:03:54 INFO balancer.Balancer: Balancer completed
+14/04/14 15:03:55 INFO input.FileInputFormat: Total input paths to process : 5
+14/04/14 15:03:55 INFO mapreduce.JobSubmitter: number of splits:5
+14/04/14 15:03:55 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1397066986369_3510
+14/04/14 15:03:55 INFO impl.YarnClientImpl: Submitted application application_1397066986369_3510
+     .
+     .
+     .
+File Input Format Counters 
+Bytes Read=112652976
+File Output Format Counters 
+Bytes Written=384974202
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<a id="BIGUG313"></a>
+<div class="props_rev_3"><a id="GUID-67C7D953-5AE0-4F29-A2E7-70D4F2BA5256"></a>
+<h2 id="BIGUG-GUID-67C7D953-5AE0-4F29-A2E7-70D4F2BA5256" class="sect2"><span class="enumeration_section">5.11</span> About the Perfect Balance Examples</h2>
+<div>
+<p>The Perfect Balance installation files include a full set of examples that you can run immediately. The InvertedIndex example is a MapReduce application that creates an inverted index on an input set of text files. The inverted index maps words to the location of the words in the text files. The input data is included.</p>
+</div>
+<a id="BIGUG314"></a>
+<div class="props_rev_3"><a id="GUID-E70EB77A-E2EF-4156-9C46-ACAA88194124"></a>
+<h3 id="BIGUG-GUID-E70EB77A-E2EF-4156-9C46-ACAA88194124" class="sect3"><span class="enumeration_section">5.11.1</span> About the Examples in This Chapter</h3>
+<div>
+<p>The InvertedIndex example provides the basis for all examples in this chapter. They use the same data set and run the same MapReduce application. The modifications to the InvertedIndex example simply highlight the steps you must perform in running your own applications with Perfect Balance.</p>
+<p>If you want to run the examples in this chapter, or use them as the basis for running your own jobs, then make the following changes:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If you are modifying the examples to run your own application, then add your application JAR files to <a id="d24382e1873" class="indexterm-anchor"></a><code>HADOOP_CLASSPATH</code> and <code>-libjars</code>.</p>
+</li>
+<li>
+<p>Ensure that the value of <code>mapreduce.input.fileinputformat.inputdir</code> identifies the location of your data.</p>
+<p>The <code>invindx/input</code> directory contains the sample data for the InvertedIndex example. To use this data, you must first set it up. See <span class="q">"<a href="balance.htm#GUID-AC37DCF4-EFB0-4547-8FF5-1C08C2C8CA60">Extracting the Example Data Set</a>."</span></p>
+</li>
+<li>
+<p>Replace <code>jdoe</code> with your Hadoop user name.</p>
+</li>
+<li>
+<p>Review the configuration setting and the shell script to ensure that they are appropriate for the job.</p>
+</li>
+<li>
+<p>You can run the browser from your laptop or connect to Oracle Big Data Appliance using a client that supports graphical interfaces, such as VNC.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGUG315"></a>
+<div class="props_rev_3"><a id="GUID-AC37DCF4-EFB0-4547-8FF5-1C08C2C8CA60"></a>
+<h3 id="BIGUG-GUID-AC37DCF4-EFB0-4547-8FF5-1C08C2C8CA60" class="sect3"><span class="enumeration_section">5.11.2</span> Extracting the Example Data Set</h3>
+<div>
+<div class="section">
+<p>To run the InvertedIndex examples or any of the examples in this chapter, you must first set up the data files.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To extract the InvertedIndex data files:</p>
+<ol>
+<li>
+<p>Log in to a server where Perfect Balance is installed.</p>
+</li>
+<li>
+<p>Change to the <code>examples/invindx</code> subdirectory:</p>
+<pre dir="ltr">
+cd /opt/oracle/orabalancer-&lt;version&gt;-h2/examples/invindx
+</pre></li>
+<li>
+<p>Unzip the data and copy it to the HDFS <code>invindx/input</code> directory:</p>
+<pre dir="ltr">
+./invindx -setup
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>For complete instructions for running the InvertedIndex example, see <code>/opt/oracle/orabalancer-&lt;version&gt;-h2/examples/invindx/README.txt</code>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG308"></a>
+<div class="props_rev_3"><a id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459"></a>
+<h2 id="BIGUG-GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459" class="sect2"><span class="enumeration_section">5.12</span> Perfect Balance Configuration Property Reference</h2>
+<div>
+<div class="section">
+<p>This section describes the Perfect Balance configuration properties and a few generic Hadoop MapReduce properties that Perfect Balance reads from the job configuration:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABEAGE">MapReduce Configuration Properties</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__CIADFEAC">Job Analyzer Configuration Properties</a></p>
+</li>
+<li>
+<p><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFIDCC">Perfect Balance Configuration Properties</a></p>
+</li>
+</ul>
+<p>See <span class="q">"<a href="balance.htm#GUID-68A678B1-DC49-4C43-B978-9295EF0CA277">About Configuring Perfect Balance</a>"</span> for a list of the properties organized into functional categories.</p>
+<div class="infobox-note" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-51B7D0A6-90D8-4773-898C-D5AB1982FE43">
+<p class="notep1">Note:</p>
+<p>CDH5 deprecates many MapReduce properties and replaces them with new properties. Perfect Balance continues to work with the old property names, but Oracle recommends that you use the new names. For the new MapReduce property names, see the Cloudera website at:</p>
+<p><a href="http://archive.cloudera.com/cdh5/cdh/5/hadoop/hadoop-project-dist/hadoop-common/DeprecatedProperties.html" target="_blank"><code>http://archive.cloudera.com/cdh5/cdh/5/hadoop/hadoop-project-dist/hadoop-common/DeprecatedProperties.html</code></a></p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABEAGE">
+<p class="subhead2">MapReduce Configuration Properties</p>
+<div class="tblformal" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-15E0FBDE-B0FA-445D-A4CC-97AF5F8FD015">
+<table class="cellalignment107" summary="Describes various properties of MapReduce subclasses. The left column names the property. The right column provides the Type, Default Value, and Description.">
+<thead>
+<tr class="cellalignment101">
+<th class="cellalignment108" id="d24382e2084">Property</th>
+<th class="cellalignment108" id="d24382e2086">Type, Default Value, Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-D2F4BD2C-2236-4248-A0D8-1618012CC1F6">
+<td class="cellalignment101" id="d24382e2090" headers="d24382e2084">
+<p><span class="bold">mapreduce.input.fileinputformat.inputdir</span></p>
+</td>
+<td class="cellalignment101" headers="d24382e2090 d24382e2086">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Not defined</p>
+<p><span class="bold">Description</span>: A comma-separated list of input directories.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-7FE6CFBD-5A10-4CA2-970A-A4A0871AA6FC">
+<td class="cellalignment101" id="d24382e2108" headers="d24382e2084">
+<p><span class="bold">mapreduce.inputformat.class</span></p>
+</td>
+<td class="cellalignment101" headers="d24382e2108 d24382e2086">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code>org.apache.hadoop.mapreduce.lib.input.TextInputFormat</code></p>
+<p><span class="bold">Description</span>: The full name of the <code>InputFormat</code> class.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-1CBD0B51-2179-44C6-A227-A27FEC9FAD0B">
+<td class="cellalignment101" id="d24382e2131" headers="d24382e2084">
+<p><span class="bold">mapreduce.map.class</span></p>
+</td>
+<td class="cellalignment101" headers="d24382e2131 d24382e2086">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code>org.apache.hadoop.mapreduce.Mapper</code></p>
+<p><span class="bold">Description</span>: The full name of the mapper class.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACJEIE">
+<td class="cellalignment101" id="d24382e2151" headers="d24382e2084">
+<p><span class="bold">mapreduce.output.fileoutputformat.outputdir</span></p>
+</td>
+<td class="cellalignment101" headers="d24382e2151 d24382e2086">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Not defined</p>
+<p><span class="bold">Description</span>: The job output directory.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-E32AB366-4866-4F66-839D-8F1EBD2D5CE2">
+<td class="cellalignment101" id="d24382e2169" headers="d24382e2084">
+<p><span class="bold">mapreduce.partitioner.class</span></p>
+</td>
+<td class="cellalignment101" headers="d24382e2169 d24382e2086">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code>org.apache.hadoop.mapreduce.lib.partition.HashPartitioner</code></p>
+<p><span class="bold">Description</span>: The full name of the partitioner class.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-42F3C98E-13B1-434D-AD01-D02408B29B3F">
+<td class="cellalignment101" id="d24382e2189" headers="d24382e2084">
+<p><span class="bold">mapreduce.reduce.class</span></p>
+</td>
+<td class="cellalignment101" headers="d24382e2189 d24382e2086">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code>org.apache.hadoop.mapreduce.Reducer</code></p>
+<p><span class="bold">Description</span>: The full name of the reducer class.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__CIADFEAC">
+<p class="subhead2">Job Analyzer Configuration Properties</p>
+<div class="tblformal" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-C3DD86C2-81C1-4821-9423-0E3D84273B16">
+<table class="cellalignment107" summary="Describes the properties of the oracle.hadoop.balancer class and the tools subclass. Type, Default Value, and Description of each property are provided.">
+<thead>
+<tr class="cellalignment101">
+<th class="cellalignment108" id="d24382e2219">Property</th>
+<th class="cellalignment108" id="d24382e2221">Type, Default Value, Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__CIACBHEC">
+<td class="cellalignment101" id="d24382e2225" headers="d24382e2219">
+<p><span class="bold">oracle.hadoop.balancer.application_id</span></p>
+</td>
+<td class="cellalignment101" headers="d24382e2225 d24382e2221">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Not defined</p>
+<p><span class="bold">Description</span>: The job identifier of the job you want to analyze with Job Analyzer. This property is a parameter to the Job Analyzer utility in standalone mode on YARN clusters; it does not apply to MRv1 clusters. See <span class="q">"<a href="balance.htm#GUID-12ADB6FB-14D8-4110-A8BF-B52C9163F815">Running Job Analyzer as a Standalone Utility</a>"</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACFJGB">
+<td class="cellalignment101" id="d24382e2247" headers="d24382e2219">
+<p><span class="bold">oracle.hadoop.balancer.tools.writeKeyBytes</span></p>
+</td>
+<td class="cellalignment101" headers="d24382e2247 d24382e2221">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code>false</code></p>
+<p><span class="bold">Description</span>: Controls whether the counting reducer collects the byte representations of the reduce keys for the Job Analyzer. Set this property to <code>true</code> to represent the unique key values in Base64 encoding in the report. A string representation of the key, created using <code>key.toString</code>, is also provided in the report. This string value may not be unique for each key.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFIDCC">
+<p class="subhead2">Perfect Balance Configuration Properties</p>
+<div class="tblformal" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-428C135C-22E4-4F2F-A3A9-1CBC6394C90A">
+<table class="cellalignment107" summary="Describes Perfect Balance Configuration properties. This is for the oracle.hadoop.balancer class and subclasses.">
+<thead>
+<tr class="cellalignment101">
+<th class="cellalignment118" id="d24382e2283">Property</th>
+<th class="cellalignment118" id="d24382e2285">Type, Default Value, Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIJGDD">
+<td class="cellalignment122" id="d24382e2289" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.autoAnalyze</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2289 d24382e2285">
+<p><span class="bold">Type</span>: Enumeration</p>
+<p><span class="bold">Default Value</span>: <code>BASIC_REPORT</code> if <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHBDFE">oracle.hadoop.balancer.autoBalance</a></code> is true; otherwise <code>NONE</code></p>
+<p><span class="bold">Description</span>: Controls the behavior of the Job Analyzer when it is called using Perfect Balance. The following values are valid:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>NONE</code>: Disables Job Analyzer.</p>
+</li>
+<li>
+<p><code>BASIC_REPORT</code>: Enables Job Analyzer</p>
+</li>
+<li>
+<p><code>REDUCER_REPORT</code>: Enables Job Analyzer such that it collects additional load statistics for each reduce task in a job. See <span class="q">"<a href="balance.htm#GUID-8753E2D7-F618-43F0-888B-556641698726">Collecting Additional Metrics</a>."</span>.</p>
+</li>
+</ul>
+<p>Perfect Balance uses this property; the Perfect BalanceAPI does not.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHBDFE">
+<td class="cellalignment122" id="d24382e2340" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.autoBalance</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2340 d24382e2285">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code>false</code></p>
+<p><span class="bold">Description</span>: Controls whether load balancing is enabled. Set to <code>false</code> to turn off balancing. Perfect Balance uses this property; the Perfect Balance API does not.</p>
+</td>
+</tr>
+<tr class="cellalignment101">
+<td class="cellalignment122" id="d24382e2363" headers="d24382e2283">
+<p id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__ORACLE.HADOOP.BALANCER.CHOPPINGSTRA-C58C3F67"><span class="bold">oracle.hadoop.balancer.choppingStrategy</span></p>
+<p>Note that the choppingStrategy property takes precedence over the deprecated property <code>oracle.hadoop.balancer.enableSorting</code>. If the choppingStrategy property is not set, <code>oracle.hadoop.balancer.enableSorting=true</code> is equivalent to setting the choppingStrategy property to <code>range</code>. Likewise, setting <code>oracle.hadoop.balancer.enableSorting=false</code> is equivalent to setting the choppingStrategy property to <code>hash</code>.</p>
+</td>
+<td class="cellalignment122" headers="d24382e2363 d24382e2285">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code>hash</code></p>
+<p><span class="bold">Description</span>: This property controls the behavior of sampler when it needs to chop a key. The following values are valid:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>range</code>: Records of chopped keys are assigned to different reducers according to the total-order partitioning function specified by the map output key sorting comparator, so balancer will preserve a total order over the values of a chopped key.</p>
+</li>
+<li>
+<p><code>hash</code>: Records of chopped keys are assigned to different reducers according to the hashCode on the map output values. In most cases, this approach gives a balanced work load among reducers.</p>
+</li>
+<li>
+<p><code>roundRobin</code>: Records of chopped keys are assigned to different reducers in round-robin order. This is an alternative strategy when it is not required to preserve a total order over the value of a chopped key. If the load for a hash chopped key is unbalanced among reducers, try to use this chopping strategy.</p>
+</li>
+</ul>
+<p>See also the deprecated property: <a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAEBJEC">oracle.hadoop.balancer.enableSorting</a></p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIBGCC">
+<td class="cellalignment122" id="d24382e2421" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.confidence</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2421 d24382e2285">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: <code>0.95</code></p>
+<p><span class="bold">Description</span>: The statistical confidence indicator for the load factor specified by the <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHBIDE">oracle.hadoop.balancer.maxLoadFactor</a></code> property.</p>
+<p>This property accepts values greater than or equal to 0.5 and less than 1.0 (0.5 &lt;= <span class="italic">value</span> &lt; 1.0). A value less than 0.5 resets the property to its default value. Oracle recommends a value greater than or equal to 0.9. Typical values are 0.95 and 0.99.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAEBJEC">
+<td class="cellalignment122" id="d24382e2451" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.enableSorting</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2451 d24382e2285">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code>false</code></p>
+<p><span class="bold">Description</span>: This property is deprecated. To use the map output key sorting comparator as a total-order partitioning function, set <code>oracle.hadoop.balancer.choppingStrategy</code> to <code>range</code>.</p>
+<p>When this property is false, map output keys will be chopped using a hash function. When this property is true, map output keys will be chopped using the map output key sorting comparator as a total-order partitioning function. When this property is true, balancer will preserve a total order over the values of a chopped key.</p>
+<p>See also: <a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__ORACLE.HADOOP.BALANCER.CHOPPINGSTRA-C58C3F67">oracle.hadoop.balancer.choppingStrategy</a></p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAJEFAF">
+<td class="cellalignment122" id="d24382e2485" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.inputFormat.mapred.map.tasks</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2485 d24382e2285">
+<p><span class="bold">Type</span>: Integer</p>
+<p><span class="bold">Default Value</span>: <code>100</code></p>
+<p><span class="bold">Description</span>: Sets the Hadoop <a id="d24382e2504" class="indexterm-anchor"></a><code>mapred.map.tasks</code> property for the duration of sampling, just before calling the input format <code>getSplits</code> method. It does not change <code>mapred.map.tasks</code> for the actual job. The optimal number of map tasks is a trade-off between obtaining a good sample (larger number) and having finite memory resources (smaller number).</p>
+<p>Set this property to a value greater than or equal to one (1). A value less than 1 disables the property.</p>
+<p>Some input formats, such as <code>DBInputFormat</code>, use this property as a hint to determine the number of splits returned by <code>getSplits</code>. Higher values indicate that more chunks of data are sampled at random, which improves the sample.</p>
+<p>You can increase the value for larger data sets, that is, more than a million rows of about 100 bytes per row. However, extremely large values can cause the input format's <code>getSplits</code> method to run out of memory by returning too many splits.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHCFAJ">
+<td class="cellalignment122" id="d24382e2531" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.inputFormat.mapred.max.split.size</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2531 d24382e2285">
+<p><span class="bold">Type</span>: Long</p>
+<p><span class="bold">Default Value</span>: <code>1048576</code> (1 MB)</p>
+<p><span class="bold">Description</span>: Sets the Hadoop <code>mapred.max.split.size</code> property for the duration of sampling, just before calling the input format's <code>getSplits</code> method. It does not change <code>mapred.max.split.size</code> for the actual job.</p>
+<p>Set this property to a value greater than or equal to one (1). A value less than 1 disables the property. The optimal split size is a trade-off between obtaining a good sample (smaller splits) and efficient I/O performance (larger splits).</p>
+<p>Some input formats, such as <code>FileInputFormat</code>, use the maximum split size as a hint to determine the number of splits returned by <code>getSplits</code>. Smaller split sizes indicate that more chunks of data are sampled at random, which improves the sample. Set the value small enough for good sampling performance, but no smaller. Extremely small values can cause inefficient I/O performance, while not improving the sample.</p>
+<p>You can increase the value for larger data sets (tens of terabytes) or if the input format's <code>getSplits</code> method throws an out of memory error. Large splits are better for I/O performance, but not for sampling.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABCHEE">
+<td class="cellalignment122" id="d24382e2576" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.keyLoad.minChopBytes</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2576 d24382e2285">
+<p><span class="bold">Type</span>: Long</p>
+<p><span class="bold">Default Value</span>: <code>0</code></p>
+<p><span class="bold">Description</span>: Controls whether Perfect Balance chops large map output keys into medium keys:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>-1</code>: Perfect Balance does not chop large map output keys.</p>
+</li>
+<li>
+<p><code>0</code>: Perfect Balance chops large map output keys and determines the optimal size of each medium key.</p>
+</li>
+<li>
+<p><span class="italic">Positive integer</span>: Perfect Balance chops large map output keys into medium keys with a size greater than or equal to the specified integer.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGHDID">
+<td class="cellalignment122" id="d24382e2612" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.linearKeyLoad.byteWeight</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2612 d24382e2285">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: <code>0.05</code></p>
+<p><span class="bold">Description</span>: Weights the number of bytes per key in the linear key load model specified by the <code>oracle.hadoop.balancer.KeyLoadLinear</code> class.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGADJC">
+<td class="cellalignment122" id="d24382e2635" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.linearKeyLoad.feedbackDir</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2635 d24382e2285">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Not defined</p>
+<p><span class="bold">Description</span>: The path to a directory that contains the Job Analyzer report for a job that it previously analyzed. The sampler reads this report for feedback to use to optimize the current balancing plan. You can set this property to the Job Analyzer report directory of a job that is the same or similar to the current job, so that the feedback is directly applicable.</p>
+<p>If the feedback directory contains a Job Analyzer report with recommended values for the Perfect Balance linear key load model coefficients, then Perfect Balance automatically reads and uses them. The recommended values take precedence over user-specified values in these configuration parameters:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGHDID">oracle.hadoop.balancer.linearKeyLoad.byteWeight</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFBGCE">oracle.hadoop.balancer.linearKeyLoad.keyWeight</a></code></p>
+</li>
+<li>
+<p><code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACIGAG">oracle.hadoop.balancer.linearKeyLoad.rowWeight</a></code></p>
+</li>
+</ul>
+<p>Job Analyzer attempts to recommend good values for these coefficients. However, Perfect Balance reads the load model coefficients from this list of configuration properties under the following circumstances:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The <code>feedbackDir</code> property is not set.</p>
+</li>
+<li>
+<p>The <code>feedbackDir</code> property is set, but the Job Analyzer report in the specified directory does not contain a good recommendation for the load model coefficients.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFBGCE">
+<td class="cellalignment122" id="d24382e2689" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.linearKeyLoad.keyWeight</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2689 d24382e2285">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: 50.0</p>
+<p><span class="bold">Description</span>: Weights the number of medium keys per large key in the linear key load model specified by the <a id="d24382e2706" class="indexterm-anchor"></a><code>oracle.hadoop.balancer.KeyLoadLinear</code> class.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACIGAG">
+<td class="cellalignment122" id="d24382e2713" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.linearKeyLoad.rowWeight</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2713 d24382e2285">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: 0.05</p>
+<p><span class="bold">Description</span>: Weights the number of rows per key in the linear key load model specified by the <a id="d24382e2730" class="indexterm-anchor"></a><code>oracle.hadoop.balancer.KeyLoadLinear</code> class.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHBIDE">
+<td class="cellalignment122" id="d24382e2736" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.maxLoadFactor</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2736 d24382e2285">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: 0.05</p>
+<p><span class="bold">Description</span>: The target reducer load factor that you want the balancer's partition plan to achieve.</p>
+<p>The load factor is the relative deviation from an estimated value. For example, if <code>maxLoadFactor</code><code>=0.05</code> and <code>confidence</code><code>=0.95</code>, then with a confidence greater than 95%, the job's reducer loads should be, at most, 5% greater than the value in the partition plan.</p>
+<p>The values of these two properties determine the sampler's stopping condition. The balancer samples until it can generate a plan that guarantees the specified load factor at the specified confidence level. This guarantee may not hold if the sampler stops early because of other stopping conditions, such as the number of samples exceeds <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIEHGB">oracle.hadoop.balancer.maxSamplesPct</a></code>. The partition report logs the stopping condition.</p>
+<p>See <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIBGCC">oracle.hadoop.balancer.confidence</a></code>.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIEHGB">
+<td class="cellalignment122" id="d24382e2780" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.maxSamplesPct</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2780 d24382e2285">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: <code>0.01</code> (1%)</p>
+<p><span class="bold">Description</span>: Limits the number of samples that Perfect Balance can collect to a fraction of the total input records. A value less than zero disables the property (no limit).</p>
+<p>You may need to increase the value for Hadoop applications with very unbalanced reducer partitions or densely clustered map-output keys. The sampler needs to sample more data to achieve a good partitioning plan in these cases.</p>
+<p>See <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABDFJC">oracle.hadoop.balancer.useClusterStats</a></code>.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABHFJA">
+<td class="cellalignment122" id="d24382e2810" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.minSplits</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2810 d24382e2285">
+<p><span class="bold">Type</span>: Integer</p>
+<p><span class="bold">Default Value</span>: <code>5</code></p>
+<p><span class="bold">Description</span>: Sets the minimum number of splits that the sampler reads. If the total number of splits is less than this value, then the sampler reads all splits. Set this property to a value greater than or equal to one (<code>1</code>). A nonpositive number sets the property to <code>1</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIAHDJ">
+<td class="cellalignment122" id="d24382e2836" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.numThreads</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2836 d24382e2285">
+<p><span class="bold">Type</span>: Integer</p>
+<p><span class="bold">Default Value</span>: <code>5</code></p>
+<p><span class="bold">Description</span>: Number of sampler threads. Set this value based on the processor and memory resources available on the node where the job is initiated. A higher number of sampler threads implies higher concurrency in sampling. Set this property to one (<code>1</code>) to disable multithreading in the sampler.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABACHA">
+<td class="cellalignment122" id="d24382e2859" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.report.overwrite</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2859 d24382e2285">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code>false</code></p>
+<p><span class="bold">Description</span>: Controls whether Perfect Balance overwrites files in the location specified by the <code><a href="balance.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFEIGB">oracle.hadoop.balancer.reportPath</a></code> property. By default, Perfect Balance does not overwrite files; it throws an exception. Set this property to <code>true</code> to allow partition reports to be overwritten.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFEIGB">
+<td class="cellalignment122" id="d24382e2887" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.reportPath</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2887 d24382e2285">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <span class="italic"><code>directory</code></span><code>/orabalancer_report-</code><span class="italic"><code>random_unique_string</code></span><code>.json</code>, where directory for HDFS is the home directory of the user who submits the job. For the local file system, it is the directory where the job is submitted.</p>
+<p><span class="bold">Description</span>: The path where Perfect Balance writes the partition report before the Hadoop job output directory is available, that is, before the MapReduce job finishes running. At the end of the job, Perfect Balance moves the file to <span class="italic"><code>job_output_dir</code></span><code>/_balancer/orabalancer_report.json</code>. In the API, the <code>save</code> method does this task.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGGJCC">
+<td class="cellalignment122" id="d24382e2925" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.runMode</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2925 d24382e2285">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code>local</code></p>
+<p><span class="bold">Description</span>: Specifies how to run the Perfect Balance sampler. The following values are valid:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>local</code>: The sampler runs on the client node where the job is submitted.</p>
+</li>
+<li>
+<p><code>distributed</code>: The sampler runs as a Hadoop job. If the job uses the distributed cache, then Perfect Balance automatically sets this property to <code>distributed</code>.</p>
+</li>
+</ul>
+<p>If this property is set to an invalid string, Perfect Balance resets it to <code>local</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAJJIBG">
+<td class="cellalignment122" id="d24382e2964" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.tmpDir</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2964 d24382e2285">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code>/tmp/orabalancer-</code><span class="italic"><code>user_name</code></span></p>
+<p><span class="bold">Description</span>: The path to a staging directory in the file system of the job output directory (HDFS or local). Perfect Balance creates the directory if it does not exist, and copies the partition report to it for loading into the Hadoop distributed cache.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABDFJC">
+<td class="cellalignment122" id="d24382e2987" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.useClusterStats</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e2987 d24382e2285">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code>true</code></p>
+<p><span class="bold">Description</span>: Enables the sampler to use cluster sampling statistics. These statistics improve the accuracy of sampled estimates, such as the number of records in a map-output key, when the map-output keys are distributed in clusters across input splits, instead of being distributed independently across all input splits.</p>
+<p>Set this property to <code>false</code> only if you are absolutely certain that the map-output keys are not clustered. This setting improves the sampler's estimates only when there is, in fact, no clustering. Oracle recommends leaving this property set to <code>true</code>, because the distribution of map-output keys is usually unknown.</p>
+</td>
+</tr>
+<tr class="cellalignment101" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFABFG">
+<td class="cellalignment122" id="d24382e3015" headers="d24382e2283">
+<p><span class="bold">oracle.hadoop.balancer.useMapreduceApi</span></p>
+</td>
+<td class="cellalignment122" headers="d24382e3015 d24382e2285">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code>true</code></p>
+<p><span class="bold">Description</span>: Identifies the MapReduce API used in the Hadoop job:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>true</code>: The job uses the <code>mapreduce</code> API.</p>
+</li>
+<li>
+<p><code>false</code>: The job uses the <code>mapred</code> API.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment100">
+<tr>
+<td class="cellalignment143">
+<table class="cellalignment105">
+<tr>
+<td class="cellalignment104"><a href="part-oracle-big-data-appliance-software.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment104"><a href="part-oracle-table-access.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment145">
+<table class="cellalignment103">
+<tr>
+<td class="cellalignment104"><a href="http://docs.oracle.com/bigdata/bda47/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment104"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment104"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment104"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

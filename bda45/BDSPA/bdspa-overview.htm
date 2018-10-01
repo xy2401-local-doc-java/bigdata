@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Big Data Spatial and Graph Overview</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="This chapter provides an overview of Oracle Big Data support for Oracle Spatial and Graph spatial, property graph, and multimedia analytics features." />
+<meta name="dcterms.created" content="2016-05-03T13:10:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Spatial and Graph User's Guide and Reference" />
+<meta name="dcterms.identifier" content="E67958-03" />
+<meta name="dcterms.isVersionOf" content="BDSPA" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2015, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="bdspa-changes.htm" title="Previous" type="text/html" />
+<link rel="Next" href="spatial-data.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E67958-03.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-9FC0663B-21F9-497E-973C-E7199324C073"></a> <span id="PAGE" style="display:none;">7/15</span> <!-- End Header --><a id="BDSPA109"></a><a id="BDSPA108"></a>
+<h1 id="BDSPA-GUID-9FC0663B-21F9-497E-973C-E7199324C073" class="sect1"><span class="enumeration_chapter">1</span> Big Data Spatial and Graph Overview</h1>
+<div>
+<div><span>This chapter provides an overview of Oracle Big Data support for Oracle Spatial and Graph spatial, property graph, and multimedia analytics features.</span></div>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bdspa-overview.htm#GUID-3698A251-2EEA-4A33-A0E7-5D0BE3A529E5">About Big Data Spatial and Graph</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-811AED8B-3EDC-4436-934E-40BDC647CA6E">Spatial Features</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-50CFB991-4390-43E8-BD54-B40C79374F43">Property Graph Features</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-50BB6E30-BE2D-4D7D-B5A8-47EB82AD2F61">Multimedia Analytics Features</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-637F22DB-9327-41EC-8FD9-D6A523F14225">Installing Oracle Big Data Spatial and Graph on an Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-9B24206D-3824-48A0-B5A9-7633930354EB">Installing and Configuring the Big Data Spatial Image Processing Framework</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-99A7E77E-41CC-49B6-BF2C-FA3500419EDB">Installing and Configuring the Big Data Spatial Image Server</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-A5CC1A7A-5E07-4CBE-A04E-58F15E3492C1">Installing Oracle Big Data Spatial Hadoop Vector Console</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-BDF9368E-C271-414D-9779-9F534977879F">Installing Property Graph Support on a CDH Cluster or Other Hardware</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-49B3D52B-E524-4EAD-A42C-CCCC8E987990">Installing and Configuring Multimedia Analytics Support</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA110"></a>
+<div class="props_rev_3"><a id="GUID-3698A251-2EEA-4A33-A0E7-5D0BE3A529E5"></a>
+<h2 id="BDSPA-GUID-3698A251-2EEA-4A33-A0E7-5D0BE3A529E5" class="sect2"><span class="enumeration_section">1.1</span> About Big Data Spatial and Graph</h2>
+<div>
+<p>Oracle Big Data Spatial and Graph delivers advanced spatial and graph analytic capabilities to supported Apache Hadoop and NoSQL Database Big Data platforms.</p>
+<p>The spatial features include support for data enrichment of location information, spatial filtering and categorization based on distance and location-based analysis, and spatial data processing for vector and raster processing of digital map, sensor, satellite and aerial imagery values, and APIs for map visualization.</p>
+<p>The property graph features support Apache Hadoop HBase and Oracle NoSQL Database for graph operations, indexing, queries, search, and in-memory analytics.</p>
+<p>The multimedia analytics features provide a framework for processing video and image data in Apache Hadoop, including built-in face recognition using OpenCV.</p>
+</div>
+</div>
+<a id="BDSPA111"></a>
+<div class="props_rev_3"><a id="GUID-811AED8B-3EDC-4436-934E-40BDC647CA6E"></a>
+<h2 id="BDSPA-GUID-811AED8B-3EDC-4436-934E-40BDC647CA6E" class="sect2"><span class="enumeration_section">1.2</span> Spatial Features</h2>
+<div>
+<p>Spatial location information is a common element of Big Data. Businesses can use spatial data as the basis for associating and linking disparate data sets. Location information can also be used to track and categorize entities based on proximity to another person, place, or object, or on their presence a particular area. Location information can facilitate location-specific offers to customers entering a particular geography, something known as <span class="italic">geo-fencing.</span> Georeferenced imagery and sensory data can be analyzed for a variety of business benefits.</p>
+<p>The Spatial features of Oracle Big Data Special and Graph support those use cases with the following kinds of services.</p>
+<p>Vector Services:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Ability to associate documents and data with names, such as cities or states, or longitude/latitude information in spatial object definitions for a default administrative hierarchy</p>
+</li>
+<li>
+<p>Support for text-based 2D and 3D geospatial formats, including GeoJSON files, Shapefiles, GML, and WKT, or you can use the Geospatial Data Abstraction Library (GDAL) to convert popular geospatial encodings such as Oracle SDO_Geometry, ST_Geometry, and other supported formats</p>
+</li>
+<li>
+<p>An HTML5-based map client API and a sample console to explore, categorize, and view data in a variety of formats and coordinate systems</p>
+</li>
+<li>
+<p>Topological and distance operations: Anyinteract, Inside, Contains, Within Distance, Nearest Neighbor, and others</p>
+</li>
+<li>
+<p>Spatial indexing for fast retrieval of data</p>
+</li>
+</ul>
+<p>Raster Services:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Support for many image file formats supported by GDAL and image files stored in HDFS</p>
+</li>
+<li>
+<p>A sample console to view the set of images that are available</p>
+</li>
+<li>
+<p>Raster operations, including, subsetting, georeferencing, mosaics, and format conversion</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDSPA112"></a>
+<div class="props_rev_3"><a id="GUID-50CFB991-4390-43E8-BD54-B40C79374F43"></a>
+<h2 id="BDSPA-GUID-50CFB991-4390-43E8-BD54-B40C79374F43" class="sect2"><span class="enumeration_section">1.3</span> Property Graph Features</h2>
+<div>
+<p>Graphs manage networks of linked data as vertices, edges, and properties of the vertices and edges. Graphs are commonly used to model, store, and analyze relationships found in social networks, cyber security, utilities and telecommunications, life sciences and clinical data, and knowledge networks.</p>
+<p>Typical graph analyses encompass graph traversal, recommendations, finding communities and influencers, and pattern matching. Industries including, telecommunications, life sciences and healthcare, security, media and publishing can benefit from graphs.</p>
+<p>The property graph features of Oracle Big Data Special and Graph support those use cases with the following capabilities:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A scalable graph database on Apache HBase and Oracle NoSQL Database</p>
+</li>
+<li>
+<p>Developer-based APIs based upon Tinkerpop Blueprints, and Java graph APIs</p>
+</li>
+<li>
+<p>Text search and query through integration with Apache Lucene and SolrCloud</p>
+</li>
+<li>
+<p>Scripting languages support for Groovy and Python</p>
+</li>
+<li>
+<p>A parallel, in-memory graph analytics engine</p>
+</li>
+<li>
+<p>A fast, scalable suite of social network analysis functions that include ranking, centrality, recommender, community detection, path finding</p>
+</li>
+<li>
+<p>Parallel bulk load and export of property graph data in Oracle-defined flat files format</p>
+</li>
+<li>
+<p>Manageability through a Groovy-based console to execute Java and Tinkerpop Gremlin APIs</p>
+</li>
+</ul>
+<p>See also <a href="bdspa-overview.htm#GUID-A7F12A95-3B1A-4F00-A2C9-983B042ABBF1">Property Graph Sizing Recommendations</a></p>
+</div>
+<a id="BDSPA114"></a><a id="BDSPA113"></a>
+<div class="props_rev_3"><a id="GUID-A7F12A95-3B1A-4F00-A2C9-983B042ABBF1"></a>
+<h3 id="BDSPA-GUID-A7F12A95-3B1A-4F00-A2C9-983B042ABBF1" class="sect3"><span class="enumeration_section">1.3.1</span> Property Graph Sizing Recommendations</h3>
+<div>
+<p>The following are recommendations for property graph installation.</p>
+<div class="tblformal" id="GUID-A7F12A95-3B1A-4F00-A2C9-983B042ABBF1__GUID-8B3A3BAC-A115-4B86-9E9A-4EBAC045688E">
+<hr />
+<p class="titleintable">Table 1-1 Property Graph Sizing Recommendations</p>
+<table class="cellalignment336" title="Property Graph Sizing Recommendations" summary="Property graph sizing recommendations">
+<thead align="left">
+<tr>
+<th class="cellalignment337" id="d3053e383">Graph Size</th>
+<th class="cellalignment338" id="d3053e386">Recommended Physical Memory to be Dedicated</th>
+<th class="cellalignment339" id="d3053e389">Recommended Number of CPU Processors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment337" id="d3053e394" headers="d3053e383">
+<p>10 to 100M edges</p>
+</td>
+<td class="cellalignment338" headers="d3053e394 d3053e386">
+<p>Up to 14 GB RAM</p>
+</td>
+<td class="cellalignment339" headers="d3053e394 d3053e389">
+<p>2 to 4 processors, and up to 16 processors for more compute-intensive workloads</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment337" id="d3053e404" headers="d3053e383">
+<p>100M to 1B edges</p>
+</td>
+<td class="cellalignment338" headers="d3053e404 d3053e386">
+<p>14 GB to 100 GB RAM</p>
+</td>
+<td class="cellalignment339" headers="d3053e404 d3053e389">
+<p>4 to 12 processors, and up to 16 to 32 processors for more compute-intensive workloads</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment337" id="d3053e414" headers="d3053e383">
+<p>Over 1B edges</p>
+</td>
+<td class="cellalignment338" headers="d3053e414 d3053e386">
+<p>Over 100 GB RAM</p>
+</td>
+<td class="cellalignment339" headers="d3053e414 d3053e389">
+<p>12 to 32 processors, or more for especially compute-intensive workloads</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-50BB6E30-BE2D-4D7D-B5A8-47EB82AD2F61"></a>
+<h2 id="BDSPA-GUID-50BB6E30-BE2D-4D7D-B5A8-47EB82AD2F61" class="sect2"><span class="enumeration_section">1.4</span> Multimedia Analytics Features</h2>
+<div>
+<p>The multimedia analytics feature of Oracle Big Data Spatial and Graph provides a framework for processing video and image data in Apache Hadoop. The framework enables distributed processing of video and image data.</p>
+<p>A main use case is performing facial recognition in videos and images.</p>
+</div>
+</div>
+<a id="BDSPA115"></a>
+<div class="props_rev_3"><a id="GUID-637F22DB-9327-41EC-8FD9-D6A523F14225"></a>
+<h2 id="BDSPA-GUID-637F22DB-9327-41EC-8FD9-D6A523F14225" class="sect2"><span class="enumeration_section">1.5</span> Installing Oracle Big Data Spatial and Graph on an Oracle Big Data Appliance</h2>
+<div>
+<p>The Mammoth command-line utility for installing and configuring the Oracle Big Data Appliance software also installs the Oracle Big Data Spatial and Graph option, including the spatial, property graph, and multimedia capabilities. You can enable this option during an initial software installation, or afterward using the <code>bdacli</code> utility.</p>
+<p>To use Oracle NoSQL Database as a graph repository, you must have an Oracle NoSQL Database cluster.</p>
+<p>To use Apache HBase as a graph repository, you must have an Apache Hadoop cluster.</p>
+<div class="infoboxnotealso" id="GUID-637F22DB-9327-41EC-8FD9-D6A523F14225__GUID-EE55C406-EA81-4AD5-AD7D-A1EB49284DD6">
+<p class="notep1">See Also:</p>
+<p><a class="olink BIGOG" target="_blank" href="../BIGOG/toc.htm"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> for software configuration instructions.</p>
+</div>
+</div>
+</div>
+<a id="BDSPA151"></a>
+<div class="props_rev_3"><a id="GUID-9B24206D-3824-48A0-B5A9-7633930354EB"></a>
+<h2 id="BDSPA-GUID-9B24206D-3824-48A0-B5A9-7633930354EB" class="sect2"><span class="enumeration_section">1.6</span> Installing and Configuring the Big Data Spatial Image Processing Framework</h2>
+<div>
+<p>Installing and configuring the Image Processing Framework depends upon the distribution being used.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The Oracle Big Data Appliance cluster distribution comes with a pre-installed setup, but you must follow few steps in <a href="bdspa-overview.htm#GUID-D07DB9A7-0C4B-4024-996A-B60B7516A17D">Installing Image Processing Framework for Oracle Big Data Appliance Distribution</a> to get it working.</p>
+</li>
+<li>
+<p>For a commodity distribution, follow the instructions in <a href="bdspa-overview.htm#GUID-F3C4C7C4-3F94-48E8-B2EA-04F2DE8AB22C">Installing the Image Processing Framework for Other Distributions (Not Oracle Big Data Appliance)</a>.</p>
+</li>
+</ul>
+<p>After performing the installation, verify it (see <a href="bdspa-overview.htm#GUID-F8009F03-B147-469D-9480-8C33DCCBF61F">Post-installation Verification of the Image Processing Framework</a>).</p>
+</div>
+<a id="BDSPA152"></a>
+<div class="props_rev_3"><a id="GUID-D07DB9A7-0C4B-4024-996A-B60B7516A17D"></a>
+<h3 id="BDSPA-GUID-D07DB9A7-0C4B-4024-996A-B60B7516A17D" class="sect3"><span class="enumeration_section">1.6.1</span> Installing Image Processing Framework for Oracle Big Data Appliance Distribution</h3>
+<div>
+<p>The Oracle Big Data Appliance distribution comes with a pre-installed configuration. However, perform the following actions to ensure that it works.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Identify the <code>ALL_ACCESS_FOLDER</code> under <code>/opt/shareddir/spatial</code>.</p>
+</li>
+<li>
+<p>Make the <code>libproj.so (Proj.4)</code> Cartographic Projections Library accessible to the users, and copy <code>libproj.so</code> to the <code>gdal/lib</code> folder under <code>/opt/oracle/oracle-spatial-graph/spatial/gdal/lib</code>, as follows:</p>
+<pre dir="ltr">
+cp libproj.so  /opt/oracle/oracle-spatial-graph/spatial/gdal/lib
+</pre></li>
+<li>
+<p>Provide read and execute permissions for the <code>libproj.so</code> library for all users, as follows:</p>
+<pre dir="ltr">
+chmod 755 /opt/oracle/oracle-spatial-graph/spatial/gdal/lib/libproj.so
+</pre></li>
+</ul>
+</div>
+</div>
+<a id="BDSPA153"></a>
+<div class="props_rev_3"><a id="GUID-F3C4C7C4-3F94-48E8-B2EA-04F2DE8AB22C"></a>
+<h3 id="BDSPA-GUID-F3C4C7C4-3F94-48E8-B2EA-04F2DE8AB22C" class="sect3"><span class="enumeration_section">1.6.2</span> Installing the Image Processing Framework for Other Distributions (Not Oracle Big Data Appliance)</h3>
+<div>
+<p>For Big Data Spatial and Graph in environments other than the Big Data Appliance, follow the instructions in this section.</p>
+</div>
+<a id="BDSPA154"></a>
+<div class="props_rev_3"><a id="GUID-68734DA5-BF29-4AC1-A7E0-CBCA426C2181"></a>
+<h4 id="BDSPA-GUID-68734DA5-BF29-4AC1-A7E0-CBCA426C2181" class="sect4"><span class="enumeration_section">1.6.2.1</span> Prerequisites for Installing the Image Processing Framework for Other Distributions</h4>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>Ensure that <code>HADOOP_LIB_PATH</code> is under <code>/usr/lib/hadoop</code>. If it is not there, find the path and use it as it your <code>HADOOP_LIB_PATH</code>.</p>
+</li>
+<li>
+<p>Install NFS.</p>
+</li>
+<li>
+<p>Have at least one folder, referred in this document as SHARED_FOLDER, in the Resource Manager node accessible to every Node Manager node through NFS.</p>
+</li>
+<li>
+<p>Provide write access to all the users involved in job execution and the yarn users to this SHARED_FOLDER</p>
+</li>
+<li>
+<p>Download <code>oracle-spatial-graph-&lt;version&gt;.x86_64.rpm</code> from the Oracle e-delivery web site.</p>
+</li>
+<li>
+<p>Execute <code>oracle-spatial-graph-&lt;version&gt;.x86_64.rpm</code> using the rpm command.</p>
+</li>
+<li>
+<p>After rpm executes, verify that a directory structure created at <code>/opt/oracle/oracle-spatial-graph/spatial</code> contains these folders: <code>console</code>, <code>examples</code>, <code>jlib</code>, <code>gdal</code>, and <code>tests</code>. Additionally, <code>index.html</code> describes the content, and <code>HadoopRasterProcessorAPI.zip</code> contains the Javadoc for the API..</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDSPA155"></a>
+<div class="props_rev_3"><a id="GUID-2AE6A832-0936-4CEF-8F87-53960911981E"></a>
+<h4 id="BDSPA-GUID-2AE6A832-0936-4CEF-8F87-53960911981E" class="sect4"><span class="enumeration_section">1.6.2.2</span> Installing the Image Processing Framework for Other Distributions</h4>
+<div>
+<ol>
+<li class="stepexpand"><span>Make the <code>libproj.so (Proj.4)</code> Cartographic Projections Library accessible to the users, and copy <code>libproj.so</code> to <code>gdal/lib</code> under <code>/opt/oracle/oracle-spatial-graph/spatial/raster/gdal/lib</code>, as follows:</span>
+<div>
+<pre dir="ltr">
+cp libproj.so  /opt/oracle/oracle-spatial-graph/spatial/gdal/lib
+</pre></div>
+</li>
+<li class="stepexpand"><span>Provide read and execute permissions for the <code>libproj.so</code> library for all users, as follows::</span>
+<div>
+<pre dir="ltr">
+chmod 755 /opt/oracle/oracle-spatial-graph/spatial/gdal/lib/libproj.so
+</pre></div>
+</li>
+<li class="stepexpand"><span>In the Resource Manager Node, copy the <code>gdal</code> data folder under <code>/opt/oracle/oracle-spatial-graph/spatial/gdal</code> and <code>gdalplugins</code> under <code>/opt/oracle/oracle-spatial-graph/spatial/gdal</code> into the SHARED_FOLDER as follows:</span>
+<div>
+<p><code>cp -R /opt/oracle/oracle-spatial-graph/spatial/raster/gdal/data SHARED_FOLDER</code></p>
+</div>
+</li>
+<li class="stepexpand"><span>Create a directory <code>ALL_ACCESS_FOLDER</code> under <code>SHARED_FOLDER</code> with write access for all users involved in job execution. The <code>hdfs</code> user is the one shown here to run tests, but also consider the <code>yarn</code> user in the write access because job results are written by this user. Group access may be used to configure this.</span>
+<div>
+<p>Go to the shared folder.</p>
+<p><code>cd SHARED_FOLDER</code></p>
+<p>Create a new directory.</p>
+<p><code>mkdir ALL_ACCESS_FOLDER</code></p>
+<p>Provide write access.</p>
+<p><code>chmod 777 ALL_ACCESS_FOLDER</code></p>
+</div>
+</li>
+<li class="stepexpand"><span>Copy the data folder under <code>/opt/oracle/oracle-spatial-graph/spatial/demo</code> into <code>ALL_ACCESS_FOLDER</code>.</span>
+<div>
+<p><code>cp -R /opt/oracle/oracle-spatial-graph/spatial/raster/examples/data ALL_ACCESS_FOLDER</code></p>
+</div>
+</li>
+<li class="stepexpand"><span>Provide write access to the <code>data/xmls</code> folder as follows (or just ensure that users executing the jobs, including tests and examlpes, have write access):</span>
+<div>
+<p><code>chmod 777 ALL_ACCESS_FOLDER/data/xmls/</code></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="BDSPA157"></a>
+<div class="props_rev_3"><a id="GUID-F8009F03-B147-469D-9480-8C33DCCBF61F"></a>
+<h3 id="BDSPA-GUID-F8009F03-B147-469D-9480-8C33DCCBF61F" class="sect3"><span class="enumeration_section">1.6.3</span> Post-installation Verification of the Image Processing Framework</h3>
+<div>
+<p>Several test scripts are provided: one to test the image loading functionality, another to test the image processing functionality, another to test a processing class for slope calculation in a DEM and a map algebra operation, and another to verify the image processing of a single raster with no mosaic process (it includes a user-provided function that calculates hill shade in the mapping phase).. Execute these scripts to verify a successful installation of image processing framework.</p>
+<p>To execute the scripts, make sure the current user is the <code>hdfs</code> user. Switch to this user before executing the scripts, and make sure you have provided this user with access to write to the necessary directories.</p>
+<pre dir="ltr">
+sudo su - hdfs
+</pre></div>
+<a id="BDSPA421"></a>
+<div class="props_rev_3"><a id="GUID-FACAA424-C9F4-4AED-A419-BF765CF23B4F"></a>
+<h4 id="BDSPA-GUID-FACAA424-C9F4-4AED-A419-BF765CF23B4F" class="sect4"><span class="enumeration_section">1.6.3.1</span> Image Loading Test Script</h4>
+<div>
+<p>This script loads a set of four test rasters into the <code>ohiftest</code> folder in HDFS, 3 rasters of byte data type and 3 bands and 1 raster (DEM) of float32 data type and 1 band. No parameters are required for OBDA environments and a single parameter with the $ALL_ACCESS_FOLDER value is required for non-OBDA environments.</p>
+<p>Internally, the job creates a split for every raster to load. Split size depends on the block size configuration; for example, if a block size &gt;= 64MB is configured, 4 mappers will run; and as a result the rasters will be loaded in HDFS and a corresponding thumbnail will be created for visualization. An external image editor is required to visualize the thumbnails, and an output path of these thumbnails is provided to the users upon successful completion of the job.</p>
+<p>The test script can be found here:</p>
+<pre dir="ltr">
+/oracle/oracle-spatial-graph/raster/tests/runimageloader.sh
+</pre>
+<p>For ODBA environments, enter:</p>
+<pre dir="ltr">
+./runimageloader.sh
+</pre>
+<p>For non-ODBA environments, enter:</p>
+<pre dir="ltr">
+./runimageloader.sh ALL_ACCESS_FOLDER
+</pre>
+<p>Upon successful execution, the message <code>GENERATED OHIF FILES ARE LOCATED IN HDFS UNDER</code> is displayed, with the path in HDFS where the files are located (this path depends on the definition of ALL_ACCESS_FOLDER) and a list of the created images and thumbnails on HDFS. The output may include:</p>
+<pre dir="ltr">
+&ldquo;THUMBNAILS CREATED ARE:
+----------------------------------------------------------------------
+total 13532
+drwxr-xr-x 2 yarn yarn    4096 Sep  9 13:54 .
+drwxr-xr-x 3 yarn yarn    4096 Aug 27 11:29 ..
+-rw-r--r-- 1 yarn yarn 3214053 Sep  9 13:54 hawaii.tif.ohif.tif
+-rw-r--r-- 1 yarn yarn 3214053 Sep  9 13:54 kahoolawe.tif.ohif.tif
+-rw-r--r-- 1 yarn yarn 3214053 Sep  9 13:54 maui.tif.ohif.tif
+-rw-r--r-- 1 yarn yarn 4182040 Sep  9 13:54 NapaDEM.tif.ohif.tif
+YOU MAY VISUALIZE THUMBNAILS OF THE UPLOADED IMAGES FOR REVIEW FROM THE FOLLOWING PATH:  
+</pre>
+<p>If the installation and configuration were not successful, then the output is not generated and a message like the following is displayed:</p>
+<pre dir="ltr">
+NOT ALL THE IMAGES WERE UPLOADED CORRECTLY, CHECK FOR HADOOP LOGS
+</pre></div>
+</div>
+<a id="BDSPA422"></a>
+<div class="props_rev_3"><a id="GUID-5CB3DFA9-0F11-489F-9B86-69BF073A6E3A"></a>
+<h4 id="BDSPA-GUID-5CB3DFA9-0F11-489F-9B86-69BF073A6E3A" class="sect4"><span class="enumeration_section">1.6.3.2</span> Image Processor Test Script (Mosaicking)</h4>
+<div>
+<p>This script executes the processor job by setting three source rasters of Hawaii islands and some coordinates that includes all three. The job will create a mosaic based on these coordinates and resulting raster should include the three rasters combined in a single one.</p>
+<p><code>runimageloader.sh</code> should be executed as a prerequisite, so that the source rasters exist in HDFS. These are 3 band rasters of byte data type.</p>
+<p>No parameters are required for OBDA environments, and a single parameter "-s" with the $ALL_ACCESS_FOLDER value is required for non-OBDA environments.</p>
+<p>Additionally, if the output should be stored in HDFS, the "-o" parameters must be used to set the HDFS folder where the mosaic output will be stored.</p>
+<p>Internally the job filters the tiles using the coordinates specified in the configuration input, xml, only the required tiles are processed in a mapper and finally in the reduce phase, all of them are put together into the resulting mosaic raster.</p>
+<p>The test script can be found here:</p>
+<pre dir="ltr">
+/oracle/oracle-spatial-graph/raster/tests/runimageprocessor.sh
+</pre>
+<p>For ODBA environments, enter:</p>
+<pre dir="ltr">
+./runimageprocessor.sh
+</pre>
+<p>For non-ODBA environments, enter:</p>
+<pre dir="ltr">
+./runimageprocessor.sh -s ALL_ACCESS_FOLDER
+</pre>
+<p>Upon successful execution, the message <code>EXPECTED OUTPUT FILE IS</code> is displayed, with the path in HDFS where the files are located (this path depends on the definition of ALL_ACCESS_FOLDER) and a list of the created images and thumbnails on HDFS. The output may include:</p>
+<pre dir="ltr">
+ALL_ACCESS_FOLDER/processtest/hawaiimosaic.tif
+total 9452
+drwxrwxrwx 2 hdfs    hdfs    4096 Sep 10 09:12 .
+drwxrwxrwx 9 zherena dba     4096 Sep  9 13:50 ..
+-rwxrwxrwx 1 yarn    yarn 4741101 Sep 10 09:12 hawaiimosaic.tif
+
+MOSAIC IMAGE GENERATED
+----------------------------------------------------------------------
+YOU MAY VISUALIZE THE MOSAIC OUTPUT IMAGE FOR REVIEW IN THE FOLLOWING PATH: ALL_ACCESS_FOLDER/processtest/hawaiimosaic.tif&rdquo;
+</pre>
+<p>If the installation and configuration were not successful, then the output is not generated and a message like the following is displayed:</p>
+<pre dir="ltr">
+MOSAIC WAS NOT SUCCESSFULLY CREATED, CHECK HADOOP LOGS TO REVIEW THE PROBLEM
+</pre>
+<p>To test the output storage in HDFS, use the following command</p>
+<p>For ODBA environments, enter:</p>
+<pre dir="ltr">
+./runimageprocessor.sh -o hdfstest
+</pre>
+<p>For non-ODBA environments, enter:</p>
+<pre dir="ltr">
+./runimageprocessor.sh -s ALL_ACCESS_FOLDER -o hdfstest
+</pre></div>
+</div>
+<div class="props_rev_3"><a id="GUID-7748654C-1A4E-4829-851F-5763829A4A51"></a>
+<h4 id="BDSPA-GUID-7748654C-1A4E-4829-851F-5763829A4A51" class="sect4"><span class="enumeration_section">1.6.3.3</span> Single-Image Processor Test Script</h4>
+<div>
+<p>This script executes the processor job for a single raster, in this case is a DEM source raster of North Napa Valley. The purpose of this job is process the complete input by using the user processing classes configured for the mapping phase. This class calculates the hillshade of the DEM, and this is set to the output file. No mosaic operation is performed here.</p>
+<p><code>runimageloader.sh</code> should be executed as a prerequisite, so that the source raster exists in HDFS. This is 1 band of float 32 datatype DEM rasters..</p>
+<p>No parameters are required for OBDA environments, and a single parameter "-s" with the $ALL_ACCESS_FOLDER value is required for non-OBDA environments.</p>
+<p>The test script can be found here:</p>
+<pre dir="ltr">
+/oracle/oracle-spatial-graph/raster/tests/runsingleimageprocessor.sh
+</pre>
+<p>For ODBA environments, enter:</p>
+<pre dir="ltr">
+./runsingleimageprocessor.sh
+</pre>
+<p>For non-ODBA environments, enter:</p>
+<pre dir="ltr">
+./runsingleimageprocessor.sh -s ALL_ACCESS_FOLDER
+</pre>
+<p>Upon successful execution, the message <code>EXPECTED OUTPUT FILE: ALL_ACCESS_FOLDER/processtest/NapaSlope.tif</code> is displayed, with the path in HDFS where the files are located (this path depends on the definition of ALL_ACCESS_FOLDER) and a list of the created images and thumbnails on HDFS. The output may include:</p>
+<pre dir="ltr">
+EXPECTED OUTPUT FILE: ALL_ACCESS_FOLDER/processtest/NapaDEM.tif
+total 4808
+drwxrwxrwx 2 hdfs    hdfs    4096 Sep 10 09:42 .
+drwxrwxrwx 9 zherena dba     4096 Sep  9 13:50 ..
+-rwxrwxrwx 1 yarn    yarn 4901232 Sep 10 09:42 NapaDEM.tif
+IMAGE GENERATED
+----------------------------------------------------------------------
+
+YOU MAY VISUALIZE THE OUTPUT IMAGE FOR REVIEW IN THE FOLLOWING PATH: ALL_ACCESS_FOLDER/processtest/NapaDEM.tif&rdquo;
+</pre>
+<p>If the installation and configuration were not successful, then the output is not generated and a message like the following is displayed:</p>
+<pre dir="ltr">
+MOSAIC WAS NOT SUCCESSFULLY CREATED, CHECK HADOOP LOGS TO REVIEW THE PROBLEM
+</pre></div>
+</div>
+<div class="props_rev_3"><a id="GUID-9D00EE6B-AEBF-42F3-98BB-DE98DD99B07F"></a>
+<h4 id="BDSPA-GUID-9D00EE6B-AEBF-42F3-98BB-DE98DD99B07F" class="sect4"><span class="enumeration_section">1.6.3.4</span> Image Processor DEM Test Script</h4>
+<div>
+<p>This script executes the processor job by setting a DEM source raster of North Napa Valley and some coordinates that surround it. The job will create a mosaic based on these coordinates and will also calculate the slope on it by setting a processing class in the mosaic configuration XML.</p>
+<p><code>runimageloader.sh</code> should be executed as a prerequisite, so that the source rasters exist in HDFS. These are 3 band rasters of byte data type.</p>
+<p>No parameters are required for OBDA environments, and a single parameter "-s" with the $ALL_ACCESS_FOLDER value is required for non-OBDA environments.</p>
+<p>The test script can be found here:</p>
+<pre dir="ltr">
+/oracle/oracle-spatial-graph/raster/tests/runimageprocessordem.sh
+</pre>
+<p>For ODBA environments, enter:</p>
+<pre dir="ltr">
+./runimageprocessordem.sh
+</pre>
+<p>For non-ODBA environments, enter:</p>
+<pre dir="ltr">
+./runimageprocessordem.sh -s ALL_ACCESS_FOLDER
+</pre>
+<p>Upon successful execution, the message <code>EXPECTED OUTPUT FILE: ALL_ACCESS_FOLDER/processtest/NapaSlope.tif</code> is displayed, with the path in HDFS where the files are located (this path depends on the definition of ALL_ACCESS_FOLDER) and a list of the created images and thumbnails on HDFS. The output may include:</p>
+<pre dir="ltr">
+EXPECTED OUTPUT FILE: ALL_ACCESS_FOLDER/processtest/NapaSlope.tif
+total 4808
+drwxrwxrwx 2 hdfs    hdfs    4096 Sep 10 09:42 .
+drwxrwxrwx 9 zherena dba     4096 Sep  9 13:50 ..
+-rwxrwxrwx 1 yarn    yarn 4901232 Sep 10 09:42 NapaSlope.tif
+MOSAIC IMAGE GENERATED
+----------------------------------------------------------------------
+
+YOU MAY VISUALIZE THE MOSAIC OUTPUT IMAGE FOR REVIEW IN THE FOLLOWING PATH: ALL_ACCESS_FOLDER/processtest/NapaSlope.tif&rdquo;
+</pre>
+<p>If the installation and configuration were not successful, then the output is not generated and a message like the following is displayed:</p>
+<pre dir="ltr">
+MOSAIC WAS NOT SUCCESSFULLY CREATED, CHECK HADOOP LOGS TO REVIEW THE PROBLEM
+</pre>
+<p>You may also test the &ldquo;if&rdquo; algebra function, where every pixel in this raster with value greater than 2500 will be replaced by the value you set in the command line using the &ldquo;&ndash;c&rdquo; flag. For example:</p>
+<p>For ODBA environments, enter:</p>
+<pre dir="ltr">
+./runimageprocessordem.sh &ndash;c 8000
+</pre>
+<p>For non-ODBA environments, enter:</p>
+<pre dir="ltr">
+./runimageprocessordem.sh -s ALL_ACCESS_FOLDER &ndash;c 8000
+</pre>
+<p>You can visualize the output file and notice the difference between simple slope calculation and this altered output, where the areas with pixel values greater than 2500 look more clear.</p>
+</div>
+</div>
+</div>
+</div>
+<a id="BDSPA158"></a>
+<div class="props_rev_3"><a id="GUID-99A7E77E-41CC-49B6-BF2C-FA3500419EDB"></a>
+<h2 id="BDSPA-GUID-99A7E77E-41CC-49B6-BF2C-FA3500419EDB" class="sect2"><span class="enumeration_section">1.7</span> Installing and Configuring the Big Data Spatial Image Server</h2>
+<div>
+<p>You can access the image processing framework through the Oracle Big Data Spatial Image Server, which provides a web interface for loading and processing images.</p>
+<p>Installing and configuring the Spatial Image Server depends upon the distribution being used.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bdspa-overview.htm#GUID-7109DF29-5FFD-4F0A-A8F6-91E442C9BA30">Installing and Configuring the Image Server for Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-52BF56A9-8315-4B94-95B4-B27DAD38D7C8">Installing and Configuring the Image Server Web for Other Systems (Not Big Data Appliance)</a></p>
+</li>
+</ul>
+<p>After you perform the installation, verify it (see <a href="bdspa-overview.htm#GUID-DEFC21DB-DFF2-4E7B-B92D-2F1EF920518F">Post-installation Verification Example for the Image Server Console</a>).</p>
+</div>
+<a id="BDSPA159"></a>
+<div class="props_rev_3"><a id="GUID-7109DF29-5FFD-4F0A-A8F6-91E442C9BA30"></a>
+<h3 id="BDSPA-GUID-7109DF29-5FFD-4F0A-A8F6-91E442C9BA30" class="sect3"><span class="enumeration_section">1.7.1</span> Installing and Configuring the Image Server for Oracle Big Data Appliance</h3>
+<div>
+<p>To perform an automatic installation using the provided script, you can perform these steps:</p>
+<ol>
+<li>
+<p>Run the following script:</p>
+<pre dir="ltr">
+sudo /home/osg/configure-jetty/install-jetty-bdsg.sh
+</pre>
+<p>If the active nodes have changed since the installation, update the configuration file.</p>
+</li>
+<li>
+<p>Start the Jetty server:</p>
+<pre dir="ltr">
+cd /opt/oracle/oracle-spatial-graph/spatial/jetty
+java -jar start.jar
+</pre></li>
+</ol>
+<p>If you need more information or need to perform other actions, see the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bdspa-overview.htm#GUID-BB9BAAE7-ED2D-451A-83D2-DAF0A1789A8A">Prerequisites for Installing the Image Server on Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-04A4C3B8-C18C-4303-8E48-6C2300908769">Installing the Image Server Web on an Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-C82716E9-0CE4-4238-B7A9-6F46CEF90A1D">Configuring the Environment</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA160"></a>
+<div class="props_rev_3"><a id="GUID-BB9BAAE7-ED2D-451A-83D2-DAF0A1789A8A"></a>
+<h4 id="BDSPA-GUID-BB9BAAE7-ED2D-451A-83D2-DAF0A1789A8A" class="sect4"><span class="enumeration_section">1.7.1.1</span> Prerequisites for Installing the Image Server on Oracle Big Data Appliance</h4>
+<div>
+<div class="section">
+<p>Ensure that you have the prerequisite software installed.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Download the latest Jetty core component binary from the Jetty download page <a href="http://www.eclipse.org/jetty/downloads.php" target="_blank"><code>http://www.eclipse.org/jetty/downloads.php</code></a> onto the Oracle DBA Resource Manager node.</span></li>
+<li class="stepexpand"><span>Unzip the <code>imageserver.war</code> file into the jetty <code>webapps</code> directory or any other directory of choice as follows:</span>
+<div>
+<p><code>unzip /opt/oracle/oracle-spatial-graph/spatial/jlib/imageserver.war -d $JETTY_HOME/webapps/imageserver</code></p>
+<div class="infobox-note" id="GUID-BB9BAAE7-ED2D-451A-83D2-DAF0A1789A8A__GUID-906518B8-7B42-4FD9-AC37-D874220029B6">
+<p class="notep1">Note:</p>
+<p>The directory or location under which you unzip the file is known as <code>$JETTY_HOME</code> in this procedure.</p>
+</div>
+</div>
+</li>
+<li class="stepexpand"><span>Copy Hadoop dependencies as follows:</span>
+<div>
+<p><code>cp /opt/cloudera/parcels/CDH/lib/hadoop/client/* $JETTY_HOME/webapps/imageserver/WEB-INF/lib/</code></p>
+<div class="infobox-note" id="GUID-BB9BAAE7-ED2D-451A-83D2-DAF0A1789A8A__GUID-2567CE14-F6F7-4E72-A6C0-DFD14D53954A">
+<p class="notep1">Note:</p>
+<p>If the installation of Jetty is done on a non-Oracle DBA cluster, then replace <code>/opt/cloudera/parcels/CDH/lib/hadoop/</code> with the actual Hadoop library path, which by default is <code>/usr/lib/hadoop</code>.</p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BDSPA161"></a>
+<div class="props_rev_3"><a id="GUID-04A4C3B8-C18C-4303-8E48-6C2300908769"></a>
+<h4 id="BDSPA-GUID-04A4C3B8-C18C-4303-8E48-6C2300908769" class="sect4"><span class="enumeration_section">1.7.1.2</span> Installing the Image Server Web on an Oracle Big Data Appliance</h4>
+<div>
+<div class="section">
+<ol>
+<li>
+<p>Copy the <code>gdal.jar</code> file under <code>/opt/oracle/oracle-spatial-graph/spatial/jlib/gdal.jar</code> to <code>$JETTY_HOME/lib/ext</code>.</p>
+</li>
+<li>
+<p>Copy the <code>asm-3.1.jar</code> file under <code>/opt/oracle/oracle-spatial-graph/spatial/raster/jlib/asm-3.1.jar</code> to <code>$JETTY_HOME/webapps/imageserver/WEB-INF/lib</code>.</p>
+<div class="infobox-note" id="GUID-04A4C3B8-C18C-4303-8E48-6C2300908769__GUID-265BC75B-5A21-414A-9F49-84E1703311BC">
+<p class="notep1">Note:</p>
+<p>The <code>jersey-core*</code> jars will be duplicated at <code>$JETTY_HOME/webapps/imageserver/WEB-INF/lib</code>. Make sure you remove the old ones and leave just <code>jersey-core-1.17.1.jar</code> in the folder, as in the next step.</p>
+</div>
+</li>
+<li>
+<p>Enter the following command:</p>
+<pre dir="ltr">
+ls -lat jersey-core*
+</pre></li>
+<li>
+<p>Delete the listed libraries, except do <span class="bold">not</span> delete <code>jersey-core-1.17.1.jar</code>.</p>
+</li>
+<li>
+<p>In the same directory ($JETTY_HOME/webapps/imageserver/WEB-INF/lib, delete the xercesImpl jar files:</p>
+<pre dir="ltr">
+ rm xercesImpl*
+</pre></li>
+<li>
+<p>Start the Jetty server by running: <code>java -Djetty.deploy.scanInterval=0 -jar start.jar</code></p>
+<p>If you need to change the port, specify it. For example: <code>jetty.http.port=8081</code></p>
+<p>Ignore any warnings, such as the following:</p>
+<pre dir="ltr">
+java.lang.UnsupportedOperationException:  setXIncludeAware is not supported on this JAXP implementation or earlier: class oracle.xml.jaxp.JXDocumentBuilderFactory
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA162"></a>
+<div class="props_rev_3"><a id="GUID-C82716E9-0CE4-4238-B7A9-6F46CEF90A1D"></a>
+<h4 id="BDSPA-GUID-C82716E9-0CE4-4238-B7A9-6F46CEF90A1D" class="sect4"><span class="enumeration_section">1.7.1.3</span> Configuring the Environment</h4>
+<div>
+<div class="section">
+<ol>
+<li>
+<p>Type the <code>http://thehost:8080/imageserver/console.jsp</code> address in your browser address bar to open the console.</p>
+</li>
+<li>
+<p>Log in to the console using the credentials you created in <span class="q">"<a href="bdspa-overview.htm#GUID-04A4C3B8-C18C-4303-8E48-6C2300908769">Installing the Image Server Web on an Oracle Big Data Appliance</a>."</span></p>
+</li>
+<li>
+<p>From the <span>Configuration</span> tab in the <span class="bold">Hadoop Configuration Parameters</span> section, depending on the cluster configuration change three properties:</p>
+<ol>
+<li>
+<p><code>fs.defaultFS</code>: Type the active <code>namenode</code> of your cluster in the format <code>hdfs://&lt;namenode&gt;:8020</code> (Check with the administrator for this information).</p>
+</li>
+<li>
+<p><code>yarn.resourcemanager.scheduler.address</code>: Active Resource manager of your cluster. <code>&lt;shcedulername&gt;:8030.</code> This is the Scheduler address.</p>
+</li>
+<li>
+<p><code>yarn.resourcemanager.address</code>: Active Resource Manager address in the format <code>&lt;resourcename&gt;:8032</code></p>
+</li>
+</ol>
+<div class="infobox-note" id="GUID-C82716E9-0CE4-4238-B7A9-6F46CEF90A1D__GUID-85DFB9EC-0295-443C-82AB-8593090D19B6">
+<p class="notep1">Note:</p>
+<p>Keep the default values for the rest of the configuration. They are pre-loaded for your Oracle Big Data Appliance cluster environment.</p>
+</div>
+</li>
+<li>
+<p>Click <span class="bold">Apply Changes</span> to save the changes.</p>
+<div class="infoboxnotealso" id="GUID-C82716E9-0CE4-4238-B7A9-6F46CEF90A1D__GUID-7164CC14-C275-46D9-8316-695B2CAB8D2E">
+<p class="notep1">Tip:</p>
+<p>You can review the missing configuration information under the Hadoop Loader tab of the console.</p>
+</div>
+</li>
+<li>
+<p>From the <span>Configuration</span> tab in the <span class="bold">Global Init Parameters</span> section, depending on the cluster configuration change these properties:</p>
+<ol>
+<li>
+<p><code>shared.gdal.data</code>: Specify the gdal shared data folder. Follow the instructions specified in <a href="bdspa-overview.htm#GUID-F3C4C7C4-3F94-48E8-B2EA-04F2DE8AB22C">Installing the Image Processing Framework for Other Distributions (Not Oracle Big Data Appliance)</a>.</p>
+</li>
+<li>
+<p><code>gdal.lib</code>: Location of the gdal .so libraries.</p>
+</li>
+<li>
+<p><code>start</code>: Specify a shared folder to start browsing the images. This folder must be shared between the cluster and NFS mountpoint (SHARED_FOLDER).</p>
+</li>
+<li>
+<p><code>saveimages</code>: Create a child folder named saveimages under <code>start</code> (SHARED-FOLDER) with full write access. For example, if start=/home, then <code>saveimages=/home/saveimages</code>.</p>
+</li>
+<li>
+<p><code>nfs.mountpoint</code>: If the cluster requires a mount point to access the SHARED_FOLDER, specify a mount point. For example, <code>/net/home</code>. Otherwise, leave it blank.</p>
+</li>
+<li>
+<p><code>yarn.application.classpath</code>: The classpath for the Hadoop to find the required jars and dependencies. Usually this is under <code>/usr/lib/hadoop</code>. For example:</p>
+<pre dir="ltr">
+/etc/hadoop/conf/,/usr/lib/hadoop/*,/usr/lib/hadoop/lib/*,/usr/lib/hadoop-hdfs/*,/usr/lib/hadoop-hdfs/lib/*,/usr/lib/hadoop-yarn/*,/usr/lib/hadoop-yarn/lib/*,/usr/lib/hadoop-mapreduce/*,/usr/lib/hadoop-mapreduce/lib/*
+</pre></li>
+</ol>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>Keep the default values for the rest of the configuration. They are pre-loaded for your Oracle Big Data Appliance cluster environment.</p>
+</div>
+</li>
+<li>
+<p>Click <span class="bold">Apply Changes</span> to save the changes.</p>
+<div class="infoboxnotealso">
+<p class="notep1">Tip:</p>
+<p>You can review the missing configuration information under the Hadoop Loader tab of the console.</p>
+</div>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA163"></a>
+<div class="props_rev_3"><a id="GUID-52BF56A9-8315-4B94-95B4-B27DAD38D7C8"></a>
+<h3 id="BDSPA-GUID-52BF56A9-8315-4B94-95B4-B27DAD38D7C8" class="sect3"><span class="enumeration_section">1.7.2</span> Installing and Configuring the Image Server Web for Other Systems (Not Big Data Appliance)</h3>
+<div>
+<p>Follow the instructions in this topic.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bdspa-overview.htm#GUID-D028656E-56EE-45EC-9370-3F2493C36FA9">Prerequisites for Installing the Image Server on Other Systems</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-6B8A73FA-D3C2-4900-8488-228230411C70">Installing the Image Server Web on Other Systems</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-BB6860C2-6E8A-48E9-9B50-7544CBF2E5AB">Configuring the Environment</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA164"></a>
+<div class="props_rev_3"><a id="GUID-D028656E-56EE-45EC-9370-3F2493C36FA9"></a>
+<h4 id="BDSPA-GUID-D028656E-56EE-45EC-9370-3F2493C36FA9" class="sect4"><span class="enumeration_section">1.7.2.1</span> Prerequisites for Installing the Image Server on Other Systems</h4>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>Follow the instructions specified in <span class="q">"<a href="bdspa-overview.htm#GUID-68734DA5-BF29-4AC1-A7E0-CBCA426C2181">Prerequisites for Installing the Image Processing Framework for Other Distributions</a>."</span></p>
+</li>
+<li>
+<p>Follow the instructions specified in <span class="q">"<a href="bdspa-overview.htm#GUID-2AE6A832-0936-4CEF-8F87-53960911981E">Installing the Image Processing Framework for Other Distributions</a>."</span></p>
+</li>
+<li>
+<p>Follow the instructions specified in <span class="q">"<a href="bdspa-overview.htm#GUID-C82716E9-0CE4-4238-B7A9-6F46CEF90A1D">Configuring the Environment</a>."</span></p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDSPA165"></a>
+<div class="props_rev_3"><a id="GUID-6B8A73FA-D3C2-4900-8488-228230411C70"></a>
+<h4 id="BDSPA-GUID-6B8A73FA-D3C2-4900-8488-228230411C70" class="sect4"><span class="enumeration_section">1.7.2.2</span> Installing the Image Server Web on Other Systems</h4>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>Follow the instructions specified in <span class="q">"<a href="bdspa-overview.htm#GUID-BB9BAAE7-ED2D-451A-83D2-DAF0A1789A8A">Prerequisites for Installing the Image Server on Oracle Big Data Appliance</a>."</span></p>
+</li>
+<li>
+<p>Follow the instructions specified in <span class="q">"<a href="bdspa-overview.htm#GUID-04A4C3B8-C18C-4303-8E48-6C2300908769">Installing the Image Server Web on an Oracle Big Data Appliance</a>."</span></p>
+</li>
+<li>
+<p>Follow the instructions specified in <span class="q">"<a href="bdspa-overview.htm#GUID-C82716E9-0CE4-4238-B7A9-6F46CEF90A1D">Configuring the Environment</a>."</span></p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDSPA166"></a>
+<div class="props_rev_3"><a id="GUID-BB6860C2-6E8A-48E9-9B50-7544CBF2E5AB"></a>
+<h4 id="BDSPA-GUID-BB6860C2-6E8A-48E9-9B50-7544CBF2E5AB" class="sect4"><span class="enumeration_section">1.7.2.3</span> Configuring the Environment</h4>
+<div>
+<div class="section">
+<ol>
+<li>
+<p>Type the <code>http://thehost:8080/imageserver/console.jsp</code> address in your browser address bar to open the console.</p>
+</li>
+<li>
+<p>Log in to the console using the credentials you created in <span class="q">"<a href="bdspa-overview.htm#GUID-04A4C3B8-C18C-4303-8E48-6C2300908769">Installing the Image Server Web on an Oracle Big Data Appliance</a>."</span></p>
+</li>
+<li>
+<p>From the <span>Configuration</span> tab in the <span>Hadoop Configuration Parameters</span> section, depending on the cluster configuration change these three properties</p>
+<ol>
+<li>
+<p>Specify a shared folder to start browsing the images. This folder must be shared between the cluster and NFS mountpoint (SHARED_FOLDER).</p>
+</li>
+<li>
+<p>Create a child folder named <span class="bold"><code>saveimages</code></span> under Start with full write access. For example, if Start=/home, then <code>saveimages=/home/saveimages</code>.</p>
+</li>
+<li>
+<p>If the cluster requires a mount point to access the SHARED_FOLDER, specify a mount point. For example, <code>/net/home</code>. Else, leave it blank and proceed.</p>
+</li>
+<li>
+<p>Type the folder path that contains the Hadoop native libraries and additional libraries (<code>HADOOP_LIB_PATH</code>).</p>
+</li>
+<li>
+<p><span>yarn.application.classpath</span>: Type the classpath for the Hadoop to find the required jars and dependencies. Usually this is under <code>/usr/lib/hadoop</code>.</p>
+</li>
+</ol>
+<div class="infobox-note" id="GUID-BB6860C2-6E8A-48E9-9B50-7544CBF2E5AB__GUID-DBF1216C-65DC-416A-A4A5-75567C8D94A2">
+<p class="notep1">Note:</p>
+<p>Keep the default values for the rest of the configuration. They are pre-loaded for your Oracle Big Data Appliance cluster environment.</p>
+</div>
+</li>
+<li>
+<p>Click Apply Changes to save the changes.</p>
+<div class="infoboxnotealso" id="GUID-BB6860C2-6E8A-48E9-9B50-7544CBF2E5AB__GUID-786273BE-F1C0-403E-BCCF-42E787EA1F3A">
+<p class="notep1">Tip:</p>
+<p>You can review the missing configuration information under the Hadoop Loader tab of the console.</p>
+</div>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA167"></a>
+<div class="props_rev_3"><a id="GUID-DEFC21DB-DFF2-4E7B-B92D-2F1EF920518F"></a>
+<h3 id="BDSPA-GUID-DEFC21DB-DFF2-4E7B-B92D-2F1EF920518F" class="sect3"><span class="enumeration_section">1.7.3</span> Post-installation Verification Example for the Image Server Console</h3>
+<div>
+<p>In this example, you will:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Load the images from local server to HDFS Hadoop cluster.</p>
+</li>
+<li>
+<p>Run a job to create a mosaic image file and a catalog with several images.</p>
+</li>
+<li>
+<p>View the mosaic image.</p>
+</li>
+</ul>
+<p>Related subtopics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bdspa-overview.htm#GUID-79375E95-7528-4353-9B0D-2C60DD45C8A4">Loading Images from the Local Server to the HDFS Hadoop Cluster</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-AB575597-72EB-4C70-B9C2-EC57A5C25BF9">Creating a Mosaic Image and Catalog</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-496543D4-B8DB-4F50-A0AC-99E6AB07DDDE">Creating a Mosaic Directly from the Globe</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-CC0BF90C-D661-43C6-8E1D-4C0885DD1C0B">Removing Identical Rasters</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA168"></a>
+<div class="props_rev_3"><a id="GUID-79375E95-7528-4353-9B0D-2C60DD45C8A4"></a>
+<h4 id="BDSPA-GUID-79375E95-7528-4353-9B0D-2C60DD45C8A4" class="sect4"><span class="enumeration_section">1.7.3.1</span> Loading Images from the Local Server to the HDFS Hadoop Cluster</h4>
+<div>
+<ol>
+<li class="stepexpand"><span>Open (<code>http://&lt;hostname&gt;:8080/imageserver/console.jsp</code>) the Image Server Console.</span></li>
+<li class="stepexpand"><span>Log in using the default user/password as <span class="bold"><code>admin</code></span>/<span class="bold"><code>admin</code></span>.</span></li>
+<li class="stepexpand"><span>Go to the <span class="bold"><code>Hadoop Loader</code></span> tab.</span></li>
+<li class="stepexpand"><span>Click <span class="bold"><code>Open</code></span> and browse to the <code>demo</code> folder that contains a set of Hawaii images. They can be found at <code>/opt/shareddir/spatial/demo/imageserver/images</code>.</span></li>
+<li class="stepexpand"><span>Select the <code>images</code> folder and click <span class="bold"><code>Load images</code></span>.</span>
+<div>
+<p>Wait for the message, 'Images loaded successfully'.</p>
+</div>
+</li>
+</ol>
+<div class="section">
+<div class="infobox-note" id="GUID-79375E95-7528-4353-9B0D-2C60DD45C8A4__GUID-D49EE463-80B9-4708-A20D-D306FCB1DBEC">
+<p class="notep1">Note:</p>
+<p>If no errors were shown, then you have successfully installed the Image Loader web interface.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA169"></a>
+<div class="props_rev_3"><a id="GUID-AB575597-72EB-4C70-B9C2-EC57A5C25BF9"></a>
+<h4 id="BDSPA-GUID-AB575597-72EB-4C70-B9C2-EC57A5C25BF9" class="sect4"><span class="enumeration_section">1.7.3.2</span> Creating a Mosaic Image and Catalog</h4>
+<div>
+<ol>
+<li class="stepexpand"><span>Go to the <span class="bold"><code>Raster Image processing</code></span> tab.</span></li>
+<li class="stepexpand"><span>From the Catalog menu select <span class="bold"><code>Catalog</code></span> &gt; <span class="bold"><code>New Catalog</code></span> &gt; <span class="bold"><code>HDFS Catalog</code></span>.</span>
+<div>
+<p>A new catalog is created.</p>
+</div>
+</li>
+<li class="stepexpand"><span>From the Imagery menu select <span class="bold"><code>Imagery</code></span> &gt; <span class="bold"><code>Add hdfs image</code></span>.</span></li>
+<li class="stepexpand"><span>Browse the HDFS host and add images.</span>
+<div>
+<p>A new file tree gets created with all the images you just loaded from your host.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Browse the <code>newdata</code> folder and verify the images.</span></li>
+<li class="stepexpand"><span>Select the images listed in the pre-visualizer and add click <span class="bold"><code>Add</code></span>.</span>
+<div>
+<p>The images are added to the bottom sub-panel.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Click <span class="bold"><code>Add images</code></span>.</span>
+<div>
+<p>The images are added to the main catalog.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Save the catalog.</span></li>
+<li class="stepexpand"><span>From the Imagery menu select <span class="bold"><code>Imagery</code></span> &gt; <span class="bold"><code>Mosaic</code></span>.</span></li>
+<li class="stepexpand"><span>Click <span class="bold"><code>Load default configuration file</code></span>, browse to <code>/opt/shareddir/spatial/demo/imageserver</code> and select t<code>estFS.xml</code>.</span>
+<div>
+<div class="infobox-note" id="GUID-AB575597-72EB-4C70-B9C2-EC57A5C25BF9__GUID-427F0D98-9326-4B0C-B839-BF0CD08D4363">
+<p class="notep1">Note:</p>
+<p>The default configuration file <code>testFS.xml</code> is included in the demo.</p>
+</div>
+</div>
+</li>
+<li class="stepexpand"><span>Click <span class="bold"><code>Create Mosaic</code></span>.</span>
+<div>
+<p>Wait for the image to be created.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Optionally, to download and view the image click <span class="bold"><code>Download</code></span>.</span></li>
+</ol>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-496543D4-B8DB-4F50-A0AC-99E6AB07DDDE"></a>
+<h4 id="BDSPA-GUID-496543D4-B8DB-4F50-A0AC-99E6AB07DDDE" class="sect4"><span class="enumeration_section">1.7.3.3</span> Creating a Mosaic Directly from the Globe</h4>
+<div>
+<ol>
+<li class="stepexpand"><span>Go to the <span class="bold"><code>Raster Image Loader</code></span> tab.</span></li>
+<li class="stepexpand"><span>Click <span class="bold"><code>Refresh Footprint</code></span> and wait until all footprints are displayed on the panel..</span></li>
+<li class="stepexpand"><span>Click<span class="bold"><code>Select Footprints</code></span> , then select the desired area, zooming in or out as necessary.</span></li>
+<li class="stepexpand"><span>Remove or ignore rasters as necessary.</span>
+<div>
+<p>If identical rasters are in the result, they are shown in yellow</p>
+</div>
+</li>
+<li class="stepexpand"><span>Right-click on the map and select <span class="bold"><code>Generate Mosaic</code></span>.</span></li>
+<li class="stepexpand"><span>Specify the output folder in which to place the mosaic, or load an existing configuration file.</span></li>
+<li class="stepexpand"><span>If you want to add an operation on every pixel in the mosaic, click <span class="bold"><code>Advanced Configuration</code></span>..</span></li>
+<li class="stepexpand"><span>Click <span class="bold"><code>Create Mosaic</code></span>, and wait for the result.</span></li>
+<li class="stepexpand"><span>From the Imagery menu select <span class="bold"><code>Imagery</code></span> &gt; <span class="bold"><code>Mosaic</code></span>.</span></li>
+<li class="stepexpand"><span>If you need to remove the selection, click the red circle in the upper-left corner of the map.</span>
+<div>
+<div class="infobox-note" id="GUID-496543D4-B8DB-4F50-A0AC-99E6AB07DDDE__GUID-427F0D98-9326-4B0C-B839-BF0CD08D4363">
+<p class="notep1">Note:</p>
+<p>If you requested the mosaic to be created on HDFS, you must wait until the image is loaded on HDFS.</p>
+</div>
+</div>
+</li>
+<li class="stepexpand"><span>Optionally, to download and view the image, click <span class="bold"><code>Download</code></span>.</span></li>
+</ol>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-CC0BF90C-D661-43C6-8E1D-4C0885DD1C0B"></a>
+<h4 id="BDSPA-GUID-CC0BF90C-D661-43C6-8E1D-4C0885DD1C0B" class="sect4"><span class="enumeration_section">1.7.3.4</span> Removing Identical Rasters</h4>
+<div>
+<ol>
+<li class="stepexpand"><span>Go to the <span class="bold"><code>Hadoop Loader</code></span> tab.</span></li>
+<li class="stepexpand"><span>Click <span class="bold"><code>Refresh Footprint</code></span> and wait until all footprints are displayed on the panel..</span>
+<div>
+<p>If identical rasters are in the result, they are shown in yellow.</p>
+</div>
+</li>
+<li class="stepexpand"><span>For each pair of identical rasters, if you want to select one of them for removal, right-click on its yellow box.</span>
+<div>
+<p>A new dialog box is displayed.</p>
+</div>
+</li>
+<li class="stepexpand"><span>To remove a raster, click the X button for it.</span></li>
+<li class="stepexpand"><span>To see the thumbnail, click in the image.</span></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-096031CB-6658-439A-9637-A221B3C79689"></a>
+<h3 id="BDSPA-GUID-096031CB-6658-439A-9637-A221B3C79689" class="sect3"><span class="enumeration_section">1.7.4</span> Using the Provided Image Server Web Services</h3>
+<div>
+<p>The image server has two ready-to-use web services, one for the HDFS loader and the other for the HDFS mosaic processor.</p>
+<p>These services can be called from a Java application. They are currently supported only for GET operations. The formats for calling them are:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Loader</span>: <code>http://host:port/imageserver/rest/hdfsloader?path=string&amp;overlap=string</code> where:</p>
+<p><code>path</code>: The images to be processed; can be a the path of a single file, or of one or more whole folders. For more than one folder, use commas to separate folder names.</p>
+<p><code>overlap</code> (optional): The overlap between images (default = 10).</p>
+</li>
+<li>
+<p><span class="bold">Mosaic</span>: <code>http://host:port/imageserver/rest/mosaic?mosaic=string&amp;config=string</code> where:</p>
+<p><code>mosaic</code>: The XML mosaic file that contains the images to be processed. If you are using the image server web application, the XML file is generated automatically. Example of a mosaic XML file:</p>
+<pre dir="ltr">
+&lt;?xml version='1.0'?&gt;
+&lt;catalog type='HDFS'&gt;
+    &lt;image&gt;
+       &lt;source&gt;Hadoop File System&lt;/source&gt;
+       &lt;type&gt;HDFS&lt;/type&gt;
+       &lt;raster&gt; /hawaii.tif.ohif&lt;/raster&gt;
+        &lt;bands datatype='1' config='1,2,3'&gt;3&lt;/bands&gt;
+    &lt;/image&gt;
+    &lt;image&gt;
+       &lt;source&gt;Hadoop File System&lt;/source&gt;
+       &lt;type&gt;HDFS&lt;/type&gt;
+       &lt;raster&gt;/ /kahoolawe.tif.ohif&lt;/raster&gt;
+        &lt;bands datatype='1' config='1,2,3'&gt;3&lt;/bands&gt;
+    &lt;/image&gt;
+&lt;/catalog&gt;
+</pre>
+<p><code>config</code>: Configuration file; created the first time a mosaic is processed using the image server web application. Example of a configuration file</p>
+<pre dir="ltr">
+&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;mosaic&gt;
+    &lt;output&gt;
+        &lt;SRID&gt;26904&lt;/SRID&gt;
+        &lt;directory type = "FS"&gt;/net/system123/scratch/user3/installers&lt;/directory&gt;
+        &lt;tempFsFolder&gt;/net/system123/scratch/user3/installers&lt;/tempFsFolder&gt;
+        &lt;filename&gt;test&lt;/filename&gt;
+        &lt;format&gt;GTIFF&lt;/format&gt;
+        &lt;width&gt;1800&lt;/width&gt;
+        &lt;height&gt;1406&lt;/height&gt;
+        &lt;algorithm order = "0"&gt;1&lt;/algorithm&gt;
+        &lt;bands layers = "3"/&gt;
+        &lt;nodata&gt;#000000&lt;/nodata&gt;
+        &lt;pixelType&gt;1&lt;/pixelType&gt;
+    &lt;/output&gt;
+    &lt;crop&gt;
+        &lt;transform&gt;294444.1905688362,114.06068372059636,0,2517696.9179752027,0,-114.06068372059636&lt;/transform&gt;
+    &lt;/crop&gt;
+    &lt;process/&gt;
+    &lt;operations&gt;
+        &lt;localnot/&gt;
+    &lt;/operations&gt;
+&lt;/mosaic&gt; 
+</pre></li>
+</ul>
+<div class="section">
+<p class="subhead3">Java Example: Using the Loader</p>
+<pre dir="ltr">
+public class RestTest 
+    public static void main(String args[]) {
+
+        try {
+            // Loader http://localhost:7101/imageserver/rest/hdfsloader?path=string&amp;overlap=string
+            // Mosaic http://localhost:7101/imageserver/rest/mosaic?mosaic=string&amp;config=string
+            String path = "/net/system123/scratch/user3/installers/hawaii/hawaii.tif";
+           
+            URL url = new URL(
+                    "http://system123.example.com:7101/imageserver/rest/hdfsloader?path=" +
+                            path + "&amp;overlap=2"); // overlap its optional
+           
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            //conn.setRequestProperty("Accept", "application/json");
+
+            if (conn.getResponseCode() != 200) {
+                throw new RuntimeException("Failed : HTTP error code : "
+                        + conn.getResponseCode());
+            }
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(
+                    (conn.getInputStream())));
+
+            String output;
+            System.out.println("Output from Server .... \n");
+            while ((output = br.readLine()) != null) {
+                System.out.println(output);
+            }
+
+            conn.disconnect();
+
+        } catch (MalformedURLException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+    }
+}
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Java Example: Using the Mosaic Processor</p>
+<pre dir="ltr">
+public class NetClientPost {
+    public static void main(String[] args) {
+
+      try {
+          String mosaic = "&lt;?xml version='1.0'?&gt;\n" +
+                    "&lt;catalog type='HDFS'&gt;\n" +
+                    "    &lt;image&gt;\n" +
+                    "       &lt;source&gt;Hadoop File System&lt;/source&gt;\n" +
+                    "       &lt;type&gt;HDFS&lt;/type&gt;\n" +
+                    "       &lt;raster&gt;/user/hdfs/newdata/net/system123/scratch/user3/installers/hawaii/hawaii.tif.ohif&lt;/raster&gt;\n" +
+                    "       &lt;url&gt;http://system123.example.com:7101/imageserver/temp/862b5871973372aab7b62094c575884ae13c3a27_thumb.jpg&lt;/url&gt;\n" +
+                    "       &lt;bands datatype='1' config='1,2,3'&gt;3&lt;/bands&gt;\n" +
+                    "    &lt;/image&gt;\n" +
+                    "&lt;/catalog&gt;";
+             String config = "&lt;?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?&gt;\n" +
+                     "&lt;mosaic&gt;\n" +
+                     "&lt;output&gt;\n" +
+                     "&lt;SRID&gt;26904&lt;/SRID&gt;\n" +
+                     "&lt;directory type=\"FS\"&gt;/net/system123/scratch/user3/installers&lt;/directory&gt;\n" +
+                     "&lt;tempFsFolder&gt;/net/system123/scratch/user3/installers&lt;/tempFsFolder&gt;\n" +
+                     "&lt;filename&gt;test&lt;/filename&gt;\n" +
+                     "&lt;format&gt;GTIFF&lt;/format&gt;\n" +
+                     "&lt;width&gt;1800&lt;/width&gt;\n" +
+                     "&lt;height&gt;1269&lt;/height&gt;\n" +
+                     "&lt;algorithm order=\"0\"&gt;1&lt;/algorithm&gt;\n" +
+                     "&lt;bands layers=\"3\"/&gt;\n" +
+                     "&lt;nodata&gt;#000000&lt;/nodata&gt;\n" +
+                     "&lt;pixelType&gt;1&lt;/pixelType&gt;\n" +
+                     "&lt;/output&gt;\n" +
+                     "&lt;crop&gt;\n" +
+                     "&lt;transform&gt;739481.1311601736,130.5820811245199,0,2254053.5858749463,0,-130.5820811245199&lt;/transform&gt;\n" +
+                     "&lt;/crop&gt;\n" +
+                     "&lt;process/&gt;\n" +
+                     "&lt;/mosaic&gt;";
+             System.out.println ("asdf");
+             URL url2 = new URL("http://192.168.1.67:8080" );
+             HttpURLConnection conn2 = (HttpURLConnection) url2.openConnection();
+             conn2.setRequestMethod("GET");
+             if (conn2.getResponseCode() != 200 ) {
+                throw new RuntimeException("Failed : HTTP error code : "
+                    + conn2.getResponseCode());
+            }
+        /*URL url = new URL("http://system123.example.com:7101/imageserver/rest/mosaic?" +("mosaic=" + URLEncoder.encode(mosaic, "UTF-8") + "&amp;config=" + 
+                URLEncoder.encode(config, "UTF-8")));
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+       
+        if (conn.getResponseCode() != 200 ) {
+            throw new RuntimeException("Failed : HTTP error code : "
+                + conn.getResponseCode());
+        }
+        BufferedReader br = new BufferedReader(new InputStreamReader(
+                (conn.getInputStream())));
+        String output;System.out.println("Output from Server .... \n");
+        while ((output = br.readLine()) != null)
+            System.out.println(output);
+        conn.disconnect();*/
+
+      } catch (MalformedURLException e) {
+        e.printStackTrace();
+      } catch (IOException e) {
+        e.printStackTrace();
+     }
+    }
+}
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDSPA423"></a>
+<div class="props_rev_3"><a id="GUID-A5CC1A7A-5E07-4CBE-A04E-58F15E3492C1"></a>
+<h2 id="BDSPA-GUID-A5CC1A7A-5E07-4CBE-A04E-58F15E3492C1" class="sect2"><span class="enumeration_section">1.8</span> Installing Oracle Big Data Spatial Hadoop Vector Console</h2>
+<div>
+<p>To install the Oracle Big Data Spatial Hadoop vector console, follow the instructions in this topic.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bdspa-overview.htm#GUID-DB6BFC31-AA48-4011-B052-5A3890BB70C6">Assumptions and Prerequisite Libraries</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-9F0282C7-55B4-438B-A75B-F58CC3CE03C1">Installing Spatial Hadoop Vector Console on Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-983BA9F4-95F3-45D0-80B9-77479ECA3447">Installing Spatial Hadoop Vector Console for Other Systems (Not Big Data Appliance)</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-045D5A34-6BC4-40BC-BBF0-4FE0B45ED903">Configuring Spatial Hadoop Vector Console on Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-2665FB1F-7DF0-4335-B232-E7FD3F046013">Configuring Spatial Hadoop Vector Console for Other Systems (Not Big Data Appliance)</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA429"></a>
+<div class="props_rev_3"><a id="GUID-DB6BFC31-AA48-4011-B052-5A3890BB70C6"></a>
+<h3 id="BDSPA-GUID-DB6BFC31-AA48-4011-B052-5A3890BB70C6" class="sect3"><span class="enumeration_section">1.8.1</span> Assumptions and Prerequisite Libraries</h3>
+<div>
+<p>The following assumptions and prerequisites apply for installing and configure the Spatial Hadoop Vector Console.</p>
+</div>
+<a id="BDSPA430"></a>
+<div class="props_rev_3"><a id="GUID-35F9F533-D23A-4A00-81F4-D01FB61C316D"></a>
+<h4 id="BDSPA-GUID-35F9F533-D23A-4A00-81F4-D01FB61C316D" class="sect4"><span class="enumeration_section">1.8.1.1</span> Assumptions</h4>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p>The API and jobs described here run on a Cloudera CDH5.7, Hortonworks HDP 2.4, or similar Hadoop environment.</p>
+</li>
+<li>
+<p>Java 8 or newer versions are present in your environment.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDSPA431"></a>
+<div class="props_rev_3"><a id="GUID-6C7CF3C0-0942-44AE-BD17-09B802EC7FD1"></a>
+<h4 id="BDSPA-GUID-6C7CF3C0-0942-44AE-BD17-09B802EC7FD1" class="sect4"><span class="enumeration_section">1.8.1.2</span> Prerequisite Libraries</h4>
+<div>
+<p>In addition to the Hadoop environment jars, the libraries listed here are required by the Vector Analysis API.</p>
+<pre dir="ltr">
+sdohadoop-vector.jar
+sdoutil.jar
+sdoapi.jar
+ojdbc.jar
+commons-fileupload-1.3.1.jar
+commons-io-2.4.jar
+jackson-annotations-2.1.4.jar
+jackson-core-2.1.4.jar
+jackson-core-asl-1.8.1.jar
+jackson-databind-2.1.4.jar
+javacsv.jar
+lucene-analyzers-common-4.6.0.jar
+lucene-core-4.6.0.jar
+lucene-queries-4.6.0.jar
+lucene-queryparser-4.6.0.jar
+mvsuggest_core.jar
+</pre></div>
+</div>
+</div>
+<a id="BDSPA424"></a>
+<div class="props_rev_3"><a id="GUID-9F0282C7-55B4-438B-A75B-F58CC3CE03C1"></a>
+<h3 id="BDSPA-GUID-9F0282C7-55B4-438B-A75B-F58CC3CE03C1" class="sect3"><span class="enumeration_section">1.8.2</span> Installing Spatial Hadoop Vector Console on Oracle Big Data Appliance</h3>
+<div>
+<div class="section">
+<p>You can install the Spatial Hadoop vector console on Big Data Appliance either by using the provided script or by performing a manual configuration.. To use the <span class="bold">provided script</span>:</p>
+<ol>
+<li>
+<p>Run the following script:</p>
+<pre dir="ltr">
+sudo /home/osg/configure-jetty/install-jetty-bdsg.sh
+</pre>
+<p>If the active nodes have change after the installation, then update the configuration file as described in <a href="bdspa-overview.htm#GUID-045D5A34-6BC4-40BC-BBF0-4FE0B45ED903">Configuring Spatial Hadoop Vector Console on Oracle Big Data Appliance</a>.</p>
+</li>
+<li>
+<p>Start the Jetty server:</p>
+<pre dir="ltr">
+cd /opt/oracle/oracle-spatial-graph/spatial/jetty 
+java -jar start.jar
+</pre></li>
+</ol>
+<p>To perform a <span class="bold">manual configuration</span>, follow these steps.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Download the latest Jetty core component binary from the Jetty download page <a href="http://www.eclipse.org/jetty/downloads.php" target="_blank"><code>http://www.eclipse.org/jetty/downloads.php</code></a> onto the Oracle DBA Resource Manager node.</span></li>
+<li class="stepexpand"><span>Unzip the <code>spatialviewer.war</code> file into the jetty <code>webapps</code> directory as follows:</span>
+<div>
+<p><code>unzip /opt/oracle/oracle-spatial-graph/spatial/vector/console/spatialviewer.war -d $JETTY_HOME/webapps/spatialviewer</code></p>
+<div class="infobox-note" id="GUID-9F0282C7-55B4-438B-A75B-F58CC3CE03C1__GUID-63AB50ED-8137-4236-8712-BEF68F7CE0C8">
+<p class="notep1">Note:</p>
+<p>The directory or location under which you unzip the file is known as <code>$JETTY_HOME</code> in this procedure.</p>
+</div>
+</div>
+</li>
+<li class="stepexpand"><span>Copy Hadoop dependencies as follows:</span>
+<div>
+<p><code>cp /opt/cloudera/parcels/CDH/lib/hadoop/client/* $JETTY_HOME/webapps/spatialviewer/WEB-INF/lib/</code></p>
+</div>
+</li>
+<li class="stepexpand"><span>Complete the configuration steps mentioned in the <span class="q">"<a href="bdspa-overview.htm#GUID-045D5A34-6BC4-40BC-BBF0-4FE0B45ED903">Configuring Spatial Hadoop Vector Console on Oracle Big Data Appliance</a>."</span></span></li>
+<li class="stepexpand"><span>Start the jetty server. <code>$JETTY_HOME/java -Djetty.deploy.scanInterval=0 -jar start.jar</code></span></li>
+</ol>
+<div class="section">
+<p>Optionally, upload sample data (used with examples in other topics) to HDFS:</p>
+<pre dir="ltr">
+sudo -u hdfs hadoop fs -mkdir /user/oracle/bdsg
+
+sudo -u hdfs hadoop fs -put /opt/oracle/oracle-spatial-graph/spatial/vector/examples/data/tweets.json /user/oracle/bdsg/
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA425"></a>
+<div class="props_rev_3"><a id="GUID-983BA9F4-95F3-45D0-80B9-77479ECA3447"></a>
+<h3 id="BDSPA-GUID-983BA9F4-95F3-45D0-80B9-77479ECA3447" class="sect3"><span class="enumeration_section">1.8.3</span> Installing Spatial Hadoop Vector Console for Other Systems (Not Big Data Appliance)</h3>
+<div>
+<p>Follow the steps for manual configuration described in <span class="q">"<a href="bdspa-overview.htm#GUID-9F0282C7-55B4-438B-A75B-F58CC3CE03C1">Installing Spatial Hadoop Vector Console on Oracle Big Data Appliance</a>."</span> However, in step 3 replace the path <code>/opt/cloudera/parcels/CDH/lib/</code> with the actual library path, which by default is <code>/usr/lib/</code>.</p>
+</div>
+</div>
+<a id="BDSPA426"></a>
+<div class="props_rev_3"><a id="GUID-045D5A34-6BC4-40BC-BBF0-4FE0B45ED903"></a>
+<h3 id="BDSPA-GUID-045D5A34-6BC4-40BC-BBF0-4FE0B45ED903" class="sect3"><span class="enumeration_section">1.8.4</span> Configuring Spatial Hadoop Vector Console on Oracle Big Data Appliance</h3>
+<div>
+<div class="section">
+<ol>
+<li>
+<p>Edit the configuration file <code>$JETTY_HOME/webapps/spatialviewer/conf/console-conf.xml</code> to specify your own data for sending email and for other configuration parameters.</p>
+<p>Follow these steps with the configuration parameters</p>
+<ol>
+<li>
+<p>Edit the Notification URL: This is the URL where the console server is running. It has to be visible to the Hadoop cluster to notify the end of the jobs. This is an example settings: <code>&lt;baseurl&gt;http:// hadoop.console.url:8080&lt;/baseurl&gt;</code></p>
+</li>
+<li>
+<p>Edit the directory with temporary hierarchical indexes: an HDFS path that will contain temporary data on hierarchical relationships. Example:: <code>&lt;hierarchydataindexpath&gt;hdfs://hadoop.cluster.url:8020/user/myuser/hierarchyIndexPath&lt;/hierarchydataindexpath&gt;</code></p>
+</li>
+<li>
+<p>Edit the HDFS directory that will contain the MVSuggest generated index. Example: <code>&lt;mvsuggestindex&gt; hdfs://hadoop.cluster.url:8020/user/myuser /mvSuggestIndex&lt;/mvsuggestindex&gt;</code></p>
+</li>
+<li>
+<p>If necessary, edit the URL used to get the eLocation background maps. Example: <code>&lt;elocationmvbaseurl&gt;http://elocation.oracle.com/mapviewer&lt;/elocationmvbaseurl&gt;</code></p>
+</li>
+<li>
+<p>Edit the HDFS directory that will contain the index metadata. Example: <code>&lt;indexmetadatapath&gt;hdfs:// hadoop.cluster.url:8020/user/myuser/indexMetadata&lt;/indexmetadatapath&gt;</code></p>
+</li>
+<li>
+<p>Edit the HDFS directory with temporary data used by the explore data processes. Example: <code>&lt;exploretempdatapath&gt;hdfs:// hadoop.cluster.url:8020/user/myuser/exploreTmp&lt;exploretempdatapath&gt;</code></p>
+</li>
+<li>
+<p>Edit the eneral Hadoop jobs configuration: The console uses two Hadoop jobs. The first is used to create a spatial index on existing files in HDFS and the second is used to generate displaying results based on the index. One part of the configuration is common to both jobs and another is specific to each job. The common configuration can be found within the <code>&lt;hadoopjobs&gt;&lt;configuration&gt;</code> elements. An example configuration is given here:</p>
+<pre dir="ltr">
+&lt;hadoopjobs&gt;
+   &lt;configuration&gt;
+               &lt;property&gt;
+        &lt;!--hadoop user. The user is a mandatory property.--&gt;
+                 &lt;name&gt;hadoop.job.ugi&lt;/name&gt;
+                 &lt;value&gt;hdfs&lt;/value&gt;
+               &lt;/property&gt;
+         
+               &lt;property&gt;
+        &lt;!-- like defined in core-site.xml
+        If in core-site.xml the path fs.defaultFS is define as the nameservice ID
+        (High Availability configuration) then set the full address and IPC port 
+        of the currently active name node. The service is define in the file hdfs-site.xml.--&gt;
+                 &lt;name&gt;fs.defaultFS&lt;/name&gt;
+                 &lt;value&gt;hdfs://hadoop.cluster.url:8020&lt;/value&gt;
+              &lt;/property&gt;
+         
+              &lt;property&gt;
+        &lt;!-- like defined in mapred-site.xml --&gt;
+               &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+               &lt;value&gt;yarn&lt;/value&gt;
+             &lt;/property&gt;
+        
+             &lt;property&gt;
+        &lt;!-- like defined in yarn-site.xml --&gt;
+               &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;
+               &lt;value&gt;hadoop.cluster.url:8030&lt;/value&gt;
+            &lt;/property&gt;
+        
+            &lt;property&gt;
+        &lt;!-- like defined in yarn-site.xml --&gt;
+                &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;
+                &lt;value&gt;hadoop.cluster.url:8032&lt;/value&gt;
+            &lt;/property&gt;
+        
+            &lt;property&gt;
+        &lt;!-- like defined in yarn-site.xml (full path) --&gt;
+                &lt;name&gt;yarn.application.classpath&lt;/name&gt;
+               &lt;value&gt;/etc/hadoop/conf/,/opt/cloudera/parcels/CDH/lib/hadoop/*,/opt/cloudera/parcels/CDH/lib/hadoop/lib/*,/opt/cloudera/parcels/CDH/lib/hadoop-hdfs/*,/opt/cloudera/parcels/CDH/lib/hadoop-hdfs/lib/*,/opt/cloudera/parcels/CDH/lib/hadoop-yarn/*,/opt/cloudera/parcels/CDH/lib/hadoop-yarn/lib/*,/opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/*,/opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/lib/*&lt;/value&gt;
+             &lt;/property&gt;             
+          &lt;/configuration&gt;
+        &lt;hadoopjobs&gt;
+</pre></li>
+</ol>
+</li>
+<li>
+<p>Create an index job specific configuration. Additional Hadoop parameters can be specified for the job that creates the spatial indexes. An example additional configuration is:</p>
+<pre dir="ltr">
+&lt;hadoopjobs&gt;
+   &lt;configuration&gt;
+   ...
+   &lt;/configuration&gt;
+      &lt;indexjobadditionalconfiguration&gt;
+         &lt;property&gt;
+         &lt;!-- Increase the mapred.max.split.size, so that less mappers are allocated in slot and thus reduces the mapper initializing overhead. --&gt;
+            &lt;name&gt;mapred.max.split.size&lt;/name&gt;
+            &lt;value&gt;1342177280&lt;/value&gt;
+           &lt;/property&gt;    
+      &lt;/indexjobadditionalconfiguration&gt;
+&lt;hadoopjobs&gt;
+</pre></li>
+<li>
+<p>Create a specific configuration for the job that generates the categorization results. The following is an example of property settings:</p>
+<pre dir="ltr">
+&lt;hadoopjobs&gt;
+  &lt;configuration&gt;
+   ...
+  &lt;/configuration&gt;
+    
+     &lt;indexjobadditionalconfiguration&gt;
+      ...
+     &lt;/indexjobadditionalconfiguration&gt;
+ 
+     &lt;hierarchicaljobadditionalconfiguration&gt;
+        &lt;property&gt;
+        &lt;!-- Increase the mapred.max.split.size, so that less mappers are allocated in slot and thus reduces the mapper initializing overhead. --&gt;
+           &lt;name&gt;mapred.max.split.size&lt;/name&gt;
+           &lt;value&gt;1342177280&lt;/value&gt;
+         &lt;/property&gt;      
+      &lt;/hierarchicaljobadditionalconfiguration&gt;
+&lt;hadoopjobs&gt;
+</pre></li>
+<li>
+<p>Specify the Notification emails: The email notifications are sent to notify about the job completion status. This is defined within the <code>&lt;notificationmails&gt;</code> element. It is mandatory to specify a user (<code>&lt;user&gt;</code>), password (<code>&lt;password&gt;</code>) and sender email (<code>&lt;mailfrom&gt;</code>). In the <code>&lt;configuration&gt;</code> element, the configuration properties needed for the Java Mail must be set. This example is a typical configuration to send mails via SMTP server using a SSL connection:</p>
+<pre dir="ltr">
+&lt;notificationmails&gt;
+  &lt;!--Authentication parameters. The Authentication parameters are mandatory.--&gt;
+    &lt;user&gt;user@mymail.com&lt;/user&gt;
+    &lt;password&gt;mypassword&lt;/password&gt;
+    &lt;mailfrom&gt;user@mymail.com&lt;/mailfrom&gt;
+
+    &lt;!--Parameters that will be set to the system properties. Below the parameters needed to send mails via SMTP server using a SSL connection.      --&gt;
+    
+    &lt;configuration&gt;
+       &lt;property&gt;
+         &lt;name&gt;mail.smtp.host&lt;/name&gt;
+         &lt;value&gt;mail.host.com&lt;/value&gt;
+       &lt;/property&gt;
+        
+       &lt;property&gt;
+         &lt;name&gt;mail.smtp.socketFactory.port&lt;/name&gt;
+         &lt;value&gt;myport&lt;/value&gt;
+       &lt;/property&gt;
+ 
+       &lt;property&gt;
+         &lt;name&gt;mail.smtp.socketFactory.class&lt;/name&gt;
+         &lt;value&gt;javax.net.ssl.SSLSocketFactory&lt;/value&gt;
+       &lt;/property&gt;
+
+       &lt;property&gt;
+         &lt;name&gt;mail.smtp.auth&lt;/name&gt;
+         &lt;value&gt;true&lt;/value&gt;
+       &lt;/property&gt;
+    &lt;/configuration&gt;
+&lt;/notificationmails&gt;
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDSPA427"></a>
+<div class="props_rev_3"><a id="GUID-2665FB1F-7DF0-4335-B232-E7FD3F046013"></a>
+<h3 id="BDSPA-GUID-2665FB1F-7DF0-4335-B232-E7FD3F046013" class="sect3"><span class="enumeration_section">1.8.5</span> Configuring Spatial Hadoop Vector Console for Other Systems (Not Big Data Appliance)</h3>
+<div>
+<p>Follow the steps mentioned in <span class="q">"<a href="bdspa-overview.htm#GUID-045D5A34-6BC4-40BC-BBF0-4FE0B45ED903">Configuring Spatial Hadoop Vector Console on Oracle Big Data Appliance</a>."</span> However, in the step (<code>General Hadoop Job Configuration</code>), in the Hadoop property <code>yarn.application.classpath</code> replace the <code>/opt/cloudera/parcels/CDH/lib/</code> with the actual library path, which by default is <code>/usr/lib/</code>.</p>
+</div>
+</div>
+</div>
+<a id="BDSPA117"></a>
+<div class="props_rev_3"><a id="GUID-BDF9368E-C271-414D-9779-9F534977879F"></a>
+<h2 id="BDSPA-GUID-BDF9368E-C271-414D-9779-9F534977879F" class="sect2"><span class="enumeration_section">1.9</span> Installing Property Graph Support on a CDH Cluster or Other Hardware</h2>
+<div>
+<p>You can use property graphs on either Oracle Big Data Appliance or commodity hardware.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bdspa-overview.htm#GUID-9CC8053C-AC95-480F-B4D2-3FB6BC50FD40">Apache HBase Prerequisites</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-3EF49198-1904-4FF8-BB16-4ABED910C433">Property Graph Installation Steps</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-947A4948-EEBC-48C0-9176-11968B33BB57">About the Property Graph Installation Directory</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-2A0F5EFA-1AAD-42A5-A628-AE6A1F742C4C">Optional Installation Task for In-Memory Analyst Use</a></p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-BDF9368E-C271-414D-9779-9F534977879F__GUID-B29669DF-0002-45F4-B9BA-3366EC48B849">
+<p class="notep1">See Also:</p>
+<p><a href="config-pg-support.htm#GUID-270DD1FC-AAEE-4FAA-BE63-4D7DD52504E5">Configuring Property Graph Support</a></p>
+</div>
+</div>
+<a id="BDSPA118"></a>
+<div class="props_rev_3"><a id="GUID-9CC8053C-AC95-480F-B4D2-3FB6BC50FD40"></a>
+<h3 id="BDSPA-GUID-9CC8053C-AC95-480F-B4D2-3FB6BC50FD40" class="sect3"><span class="enumeration_section">1.9.1</span> Apache HBase Prerequisites</h3>
+<div>
+<p>The following prerequisites apply to installing property graph support in HBase.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Linux operating system</p>
+</li>
+<li>
+<p>Cloudera's Distribution including Apache Hadoop (CDH)</p>
+<p>For the software download, see: <a href="http://www.cloudera.com/content/cloudera/en/products-and-services/cdh.html" target="_blank"><code>http://www.cloudera.com/content/cloudera/en/products-and-services/cdh.html</code></a></p>
+</li>
+<li>
+<p>Apache HBase</p>
+</li>
+<li>
+<p>Java Development Kit</p>
+</li>
+</ul>
+<p>Details about supported versions of these products, including any interdependencies, will be provided in a My Oracle Support note.</p>
+</div>
+</div>
+<a id="BDSPA119"></a>
+<div class="props_rev_3"><a id="GUID-3EF49198-1904-4FF8-BB16-4ABED910C433"></a>
+<h3 id="BDSPA-GUID-3EF49198-1904-4FF8-BB16-4ABED910C433" class="sect3"><span class="enumeration_section">1.9.2</span> Property Graph Installation Steps</h3>
+<div>
+<div class="section">
+<p>To install property graph support, follow these steps.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Unzip the software package:</span>
+<div>
+<pre dir="ltr">
+rpm -i oracle-spatial-graph-&lt;version&gt;.x86_64.rpm
+</pre>
+<p>By default, the software is installed in the following directory: <code>/opt/oracle/</code></p>
+<p>After the installation completes, the <code>opt/oracle/oracle-spatial-graph</code> directory exists and includes a <code>property_graph</code> subdirectory.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Set the JAVA_HOME environment variable. For example:</span>
+<div>
+<pre dir="ltr">
+setenv JAVA_HOME  /usr/local/packages/jdk7
+</pre></div>
+</li>
+<li class="stepexpand"><span>Set the PGX_HOME environment variable. For example:</span>
+<div>
+<pre dir="ltr">
+setenv PGX_HOME /opt/oracle/oracle-spatial-graph/pgx
+</pre></div>
+</li>
+<li class="stepexpand"><span>If HBase will be used, set the <code>HBASE_HOME</code> environment variable in all HBase region servers in the Apache Hadoop cluster. (<code>HBASE_HOME</code> specifies the location of the <code>hbase</code> installation directory.) For example:</span>
+<div>
+<pre dir="ltr">
+setenv HBASE_HOME /usr/lib/hbase
+</pre>
+<p>Note that on some installations of Big Data Appliance, Apache HBase is placed in a directory like the following: <code>/opt/cloudera/parcels/CDH-5.3.3-1.cdh5.3.3.p0.5/lib/hbase/</code></p>
+</div>
+</li>
+<li class="stepexpand"><span>If HBase will be used, copy the data access layer library into $HBASE_HOME/lib. For example:</span>
+<div>
+<pre dir="ltr">
+cp /opt/oracle/oracle-spatial-graph/property_graph/lib/sdopgdal*.jar $HBASE_HOME/lib
+</pre></div>
+</li>
+<li class="stepexpand"><span>Tune the HBase or Oracle NoSQL Database configuration, as described in other tuning topics.</span></li>
+<li class="stepexpand"><span>Log in to Cloudera Manager as the <code>admin</code> user, and restart the HBase service. Restarting enables the Region Servers to use the new configuration settings.</span></li>
+</ol>
+</div>
+</div>
+<a id="BDSPA120"></a>
+<div class="props_rev_3"><a id="GUID-947A4948-EEBC-48C0-9176-11968B33BB57"></a>
+<h3 id="BDSPA-GUID-947A4948-EEBC-48C0-9176-11968B33BB57" class="sect3"><span class="enumeration_section">1.9.3</span> About the Property Graph Installation Directory</h3>
+<div>
+<p>The installation directory for Oracle Big Data Spatial and Graph property graph features has the following structure:</p>
+<pre dir="ltr">
+$ <span class="bold">tree -dFL 2 /opt/oracle/oracle-spatial-graph/property_graph/</span>
+/opt/oracle/oracle-spatial-graph/property_graph/
+|-- dal
+|   |-- groovy
+|   |-- opg-solr-config
+|   `-- webapp
+|-- data
+|-- doc
+|   |-- dal
+|   `-- pgx
+|-- examples
+|   |-- dal
+|   |-- pgx
+|   `-- pyopg
+|-- lib
+|-- librdf
+`-- pgx
+    |-- bin
+    |-- conf
+    |-- groovy
+    |-- scripts
+    |-- webapp
+    `-- yarn
+</pre></div>
+</div>
+<a id="BDSPA455"></a>
+<div class="props_rev_3"><a id="GUID-2A0F5EFA-1AAD-42A5-A628-AE6A1F742C4C"></a>
+<h3 id="BDSPA-GUID-2A0F5EFA-1AAD-42A5-A628-AE6A1F742C4C" class="sect3"><span class="enumeration_section">1.9.4</span> Optional Installation Task for In-Memory Analyst Use</h3>
+<div>
+<p>Follow this installation task if property graph support is installed on a client without Hadoop, and you want to read graph data stored in the Hadoop Distributed File System (HDFS) into the in-memory analyst and write the results back to the HDFS, and/or use Hadoop NextGen MapReduce (YARN) scheduling to start, monitor and stop the in-memory analyst.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bdspa-overview.htm#GUID-F44761DD-63CD-4A8A-AE47-B65173705AD5">Installing and Configuring Hadoop</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-F9A3746D-8086-410C-8ADA-EAD7F67E2560">Running the In-Memory Analyst on Hadoop</a></p>
+</li>
+</ul>
+</div>
+<a id="BDSPA456"></a>
+<div class="props_rev_3"><a id="GUID-F44761DD-63CD-4A8A-AE47-B65173705AD5"></a>
+<h4 id="BDSPA-GUID-F44761DD-63CD-4A8A-AE47-B65173705AD5" class="sect4"><span class="enumeration_section">1.9.4.1</span> Installing and Configuring Hadoop</h4>
+<div>
+<div class="section">
+<p>To install and configure Hadoop, follow these steps.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Download the tarball for a supported version of the Cloudera CDH.</span></li>
+<li class="stepexpand"><span>Unpack the tarball into a directory of your choice. For example:</span>
+<div>
+<pre dir="ltr">
+tar xvf hadoop-2.5.0-cdh5.2.1.tar.gz -C /opt
+</pre></div>
+</li>
+<li class="stepexpand"><span>Have the <code>HADOOP_HOME</code> environment variable point to the installation directory. For example.</span>
+<div>
+<pre dir="ltr">
+export HADOOP_HOME=/opt/hadoop-2.5.0-cdh5.2.1
+</pre></div>
+</li>
+<li class="stepexpand"><span>Add <code>$HADOOP_HOME/bin</code> to the <code>PATH</code> environment variable. For example:</span>
+<div>
+<pre dir="ltr">
+export PATH=$HADOOP_HOME/bin:$PATH
+</pre></div>
+</li>
+<li class="stepexpand"><span>Configure <code>$HADOOP_HOME/etc/hadoop/hdfs-site.xml</code> to point to the HDFS name node of your Hadoop cluster.</span></li>
+<li class="stepexpand"><span>Configure <code>$HADOOP_HOME/etc/hadoop/yarn-site.xml</code> to point to the resource manager node of your Hadoop cluster.</span></li>
+<li class="stepexpand"><span>Configure the <code>fs.defaultFS</code> field in <code>$HADOOP_HOME/etc/hadoop/core-site.xml</code> to point to the HDFS name node of your Hadoop cluster.</span></li>
+</ol>
+</div>
+</div>
+<a id="BDSPA457"></a>
+<div class="props_rev_3"><a id="GUID-F9A3746D-8086-410C-8ADA-EAD7F67E2560"></a>
+<h4 id="BDSPA-GUID-F9A3746D-8086-410C-8ADA-EAD7F67E2560" class="sect4"><span class="enumeration_section">1.9.4.2</span> Running the In-Memory Analyst on Hadoop</h4>
+<div>
+<p>When running a Java application using in-memory analytics and HDFS, make sure that <code>$HADOOP_HOME/etc/hadoop</code> is on the classpath, so that the configurations get picked up by the Hadoop client libraries. However, you do not need to do this when using the in-memory analyst shell, because it adds <code>$HADOOP_HOME/etc/hadoop</code> automatically to the classpath if <code>HADOOP_HOME</code> is set.</p>
+<p>You do not need to put any extra Cloudera Hadoop libraries (JAR files) on the classpath. The only time you need the YARN libraries is when starting the in-memory analyst as a YARN service. This is done with the <code>yarn</code> command, which automatically adds all necessary JAR files from your local installation to the classpath.</p>
+<p>You are now ready to load data from HDFS or start the in-memory analyst as a YARN service. For further information about Hadoop, see the CDH 5.x.x documentation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-49B3D52B-E524-4EAD-A42C-CCCC8E987990"></a>
+<h2 id="BDSPA-GUID-49B3D52B-E524-4EAD-A42C-CCCC8E987990" class="sect2"><span class="enumeration_section">1.10</span> Installing and Configuring Multimedia Analytics Support</h2>
+<div>
+<p>To use the Multimedia analytics feature, the video analysis framework must be installed and configured.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="bdspa-overview.htm#GUID-91A743DF-AA7E-4B94-AE87-14904A47FBE3">Assumptions and Libraries for Multimedia Analytics</a></p>
+</li>
+<li>
+<p><a href="bdspa-overview.htm#GUID-D3D79200-D880-473E-8911-554F5F41375C">Transcoding Software (Options)</a></p>
+</li>
+</ul>
+</div>
+<div class="props_rev_3"><a id="GUID-91A743DF-AA7E-4B94-AE87-14904A47FBE3"></a>
+<h3 id="BDSPA-GUID-91A743DF-AA7E-4B94-AE87-14904A47FBE3" class="sect3"><span class="enumeration_section">1.10.1</span> Assumptions and Libraries for Multimedia Analytics</h3>
+<div>
+<p>If you have licensed Oracle Big Data Spatial and Graph with Oracle Big Data Appliance, the video analysis framework for Multimedia analytics is already installed and configured. However, you must set <code>$MMA_HOME</code> to point to <code>/opt/oracle/oracle-spatial-graph/multimedia</code>.</p>
+<p>Otherwise, you can install the framework on Cloudera CDH 5 or similar Hadoop environment, as follows:</p>
+<ol>
+<li>
+<p>Install the framework by using the following command on each node on the cluster:</p>
+<pre dir="ltr">
+rpm2cpio oracle-spatial-graph-&lt;version&gt;.x86_64.rpm | cpio -idmv
+</pre></li>
+<li>
+<p>Set <code>$MMA_HOME</code> to point to <code>/opt/oracle/oracle-spatial-graph/multimedia</code>.</p>
+</li>
+<li>
+<p>Identify the locations of the following libraries:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Hadoop jar files (available in <code>$HADOOP_HOME/jars</code>)</p>
+</li>
+<li>
+<p>Video processing libraries (see <a href="bdspa-overview.htm#GUID-D3D79200-D880-473E-8911-554F5F41375C">Transcoding Software (Options)</a></p>
+</li>
+<li>
+<p>OpenCV libraries (available with the product)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If necessary, install the desired video processing software to transcode video data (see <a href="bdspa-overview.htm#GUID-D3D79200-D880-473E-8911-554F5F41375C">Transcoding Software (Options)</a>).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-D3D79200-D880-473E-8911-554F5F41375C"></a>
+<h3 id="BDSPA-GUID-D3D79200-D880-473E-8911-554F5F41375C" class="sect3"><span class="enumeration_section">1.10.2</span> Transcoding Software (Options)</h3>
+<div>
+<p>The following options are available for transcoding video data:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>JCodec</p>
+</li>
+<li>
+<p>FFmpeg</p>
+</li>
+<li>
+<p>Third-party transcoding software</p>
+</li>
+</ul>
+<p>To use Multimedia analytics with JCodec (which is included with the product), when running the Hadoop job to recognize faces, set the <code>oracle.ord.hadoop.ordframegrabber</code> property to the following value: <code>oracle.ord.hadoop.decoder.OrdJCodecFrameGrabber</code></p>
+<p>To use Multimedia analytics with FFmpeg:</p>
+<ol>
+<li>
+<p>Download FFmpeg from: https://www.ffmpeg.org/.</p>
+</li>
+<li>
+<p>Install FFmpeg on the Hadoop cluster.</p>
+</li>
+<li>
+<p>Set the <code>oracle.ord.hadoop.ordframegrabber</code> property to the following value: <code>oracle.ord.hadoop.decoder.OrdFFMPEGFrameGrabber</code></p>
+</li>
+</ol>
+<p>To use Multimedia analytics with custom video decoding software, implement the abstract class <code>oracle.ord.hadoop.decoder.OrdFrameGrabber</code>. See the Javadoc for more details</p>
+</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment324">
+<tr>
+<td class="cellalignment331">
+<table class="cellalignment329">
+<tr>
+<td class="cellalignment328"><a href="bdspa-changes.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment328"><a href="spatial-data.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2015, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment333">
+<table class="cellalignment327">
+<tr>
+<td class="cellalignment328"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment328"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment328"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment328"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment328"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

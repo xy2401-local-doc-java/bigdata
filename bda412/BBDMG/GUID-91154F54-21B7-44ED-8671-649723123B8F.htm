@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Comparing Data Sets</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="In the Oracle Big Data Manager console, you can create, schedule, and run jobs that compare large data sets in different storage providers." />
+<meta name="dcterms.created" content="2018-07-02T14:42:41Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Manager User&rsquo;s Guide" />
+<meta name="dcterms.identifier" content="E96163-02" />
+<meta name="dcterms.isVersionOf" content="BBDMG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2018, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="GUID-98728D94-3F33-4006-9489-601B11000B31.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-E6716416-5293-4509-8459-FB40B837FEB7.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BBDMG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-91154F54-21B7-44ED-8671-649723123B8F"></a> <span id="PAGE" style="display:none;">25/45</span> <!-- End Header -->
+<h1 id="BBDMG-GUID-91154F54-21B7-44ED-8671-649723123B8F" class="sect1"><span class="enumeration_section">4.8</span> Comparing Data Sets</h1>
+<div>
+<p>In the Oracle Big Data Manager console, you can create, schedule, and run jobs that compare large data sets in different storage providers.</p>
+<div class="section">
+<p>A compare job uses the <code class="codeph">odiff</code> utility on Oracle Big Data Appliance, and the computation runs as distributed Spark application.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Click <span class="bold">Data</span> on the menu bar to open the <span class="bold">Data Explorer</span> .</span></li>
+<li class="stepexpand"><span>Click the <span class="bold">Explorer</span> tab (on the left side of the page).</span></li>
+<li class="stepexpand"><span>Select an item in the left panel and an item in the right panel to compare. You can only compare like items, for example file to file or directory to directory.</span></li>
+<li class="stepexpand"><span>On the toolbar, click <span class="bold">Compare</span> <img width="16" height="16" src="img/GUID-2A28F27E-EBA8-4000-81AA-A691DDBB080D-default.png" alt="Compare" title="Compare" /> .</span></li>
+<li class="stepexpand"><span>In the <span class="bold">New compare data job</span> dialog box, enter the following values.</span>
+<div><span class="bold">General tab</span></div>
+<ul>
+<li><span class="bold">Job name:</span> A name is provided for the job, but you can append to it or replace it with a different name.</li>
+<li><span class="bold">Job type:</span> This read-only field describes the type of job. In this case, it&rsquo;s <span class="bold">Oracle Distributed Diff &mdash; compare.</span></li>
+<li><span class="bold">Run immediately:</span> Select this option to run the job immediately and only once.</li>
+<li><span class="bold">Repeated execution:</span> Select this option to schedule the time and frequency of repeated executions of the job.</li>
+</ul>
+<div><span class="bold">Advanced tab</span></div>
+<ul>
+<li><span class="bold">Number of executors:</span> Select the number of executors from the drop-down list. The default number is <code class="codeph">3</code>. If you have more then three nodes you can increase execution speed by specifying a higher number of executors. If you want to execute this job in parallel with other Spark or MapReduce jobs, decrease the number of executors to increase performance.</li>
+<li><span class="bold">Number of CPU cores per executor:</span> Select the number of cores from the drop-down list. The default number is 5. If you want to execute this job in parallel with other Spark or MapReduce jobs, decrease the number of cores to increase performance.</li>
+<li><span class="bold">Memory allocated for each execution:</span> Select the amount of memory from the drop-down list. The default value is 40 GB. If you want to execute this job in parallel with other Spark or MapReduce jobs, decrease the memory to increase performance.</li>
+<li><span class="bold">Memory allocated for driver:</span> Select the memory limit from the drop-down list.</li>
+<li><span class="bold">Custom logging level:</span> Select this option to log the job&rsquo;s activity and to select the logging level.</li>
+</ul>
+</li>
+<li class="stepexpand"><span>Click <span class="bold">Create</span>.</span>
+<div>The <span class="bold">Data compare job <span class="variable">job_number</span> created</span> dialog box shows minimal status information about the job. Click the <span class="bold">View more details</span> link to show more details about the job in the <span class="bold">Jobs</span> section of console.</div>
+</li>
+<li class="stepexpand"><span>Review the job results. In particular, in the <span class="bold">Jobs</span> section of the console, click the <span class="bold">Comparison results</span> tab on the left side of the page to display what&rsquo;s the same and what&rsquo;s different about the compared items.</span>
+<div><br />
+<img width="647" height="485" src="img/GUID-E3689A98-7C62-40C6-994B-F1B5A31E0D97-default.png" alt="Description of GUID-E3689A98-7C62-40C6-994B-F1B5A31E0D97-default.png follows" title="Description of GUID-E3689A98-7C62-40C6-994B-F1B5A31E0D97-default.png follows" /><br />
+<a href="img_text/GUID-E3689A98-7C62-40C6-994B-F1B5A31E0D97-default.htm">Description of the illustration GUID-E3689A98-7C62-40C6-994B-F1B5A31E0D97-default.png</a><br /></div>
+</li>
+</ol>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="GUID-98728D94-3F33-4006-9489-601B11000B31.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="GUID-E6716416-5293-4509-8459-FB40B837FEB7.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2018, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

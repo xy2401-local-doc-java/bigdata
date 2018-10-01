@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Changes in Oracle Big Data Appliance Release 4 (4.8)</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-08-05T17:35:45Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E93282-04" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda49/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="GUID-88ED98DE-3A00-46D9-89AD-336F54811B94.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-0F3731A3-A6AC-420F-A6EF-076AE48C4E8D.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-3D6C637E-8A5C-4A15-924F-C12DF5C5D659"></a> <span id="PAGE" style="display:none;">33/38</span> <!-- End Header -->
+<h1 id="BIGOG-GUID-3D6C637E-8A5C-4A15-924F-C12DF5C5D659" class="sect1"><span class="enumeration_section">G.2</span> Changes in Oracle Big Data Appliance Release 4 (4.8)</h1>
+<div>
+<p>Release 4.8 includes following feature changes and software updates.</p>
+<div class="section">
+<p class="subhead1">Software Updates</p>
+</div>
+<!-- class="section" -->
+<ul style="list-style-type: disc;">
+<li>
+<p>CDH (Cloudera's Distribution including Apache Hadoop) 5.10.1</p>
+</li>
+<li>
+<p>CM (Cloudera Manager) 5.10.1</p>
+</li>
+<li>
+<p>Oracle Big Data Connectors 4.8</p>
+</li>
+<li>
+<p>Big Data SQL 3.1 (earlier releases are not supported on Oracle Big Data Appliance 4.8)</p>
+</li>
+<li>
+<p>Oracle Big Data Spatial &amp; Graph 2.2.0</p>
+</li>
+<li>
+<p>MySQL Enterprise Edition 5.7.17</p>
+</li>
+<li>
+<p>Perfect Balance 2.10.0</p>
+</li>
+<li>
+<p>Java JDK 8u121</p>
+</li>
+<li>
+<p>Oracle Linux 6.8 UEK 4 (Oracle Linux Unbreakable Kernel, Release 4)</p>
+<p>Mammoth v4.8.0 for Oracle Linux 5 is available (only for upgrades of clusters based on Oracle Linux 5).</p>
+</li>
+<li>
+<p>Oracle Data Integrator Agent 12.2.1.1 (for Oracle Big Data Connectors)</p>
+</li>
+<li>
+<p>Oracle R Advanced Analytics for Hadoop (ORAAH) 2.7.0&nbsp;</p>
+</li>
+<li>
+<p>Oracle's R Distribution (ORD) 3.2.0</p>
+</li>
+<li>
+<p>Oracle NoSQL Community Edition or Oracle NoSQL Database Enterprise Edition 4.3.10. Both optional.</p>
+<p>Note that support is no longer available for Oracle NoSQL Database Community Edition.</p>
+</li>
+<li>
+<p>Kudu 1.2</p>
+</li>
+<li>
+<p>Kafka 2.1</p>
+</li>
+<li>
+<p>Spark 2.0</p>
+</li>
+<li>
+<p>Cloudera Key Trustee Server 5.10.1</p>
+</li>
+</ul>
+<p>The Cloudera parcels for Spark, Kudu, Kafka, and Key Trustee Server are included for your convenience, but are not deployed or configured by default.</p>
+<p>See the <a href="http://www.cloudera.com/documentation/enterprise/latest.html" target="_blank">Cloudera Documentation</a> for information about CDH and Cloudera Manager 5.10.1</p>
+<p>Oracle Big Data Appliance Release 4.8 includes Oracle Big Data SQL 3.1 as a Mammoth installation option. You do not need to download this package from the <a href="https://edelivery.oracle.com" target="_blank">Oracle Software Delivery Cloud</a>.</p>
+<div class="section">
+<p class="subhead1">New Features</p>
+<p>In addition to software upgrades and extra Cloudera parcels, Oracle Big Data Appliance provides these new features.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Automated LAG Setup</span></p>
+<p>The Oracle Big Data Appliance Configuration Utility provides an option to assign groups of connectors to LAGs (Link Aggregation Groups) for cluster client network connections. LAGs can provide faster uplink times and reduce the points of potential failure in the network. See <a href="network.htm#GUID-CDD8E898-4196-491C-89DA-EFDD854BE892" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency."><span class="bold">Configuring for LACP/LAG Connections</span></a> in this guide for details.</p>
+</li>
+<li>
+<p><span class="bold">MIT Kerberos Security Option for Oracle NoSQL Enterprise installations</span></p>
+<p>You can select MIT Kerberos security for an Oracle NoSQL cluster via the Oracle Big Data Appliance Configuration Utility.</p>
+</li>
+<li>
+<p><span class="bold">Oracle Big Data SQL can Connect to the Exadata Database Machine Over Ethernet</span></p>
+<p>Ethernet is now supported for Oracle Big Data SQL networking between Oracle Exadata Database Machine and Oracle Big Data Appliance. This enables you to use Oracle Big Data SQL with these two Engineered Systems in environments where InfiniBand is not feasible, such as when the two systems are geographically distant from each other.</p>
+<p>The Oracle Big Data Appliance Configuration Utility now provides an option to choose between Ethernet and InfiniBand for Oracle Big Data SQL when you are setting up the configuration for a cluster.</p>
+<p>Ethernet connections for Oracle Big Data SQL are not supported for networking between Oracle Big Data Appliance and Oracle SPARC SuperCluster.</p>
+</li>
+<li>
+<p><span class="bold">Oracle Big Data SQL Networking is Switchable Between Ethernet and InfiniBand</span></p>
+<p>If needed, you can switch between InfiniBand and Ethernet after the Mammoth installation and after the Oracle Big Data SQL installation has been completed. See <a class="olink BIGUG-GUID-5FE0E438-6F73-4199-A059-D5FBBB5B4AE3" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E89798-01&amp;id=BIGUG-GUID-5FE0E438-6F73-4199-A059-D5FBBB5B4AE3">Choosing Between Ethernet and InfiniBand Connections For Oracle Big Data SQL</a> in this guide for details.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Oracle Big Data SQL 3.1 can be Enabled/Disabled Using bdacli</p>
+<p>In Release 4.8, the Oracle Big Data Appliance Configuration Generation Utility provides an option to install Oracle Big Data SQL 3.1. If you choose this option, then the Hadoop side of Oracle Big Data SQL is enabled automatically.</p>
+<p>If you do not choose to enable Oracle Big Data SQL in the Mammoth installation, you can enable it later using the bdacli command line interface:</p>
+<pre dir="ltr">
+# bdacli enable big_data_sql
+</pre>
+<p>You can also use bdacli to disable the Hadoop side Oracle Big Data SQL:</p>
+<pre dir="ltr">
+# bdacli disable big_data_sql
+</pre>
+<div class="infobox-note" id="GUID-3D6C637E-8A5C-4A15-924F-C12DF5C5D659__GUID-C4B0E812-992E-4401-8312-3B1E28C615F5">
+<p class="notep1">Note:</p>
+For Oracle Big Data Appliance Release 4.8, the instructions in the <span class="italic">Oracle Big Data SQL 3.1 Installation Guide</span> for downloading, installing, and uninstalling the software on the Hadoop cluster do not apply.
+<ul style="list-style-type: disc;">
+<li>
+<p>You do not need to download Oracle Big Data SQL 3.1 from the Oracle Software Delivery Cloud. The software is already included in the Mammoth bundle.</p>
+</li>
+<li>
+<p>Do not install Oracle Big Data SQL 3.1 on Release 4.8 using <code class="codeph">./setup-bds install bds-config.json</code>.</p>
+Mammoth performs this part of the installation for you. Likewise, do not use <code class="codeph">./setup-bds uninstall bds-config.json</code> to uninstall the software from the Hadoop cluster. To disable Oracle Big Data SQL after the Mammoth installation (or to enable it if you did not opt include it in the Mammoth installation), use the bdacli commands as described above.</li>
+</ul>
+<p>Except for the <code class="codeph">install</code> and <code class="codeph">uninstall</code> commands, the instructions on using <code class="codeph">setup-bds</code> in the <a href="http://docs.oracle.com/bigdata/bds31/BDSIG/toc.htm" target="_blank">Oracle Big Data SQL 3.1 Installation Guide</a> apply to Oracle Big Data Appliance and should be used as documented. This is also true for the database side of Oracle Big Data SQL. Create the database installation bundle and install it on the nodes of the Oracle Database system as described in the guide.</p>
+</div>
+<div class="infoboxnotealso" id="GUID-3D6C637E-8A5C-4A15-924F-C12DF5C5D659__GUID-710C3B73-241D-4C87-A193-F873ED1602C3">
+<p class="notep1">See Also:</p>
+<a href="http://docs.oracle.com/bigdata/bds31/index.htm" target="_blank">Oracle Big Data SQL Online Documentation Library Release 3.1</a></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">In Release 4.8, Node Migration Requires Extra Step for Oracle Big Data SQL Support</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If Oracle Big Data SQL is enabled, then you must disable it on the entire cluster prior to running <code class="codeph">bdacli admin_cluster migrate &lt;node&gt;</code>. Re-enable it after the migration. Use the bdacli enable and disable commands.</p>
+<ol>
+<li>
+<p>Disable Oracle Big Data SQL across the cluster: <code class="codeph">bdacli disable big_data_sql</code></p>
+</li>
+<li>
+<p>Perform the migration.</p>
+</li>
+<li>
+<p>Re-enable Oracle Big Data SQL: <code class="codeph">bdacli enable big_data_sql</code></p>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">TLS 1.0 (TLSv1) Disabled for Cloudera Configuration Manager and Hue &ndash; May Affect Client Access</p>
+<p>In order to improve security, Oracle Big Data Appliance has disabled TLS 1.0 for Cloudera Manager and Hue and also in the system-wide Java configuration. This can affect older browsers or operating systems.</p>
+<p>It is recommended that you reconfigure or upgrade clients using TLS 1.0 to use newer encryption, but if necessary you can re-enable TLS 1.0 for Cloudera Manager and Hue.</p>
+<p>For details, log on to <a href="https://support.oracle.com" target="_blank">My Oracle Support</a> and search for <span class="italic">BDA 4.8 Disables TLSv1 by Default For Cloudera Manager/Hue/And in System-Wide Java Configurations (Doc ID 2250841.1)</span>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Oracle Big Data Discovery Installation on Big Data Appliance 4.8 not Supported at This Time</p>
+<p>A compatible build of Oracle Big Data Discovery is under development. This document will be updated when a compatible build is available.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Deprecated or Discontinued Features</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The Perfect Balance automatic invocation feature is not supported in this release. If you having been using automatic invocation, please switch to the Perfect Balance API.</p>
+</li>
+<li>
+<p>There is no longer an option to purchase support for Oracle NoSQL Database Community Edition.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Other Notices</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Mammoth, the Oracle Big Data Appliance installation package, now consists of four ZIP files, all of which must be downloaded and extracted before running the <code class="codeph">BDAMammoth-4.8.0.run</code> file</p>
+</li>
+<li>
+<p>Mammoth cluster upgrades to v4.8.0 are only supported directly from Mammoth v4.4.0 or later. For upgrades from earlier Mammoth versions, it will be necessary to first upgrade to Mammoth v4.4.0.</p>
+</li>
+<li>
+<p>Configuring the network on new racks with an installed BDA Base Image lower than BDA v4.5.0 requires special configuration steps. Log on to <a href="https://support.oracle.com" target="_blank">My Oracle Support</a> and search for this document :</p>
+<p><span class="italic">Network Configuration Instructions for Shipped BDA racks with a BDA Base Image Less Than V4.5.0 (Doc ID 2135358.1).</span></p>
+</li>
+<li>
+<p>Oracle strongly recommends that customers using Oracle Big Data Appliance Clusters with Microsoft Active Directory configure their clusters to use cross-realm trust to Microsoft Active Directory and not use Direct-Active-Directory configuration for the Hadoop cluster.</p>
+</li>
+<li>
+<div class="p">Before upgrading an Oracle Linux 5 cluster that has had HTTPS enabled for Cloudera Manager, it is necessary to follow these steps :
+<ol>
+<li>
+<p>Confirm that HTTPS is enabled for Cloudera Manager .</p>
+</li>
+<li>
+<div class="p">Back up <code class="codeph">GridDefParams.pm</code>:
+<pre dir="ltr">
+# cp /opt/oracle/BDAMammoth/bdaconfig/GridDefParams.pm /opt/oracle/BDAMammoth/bdaconfig/GridDefParams.pm.orig
+</pre></div>
+</li>
+<li>
+<p>Update lines 141 and 142 of <code class="codeph">/opt/oracle/BDAMammoth/bdaconfig/GridDefParams.pm</code> to these settings:</p>
+<pre dir="ltr">
+our $CM_ADMIN_PROTO = "https";                                                                       
+our $CM_ADMIN_PORT = "7183";                                                                          
+</pre></li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment164">
+<tr>
+<td class="cellalignment197">
+<table class="cellalignment169">
+<tr>
+<td class="cellalignment168"><a href="GUID-88ED98DE-3A00-46D9-89AD-336F54811B94.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment168"><a href="GUID-0F3731A3-A6AC-420F-A6EF-076AE48C4E8D.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment199">
+<table class="cellalignment167">
+<tr>
+<td class="cellalignment168"><a href="http://docs.oracle.com/bigdata/bda49/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment168"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment168"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment168"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

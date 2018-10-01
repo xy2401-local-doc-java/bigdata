@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Integrating Big Data Spatial and Graph with Oracle Database</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="You can use Oracle Big Data Connectors to facilitate spatial data access between Big Data Spatial and Graph and Oracle Database." />
+<meta name="dcterms.created" content="2017-10-02T15:13:12Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Spatial and Graph User&rsquo;s Guide and Reference" />
+<meta name="dcterms.identifier" content="E67958-14" />
+<meta name="dcterms.isVersionOf" content="BDSPA" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://www.docs.oracle.com/bigdata/411/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="using-big-data-spatial-graph-spatial-data.htm" title="Previous" type="text/html" />
+<link rel="Next" href="configuring-property-graph-support.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDSPA.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-77B38F53-21C9-4147-BE88-211A57E8A413"></a> <span id="PAGE" style="display:none;">9/15</span> <!-- End Header -->
+<h1 id="BDSPA-GUID-77B38F53-21C9-4147-BE88-211A57E8A413" class="sect1"><span class="enumeration_chapter">3</span> Integrating Big Data Spatial and Graph with Oracle Database</h1>
+<div>
+<p>You can use Oracle Big Data Connectors to facilitate spatial data access between Big Data Spatial and Graph and Oracle Database.</p>
+<p>This chapter assumes that you have a working knowledge of the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle SQL Connector for HDFS</p>
+<p>For information, see <a class="olink BDCUG125" target="_blank" href="../BDCUG/osch.htm#BDCUG125">Oracle SQL Connector for Hadoop Distributed File System</a>.</p>
+</li>
+<li>
+<p>Oracle Loader for Hadoop</p>
+<p>For information, see <a class="olink BDCUG140" target="_blank" href="../BDCUG/olh.htm#BDCUG140">Oracle Loader for Hadoop</a></p>
+</li>
+<li>
+<p>Apache Hive</p>
+<p>For information, see the Apache Hive documentation at <a href="https://cwiki.apache.org/confluence/display/Hive/Home#Home-UserDocumentation" target="_blank">https://cwiki.apache.org/confluence/display/Hive/Home#Home-UserDocumentation</a>.</p>
+</li>
+</ul>
+</div>
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-DAC1D06C-D054-4C0B-B2F7-6BC5EEDFD287">Using Oracle SQL Connector for HDFS with Delimited Text Files</a><br />
+This topic is applicable when the files in HDFS are delimited text files (fields must be delimited using single-character markers, such as commas or tabs) <span class="bold">and</span> the spatial data is stored as GeoJSON or WKT format.</li>
+<li class="ulchildlink"><a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-0A6EC67C-36A2-4480-A420-7363AC6E31F1">Using Oracle SQL Connector for HDFS with Hive Tables</a><br />
+Oracle SQL Connector for HDFS (OSCH) directly supports HIVE tables defined on HDFS.</li>
+<li class="ulchildlink"><a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-F6BE6A07-F94F-4347-85E3-10818A48CBAA">Using Oracle SQL Connector for HDFS with Files Generated by Oracle Loader for Hadoop</a><br />
+To use Oracle SQL Connector for HDFS (OSCH) with files generated by Oracle Loader for Hadoop (OLH), you must understand how OLH is used to move data from HDFS to Oracle Database.</li>
+<li class="ulchildlink"><a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-22143F85-39AA-4C28-8B57-D588AA1D9D8A">Integrating HDFS Spatial Data with Oracle Database Using Oracle Big Data SQL</a><br />
+You can use Oracle Big Data SQL to facilitate spatial data access between HDFS and Oracle Database.</li>
+</ul>
+</div>
+<div class="props_rev_3"><a id="GUID-DAC1D06C-D054-4C0B-B2F7-6BC5EEDFD287"></a>
+<h2 id="BDSPA-GUID-DAC1D06C-D054-4C0B-B2F7-6BC5EEDFD287" class="sect2"><span class="enumeration_section">3.1</span> Using Oracle SQL Connector for HDFS with Delimited Text Files</h2>
+<div>
+<p>This topic is applicable when the files in HDFS are delimited text files (fields must be delimited using single-character markers, such as commas or tabs) <span class="bold">and</span> the spatial data is stored as GeoJSON or WKT format.</p>
+<p>If such data is to be used by Big Data Spatial and Graph and is to be accessed from an Oracle database using the Oracle SQL connection for HDFS, certain configuration steps are needed.</p>
+<p>For this example, assume that the files in HDFS contain records separated by new lines, and the fields within each record are separated by tabs, such as in the following:</p>
+<pre dir="ltr">
+"6703"       1       62      "Hong Kong"     3479846 POINT (114.18306 22.30693)
+"6702"  57      166     "Singapore"     1765655 POINT (103.85387 1.29498) 
+</pre>
+<ol>
+<li>
+<p>Log in to a node of the Hadoop cluster.</p>
+</li>
+<li>
+<p>Create the configuration file required by OSCH (Oracle SQL Connector for HDFS), such as the following example:</p>
+<pre dir="ltr">
+&lt;?xml version="1.0"?&gt;
+ &lt;configuration&gt;
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.exttab.tableName&lt;/name&gt;
+      &lt;value&gt;TWEETS_EXT_TAB_FILE&lt;/value&gt; 
+    &lt;/property&gt; 
+   &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.exttab.sourceType&lt;/name&gt;
+      &lt;value&gt;text&lt;/value&gt;
+    &lt;/property&gt;
+   &lt;property&gt; 
+      &lt;name&gt;oracle.hadoop.exttab.dataPaths&lt;/name&gt;
+      &lt;value&gt;/user/scott/simple_tweets_data/*.log&lt;/value&gt; 
+    &lt;/property&gt;   
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.connection.url&lt;/name&gt;
+      &lt;value&gt;jdbc:oracle:thin:@//myhost:1521/myservicename&lt;/value&gt; 
+    &lt;/property&gt; 
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.connection.user&lt;/name&gt;
+      &lt;value&gt;scott&lt;/value&gt; 
+    &lt;/property&gt;      
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.exttab.fieldTerminator&lt;/name&gt;
+      &lt;value&gt;\u0009&lt;/value&gt; 
+    &lt;/property&gt;      
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.exttab.columnNames&lt;/name&gt;
+      &lt;value&gt;ID,FOLLOWERS_COUNT,FRIENDS_COUNT,LOCATION,USER_ID,GEOMETRY&lt;/value&gt; 
+    &lt;/property&gt;      
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.exttab.defaultDirectory&lt;/name&gt;
+      &lt;value&gt;TWEETS_DT_DIR&lt;/value&gt; 
+    &lt;/property&gt;      
+&lt;/configuration&gt;
+</pre></li>
+<li>
+<p>Name the configuration file <code class="codeph">tweets_text.xml</code>.</p>
+</li>
+<li>
+<p>On a node of the Hadoop cluster, execute the following command:</p>
+<pre dir="ltr">
+hadoop jar $OSCH_HOME/jlib/orahdfs.jar \
+       oracle.hadoop.exttab.ExternalTable \
+       -conf /home/oracle/tweets_text.xml \
+       -createTable
+</pre>
+<p>The command prompts for the database password .</p>
+<p>You can either create the OSCH_HOME environment variable or replace OSCH_HOME in the command syntax with the full path to the installation directory for Oracle SQL Connector for HDFS. On Oracle Big Data Appliance, this directory is: <code class="codeph">/opt/oracle/orahdfs-version</code></p>
+</li>
+</ol>
+<p>The table TWEETS_EXT_TAB_FILE is now ready to query. It can be queried like any other table from the database. The database is the target database specified in the configuration file in a previous step.. The following query selects the count of rows in the table:</p>
+<pre dir="ltr">
+select count(*) from TWEETS_EXT_TAB_FILE;
+</pre>
+<p>You can perform spatial operations on that table just like any other spatial table in the database. The following example retrieves information about users that are tweeting within in a quarter-mile (0.25 mile) radius of a specific movie theater:</p>
+<pre dir="ltr">
+select sdo_geom.SDO_DISTANCE(ci.geometry, SDO_GEOMETRY(tw.geometry, 8307), 0.05, 'UNIT=MILE'), ci.name, tw.user_id 
+from CINEMA ci, TWEETS_EXT_TAB_FILE tw where SDO_WITHIN_DISTANCE(ci.geometry, SDO_GEOMETRY(tw.geometry, 8307), 'DISTANCE=0.25 UNIT=MILE') = 'TRUE'
+</pre>
+<p>Here the table CINEMA is a spatial table in the Oracle database, and the HDFS table TWEETS_EXT_TAB_FILE can be used to query against this table. The data from the tweets table is read in as WKT (well known text), and the WKT constructor of SDO_GEOMETRY is used to materialize this data as a geometry in the database.</p>
+<p>Note that the SRID of the geometries is 8307. Also ,if the spatial data is in GeoJSON format, then the query should be as follows:</p>
+<pre dir="ltr">
+select sdo_geom.SDO_DISTANCE(ci.geometry, SDO_UTIL.FROM_GEOJSON(tw.geometry, '', 8307), 0.05, 'UNIT=MILE'), ci.name, tw.user_id 
+from CINEMA ci, TWEETS_EXT_TAB_FILE tw where SDO_WITHIN_DISTANCE(ci.geometry, SDO_UTIL.FROM_GEOJSON(tw.geometry, '', 8307), 'DISTANCE=0.25 UNIT=MILE') = 'TRUE'
+</pre></div>
+</div>
+<div class="props_rev_3"><a id="GUID-0A6EC67C-36A2-4480-A420-7363AC6E31F1"></a>
+<h2 id="BDSPA-GUID-0A6EC67C-36A2-4480-A420-7363AC6E31F1" class="sect2"><span class="enumeration_section">3.2</span> Using Oracle SQL Connector for HDFS with Hive Tables</h2>
+<div>
+<p>Oracle SQL Connector for HDFS (OSCH) directly supports HIVE tables defined on HDFS.</p>
+<p>The Hive tables must be nonpartitioned, and defined using&nbsp;ROW FORMAT DELIMITED&nbsp;and&nbsp;FILE FORMAT TEXTFILE&nbsp;clauses.&nbsp;The spatial data must be in GeoJSON or WKT format.</p>
+<p>Both Hive-managed tables and Hive external tables are supported.</p>
+<p>For example, the Hive command to create a table on the file described in <a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-DAC1D06C-D054-4C0B-B2F7-6BC5EEDFD287" title="This topic is applicable when the files in HDFS are delimited text files (fields must be delimited using single-character markers, such as commas or tabs) and the spatial data is stored as GeoJSON or WKT format.">Using Oracle SQL Connector for HDFS with Delimited Text Files</a> is as follows. It assumes that the user already has a Hive table defined on HDFS data. The data in HDFS must be in the supported format, and the spatial data must be in GeoJSON or WKT format.</p>
+<pre dir="ltr">
+CREATE EXTERNAL TABLE IF NOT EXISTS TWEETS_HIVE_TAB(
+  ID string, 
+  FOLLOWERS_COUNT int, 
+  FRIENDS_COUNT int, 
+  LOCATION string, 
+  USER_ID int, 
+  GEOMETRY string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY '\t' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  '/user/scott/simple_tweets_data';
+</pre>
+<p>The following example queries the table.</p>
+<pre dir="ltr">
+select ID, FOLLOWERS_COUNT, FRIENDS_COUNT, LOCATION, USER_ID, GEOMETRY from TWEETS_HIVE_TAB limit 10;
+</pre>
+<p>The output looks as follow:</p>
+<pre dir="ltr">
+"6703"       1       62      "Hong Kong"     3479846 POINT (114.18306 22.30693)
+"6702"  57      166     "Singapore"     1765655 POINT (103.85387 1.29498)
+</pre>
+<ol>
+<li>
+<p>Log in to a node of the Hadoop cluster.</p>
+</li>
+<li>
+<p>Create the configuration file required by OSCH (Oracle SQL Connector for HDFS), such as the following example:</p>
+<pre dir="ltr">
+&lt;?xml version="1.0"?&gt;
+ &lt;configuration&gt;
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.exttab.tableName&lt;/name&gt;
+      &lt;value&gt;TWEETS_EXT_TAB_HIVE&lt;/value&gt; 
+    &lt;/property&gt; 
+   &lt;property&gt; 
+      &lt;name&gt;oracle.hadoop.exttab.sourceType&lt;/name&gt;
+      &lt;value&gt;hive&lt;/value&gt; 
+    &lt;/property&gt;   
+   &lt;property&gt; 
+      &lt;name&gt;oracle.hadoop.exttab.hive.tableName&lt;/name&gt;
+      &lt;value&gt;TWEETS_HIVE_TAB&lt;/value&gt; 
+    &lt;/property&gt;   
+   &lt;property&gt; 
+      &lt;name&gt;oracle.hadoop.exttab.hive.databaseName&lt;/name&gt;
+      &lt;value&gt;default&lt;/value&gt; 
+    &lt;/property&gt;   
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.connection.url&lt;/name&gt;
+      &lt;value&gt;jdbc:oracle:thin:@//myhost:1521/myservicename&lt;/value&gt; 
+    &lt;/property&gt; 
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.connection.user&lt;/name&gt;
+      &lt;value&gt;scott&lt;/value&gt; 
+    &lt;/property&gt;      
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.exttab.defaultDirectory&lt;/name&gt;
+      &lt;value&gt;TWEETS_DT_DIR&lt;/value&gt; 
+    &lt;/property&gt;      
+&lt;/configuration&gt; 
+</pre></li>
+<li>
+<p>Name the configuration file <code class="codeph">tweets_text.xml</code>.</p>
+</li>
+<li>
+<p>On a node of the Hadoop cluster, execute the following command:</p>
+<pre dir="ltr">
+# Add HIVE_HOME/lib* to HADOOP_CLASSPATH.  
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$HIVE_HOME/lib/*
+hadoop jar $OSCH_HOME/jlib/orahdfs.jar \
+       oracle.hadoop.exttab.ExternalTable \
+       -conf /home/oracle/tweets_hive.xml \
+       -createTable
+</pre>
+<p>The command prompts for the database password . You can either create the OSCH_HOME environment variable or replace OSCH_HOME in the command syntax with the full path to the installation directory for Oracle SQL Connector for HDFS. On Oracle Big Data Appliance, this directory is: <code class="codeph">/opt/oracle/orahdfs-version</code></p>
+<p>Set the environment variable HIVE_HOME to point to the Hive installation directory (for example, <code class="codeph">/usr/lib/hive</code>).</p>
+</li>
+</ol>
+<p>The table TWEETS_EXT_TAB_FILE is now ready to query. It can be queried like any other table from the database. The following query selects the count of rows in the table:</p>
+<pre dir="ltr">
+select count(*) from TWEETS_EXT_TAB_HIVE;;
+</pre>
+<p>You can perform spatial operations on that table just like any other spatial table in the database. The following example retrieves information about users that are tweeting within in a quarter-mile (0.25 mile) radius of a specific movie theater:</p>
+<pre dir="ltr">
+select sdo_geom.SDO_DISTANCE(ci.geometry, SDO_GEOMETRY(tw.geometry, 8307), 0.05, 'UNIT=MILE), ci.name, tw.user_id 
+from CINEMA ci, TWEETS_EXT_TAB_HIVE tw where SDO_WITHIN_DISTANCE(ci.geometry, SDO_GEOMETRY(tw.geometry, 8307), 'DISTANCE=0.25 UNIT=MILE') = 'TRUE'
+</pre>
+<p>Here the table CINEMA is a spatial table in the Oracle database, and the HDFS table TWEETS_EXT_TAB_FILE can be used to query against this table. The data from the tweets table is read in as WKT (well known text), and the WKT constructor of SDO_GEOMETRY is used to materialize this data as a geometry in the database.</p>
+<p>Note that the SRID of the geometries is 8307. Also ,if the spatial data is in GeoJSON format, then the query should be as follows:</p>
+<pre dir="ltr">
+select sdo_geom.SDO_DISTANCE(ci.geometry, SDO_UTIL.FROM_GEOJSON(tw.geometry, '', 8307), 0.05, 'UNIT=MILE), ci.name, tw.user_id 
+from CINEMA ci, TWEETS_EXT_TAB_HIVE tw where SDO_WITHIN_DISTANCE(ci.geometry, SDO_UTIL.FROM_GEOJSON(tw.geometry, '', 8307), 'DISTANCE=0.25 UNIT=MILE') = 'TRUE'
+</pre></div>
+</div>
+<div class="props_rev_3"><a id="GUID-F6BE6A07-F94F-4347-85E3-10818A48CBAA"></a>
+<h2 id="BDSPA-GUID-F6BE6A07-F94F-4347-85E3-10818A48CBAA" class="sect2"><span class="enumeration_section">3.3</span> Using Oracle SQL Connector for HDFS with Files Generated by Oracle Loader for Hadoop</h2>
+<div>
+<p>To use Oracle SQL Connector for HDFS (OSCH) with files generated by Oracle Loader for Hadoop (OLH), you must understand how OLH is used to move data from HDFS to Oracle Database.</p>
+<p>Modifications are required for moving Big Data Spatial and Graph spatial data into the database. This solution generally applies for any kind of files in HDFS or any kind of Hive data. The spatial information can be in a well known format or a custom format.</p>
+<p>First, an example of how to create external tables from files in HDFS containing spatial information in a user defined format. Assume that the files in HDFS have records the following format:</p>
+<pre dir="ltr">
+{
+        "type":"Feature",
+        "id":"6703",
+        "followers_count":1,
+        "friends_count":62,
+        "location":"Hong Kong",
+        "user_id":3479846,
+        "longitude":114.18306,
+        "latitude":22.30693
+}
+
+{
+        "type":"Feature",
+        "id":"6702",
+        "followers_count":57,
+        "friends_count":166,
+        "location":"Singapore",
+        "user_id":1765655,
+        "longitude":103.85387,
+        "latitude":1.29498
+}
+</pre>
+<p>The Hive command to create a table for those records is as follows:</p>
+<pre dir="ltr">
+add jar
+     /opt/oracle/oracle-spatial-graph/spatial/vector/jlib/ojdbc8.jar
+     /opt/oracle/oracle-spatial-graph/spatial/vector/jlib/sdoutl.jar
+     /opt/oracle/oracle-spatial-graph/spatial/vector/jlib/sdoapi.jar
+     /opt/oracle/oracle-spatial-graph/spatial/vector/jlib/sdohadoop-vector.jar
+     /opt/oracle/oracle-spatial-graph/spatial/vector/jlib/sdohadoop-vector-hive.jar
+     <span class="bold">&hellip; (add here jars containing custom SerDe and/or InputFormats);</span>
+CREATE EXTERNAL TABLE IF NOT EXISTS CUST_TWEETS_HIVE_TAB (id STRING, geometry STRING, followers_count STRING, friends_count STRING, location STRING, user_id STRING)                                         
+ROW FORMAT SERDE 'mypackage.TweetsSerDe'              
+STORED AS INPUTFORMAT 'oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat'
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION '/user/scott/simple_tweets_data';
+</pre>
+<p>The <code class="codeph">InputFormat</code> object <code class="codeph">oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat</code> can read those records even if they are not strict GeoJSON. Thus, the preceding example does not need a custom <code class="codeph">InputFormat</code> specification. However, it does require a custom Hive Serializer and Deserializer (SerDe) to transform the latitude and longitude into a WKT or GeoJSON geometry. For that, the Spatial Java API can be used in the deserialize function of the SerDe, as the following example</p>
+<pre dir="ltr">
+    @Override
+    public Object deserialize(Writable w) throws SerDeException {
+        Text rowText = (Text) w;
+        List&lt;Text&gt; row = new ArrayList&lt;Text&gt;(columnNames.size());
+        
+        //default all values to null
+        for(int i=0;i&lt;columnNames.size();i++){
+                row.add(null);
+        }
+        
+        // Try parsing row into JSON object
+        JsonNode recordNode = null;
+        
+        try {
+                String txt = rowText.toString().trim();
+                recordNode = jsonMapper.readTree(txt);
+                        row.set(columnNames.indexOf("id"), new Text(recordNode.get("id").getTextValue()));
+                        row.set(columnNames.indexOf("followers_count"), new Text(recordNode.get("followers_count").toString()));
+                        row.set(columnNames.indexOf("friends_count"), new Text(recordNode.get("friends_count").toString()));
+                        row.set(columnNames.indexOf("location"), new Text(recordNode.get("location").getTextValue()));
+                        row.set(columnNames.indexOf("user_id"), new Text(recordNode.get("user_id").toString()));
+                        
+                        Double longitude = recordNode.get("longitude").getDoubleValue();
+                        Double latitude = recordNode.get("latitude").getDoubleValue();
+                        
+                        //use the Spatial API to create the geometry
+                        JGeometry geom = JGeometry.createPoint(new double[]{
+                                        longitude, 
+                                        latitude}, 
+                                        2, //dimensions
+                                        8307 //SRID
+                                        );
+                        //Transform the JGeometry to WKT
+                        String geoWKT = new String(wkt.fromJGeometry(geom));
+                        row.set(columnNames.indexOf("geometry"), new Text(geoWKT));
+        } catch (Exception e) {
+            throw new SerDeException("Exception parsing JSON: " +e.getMessage(), e);
+        }
+        
+        return row;
+    }    
+</pre>
+<p>In the preceding example, to return the geometries in GeoJSON format, replace the following:</p>
+<pre dir="ltr">
+String geoWKT = new String(wkt.fromJGeometry(geom));
+row.set(columnNames.indexOf("geometry"), new Text(geoWKT));
+</pre>
+<p>with this:</p>
+<pre dir="ltr">
+row.set(columnNames.indexOf("geometry"), new Text(geom.toGeoJson()));
+</pre>
+<p>More SerDe examples to transform data in GeoJSON, WKT, or ESRI Shapefiles with the Spatial Java API are available in the folder: <code class="codeph">/opt/oracle/oracle-spatial-graph/spatial/vector/examples/hive/java/src/oracle/spatial/hadoop/vector/hive/java/src/serde</code></p>
+<p>The following example queries the Hive table:</p>
+<pre dir="ltr">
+select ID, FOLLOWERS_COUNT, FRIENDS_COUNT, LOCATION, USER_ID, GEOMETRY from CUST_TWEETS_HIVE_TAB limit 10;
+</pre>
+<p>The output looks like the following:</p>
+<pre dir="ltr">
+6703 1       62      Hong Kong       3479846 POINT (114.18306 22.30693)
+6702    57      166     Singapore       1765655 POINT (103.85387 1.29498)
+</pre></div>
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-42654E7F-F712-43C3-8AE8-2CDD5601F878">Creating HDFS Data Pump Files or Delimited Text Files</a><br /></li>
+<li class="ulchildlink"><a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-CB769408-088C-40B0-B246-7FB73CC9B534">Creating the SQL Connector for HDFS</a><br /></li>
+</ul>
+</div>
+<div class="props_rev_3"><a id="GUID-42654E7F-F712-43C3-8AE8-2CDD5601F878"></a>
+<h3 id="BDSPA-GUID-42654E7F-F712-43C3-8AE8-2CDD5601F878" class="sect3"><span class="enumeration_section">3.3.1</span> Creating HDFS Data Pump Files or Delimited Text Files</h3>
+<div>
+<p>You can use the Hive table from <a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-F6BE6A07-F94F-4347-85E3-10818A48CBAA" title="To use Oracle SQL Connector for HDFS (OSCH) with files generated by Oracle Loader for Hadoop (OLH), you must understand how OLH is used to move data from HDFS to Oracle Database.">Using Oracle SQL Connector for HDFS with Files Generated by Oracle Loader for Hadoop</a> to create HDFS Data Pump files or delimited text files.</p>
+<ol>
+<li>
+<p>Create a table in the Oracle database as follows:</p>
+<pre dir="ltr">
+CREATE TABLE tweets_t(id INTEGER
+  PRIMARY KEY, geometry VARCHAR2(4000), followers_count NUMBER,
+  friends_count NUMBER, location VARCHAR2(4000), user_id NUMBER);
+</pre>
+<p>This table will be used as the target table. Oracle Loader for Hadoop uses table metadata from the Oracle database to identify the column names, data types, partitions, and other information. For simplicity, create this table with the same columns (fields) as the Hive table. After the external table is created, you can remove this table or use it to insert the rows from the external table into the target table. (For more information about target tables, see <a class="olink BDCUG462" target="_blank" href="../BDCUG/olh.htm#BDCUG462">About the Target Table Metadata</a>.</p>
+</li>
+<li>
+<p>Create the loader configuration file, as in the following example:</p>
+<pre dir="ltr">
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;configuration&gt;
+&lt;!--                          Input settings                             --&gt;
+&lt;property&gt;
+        &lt;name&gt;mapreduce.inputformat.class&lt;/name&gt;
+        &lt;value&gt;oracle.hadoop.loader.lib.input.HiveToAvroInputFormat&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+        &lt;name&gt;oracle.hadoop.loader.input.hive.databaseName&lt;/name&gt;
+        &lt;value&gt;default&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+        &lt;name&gt;oracle.hadoop.loader.input.hive.tableName&lt;/name&gt;
+        &lt;value&gt;CUST_TWEETS_HIVE_TAB&lt;/value&gt;
+&lt;/property&gt;
+&lt;!--                          Output settings                             --&gt;
+ &lt;property&gt;
+   &lt;name&gt;mapreduce.outputformat.class&lt;/name&gt;
+   &lt;value&gt;oracle.hadoop.loader.lib.output.DataPumpOutputFormat&lt;/value&gt;
+ &lt;/property&gt;
+ &lt;property&gt;
+   &lt;name&gt;mapred.output.dir&lt;/name&gt;
+   &lt;value&gt;/user/scott/data_output&lt;/value&gt;
+ &lt;/property&gt;
+&lt;!--                          Table information                            --&gt;
+&lt;property&gt;
+        &lt;name&gt;oracle.hadoop.loader.loaderMap.targetTable&lt;/name&gt;
+        &lt;value&gt;tweets_t&lt;/value&gt;
+&lt;/property&gt; 
+&lt;!--                          Connection information                      --&gt;
+&lt;property&gt;
+  &lt;name&gt;oracle.hadoop.loader.connection.url&lt;/name&gt;
+  &lt;value&gt;jdbc:oracle:thin:@//myhost:1521/myservicename&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;oracle.hadoop.loader.connection.user&lt;/name&gt;
+    &lt;value&gt;scott&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;oracle.hadoop.loader.connection.password&lt;/name&gt;
+    &lt;value&gt;welcome1&lt;/value&gt;        
+    &lt;description&gt; Having the password in cleartext is NOT RECOMMENDED. Use Oracle Wallet instead. &lt;/description&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;
+</pre>
+<p>With this configuration, Data Pump files will be created in HDFS. If you want delimited text files as the output, then replace th following:</p>
+<pre dir="ltr">
+oracle.hadoop.loader.lib.output.DataPumpOutputFormat
+</pre>
+<p>with this:</p>
+<pre dir="ltr">
+oracle.hadoop.loader.lib.output.DelimitedTextOutputFormat
+</pre></li>
+<li>
+<p>Name the configuration file <code class="codeph">tweets_hive_to_data_pump.xml</code>.</p>
+</li>
+<li>
+<p>Create the Data Pump files:</p>
+<pre dir="ltr">
+# Add HIVE_HOME/lib* and the Hive configuration directory to HADOOP_CLASSPATH.
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$HIVE_HOME/lib/*:$HIVE_CONF_DIR
+# Add Oracle Spatial libraries to HADOOP_CLASSPATH.
+export ORACLE_SPATIAL_VECTOR_LIB_PATH=/opt/oracle/oracle-spatial-graph/spatial/vector/jlib
+
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$ORACLE_SPATIAL_VECTOR_LIB_PATH/ojdbc8.jar:$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdoutl.jar:$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdoapi.jar:$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdohadoop-vector.jar:$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdohadoop-vector-hive.jar
+
+# The Oracle Spatial libraries need to be added to the libjars option as well.
+export LIBJARS=$ORACLE_SPATIAL_VECTOR_LIB_PATH/ojdbc8.jar,$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdoutl.jar,$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdoapi.jar,$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdohadoop-vector.jar,$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdohadoop-vector-hive.jar
+
+# And the following HIVE jar files have to be added to the libjars option.
+export LIBJARS=$LIBJARS,$HIVE_HOME/lib/hive-exec-*.jar,$HIVE_HOME/lib/hive-metastore-*.jar,$HIVE_HOME/lib/libfb303*.jar
+
+hadoop jar ${OLH_HOME}/jlib/oraloader.jar \
+           oracle.hadoop.loader.OraLoader \
+           -conf /home/oracle/tweets_hive_to_data_pump.xml \
+           -libjars $LIBJARS
+</pre></li>
+</ol>
+<p>For the preceding example:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Be sure that the environment variable OLH_HOME has to be set to the installation directory.</p>
+</li>
+<li>
+<p>Set the environment variable HIVE_HOME to point to the Hive installation directory (for example, <code class="codeph">/usr/lib/hive</code>).</p>
+</li>
+<li>
+<p>Set the environment variable HIVE_CONF_DIR to point to the Hive configuration directory (for example, <code class="codeph">/etc/hive/conf</code>).</p>
+</li>
+<li>
+<p>Add the following Hive jar files, in a comma-separated list, to the <code class="codeph">-libjars</code> option of the <code class="codeph">hadoop</code> command. Replace the asterisks (*) with the complete file names on your system:</p>
+<pre dir="ltr">
+hive-exec-*.jar
+hive-metastore-*.jar
+libfb303*.jar
+</pre></li>
+<li>
+<p>If <code class="codeph">oracle.kv.hadoop.hive.table.TableStorageHandler</code> is used to create the Hive table (with the data coming from Oracle NoSQL Database), you must also add the following jar file to the <code class="codeph">-libjars</code> option of the <code class="codeph">hadoop</code> command: <code class="codeph">$KVHOME/lib/kvclient.jar</code> (where KVHOME is the directory where the Oracle NoSQL Database is installed)</p>
+</li>
+<li>
+<div class="p">If <code class="codeph">org.apache.hadoop.hive.hbase.HBaseStorageHandler</code> is used to create the Hive table (with the data coming from Apache HBase), you must also add the following JAR files, in a comma-separated list, to the <code class="codeph">-libjars</code> option of the <code class="codeph">hadoop</code> command:
+<pre dir="ltr">
+$HIVE_HOME/lib/hbase-server.jar
+$HIVE_HOME/lib/hive-hbase-handler.jar
+$HIVE_HOME/lib/hbase-common.jar
+$HIVE_HOME/lib/hbase-client.jar
+$HIVE_HOME/lib/hbase-hadoop2-compat.jar
+$HIVE_HOME/lib/hbase-hadoop-compat.jar
+$HIVE_HOME/lib/hbase-protocol.jar
+$HIVE_HOME/lib/htrace-core.jar
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-CB769408-088C-40B0-B246-7FB73CC9B534"></a>
+<h3 id="BDSPA-GUID-CB769408-088C-40B0-B246-7FB73CC9B534" class="sect3"><span class="enumeration_section">3.3.2</span> Creating the SQL Connector for HDFS</h3>
+<div>
+<p>To create the SQL Connector fo HDFS, follow the instructions in this topic.</p>
+<ol>
+<li>
+<p>Create the configuration file for the SQL Connector for HDFS), as in the following example:</p>
+<pre dir="ltr">
+&lt;?xml version="1.0"?&gt;
+ &lt;configuration&gt;
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.exttab.tableName&lt;/name&gt;
+      &lt;value&gt;TWEETS_EXT_TAB_DP&lt;/value&gt; 
+    &lt;/property&gt; 
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.exttab.sourceType&lt;/name&gt;
+      &lt;value&gt;datapump&lt;/value&gt; 
+    &lt;/property&gt; 
+   &lt;property&gt; 
+      &lt;name&gt;oracle.hadoop.exttab.dataPaths&lt;/name&gt;
+      &lt;value&gt;/user/scott/data_output/oraloader-0000*.dat&lt;/value&gt;
+    &lt;/property&gt;   
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.connection.url&lt;/name&gt;
+      &lt;value&gt;jdbc:oracle:thin:@//myhost:1521/myservicename&lt;/value&gt; 
+    &lt;/property&gt; 
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.connection.user&lt;/name&gt;
+      &lt;value&gt;scott&lt;/value&gt; 
+    &lt;/property&gt;      
+    &lt;property&gt;
+      &lt;name&gt;oracle.hadoop.exttab.defaultDirectory&lt;/name&gt;
+      &lt;value&gt;TWEETS_DT_DIR&lt;/value&gt; 
+    &lt;/property&gt;   
+&lt;/configuration&gt;
+</pre>
+<p>If the files are delimited text files, follow the steps in <a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-DAC1D06C-D054-4C0B-B2F7-6BC5EEDFD287" title="This topic is applicable when the files in HDFS are delimited text files (fields must be delimited using single-character markers, such as commas or tabs) and the spatial data is stored as GeoJSON or WKT format.">Using Oracle SQL Connector for HDFS with Delimited Text Files</a>.</p>
+</li>
+<li>
+<p>Name the configuration file <code class="codeph">tweets_ext_from_dp.xml</code>.</p>
+</li>
+<li>
+<p>Create the external table.</p>
+<pre dir="ltr">
+hadoop jar $OSCH_HOME/jlib/orahdfs.jar \
+           oracle.hadoop.exttab.ExternalTable \
+           -conf /home/oracle/tweets_ext_from_dp.xml\
+           -createTable
+</pre>
+<p>In the preceding command, you can either create the OSCH_HOME environment variable, or replace OSCH_HOME in the command with the full path to the installation directory for Oracle SQL Connector for HDFS. On Oracle Big Data Appliance, this directory is: <code class="codeph">/opt/oracle/orahdfs-version</code></p>
+</li>
+</ol>
+<p>The table TWEETS_EXT_TAB_DP is now ready to query. It can be queried like any other table in the database. For example:</p>
+<pre dir="ltr">
+select count(*) from TWEETS_EXT_TAB_DP;
+</pre>
+<p>You can perform spatial operations on that table, such as the following example to retrieve the users that are tweeting in a quarter-mile radius of a cinema:</p>
+<pre dir="ltr">
+select sdo_geom.SDO_DISTANCE(ci.geometry, SDO_GEOMETRY(tw.geometry, 8307), 0.5, 'UNIT=YARD'), ci.name, tw.user_id 
+from CINEMA ci, TWEETS_EXT_TAB_DP tw where SDO_WITHIN_DISTANCE(ci.geometry, SDO_GEOMETRY(tw.geometry, 8307), 'DISTANCE=200 UNIT=MILE') = 'TRUE';
+</pre>
+<p>This information can be used further to customize advertising.</p>
+<p>Note that the SRID of the geometries is 8307. Also, if the spatial data is in GeoJSON format, then the query should be as follows:</p>
+<pre dir="ltr">
+select sdo_geom.SDO_DISTANCE(ci.geometry, SDO_UTIL.FROM_GEOJSON(tw.geometry, '', 8307), 0.5, 'UNIT=YARD'), ci.name, tw.user_id 
+from CINEMA ci, TWEETS_EXT_TAB_DP tw where SDO_WITHIN_DISTANCE(ci.geometry, SDO_UTIL.FROM_GEOJSON(tw.geometry, '', 8307), 'DISTANCE=200 UNIT=MILE') = 'TRUE';
+</pre></div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-22143F85-39AA-4C28-8B57-D588AA1D9D8A"></a>
+<h2 id="BDSPA-GUID-22143F85-39AA-4C28-8B57-D588AA1D9D8A" class="sect2"><span class="enumeration_section">3.4</span> Integrating HDFS Spatial Data with Oracle Database Using Oracle Big Data SQL</h2>
+<div>
+<p>You can use Oracle Big Data SQL to facilitate spatial data access between HDFS and Oracle Database.</p>
+<p>To enable the spatial features in Oracle Big Data SQL, update the file <code class="codeph">bigdata.properties</code> to add the following lines at the end (replacing $ORACLE_SPATIAL_VECTOR_LIB_PATH with the path to the Oracle Spatial libraries):</p>
+<pre dir="ltr">
+java.classpath.user=$ORACLE_SPATIAL_VECTOR_LIB_PATH/ojdbc8.jar:
+$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdoutl.jar: $ORACLE_SPATIAL_VECTOR_LIB_PATH/sdoapi.jar:
+$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdohadoop-vector.jar:
+$ORACLE_SPATIAL_VECTOR_LIB_PATH/sdohadoop-vector-hive.jar
+(Also add here jars containing custom SerDe and/or InputFormat specifications.)
+</pre>
+<p>If the files are in HDFS, you can use the following solutions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-5C2C58CE-84BA-42E7-BB99-011B366B5DA8">Creating Oracle External Tables for HDFS Files with Big Data SQL</a></p>
+</li>
+<li>
+<p><a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-7E915C08-D008-4750-8377-C7AD89C1FD88">Creating Oracle External Tables Using Hive Tables with Big Data SQL</a></p>
+</li>
+</ul>
+<p>If you are accessing spatial data from Oracle NoSQL Database or Apache HBase, you can use the solution in <a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-7E915C08-D008-4750-8377-C7AD89C1FD88">Creating Oracle External Tables Using Hive Tables with Big Data SQL</a>.</p>
+<p>To use Oracle SQL Connector for HDFS (OSCH) with files generated by Oracle Loader for Hadoop (OLH), you must understand how OLH is used to move data from HDFS to Oracle Database.</p>
+<p>Modifications are required for moving Big Data Spatial and Graph spatial data into the database. This solution generally applies for any kind of files in HDFS or any kind of Hive data. The spatial information can be in a well known format or a custom format.</p>
+<p>First, an example of how to create external tables from files in HDFS containing spatial information in a user defined format. Assume that the files in HDFS have records the following format:</p>
+<pre dir="ltr">
+{
+        "type":"Feature",
+        "id":"6703",
+        "followers_count":1,
+        "friends_count":62,
+        "location":"Hong Kong",
+        "user_id":3479846,
+        "longitude":114.18306,
+        "latitude":22.30693
+}
+
+{
+        "type":"Feature",
+        "id":"6702",
+        "followers_count":57,
+        "friends_count":166,
+        "location":"Singapore",
+        "user_id":1765655,
+        "longitude":103.85387,
+        "latitude":1.29498
+}
+</pre>
+<p>The Hive command to create a table for those records is as follows:</p>
+<pre dir="ltr">
+add jar
+     /opt/oracle/oracle-spatial-graph/spatial/vector/jlib/ojdbc8.jar
+     /opt/oracle/oracle-spatial-graph/spatial/vector/jlib/sdoutl.jar
+     /opt/oracle/oracle-spatial-graph/spatial/vector/jlib/sdoapi.jar
+     /opt/oracle/oracle-spatial-graph/spatial/vector/jlib/sdohadoop-vector.jar
+     /opt/oracle/oracle-spatial-graph/spatial/vector/jlib/sdohadoop-vector-hive.jar
+     <span class="bold">&hellip; (add here jars containing custom SerDe and/or InputFormats);</span>
+CREATE EXTERNAL TABLE IF NOT EXISTS CUST_TWEETS_HIVE_TAB (id STRING, geometry STRING, followers_count STRING, friends_count STRING, location STRING, user_id STRING)                                         
+ROW FORMAT SERDE 'mypackage.TweetsSerDe'              
+STORED AS INPUTFORMAT 'oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat'
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION '/user/scott/simple_tweets_data';
+</pre>
+<p>The <code class="codeph">InputFormat</code> object <code class="codeph">oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat</code> can read those records even if they are not strict GeoJSON. Thus, the preceding example does not need a custom <code class="codeph">InputFormat</code> specification. However, it does require a custom Hive Serializer and Deserializer (SerDe) to transform the latitude and longitude into a WKT or GeoJSON geometry. For that, the Spatial Java API can be used in the deserialize function of the SerDe, as the following example</p>
+<pre dir="ltr">
+    @Override
+    public Object deserialize(Writable w) throws SerDeException {
+        Text rowText = (Text) w;
+        List&lt;Text&gt; row = new ArrayList&lt;Text&gt;(columnNames.size());
+        
+        //default all values to null
+        for(int i=0;i&lt;columnNames.size();i++){
+                row.add(null);
+        }
+        
+        // Try parsing row into JSON object
+        JsonNode recordNode = null;
+        
+        try {
+                String txt = rowText.toString().trim();
+                recordNode = jsonMapper.readTree(txt);
+                        row.set(columnNames.indexOf("id"), new Text(recordNode.get("id").getTextValue()));
+                        row.set(columnNames.indexOf("followers_count"), new Text(recordNode.get("followers_count").toString()));
+                        row.set(columnNames.indexOf("friends_count"), new Text(recordNode.get("friends_count").toString()));
+                        row.set(columnNames.indexOf("location"), new Text(recordNode.get("location").getTextValue()));
+                        row.set(columnNames.indexOf("user_id"), new Text(recordNode.get("user_id").toString()));
+                        
+                        Double longitude = recordNode.get("longitude").getDoubleValue();
+                        Double latitude = recordNode.get("latitude").getDoubleValue();
+                        
+                        //use the Spatial API to create the geometry
+                        JGeometry geom = JGeometry.createPoint(new double[]{
+                                        longitude, 
+                                        latitude}, 
+                                        2, //dimensions
+                                        8307 //SRID
+                                        );
+                        //Transform the JGeometry to WKT
+                        String geoWKT = new String(wkt.fromJGeometry(geom));
+                        row.set(columnNames.indexOf("geometry"), new Text(geoWKT));
+        } catch (Exception e) {
+            throw new SerDeException("Exception parsing JSON: " +e.getMessage(), e);
+        }
+        
+        return row;
+    }    
+</pre>
+<p>In the preceding example, to return the geometries in GeoJSON format, replace the following:</p>
+<pre dir="ltr">
+String geoWKT = new String(wkt.fromJGeometry(geom));
+row.set(columnNames.indexOf("geometry"), new Text(geoWKT));
+</pre>
+<p>with this:</p>
+<pre dir="ltr">
+row.set(columnNames.indexOf("geometry"), new Text(geom.toGeoJson()));
+</pre>
+<p>More SerDe examples to transform data in GeoJSON, WKT, or ESRI Shapefiles with the Spatial Java API are available in the folder: <code class="codeph">/opt/oracle/oracle-spatial-graph/spatial/vector/examples/hive/java/src/oracle/spatial/hadoop/vector/hive/java/src/serde</code></p>
+<p>The following example queries the Hive table:</p>
+<pre dir="ltr">
+select ID, FOLLOWERS_COUNT, FRIENDS_COUNT, LOCATION, USER_ID, GEOMETRY from CUST_TWEETS_HIVE_TAB limit 10;
+</pre>
+<p>The output looks like the following:</p>
+<pre dir="ltr">
+6703 1       62      Hong Kong       3479846 POINT (114.18306 22.30693)
+6702    57      166     Singapore       1765655 POINT (103.85387 1.29498)
+</pre></div>
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-5C2C58CE-84BA-42E7-BB99-011B366B5DA8">Creating Oracle External Tables for HDFS Files with Big Data SQL</a><br /></li>
+<li class="ulchildlink"><a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-7E915C08-D008-4750-8377-C7AD89C1FD88">Creating Oracle External Tables Using Hive Tables with Big Data SQL</a><br /></li>
+</ul>
+</div>
+<div class="props_rev_3"><a id="GUID-5C2C58CE-84BA-42E7-BB99-011B366B5DA8"></a>
+<h3 id="BDSPA-GUID-5C2C58CE-84BA-42E7-BB99-011B366B5DA8" class="sect3"><span class="enumeration_section">3.4.1</span> Creating Oracle External Tables for HDFS Files with Big Data SQL</h3>
+<div>
+<p>You can create Oracle external tables for any kind of files in HDFS. The spatial information can be in a well known format or a custom format.</p>
+<p>If the geometry format is not WKT or GeoJSON, then use one of the provided SerDe examples in the folder <code class="codeph">/opt/oracle/oracle-spatial-graph/spatial/vector/examples/hive/java/src/oracle/spatial/hadoop/vector/hive/java/src/serde</code>, or create a custom SerDe as in the example in <a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-F6BE6A07-F94F-4347-85E3-10818A48CBAA" title="To use Oracle SQL Connector for HDFS (OSCH) with files generated by Oracle Loader for Hadoop (OLH), you must understand how OLH is used to move data from HDFS to Oracle Database.">Using Oracle SQL Connector for HDFS with Files Generated by Oracle Loader for Hadoop</a>.</p>
+<p>After that, create an Oracle external table, as in the following example:</p>
+<pre dir="ltr">
+CREATE TABLE SAMPLE_TWEETS (id VARCHAR2(4000), 
+  geometry VARCHAR2(4000), 
+  followers_count VARCHAR2(4000), 
+  friends_count VARCHAR2(4000), 
+  location VARCHAR2(4000), user_id VARCHAR2(4000)) ORGANIZATION EXTERNAL
+             (TYPE oracle_hdfs DEFAULT DIRECTORY DEFAULT_DIR
+ ACCESS PARAMETERS (
+  com.oracle.bigdata.rowformat: \
+     SERDE 'mypackage.TweetsSerDe'
+  com.oracle.bigdata.fileformat: \
+     INPUTFORMAT 'oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat' \
+     OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat' \
+  )
+LOCATION ('/user/scott/simple_tweets_data/*.log'));
+</pre>
+<p>The table SAMPLE_TWEETS is now ready to query. It can be queried like any other table in the database. For example:</p>
+<pre dir="ltr">
+select count(*) from SAMPLE_TWEETS;
+</pre>
+<p>You can perform spatial operations on that table, such as the following example to retrieve the users that are tweeting in a quarter-mile radius of a cinema:</p>
+<pre dir="ltr">
+select sdo_geom.SDO_DISTANCE(ci.geometry, SDO_GEOMETRY(tw.geometry, 8307), 0.5, 'UNIT=YARD'), ci.name, tw.user_id 
+from CINEMA ci, SAMPLE_TWEETS tw where SDO_WITHIN_DISTANCE(ci.geometry, SDO_GEOMETRY(tw.geometry, 8307), 'DISTANCE=200 UNIT=MILE') = 'TRUE';
+</pre>
+<p>This information can be used further to customize advertising.</p>
+<p>Note that the SRID of the geometries is 8307. Also, if the spatial data is in GeoJSON format, then the query should be as follows:</p>
+<pre dir="ltr">
+select sdo_geom.SDO_DISTANCE(ci.geometry, SDO_UTIL.FROM_GEOJSON(tw.geometry, '', 8307), 0.5, 'UNIT=YARD'), ci.name, tw.user_id 
+from CINEMA ci, SAMPLE_TWEETS tw where SDO_WITHIN_DISTANCE(ci.geometry, SDO_UTIL.FROM_GEOJSON(tw.geometry, '', 8307), 'DISTANCE=200 UNIT=MILE') = 'TRUE';
+</pre></div>
+</div>
+<div class="props_rev_3"><a id="GUID-7E915C08-D008-4750-8377-C7AD89C1FD88"></a>
+<h3 id="BDSPA-GUID-7E915C08-D008-4750-8377-C7AD89C1FD88" class="sect3"><span class="enumeration_section">3.4.2</span> Creating Oracle External Tables Using Hive Tables with Big Data SQL</h3>
+<div>
+<p>You can create Oracle external tables using Hive tables with Big Data SQL. The spatial information can be in a well known format or a custom format.</p>
+<p>A Hive table used to create an Oracle external table must be created as described in <a href="integrating-big-data-spatial-graph-with-oracle-database.htm#GUID-F6BE6A07-F94F-4347-85E3-10818A48CBAA" title="To use Oracle SQL Connector for HDFS (OSCH) with files generated by Oracle Loader for Hadoop (OLH), you must understand how OLH is used to move data from HDFS to Oracle Database.">Using Oracle SQL Connector for HDFS with Files Generated by Oracle Loader for Hadoop</a>.</p>
+<p>Create an Oracle external table that can be created using the Hive table. For example:</p>
+<pre dir="ltr">
+CREATE TABLE SAMPLE_TWEETS (id VARCHAR2(4000),  geometry VARCHAR2(4000),  followers_count VARCHAR2(4000),  friends_count VARCHAR2(4000),  location VARCHAR2(4000), user_id VARCHAR2(4000))  ORGANIZATION EXTERNAL
+(TYPE ORACLE_HIVE
+ DEFAULT DIRECTORY DEFAULT_DIR 
+ ACCESS PARAMETERS (
+com.oracle.bigdata.cluster=cluster
+com.oracle.bigdata.tablename=default.CUST_TWEETS_HIVE_TAB)
+) PARALLEL 2 REJECT LIMIT UNLIMITED;
+</pre>
+<p>The table SAMPLE_TWEETS is now ready to query. It can be queried like any other table in the database. For example:</p>
+<pre dir="ltr">
+select count(*) from SAMPLE_TWEETS;
+</pre>
+<p>You can perform spatial operations on that table, such as the following example to retrieve the users that are tweeting in a quarter-mile radius of a cinema:</p>
+<pre dir="ltr">
+select sdo_geom.SDO_DISTANCE(ci.geometry, SDO_GEOMETRY(tw.geometry, 8307), 0.5, 'UNIT=YARD'), ci.name, tw.user_id 
+from CINEMA ci, SAMPLE_TWEETS tw where SDO_WITHIN_DISTANCE(ci.geometry, SDO_GEOMETRY(tw.geometry, 8307), 'DISTANCE=200 UNIT=MILE') = 'TRUE';
+</pre>
+<p>This information can be used further to customize advertising.</p>
+<p>Note that the SRID of the geometries is 8307. Also, if the spatial data is in GeoJSON format, then the query should be as follows:</p>
+<pre dir="ltr">
+select sdo_geom.SDO_DISTANCE(ci.geometry, SDO_UTIL.FROM_GEOJSON(tw.geometry, '', 8307), 0.5, 'UNIT=YARD'), ci.name, tw.user_id 
+from CINEMA ci, SAMPLE_TWEETS tw where SDO_WITHIN_DISTANCE(ci.geometry, SDO_UTIL.FROM_GEOJSON(tw.geometry, '', 8307), 'DISTANCE=200 UNIT=MILE') = 'TRUE';
+</pre></div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment323">
+<tr>
+<td class="cellalignment360">
+<table class="cellalignment328">
+<tr>
+<td class="cellalignment327"><a href="using-big-data-spatial-graph-spatial-data.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment327"><a href="configuring-property-graph-support.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment362">
+<table class="cellalignment326">
+<tr>
+<td class="cellalignment327"><a href="http://www.docs.oracle.com/bigdata/411/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment327"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment327"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

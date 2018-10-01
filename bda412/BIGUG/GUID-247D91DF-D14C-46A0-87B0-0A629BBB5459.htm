@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Perfect Balance Configuration Property Reference</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="mapred configuration properties, mapreduce configuration properties, tools.* configuration properties, jobconfPath property, jobHistoryPath configuration property, writeKeyBytes configuration property, oracle.hadoop.balancer.* configuration properties, autoAnalyze configuration property, autoBalance configuration property, confidence configuration property, enableSorting configuration property, chopped keys, inputFormat.mapred.* configuration properties, map.tasks property, max.split.size configuration property, keyLoad.minChopBytes configuration property, minChopBytes configuration property, linearKeyLoad.* configuration properties, byteWeight configuration property, feedbackDir configuration property, keyWeight configuration property, rowWeight configuration property, maxLoadFactor configuration property, maxSamplesPct configuration property, minSplits configuration property, numThreads configuration property, report.overwrite configuration property, reportPath configuration property, tmpDir configuration property, useClusterStats configuration property, useMapreduceApi configuration property" />
+<meta name="dcterms.created" content="2018-07-17T10:57:32Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Software User's Guide" />
+<meta name="dcterms.identifier" content="E94259-04" />
+<meta name="dcterms.isVersionOf" content="BIGUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="GUID-AC37DCF4-EFB0-4547-8FF5-1C08C2C8CA60.htm" title="Previous" type="text/html" />
+<link rel="Next" href="part-oracle-table-access.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459"></a> <span id="PAGE" style="display:none;">38/42</span> <!-- End Header -->
+<h1 id="BIGUG-GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459" class="sect1"><span class="enumeration_section">5.11</span> Perfect Balance Configuration Property Reference</h1>
+<div>
+<div class="section">
+<p>This section describes the Perfect Balance configuration properties and a few generic Hadoop MapReduce properties that Perfect Balance reads from the job configuration:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABEAGE">MapReduce Configuration Properties</a></p>
+</li>
+<li>
+<p><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__CIADFEAC">Job Analyzer Configuration Properties</a></p>
+</li>
+<li>
+<p><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFIDCC">Perfect Balance Configuration Properties</a></p>
+</li>
+</ul>
+<p>See <span class="q">"<a href="GUID-68A678B1-DC49-4C43-B978-9295EF0CA277.htm">About Configuring Perfect Balance</a>"</span> for a list of the properties organized into functional categories.</p>
+<div class="infobox-note" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-51B7D0A6-90D8-4773-898C-D5AB1982FE43">
+<p class="notep1">Note:</p>
+<p>CDH5 deprecates many MapReduce properties and replaces them with new properties. Perfect Balance continues to work with the old property names, but Oracle recommends that you use the new names. For the new MapReduce property names, see the Cloudera website at:</p>
+<p><a href="http://archive.cloudera.com/cdh5/cdh/5/hadoop/hadoop-project-dist/hadoop-common/DeprecatedProperties.html" target="_blank"><code class="codeph">http://archive.cloudera.com/cdh5/cdh/5/hadoop/hadoop-project-dist/hadoop-common/DeprecatedProperties.html</code></a></p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABEAGE">
+<p class="subhead1">MapReduce Configuration Properties</p>
+<div class="tblformal" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-15E0FBDE-B0FA-445D-A4CC-97AF5F8FD015">
+<table class="cellalignment136" summary="Describes various properties of MapReduce subclasses. The left column names the property. The right column provides the Type, Default Value, and Description.">
+<thead>
+<tr class="cellalignment127">
+<th class="cellalignment137" id="d30530e122">Property</th>
+<th class="cellalignment137" id="d30530e124">Type, Default Value, Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-D2F4BD2C-2236-4248-A0D8-1618012CC1F6">
+<td class="cellalignment127" id="d30530e128" headers="d30530e122">
+<p><span class="bold">mapreduce.input.fileinputformat.inputdir</span></p>
+</td>
+<td class="cellalignment127" headers="d30530e128 d30530e124">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Not defined</p>
+<p><span class="bold">Description</span>: A comma-separated list of input directories.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-7FE6CFBD-5A10-4CA2-970A-A4A0871AA6FC">
+<td class="cellalignment127" id="d30530e146" headers="d30530e122">
+<p><span class="bold">mapreduce.inputformat.class</span></p>
+</td>
+<td class="cellalignment127" headers="d30530e146 d30530e124">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">org.apache.hadoop.mapreduce.lib.input.TextInputFormat</code></p>
+<p><span class="bold">Description</span>: The full name of the <code class="codeph">InputFormat</code> class.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-1CBD0B51-2179-44C6-A227-A27FEC9FAD0B">
+<td class="cellalignment127" id="d30530e169" headers="d30530e122">
+<p><span class="bold">mapreduce.map.class</span></p>
+</td>
+<td class="cellalignment127" headers="d30530e169 d30530e124">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">org.apache.hadoop.mapreduce.Mapper</code></p>
+<p><span class="bold">Description</span>: The full name of the mapper class.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACJEIE">
+<td class="cellalignment127" id="d30530e189" headers="d30530e122">
+<p><span class="bold">mapreduce.output.fileoutputformat.outputdir</span></p>
+</td>
+<td class="cellalignment127" headers="d30530e189 d30530e124">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Not defined</p>
+<p><span class="bold">Description</span>: The job output directory.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-E32AB366-4866-4F66-839D-8F1EBD2D5CE2">
+<td class="cellalignment127" id="d30530e207" headers="d30530e122">
+<p><span class="bold">mapreduce.partitioner.class</span></p>
+</td>
+<td class="cellalignment127" headers="d30530e207 d30530e124">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">org.apache.hadoop.mapreduce.lib.partition.HashPartitioner</code></p>
+<p><span class="bold">Description</span>: The full name of the partitioner class.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-42F3C98E-13B1-434D-AD01-D02408B29B3F">
+<td class="cellalignment127" id="d30530e227" headers="d30530e122">
+<p><span class="bold">mapreduce.reduce.class</span></p>
+</td>
+<td class="cellalignment127" headers="d30530e227 d30530e124">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">org.apache.hadoop.mapreduce.Reducer</code></p>
+<p><span class="bold">Description</span>: The full name of the reducer class.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__CIADFEAC">
+<p class="subhead1">Job Analyzer Configuration Properties</p>
+<div class="tblformal" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-C3DD86C2-81C1-4821-9423-0E3D84273B16">
+<table class="cellalignment136" summary="Describes the properties of the oracle.hadoop.balancer class and the tools subclass. Type, Default Value, and Description of each property are provided.">
+<thead>
+<tr class="cellalignment127">
+<th class="cellalignment137" id="d30530e257">Property</th>
+<th class="cellalignment137" id="d30530e259">Type, Default Value, Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__CIACBHEC">
+<td class="cellalignment127" id="d30530e263" headers="d30530e257">
+<p><span class="bold">oracle.hadoop.balancer.application_id</span></p>
+</td>
+<td class="cellalignment127" headers="d30530e263 d30530e259">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Not defined</p>
+<p><span class="bold">Description</span>: The job identifier of the job you want to analyze with Job Analyzer. This property is a parameter to the Job Analyzer utility in standalone mode on YARN clusters; it does not apply to MRv1 clusters. See <span class="q">"<a href="GUID-12ADB6FB-14D8-4110-A8BF-B52C9163F815.htm">Running Job Analyzer as a Standalone Utility</a>"</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACFJGB">
+<td class="cellalignment127" id="d30530e285" headers="d30530e257">
+<p><span class="bold">oracle.hadoop.balancer.tools.writeKeyBytes</span></p>
+</td>
+<td class="cellalignment127" headers="d30530e285 d30530e259">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">false</code></p>
+<p><span class="bold">Description</span>: Controls whether the counting reducer collects the byte representations of the reduce keys for the Job Analyzer. Set this property to <code class="codeph">true</code> to represent the unique key values in Base64 encoding in the report. A string representation of the key, created using <code class="codeph">key.toString</code>, is also provided in the report. This string value may not be unique for each key.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFIDCC">
+<p class="subhead1">Perfect Balance Configuration Properties</p>
+<div class="tblformal" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__GUID-428C135C-22E4-4F2F-A3A9-1CBC6394C90A">
+<table class="cellalignment136" summary="Describes Perfect Balance Configuration properties. This is for the oracle.hadoop.balancer class and subclasses.">
+<thead>
+<tr class="cellalignment127">
+<th class="cellalignment147" id="d30530e321">Property</th>
+<th class="cellalignment147" id="d30530e323">Type, Default Value, Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment127">
+<td class="cellalignment151" id="d30530e327" headers="d30530e321">
+<p id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__ORACLE.HADOOP.BALANCER.CHOPPINGSTRA-C58C3F67"><span class="bold">oracle.hadoop.balancer.choppingStrategy</span></p>
+<p>Note that the choppingStrategy property takes precedence over the deprecated property <code class="codeph">oracle.hadoop.balancer.enableSorting</code>. If the choppingStrategy property is not set, <code class="codeph">oracle.hadoop.balancer.enableSorting=true</code> is equivalent to setting the choppingStrategy property to <code class="codeph">range</code>. Likewise, setting <code class="codeph">oracle.hadoop.balancer.enableSorting=false</code> is equivalent to setting the choppingStrategy property to <code class="codeph">hash</code>.</p>
+</td>
+<td class="cellalignment151" headers="d30530e327 d30530e323">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">hash</code></p>
+<p><span class="bold">Description</span>: This property controls the behavior of sampler when it needs to chop a key. The following values are valid:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">range</code>: Records of chopped keys are assigned to different reducers according to the total-order partitioning function specified by the map output key sorting comparator, so balancer will preserve a total order over the values of a chopped key.</p>
+</li>
+<li>
+<p><code class="codeph">hash</code>: Records of chopped keys are assigned to different reducers according to the hashCode on the map output values. In most cases, this approach gives a balanced work load among reducers.</p>
+</li>
+<li>
+<p><code class="codeph">roundRobin</code>: Records of chopped keys are assigned to different reducers in round-robin order. This is an alternative strategy when it is not required to preserve a total order over the value of a chopped key. If the load for a hash chopped key is unbalanced among reducers, try to use this chopping strategy.</p>
+</li>
+</ul>
+<p>See also the deprecated property: <a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAEBJEC">oracle.hadoop.balancer.enableSorting</a></p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIBGCC">
+<td class="cellalignment151" id="d30530e385" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.confidence</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e385 d30530e323">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">0.95</code></p>
+<p><span class="bold">Description</span>: The statistical confidence indicator for the load factor specified by the <code class="codeph"><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHBIDE">oracle.hadoop.balancer.maxLoadFactor</a></code> property.</p>
+<p>This property accepts values greater than or equal to 0.5 and less than 1.0 (0.5 &lt;= <span class="italic">value</span> &lt; 1.0). A value less than 0.5 resets the property to its default value. Oracle recommends a value greater than or equal to 0.9. Typical values are 0.95 and 0.99.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAEBJEC">
+<td class="cellalignment151" id="d30530e415" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.enableSorting</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e415 d30530e323">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">false</code></p>
+<p><span class="bold">Description</span>: This property is deprecated. To use the map output key sorting comparator as a total-order partitioning function, set <code class="codeph">oracle.hadoop.balancer.choppingStrategy</code> to <code class="codeph">range</code>.</p>
+<p>When this property is false, map output keys will be chopped using a hash function. When this property is true, map output keys will be chopped using the map output key sorting comparator as a total-order partitioning function. When this property is true, balancer will preserve a total order over the values of a chopped key.</p>
+<p>See also: <a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__ORACLE.HADOOP.BALANCER.CHOPPINGSTRA-C58C3F67">oracle.hadoop.balancer.choppingStrategy</a></p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAJEFAF">
+<td class="cellalignment151" id="d30530e449" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.inputFormat.mapred.map.tasks</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e449 d30530e323">
+<p><span class="bold">Type</span>: Integer</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">100</code></p>
+<p><span class="bold">Description</span>: Sets the Hadoop <a id="d30530e468" class="indexterm-anchor"></a><code class="codeph">mapred.map.tasks</code> property for the duration of sampling, just before calling the input format <code class="codeph">getSplits</code> method. It does not change <code class="codeph">mapred.map.tasks</code> for the actual job. The optimal number of map tasks is a trade-off between obtaining a good sample (larger number) and having finite memory resources (smaller number).</p>
+<p>Set this property to a value greater than or equal to one (1). A value less than 1 disables the property.</p>
+<p>Some input formats, such as <code class="codeph">DBInputFormat</code>, use this property as a hint to determine the number of splits returned by <code class="codeph">getSplits</code>. Higher values indicate that more chunks of data are sampled at random, which improves the sample.</p>
+<p>You can increase the value for larger data sets, that is, more than a million rows of about 100 bytes per row. However, extremely large values can cause the input format's <code class="codeph">getSplits</code> method to run out of memory by returning too many splits.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHCFAJ">
+<td class="cellalignment151" id="d30530e495" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.inputFormat.mapred.max.split.size</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e495 d30530e323">
+<p><span class="bold">Type</span>: Long</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">1048576</code> (1 MB)</p>
+<p><span class="bold">Description</span>: Sets the Hadoop <code class="codeph">mapred.max.split.size</code> property for the duration of sampling, just before calling the input format's <code class="codeph">getSplits</code> method. It does not change <code class="codeph">mapred.max.split.size</code> for the actual job.</p>
+<p>Set this property to a value greater than or equal to one (1). A value less than 1 disables the property. The optimal split size is a trade-off between obtaining a good sample (smaller splits) and efficient I/O performance (larger splits).</p>
+<p>Some input formats, such as <code class="codeph">FileInputFormat</code>, use the maximum split size as a hint to determine the number of splits returned by <code class="codeph">getSplits</code>. Smaller split sizes indicate that more chunks of data are sampled at random, which improves the sample. Set the value small enough for good sampling performance, but no smaller. Extremely small values can cause inefficient I/O performance, while not improving the sample.</p>
+<p>You can increase the value for larger data sets (tens of terabytes) or if the input format's <code class="codeph">getSplits</code> method throws an out of memory error. Large splits are better for I/O performance, but not for sampling.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABCHEE">
+<td class="cellalignment151" id="d30530e540" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.keyLoad.minChopBytes</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e540 d30530e323">
+<p><span class="bold">Type</span>: Long</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">0</code></p>
+<p><span class="bold">Description</span>: Controls whether Perfect Balance chops large map output keys into medium keys:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">-1</code>: Perfect Balance does not chop large map output keys.</p>
+</li>
+<li>
+<p><code class="codeph">0</code>: Perfect Balance chops large map output keys and determines the optimal size of each medium key.</p>
+</li>
+<li>
+<p><span class="italic">Positive integer</span>: Perfect Balance chops large map output keys into medium keys with a size greater than or equal to the specified integer.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGHDID">
+<td class="cellalignment151" id="d30530e576" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.linearKeyLoad.byteWeight</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e576 d30530e323">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">0.05</code></p>
+<p><span class="bold">Description</span>: Weights the number of bytes per key in the linear key load model specified by the <code class="codeph">oracle.hadoop.balancer.KeyLoadLinear</code> class.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGADJC">
+<td class="cellalignment151" id="d30530e599" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.linearKeyLoad.feedbackDir</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e599 d30530e323">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: Not defined</p>
+<p><span class="bold">Description</span>: The path to a directory that contains the Job Analyzer report for a job that it previously analyzed. The sampler reads this report for feedback to use to optimize the current balancing plan. You can set this property to the Job Analyzer report directory of a job that is the same or similar to the current job, so that the feedback is directly applicable.</p>
+<p>If the feedback directory contains a Job Analyzer report with recommended values for the Perfect Balance linear key load model coefficients, then Perfect Balance automatically reads and uses them. The recommended values take precedence over user-specified values in these configuration parameters:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph"><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGHDID">oracle.hadoop.balancer.linearKeyLoad.byteWeight</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFBGCE">oracle.hadoop.balancer.linearKeyLoad.keyWeight</a></code></p>
+</li>
+<li>
+<p><code class="codeph"><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACIGAG">oracle.hadoop.balancer.linearKeyLoad.rowWeight</a></code></p>
+</li>
+</ul>
+<p>Job Analyzer attempts to recommend good values for these coefficients. However, Perfect Balance reads the load model coefficients from this list of configuration properties under the following circumstances:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The <code class="codeph">feedbackDir</code> property is not set.</p>
+</li>
+<li>
+<p>The <code class="codeph">feedbackDir</code> property is set, but the Job Analyzer report in the specified directory does not contain a good recommendation for the load model coefficients.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFBGCE">
+<td class="cellalignment151" id="d30530e653" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.linearKeyLoad.keyWeight</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e653 d30530e323">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: 50.0</p>
+<p><span class="bold">Description</span>: Weights the number of medium keys per large key in the linear key load model specified by the <a id="d30530e670" class="indexterm-anchor"></a><code class="codeph">oracle.hadoop.balancer.KeyLoadLinear</code> class.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBACIGAG">
+<td class="cellalignment151" id="d30530e676" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.linearKeyLoad.rowWeight</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e676 d30530e323">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: 0.05</p>
+<p><span class="bold">Description</span>: Weights the number of rows per key in the linear key load model specified by the <a id="d30530e693" class="indexterm-anchor"></a><code class="codeph">oracle.hadoop.balancer.KeyLoadLinear</code> class.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAHBIDE">
+<td class="cellalignment151" id="d30530e699" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.maxLoadFactor</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e699 d30530e323">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: 0.05</p>
+<p><span class="bold">Description</span>: The target reducer load factor that you want the balancer's partition plan to achieve.</p>
+<p>The load factor is the relative deviation from an estimated value. For example, if <code class="codeph">maxLoadFactor</code><code class="codeph">=0.05</code> and <code class="codeph">confidence</code><code class="codeph">=0.95</code>, then with a confidence greater than 95%, the job's reducer loads should be, at most, 5% greater than the value in the partition plan.</p>
+<p>The values of these two properties determine the sampler's stopping condition. The balancer samples until it can generate a plan that guarantees the specified load factor at the specified confidence level. This guarantee may not hold if the sampler stops early because of other stopping conditions, such as the number of samples exceeds <code class="codeph"><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIEHGB">oracle.hadoop.balancer.maxSamplesPct</a></code>. The partition report logs the stopping condition.</p>
+<p>See <code class="codeph"><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIBGCC">oracle.hadoop.balancer.confidence</a></code>.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIEHGB">
+<td class="cellalignment151" id="d30530e744" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.maxSamplesPct</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e744 d30530e323">
+<p><span class="bold">Type</span>: Float</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">0.01</code> (1%)</p>
+<p><span class="bold">Description</span>: Limits the number of samples that Perfect Balance can collect to a fraction of the total input records. A value less than zero disables the property (no limit).</p>
+<p>You may need to increase the value for Hadoop applications with very unbalanced reducer partitions or densely clustered map-output keys. The sampler needs to sample more data to achieve a good partitioning plan in these cases.</p>
+<p>See <code class="codeph"><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABDFJC">oracle.hadoop.balancer.useClusterStats</a></code>.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABHFJA">
+<td class="cellalignment151" id="d30530e774" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.minSplits</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e774 d30530e323">
+<p><span class="bold">Type</span>: Integer</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">5</code></p>
+<p><span class="bold">Description</span>: Sets the minimum number of splits that the sampler reads. If the total number of splits is less than this value, then the sampler reads all splits. Set this property to a value greater than or equal to one (<code class="codeph">1</code>). A nonpositive number sets the property to <code class="codeph">1</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAIAHDJ">
+<td class="cellalignment151" id="d30530e800" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.numThreads</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e800 d30530e323">
+<p><span class="bold">Type</span>: Integer</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">5</code></p>
+<p><span class="bold">Description</span>: Number of sampler threads. Set this value based on the processor and memory resources available on the node where the job is initiated. A higher number of sampler threads implies higher concurrency in sampling. Set this property to one (<code class="codeph">1</code>) to disable multithreading in the sampler.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABACHA">
+<td class="cellalignment151" id="d30530e823" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.report.overwrite</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e823 d30530e323">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">false</code></p>
+<p><span class="bold">Description</span>: Controls whether Perfect Balance overwrites files in the location specified by the <code class="codeph"><a href="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459.htm#GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFEIGB">oracle.hadoop.balancer.reportPath</a></code> property. By default, Perfect Balance does not overwrite files; it throws an exception. Set this property to <code class="codeph">true</code> to allow partition reports to be overwritten.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFEIGB">
+<td class="cellalignment151" id="d30530e851" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.reportPath</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e851 d30530e323">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <span class="italic"><code class="codeph">directory</code></span><code class="codeph">/orabalancer_report-</code><span class="italic"><code class="codeph">random_unique_string</code></span><code class="codeph">.json</code>, where directory for HDFS is the home directory of the user who submits the job. For the local file system, it is the directory where the job is submitted.</p>
+<p><span class="bold">Description</span>: The path where Perfect Balance writes the partition report before the Hadoop job output directory is available, that is, before the MapReduce job finishes running. At the end of the job, Perfect Balance moves the file to <span class="italic"><code class="codeph">job_output_dir</code></span><code class="codeph">/_balancer/orabalancer_report.json</code>. In the API, the <code class="codeph">save</code> method does this task.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAGGJCC">
+<td class="cellalignment151" id="d30530e889" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.runMode</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e889 d30530e323">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">local</code></p>
+<p><span class="bold">Description</span>: Specifies how to run the Perfect Balance sampler. The following values are valid:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">local</code>: The sampler runs on the client node where the job is submitted.</p>
+</li>
+<li>
+<p><code class="codeph">distributed</code>: The sampler runs as a Hadoop job. If the job uses the distributed cache, then Perfect Balance automatically sets this property to <code class="codeph">distributed</code>.</p>
+</li>
+</ul>
+<p>If this property is set to an invalid string, Perfect Balance resets it to <code class="codeph">local</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAJJIBG">
+<td class="cellalignment151" id="d30530e928" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.tmpDir</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e928 d30530e323">
+<p><span class="bold">Type</span>: String</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">/tmp/orabalancer-</code><span class="italic"><code class="codeph">user_name</code></span></p>
+<p><span class="bold">Description</span>: The path to a staging directory in the file system of the job output directory (HDFS or local). Perfect Balance creates the directory if it does not exist, and copies the partition report to it for loading into the Hadoop distributed cache.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBABDFJC">
+<td class="cellalignment151" id="d30530e951" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.useClusterStats</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e951 d30530e323">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">true</code></p>
+<p><span class="bold">Description</span>: Enables the sampler to use cluster sampling statistics. These statistics improve the accuracy of sampled estimates, such as the number of records in a map-output key, when the map-output keys are distributed in clusters across input splits, instead of being distributed independently across all input splits.</p>
+<p>Set this property to <code class="codeph">false</code> only if you are absolutely certain that the map-output keys are not clustered. This setting improves the sampler's estimates only when there is, in fact, no clustering. Oracle recommends leaving this property set to <code class="codeph">true</code>, because the distribution of map-output keys is usually unknown.</p>
+</td>
+</tr>
+<tr class="cellalignment127" id="GUID-247D91DF-D14C-46A0-87B0-0A629BBB5459__BBAFABFG">
+<td class="cellalignment151" id="d30530e979" headers="d30530e321">
+<p><span class="bold">oracle.hadoop.balancer.useMapreduceApi</span></p>
+</td>
+<td class="cellalignment151" headers="d30530e979 d30530e323">
+<p><span class="bold">Type</span>: Boolean</p>
+<p><span class="bold">Default Value</span>: <code class="codeph">true</code></p>
+<p><span class="bold">Description</span>: Identifies the MapReduce API used in the Hadoop job:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">true</code>: The job uses the <code class="codeph">mapreduce</code> API.</p>
+</li>
+<li>
+<p><code class="codeph">false</code>: The job uses the <code class="codeph">mapred</code> API.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment126">
+<tr>
+<td class="cellalignment133">
+<table class="cellalignment131">
+<tr>
+<td class="cellalignment130"><a href="GUID-AC37DCF4-EFB0-4547-8FF5-1C08C2C8CA60.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment130"><a href="part-oracle-table-access.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment135">
+<table class="cellalignment129">
+<tr>
+<td class="cellalignment130"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment130"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment130"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment130"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment130"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

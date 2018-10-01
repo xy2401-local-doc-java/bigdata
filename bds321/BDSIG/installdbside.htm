@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Installing or Upgrading the Oracle Database Side of Oracle Big Data SQL</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Oracle Big Data SQL must be installed on both the Hadoop cluster management server and the Oracle Database server. This section describes the installation of Oracle Big Data SQL 3.2.1 on Oracle Database systems, including single-node and RAC systems." />
+<meta name="keywords" content="Grid, Restarts, diskmon process" />
+<meta name="dcterms.created" content="2018-08-03T19:36:02Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E87608-09" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds321/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="installhadoopside.htm" title="Previous" type="text/html" />
+<link rel="Next" href="adaptingtochange.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E87608-09.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-E0E62C0F-F4FA-436A-95E8-0EB3287802A4"></a> <span id="PAGE" style="display:none;">6/18</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-E0E62C0F-F4FA-436A-95E8-0EB3287802A4" class="sect1"><span class="enumeration_chapter">3</span> Installing or Upgrading the Oracle Database Side of Oracle Big Data SQL</h1>
+<div>
+<p>Oracle Big Data SQL must be installed on both the Hadoop cluster management server and the Oracle Database server. This section describes the installation of Oracle Big Data SQL 3.2.1 on Oracle Database systems, including single-node and RAC systems.</p>
+</div>
+<div class="sect2"><a id="GUID-18969D02-1FB6-4432-B056-874CAFF44F08"></a>
+<h2 id="BDSIG-GUID-18969D02-1FB6-4432-B056-874CAFF44F08" class="sect2"><span class="enumeration_section">3.1</span> Before You Start the Database-Side Installation</h2>
+<div>
+<p>Review the points in this section before starting the installation.</p>
+<div class="section">
+<p><a id="d7140e34" class="indexterm-anchor"></a><a id="d7140e36" class="indexterm-anchor"></a><a id="d7140e38" class="indexterm-anchor"></a><a id="d7140e40" class="indexterm-anchor"></a><a id="d7140e42" class="indexterm-anchor"></a><a id="d7140e44" class="indexterm-anchor"></a>If the current version of Oracle Big Data SQL is already installed on the Oracle Database system and you are making changes to the existing configuration , you do not need repeat the entire installation process. See <a href="GUID-2298CDEF-31D7-48CC-A7FE-AA150DB0ABAD.htm" title="When Oracle Big Data SQL is installed on the cluster management server, the database-side installation bundle that is generated contains configuration information that is based on the current state of the cluster. When you install the bundle on the Oracle Database side, this configuration information is used to set up the connnection between the Hadoop cluster and the database server. After the installation, changes in the Hadoop cluster may require an update to the Oracle Big Data SQL configuration both sides (Hadoop cluster and database server) in order to maintain connectivity.">Reconfiguring an Existing Oracle Big Data SQL Installation</a>.</p>
+<div class="infobox-note" id="GUID-18969D02-1FB6-4432-B056-874CAFF44F08__GUID-7F664EC4-F570-418A-9DF2-C7730246025C">
+<p class="notep1">Important:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>For multi-node databases (such as Oracle RAC systems), <span class="bold">you must repeat this installation on every compute node of the database</span>. If this is not done, you will see RPC connection errors when the Oracle Big Data SQL service is started.</p>
+<p>You can reuse the same installation bundle on each database node by including the optional <code class="codeph">--ip-cell</code> command line parameter to pass in the correct network interface address for the node when you run the installer. If this parameter is not used, the installer searches for and selects one.</p>
+</li>
+<li>
+<p>It is recommended that you set up passwordless SSH for root on the database nodes where Grid is running. Otherwise, you will need to supply the credentials during the installation on each node.</p>
+</li>
+<li>
+<p>If the <code class="codeph">diskmon</code> process is not already running prior to the installation, a Grid infrastructure restart will be required in order to complete the installation.</p>
+</li>
+<li>
+<p>If you set up Oracle Big Data SQL connections from more than one Hadoop cluster to the same database, be sure that the configurations for each connection are the same. Do not set up one connection to use Infiniband and another to use Ethernet. Likewise, if you enable database authentication in one configuration, then this feature must be enabled in all Oracle Big Data SQL connections between different Hadoop clusters and the same database.</p>
+</li>
+<li>
+<p>If the database system is Kerberos-secured, then it is important to note that authentication for the database owner principal can be performed by only one KDC. Oracle Big Data SQL currently does not support multiple Kerberos tickets. If two or more Hadoop cluster connections are installed by the same database owner, all must use the same KDC.</p>
+<p>The <code class="codeph">KRB5_CONF</code> environment variable must point to only one configuration file. The configuration file must exist, and the variable itself must be set for the database owner account at system startup.</p>
+</li>
+<li>
+<p>For database running under Oracle Grid Infrastructure, if the system has more than one network interfaces of the same type (two or more Ethernet, two or more InfiniBand, or two or more Ethernet-over-InfiniBand interfaces), then the installation always selects the one whose name is first in alphabetical order.</p>
+<div class="infoboxnotealso" id="GUID-18969D02-1FB6-4432-B056-874CAFF44F08__GUID-1FAE9B75-A392-412E-8AD1-82EDA1973348">
+<p class="notep1">See Also:</p>
+<p>Details are provide in <a href="installdbside.htm#GUID-337D9273-97F6-411B-AE5E-BA607275E7C7" title="The Oracle Big Data SQL installation or SmartScan operation may sometimes fail in these environments because the wrong IP address is selected for communication with the cells.">Special Considerations When a System Under Grid Infrastructure has Multiple Network Interfaces of the Same Type</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+<div class="sect3"><a id="GUID-E3375284-C5C6-4FF3-8E11-1F70E2649F2A"></a>
+<h3 id="BDSIG-GUID-E3375284-C5C6-4FF3-8E11-1F70E2649F2A" class="sect3"><span class="enumeration_section">3.1.1</span> Potential Requirement to Restart Grid Infrastructure</h3>
+<div>
+<p>In certain database environments <code>bds-database-install.sh</code> needs to create <code>cellinit.ora</code> and/or <code>celliniteth.ora</code>. In these cases, the script will attempt to propagate similar changes across all nodes in the Grid Infrastructure. To do this, the script expects that passwordless SSH is set up between <code class="codeph">oracle</code> and <code class="codeph">root</code> or it will prompt for the root password for each node during execution. If the nature of the changes requires a restart of the Grid Infrastructure, the script will also display messages indicating that grid infrastructure needs to be restarted manually. Because the installlation cannnot complete without Grid credentials if a restart is necessary, be sure that you have the Grid password at hand.</p>
+</div>
+<div class="sect4"><a id="GUID-E74A54CB-A16F-4672-B108-D82AE13E75BE"></a>
+<h4 id="BDSIG-GUID-E74A54CB-A16F-4672-B108-D82AE13E75BE" class="sect4"><span class="enumeration_section">3.1.1.1</span> Understanding When Grid or Database Restart is Required</h4>
+<div>
+<p>On the database side of Oracle Big Data SQL, the diskmon process is the agent in charge of communications with the Hadoop cluster. This is similar to its function on the Oracle Exadata Database Machine, where it manages communications between compute nodes and storage nodes.</p>
+<p>In Grid environments, diskmon is owned by the Grid user. In a non-Grid environment, it is owned by the Oracle Database owner.</p>
+<p>In Oracle Big Data SQL, diskmon settings are stored on <code>cellinit.ora</code> and <code>celliniteth.ora</code> files in the <code>/etc/oracle/cell/network-config/</code> directory. The installer updates these files in accordance with the cluster connection requirements.</p>
+<p>This is how the installer determines when Grid or Oracle Database needs to be restarted:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If the installer detects that no previous <code>cellinit.ora</code> or <code>celliniteth.ora</code> file exists, this means that no diskmon process is running. In this case, if the environment includes Oracle Grid then you must restart the Grid. If the environment does not include Grid, then you must restart Oracle Database.</p>
+</li>
+<li>
+<p>If previous <code>cellinit.ora</code> and/or <code>celliniteth.ora</code> file exist, this indicates that diskmon process is running. In this case, if the installer needs to make a change to these files, then only the database needs to be restarted.</p>
+</li>
+<li>
+<p>In multi-node Grid environments, diskmon works on all nodes as a single component and <code>cellinit.ora</code> and <code class="codeph">celliniteth.ora</code> must be synchronized on all nodes. This task is done through SSH. If passwordless SSH is setup on the cluster, no user interaction is required. If not passwordless SSH is not set up, then the script will pause for you to input the root credentials for all nodes. When the cellinit.ora and celliniteth.ora files across all nodes are synchronized, then the script will continue. Then the script finishes and in this case, you must restart the Grid infrastructure.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3"><a id="GUID-337D9273-97F6-411B-AE5E-BA607275E7C7"></a>
+<h3 id="BDSIG-GUID-337D9273-97F6-411B-AE5E-BA607275E7C7" class="sect3"><span class="enumeration_section">3.1.2</span> Special Considerations When a System Under Grid Infrastructure has Multiple Network Interfaces of the Same Type</h3>
+<div>
+<p>The Oracle Big Data SQL installation or SmartScan operation may sometimes fail in these environments because the wrong IP address is selected for communication with the cells.</p>
+<p>When installing Oracle Big Data SQL within Oracle Grid Infrastructure, you cannot provide the installer with a specific IP address to select for communication with the Oracle Big Data SQL cells on the nodes. Network interface selection is automatically determined in this environment. This determination is not always correct and there are instances where the database-side installation may fail, or, you may later discover that SmartScan is not working.</p>
+<p>You can manually correct this problem, but first it is helpful to understand how the installation decides which network interfaces to select.</p>
+<p><span class="bold">How the Installation Selects From Among Multiple Interfaces of the Same Type on a System Under Grid Infrastructure</span></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The <code class="codeph">diskmon</code> process is controlled by Oracle Grid Infrastructure and not by the database. Grid manages communications with the Oracle Big Data SQL cells.</p>
+</li>
+<li>
+<p>The Oracle Big Data SQL installer in these cases does not create <code class="codeph">cellinit.ora</code> and <code class="codeph">celliniteth.ora</code>, nor does it update the cell settings stored in these files. In these environments, the task is handled by Grid, because it is a cluster-wide task that must be synchronized across all nodes.</p>
+</li>
+<li>
+<p>If there are multiple network interfaces, the Grid-managed update to the cells automatically selects the first network interface of the appropriate type on each node. It selects the interface whose name is first in alphabetical order. In other environments (with the exception of Exadata Database Machine systems) you can use the <code class="codeph">--ip-cell</code> command line parameter with the installer to select a specific network interface. In a Grid environment, this parameter is ignored.</p>
+</li>
+</ul>
+<p>For example, here is a system that is under Grid Infrastructure. It has multiple InfiniBand, Ethernet, and Ethernet over InfiniBand (bondeth*)&nbsp; network interfaces. This is the list of interfaces:</p>
+<pre dir="ltr">
+[root@mynode ~]# ip -o -f inet addr show
+1: lo    inet 127.0.0.1/8 
+2: eth0    inet 12.17.207.156/21 
+3: eth1    inet 16.10.145.12/21 
+19: bondeth0    inet 12.17.128.15/20 
+20: bondeth2    inet 16.10.230.160/20 
+21: bondeth4    inet 192.168.1.45/20 
+30: bondib0    inet 192.168.31.178/21 
+31: bondib1    inet 192.168.129.2/21 
+32: bondib2    inet 192.168.199.205/21 
+33: bondib3    inet 192.168.216.31/21 
+34: bondib4    inet 192.168.249.129/21 
+</pre>
+<p>When the Oracle Big Data SQL installer runs on this system, the following interfaces would be selected.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>192.168.31.178/21 is selected for the InfiniBand connection configured in <code class="codeph">cellinit.ora</code>.</p>
+<p>Among the InfiniBand interfaces on this system, the interface name <code class="codeph">bondib0</code> is first in an ascending alphabetical sort.</p>
+</li>
+<li>
+<p>12.17.128.15/20 is selected for an Ethernet-over-InfniBand connection configured in <code class="codeph">celliniteth.ora</code>.</p>
+<div class="infobox-note" id="GUID-337D9273-97F6-411B-AE5E-BA607275E7C7__GUID-0270EB47-79EF-4CA2-962A-ECC9E67E0639">
+<p class="notep1">Note:</p>
+This example demonstrates an additional selection factor &ndash; Ethernet over InfiniBand takes precedence over standard Ethernet.
+<p>The <code class="codeph">bondeth0</code> interface name is first in this case.</p>
+</div>
+</li>
+</ul>
+<p><span class="bold">How the Installation (or SmartScan) may Fail Under These Conditions</span></p>
+<p>It is possible that <code class="codeph">diskmon</code> cannot connect to the Oracle Big Data SQL cells via the network interface selected according to the logic described above. The correct subnet (one that <code class="codeph">diskmon</code> can reach) may not appear first in an alphabetical sort.</p>
+<p><span class="bold">How to Fix the Problem</span></p>
+<p>You can manually change the IP addresses in the<code class="codeph">cellinit.ora</code> and <code class="codeph">celliniteth.ora</code> files. These files are at <code class="codeph">/etc/oracle/cell/network-config</code> on each node.</p>
+<ol>
+<li>
+<p>Stop the CRS process. (Be sure to do this before the cell edit. If you do not, <code class="codeph">diskmon</code> may hang.)</p>
+</li>
+<li>
+<p>Edit <code class="codeph">cellinit.ora</code> and/or <code class="codeph">celliniteth.ora</code> . Change the IP addresses as needed.</p>
+</li>
+<li>
+<p>Restart CRS.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-0AFDAD89-EED1-4F78-BB68-C6ADD63C51A0"></a>
+<h2 id="BDSIG-GUID-0AFDAD89-EED1-4F78-BB68-C6ADD63C51A0" class="sect2"><span class="enumeration_section">3.2</span> About the Database-Side Installation Directory</h2>
+<div>
+<p><a id="d7140e342" class="indexterm-anchor"></a><a id="d7140e344" class="indexterm-anchor"></a><a id="d7140e346" class="indexterm-anchor"></a><a id="d7140e348" class="indexterm-anchor"></a>You start the database side of the installation by unpacking the database-side installation bundle and executing the run file it contains. The run file creates an installation directory under <code class="codeph">$ORACLE_HOME/BDSJaguar-3.2.1</code>. For example:</p>
+<div class="section">
+<pre dir="ltr">
+$ORACLE_HOME/BDSJaguar-3.2.1/cdh510-6-node1.mycluster.mydomain.com
+</pre>
+<p>The installation of Oracle Big Data SQL is not finished when this directory is created. The directory is a staging area that contains all of the files needed to complete the installation on the database node.</p>
+<p>There can be Oracle Big Data SQL connections between the database and multiple Hadoop clusters. Each connection is established though a separate database-side installation and therefore creates a separate installation directory. The segments in the name of the installation directory enable you to identify the Hadoop cluster in this specific connection:</p>
+<pre dir="ltr">
+&lt;Hadoop cluster name&gt;-&lt;Number nodes in the cluster&gt;-&lt;FQDN of the cluster management server node&gt;
+</pre>
+<p>You should keep this directory. It captures the latest state of the installation and you can use it to regenerate the installation if necessary. Furthermore, if in the future you need to adjust the database-side of the installation to Hadoop cluster changes, then the updates generated by the Jaguar <code class="codeph">reconfigure</code> and/or <code class="codeph">updatenodes</code> commands are applied to this directory.</p>
+<p>Consider applying permissions that would prevent the installation directory from being modified or deleted by any user other than <code class="codeph">oracle</code> (or other database owner).</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59"></a>
+<h2 id="BDSIG-GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59" class="sect2"><span class="enumeration_section">3.3</span> Steps for Installing on Oracle Database Nodes</h2>
+<div>
+<p>To install the database side of Oracle Big Data SQL, copy over the Zip file containing the database-side installation bundle that was created on the Hadoop cluster management server, unzip it, execute the run file it contains, then run the installer.</p>
+<div class="section">
+<p><a id="d7140e395" class="indexterm-anchor"></a><a id="d7140e397" class="indexterm-anchor"></a><a id="d7140e399" class="indexterm-anchor"></a><a id="d7140e401" class="indexterm-anchor"></a><a id="d7140e403" class="indexterm-anchor"></a><a id="d7140e405" class="indexterm-anchor"></a><a id="d7140e407" class="indexterm-anchor"></a><a id="d7140e409" class="indexterm-anchor"></a><a id="d7140e411" class="indexterm-anchor"></a><a id="d7140e413" class="indexterm-anchor"></a><a id="d7140e415" class="indexterm-anchor"></a><a id="d7140e418" class="indexterm-anchor"></a>Perform the procedure in this section as the database owner (<code class="codeph">oracle</code> or other ). You stage the bundle in a temporary directory, but after you unpack the bundle and execute the run file it contains, then the installation package is installed in a subdirectory under <code class="codeph">$ORACLE_HOME</code>. For example: <code class="codeph">$ORACLE_HOME/BDSJaguar-3.2.1/cdh510-6-node1.mycluster.mydomain.com</code>.</p>
+<p>Be starting, be sure that <code class="codeph">ORACLE_HOME</code> and <code class="codeph">ORACLE_SID</code> are set correctly.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Copy Over the Components and Prepare for the Installation</p>
+<ol>
+<li>
+<p>If you have not already done so, use your preferred method to copy over the database-side installation bundle from the Hadoop cluster management server to the Oracle Database server. If there are multiple bundles, be sure to select the correct bundle for cluster that you want to connect to Oracle Database. Copy it to any location that you would like to use as a temporary staging area. To perform the copy operation, it may be easiest for you to log on to the Hadoop cluster management server as <code class="codeph">root</code>, navigate down to the bundle location within the Oracle Big Data SQL installation directory, and push the bundle over to the database server. Use the database owner account (usually <code class="codeph">oracle</code> ) for the remote logon on the database side.</p>
+<div class="p">In this example the bundle is copied over to <code class="codeph">/opt/tmp</code>. You can copy the bundle to any secure directory, but first confirm that the directory exists.
+<pre dir="ltr">
+# cd &lt;<span class="italic">Big Data SQL Install Directory</span>&gt;/BDSjaguar-3.2.1/db-bundles
+# scp bds-3.2.1-db-&lt;<span class="italic">cluster</span>&gt;-&lt;<span class="italic">yymmdd.hhmi</span>&gt;.zip oracle@&lt;<span class="italic">database_node</span>&gt;:/opt/tmp
+</pre></div>
+</li>
+<li>
+<p>If you generated a database request key, then also copy that key over to the Oracle Database server.</p>
+<pre dir="ltr">
+# cd &lt;<span class="italic">Big Data SQL Install Directory</span>&gt;/BDSjaguar-3.2.1/dbkeys
+# scp &lt;<span class="italic">database name or other name</span>&gt;.reqkey oracle@&lt;<span class="italic">database_node</span>&gt;:/opt/tmp
+</pre></li>
+<li>
+<p>Log on to the database server host as <code class="codeph">oracle</code> (or whichever user is the database owner) and <code class="codeph">cd</code> to the directory where you copied the file (or files).</p>
+</li>
+<li>
+<p>Unzip the bundle. You will see that it contains a single, compressed run file.</p>
+</li>
+<li>
+<p>Check to ensure that the prerequisite environment variables are set &ndash; <code class="codeph">$ORACLE_HOME</code> and <code class="codeph">$ORACLE_SID</code>.</p>
+</li>
+<li>
+<div class="p">Run the file in order to unpack the bundle into <code class="codeph">$ORACLE_HOME</code>. For example:
+<pre dir="ltr">
+$ ./bds-3.2.1-db-cdh510-170309.1918.run
+</pre></div>
+<p>Because you can set up independent Oracle Big Data SQL connections between an Oracle Database instance and multiple Hadoop clusters, the <code class="codeph">run</code> command unpacks the bundle to a cluster-specific directory under <code>$ORACLE_HOME/BDSJaguar-3.2.1</code> . For example:</p>
+<pre dir="ltr">
+$ ls $ORACLE_HOME/BDSJaguar-3.2.1
+  cdh510-6-node1.mycluster.mydomain.com
+  test1-3-node1.myothercluster.mydomain.com
+</pre>
+<p>If the <code>BDSJaguar-3.2.1</code> directory does not already exist, it is created as well.</p>
+</li>
+<li>
+<p>If you generated a database request key, then copy it into the newly created installation directory. For example:</p>
+<pre dir="ltr">
+$ cp /opt/tmp/mydb.reqkey $ORACLE_HOME/BDSJaguar-3.2.1/cdh510-6-node1.mycluster.mydomain.com
+</pre>
+<div class="infobox-tip" id="GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59__GUID-0680826C-D3DE-4523-AD33-327159E12D60">
+<p class="notep1">Tip:</p>
+<p>You also have the option to leave the key file in the temporary location and use the <code class="codeph">--reqkey</code> parameter in the installation command in order to tell the script where the key file is located. This parameter lets you specify a non-default request key filename and/or path.</p>
+<p>However, the install script only detects the key in the installation directory when the key filename is the same as the database name. Otherwise, even if the key is local, if you gave it a different name then you must still use <code class="codeph">--reqkey</code> to identify to the install script.</p>
+</div>
+</li>
+</ol>
+<p>Note that the installation directory for the cluster is in place, you are ready to install the database side of Oracle Big Data SQL.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Install Oracle Big Data SQL on the Oracle Database Node</p>
+<div class="infobox-note" id="GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59__GUID-B8A15682-8D34-4B93-BD89-AA69C31B92DA">
+<p class="notep1">Important:</p>
+<p>The last part of the installation may require a single restart of Oracle Database under either or both of these conditions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If Oracle Database does not include the Oracle Grid Infrastructure. In this case, the installation script makes a change to the <code class="codeph">pfile</code> or <code class="codeph">spfile</code> configuration file in order to support standalone operation of <code class="codeph">diskmon</code>.</p>
+</li>
+<li>
+<p>If there are changes to the IP address and the communication protocol recorded in <code class="codeph">cellinit.ora</code>. These parameters define the connection to the cells on the Hadoop cluster. For example, if this is a re-installation and the IP address for the Hadoop/Oracle Database connection changes from an Ethernet address to an InfiniBand address and/or the protocol changes (between TCP and UDP), then a database restart is required.</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ol>
+<li>
+<p>Start the database if it is not running.</p>
+</li>
+<li>
+<p>Log on to the Oracle Database node as <code class="codeph">oracle</code> and change directories to the cluster-specific installation directory under <code class="codeph">$ORACLE_HOME/BDSJaguar-3.2.1</code>. For example:</p>
+<pre dir="ltr">
+$ cd $ORACLE_HOME/BDSJaguar-3.2.1/cdh510-6-node1.my.domain.com 
+</pre></li>
+<li>
+<p>Run <code class="codeph">bds-database-install.sh</code>, the database-side Oracle Big Data SQL installer. You may need to include some optional parameters.</p>
+<pre dir="ltr">
+$ ./bds-database-install.sh [<span class="italic">options</span>]
+</pre></li>
+<li>
+<p>Restart the database (optional).</p>
+</li>
+</ol>
+<div class="infobox-note" id="GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59__GUID-9CBCF573-F9C9-45F9-9D8B-146BD4968A8A">
+<p class="notep1">See Also :</p>
+<p>The <code class="codeph">bda-database-install.sh</code> installer command supports parameters that are ordinarily optional, but may be required for some configurations. See the <a href="installdbside.htm#GUID-13459397-904F-4250-9130-8C674020E36F" title="The bds-database-install.sh script accepts a number of command line parameters. Each parameter is optional, but the script requires at least one.">Command Line Parameter Reference for bds-database-install.sh</a></p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section" id="GUID-FEE4E50A-987D-4919-ABF1-576CDE86ED59__PRIMARYANDSECONDARYINSTALLATIONS-51800828"></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Extra Step If You Enabled Database Authentication or Hadoop Secure Impersonation</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If <code class="codeph">database_auth_enabled</code> or <code class="codeph">impersonation_enabled</code> was set to &ldquo;true&rdquo; in the configuration file used to create this installation bundle, copy the ZIP file generated by the database-side installer back to the Hadoop cluster management server and run the Jaguar &ldquo;Database Acknowledge&rdquo; operation. This completes the set up of login authentication between Hadoop cluster and Oracle Database.</p>
+<div class="p">Find the ZIP file that contains the GUID-key pair in the installation directory. The file is named according to the format below.
+<pre dir="ltr">
+&lt;<span class="italic">name of the Hadoop cluster</span>&gt;-&lt;<span class="italic">number nodes in the cluster</span>&gt;-&lt;<span class="italic">FQDN of the node where the cluster management server is running</span>&gt;-&lt;<span class="italic">FQDN of this database node</span>&gt;.zip
+</pre>
+For example:
+<pre dir="ltr">
+$ ls $ORACLE_HOME/BDSJaguar-3.2.1/cdh510-6-node1.my.domain.com/*.zip 
+$ mycluster1-18-mycluster1node03.mydomain.com-myoradb1.mydomain.com.zip
+</pre>
+<ol>
+<li>
+<p>Copy the ZIP file back to <code>/opt/oracle/DM/databases/conf</code> on the Hadoop cluster management server.</p>
+</li>
+<li>
+<p>Log on to the cluster management server as <code class="codeph">root</code>, cd to <code>/BDSjaguar-3.2.1</code> under the directory where Oracle Big Data SQL was installed, , and run <code class="codeph">databaseack</code> (the Jaguar &ldquo;database acknowledge&rdquo; routine). Pass in the configuration file that was used to generate the installation bundle (<code class="codeph">bds-config.json</code> or other).</p>
+<pre dir="ltr">
+# cd &lt;Big Data SQL Install Directory&gt;/BDSjaguar-3.2.1
+# ./jaguar databaseack bds-config.json
+</pre></li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+<div class="sect3"><a id="GUID-13459397-904F-4250-9130-8C674020E36F"></a>
+<h3 id="BDSIG-GUID-13459397-904F-4250-9130-8C674020E36F" class="sect3"><span class="enumeration_section">3.3.1</span> Command Line Parameter Reference for bds-database-install.sh</h3>
+<div>
+<p>The bds-database-install.sh script accepts a number of command line parameters. Each parameter is optional, but the script requires at least one.</p>
+<div class="section">
+<div class="tblformal" id="GUID-13459397-904F-4250-9130-8C674020E36F__PARAMETERSFORTHEBDS-DATABASE-INSTAL-E88C699A">
+<p class="titleintable">Table 3-1 Parameters for bds-database-install.sh</p>
+<table class="cellalignment74" title="Parameters for bds-database-install.sh" summary="Parameters for the bds-database-install.sh installation script. The first column lists each parameter. The second column describes its function.">
+<thead>
+<tr class="cellalignment54">
+<th class="cellalignment75" id="d7140e698"><span class="bold">Parameter</span></th>
+<th class="cellalignment75" id="d7140e701"><span class="bold">Function</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e706" headers="d7140e698"><code class="codeph">--install</code></td>
+<td class="cellalignment76" headers="d7140e706 d7140e701">
+<p>Install the Oracle Big Data SQL connection to this cluster.</p>
+<div class="infobox-note" id="GUID-13459397-904F-4250-9130-8C674020E36F__GUID-54B0E662-DE68-495A-A8F6-8611DE625A55">
+<p class="notep1">Note:</p>
+<p>In releases prior to Oracle Big Data SQL 3.2, the install command is implicit if no other parameters are supplied. In Release 3.2 you must explicitly supply this parameter in order to do an installation.</p>
+</div>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e716" headers="d7140e698"><code class="codeph">--version</code></td>
+<td class="cellalignment76" headers="d7140e716 d7140e701">Show the <code class="codeph">bds-database-install.sh</code> script version.</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e725" headers="d7140e698"><code class="codeph">--info</code></td>
+<td class="cellalignment76" headers="d7140e725 d7140e701">
+<p>Show information about the cluster, such as the cluster name, cluster management server host, and the web server.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e732" headers="d7140e698"><code class="codeph">--grid-home</code></td>
+<td class="cellalignment76" headers="d7140e732 d7140e701">
+<p>Specifies the Oracle Grid home directory.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e739" headers="d7140e698"><code class="codeph">--crs</code></td>
+<td class="cellalignment76" headers="d7140e739 d7140e701">
+<p>Use <code class="codeph">crsctl</code> to set up Oracle Big Data SQL MTA extprocs. Ignored in non-Grid environments.</p>
+<pre dir="ltr">
+--crs={true|false}
+</pre>
+<p>The installer always checks to verify that Grid is running. If Grid is not running, then the installer assumes that Grid is not installed and that the database is single-instance. It then automatically sets the <code class="codeph">crs</code> flag to <code class="codeph">false</code>.</p>
+<p>If <code class="codeph">--crs=true</code> is explicitly set and Grid cannot be found, the installer terminates with an error message stating that <code class="codeph">GI_HOME</code> must be set.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e767" headers="d7140e698"><code class="codeph">--cdb</code></td>
+<td class="cellalignment76" headers="d7140e767 d7140e701">
+<p>Create database objects on all PDBs for CDB databases.</p>
+<pre dir="ltr">
+--cdb={true|false} 
+</pre></td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e776" headers="d7140e698"><code class="codeph">--ip-cell</code></td>
+<td class="cellalignment76" headers="d7140e776 d7140e701">
+<p>IP address used by the diskmon process in single-instance database environments where there are several network interfaces.</p>
+<p>Ignored on the Oracle Exadata Database Machine.</p>
+<pre dir="ltr">
+--ip-cell=&lt;<span class="italic">IP address</span>&gt; 
+</pre></td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e790" headers="d7140e698"><code class="codeph">--db-resource</code></td>
+<td class="cellalignment76" headers="d7140e790 d7140e701">
+<p>Deprecated.</p>
+<p>Oracle Big Data SQL scripts will run on the database specified by <code class="codeph">ORACLE_SID</code> or <code class="codeph">ORACLE_HOME</code> environment variables.</p>
+<pre dir="ltr">
+--db-resource=$ORACLE_SID
+</pre></td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e807" headers="d7140e698"><code class="codeph">--db-name</code></td>
+<td class="cellalignment76" headers="d7140e807 d7140e701">
+<p>Deprecated.</p>
+<p>Oracle Big Data SQL scripts will run on the database specified by <code class="codeph">ORACLE_SID</code> or <code class="codeph">ORACLE_HOME</code> environment variables.</p>
+<pre dir="ltr">
+--db-name=$ORACLE_HOME
+</pre></td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e824" headers="d7140e698"><code class="codeph">--reqkey</code></td>
+<td class="cellalignment76" headers="d7140e824 d7140e701">
+<p>This parameter tells the installer the name and location of the request key file. Database Authentication is enabled by default in the configuration. Unless you do not intend to enable this feature, then as one of the steps to complete the configuration, you must use <code class="codeph">--reqkey</code>.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To provide the key file name and the path if the key file is not in the local directory:</p>
+<p><code class="codeph">$ ./bds-database-install.sh --reqkey=/opt/tmp/some_name.reqkey --install</code></p>
+</li>
+<li>
+<p>To provide the key file name if the file is local, but the filename is not the same as the database name:</p>
+<p><code class="codeph">$ ./bds-database-install.sh --reqkey=some_name.reqkey --install</code></p>
+</li>
+</ul>
+<p>If the request key filename is provided without a path, then the key file is presumed to be in the installation directory. The installer will find the key if the filename is the same as the database name.</p>
+<p>For example, in this case the request key file is in the install directory and the name is the same as the database name.</p>
+<pre dir="ltr">
+$ ./bds-database-install.sh --install
+</pre>
+<p>This file is consumed only once on the database side in order to connect the first Hadoop cluster to the database. Subsequent cluster installations to connect to the same database use the configured key. You do not need to resubmit the <code class="codeph">.reqkey</code> file.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e859" headers="d7140e698"><code class="codeph">--uninstall</code></td>
+<td class="cellalignment76" headers="d7140e859 d7140e701">
+<p>Uninstall the Oracle Big Data SQL connection to this cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e867" headers="d7140e698"><code class="codeph">--reconfigure</code></td>
+<td class="cellalignment76" headers="d7140e867 d7140e701">
+<p>Reconfigures bd_cell network parameters, Hadoop configuration files, and Big Data SQL parameters. &nbsp;&nbsp;The Oracle Big Data SQL installation to connect to this cluster must already exist.</p>
+<p>Run reconfigure when a change as occurred on the Hadoop cluster side, such as a change in the DataNode inventory.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e876" headers="d7140e698"><code class="codeph">&nbsp;--databaseack-only</code></td>
+<td class="cellalignment76" headers="d7140e876 d7140e701">
+<p>Create the Database Acknowledge zip file. (You must then copy the zip file back to <code class="codeph">/opt/oracle/DM/databases/conf</code> on the Hadoop cluster management server and run <code class="codeph">./jaguar databaseack &lt;<span class="codeinlineitalic">configuration file</span>&gt;</code>.)</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e892" headers="d7140e698"><code class="codeph">&nbsp;--mta-restart</code></td>
+<td class="cellalignment76" headers="d7140e892 d7140e701">
+<p>&nbsp;MTA extproc restart. (Oracle Big Data SQL must already be installed on the database server.)</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e899" headers="d7140e698"><code class="codeph">--mta-setup</code></td>
+<td class="cellalignment76" headers="d7140e899 d7140e701">
+<p>Set up MTA extproc with no other changes. (Oracle Big Data SQL must already be installed on the database server.)</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e906" headers="d7140e698"><code class="codeph">--mta-destroy</code></td>
+<td class="cellalignment76" headers="d7140e906 d7140e701">
+<p>Destroy MTA extproc and make no other changes. (Oracle Big Data SQL must already be installed on the database server.)</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e913" headers="d7140e698"><code class="codeph">--aux-run-mode</code></td>
+<td class="cellalignment76" headers="d7140e913 d7140e701">
+<p>Because Oracle Big Data SQL is installed on the database side as a regular user (not a superuser), tasks that must be done as <code class="codeph">root</code> and/or the Grid user require the installer to spawn shells to run other scripts under those accounts while <code class="codeph">bds-database-install.sh</code> is paused.</p>
+<p>The<code class="codeph">--aux-run-mode</code> parameter specifies a mode for running these auxiliary scripts.</p>
+<pre dir="ltr">
+--aux-run-mode=&lt;<span class="italic">mode</span>&gt;
+</pre>
+<p>Mode options are:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">session</code> &ndash; through a spawned session.</p>
+</li>
+<li>
+<p><code class="codeph">su</code> &mdash; as a substitute user.</p>
+</li>
+<li>
+<p><code class="codeph">sudo</code> &mdash; through sudo.</p>
+</li>
+<li>
+<p><code class="codeph">ssh</code> &mdash; through secure shell.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e959" headers="d7140e698"><code class="codeph">&nbsp;&nbsp;--root-script</code></td>
+<td class="cellalignment76" headers="d7140e959 d7140e701">
+<div class="p">Enables or disables the startup root script execution.
+<pre dir="ltr">
+ --root-script={true|false}
+</pre></div>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d7140e968" headers="d7140e698"><code class="codeph">--no-root-script</code></td>
+<td class="cellalignment76" headers="d7140e968 d7140e701">
+<p>Disables startup root script execution.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p>The <code class="codeph">--root-script-only</code> parameter from previous releases is obsolete.<a id="d7140e979" class="indexterm-anchor"></a><a id="d7140e981" class="indexterm-anchor"></a><a id="d7140e983" class="indexterm-anchor"></a><a id="d7140e985" class="indexterm-anchor"></a><a id="d7140e993" class="indexterm-anchor"></a><a id="d7140e995" class="indexterm-anchor"></a><a id="d7140e997" class="indexterm-anchor"></a><a id="d7140e999" class="indexterm-anchor"></a><a id="d7140e1002" class="indexterm-anchor"></a><a id="d7140e1004" class="indexterm-anchor"></a><a id="d7140e1006" class="indexterm-anchor"></a><a id="d7140e1008" class="indexterm-anchor"></a><a id="d7140e1010" class="indexterm-anchor"></a><a id="d7140e1012" class="indexterm-anchor"></a><a id="d7140e1014" class="indexterm-anchor"></a><a id="d7140e1016" class="indexterm-anchor"></a></p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-2E0E833A-199A-4C9F-9811-66EC6680909D"></a>
+<h2 id="BDSIG-GUID-2E0E833A-199A-4C9F-9811-66EC6680909D" class="sect2"><span class="enumeration_section">3.4</span> Granting User Access</h2>
+<div>
+<p>In Oracle Big Data SQL releases prior to 3.1, access is granted to the <code class="codeph">PUBLIC</code> user group. In the current release, you must do the following for each user who needs access to Oracle Big Data SQL:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Grant the <code class="codeph">BDSQL_USER</code> role.</p>
+</li>
+<li>
+<p>Grant read privileges on the BigDataSQL configuration directory object.</p>
+</li>
+</ul>
+<p><a id="d7140e1051" class="indexterm-anchor"></a><a id="d7140e1053" class="indexterm-anchor"></a><a id="d7140e1055" class="indexterm-anchor"></a> For example, to grant access to <code class="codeph">user1</code>:</p>
+<pre dir="ltr">
+SQL&gt; grant BDSQL_USER to user1; 
+SQL&gt; grant read on directory ORACLE_BIGDATA_CONFIG to user1;
+</pre>
+<div class="infoboxnotealso" id="GUID-2E0E833A-199A-4C9F-9811-66EC6680909D__GUID-EE87B2B9-510C-456B-9616-081803AB0FA2">
+<p class="notep1">See Also:</p>
+Use the <a class="olink BDSUG-GUID-0CAD2118-8953-4CFD-B0E4-540F3CE94BC8" target="_blank" href="../BDSUG/bigsqlref.htm#BDSUG-GUID-0CAD2118-8953-4CFD-B0E4-540F3CE94BC8">DBMS_BDSQL PL/SQL Package</a> to indirectly provide users access to Hadoop data. The Multi-User Authorization feature that this package implements uses Hadoop Secure Impersonation to enable the <code class="codeph">oracle</code> account to execute tasks on behalf of other designated users.</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="installhadoopside.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="adaptingtochange.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds321/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

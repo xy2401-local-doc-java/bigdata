@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Introducing Oracle Big Data SQL</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="external tables, about, access drivers" />
+<meta name="dcterms.created" content="2016-06-27T14:31:41Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User's Guide" />
+<meta name="dcterms.identifier" content="E76071-02" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="preface.htm" title="Previous" type="text/html" />
+<link rel="Next" href="installing.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E76071-02.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-ECF201F6-24F1-4937-A524-80F9FC1EA46C"></a> <span id="PAGE" style="display:none;">4/11</span> <!-- End Header --><a id="BIGUG107"></a>
+<h1 id="BDSUG-GUID-ECF201F6-24F1-4937-A524-80F9FC1EA46C" class="sect1"><span class="enumeration_chapter">1</span> Introducing Oracle Big Data SQL</h1>
+<a id="BIGUG21116"></a>
+<div class="props_rev_3"><a id="GUID-24A1FF10-EDAD-454C-B02F-5CFC89A36F51"></a>
+<h2 id="BDSUG-GUID-24A1FF10-EDAD-454C-B02F-5CFC89A36F51" class="sect2"><span class="enumeration_section">1.1</span> What Is Oracle Big Data SQL?</h2>
+<div>
+<p><a id="d2125e33" class="indexterm-anchor"></a>Oracle Big Data SQL supports queries against non-relational data stored in multiple big data sources, including Apache Hive, HDFS, Oracle NoSQL Database, and Apache HBase. It enables unified query for distributed data and therefore the ability to view and analyze data from disparate data stores seamlessly, as if it were all stored in an Oracle database.</p>
+<p>Oracle Big Data SQL supports the complete Oracle SQL syntax. You can execute highly complex SQL <code>SELECT</code> statements against data in the Hadoop ecosystem, either manually or through your existing applications. For example, if you are a user of Oracle Advanced Analytics, Oracle Big Data SQL enables you to extend your Oracle Database data mining models to big data in Hadoop.</p>
+<p>The following sections provide further details:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="concepts.htm#GUID-F5F71283-1E85-4AD5-ABCD-E6A70C6BE03E">About Oracle External Tables</a></p>
+</li>
+<li>
+<p><a href="concepts.htm#GUID-5F5D41D3-24B0-4528-B7F3-26C1E57BDE35">About Predicate Push Down</a></p>
+</li>
+<li>
+<p><a href="concepts.htm#GUID-60CE9B2C-91E1-4F0A-88EE-8C14F4AEBDE6">About the Access Drivers for Oracle Big Data SQL</a></p>
+</li>
+<li>
+<p><a href="concepts.htm#GUID-C0AACB97-1BC4-447F-87C8-305AE744853E">About Smart Scan Technology</a></p>
+</li>
+<li>
+<p><a href="concepts.htm#GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926">About Storage Indexes</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG21117"></a>
+<div class="props_rev_3"><a id="GUID-F5F71283-1E85-4AD5-ABCD-E6A70C6BE03E"></a>
+<h3 id="BDSUG-GUID-F5F71283-1E85-4AD5-ABCD-E6A70C6BE03E" class="sect3"><span class="enumeration_section">1.1.1</span> About Oracle External Tables</h3>
+<div>
+<p><a id="d2125e91" class="indexterm-anchor"></a>Oracle Big Data SQL provides external tables with next generation performance gains. An <span class="bold">external table</span> is an Oracle Database object that identifies and describes the location of data outside of a database. You can query an external table using the same SQL <code>SELECT</code> syntax that you use for any other database tables.</p>
+<p>External tables use <span class="bold">access drivers</span> to parse the data outside the database. Each type of external data requires a unique access driver. Oracle Big Data SQL includes two access drivers for big data: one for data that has metadata defined in Apache Hive, and the other for accessing data stored in the Hadoop Distributed File System, with metadata specified only by an Oracle administrator.</p>
+</div>
+</div>
+<div class="sect3"><a id="GUID-5F5D41D3-24B0-4528-B7F3-26C1E57BDE35"></a>
+<h3 id="BDSUG-GUID-5F5D41D3-24B0-4528-B7F3-26C1E57BDE35" class="sect3"><span class="enumeration_section">1.1.2</span> About Predicate Push Down</h3>
+<div>
+<p>Many Big Data systems support some level of predicate off-loading, either through the filetype itself (e.g. Apache Parquet), or through Hive&rsquo;s partitioning and StorageHandler APIs. Big Data SQL takes advantage of these off-load capabilities by pushing SARGable (<span class="italic">Search ARGument ABLE</span>) predicates from the Oracle Database into supporting systems. For example, predicate push down enables the following automatic behaviors:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Queries against partitioned Hive tables are pruned, based on filter predicates on partition columns.</p>
+</li>
+<li>
+<p>Queries against Apache Parquet and Apache ORC files reduce I/O by utilizing SARGable predicates when reading the files from disk.</p>
+</li>
+<li>
+<p>Queries against Oracle NoSQL Database or Apache HBase use SARGable predicates to drive subscans of data in the remote data store.</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead3">Required Datatypes to Enable Predicate Push Down</p>
+<p>Predicate push down requires that certain mappings between Hive Datatypes and Oracle Datatypes be present. These mappings are described in the following table.</p>
+<div class="tblformal" id="GUID-5F5D41D3-24B0-4528-B7F3-26C1E57BDE35__GUID-98704E30-1CC5-4193-9B12-6861D81AFE7D">
+<table class="cellalignment301" summary="Column one lists the Hive datatypes. Column lists the valid mappings to the corresponding Oracle datatypes.">
+<thead align="left">
+<tr>
+<th class="cellalignment302" id="d2125e150"><span class="bold">Hive Datatype</span></th>
+<th class="cellalignment302" id="d2125e153"><span class="bold">Mapped To Oracle Datatype</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment303" rowspan="1" colspan="1" id="d2125e158" headers="d2125e150">
+<p>CHAR(m)</p>
+</td>
+<td class="cellalignment303" rowspan="1" colspan="1" headers="d2125e158 d2125e153">
+<p>CHAR(n), VARCHAR2(n) where n is &gt;= m</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment303" rowspan="1" colspan="1" id="d2125e165" headers="d2125e150">
+<p>VARCHAR(m)</p>
+</td>
+<td class="cellalignment303" rowspan="1" colspan="1" headers="d2125e165 d2125e153">
+<p>CHAR(n), VARCHAR2(n) where n is &gt;= m.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment303" rowspan="1" colspan="1" id="d2125e172" headers="d2125e150">
+<p>string</p>
+</td>
+<td class="cellalignment303" rowspan="1" colspan="1" headers="d2125e172 d2125e153">
+<p>CHAR(n), VARCHAR2(n)</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment303" rowspan="1" colspan="1" id="d2125e179" headers="d2125e150">
+<p>DATE</p>
+</td>
+<td class="cellalignment303" rowspan="1" colspan="1" headers="d2125e179 d2125e153">
+<p>DATE</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment303" rowspan="1" colspan="1" id="d2125e186" headers="d2125e150">
+<p>TIMESTAMP</p>
+</td>
+<td class="cellalignment303" rowspan="1" colspan="1" headers="d2125e186 d2125e153">
+<p>TIMESTAMP(9) Hive TIMESTAMP has nanoseconds, 9 digit fractional seconds.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment303" rowspan="1" colspan="1" id="d2125e193" headers="d2125e150">
+<p>TINYINT</p>
+</td>
+<td class="cellalignment303" rowspan="1" colspan="1" headers="d2125e193 d2125e153">
+<p>NUMBER(3) preferably, but NUMBER or NUMBER(n) for any value of n is valid.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment303" rowspan="1" colspan="1" id="d2125e200" headers="d2125e150">
+<p>SMALLINT&nbsp;</p>
+</td>
+<td class="cellalignment303" rowspan="1" colspan="1" headers="d2125e200 d2125e153">
+<p>NUMBER(5) preferably, but NUMBER or NUMBER(n) for any value of n is valid.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment303" rowspan="1" colspan="1" id="d2125e207" headers="d2125e150">
+<p>INT &nbsp;</p>
+</td>
+<td class="cellalignment303" rowspan="1" colspan="1" headers="d2125e207 d2125e153">
+<p>NUMBER(10) preferably, but NUMBER or NUMBER(n) for any value of n is valid.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d2125e214" headers="d2125e150">
+<p>BIGINT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td class="cellalignment302" headers="d2125e214 d2125e153">
+<p>NUMBER(19) preferably, but NUMBER or NUMBER(n) for any value of n is OK</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d2125e221" headers="d2125e150">
+<p>DECIMAL(m)</p>
+</td>
+<td class="cellalignment302" headers="d2125e221 d2125e153">
+<p>NUMBER(n) where m = n preferably, but NUMBER or NUMBER(n) for any value of n is valid.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d2125e228" headers="d2125e150">
+<p>FLOAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td class="cellalignment302" headers="d2125e228 d2125e153">
+<p>BINARY_FLOAT</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d2125e236" headers="d2125e150">
+<p>DOUBLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td class="cellalignment302" headers="d2125e236 d2125e153">
+<p>BINARY_DOUBLE</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d2125e243" headers="d2125e150">
+<p>BINARY</p>
+</td>
+<td class="cellalignment302" headers="d2125e243 d2125e153">
+<p>RAW(n)</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d2125e250" headers="d2125e150">
+<p>BOOLEAN</p>
+</td>
+<td class="cellalignment302" headers="d2125e250 d2125e153">
+<p>CHAR(n), VARCHAR2(n) where n is &gt;= 5, values 'TRUE', 'FALSE'</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment302" id="d2125e257" headers="d2125e150">
+<p>BOOLEAN</p>
+</td>
+<td class="cellalignment302" headers="d2125e257 d2125e153">
+<p>NUMBER(1) preferably, but NUMBER or NUMBER(n) for any value of n is valid. Values 0 (false), 1 (true).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG21118"></a>
+<div class="props_rev_3"><a id="GUID-60CE9B2C-91E1-4F0A-88EE-8C14F4AEBDE6"></a>
+<h3 id="BDSUG-GUID-60CE9B2C-91E1-4F0A-88EE-8C14F4AEBDE6" class="sect3"><span class="enumeration_section">1.1.3</span> About the Access Drivers for Oracle Big Data SQL</h3>
+<div>
+<p>By querying external tables, you can access data stored in HDFS and Hive tables as if that data was stored in tables in an Oracle database. Oracle Database accesses the data by using the metadata provided when the external table was created.</p>
+<p>Oracle Database 12.1.0.2 supports two new access drivers for Oracle Big Data SQL:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>ORACLE_HIVE</code>: Enables you to create Oracle external tables over Apache Hive data sources. Use this access driver when you already have Hive tables defined for your HDFS data sources. <code>ORACLE_HIVE</code> can also access data stored in other locations, such as HBase, that have Hive tables defined for them.</p>
+</li>
+<li>
+<p><code>ORACLE_HDFS</code>: Enables you to create Oracle external tables directly over files stored in HDFS. This access driver uses Hive syntax to describe a data source, assigning default column names of <code>COL_1</code>, <code>COL_2</code>, and so forth. You do not need to create a Hive table manually as a separate step.</p>
+<p>Instead of acquiring the metadata from a Hive metadata store the way that <code>ORACLE_HIVE</code> does, the <code>ORACLE_HDFS</code> access driver acquires all of the necessary information from the access parameters. The <code>ORACLE_HDFS</code> access parameters are required to specify the metadata, and are stored as part of the external table definition in Oracle Database.</p>
+</li>
+</ul>
+<p>Oracle Big Data SQL uses these access drivers to optimize query performance.</p>
+</div>
+</div>
+<a id="BIGUG76676"></a>
+<div class="props_rev_3"><a id="GUID-C0AACB97-1BC4-447F-87C8-305AE744853E"></a>
+<h3 id="BDSUG-GUID-C0AACB97-1BC4-447F-87C8-305AE744853E" class="sect3"><span class="enumeration_section">1.1.4</span> About Smart Scan Technology</h3>
+<div>
+<p>External tables do not have traditional indexes, so that queries against them typically require a full table scan. However, Oracle Big Data SQL extends <a id="d2125e335" class="indexterm-anchor"></a>SmartScan capabilities (such as filter-predicate off-loads) to Oracle external tables with the installation of the Big Data SQL processing agent on the DataNodes of the Hadoop cluster. This technology enables the Hadoop cluster to discard a huge portion of irrelevant data&mdash;up to 99 percent of the total&mdash;and return much smaller result sets to the Oracle Database server. End users obtain the results of their queries significantly faster, as the direct result of a reduced load on Oracle Database and reduced traffic on the network.</p>
+<div class="infoboxnotealso" id="GUID-C0AACB97-1BC4-447F-87C8-305AE744853E__GUID-5205F413-33A2-4005-927A-5A292DA99EDE">
+<p class="notep1">See Also:</p>
+<p><a class="olink CNCPT1141" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E73350-01&amp;id=CNCPT1141"><span class="italic">Oracle Database Concepts</span></a> for a general introduction to external tables and pointers to more detailed information in the Oracle Database documentation library</p>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926"></a>
+<h3 id="BDSUG-GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926" class="sect3"><span class="enumeration_section">1.1.5</span> About Storage Indexes</h3>
+<div>
+<p>Oracle Big Data SQL maintains Storage Indexes automatically, which is transparent to Oracle Database. Storage Indexes contain the summary of data distribution on a hard disk for the data that is stored in HDFS. Storage Indexes reduce the I/O operations cost and the CPU cost of converting data from flat files to Oracle Database blocks.</p>
+<p>Storage Indexes can be used only for the external tables that are based on HDFS and are created using either the ORACLE_HDFS driver or the ORACLE_HIVE driver. Storage Indexes cannot be used for the external tables that use StorageHandlers, such as Apache HBase and Oracle NoSQL.</p>
+<p>A Storage Index is a collection of in-memory region indexes, and each region index stores summaries for up to 32 columns. There is one region index for each split. The content stored in one region index is independent of the other region indexes. This makes them highly scalable, and avoids latch contention.</p>
+<p>Storage Indexes maintain the minimum and maximum values of the columns of a region for each region index. The minimum and maximum values are used to eliminate unnecessary I/O, also known as I/O filtering. The cell XT granule I/O bytes saved by the Storage Indexes statistic, available in the <code>V$SYSSTAT</code> view, shows the number of bytes of I/O saved using Storage Indexes.</p>
+<div class="infoboxnotealso" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-88F6E8B7-97B9-4137-AE7C-608EA2B4AF31">
+<p class="notep1">See Also:</p>
+<p><a class="olink REFRN30272" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E73350-01&amp;id=REFRN30272"><span class="italic">Oracle&reg; Database Reference</span></a> for information about <code>V$SYSSTAT</code> view</p>
+</div>
+<p>Queries using the following comparisons are improved by the Storage Indexes:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Equality (=)</p>
+</li>
+<li>
+<p>Inequality (&lt;, !=, or &gt;)</p>
+</li>
+<li>
+<p>Less than or equal (&lt;=)</p>
+</li>
+<li>
+<p>Greater than or equal (&gt;=)</p>
+</li>
+<li>
+<p>IS NULL</p>
+</li>
+<li>
+<p>IS NOT NULL</p>
+</li>
+</ul>
+<p>Storage Indexes are built automatically after Oracle Big Data SQL service receives a query with a comparison predicate that is greater than the maximum or less than the minimum value for the column in a region.</p>
+<div class="infobox-note" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-F3688B34-E703-4FDA-B5EF-8E40130F0AFE">
+<p class="notep1">Note:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The effectiveness of Storage Indexes can be improved by ordering the rows in a table based on the columns that frequently appear in the WHERE query clause.</p>
+</li>
+<li>
+<p>Storage Indexes work with any non-linguistic data type, and works with linguistic data types similar to non-linguistic index.</p>
+</li>
+</ul>
+</div>
+<div class="example" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-B887914B-A927-4288-BBFA-4D661F2AC9B0">
+<p class="titleinexample">Example 1-1 Elimination of Disk I/O with Storage Indexes</p>
+<p>The following figure shows a table and region indexes. The values in the table range from 1 to 8. One region index stores the minimum 1, and the maximum of 5. The other region index stores the minimum of 3, and the maximum of 8.</p>
+<div class="figure" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-46453C72-D0B9-424A-A056-412011001728"><img width="600" height="261" src="img/GUID-79453BB0-2261-4A43-A333-35AEEE54190C-default.png" alt="Description of GUID-79453BB0-2261-4A43-A333-35AEEE54190C-default.png follows" title="Description of GUID-79453BB0-2261-4A43-A333-35AEEE54190C-default.png follows" /><br />
+<a href="img_txt/GUID-4F10B3F0-FD47-41B6-8024-767C4D3D59AA.htm">Description of the illustration GUID-79453BB0-2261-4A43-A333-35AEEE54190C-default.png</a></div>
+<!-- class="figure" -->
+<p>For a query such as <code>SELECT * FROM TABLE WHERE B &lt; 2</code>, only the first set of rows match. Disk I/O is eliminated because the minimum and maximum of the second set of rows do not match the WHERE clause of the query.</p>
+</div>
+<!-- class="example" -->
+<div class="example" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-F2BA1909-DFCA-484A-B669-AAF27316142A">
+<p class="titleinexample">Example 1-2 Improved Join Performance Using Storage Indexes</p>
+<p>Using Storage Indexes allows table joins to skip unnecessary I/O operations. For example, the following query would perform an I/O operation and apply a Bloom filter to only the first block of the fact table.</p>
+<code>SELECT count(*) from fact, dim where fact.m=dim.m and dim.name="Hard drive"</code>
+<div class="figure" id="GUID-EBF3CB73-92CF-46AD-BC95-3F0CEC5D0926__GUID-E8E4C52A-C11D-4E1E-B4C6-1B9A70C61C82"><img width="591" height="258" src="img/GUID-666A8530-7DD6-44E9-AE92-B196E5085524-default.png" alt="Description of GUID-666A8530-7DD6-44E9-AE92-B196E5085524-default.png follows" title="Description of GUID-666A8530-7DD6-44E9-AE92-B196E5085524-default.png follows" /><br />
+<a href="img_txt/GUID-458B3CF9-5B58-42DC-A7BE-B8D1F9FB5371.htm">Description of the illustration GUID-666A8530-7DD6-44E9-AE92-B196E5085524-default.png</a></div>
+<!-- class="figure" -->
+<p>The I/O for the second block of the fact table is completely eliminated by Storage Indexes as its minimum/maximum range (5,8) is not present in the Bloom filter.</p>
+</div>
+<!-- class="example" --></div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment279">
+<tr>
+<td class="cellalignment286">
+<table class="cellalignment290">
+<tr>
+<td class="cellalignment283"><a href="preface.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment283"><a href="installing.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment288">
+<table class="cellalignment289">
+<tr>
+<td class="cellalignment283"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment283"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment283"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment283"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment283"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

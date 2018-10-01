@@ -1,0 +1,3871 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Administering Oracle Big Data Appliance</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="Cloudera Manager, starting, software services, node locations, services, multirack clusters, service locations, NameNode failover, failover, NameNode, JobTracker, disks, first NameNode, first, JobTracker node, Hive, node location, Hue, Oozie, resource management, port numbers, puppet, security, HDFS, auditing, MapReduce, auditing data collected from services, Audit Vault plug-in, ftp.oracle.com, uploading diagnostics" />
+<meta name="dcterms.created" content="2016-11-07T15:19:26Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Software User's Guide" />
+<meta name="dcterms.identifier" content="E77518-02" />
+<meta name="dcterms.isVersionOf" content="BIGUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda46/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="concepts.htm" title="Previous" type="text/html" />
+<link rel="Next" href="users.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77518-02.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-69A231EA-0F4D-4460-84A5-5F8DF105A2EE"></a> <span id="PAGE" style="display:none;">6/14</span> <!-- End Header -->
+<script  >
+//<![CDATA[
+window.name='admin'
+//]]>
+</script> <script  >
+    function footdisplay(footnum,footnote) {
+    var msg = window.open('', 'NewWindow' + footnum,
+        'directories=no,height=120,location=no,menubar=no,resizable=yes,' +
+        'scrollbars=yes,status=no,toolbar=no,width=598');
+    msg.document.open('text/html');
+    msg.document.write('<!DOCTYPE html ');
+    msg.document.write('PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" ');
+
+    msg.document.write('"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">');
+    msg.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><title>');
+    msg.document.write('Footnote&amp;nbsp; ' + footnum);
+    msg.document.write('<\/title><meta http-equiv="Content-Type" ');
+    msg.document.write('content="text/html; charset=utf-8" />');
+    msg.document.write('');
+    msg.document.write('<style> <![CDATA[ ');
+    msg.document.write('h1 {text-align: center; font-size: 14pt;}');
+    msg.document.write('fieldset {border: none;}');
+    msg.document.write('form {text-align: center;}');
+    msg.document.write(' ]]\u003e <\/style>');
+    msg.document.write('<\/head><body><h1>Footnote&nbsp; ' + footnum + '<\/h1><p>');
+    msg.document.write(footnote);
+    msg.document.write('<\/p><form action="" method="post"><fieldset>');
+    msg.document.write('<input type="button" value="OK" ');
+    msg.document.write('onclick="window.close();" />');
+    msg.document.write('<\/fieldset><\/form><\/body><\/html>');
+    msg.document.close();
+    msg.focus();
+}
+</script><noscript>
+<p>The script content on this page is for navigation purposes only and does not alter the content in any way.</p>
+</noscript><a id="BIGUG132"></a>
+<h1 id="BIGUG-GUID-69A231EA-0F4D-4460-84A5-5F8DF105A2EE" class="sect1"><span class="enumeration_chapter">2</span> Administering Oracle Big Data Appliance</h1>
+<div>
+<p>This chapter provides information about the software and services installed on Oracle Big Data Appliance. It contains these sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="admin.htm#GUID-C364594B-56E0-410F-A35E-552460AFD637">Monitoring Multiple Clusters Using Oracle Enterprise Manager</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-8E8F0C00-3499-45E9-ADF7-71D1FC434D2F">Managing Operations Using Cloudera Manager</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-FDB44A3C-29DE-4081-A559-1AE5973A9D69">Using Hadoop Monitoring Utilities</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-40F319FF-B9DE-44E0-8801-E83D58CC28CB">Using Cloudera Hue to Interact With Hadoop</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-E97ECDB3-BE7A-4077-8635-04F58E4C8CA7">About the Oracle Big Data Appliance Software</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-B83CD82D-A7DF-4B7D-B676-C616EE13A48D">About the CDH Software Services</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-85770252-72F2-45CD-990C-739FFC68F76D">Effects of Hardware on Software Availability</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-9AB38E1B-624E-4648-8621-BBA5F7E38F8B">Managing a Hardware Failure</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-1D6E9AF9-61BC-4CE6-B561-CA0C2CD5EB73">Stopping and Starting Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-BDC9DC75-8FA9-49B5-B35A-2C8B6C9DC53D">Managing Oracle Big Data SQL</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-3B4A0B01-B35E-44EE-B4AE-0C624AD8DAEA">Security on Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-95CEE05F-E84B-43A0-8CE4-6F82F5E82680">Auditing Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-E23659EF-3419-4DAA-92FB-7E8B1314A603">Collecting Diagnostic Information for Oracle Customer Support</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG235"></a>
+<div class="props_rev_3"><a id="GUID-C364594B-56E0-410F-A35E-552460AFD637"></a>
+<h2 id="BIGUG-GUID-C364594B-56E0-410F-A35E-552460AFD637" class="sect2"><span class="enumeration_section">2.1</span> Monitoring Multiple Clusters Using Oracle Enterprise Manager</h2>
+<div>
+<p>An Oracle Enterprise Manager plug-in enables you to use the same system monitoring tool for Oracle Big Data Appliance as you use for Oracle Exadata Database Machine or any other Oracle Database installation. With the plug-in, you can view the status of the installed software components in tabular or graphic presentations, and start and stop these software services. You can also monitor the health of the network and the rack components.</p>
+<p>Oracle Enterprise Manager enables you to monitor all Oracle Big Data Appliance racks on the same InfiniBand fabric. It provides summary views of both the rack hardware and the software layout of the logical clusters.</p>
+<div class="infobox-note" id="GUID-C364594B-56E0-410F-A35E-552460AFD637__GUID-787A45B0-DE55-4C68-A7D8-D05E45B93245">
+<p class="notep1">Note:</p>
+Before you start, contact Oracle Support for up-to-date information about Enterprise Manager plug-in functionality.</div>
+</div>
+<a id="BIGUG236"></a><a id="BIGUG311"></a>
+<div class="props_rev_3"><a id="GUID-69045D67-8DE4-49CE-B34B-DCEFFD7BA332"></a>
+<h3 id="BIGUG-GUID-69045D67-8DE4-49CE-B34B-DCEFFD7BA332" class="sect3"><span class="enumeration_section">2.1.1</span> Using the Enterprise Manager Web Interface</h3>
+<div>
+<div class="section">
+<p>After opening Oracle Enterprise Manager web interface, logging in, and selecting a target cluster, you can drill down into these primary areas:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">InfiniBand network</span>: Network topology and status for InfiniBand switches and ports. See <a href="admin.htm#GUID-69045D67-8DE4-49CE-B34B-DCEFFD7BA332__CHDHIEIA">Figure 2-1</a>.</p>
+</li>
+<li>
+<p><span class="bold">Hadoop cluster</span>: Software services for HDFS, MapReduce, and ZooKeeper.</p>
+</li>
+<li>
+<p><span class="bold">Oracle Big Data Appliance rack</span>: Hardware status including server hosts, Oracle Integrated Lights Out Manager (Oracle ILOM) servers, power distribution units (PDUs), and the Ethernet switch.</p>
+</li>
+</ul>
+<p><a href="admin.htm#GUID-69045D67-8DE4-49CE-B34B-DCEFFD7BA332__CHDHIEIA">Figure 2-1</a> shows a small section of the cluster home page.</p>
+<div class="figure" id="GUID-69045D67-8DE4-49CE-B34B-DCEFFD7BA332__CHDHIEIA">
+<p class="titleinfigure">Figure 2-1 YARN Page in Oracle Enterprise Manager</p>
+<img width="769" height="360" src="img/GUID-D3878375-0B6A-4574-B2D9-9F0FD04978EF-default.png" alt="Description of Figure 2-1 follows" title="Description of Figure 2-1 follows" /><br />
+<a href="img_text/GUID-D3878375-0B6A-4574-B2D9-9F0FD04978EF-default.htm">Description of "Figure 2-1 YARN Page in Oracle Enterprise Manager"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To monitor Oracle Big Data Appliance using Oracle Enterprise Manager:</p>
+<ol>
+<li>
+<p>Download and install the plug-in. See <a class="olink EMBDA" target="_blank" href="../EMBDA/toc.htm"><span class="italic">Oracle Enterprise Manager System Monitoring Plug-in Installation Guide for Oracle Big Data Appliance</span></a>.</p>
+</li>
+<li>
+<p>Log in to Oracle Enterprise Manager as a privileged user.</p>
+</li>
+<li>
+<p>From the Targets menu, choose <span class="bold">Big Data Appliance</span> to view the Big Data page. You can see the overall status of the targets already discovered by Oracle Enterprise Manager.</p>
+</li>
+<li>
+<p>Select a target cluster to view its detail pages.</p>
+</li>
+<li>
+<p>Expand the target navigation tree to display the components. Information is available at all levels.</p>
+</li>
+<li>
+<p>Select a component in the tree to display its home page.</p>
+</li>
+<li>
+<p>To change the display, choose an item from the drop-down menu at the top left of the main display area.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-69045D67-8DE4-49CE-B34B-DCEFFD7BA332__GUID-022DABEC-AF06-4A4D-ADD7-7DB4BC958E39">
+<p class="notep1">See Also:</p>
+<p><a class="olink EMBDA" target="_blank" href="../EMBDA/toc.htm"><span class="italic">Oracle Enterprise Manager System Monitoring Plug-in Installation Guide for Oracle Big Data Appliance</span></a>.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG312"></a>
+<div class="props_rev_3"><a id="GUID-8311BBCB-BFA9-4FC7-A4C9-06D09246A842"></a>
+<h3 id="BIGUG-GUID-8311BBCB-BFA9-4FC7-A4C9-06D09246A842" class="sect3"><span class="enumeration_section">2.1.2</span> Using the Enterprise Manager Command-Line Interface</h3>
+<div>
+<div class="section">
+<p>The Enterprise Manager command-line interface (<a id="d3757e209" class="indexterm-anchor"></a><code>emcli</code>) is installed on Oracle Big Data Appliance along with all the other software. It provides the same functionality as the web interface. You must provide credentials to connect to Oracle Management Server.</p>
+<p>To get help, enter <code>emcli help</code>.</p>
+<div class="infoboxnotealso" id="GUID-8311BBCB-BFA9-4FC7-A4C9-06D09246A842__GUID-99F8A46B-496F-46E0-B458-992669976C64">
+<p class="notep1">See Also:</p>
+<p><a class="olink EMCLI" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E76463-01&amp;id=EMCLI"><span class="italic">Oracle Enterprise Manager Command Line Interface Guide</span></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG133"></a>
+<div class="props_rev_3"><a id="GUID-8E8F0C00-3499-45E9-ADF7-71D1FC434D2F"></a>
+<h2 id="BIGUG-GUID-8E8F0C00-3499-45E9-ADF7-71D1FC434D2F" class="sect2"><span class="enumeration_section">2.2</span> Managing Operations Using Cloudera Manager</h2>
+<div>
+<div class="section">
+<p><a id="d3757e251" class="indexterm-anchor"></a>Cloudera Manager is installed on Oracle Big Data Appliance to help you with Cloudera's Distribution including Apache Hadoop (CDH) operations. Cloudera Manager provides a single administrative interface to all Oracle Big Data Appliance servers configured as part of the Hadoop cluster.</p>
+<p>Cloudera Manager simplifies the performance of these administrative tasks:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Monitor jobs and services</p>
+</li>
+<li>
+<p>Start and stop services</p>
+</li>
+<li>
+<p>Manage security and Kerberos credentials</p>
+</li>
+<li>
+<p>Monitor user activity</p>
+</li>
+<li>
+<p>Monitor the health of the system</p>
+</li>
+<li>
+<p>Monitor performance metrics</p>
+</li>
+<li>
+<p>Track hardware use (disk, CPU, and RAM)</p>
+</li>
+</ul>
+<p><a id="d3757e282" class="indexterm-anchor"></a>Cloudera Manager runs on the ResourceManager node (node03) and is available on port 7180.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To use Cloudera Manager:</p>
+<ol>
+<li>
+<p>Open a browser and enter a URL like the following:</p>
+<p>In this example, <code>bda1</code> is the name of the appliance, <code>node03</code> is the name of the server, <code>example.com</code> is the domain, and <code>7180</code> is the default port number for Cloudera Manager.</p>
+</li>
+<li>
+<p>Log in with a user name and password for Cloudera Manager. Only a user with administrative privileges can change the settings. Other Cloudera Manager users can view the status of Oracle Big Data Appliance.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-8E8F0C00-3499-45E9-ADF7-71D1FC434D2F__GUID-11CDFB70-D368-42EE-B1A7-608E755C9B91">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Cloudera Manager Monitoring and Diagnostics Guide</span> at</p>
+<p><a href="http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Diagnostics-Guide/Cloudera-Manager-Diagnostics-Guide.html" target="_blank"><code>http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Diagnostics-Guide/Cloudera-Manager-Diagnostics-Guide.html</code></a></p>
+<p>or click <span class="bold">Help</span> on the Cloudera Manager Support menu</p>
+</div>
+</div>
+<!-- class="section" --></div>
+<a id="BIGUG135"></a><a id="BIGUG134"></a>
+<div class="props_rev_3"><a id="GUID-F4E05988-394A-44D0-9F64-41CFAED8B3F1"></a>
+<h3 id="BIGUG-GUID-F4E05988-394A-44D0-9F64-41CFAED8B3F1" class="sect3"><span class="enumeration_section">2.2.1</span> Monitoring the Status of Oracle Big Data Appliance</h3>
+<div>
+<div class="section">
+<p>In <a id="d3757e350" class="indexterm-anchor"></a>Cloudera Manager, you can choose any of the following pages from the menu bar across the top of the display:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Home</span>: Provides a graphic overview of activities and links to all services controlled by Cloudera Manager. See <a href="admin.htm#GUID-F4E05988-394A-44D0-9F64-41CFAED8B3F1__CHDHEHDD">Figure 2-2</a>.</p>
+</li>
+<li>
+<p><span class="bold">Clusters</span>: Accesses the services on multiple clusters.</p>
+</li>
+<li>
+<p><span class="bold">Hosts</span>: Monitors the health, disk usage, load, physical memory, swap space, and other statistics for all servers in the cluster.</p>
+</li>
+<li>
+<p><span class="bold">Diagnostics</span>: Accesses events and logs. Cloudera Manager collects historical information about the systems and services. You can search for a particular phrase for a selected server, service, and time period. You can also select the minimum severity level of the logged messages included in the search: TRACE, DEBUG, INFO, WARN, ERROR, or FATAL.</p>
+</li>
+<li>
+<p><span class="bold">Audits</span>: Displays the audit history log for a selected time range. You can filter the results by user name, service, or other criteria, and download the log as a CSV file.</p>
+</li>
+<li>
+<p><span class="bold">Charts</span>: Enables you to view metrics from the Cloudera Manager time-series data store in a variety of chart types, such as line and bar.</p>
+</li>
+<li>
+<p><span class="bold">Backup</span>: Accesses snapshot policies and scheduled replications.</p>
+</li>
+<li>
+<p><span class="bold">Administration</span>: Provides a variety of administrative options, including Settings, Alerts, Users, and Kerberos.</p>
+</li>
+</ul>
+<p><a href="admin.htm#GUID-F4E05988-394A-44D0-9F64-41CFAED8B3F1__CHDHEHDD">Figure 2-2</a> shows the Cloudera Manager home page.</p>
+<div class="figure" id="GUID-F4E05988-394A-44D0-9F64-41CFAED8B3F1__CHDHEHDD">
+<p class="titleinfigure">Figure 2-2 Cloudera Manager Home Page</p>
+<img width="948" height="581" src="img/GUID-F6A8C098-159B-4205-9B65-06380A7BE93A-default.png" alt="Description of Figure 2-2 follows" title="Description of Figure 2-2 follows" /><br />
+<a href="img_text/GUID-F6A8C098-159B-4205-9B65-06380A7BE93A-print.htm">Description of "Figure 2-2 Cloudera Manager Home Page"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG136"></a>
+<div class="props_rev_3"><a id="GUID-43B6619E-A084-4725-ADDE-DA1AB1FCDB3A"></a>
+<h3 id="BIGUG-GUID-43B6619E-A084-4725-ADDE-DA1AB1FCDB3A" class="sect3"><span class="enumeration_section">2.2.2</span> Performing Administrative Tasks</h3>
+<div>
+<div class="section">
+<p>As a <a id="d3757e428" class="indexterm-anchor"></a>Cloudera Manager administrator, you can change various properties for monitoring the health and use of Oracle Big Data Appliance, add <a id="d3757e433" class="indexterm-anchor"></a>users, and set up Kerberos security.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To access Cloudera Manager Administration:</p>
+<ol>
+<li>
+<p>Log in to Cloudera Manager with administrative privileges.</p>
+</li>
+<li>
+<p>Click <span class="bold">Administration</span>, and select a task from the menu.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG239"></a>
+<div class="props_rev_3"><a id="GUID-0618831F-D1E0-48E4-B2A3-FA15FFE8D511"></a>
+<h3 id="BIGUG-GUID-0618831F-D1E0-48E4-B2A3-FA15FFE8D511" class="sect3"><span class="enumeration_section">2.2.3</span> Managing CDH Services With Cloudera Manager</h3>
+<div>
+<div class="section">
+<p>Cloudera Manager provides the interface for managing these services:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>HDFS</p>
+</li>
+<li>
+<p>Hive</p>
+</li>
+<li>
+<p>Hue</p>
+</li>
+<li>
+<p>Oozie</p>
+</li>
+<li>
+<p>YARN</p>
+</li>
+<li>
+<p>ZooKeeper</p>
+</li>
+</ul>
+<p>You can use Cloudera Manager to change the configuration of these services, stop, and restart them. Additional services are also available, which require configuration before you can use them. See <span class="q">"<a href="admin.htm#GUID-1BCB4C55-8DF6-4A78-8FCE-DCF39C4644CF">Unconfigured Software</a>."</span></p>
+<div class="infobox-note" id="GUID-0618831F-D1E0-48E4-B2A3-FA15FFE8D511__GUID-1B135156-64B4-4A44-BDE1-D5B12A8917C9">
+<p class="notep1">Note:</p>
+<p>Manual edits to Linux service scripts or Hadoop configuration files do not affect these services. You must manage and configure them using Cloudera Manager.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG137"></a>
+<div class="props_rev_3"><a id="GUID-FDB44A3C-29DE-4081-A559-1AE5973A9D69"></a>
+<h2 id="BIGUG-GUID-FDB44A3C-29DE-4081-A559-1AE5973A9D69" class="sect2"><span class="enumeration_section">2.3</span> Using Hadoop Monitoring Utilities</h2>
+<div>
+<p>You also have the option of using the native Hadoop utilities. These utilities are read-only and do not require authentication.</p>
+<p>Cloudera Manager provides an easy way to obtain the correct URLs for these utilities. On the YARN service page, expand the Web UI submenu.</p>
+</div>
+<a id="BIGUG141"></a><a id="BIGUG385"></a>
+<div class="props_rev_3"><a id="GUID-CA5DF9BB-A765-4707-B3D1-64334A21339C"></a>
+<h3 id="BIGUG-GUID-CA5DF9BB-A765-4707-B3D1-64334A21339C" class="sect3"><span class="enumeration_section">2.3.1</span> Monitoring MapReduce Jobs</h3>
+<div>
+<div class="section">
+<p>You can monitor MapReduce jobs using the resource manager interface.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To monitor MapReduce jobs:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Open a browser and enter a URL like the following:</p>
+<pre >
+http://bda1node03.example.com:8088
+</pre>
+<p>In this example, <code>bda1</code> is the name of the rack, <code>node03</code> is the name of the server where the YARN resource manager runs, and <code>8088</code> is the default port number for the user interface.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="admin.htm#GUID-CA5DF9BB-A765-4707-B3D1-64334A21339C__CHDIJCAB">Figure 2-3</a> shows the resource manager interface.</p>
+<div class="figure" id="GUID-CA5DF9BB-A765-4707-B3D1-64334A21339C__CHDIJCAB">
+<p class="titleinfigure">Figure 2-3 YARN Resource Manager Interface</p>
+<img width="910" height="435" src="img/GUID-6EE8AD09-42EC-4413-9C40-3572CB12BC85-default.png" alt="Description of Figure 2-3 follows" title="Description of Figure 2-3 follows" /><br />
+<a href="img_text/GUID-6EE8AD09-42EC-4413-9C40-3572CB12BC85-default.htm">Description of "Figure 2-3 YARN Resource Manager Interface"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG387"></a><a id="BIGUG386"></a>
+<div class="props_rev_3"><a id="GUID-22AC76A8-9616-4ADC-80EE-F5723EE1E836"></a>
+<h3 id="BIGUG-GUID-22AC76A8-9616-4ADC-80EE-F5723EE1E836" class="sect3"><span class="enumeration_section">2.3.2</span> Monitoring the Health of HDFS</h3>
+<div>
+<div class="section">
+<p>You can monitor the health of the Hadoop file system by using the DFS health utility on the first two nodes of a cluster.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To monitor HDFS:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Open a browser and enter a URL like the following:</p>
+<pre dir="ltr">
+http://bda1node01.example.com:50070
+</pre>
+<p>In this example, <code>bda1</code> is the name of the rack, <code>node01</code> is the name of the server where the dfshealth utility runs, and <code>50070</code> is the default port number for the user interface.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="admin.htm#GUID-CA5DF9BB-A765-4707-B3D1-64334A21339C__CHDIJCAB">Figure 2-3</a> shows the DFS health utility interface.</p>
+<div class="figure" id="GUID-22AC76A8-9616-4ADC-80EE-F5723EE1E836__GUID-B8A04288-7E21-4314-BBAA-14663332C5C2">
+<p class="titleinfigure">Figure 2-4 DFS Health Utility</p>
+<img width="617" height="612" src="img/GUID-95201097-B9C9-4D69-81B1-A7169A669F29-default.png" alt="Description of Figure 2-4 follows" title="Description of Figure 2-4 follows" /><br />
+<a href="img_text/GUID-95201097-B9C9-4D69-81B1-A7169A669F29-default.htm">Description of "Figure 2-4 DFS Health Utility"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG241"></a><a id="BIGUG240"></a>
+<div class="props_rev_3"><a id="GUID-40F319FF-B9DE-44E0-8801-E83D58CC28CB"></a>
+<h2 id="BIGUG-GUID-40F319FF-B9DE-44E0-8801-E83D58CC28CB" class="sect2"><span class="enumeration_section">2.4</span> Using Cloudera Hue to Interact With Hadoop</h2>
+<div>
+<div class="section">
+<p>Hue runs in a browser and provides an easy-to-use interface to several applications to support interaction with Hadoop and HDFS. You can use Hue to perform any of the following tasks:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Query Hive data stores</p>
+</li>
+<li>
+<p>Create, load, and delete Hive tables</p>
+</li>
+<li>
+<p>Work with HDFS files and directories</p>
+</li>
+<li>
+<p>Create, submit, and monitor MapReduce jobs</p>
+</li>
+<li>
+<p>Monitor MapReduce jobs</p>
+</li>
+<li>
+<p>Create, edit, and submit workflows using the Oozie dashboard</p>
+</li>
+<li>
+<p>Manage users and groups</p>
+</li>
+</ul>
+<p>Hue is automatically installed and configured on Oracle Big Data Appliance. It runs on port 8888 of the ResourceManager node. See the tables in <a href="admin.htm#GUID-B83CD82D-A7DF-4B7D-B676-C616EE13A48D">About the CDH Software Services</a> for Hue&rsquo;s location within different cluster configurations.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To use Hue:</p>
+<ol>
+<li>
+<p>Log in to Cloudera Manager and click the <span class="bold">hue</span> service on the Home page.</p>
+</li>
+<li>
+<p>On the hue page under Quick Links, click <code>Hue Web UI</code>.</p>
+</li>
+<li>
+<p>Bookmark the Hue URL, so that you can open Hue directly in your browser. The following URL is an example:</p>
+<pre dir="ltr">
+http://bda1node03.example.com:8888
+</pre></li>
+<li>
+<p>Log in with your Hue credentials.</p>
+<p>If Hue accounts have not been created yet, log into the default Hue administrator account by using the following credentials:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Username: <code>admin</code></p>
+</li>
+<li>
+<p>Password: <code><span class="codeinlineitalic">cm-admin-password</span></code></p>
+</li>
+</ul>
+<p>where <code><span class="codeinlineitalic">cm-admin-password</span></code> is the password specified when the cluster for the Cloudera Manager admin user was activated. You can then create other user and administrator accounts.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="admin.htm#GUID-40F319FF-B9DE-44E0-8801-E83D58CC28CB__CHDEHDIJ">Figure 2-5</a> shows the Hive Query Editor.</p>
+<div class="figure" id="GUID-40F319FF-B9DE-44E0-8801-E83D58CC28CB__CHDEHDIJ">
+<p class="titleinfigure">Figure 2-5 Hive Query Editor</p>
+<img width="638" height="466" src="img/GUID-7E5C1173-B978-4E23-94FB-6D0B738C4B5B-default.png" alt="Description of Figure 2-5 follows" title="Description of Figure 2-5 follows" /><br />
+<a href="img_text/GUID-7E5C1173-B978-4E23-94FB-6D0B738C4B5B-default.htm">Description of "Figure 2-5 Hive Query Editor"</a></div>
+<!-- class="figure" -->
+<div class="infoboxnotealso" id="GUID-40F319FF-B9DE-44E0-8801-E83D58CC28CB__GUID-7B65470C-8C11-4C8E-BA91-1DEB66FE4105">
+<p class="notep1">See Also:</p>
+<p><span class="italic">Hue User Guide</span> at</p>
+<p><a href="http://archive-primary.cloudera.com/cdh5/cdh/5/hue/user-guide/" target="_blank"><code>http://archive-primary.cloudera.com/cdh5/cdh/5/hue/user-guide/</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG142"></a>
+<div class="props_rev_3"><a id="GUID-E97ECDB3-BE7A-4077-8635-04F58E4C8CA7"></a>
+<h2 id="BIGUG-GUID-E97ECDB3-BE7A-4077-8635-04F58E4C8CA7" class="sect2"><span class="enumeration_section">2.5</span> About the Oracle Big Data Appliance Software</h2>
+<div>
+<p>The following sections identify the software installed on Oracle Big Data Appliance. Some components operate with Oracle Database 11.2.0.2 and later releases.</p>
+<p>This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="admin.htm#GUID-3CB523AF-B5E0-43D9-88A6-D29F0D77DF75">Software Components</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-1BCB4C55-8DF6-4A78-8FCE-DCF39C4644CF">Unconfigured Software</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-7EDF58FD-1B56-4F66-B259-E64BFC816272">Allocating Resources Among Services</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG144"></a><a id="BIGUG143"></a>
+<div class="props_rev_3"><a id="GUID-3CB523AF-B5E0-43D9-88A6-D29F0D77DF75"></a>
+<h3 id="BIGUG-GUID-3CB523AF-B5E0-43D9-88A6-D29F0D77DF75" class="sect3"><span class="enumeration_section">2.5.1</span> Software Components</h3>
+<div>
+<div class="section">
+<p>These <a id="d3757e796" class="indexterm-anchor"></a>software components are installed on all servers in the cluster. Oracle <a id="d3757e799" class="indexterm-anchor"></a>Linux, required drivers, firmware, and hardware verification utilities are factory installed. All other software is installed on site. The optional software components may not be configured in your installation.</p>
+<div class="infobox-note" id="GUID-3CB523AF-B5E0-43D9-88A6-D29F0D77DF75__GUID-BD19EB38-EC5D-44C4-9E32-2641411FA93C">
+<p class="notep1">Note:</p>
+<p>You do not need to install additional software on Oracle Big Data Appliance. Doing so may result in a loss of warranty and support. See the <a class="olink BIGOG117" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E76463-01&amp;id=BIGOG117"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a>.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Base image software:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a id="d3757e818" class="indexterm-anchor"></a>Oracle Linux 6.8 with Oracle Unbreakable Enterprise Kernel version 2 (UEK2). Oracle Linux 5 Big Data Appliance upgrades stay at 5.11.</p>
+</li>
+<li>
+<p><a id="d3757e825" class="indexterm-anchor"></a><a id="d3757e827" class="indexterm-anchor"></a>Java JDK 8u101</p>
+</li>
+<li>
+<p><a id="d3757e832" class="indexterm-anchor"></a><span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-B4594711-2D65-4240-B91B-01CC8CBE3750"><span class="xrefglossterm">Oracle R Distribution</span></a></span> 3.2.0</p>
+</li>
+<li>
+<p><a id="d3757e840" class="indexterm-anchor"></a><span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-C7500BC2-7A3A-4A80-BDA2-57CD22CB96D3"><span class="xrefglossterm">MySQL Enterprise Server &ndash; Advanced Edition</span></a></span> version 5.6</p>
+</li>
+<li>
+<p>Puppet, firmware, Oracle Big Data Appliance utilities</p>
+</li>
+<li>
+<p>Oracle InfiniBand software</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Mammoth installation:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a id="d3757e861" class="indexterm-anchor"></a>Cloudera's Distribution including Apache Hadoop Release 5.8 including:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Apache Hive</p>
+</li>
+<li>
+<p>Apache HBase</p>
+</li>
+<li>
+<p><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-79CD0392-54D2-4ADA-84CA-E1DFABD7F6AC"><span class="xrefglossterm"><span class="bold">Apache Sentry</span></span></a></p>
+</li>
+<li>
+<p>Apache Spark</p>
+</li>
+<li>
+<p><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-29DDDCE5-C7DA-462C-A117-F43FABBC2ED5"><span class="xrefglossterm"><span class="bold">Cloudera Impala</span></span></a></p>
+</li>
+<li>
+<p><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-4D7AABFF-C9E4-485C-8D27-36967ED3C59C"><span class="xrefglossterm"><span class="bold">Cloudera Search</span></span></a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a id="d3757e896" class="indexterm-anchor"></a>Cloudera Manager Release 5.8.1 including <a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-D5746D7E-BBF0-44D4-9CC0-6F91578869BA"><span class="xrefglossterm"><span class="bold">Cloudera Navigator</span></span></a></p>
+</li>
+<li>
+<p><a id="d3757e907" class="indexterm-anchor"></a><span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-23BC0A81-3666-4663-9FB7-F2115E31D1D1"><span class="xrefglossterm">Oracle Database Instant Client</span></a></span> 12.1</p>
+</li>
+<li>
+<p>Oracle Big Data SQL 3.0.1 (optional)</p>
+</li>
+<li>
+<p><a id="d3757e919" class="indexterm-anchor"></a>Oracle NoSQL Database Community Edition or Enterprise Edition 4.0.9 (optional)</p>
+</li>
+<li>
+<p>Oracle Big Data Connectors 4.6 (optional):</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle SQL Connector for Hadoop Distributed File System (HDFS)</p>
+</li>
+<li>
+<p><a id="d3757e933" class="indexterm-anchor"></a>Oracle Loader for Hadoop</p>
+</li>
+<li>
+<p><a id="d3757e938" class="indexterm-anchor"></a>Oracle Data Integrator Agent</p>
+</li>
+<li>
+<p><a id="d3757e943" class="indexterm-anchor"></a>Oracle XQuery for Hadoop</p>
+</li>
+<li>
+<p><a id="d3757e948" class="indexterm-anchor"></a>Oracle R Advanced Analytics for Hadoop</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Oracle Big Data Discovery 1.2.2 or 1.3 (optional)</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-3CB523AF-B5E0-43D9-88A6-D29F0D77DF75__GUID-1196DEC6-5E13-4293-8D87-0FAD4AEA0960">
+<p class="notep1">See Also:</p>
+<p><a class="olink BIGOG" target="_blank" href="../BIGOG/toc.htm"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> for information about the Mammoth utility</p>
+</div>
+<p><a href="admin.htm#GUID-3CB523AF-B5E0-43D9-88A6-D29F0D77DF75__CHDFCEIH">Figure 2-6</a> shows the relationships among the major components.</p>
+<div class="figure" id="GUID-3CB523AF-B5E0-43D9-88A6-D29F0D77DF75__CHDFCEIH">
+<p class="titleinfigure">Figure 2-6 Major Software Components of Oracle Big Data Appliance</p>
+<img width="387" height="228" src="img/GUID-9A8C283F-E295-4389-B218-4F39DCE5A7D5-default.png" alt="Description of Figure 2-6 follows" title="Description of Figure 2-6 follows" /><br />
+<a href="img_text/GUID-9A8C283F-E295-4389-B218-4F39DCE5A7D5-print.htm">Description of "Figure 2-6 Major Software Components of Oracle Big Data Appliance"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG156"></a>
+<div class="props_rev_3"><a id="GUID-1BCB4C55-8DF6-4A78-8FCE-DCF39C4644CF"></a>
+<h3 id="BIGUG-GUID-1BCB4C55-8DF6-4A78-8FCE-DCF39C4644CF" class="sect3"><span class="enumeration_section">2.5.2</span> Unconfigured Software</h3>
+<div>
+<div class="section">
+<p>Your Oracle Big Data Appliance license includes all components in Cloudera Enterprise Data Hub Edition. All CDH components are installed automatically by the Mammoth utility. Do not download them from the Cloudera website.</p>
+<p>However, you must use Cloudera Manager to add some services before you can use them, such as the following:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p><a id="d3757e997" class="indexterm-anchor"></a><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-8DB4499E-2741-45A7-BEF6-3CA2B15D381D"><span class="xrefglossterm">Apache Flume</span></a></p>
+</li>
+<li>
+<p><a id="d3757e1003" class="indexterm-anchor"></a><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-AA0E7DA3-A029-409C-ADE3-27AFD85EEF3C"><span class="xrefglossterm">Apache HBase</span></a></p>
+</li>
+<li>
+<p><a id="d3757e1009" class="indexterm-anchor"></a><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-FA36B660-6F0B-46C7-865C-E1354BCEBCA2"><span class="xrefglossterm">Apache Spark</span></a></p>
+</li>
+<li>
+<p><a id="d3757e1015" class="indexterm-anchor"></a><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-1B2F732E-FABC-4767-9CB2-0AFDF06AD25E"><span class="xrefglossterm">Apache Sqoop</span></a></p>
+</li>
+<li>
+<p><a id="d3757e1021" class="indexterm-anchor"></a><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-29DDDCE5-C7DA-462C-A117-F43FABBC2ED5"><span class="xrefglossterm">Cloudera Impala</span></a></p>
+</li>
+<li>
+<p><a id="d3757e1027" class="indexterm-anchor"></a><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-4D7AABFF-C9E4-485C-8D27-36967ED3C59C"><span class="xrefglossterm">Cloudera Search</span></a></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To add a service:</p>
+<ol>
+<li>
+<p>Log in to Cloudera Manager as the <code>admin</code> user.</p>
+</li>
+<li>
+<p>On the Home page, expand the cluster menu in the left panel and choose <span class="bold">Add a Service</span> to open the Add Service wizard. The first page lists the services you can add.</p>
+</li>
+<li>
+<p>Follow the steps of the wizard.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-1BCB4C55-8DF6-4A78-8FCE-DCF39C4644CF__GUID-D9045AFC-9053-403D-BEC3-8686EB1C8730">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>For a list of key CDH components:</p>
+<p><a href="http://www.cloudera.com/content/www/en-us/products/apache-hadoop/key-cdh-components.html" target="_blank"><code>http://www.cloudera.com/content/www/en-us/products/apache-hadoop/key-cdh-components.html</code></a></p>
+</li>
+<li>
+<p><span class="italic">CDH5 Installation and Configuration Guide</span> for configuration procedures at</p>
+<p><a href="http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH5/latest/CDH5-Installation-Guide/CDH5-Installation-Guide.html" target="_blank"><code>http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH5/latest/CDH5-Installation-Guide/CDH5-Installation-Guide.html</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76693"></a>
+<div class="props_rev_3"><a id="GUID-7EDF58FD-1B56-4F66-B259-E64BFC816272"></a>
+<h3 id="BIGUG-GUID-7EDF58FD-1B56-4F66-B259-E64BFC816272" class="sect3"><span class="enumeration_section">2.5.3</span> Allocating Resources Among Services</h3>
+<div>
+<div class="section">
+<p>You can allocate resources to each service&mdash;HDFS, YARN, Oracle Big Data SQL, Hive, and so forth&mdash;as a percentage of the total resource pool. Cloudera Manager automatically calculates the recommended <a id="d3757e1095" class="indexterm-anchor"></a>resource management settings based on these percentages. The static service pools isolate services on the cluster, so that a high load on one service as a limited impact on the other services.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To allocate resources among services:</p>
+<ol>
+<li>
+<p>Log in as <code>admin</code> to Cloudera Manager.</p>
+</li>
+<li>
+<p>Open the Clusters menu at the top of the page, then select <span class="bold">Static Service Pools</span> under Resource Management.</p>
+</li>
+<li>
+<p>Select <span class="bold">Configuration</span>.</p>
+</li>
+<li>
+<p>Follow the steps of the wizard, or click <span class="bold">Change Settings Directly</span> to edit the current settings.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG147"></a>
+<div class="props_rev_3"><a id="GUID-B83CD82D-A7DF-4B7D-B676-C616EE13A48D"></a>
+<h2 id="BIGUG-GUID-B83CD82D-A7DF-4B7D-B676-C616EE13A48D" class="sect2"><span class="enumeration_section">2.6</span> About the CDH Software Services</h2>
+<div>
+<p>All services are installed on all nodes in a CDH cluster, but individual services run only on designated nodes. There are slight variations in the location of the services depending on the configuration of the cluster.</p>
+<p>This section describes the services in a default YARN configuration.</p>
+<p>This section contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="admin.htm#GUID-6E524541-C78B-4059-8B72-6E6EA4672566">Where Do the Services Run on a Single-Rack CDH Cluster?</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4">Where Do the Services Run on a Multirack CDH Cluster?</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-832FE52B-8ADB-4695-B76E-969CAFDD8D4C">About MapReduce</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-77516C55-E3A7-4F51-A703-CC8371D21CC7">Automatic Failover of the NameNode</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-1733917B-A77B-427B-BFA6-C6D6643E86F6">Automatic Failover of the ResourceManager</a></p>
+</li>
+</ul>
+</div>
+<div class="sect3"><a id="GUID-86B216DF-E85A-41D2-B833-D1AFDC634E3B"></a>
+<h3 id="BIGUG-GUID-86B216DF-E85A-41D2-B833-D1AFDC634E3B" class="sect3"><span class="enumeration_section">2.6.1</span> Where Do the Services Run on a Three-Node, Development Cluster?</h3>
+<div>
+<div class="section">
+<p>Oracle Big Data Appliance now enables the use of three-node clusters for development purposes.</p>
+<div class="infobox-note" id="GUID-86B216DF-E85A-41D2-B833-D1AFDC634E3B__GUID-A6E95E93-29F3-47F7-BFC5-AA09D07BDE4F">
+<p class="notep1">Caution:</p>
+Three-node clusters are generally not suitable for production environments because all of the nodes are master nodes. This puts constraints on high availability. The minimum recommended cluster size for a production environment is five nodes</div>
+<div class="tblformal" id="GUID-86B216DF-E85A-41D2-B833-D1AFDC634E3B__GUID-C30CFAFA-CEF4-4E1A-B316-2133FE503C79">
+<p class="titleintable">Table 2-1 Service Locations for a Three-Node Development Cluster</p>
+<table class="cellalignment75" title="Service Locations for a Three-Node Development Cluster" summary="Describes the services layout in a three-node cluster for development purposes. Column 1 lists services on Node 1. Column 2 lists services on Node 2. Column 3 lists services on Node 3.">
+<thead align="left">
+<tr>
+<th class="cellalignment76" id="d3757e1215">Node1</th>
+<th class="cellalignment76" id="d3757e1217">Node2</th>
+<th class="cellalignment76" id="d3757e1219">Node3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment76" id="d3757e1223" headers="d3757e1215">NameNode</td>
+<td class="cellalignment76" headers="d3757e1223 d3757e1217">NameNode/Failover</td>
+<td class="cellalignment76" headers="d3757e1223 d3757e1219">-</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1230" headers="d3757e1215">Failover Controller</td>
+<td class="cellalignment76" headers="d3757e1230 d3757e1217">Failover Controller</td>
+<td class="cellalignment76" headers="d3757e1230 d3757e1219">-</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1237" headers="d3757e1215">DataNode</td>
+<td class="cellalignment76" headers="d3757e1237 d3757e1217">DataNode</td>
+<td class="cellalignment76" headers="d3757e1237 d3757e1219">DataNode</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1244" headers="d3757e1215">NodeManager</td>
+<td class="cellalignment76" headers="d3757e1244 d3757e1217">NodeManager</td>
+<td class="cellalignment76" headers="d3757e1244 d3757e1219">NodeManager</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1251" headers="d3757e1215">JournalNode</td>
+<td class="cellalignment76" headers="d3757e1251 d3757e1217">JournalNode</td>
+<td class="cellalignment76" headers="d3757e1251 d3757e1219">JournalNode</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1258" headers="d3757e1215">Sentry</td>
+<td class="cellalignment76" headers="d3757e1258 d3757e1217">HttpFS</td>
+<td class="cellalignment76" headers="d3757e1258 d3757e1219">Cloudera Manager and CM roles</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1265" headers="d3757e1215">-</td>
+<td class="cellalignment76" headers="d3757e1265 d3757e1217">MySQL Backup</td>
+<td class="cellalignment76" headers="d3757e1265 d3757e1219">MySQL Primary</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1272" headers="d3757e1215">ResourceManager</td>
+<td class="cellalignment76" headers="d3757e1272 d3757e1217">Hive</td>
+<td class="cellalignment76" headers="d3757e1272 d3757e1219">ResourceManager</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1279" headers="d3757e1215">-</td>
+<td class="cellalignment76" headers="d3757e1279 d3757e1217">Hive Metastore</td>
+<td class="cellalignment76" headers="d3757e1279 d3757e1219">JobHistory</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1286" headers="d3757e1215">-</td>
+<td class="cellalignment76" headers="d3757e1286 d3757e1217">ODI</td>
+<td class="cellalignment76" headers="d3757e1286 d3757e1219">Spark History</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1293" headers="d3757e1215">-</td>
+<td class="cellalignment76" headers="d3757e1293 d3757e1217">Oozie</td>
+<td class="cellalignment76" headers="d3757e1293 d3757e1219">-</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1301" headers="d3757e1215">-</td>
+<td class="cellalignment76" headers="d3757e1301 d3757e1217">Hue</td>
+<td class="cellalignment76" headers="d3757e1301 d3757e1219">-</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1308" headers="d3757e1215">-</td>
+<td class="cellalignment76" headers="d3757e1308 d3757e1217">WebHCat</td>
+<td class="cellalignment76" headers="d3757e1308 d3757e1219">-</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1315" headers="d3757e1215">ZooKeeper</td>
+<td class="cellalignment76" headers="d3757e1315 d3757e1217">ZooKeeper</td>
+<td class="cellalignment76" headers="d3757e1315 d3757e1219">ZooKeeper</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1322" headers="d3757e1215">Active Navigator Key Trustee Server (if HDFS Transparent Encryption is enabled)</td>
+<td class="cellalignment76" headers="d3757e1322 d3757e1217">Passive Navigator Key Trustee Server (if HDFS Transparent Encryption is enabled)</td>
+<td class="cellalignment76" headers="d3757e1322 d3757e1219">-</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e1329" headers="d3757e1215">Kerberos Master KDC (Only if MIT Kerberos is enabled and on-BDA KDCs are being used.)</td>
+<td class="cellalignment76" headers="d3757e1329 d3757e1217">Kerberos Slave KDC (Only if MIT Kerberos is enabled and on-BDA KDCs are being used.)</td>
+<td class="cellalignment76" headers="d3757e1329 d3757e1219">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-6E524541-C78B-4059-8B72-6E6EA4672566"></a>
+<h3 id="BIGUG-GUID-6E524541-C78B-4059-8B72-6E6EA4672566" class="sect3"><span class="enumeration_section">2.6.2</span> Where Do the Services Run on a Single-Rack CDH Cluster?</h3>
+<div>
+<div class="section">
+<p><a href="admin.htm#GUID-6E524541-C78B-4059-8B72-6E6EA4672566__CACJJCCB" title="Service locations in a one-rack cluster (6 or more nodes)">Table 2-2</a> identifies the services in CDH clusters configured within a single rack, including starter racks and clusters with five or more nodes. Node01 is the first server in the cluster (server 1, 7, or 10), and node<span class="italic">nn</span> is the last server in the cluster (server 6, 9, 12, or 18). Multirack clusters have different services layouts, as do three-node clusters for development purposes. Both are described separately in this chapter.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformalwide" id="GUID-6E524541-C78B-4059-8B72-6E6EA4672566__CACJJCCB">
+<hr />
+<p class="titleintable">Table 2-2 Service Locations for One or More CDH Clusters in a Single Rack</p>
+<table class="cellalignment77" title="Service Locations for One or More CDH Clusters in a Single Rack" summary="Service locations in a one-rack cluster (6 or more nodes)">
+<thead align="left">
+<tr>
+<th class="cellalignment78" id="d3757e1386">Node01</th>
+<th class="cellalignment79" id="d3757e1391">Node02</th>
+<th class="cellalignment79" id="d3757e1396">Node03</th>
+<th class="cellalignment80" id="d3757e1401">Node04</th>
+<th class="cellalignment80" id="d3757e1406">Node05 to nn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment78" id="d3757e1415" headers="d3757e1386">
+<p>Balancer</p>
+</td>
+<td class="cellalignment79" headers="d3757e1415 d3757e1391">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e1415 d3757e1396">
+<p>Cloudera Manager Server</p>
+</td>
+<td class="cellalignment80" headers="d3757e1415 d3757e1401">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1415 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1441" headers="d3757e1386">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment79" headers="d3757e1441 d3757e1391">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment79" headers="d3757e1441 d3757e1396">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment80" headers="d3757e1441 d3757e1401">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment80" headers="d3757e1441 d3757e1406">
+<p>Cloudera Manager Agent</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1467" headers="d3757e1386">
+<p>DataNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e1467 d3757e1391">
+<p>DataNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e1467 d3757e1396">
+<p>DataNode</p>
+</td>
+<td class="cellalignment80" headers="d3757e1467 d3757e1401">
+<p>DataNode</p>
+</td>
+<td class="cellalignment80" headers="d3757e1467 d3757e1406">
+<p>DataNode</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1493" headers="d3757e1386">
+<p>Failover Controller</p>
+</td>
+<td class="cellalignment79" headers="d3757e1493 d3757e1391">
+<p>Failover Controller</p>
+</td>
+<td class="cellalignment79" headers="d3757e1493 d3757e1396">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1493 d3757e1401">
+<p>Hive, Hue, Oozie</p>
+</td>
+<td class="cellalignment80" headers="d3757e1493 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1517" headers="d3757e1386">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e1517 d3757e1391">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e1517 d3757e1396">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment80" headers="d3757e1517 d3757e1401">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1517 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1543" headers="d3757e1386">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e1543 d3757e1391">
+<p>MySQL Backup</p>
+</td>
+<td class="cellalignment79" headers="d3757e1543 d3757e1396">
+<p>MySQL Primary</p>
+</td>
+<td class="cellalignment80" headers="d3757e1543 d3757e1401">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1543 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1569" headers="d3757e1386">
+<p>NameNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e1569 d3757e1391">
+<p>NameNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e1569 d3757e1396">
+<p>Navigator Audit Server and Navigator Metadata Server</p>
+</td>
+<td class="cellalignment80" headers="d3757e1569 d3757e1401">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1569 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1595" headers="d3757e1386">
+<p>NodeManager (in clusters of eight nodes or less)</p>
+</td>
+<td class="cellalignment79" headers="d3757e1595 d3757e1391">
+<p>NodeManager (in clusters of eight nodes or less)</p>
+</td>
+<td class="cellalignment79" headers="d3757e1595 d3757e1396">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment80" headers="d3757e1595 d3757e1401">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment80" headers="d3757e1595 d3757e1406">
+<p>NodeManager</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1621" headers="d3757e1386">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e1621 d3757e1391">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e1621 d3757e1396">
+<p>SparkHistoryServer</p>
+</td>
+<td class="cellalignment80" headers="d3757e1621 d3757e1401">
+<p>Oracle Data Integrator Agent</p>
+</td>
+<td class="cellalignment80" headers="d3757e1621 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1647" headers="d3757e1386">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e1647 d3757e1391">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e1647 d3757e1396">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment80" headers="d3757e1647 d3757e1401">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment80" headers="d3757e1647 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1672" headers="d3757e1386">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment79" headers="d3757e1672 d3757e1391">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment79" headers="d3757e1672 d3757e1396">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment80" headers="d3757e1672 d3757e1401">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1672 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1699" headers="d3757e1386">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e1699 d3757e1391">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e1699 d3757e1396">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment80" headers="d3757e1699 d3757e1401">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment80" headers="d3757e1699 d3757e1406">
+<p>Big Data SQL (if enabled)</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1715" headers="d3757e1386">
+<p>Kerberos KDC (if MIT Kerberos is enabled and on-BDA KDCs are being used)</p>
+</td>
+<td class="cellalignment79" headers="d3757e1715 d3757e1391">
+<p>Kerberos KDC (if MIT Kerberos is enabled and on-BDA KDCs are being used)</p>
+</td>
+<td class="cellalignment79" headers="d3757e1715 d3757e1396">
+<p>JobHistory</p>
+</td>
+<td class="cellalignment80" headers="d3757e1715 d3757e1401">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1715 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1731" headers="d3757e1386">
+<p>Sentry Server (if enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e1731 d3757e1391">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e1731 d3757e1396">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1731 d3757e1401">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1731 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1747" headers="d3757e1386">
+<p>Active Navigator Key Trustee Server (if HDFS Transparent Encryption is enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e1747 d3757e1391">
+<p>Passive Navigator Key Trustee Server (if HDFS Transparent Encryption is enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e1747 d3757e1396">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1747 d3757e1401">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1747 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment78" id="d3757e1763" headers="d3757e1386">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e1763 d3757e1391">
+<p>HttpFS</p>
+</td>
+<td class="cellalignment79" headers="d3757e1763 d3757e1396">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1763 d3757e1401">
+<p>-</p>
+</td>
+<td class="cellalignment80" headers="d3757e1763 d3757e1406">
+<p>-</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p class="subhead3"></p>
+<div class="infobox-note" id="GUID-6E524541-C78B-4059-8B72-6E6EA4672566__GUID-2FC3D62F-E534-40A4-AE3F-C51B3CA55EB6">
+<p class="notep1">Note:</p>
+If Oracle Big Data Discovery is installed, the NodeManager and DataNode on Node05 of the primary cluster are decomissioned.
+<p>If Oozie high availability is enabled, then Oozie servers are hosted on Node04 and another node (preferably a ResourceNode) selected by the customer.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG271"></a><a id="BIGUG21112"></a><a id="BIGUG270"></a>
+<div class="props_rev_3"><a id="GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4"></a>
+<h3 id="BIGUG-GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4" class="sect3"><span class="enumeration_section">2.6.3</span> Where Do the Services Run on a Multirack CDH Cluster?</h3>
+<div>
+<div class="section">
+<p>When multiple racks are configured as a single CDH cluster, some critical services are installed on the second rack. There can be variations in the distribution of services between the first and second racks in different multirack clusters. The two scenarios that account for these differences are:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The cluster spanned multiple racks in its original configuration.</p>
+<p>The resulting service locations across the first and second rack are described in <a href="admin.htm#GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__CACBCHIB" title="Service locations in the first rack of a cluster that was originally configured to span multiple racks.">Table 2-3</a> and <a href="admin.htm#GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__CACDDEEA" title="Service locations in the second rack when a cluster is originally configured to span multiple racks.">Table 2-4</a>. In this case, the JournalNode, Mysql Primary, ResourceManager, and Zookeeper are installed on node 2 of the first rack.</p>
+</li>
+<li>
+<p>The cluster was single-rack in the original configuration and was extended later.</p>
+<p>The resulting service locations across the first and second rack are described in <a href="admin.htm#GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__FIRSTRACKSERVICELOCATIONSWHENASINGL-9EFD3B0F" title="Service locations in the first rack of a cluster that was originally configured as single-rack cluster and subsequently extended.">Table 2-5</a> and <a href="admin.htm#GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__SECONDRACKSERVICELOCATIONSWHENASING-9EFC9B9D" title="Service locations in the second rack of a cluster originally configured as a single-rack cluster and subsequently extended.">Table 2-6</a>. In this case, the JournalNode, Mysql Primary, ResourceManager, and Zookeeper are installed on node 3 of the first rack.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infobox-note" id="GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__GUID-2FC3D62F-E534-40A4-AE3F-C51B3CA55EB6">
+<p class="notep1">Note:</p>
+If Oracle Big Data Discovery is installed, the NodeManager and DataNode on Node05 in the first rack of the primary cluster are decommissioned.
+<p>There is one variant that is determined specifically by cluster size &ndash; for clusters of eight nodes less, nodes that run NameNode also run NodeManager. This is not true for clusters larger than eight nodes.</p>
+</div>
+</div>
+<!-- class="section" -->
+<div class="tblformalwide" id="GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__CACBCHIB">
+<hr />
+<p class="titleintable">Table 2-3 First Rack Service Locations (When the Cluster Started as Multirack Cluster)</p>
+<table class="cellalignment77" title="First Rack Service Locations (When the Cluster Started as Multirack Cluster)" summary="Service locations in the first rack of a cluster that was originally configured to span multiple racks.">
+<thead align="left">
+<tr>
+<th class="cellalignment81" id="d3757e1863">Node01</th>
+<th class="cellalignment82" id="d3757e1866">Node02</th>
+<th class="cellalignment82" id="d3757e1869">Node03</th>
+<th class="cellalignment83" id="d3757e1872">Node04</th>
+<th class="cellalignment84" id="d3757e1875">Node05 to nn(1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment81" id="d3757e1887" headers="d3757e1863">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment82" headers="d3757e1887 d3757e1866">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment82" headers="d3757e1887 d3757e1869">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment83" headers="d3757e1887 d3757e1872">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment84" headers="d3757e1887 d3757e1875">
+<p>Cloudera Manager Agent</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e1903" headers="d3757e1863">
+<p>&ndash;</p>
+</td>
+<td class="cellalignment82" headers="d3757e1903 d3757e1866">
+<p>Cloudera Manager Server</p>
+</td>
+<td class="cellalignment82" headers="d3757e1903 d3757e1869">
+<p>&ndash;</p>
+</td>
+<td class="cellalignment83" headers="d3757e1903 d3757e1872">
+<p>&ndash;</p>
+</td>
+<td class="cellalignment84" headers="d3757e1903 d3757e1875">
+<p>&ndash;</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e1919" headers="d3757e1863">
+<p>DataNode</p>
+</td>
+<td class="cellalignment82" headers="d3757e1919 d3757e1866">
+<p>DataNode</p>
+</td>
+<td class="cellalignment82" headers="d3757e1919 d3757e1869">
+<p>DataNode</p>
+</td>
+<td class="cellalignment83" headers="d3757e1919 d3757e1872">
+<p>DataNode</p>
+</td>
+<td class="cellalignment84" headers="d3757e1919 d3757e1875">
+<p>DataNode</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e1935" headers="d3757e1863">
+<p>Failover Controller</p>
+</td>
+<td class="cellalignment82" headers="d3757e1935 d3757e1866">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e1935 d3757e1869">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e1935 d3757e1872">
+<p>-</p>
+</td>
+<td class="cellalignment84" headers="d3757e1935 d3757e1875">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e1951" headers="d3757e1863">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment82" headers="d3757e1951 d3757e1866">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment82" headers="d3757e1951 d3757e1869">
+<p>Navigator Audit Server and Navigator Metadata Server</p>
+</td>
+<td class="cellalignment83" headers="d3757e1951 d3757e1872">
+<p>-</p>
+</td>
+<td class="cellalignment84" headers="d3757e1951 d3757e1875">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e1967" headers="d3757e1863">
+<p>NameNode</p>
+</td>
+<td class="cellalignment82" headers="d3757e1967 d3757e1866">
+<p>MySQL Primary</p>
+</td>
+<td class="cellalignment82" headers="d3757e1967 d3757e1869">
+<p>SparkHistoryServer</p>
+</td>
+<td class="cellalignment83" headers="d3757e1967 d3757e1872">
+<p>-</p>
+</td>
+<td class="cellalignment84" headers="d3757e1967 d3757e1875">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e1983" headers="d3757e1863">
+<p>NodeManager (in clusters of eight nodes or less)</p>
+</td>
+<td class="cellalignment82" headers="d3757e1983 d3757e1866">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment82" headers="d3757e1983 d3757e1869">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment83" headers="d3757e1983 d3757e1872">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment84" headers="d3757e1983 d3757e1875">
+<p>NodeManager</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e1999" headers="d3757e1863">
+<p>&ndash;</p>
+</td>
+<td class="cellalignment82" headers="d3757e1999 d3757e1866">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment82" headers="d3757e1999 d3757e1869">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e1999 d3757e1872">
+<p>-</p>
+</td>
+<td class="cellalignment84" headers="d3757e1999 d3757e1875">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e2015" headers="d3757e1863">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment82" headers="d3757e2015 d3757e1866">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment82" headers="d3757e2015 d3757e1869">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e2015 d3757e1872">
+<p>-</p>
+</td>
+<td class="cellalignment84" headers="d3757e2015 d3757e1875">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e2031" headers="d3757e1863">
+<p>Kerberos KDC (Only if MIT Kerberos is enabled and on-BDA KDCs are being used.)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2031 d3757e1866">
+<p>Kerberos KDC (Only if MIT Kerberos is enabled and on-BDA KDCs are being used.)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2031 d3757e1869">&nbsp;</td>
+<td class="cellalignment83" headers="d3757e2031 d3757e1872">&nbsp;</td>
+<td class="cellalignment84" headers="d3757e2031 d3757e1875">&nbsp;</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e2041" headers="d3757e1863">
+<p>Sentry Server (Only if Sentry is enabled.)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2041 d3757e1866">&nbsp;</td>
+<td class="cellalignment82" headers="d3757e2041 d3757e1869">&nbsp;</td>
+<td class="cellalignment83" headers="d3757e2041 d3757e1872">&nbsp;</td>
+<td class="cellalignment84" headers="d3757e2041 d3757e1875">&nbsp;</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e2050" headers="d3757e1863">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2050 d3757e1866">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2050 d3757e1869">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment83" headers="d3757e2050 d3757e1872">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment84" headers="d3757e2050 d3757e1875">
+<p>Big Data SQL (if enabled)</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment81" id="d3757e2066" headers="d3757e1863">
+<p>Active Navigator Key Trustee Server (if HDFS Transparent Encryption is enabled)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2066 d3757e1866">&nbsp;</td>
+<td class="cellalignment82" headers="d3757e2066 d3757e1869">&nbsp;</td>
+<td class="cellalignment83" headers="d3757e2066 d3757e1872">&nbsp;</td>
+<td class="cellalignment84" headers="d3757e2066 d3757e1875">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;1</sup> nn includes the servers in additional racks.</p>
+<div class="section">
+<p><a href="admin.htm#GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__CACDDEEA" title="Service locations in the second rack when a cluster is originally configured to span multiple racks.">Table 2-4</a> shows the service locations in the second rack of a cluster that was originally configured to span multiple racks.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformalwide" id="GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__CACDDEEA">
+<hr />
+<p class="titleintable">Table 2-4 Second Rack Service Locations (When the Cluster Started as Multirack Cluster)</p>
+<table class="cellalignment77" title="Second Rack Service Locations (When the Cluster Started as Multirack Cluster)" summary="Service locations in the second rack when a cluster is originally configured to span multiple racks.">
+<thead align="left">
+<tr>
+<th class="cellalignment79" id="d3757e2093">Node01</th>
+<th class="cellalignment79" id="d3757e2096">Node02</th>
+<th class="cellalignment79" id="d3757e2099">Node03</th>
+<th class="cellalignment79" id="d3757e2102">Node04</th>
+<th class="cellalignment85" id="d3757e2105">Node05 to nn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment79" id="d3757e2112" headers="d3757e2093">
+<p>Balancer</p>
+</td>
+<td class="cellalignment79" headers="d3757e2112 d3757e2096">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2112 d3757e2099">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2112 d3757e2102">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2112 d3757e2105">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2128" headers="d3757e2093">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment79" headers="d3757e2128 d3757e2096">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment79" headers="d3757e2128 d3757e2099">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment79" headers="d3757e2128 d3757e2102">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment85" headers="d3757e2128 d3757e2105">
+<p>Cloudera Manager Agent</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2144" headers="d3757e2093">
+<p>DataNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e2144 d3757e2096">
+<p>DataNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e2144 d3757e2099">
+<p>DataNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e2144 d3757e2102">
+<p>DataNode</p>
+</td>
+<td class="cellalignment85" headers="d3757e2144 d3757e2105">
+<p>DataNode</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2160" headers="d3757e2093">
+<p>Failover Controller</p>
+</td>
+<td class="cellalignment79" headers="d3757e2160 d3757e2096">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2160 d3757e2099">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2160 d3757e2102">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2160 d3757e2105">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2176" headers="d3757e2093">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e2176 d3757e2096">
+<p>Hive, Hue, Oozie</p>
+</td>
+<td class="cellalignment79" headers="d3757e2176 d3757e2099">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2176 d3757e2102">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2176 d3757e2105">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2192" headers="d3757e2093">
+<p>MySQL Backup</p>
+</td>
+<td class="cellalignment79" headers="d3757e2192 d3757e2096">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2192 d3757e2099">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2192 d3757e2102">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2192 d3757e2105">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2208" headers="d3757e2093">
+<p>NameNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e2208 d3757e2096">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2208 d3757e2099">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2208 d3757e2102">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2208 d3757e2105">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2224" headers="d3757e2093">
+<p>NodeManager (in clusters of eight nodes or less)</p>
+</td>
+<td class="cellalignment79" headers="d3757e2224 d3757e2096">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment79" headers="d3757e2224 d3757e2099">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment79" headers="d3757e2224 d3757e2102">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment85" headers="d3757e2224 d3757e2105">
+<p>NodeManager</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2240" headers="d3757e2093">
+<p>HttpFS</p>
+</td>
+<td class="cellalignment79" headers="d3757e2240 d3757e2096">
+<p>Oracle Data Integrator Agent</p>
+</td>
+<td class="cellalignment79" headers="d3757e2240 d3757e2099">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2240 d3757e2102">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2240 d3757e2105">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2256" headers="d3757e2093">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2256 d3757e2096">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment79" headers="d3757e2256 d3757e2099">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2256 d3757e2102">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2256 d3757e2105">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2272" headers="d3757e2093">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment79" headers="d3757e2272 d3757e2096">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2272 d3757e2099">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2272 d3757e2102">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2272 d3757e2105">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2289" headers="d3757e2093">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e2289 d3757e2096">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e2289 d3757e2099">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e2289 d3757e2102">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment85" headers="d3757e2289 d3757e2105">
+<p>Big Data SQL (if enabled)</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2305" headers="d3757e2093">
+<p>Passive Navigator Key Trustee Server (if HDFS Transparent Encryption is enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e2305 d3757e2096">&nbsp;</td>
+<td class="cellalignment79" headers="d3757e2305 d3757e2099">&nbsp;</td>
+<td class="cellalignment79" headers="d3757e2305 d3757e2102">&nbsp;</td>
+<td class="cellalignment85" headers="d3757e2305 d3757e2105">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p><a href="admin.htm#GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__FIRSTRACKSERVICELOCATIONSWHENASINGL-9EFD3B0F" title="Service locations in the first rack of a cluster that was originally configured as single-rack cluster and subsequently extended.">Table 2-5</a> shows the service locations in the first rack of a cluster that was originally configured as a single-rack cluster and subsequently extended.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformalwide" id="GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__FIRSTRACKSERVICELOCATIONSWHENASINGL-9EFD3B0F">
+<hr />
+<p class="titleintable">Table 2-5 First Rack Service Locations (When a Single-Rack Cluster is Extended)</p>
+<table class="cellalignment77" title="First Rack Service Locations (When a Single-Rack Cluster is Extended)" summary="Service locations in the first rack of a cluster that was originally configured as single-rack cluster and subsequently extended.">
+<thead align="left">
+<tr>
+<th class="cellalignment86" id="d3757e2332">Node01</th>
+<th class="cellalignment82" id="d3757e2335">Node02</th>
+<th class="cellalignment83" id="d3757e2338">Node03</th>
+<th class="cellalignment87" id="d3757e2341">Node04</th>
+<th class="cellalignment82" id="d3757e2344">Node05 to nn(2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment86" id="d3757e2356" headers="d3757e2332">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment82" headers="d3757e2356 d3757e2335">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment83" headers="d3757e2356 d3757e2338">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment87" headers="d3757e2356 d3757e2341">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment82" headers="d3757e2356 d3757e2344">
+<p>Cloudera Manager Agent</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2372" headers="d3757e2332">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2372 d3757e2335">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e2372 d3757e2338">
+<p>Cloudera Manager Server</p>
+</td>
+<td class="cellalignment87" headers="d3757e2372 d3757e2341">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2372 d3757e2344">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2388" headers="d3757e2332">
+<p>DataNode</p>
+</td>
+<td class="cellalignment82" headers="d3757e2388 d3757e2335">
+<p>DataNode</p>
+</td>
+<td class="cellalignment83" headers="d3757e2388 d3757e2338">
+<p>DataNode</p>
+</td>
+<td class="cellalignment87" headers="d3757e2388 d3757e2341">
+<p>DataNode</p>
+</td>
+<td class="cellalignment82" headers="d3757e2388 d3757e2344">
+<p>DataNode</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2404" headers="d3757e2332">
+<p>Failover Controller</p>
+</td>
+<td class="cellalignment82" headers="d3757e2404 d3757e2335">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e2404 d3757e2338">
+<p>Navigator Audit Server and Navigator Metadata Server</p>
+</td>
+<td class="cellalignment87" headers="d3757e2404 d3757e2341">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2404 d3757e2344">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2420" headers="d3757e2332">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment82" headers="d3757e2420 d3757e2335">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e2420 d3757e2338">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment87" headers="d3757e2420 d3757e2341">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2420 d3757e2344">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2436" headers="d3757e2332">
+<p>NameNode</p>
+</td>
+<td class="cellalignment82" headers="d3757e2436 d3757e2335">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e2436 d3757e2338">
+<p>MySQL Primary</p>
+</td>
+<td class="cellalignment87" headers="d3757e2436 d3757e2341">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2436 d3757e2344">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2452" headers="d3757e2332">
+<p>NodeManager (in clusters of eight nodes or less)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2452 d3757e2335">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment83" headers="d3757e2452 d3757e2338">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment87" headers="d3757e2452 d3757e2341">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment82" headers="d3757e2452 d3757e2344">
+<p>NodeManager</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2468" headers="d3757e2332">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2468 d3757e2335">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e2468 d3757e2338">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment87" headers="d3757e2468 d3757e2341">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2468 d3757e2344">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2484" headers="d3757e2332">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment82" headers="d3757e2484 d3757e2335">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e2484 d3757e2338">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment87" headers="d3757e2484 d3757e2341">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2484 d3757e2344">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2500" headers="d3757e2332">
+<p>Kerberos KDC (Only if MIT Kerberos is enabled and on-BDA KDCs are being used.)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2500 d3757e2335">
+<p>Kerberos KDC (Only if MIT Kerberos is enabled and on-BDA KDCs are being used.)</p>
+</td>
+<td class="cellalignment83" headers="d3757e2500 d3757e2338">
+<p>SparkHistoryServer</p>
+</td>
+<td class="cellalignment87" headers="d3757e2500 d3757e2341">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2500 d3757e2344">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2516" headers="d3757e2332">
+<p>Sentry Server (Only if Sentry is enabled.)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2516 d3757e2335">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e2516 d3757e2338">
+<p>-</p>
+</td>
+<td class="cellalignment87" headers="d3757e2516 d3757e2341">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2516 d3757e2344">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2533" headers="d3757e2332">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2533 d3757e2335">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment83" headers="d3757e2533 d3757e2338">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment87" headers="d3757e2533 d3757e2341">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2533 d3757e2344">
+<p>Big Data SQL (if enabled)</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e2549" headers="d3757e2332">
+<p>Active Navigator Key Trustee Server (if HDFS Transparent Encryption is enabled)</p>
+</td>
+<td class="cellalignment82" headers="d3757e2549 d3757e2335">
+<p>-</p>
+</td>
+<td class="cellalignment83" headers="d3757e2549 d3757e2338">
+<p>-</p>
+</td>
+<td class="cellalignment87" headers="d3757e2549 d3757e2341">
+<p>-</p>
+</td>
+<td class="cellalignment82" headers="d3757e2549 d3757e2344">
+<p>-</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;2</sup> nn includes the servers in additional racks.</p>
+<div class="section">
+<p><a href="admin.htm#GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__SECONDRACKSERVICELOCATIONSWHENASING-9EFC9B9D" title="Service locations in the second rack of a cluster originally configured as a single-rack cluster and subsequently extended.">Table 2-6</a> shows the service locations in the second rack of a cluster originally configured as a single-rack cluster and subsequently extended.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformalwide" id="GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__SECONDRACKSERVICELOCATIONSWHENASING-9EFC9B9D">
+<hr />
+<p class="titleintable">Table 2-6 Second Rack Service Locations (When a Single-Rack Cluster is Extended)</p>
+<table class="cellalignment77" title="Second Rack Service Locations (When a Single-Rack Cluster is Extended)" summary="Service locations in the second rack of a cluster originally configured as a single-rack cluster and subsequently extended.">
+<thead align="left">
+<tr>
+<th class="cellalignment79" id="d3757e2584">Node01</th>
+<th class="cellalignment79" id="d3757e2587">Node02</th>
+<th class="cellalignment79" id="d3757e2590">Node03</th>
+<th class="cellalignment79" id="d3757e2593">Node04</th>
+<th class="cellalignment85" id="d3757e2596">Node05 to nn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment79" id="d3757e2603" headers="d3757e2584">
+<p>Balancer</p>
+</td>
+<td class="cellalignment79" headers="d3757e2603 d3757e2587">&nbsp;</td>
+<td class="cellalignment79" headers="d3757e2603 d3757e2590">&nbsp;</td>
+<td class="cellalignment79" headers="d3757e2603 d3757e2593">&nbsp;</td>
+<td class="cellalignment85" headers="d3757e2603 d3757e2596">&nbsp;</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2615" headers="d3757e2584">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment79" headers="d3757e2615 d3757e2587">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment79" headers="d3757e2615 d3757e2590">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment79" headers="d3757e2615 d3757e2593">
+<p>Cloudera Manager Agent</p>
+</td>
+<td class="cellalignment85" headers="d3757e2615 d3757e2596">
+<p>Cloudera Manager Agent</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2631" headers="d3757e2584">
+<p>DataNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e2631 d3757e2587">
+<p>DataNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e2631 d3757e2590">
+<p>DataNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e2631 d3757e2593">
+<p>DataNode</p>
+</td>
+<td class="cellalignment85" headers="d3757e2631 d3757e2596">
+<p>DataNode</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2647" headers="d3757e2584">
+<p>Failover Controller</p>
+</td>
+<td class="cellalignment79" headers="d3757e2647 d3757e2587">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2647 d3757e2590">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2647 d3757e2593">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2647 d3757e2596">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2663" headers="d3757e2584">
+<p>JournalNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e2663 d3757e2587">
+<p>Hive, Hue, Oozie, Solr</p>
+</td>
+<td class="cellalignment79" headers="d3757e2663 d3757e2590">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2663 d3757e2593">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2663 d3757e2596">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2679" headers="d3757e2584">
+<p>MySQL Backup</p>
+</td>
+<td class="cellalignment79" headers="d3757e2679 d3757e2587">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2679 d3757e2590">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2679 d3757e2593">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2679 d3757e2596">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2695" headers="d3757e2584">
+<p>NameNode</p>
+</td>
+<td class="cellalignment79" headers="d3757e2695 d3757e2587">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2695 d3757e2590">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2695 d3757e2593">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2695 d3757e2596">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2711" headers="d3757e2584">
+<p>NodeManager (in clusters of eight nodes or less)</p>
+</td>
+<td class="cellalignment79" headers="d3757e2711 d3757e2587">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment79" headers="d3757e2711 d3757e2590">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment79" headers="d3757e2711 d3757e2593">
+<p>NodeManager</p>
+</td>
+<td class="cellalignment85" headers="d3757e2711 d3757e2596">
+<p>NodeManager</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2727" headers="d3757e2584">
+<p>HttpFS</p>
+</td>
+<td class="cellalignment79" headers="d3757e2727 d3757e2587">
+<p>Oracle Data Integrator Agent</p>
+</td>
+<td class="cellalignment79" headers="d3757e2727 d3757e2590">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2727 d3757e2593">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2727 d3757e2596">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2743" headers="d3757e2584">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2743 d3757e2587">
+<p>ResourceManager</p>
+</td>
+<td class="cellalignment79" headers="d3757e2743 d3757e2590">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2743 d3757e2593">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2743 d3757e2596">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2759" headers="d3757e2584">
+<p>ZooKeeper</p>
+</td>
+<td class="cellalignment79" headers="d3757e2759 d3757e2587">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2759 d3757e2590">
+<p>-</p>
+</td>
+<td class="cellalignment79" headers="d3757e2759 d3757e2593">
+<p>-</p>
+</td>
+<td class="cellalignment85" headers="d3757e2759 d3757e2596">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2776" headers="d3757e2584">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e2776 d3757e2587">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e2776 d3757e2590">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e2776 d3757e2593">
+<p>Big Data SQL (if enabled)</p>
+</td>
+<td class="cellalignment85" headers="d3757e2776 d3757e2596">
+<p>Big Data SQL (if enabled)</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment79" id="d3757e2792" headers="d3757e2584">
+<p>Passive Navigator Key Trustee Server (if HDFS Transparent Encryption is enabled)</p>
+</td>
+<td class="cellalignment79" headers="d3757e2792 d3757e2587">&nbsp;</td>
+<td class="cellalignment79" headers="d3757e2792 d3757e2590">&nbsp;</td>
+<td class="cellalignment79" headers="d3757e2792 d3757e2593">&nbsp;</td>
+<td class="cellalignment85" headers="d3757e2792 d3757e2596">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<div class="infobox-note" id="GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4__GUID-0202BDAC-A9AF-4D4C-8002-E414A9546C82">
+<p class="notep1">Note:</p>
+<p>When expanding a cluster from one to two racks, Mammoth moves all critical services from nodes 2 and 4 of the first rack to nodes 1 and 2 of the second rack. Nodes 2 and 4 of the first rack become noncritical nodes.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG388"></a>
+<div class="props_rev_3"><a id="GUID-832FE52B-8ADB-4695-B76E-969CAFDD8D4C"></a>
+<h3 id="BIGUG-GUID-832FE52B-8ADB-4695-B76E-969CAFDD8D4C" class="sect3"><span class="enumeration_section">2.6.4</span> About MapReduce</h3>
+<div>
+<p>Yet Another Resource Negotiator (YARN) is the version of MapReduce that runs on Oracle Big Data Appliance, beginning with version 3.0. MapReduce applications developed using MapReduce 1 (MRv1) may require recompilation to run under YARN.</p>
+<p>The ResourceManager performs all resource management tasks. An MRAppMaster performs the job management tasks. Each job has its own MRAppMaster. The NodeManager has containers that can run a map task, a reduce task, or an MRAppMaster. The NodeManager can dynamically allocate containers using the available memory. This architecture results in improved scalability and better use of the cluster than MRv1.</p>
+<p>YARN also manages resources for Spark and Impala.</p>
+<div class="infoboxnotealso" id="GUID-832FE52B-8ADB-4695-B76E-969CAFDD8D4C__GUID-9B6627EF-8535-471B-B5D9-B74271E1158D">
+<p class="notep1">See Also:</p>
+<p>"Running Existing Applications on Hadoop 2 YARN" at</p>
+<p><a href="http://hortonworks.com/blog/running-existing-applications-on-hadoop-2-yarn/" target="_blank"><code>http://hortonworks.com/blog/running-existing-applications-on-hadoop-2-yarn/</code></a></p>
+</div>
+</div>
+</div>
+<a id="BIGUG247"></a><a id="BIGUG155"></a>
+<div class="props_rev_3"><a id="GUID-77516C55-E3A7-4F51-A703-CC8371D21CC7"></a>
+<h3 id="BIGUG-GUID-77516C55-E3A7-4F51-A703-CC8371D21CC7" class="sect3"><span class="enumeration_section">2.6.5</span> Automatic Failover of the NameNode</h3>
+<div>
+<p>The NameNode is the most critical process because it keeps track of the location of all data. Without a healthy NameNode, the entire cluster fails. Apache Hadoop v0.20.2 and earlier are vulnerable to failure because they have a single name node.</p>
+<p>Cloudera's Distribution including Apache Hadoop Version 4 (CDH5) reduces this vulnerability by maintaining redundant NameNodes. The data is replicated during normal operation as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>CDH maintains redundant NameNodes on the first two nodes of a cluster. One of the NameNodes is in active mode, and the other NameNode is in hot standby mode. If the active NameNode fails, then the role of active NameNode automatically fails over to the standby NameNode.</p>
+</li>
+<li>
+<p>The NameNode data is written to a mirrored partition so that the loss of a single disk can be tolerated. This mirroring is done at the factory as part of the operating system installation.</p>
+</li>
+<li>
+<p>The active NameNode records all changes to the file system metadata in at least two JournalNode processes, which the standby NameNode reads. There are three JournalNodes, which run on the first three nodes of each cluster.</p>
+</li>
+<li>
+<p>The changes recorded in the journals are periodically consolidated into a single fsimage file in a process called <span class="bold">checkpointing</span>.</p>
+</li>
+</ul>
+<p>On Oracle Big Data Appliance, the default log level of the NameNode is <code>DEBUG</code>, to support the Oracle Audit Vault and Database Firewall plugin. If this option is not configured, then you can reset the log level to <code>INFO</code>.</p>
+<div class="infobox-note" id="GUID-77516C55-E3A7-4F51-A703-CC8371D21CC7__GUID-867E546D-0626-47A2-969C-D466344608C6">
+<p class="notep1">Note:</p>
+<p>Oracle Big Data Appliance 2.0 and later releases do not support the use of an external NFS filer for backups and do not use NameNode federation.</p>
+</div>
+<p><a href="admin.htm#GUID-77516C55-E3A7-4F51-A703-CC8371D21CC7__CHDGGJJF">Figure 2-7</a> shows the relationships among the processes that support automatic failover of the NameNode.</p>
+<div class="figure" id="GUID-77516C55-E3A7-4F51-A703-CC8371D21CC7__CHDGGJJF">
+<p class="titleinfigure">Figure 2-7 Automatic Failover of the NameNode on Oracle Big Data Appliance</p>
+<img width="594" height="281" src="img/GUID-7D93959C-00D7-49F6-9DE0-846B7612F41C-default.png" alt="Description of Figure 2-7 follows" title="Description of Figure 2-7 follows" /><br />
+<a href="img_text/GUID-7D93959C-00D7-49F6-9DE0-846B7612F41C-print.htm">Description of "Figure 2-7 Automatic Failover of the NameNode on Oracle Big Data Appliance"</a></div>
+<!-- class="figure" --></div>
+</div>
+<a id="BIGUG273"></a><a id="BIGUG272"></a>
+<div class="props_rev_3"><a id="GUID-1733917B-A77B-427B-BFA6-C6D6643E86F6"></a>
+<h3 id="BIGUG-GUID-1733917B-A77B-427B-BFA6-C6D6643E86F6" class="sect3"><span class="enumeration_section">2.6.6</span> Automatic Failover of the ResourceManager</h3>
+<div>
+<p>The ResourceManager allocates resources for application tasks and application masters across the cluster. Like the NameNode, the ResourceManager is a critical point of failure for the cluster. If all ResourceManagers fail, then all jobs stop running. Oracle Big Data Appliance supports ResourceManager High Availability in Cloudera 5 to reduce this vulnerability.</p>
+<p>CDH maintains redundant ResourceManager services on node03 and node04. One of the services is in active mode, and the other service is in hot standby mode. If the active service fails, then the role of active ResourceManager automatically fails over to the standby service. No failover controllers are required.</p>
+<p><a href="admin.htm#GUID-1733917B-A77B-427B-BFA6-C6D6643E86F6__AUTOMATICFAILOVEROFTHERESOURCEMANAG-DED59A47">Figure 2-8</a> shows the relationships among the processes that support automatic failover of the ResourceManager.</p>
+<div class="figure" id="GUID-1733917B-A77B-427B-BFA6-C6D6643E86F6__AUTOMATICFAILOVEROFTHERESOURCEMANAG-DED59A47">
+<p class="titleinfigure">Figure 2-8 Automatic Failover of the ResourceManager on Oracle Big Data Appliance</p>
+<img width="468" height="152" src="img/GUID-9892110E-37A6-47E0-8E81-668ADFF91C94-default.png" alt="Description of Figure 2-8 follows" title="Description of Figure 2-8 follows" /><br />
+<a href="img_text/GUID-9892110E-37A6-47E0-8E81-668ADFF91C94-print.htm">Description of "Figure 2-8 Automatic Failover of the ResourceManager on Oracle Big Data Appliance"</a></div>
+<!-- class="figure" --></div>
+</div>
+<a id="BIGUG389"></a><a id="BIGUG275"></a><a id="BIGUG276"></a><a id="BIGUG274"></a>
+<div class="props_rev_3"><a id="GUID-EC395B32-76ED-44D7-8059-CF9E6354A3B9"></a>
+<h3 id="BIGUG-GUID-EC395B32-76ED-44D7-8059-CF9E6354A3B9" class="sect3"><span class="enumeration_section">2.6.7</span> Map and Reduce Resource Allocation</h3>
+<div>
+<div class="section">
+<p>Oracle Big Data Appliance dynamically allocates memory to YARN. The allocation depends upon the total memory on the node and whether the node is one of the four critical nodes.</p>
+<p>If you add memory, update the NodeManager container memory by increasing it by 80% of the memory added. Leave the remaining 20% for overhead.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG157"></a>
+<div class="props_rev_3"><a id="GUID-85770252-72F2-45CD-990C-739FFC68F76D"></a>
+<h2 id="BIGUG-GUID-85770252-72F2-45CD-990C-739FFC68F76D" class="sect2"><span class="enumeration_section">2.7</span> Effects of Hardware on Software Availability</h2>
+<div>
+<p>The effects of a server failure vary depending on the server's function within the CDH cluster. Oracle Big Data Appliance servers are more robust than commodity hardware, so you should experience fewer hardware failures. This section highlights the most important services that run on the various servers of the primary rack. For a full list, see <span class="q">"<a href="admin.htm#GUID-6E524541-C78B-4059-8B72-6E6EA4672566">Where Do the Services Run on a Single-Rack CDH Cluster?</a>."</span></p>
+<div class="infobox-note" id="GUID-85770252-72F2-45CD-990C-739FFC68F76D__GUID-F57C4081-D0C4-4FCA-AD36-DA779976AE62">
+<p class="notep1">Note:</p>
+<p>In a multirack cluster, some critical services run on the first server of the second rack. See <span class="q">"<a href="admin.htm#GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4">Where Do the Services Run on a Multirack CDH Cluster?</a>."</span></p>
+</div>
+</div>
+<a id="BIGUG146"></a><a id="BIGUG145"></a>
+<div class="props_rev_3"><a id="GUID-71482756-82D6-40CF-8BF9-D6D52710BB7F"></a>
+<h3 id="BIGUG-GUID-71482756-82D6-40CF-8BF9-D6D52710BB7F" class="sect3"><span class="enumeration_section">2.7.1</span> Logical Disk Layout</h3>
+<div>
+<div class="section">
+<p>Each server has 12 disks. <a id="d3757e3026" class="indexterm-anchor"></a>. Disk partitioning is described in the table below.</p>
+<p><a href="admin.htm#GUID-71482756-82D6-40CF-8BF9-D6D52710BB7F__CHDCJBAD">**INTERNAL XREF ERROR**</a> describes how the disks are partitioned.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The operating system is installed on disks 1 and 2. These two disks are mirrored. They include the <a id="d3757e3035" class="indexterm-anchor"></a>Linux operating system, all installed software, NameNode data, and MySQL Database data. The NameNode and MySQL Database data are replicated on the two servers for a total of four copies. As shown in the table, in cases where Disk 1 and 2 are 4 TB drives these include a 3440 GB HDFS data partition. If Disk 1 and 2 are 8 TB, each includes a 7314 GB HDFS data partition.</p>
+<p>Drive 3 through 12 each contain a single HDFS or Oracle NoSQL Database data partition</p>
+<div class="tblformal" id="GUID-71482756-82D6-40CF-8BF9-D6D52710BB7F__ORACLEBIGDATAAPPLIANCESERVERDISKPAR-3F7FC104">
+<p class="titleintable">Table 2-7 Oracle Big Data Appliance Server Disk Partioning</p>
+<table class="cellalignment75" title="Oracle Big Data Appliance Server Disk Partioning" summary="Describes the disk partitioning on Oracle Big Data Appliance servers. Column 1 provides the partitioning data for the 4 terabyte and 8 terabyte versions of OS disks 1 and 2. Column 2 provides the same informaton for data disks 3 through 12.">
+<thead align="left">
+<tr>
+<th class="cellalignment76" id="d3757e3052">Disks 1 and 2 (OS)</th>
+<th class="cellalignment76" id="d3757e3054">Disks 3 &ndash; 12 (Data)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment76" id="d3757e3058" headers="d3757e3052">8 TB Drives:
+<pre dir="ltr">
+Number  Start   End     Size    File system     Name     Flags
+  1      1049kB  500MB   499MB   ext4            primary  boot
+  2      500MB   501GB   500GB                   primary  raid
+  3      501GB   550GB   50.0GB  linux-swap(v1)  primary
+  4      550GB   7864GB  7314GB  ext4            primary
+</pre></td>
+<td class="cellalignment76" headers="d3757e3058 d3757e3054">8 TB Drives:
+<pre dir="ltr">
+Number  Start   End     Size    File system  Name     Flags
+  1      1049kB  7864GB  7864GB  ext4         primary
+</pre></td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e3067" headers="d3757e3052">4 TB Drives:
+<pre dir="ltr">
+Number  Start   End     Size    File system     Name     Flags
+ 1      1049kB  500MB   499MB   ext4            primary  boot
+ 2      500MB   501GB   500GB                   primary  raid
+ 3      501GB   560GB   59.5GB  linux-swap(v1)  primary
+ 4      560GB   4000GB  3440GB  ext4            primary
+</pre></td>
+<td class="cellalignment76" headers="d3757e3067 d3757e3054">4 TB Drives:
+<pre dir="ltr">
+Number  Start   End     Size    File system     Name     Flags
+ 1       1049kB  4000GB  4000GB  ext4            primary
+</pre></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG218"></a>
+<div class="props_rev_3"><a id="GUID-23DCF41D-3789-4277-A125-65C8AE6A7F45"></a>
+<h3 id="BIGUG-GUID-23DCF41D-3789-4277-A125-65C8AE6A7F45" class="sect3"><span class="enumeration_section">2.7.2</span> Critical and Noncritical CDH Nodes</h3>
+<div>
+<p>Critical nodes are required for the cluster to operate normally and provide all services to users. In contrast, the cluster continues to operate with no loss of service when a noncritical node fails.</p>
+<p>On single-rack clusters, the critical services are installed initially on the first four nodes of the cluster. The remaining nodes (node05 up to node18) only run <a id="d3757e3097" class="indexterm-anchor"></a>noncritical services. If a hardware failure occurs on one of the critical nodes, then the services can be moved to another, noncritical server. For example, if node02 fails, then you might move its critical services node05. <a href="admin.htm#GUID-6E524541-C78B-4059-8B72-6E6EA4672566__CACJJCCB" title="Service locations in a one-rack cluster (6 or more nodes)">Table 2-2</a> identifies the initial location of services for clusters that are configured on a single rack.</p>
+<p>In a multirack cluster, some critical services run on the first server of the second rack. See <span class="q">"<a href="admin.htm#GUID-6E524541-C78B-4059-8B72-6E6EA4672566">Where Do the Services Run on a Single-Rack CDH Cluster?</a>."</span></p>
+</div>
+<a id="BIGUG76672"></a>
+<div class="props_rev_3"><a id="GUID-B8712562-6A6E-4264-9685-C1FF7819957A"></a>
+<h4 id="BIGUG-GUID-B8712562-6A6E-4264-9685-C1FF7819957A" class="sect4"><span class="enumeration_section">2.7.2.1</span> High Availability or Single Points of Failure?</h4>
+<div>
+<div class="section">
+<p>Some services have high availability and automatic failover. Other services have a single point of failure. The following list summarizes the critical services:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">NameNodes</span>: High availability with automatic failover</p>
+</li>
+<li>
+<p><span class="bold">ResourceManagers</span>: High availability with automatic failover</p>
+</li>
+<li>
+<p><span class="bold">MySQL Database</span>: Primary and backup databases are configured with replication of the primary database to the backup database. There is no automatic failover. If the primary database fails, the functionality of the cluster is diminished, but no data is lost.</p>
+</li>
+<li>
+<p><span class="bold">Cloudera Manager</span>: The Cloudera Manager server runs on one node. If it fails, then Cloudera Manager functionality is unavailable.</p>
+</li>
+<li>
+<p><span class="bold">Oozie server, Hive server, Hue server, and Oracle Data Integrator agent</span>: These services have no redundancy. If the node fails, then the services are unavailable.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG277"></a><a id="BIGUG76673"></a>
+<div class="props_rev_3"><a id="GUID-E74CDEEE-2481-4F15-87F7-3F840DFD58EA"></a>
+<h4 id="BIGUG-GUID-E74CDEEE-2481-4F15-87F7-3F840DFD58EA" class="sect4"><span class="enumeration_section">2.7.2.2</span> Where Do the Critical Services Run?</h4>
+<div>
+<div class="section">
+<p><a href="admin.htm#GUID-E74CDEEE-2481-4F15-87F7-3F840DFD58EA__CHDIHFJD" title="Location of critical services">Table 2-8</a> identifies where the critical services run in a CDH cluster. These four nodes are described in more detail in the topics that follow.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-E74CDEEE-2481-4F15-87F7-3F840DFD58EA__CHDIHFJD">
+<hr />
+<p class="titleintable">Table 2-8 Critical Service Locations on a Single Rack</p>
+<table class="cellalignment88" title="Critical Service Locations on a Single Rack" summary="Location of critical services">
+<thead align="left">
+<tr>
+<th class="cellalignment89" id="d3757e3195">Node Name</th>
+<th class="cellalignment90" id="d3757e3198">Critical Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment89" id="d3757e3203" headers="d3757e3195">
+<p>First NameNode</p>
+</td>
+<td class="cellalignment90" headers="d3757e3203 d3757e3198">
+<p>Balancer, Failover Controller, JournalNode, NameNode, Puppet Master, ZooKeeper</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment89" id="d3757e3210" headers="d3757e3195">
+<p>Second NameNode</p>
+</td>
+<td class="cellalignment90" headers="d3757e3210 d3757e3198">
+<p>Failover Controller, JournalNode, MySQL Backup Database, NameNode, ZooKeeper</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment89" id="d3757e3217" headers="d3757e3195">
+<p>First ResourceManager Node</p>
+</td>
+<td class="cellalignment90" headers="d3757e3217 d3757e3198">
+<p>Cloudera Manager Server, JobHistory, JournalNode, MySQL Primary Database, ResourceManager, ZooKeeper.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment89" id="d3757e3224" headers="d3757e3195">
+<p>Second ResourceManager Node</p>
+</td>
+<td class="cellalignment90" headers="d3757e3224 d3757e3198">
+<p>Hive, Hue, Oozie, Solr, Oracle Data Integrator Agent, ResourceManager</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p>In a single-rack cluster, the four critical nodes are created initially on the first four nodes. See <span class="q">"<a href="admin.htm#GUID-6E524541-C78B-4059-8B72-6E6EA4672566">Where Do the Services Run on a Single-Rack CDH Cluster?</a>"</span></p>
+<p>In a multirack cluster, the Second NameNode and the Second ResourceManager nodes are moved to the first two nodes of the second rack. See <span class="q">"<a href="admin.htm#GUID-FE6AC362-CC4D-41C5-8860-FD2C5BED22F4">Where Do the Services Run on a Multirack CDH Cluster?</a>"</span>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG158"></a>
+<div class="props_rev_3"><a id="GUID-2F6899BA-C828-4A07-8014-C6787C24EC20"></a>
+<h3 id="BIGUG-GUID-2F6899BA-C828-4A07-8014-C6787C24EC20" class="sect3"><span class="enumeration_section">2.7.3</span> First NameNode Node</h3>
+<div>
+<p>If the first NameNode fails or goes offline (such as a restart), then the second NameNode automatically takes over to maintain the normal activities of the cluster.</p>
+<p>Alternatively, if the second NameNode is already active, it continues without a backup. With only one NameNode, the cluster is vulnerable to failure. The cluster has lost the redundancy needed for automatic failover.</p>
+<p>The p<a id="d3757e3275" class="indexterm-anchor"></a>uppet master also runs on this node. The Mammoth utility uses Puppet, and so you cannot install or reinstall the software if, for example, you must replace a disk drive elsewhere in the rack.</p>
+</div>
+</div>
+<a id="BIGUG220"></a>
+<div class="props_rev_3"><a id="GUID-F48CFB38-498D-4A04-A8D3-578E82D5A5D3"></a>
+<h3 id="BIGUG-GUID-F48CFB38-498D-4A04-A8D3-578E82D5A5D3" class="sect3"><span class="enumeration_section">2.7.4</span> Second NameNode Node</h3>
+<div>
+<p>If the second NameNode fails, then the function of the NameNode either fails over to the first NameNode (node01) or continues there without a backup. However, the cluster has lost the redundancy needed for automatic failover if the first NameNode also fails.</p>
+<p>The MySQL backup database also runs on this node. MySQL Database continues to run, although there is no backup of the master database.</p>
+</div>
+</div>
+<a id="BIGUG221"></a>
+<div class="props_rev_3"><a id="GUID-02BAEC49-6EF6-4335-9575-0EF64B1A4DD4"></a>
+<h3 id="BIGUG-GUID-02BAEC49-6EF6-4335-9575-0EF64B1A4DD4" class="sect3"><span class="enumeration_section">2.7.5</span> First ResourceManager Node</h3>
+<div>
+<p>If the first ResourceManager node fails or goes offline (such as in a restart of the server where the node is running), then the second ResourceManager automatically takes over the distribution of MapReduce tasks to specific nodes across the cluster.</p>
+<p>If the second ResourceManager is already active when the first ResourceManager becomes inaccessible, then it continues as ResourceManager, but without a backup. With only one ResourceManager, the cluster is vulnerable because it has lost the redundancy needed for automatic failover.</p>
+<p>If the first ResourceManager node fails or goes offline (such as a restart), then the second ResourceManager automatically takes over to distribute MapReduce tasks to specific nodes across the cluster.</p>
+<p>Alternatively, if the second ResourceManager is already active, it continues without a backup. With only one ResourceManager, the cluster is vulnerable to failure. The cluster has lost the redundancy needed for automatic failover.</p>
+<p>These services are also disrupted:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a id="d3757e3337" class="indexterm-anchor"></a><span class="bold">Cloudera Manager</span>: This tool provides central management for the entire CDH cluster. Without this tool, you can still monitor activities using the utilities described in <span class="q">"<a href="admin.htm#GUID-FDB44A3C-29DE-4081-A559-1AE5973A9D69">Using Hadoop Monitoring Utilities</a>"</span>.</p>
+</li>
+<li>
+<p><a id="d3757e3350" class="indexterm-anchor"></a><span class="bold">MySQL Database</span>: <a id="d3757e3357" class="indexterm-anchor"></a>Cloudera Manager, <a id="d3757e3362" class="indexterm-anchor"></a>Oracle Data Integrator, <a id="d3757e3367" class="indexterm-anchor"></a>Hive, and <a id="d3757e3372" class="indexterm-anchor"></a><a id="d3757e3376" class="indexterm-anchor"></a>Oozie use MySQL Database. The data is replicated automatically, but you cannot access it when the master database server is down.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGUG278"></a>
+<div class="props_rev_3"><a id="GUID-9166E769-676A-4383-B31B-3A076E6D58B3"></a>
+<h3 id="BIGUG-GUID-9166E769-676A-4383-B31B-3A076E6D58B3" class="sect3"><span class="enumeration_section">2.7.6</span> Second ResourceManager Node</h3>
+<div>
+<p>If the second ResourceManager node fails, then the function of the ResourceManager either fails over to the first ResourceManager or continues there without a backup. However, the cluster has lost the redundancy needed for automatic failover if the first ResourceManager also fails.</p>
+<p>These services are also disrupted:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a id="d3757e3417" class="indexterm-anchor"></a><span class="bold">Oracle Data Integrator Agent</span> This service supports Oracle Data Integrator, which is one of the Oracle Big Data Connectors. You cannot use Oracle Data Integrator when the ResourceManager node is down.</p>
+</li>
+<li>
+<p><span class="bold">Hive</span>: Hive provides a SQL-like interface to data that is stored in HDFS. Oracle Big Data SQL and most of the Oracle Big Data Connectors can access Hive tables, which are not available if this node fails.</p>
+</li>
+<li>
+<p><span class="bold">Hue</span>: This administrative tool is not available when the ResourceManager node is down.</p>
+</li>
+<li>
+<p><span class="bold">Oozie</span>: This workflow and coordination service runs on the ResourceManager node, and is unavailable when the node is down.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGUG160"></a>
+<div class="props_rev_3"><a id="GUID-AD230B45-6B6C-4FFA-AFA7-71AB1269021A"></a>
+<h3 id="BIGUG-GUID-AD230B45-6B6C-4FFA-AFA7-71AB1269021A" class="sect3"><span class="enumeration_section">2.7.7</span> Noncritical CDH Nodes</h3>
+<div>
+<p>The noncritical nodes are optional in that Oracle Big Data Appliance continues to operate with no loss of service if a failure occurs. The NameNode automatically replicates the lost data to always maintain three copies. MapReduce jobs execute on copies of the data stored elsewhere in the cluster. The only loss is in computational power, because there are fewer servers on which to distribute the work.</p>
+</div>
+</div>
+</div>
+<a id="BIGUG76674"></a>
+<div class="props_rev_3"><a id="GUID-9AB38E1B-624E-4648-8621-BBA5F7E38F8B"></a>
+<h2 id="BIGUG-GUID-9AB38E1B-624E-4648-8621-BBA5F7E38F8B" class="sect2"><span class="enumeration_section">2.8</span> Managing a Hardware Failure</h2>
+<div>
+<p>If a server starts failing, you must take steps to maintain the services of the cluster with as little interruption as possible. You can manage a failing server easily using the <code>bdacli</code> utility, as described in the following procedures. One of the management steps is called decommissioning. <span class="italic">Decommissioning</span> stops all roles for all services, thereby preventing data loss. Cloudera Manager requires that you decommission a CDH node before retiring it.</p>
+<p>When a noncritical node fails, there is no loss of service. However, when a critical node fails in a CDH cluster, services with a single point of failure are unavailable, as described in <span class="q">"<a href="admin.htm#GUID-85770252-72F2-45CD-990C-739FFC68F76D">Effects of Hardware on Software Availability</a>"</span>. You must decide between these alternatives:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Wait for repairs to be made, and endure the loss of service until they are complete.</p>
+</li>
+<li>
+<p>Move the critical services to another node. This choice may require that some clients are reconfigured with the address of the new node. For example, if the second ResourceManager node (typically node03) fails, then users must redirect their browsers to the new node to access Cloudera Manager.</p>
+</li>
+</ul>
+<p>You must weigh the loss of services against the inconvenience of reconfiguring the clients.</p>
+</div>
+<a id="BIGUG76767"></a>
+<div class="props_rev_3"><a id="GUID-83213E09-9D2F-486A-948F-1B19F4B310A6"></a>
+<h3 id="BIGUG-GUID-83213E09-9D2F-486A-948F-1B19F4B310A6" class="sect3"><span class="enumeration_section">2.8.1</span> About Oracle NoSQL Database Clusters</h3>
+<div>
+<p>Oracle NoSQL Database clusters do not have critical nodes. The storage nodes are replicated, and users can choose from three administrative processes on different nodes. There is no loss of services.</p>
+<p>If the node hosting Mammoth fails (the first node of the cluster), then follow the procedure for reinstalling it in <span class="q">"<a href="admin.htm#GUID-B92AD135-F722-40ED-8348-9F7E58558CCC">Prerequisites for Managing a Failing Node</a>"</span></p>
+<p>To repair or replace any failing NoSQL node, follow the procedure in <span class="q">"<a href="admin.htm#GUID-A0C1F1A2-0047-4927-AC6C-B92FBF5CFFC4">Managing a Failing Noncritical Node</a>"</span>.</p>
+</div>
+</div>
+<a id="BIGUG76768"></a>
+<div class="props_rev_3"><a id="GUID-B92AD135-F722-40ED-8348-9F7E58558CCC"></a>
+<h3 id="BIGUG-GUID-B92AD135-F722-40ED-8348-9F7E58558CCC" class="sect3"><span class="enumeration_section">2.8.2</span> Prerequisites for Managing a Failing Node</h3>
+<div>
+<p>Ensure that you do the following before managing a failing or failed server, whether it is configured as a CDH node or an Oracle NoSQL Database node:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Try restarting the services or rebooting the server.</p>
+</li>
+<li>
+<p>Determine whether the failing node is critical or noncritical.</p>
+</li>
+<li>
+<p>If the failing node is where Mammoth is installed:</p>
+<ol>
+<li>
+<p>For a CDH node, select a noncritical node in the same cluster as the failing node.</p>
+<p>For a NoSQL node, repair or replace the failed server first, and use it for these steps.</p>
+</li>
+<li>
+<p>Upload the Mammoth bundle to that node and unzip it.</p>
+</li>
+<li>
+<p>Extract all files from <code>BDAMammoth-</code><span class="italic"><code>version</code></span><code>.run</code>, using a command like the following:</p>
+<pre dir="ltr">
+# ./BDAMammoth-ol6-4.0.0.run
+</pre>
+<p>Afterward, you must run all Mammoth operations from this node.</p>
+<p>See <a class="olink BIGOG76899" target="_blank" href="../BIGOG/mammoth.htm#BIGOG76899"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> for information about the Mammoth utility.</p>
+</li>
+<li>
+<p>Follow the appropriate procedure in this section for managing a failing node.</p>
+</li>
+</ol>
+<p>Mammoth is installed on the first node of the cluster, unless its services were migrated previously.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGUG76769"></a>
+<div class="props_rev_3"><a id="GUID-AE900657-7CE7-48EE-8AE2-211F7D55EE29"></a>
+<h3 id="BIGUG-GUID-AE900657-7CE7-48EE-8AE2-211F7D55EE29" class="sect3"><span class="enumeration_section">2.8.3</span> Managing a Failing CDH Critical Node</h3>
+<div>
+<div class="section">
+<p>Only CDH clusters have critical nodes.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To manage a failing critical node:</p>
+<ol>
+<li>
+<p>Log in as <code>root</code> to the node where Mammoth is installed.</p>
+</li>
+<li>
+<p>Migrate the services to a noncritical node. Replace <span class="italic">node_name</span> with the name of the failing node, such as bda1node02.</p>
+<pre dir="ltr">
+bdacli admin_cluster migrate <span class="italic">node_name</span>
+</pre>
+<p>When the command finishes, <span class="italic">node_name</span> is decommissioned and its services are running on a previously noncritical node.</p>
+</li>
+<li>
+<p>Announce the change to the user community, so that they can redirect their clients to the new critical node as required.</p>
+</li>
+<li>
+<p>Repair or replace the failed server.</p>
+</li>
+<li>
+<p>From the Mammoth node as <code>root</code>, reprovision the repaired or replaced server as a noncritical node. Use the same name as the migrated node for <span class="italic">node_name</span>, such as bda1node02:</p>
+<pre dir="ltr">
+bdacli admin_cluster reprovision <span class="italic">node_name</span>
+</pre></li>
+<li>
+<p>If the failed node supported services like HBase or Impala, which Mammoth installs but does not configure, then use Cloudera Manager to reconfigure them on the new node.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76770"></a>
+<div class="props_rev_3"><a id="GUID-A0C1F1A2-0047-4927-AC6C-B92FBF5CFFC4"></a>
+<h3 id="BIGUG-GUID-A0C1F1A2-0047-4927-AC6C-B92FBF5CFFC4" class="sect3"><span class="enumeration_section">2.8.4</span> Managing a Failing Noncritical Node</h3>
+<div>
+<div class="section">
+<p>Use the following procedure to replace a failing node in either a CDH or a NoSQL cluster.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To manage a failing noncritical node:</p>
+<ol>
+<li>
+<p>Log in as <code>root</code> to the node where Mammoth is installed (typically node01).</p>
+</li>
+<li>
+<p>Decommission the failing node.Replace <span class="italic">node_name</span> with the name of the failing node, such as bda1node07.</p>
+<pre dir="ltr">
+bdacli admin_cluster decommission <span class="italic">node_name</span>
+</pre></li>
+<li>
+<p>Repair or replace the failed server.</p>
+</li>
+<li>
+<p>From the Mammoth node as <code>root</code>, recommission the repaired or replaced server. Use the same name as the decommissioned node for <span class="italic">node_name</span>, such as bda1node07:</p>
+<pre dir="ltr">
+bdacli admin_cluster recommission <span class="italic">node_name</span>
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-A0C1F1A2-0047-4927-AC6C-B92FBF5CFFC4__GUID-AF218A2B-9D14-4C96-8039-CB134B469DF7">
+<p class="notep1">See Also:</p>
+<p><a class="olink BIGOG76978" target="_blank" href="../BIGOG/utilities.htm#BIGOG76978"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> for the complete <code>bdacli</code> syntax</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG356"></a>
+<div class="props_rev_3"><a id="GUID-1D6E9AF9-61BC-4CE6-B561-CA0C2CD5EB73"></a>
+<h2 id="BIGUG-GUID-1D6E9AF9-61BC-4CE6-B561-CA0C2CD5EB73" class="sect2"><span class="enumeration_section">2.9</span> Stopping and Starting Oracle Big Data Appliance</h2>
+<div>
+<p>This section describes how to shut down Oracle Big Data Appliance gracefully and restart it.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="admin.htm#GUID-549DE98B-BA0F-4F85-9F02-8442BD9B4A8F">Prerequisites</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-7F285CE1-FE71-4305-A0E5-B752C76A31F2">Stopping Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-1F79BAA9-261E-4BBD-97DF-3FE3161F56EC">Starting Oracle Big Data Appliance</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG357"></a>
+<div class="props_rev_3"><a id="GUID-549DE98B-BA0F-4F85-9F02-8442BD9B4A8F"></a>
+<h3 id="BIGUG-GUID-549DE98B-BA0F-4F85-9F02-8442BD9B4A8F" class="sect3"><span class="enumeration_section">2.9.1</span> Prerequisites</h3>
+<div>
+<p>You must have <code>root</code> access. Passwordless SSH must be set up on the cluster, so that you can use the <code>dcli</code> utility.</p>
+<div class="section">
+<p class="subhead3">To ensure that passwordless-ssh is set up:</p>
+<ol>
+<li>
+<p>Log in to the first node of the cluster as <code>root</code>.</p>
+</li>
+<li>
+<p>Use a <code>dcli</code> command to verify it is working. This command should return the IP address and host name of every node in the cluster:</p>
+<pre dir="ltr">
+# dcli -C hostname
+192.0.2.1: bda1node01.example.com
+192.0.2.2: bda1node02.example.com
+     .
+     .
+     .
+</pre></li>
+<li>
+<p>If you do not get these results, then set up <code>dcli</code> on the cluster:</p>
+<pre dir="ltr">
+# setup-root-ssh -C
+</pre></li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-549DE98B-BA0F-4F85-9F02-8442BD9B4A8F__GUID-D3C1260B-616A-4E01-9D1C-B860C703B085">
+<p class="notep1">See Also:</p>
+<p><a class="olink BIGOG76614" target="_blank" href="../BIGOG/dcli.htm#BIGOG76614"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> for details about these commands.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG358"></a>
+<div class="props_rev_3"><a id="GUID-7F285CE1-FE71-4305-A0E5-B752C76A31F2"></a>
+<h3 id="BIGUG-GUID-7F285CE1-FE71-4305-A0E5-B752C76A31F2" class="sect3"><span class="enumeration_section">2.9.2</span> Stopping Oracle Big Data Appliance</h3>
+<div>
+<p>Follow these procedures to shut down all Oracle Big Data Appliance software and hardware components.</p>
+<div class="infobox-note" id="GUID-7F285CE1-FE71-4305-A0E5-B752C76A31F2__GUID-DDF8740F-4591-4ABE-BD31-1A641B051DF0">
+<p class="notep1">Note:</p>
+<p>The following services stop automatically when the system shuts down. You do not need to take any action:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Enterprise Manager agent</p>
+</li>
+<li>
+<p>Auto Service Request agents</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BIGUG360"></a><a id="BIGUG76773"></a>
+<div class="props_rev_3"><a id="GUID-70013C58-0C15-4446-8075-F47B3B05D827"></a>
+<h4 id="BIGUG-GUID-70013C58-0C15-4446-8075-F47B3B05D827" class="sect4"><span class="enumeration_section">2.9.2.1</span> Stopping All Managed Services</h4>
+<div>
+<div class="section">
+<p>Use Cloudera Manager to stop the services it manages, including <code>flume</code>, <code>hbase</code>, <code>hdfs</code>, <code>hive</code>, <code>hue</code>, <code>mapreduce</code>, <code>oozie</code>, and <code>zookeeper</code>.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Log in to Cloudera Manager as the <code>admin</code> user.</span>
+<div>
+<p>See <span class="q">"<a href="admin.htm#GUID-8E8F0C00-3499-45E9-ADF7-71D1FC434D2F">Managing Operations Using Cloudera Manager</a>"</span>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>In the Status pane of the opening page, expand the menu for the cluster and click <span class="bold">Stop</span>, and then click <span class="bold">Stop</span> again when prompted to confirm. See <a href="admin.htm#GUID-70013C58-0C15-4446-8075-F47B3B05D827__CACCDBJB">Figure 2-9</a>.</span>
+<div>
+<p>To navigate to this page, click the <span class="bold">Home</span> tab, and then the <span class="bold">Status</span> subtab.</p>
+</div>
+</li>
+<li class="stepexpand"><span>On the Command Details page, click <span class="bold">Close</span> when all processes are stopped.</span></li>
+<li class="stepexpand"><span>In the same pane under Cloudera Management Services, expand the menu for the <code>mgmt</code> service and click <span class="bold">Stop</span>.</span></li>
+<li class="stepexpand"><span>Log out of Cloudera Manager.</span></li>
+</ol>
+<div class="section">
+<div class="figure" id="GUID-70013C58-0C15-4446-8075-F47B3B05D827__CACCDBJB">
+<p class="titleinfigure">Figure 2-9 Stopping HDFS Services</p>
+<img width="413" height="300" src="img/GUID-6A7C3CDC-3035-4826-B26A-530ACF769872-default.png" alt="Description of Figure 2-9 follows" title="Description of Figure 2-9 follows" /><br />
+<a href="img_text/GUID-6A7C3CDC-3035-4826-B26A-530ACF769872-default.htm">Description of "Figure 2-9 Stopping HDFS Services"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76774"></a>
+<div class="props_rev_3"><a id="GUID-E9F68D1F-3BD2-4558-A33D-13EA961C50CD"></a>
+<h4 id="BIGUG-GUID-E9F68D1F-3BD2-4558-A33D-13EA961C50CD" class="sect4"><span class="enumeration_section">2.9.2.2</span> Stopping Cloudera Manager Server</h4>
+<div>
+<div class="section">
+<p>Follow this procedure to stop Cloudera Manager Server.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Log in as root to the node where Cloudera Manager runs (initially node03).</span>
+<div>
+<div class="infobox-note" id="GUID-E9F68D1F-3BD2-4558-A33D-13EA961C50CD__GUID-3E0773F6-F3A7-49D4-A810-833B4C7D4342">
+<p class="notep1">Note:</p>
+<p>The remaining tasks presume that you are logged in to a server as <code>root</code>. You can enter the commands from any server by using the <code>dcli</code> command. This example runs the <code>pwd</code> command on node03 from any node in the cluster:</p>
+<pre dir="ltr">
+# dcli -c node03 pwd
+</pre></div>
+</div>
+</li>
+<li class="stepexpand"><span>Stop the Cloudera Manager server:</span>
+<div>
+<pre dir="ltr">
+# service cloudera-scm-server stop
+Stopping cloudera-scm-server:                              [  OK  ]
+</pre></div>
+</li>
+<li class="stepexpand"><span>Verify that the server is stopped:</span>
+<div>
+<pre dir="ltr">
+# <span class="bold">service cloudera-scm-server status</span>
+cloudera-scm-server is stopped
+</pre></div>
+</li>
+</ol>
+<div class="section">
+<p>After stopping Cloudera Manager, you cannot access it using the web console.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76775"></a>
+<div class="props_rev_3"><a id="GUID-AA8010F6-5437-448E-8F9F-F96E05B301D3"></a>
+<h4 id="BIGUG-GUID-AA8010F6-5437-448E-8F9F-F96E05B301D3" class="sect4"><span class="enumeration_section">2.9.2.3</span> Stopping Oracle Data Integrator Agent</h4>
+<div>
+<div class="section">
+<p>If Oracle Data Integrator is used on the cluster:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Check the status of the Oracle Data Integrator agent:</span>
+<div>
+<pre dir="ltr">
+# dcli -C service odi-agent status
+</pre></div>
+</li>
+<li class="stepexpand"><span>Stop the Oracle Data Integrator agent, if it is running:</span>
+<div>
+<pre dir="ltr">
+# dcli -C service odi-agent stop
+</pre></div>
+</li>
+<li class="stepexpand"><span>Ensure that the Oracle Data Integrator agent stopped running:</span>
+<div>
+<pre dir="ltr">
+# dcli -C service odi-agent status
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BIGUG76776"></a>
+<div class="props_rev_3"><a id="GUID-E9DABEF6-BFCF-4D48-8B73-0917E91AFA85"></a>
+<h4 id="BIGUG-GUID-E9DABEF6-BFCF-4D48-8B73-0917E91AFA85" class="sect4"><span class="enumeration_section">2.9.2.4</span> Dismounting NFS Directories</h4>
+<div>
+<div class="section">
+<p>All nodes share an NFS directory on node03, and additional directories may also exist. If a server with the NFS directory (<code>/opt/exportdir</code>) is unavailable, then the other servers hang when attempting to shut down. Thus, you must dismount the NFS directories first.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Locate any mounted NFS directories:</span>
+<div>
+<pre dir="ltr">
+# <span class="bold">dcli -C mount | grep shareddir</span>
+192.0.2.1: bda1node03.example.com:/opt/exportdir on /opt/shareddir type nfs (rw,tcp,soft,intr,timeo=10,retrans=10,addr=192.0.2.3)
+192.0.2.2: bda1node03.example.com:/opt/exportdir on /opt/shareddir type nfs (rw,tcp,soft,intr,timeo=10,retrans=10,addr=192.0.2.3)
+192.0.2.3: /opt/exportdir on /opt/shareddir type none (rw,bind)
+     .
+     .
+     .
+</pre>
+<p>The sample output shows a shared directory on node03 (192.0.2.3).</p>
+</div>
+</li>
+<li class="stepexpand"><span>Dismount the shared directory:</span>
+<div>
+<pre dir="ltr">
+# dcli -C umount /opt/shareddir
+</pre></div>
+</li>
+<li class="stepexpand"><span>Dismount any custom NFS directories.</span></li>
+</ol>
+</div>
+</div>
+<a id="BIGUG76777"></a>
+<div class="props_rev_3"><a id="GUID-7F57AE58-6C60-4879-BC6F-997056C25EE4"></a>
+<h4 id="BIGUG-GUID-7F57AE58-6C60-4879-BC6F-997056C25EE4" class="sect4"><span class="enumeration_section">2.9.2.5</span> Stopping the Servers</h4>
+<div>
+<div class="section">
+<p>The Linux <code>shutdown -h</code> command powers down individual servers. You can use the <code>dcli -g</code> command to stop multiple servers.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand" id="GUID-7F57AE58-6C60-4879-BC6F-997056C25EE4__CACBEAGD"><span>Create a file that lists the names or IP addresses of the other servers in the cluster, that is, not including the one you are logged in to.</span></li>
+<li class="stepexpand"><span>Stop the other servers:</span>
+<div>
+<pre dir="ltr">
+# dcli -g <span class="italic">filename</span> shutdown -h now
+</pre>
+<p>For <span class="italic">filename</span>, enter the name of the file that you created in step <a href="admin.htm#GUID-7F57AE58-6C60-4879-BC6F-997056C25EE4__CACBEAGD">1</a>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Stop the server you are logged in to:</span>
+<div>
+<pre dir="ltr">
+# shutdown -h now
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+<a id="BIGUG76778"></a>
+<div class="props_rev_3"><a id="GUID-3AFE72EE-F226-4C81-A5CA-C914F3BEB3C6"></a>
+<h4 id="BIGUG-GUID-3AFE72EE-F226-4C81-A5CA-C914F3BEB3C6" class="sect4"><span class="enumeration_section">2.9.2.6</span> Stopping the InfiniBand and Cisco Switches</h4>
+<div>
+<div class="section">
+<p>To stop the network switches, turn off a PDU or a breaker in the data center. The switches only turn off when power is removed.</p>
+<p>The network switches do not have power buttons. They shut down only when power is removed</p>
+<p>To stop the switches, turn off all breakers in the two PDUs.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG366"></a>
+<div class="props_rev_3"><a id="GUID-1F79BAA9-261E-4BBD-97DF-3FE3161F56EC"></a>
+<h3 id="BIGUG-GUID-1F79BAA9-261E-4BBD-97DF-3FE3161F56EC" class="sect3"><span class="enumeration_section">2.9.3</span> Starting Oracle Big Data Appliance</h3>
+<div>
+<p>Follow these procedures to power up the hardware and start all services on Oracle Big Data Appliance.</p>
+</div>
+<a id="BIGUG76779"></a>
+<div class="props_rev_3"><a id="GUID-8234279D-4A62-49AB-9176-82AA92128220"></a>
+<h4 id="BIGUG-GUID-8234279D-4A62-49AB-9176-82AA92128220" class="sect4"><span class="enumeration_section">2.9.3.1</span> Powering Up Oracle Big Data Appliance</h4>
+<div>
+<ol>
+<li><span>Switch on all 12 breakers on both PDUs.</span></li>
+<li><span>Allow 4 to 5 minutes for Oracle ILOM and the Linux operating system to start on the servers.</span></li>
+</ol>
+<div class="section">
+<p>If the servers do not start automatically, then you can start them locally by pressing the power button on the front of the servers, or remotely by using Oracle ILOM. Oracle ILOM has several interfaces, including a command-line interface (CLI) and a web console. Use whichever interface you prefer.</p>
+<p>For example, you can log in to the web interface as <code>root</code> and start the server from the Remote Power Control page. The URL for Oracle ILOM is the same as for the host, except that it typically has a <code>-c</code> or <code>-ilom</code> extension. This URL connects to Oracle ILOM for bda1node4:</p>
+<p><code>http://bda1node04-ilom.example.com</code></p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76780"></a>
+<div class="props_rev_3"><a id="GUID-2BF9402D-2914-480C-858D-96443EAD6868"></a>
+<h4 id="BIGUG-GUID-2BF9402D-2914-480C-858D-96443EAD6868" class="sect4"><span class="enumeration_section">2.9.3.2</span> Starting the HDFS Software Services</h4>
+<div>
+<div class="section">
+<p>Use Cloudera Manager to start all the HDFS services that it controls.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Log in as <code>root</code> to the node where Cloudera Manager runs (initially node03).</span>
+<div>
+<div class="infobox-note" id="GUID-2BF9402D-2914-480C-858D-96443EAD6868__GUID-9FEF2645-A312-4829-8251-37071C02E4FA">
+<p class="notep1">Note:</p>
+<p>The remaining tasks presume that you are logged in to a server as <code>root</code>. You can enter the commands from any server by using the <code>dcli</code> command. This example runs the <code>pwd</code> command on node03 from any node in the cluster:</p>
+<pre dir="ltr">
+# dcli -c node03 pwd
+</pre></div>
+</div>
+</li>
+<li class="stepexpand"><span>Verify that the Cloudera Manager started automatically on node03:</span>
+<div>
+<pre dir="ltr">
+# service cloudera-scm-server status 
+cloudera-scm-server (pid  11399) is running...
+</pre></div>
+</li>
+<li class="stepexpand"><span>If it is not running, then start it:</span>
+<div>
+<pre dir="ltr">
+# service cloudera-scm-server start
+</pre></div>
+</li>
+<li class="stepexpand"><span>Log in to Cloudera Manager as the <code>admin</code> user.</span>
+<div>
+<p>See <span class="q">"<a href="admin.htm#GUID-8E8F0C00-3499-45E9-ADF7-71D1FC434D2F">Managing Operations Using Cloudera Manager</a>"</span>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>In the Status pane of the opening page, expand the menu for the cluster and click <span class="bold">Start</span>, and then click <span class="bold">Start</span> again when prompted to confirm. See <a href="admin.htm#GUID-70013C58-0C15-4446-8075-F47B3B05D827__CACCDBJB">Figure 2-9</a>.</span>
+<div>
+<p>To navigate to this page, click the <span class="bold">Home</span> tab, and then the <span class="bold">Status</span> subtab.</p>
+</div>
+</li>
+<li class="stepexpand"><span>On the Command Details page, click <span class="bold">Close</span> when all processes are started.</span></li>
+<li class="stepexpand"><span>In the same pane under Cloudera Management Services, expand the menu for the <code>mgmt</code> service and click <span class="bold">Start</span>.</span></li>
+<li class="stepexpand"><span>Log out of Cloudera Manager (optional).</span></li>
+</ol>
+</div>
+</div>
+<a id="BIGUG76781"></a>
+<div class="props_rev_3"><a id="GUID-3F7ADCB9-B3B4-42ED-9DFA-696B95FA558F"></a>
+<h4 id="BIGUG-GUID-3F7ADCB9-B3B4-42ED-9DFA-696B95FA558F" class="sect4"><span class="enumeration_section">2.9.3.3</span> Starting Oracle Data Integrator Agent</h4>
+<div>
+<div class="section">
+<p>If Oracle Data Integrator is used on this cluster:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Check the status of the agent:</span>
+<div>
+<pre dir="ltr">
+# /opt/oracle/odiagent/agent_standalone/oracledi/agent/bin/startcmd.sh OdiPingAgent [-AGENT_NAME=<span class="italic">agent_name</span>]
+</pre></div>
+</li>
+<li class="stepexpand"><span>Start the agent:</span>
+<div>
+<pre dir="ltr">
+# /opt/oracle/odiagent/agent_standalone/oracledi/agent/bin/agent.sh [-NAME=<span class="italic">agent_name</span>] [-PORT=<span class="italic">port_number</span>]
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<a id="BIGUG76671"></a>
+<div class="props_rev_3"><a id="GUID-BDC9DC75-8FA9-49B5-B35A-2C8B6C9DC53D"></a>
+<h2 id="BIGUG-GUID-BDC9DC75-8FA9-49B5-B35A-2C8B6C9DC53D" class="sect2"><span class="enumeration_section">2.10</span> Managing Oracle Big Data SQL</h2>
+<div>
+<p>Oracle Big Data SQL is registered with Cloudera Manager as an add-on service. You can use Cloudera Manager to start, stop, and restart the Oracle Big Data SQL service or individual role instances, the same way as a CDH service.</p>
+<p>Cloudera Manager also monitors the health of the Oracle Big Data SQL service, reports service outages, and sends alerts if the service is not healthy.</p>
+</div>
+<a id="BIGUG76694"></a>
+<div class="props_rev_3"><a id="GUID-5B4AF24F-0509-4043-AF6A-B1BFB17C7481"></a>
+<h3 id="BIGUG-GUID-5B4AF24F-0509-4043-AF6A-B1BFB17C7481" class="sect3"><span class="enumeration_section">2.10.1</span> Adding and Removing the Oracle Big Data SQL Service</h3>
+<div>
+<div class="section">
+<p>Oracle Big Data SQL is an optional service on Oracle Big Data Appliance. It may be installed with the other client software during the initial software installation or an upgrade. Use Cloudera Manager to determine whether it is installed. A separate license is required; Oracle Big Data SQL is not included with the Oracle Big Data Appliance license.</p>
+<p>You cannot use Cloudera Manager to add or remove the Oracle Big Data SQL service from a CDH cluster on Oracle Big Data Appliance. Instead, log in to the server where Mammoth is installed (usually the first node of the cluster) and use the following commands in the <code>bdacli</code> utility:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>To enable Oracle Big Data SQL</p>
+<pre dir="ltr">
+bdacli enable big_data_sql
+</pre></li>
+</ul>
+<ul style="list-style-type: disc;">
+<li>
+<p>To disable Oracle Big Data SQL:</p>
+<pre dir="ltr">
+bdacli disable big_data_sql
+</pre></li>
+</ul>
+<div class="infoboxnotealso" id="GUID-5B4AF24F-0509-4043-AF6A-B1BFB17C7481__GUID-30A969A4-9DBC-4F81-9A57-DB434FE4A870">
+<p class="notep1">See Also:</p>
+<p><a class="olink BDSUG" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E76463-01&amp;id=BDSUG"><span class="italic">Oracle Big Data SQL User&rsquo;s Guide</span></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76696"></a><a id="BIGUG76695"></a>
+<div class="props_rev_3"><a id="GUID-08838070-5B5E-4FB7-A6AC-70F48C1BC3B1"></a>
+<h3 id="BIGUG-GUID-08838070-5B5E-4FB7-A6AC-70F48C1BC3B1" class="sect3"><span class="enumeration_section">2.10.2</span> Allocating Resources to Oracle Big Data SQL</h3>
+<div>
+<div class="section">
+<p>You can modify the property values in a Linux kernel Control Group (Cgroup) to reserve resources for Oracle Big Data SQL.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To modify the resource management configuration settings:</p>
+<ol>
+<li>
+<p>Log in as <code>admin</code> to Cloudera Manager.</p>
+</li>
+<li>
+<p>On the Home page, click <span class="bold">bigdatasql</span> from the list of services.</p>
+</li>
+<li>
+<p>On the bigdatasql page, click <span class="bold">Configuration</span>.</p>
+</li>
+<li>
+<p>Under Category, expand BDS Server Default Group and click <span class="bold">Resource Management</span>.</p>
+</li>
+<li>
+<p>Modify the values of the following properties as required:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Cgroup CPU Shares</p>
+</li>
+<li>
+<p>Cgroup I/O Weight</p>
+</li>
+<li>
+<p>Cgroup Memory Soft Limit</p>
+</li>
+<li>
+<p>Cgroup Memory Hard Limit</p>
+</li>
+</ul>
+<p>See the Description column on the page for guidelines.</p>
+</li>
+<li>
+<p>Click <span class="bold">Save Changes</span>.</p>
+</li>
+<li>
+<p>From the Actions menu, click <span class="bold">Restart</span>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="admin.htm#GUID-08838070-5B5E-4FB7-A6AC-70F48C1BC3B1__CHDDIGBE">Figure 2-10</a> shows the bigdatasql service configuration page.</p>
+<div class="figure" id="GUID-08838070-5B5E-4FB7-A6AC-70F48C1BC3B1__CHDDIGBE">
+<p class="titleinfigure">Figure 2-10 Modifying the Cgroup Settings for Oracle Big Data SQL</p>
+<img width="692" height="585" src="img/GUID-5FCC691F-CFBA-4389-8833-45C26493B93F-default.png" alt="Description of Figure 2-10 follows" title="Description of Figure 2-10 follows" /><br />
+<a href="img_text/GUID-5FCC691F-CFBA-4389-8833-45C26493B93F-default.htm">Description of "Figure 2-10 Modifying the Cgroup Settings for Oracle Big Data SQL"</a></div>
+<!-- class="figure" -->
+<div class="infoboxnotealso" id="GUID-08838070-5B5E-4FB7-A6AC-70F48C1BC3B1__GUID-5BB13D2D-34E2-458F-B684-1B70E5B9AEE4">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="admin.htm#GUID-7EDF58FD-1B56-4F66-B259-E64BFC816272">Allocating Resources Among Services</a>"</span>.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG162"></a>
+<div class="props_rev_3"><a id="GUID-3B4A0B01-B35E-44EE-B4AE-0C624AD8DAEA"></a>
+<h2 id="BIGUG-GUID-3B4A0B01-B35E-44EE-B4AE-0C624AD8DAEA" class="sect2"><span class="enumeration_section">2.11</span> Security on Oracle Big Data Appliance</h2>
+<div>
+<p>You can take precautions to prevent unauthorized use of the software and data on Oracle Big Data Appliance.</p>
+<p>This section contains these <a id="d3757e4588" class="indexterm-anchor"></a>topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="admin.htm#GUID-13977416-9CDF-4195-ABC0-B58F8F2DCC59">About Predefined Users and Groups</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-FC5283BE-68E0-4AC0-A4EC-87738A0B0DF7">About User Authentication</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-2B794472-9815-4BE1-9C42-EFA80D743702">About Fine-Grained Authorization</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-D47D094E-7852-48BD-90B8-98A6D53F7E6A">Port Numbers Used on Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-E051F9FE-839D-4A42-A0BD-070C8D947B4C">About Puppet Security</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG165"></a><a id="BIGUG242"></a>
+<div class="props_rev_3"><a id="GUID-13977416-9CDF-4195-ABC0-B58F8F2DCC59"></a>
+<h3 id="BIGUG-GUID-13977416-9CDF-4195-ABC0-B58F8F2DCC59" class="sect3"><span class="enumeration_section">2.11.1</span> About Predefined Users and Groups</h3>
+<div>
+<p>Every open-source package installed on Oracle Big Data Appliance creates one or more users and groups. Most of these users do not have login privileges, shells, or home directories. They are used by daemons and are not intended as an interface for individual users. For example, Hadoop operates as the <code>hdfs</code> user, MapReduce operates as <code>mapred</code>, and <a id="d3757e4639" class="indexterm-anchor"></a>Hive operates as <code>hive</code>.</p>
+<p>You can use the <code>oracle</code> identity to run Hadoop and <a id="d3757e4652" class="indexterm-anchor"></a>Hive jobs immediately after the Oracle Big Data Appliance software is installed. This user account has login privileges, a shell, and a home directory.</p>
+<p>Oracle NoSQL Database and Oracle Data Integrator run as the <code>oracle</code> user. Its primary group is <code>oinstall</code>.</p>
+<div class="infobox-note" id="GUID-13977416-9CDF-4195-ABC0-B58F8F2DCC59__GUID-753334C1-2649-473D-8C69-3E10DB10DAF6">
+<p class="notep1">Note:</p>
+<p>Do not delete, re-create, or modify the users that are created during installation, because they are required for the software to operate.</p>
+</div>
+<p><a href="admin.htm#GUID-13977416-9CDF-4195-ABC0-B58F8F2DCC59__CHDFCCCC" title="Linux user names created during software installation">Table 2-9</a> identifies the <a id="d3757e4674" class="indexterm-anchor"></a><a id="d3757e4676" class="indexterm-anchor"></a><a id="d3757e4680" class="indexterm-anchor"></a>operating system users and groups that are created automatically during installation of Oracle Big Data Appliance software for use by CDH components and other software packages.</p>
+<div class="tblformal" id="GUID-13977416-9CDF-4195-ABC0-B58F8F2DCC59__CHDFCCCC">
+<hr />
+<p class="titleintable">Table 2-9 Operating System Users and Groups</p>
+<table class="cellalignment88" title="Operating System Users and Groups" summary="Linux user names created during software installation">
+<thead align="left">
+<tr>
+<th class="cellalignment86" id="d3757e4695">User Name</th>
+<th class="cellalignment86" id="d3757e4698">Group</th>
+<th class="cellalignment91" id="d3757e4701">Used By</th>
+<th class="cellalignment92" id="d3757e4704">Login Rights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment86" id="d3757e4709" headers="d3757e4695">
+<p><code>flume</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4709 d3757e4698">
+<p><code>flume</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4709 d3757e4701">
+<p><span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-8DB4499E-2741-45A7-BEF6-3CA2B15D381D"><span class="xrefglossterm">Apache Flume</span></a></span> parent and nodes</p>
+</td>
+<td class="cellalignment92" headers="d3757e4709 d3757e4704">
+<p>No</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4727" headers="d3757e4695">
+<p><code>hbase</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4727 d3757e4698">
+<p><code>hbase</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4727 d3757e4701">
+<p><span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-AA0E7DA3-A029-409C-ADE3-27AFD85EEF3C"><span class="xrefglossterm">Apache HBase</span></a></span> processes</p>
+</td>
+<td class="cellalignment92" headers="d3757e4727 d3757e4704">
+<p>No</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4745" headers="d3757e4695">
+<p><code>hdfs</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4745 d3757e4698">
+<p><code>hadoop</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4745 d3757e4701">
+<p><span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-427E1C9A-91BE-4839-A93D-83993737906C"><span class="xrefglossterm">NameNode</span></a></span>, <span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-E3643094-BFCB-4D94-B3C6-34BA630B3037"><span class="xrefglossterm">DataNode</span></a></span></p>
+</td>
+<td class="cellalignment92" headers="d3757e4745 d3757e4704">
+<p>No</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4766" headers="d3757e4695">
+<p><code>hive</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4766 d3757e4698">
+<p><code>hive</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4766 d3757e4701">
+<p><a id="d3757e4776" class="indexterm-anchor"></a>Hive metastore and server processes</p>
+</td>
+<td class="cellalignment92" headers="d3757e4766 d3757e4704">
+<p>No</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4783" headers="d3757e4695">
+<p><code>hue</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4783 d3757e4698">
+<p><code>hue</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4783 d3757e4701">
+<p><span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-78784C71-7D0A-4E26-B031-1E9688CFB3EB"><span class="xrefglossterm">Hue</span></a></span> processes</p>
+</td>
+<td class="cellalignment92" headers="d3757e4783 d3757e4704">
+<p>No</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4801" headers="d3757e4695">
+<p><code>mapred</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4801 d3757e4698">
+<p><code>hadoop</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4801 d3757e4701">
+<p>ResourceManager, NodeManager, <span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-3C166B70-5C1F-4DB6-8FD2-3C82C301BA74"><span class="xrefglossterm">Hive Thrift</span></a></span> daemon</p>
+</td>
+<td class="cellalignment92" headers="d3757e4801 d3757e4704">
+<p>Yes</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4820" headers="d3757e4695">
+<p><code>mysql</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4820 d3757e4698">
+<p><code>mysql</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4820 d3757e4701">
+<p><a id="d3757e4830" class="indexterm-anchor"></a>MySQL server</p>
+</td>
+<td class="cellalignment92" headers="d3757e4820 d3757e4704">
+<p>Yes</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4839" headers="d3757e4695">
+<p><code>oozie</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4839 d3757e4698">
+<p><code>oozie</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4839 d3757e4701">
+<p><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-259C09DE-6221-40D0-90BE-01F66E52F95F"><span class="xrefglossterm">Oozie</span></a> server</p>
+</td>
+<td class="cellalignment92" headers="d3757e4839 d3757e4704">
+<p>No</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4856" headers="d3757e4695">
+<p><code>oracle</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4856 d3757e4698">
+<p><code>dba</code>, <code>oinstall</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4856 d3757e4701">
+<p>Oracle NoSQL Database, Oracle Loader for Hadoop, Oracle Data Integrator, and the Oracle DBA</p>
+</td>
+<td class="cellalignment92" headers="d3757e4856 d3757e4704">
+<p>Yes</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4874" headers="d3757e4695">
+<p><code>puppet</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4874 d3757e4698">
+<p><code>puppet</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4874 d3757e4701">
+<p>Puppet parent (puppet nodes run as <code>root</code>)</p>
+</td>
+<td class="cellalignment92" headers="d3757e4874 d3757e4704">
+<p>No</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4892" headers="d3757e4695">
+<p><code>sqoop</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4892 d3757e4698">
+<p><code>sqoop</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4892 d3757e4701">
+<p><span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-1B2F732E-FABC-4767-9CB2-0AFDF06AD25E"><span class="xrefglossterm">Apache Sqoop</span></a></span> metastore</p>
+</td>
+<td class="cellalignment92" headers="d3757e4892 d3757e4704">
+<p>No</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4911" headers="d3757e4695">
+<p><code>svctag</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4911 d3757e4698">&nbsp;</td>
+<td class="cellalignment91" headers="d3757e4911 d3757e4701">
+<p>Auto Service Request</p>
+</td>
+<td class="cellalignment92" headers="d3757e4911 d3757e4704">
+<p>No</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment86" id="d3757e4924" headers="d3757e4695">
+<p><code>zookeeper</code></p>
+</td>
+<td class="cellalignment86" headers="d3757e4924 d3757e4698">
+<p><code>zookeeper</code></p>
+</td>
+<td class="cellalignment91" headers="d3757e4924 d3757e4701">
+<p><span class="bold"><a href="GUID-95AAA8E9-E0E9-4D48-8C6B-B39D319A2487.htm#GUID-2A2FDA14-4CE7-4A29-AD42-E0520820C071"><span class="xrefglossterm">ZooKeeper</span></a></span> processes</p>
+</td>
+<td class="cellalignment92" headers="d3757e4924 d3757e4704">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGUG319"></a>
+<div class="props_rev_3"><a id="GUID-FC5283BE-68E0-4AC0-A4EC-87738A0B0DF7"></a>
+<h3 id="BIGUG-GUID-FC5283BE-68E0-4AC0-A4EC-87738A0B0DF7" class="sect3"><span class="enumeration_section">2.11.2</span> About User Authentication</h3>
+<div>
+<p>Oracle Big Data Appliance supports Kerberos security as a software installation option. See <a href="users.htm#GUID-373DCB9E-09B8-4DAB-9291-A5A048D7D48D">Supporting User Access to Oracle Big Data Appliance</a> for details about setting up clients and users to access a Kerberos-protected cluster.</p>
+</div>
+</div>
+<a id="BIGUG381"></a>
+<div class="props_rev_3"><a id="GUID-2B794472-9815-4BE1-9C42-EFA80D743702"></a>
+<h3 id="BIGUG-GUID-2B794472-9815-4BE1-9C42-EFA80D743702" class="sect3"><span class="enumeration_section">2.11.3</span> About Fine-Grained Authorization</h3>
+<div>
+<p>The typical authorization model on Hadoop is at the HDFS file level, such that users either have access to all of the data in the file or none. In contrast, <a id="d3757e4985" class="indexterm-anchor"></a><a id="d3757e4987" class="indexterm-anchor"></a><a id="d3757e4989" class="indexterm-anchor"></a>Apache Sentry integrates with the Hive and Impala SQL-query engines to provide fine-grained authorization to data and metadata stored in Hadoop.</p>
+<p>Oracle Big Data Appliance automatically configures Sentry during software installation, beginning with Mammoth utility version 2.5.</p>
+<div class="infoboxnotealso" id="GUID-2B794472-9815-4BE1-9C42-EFA80D743702__GUID-D5D7895D-6092-47CF-AB1C-200472BBC5F2">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Cloudera Manager Help</p>
+</li>
+<li>
+<p><span class="italic">Managing Clusters with Cloudera Manager</span> at</p>
+<p><a href="https://www.cloudera.com/content/cloudera-content/cloudera-docs/CM4Ent/latest/Cloudera-Manager-Managing-Clusters/Managing-Clusters-with-Cloudera-Manager.html" target="_blank"><code>https://www.cloudera.com/content/cloudera-content/cloudera-docs/CM4Ent/latest/Cloudera-Manager-Managing-Clusters/Managing-Clusters-with-Cloudera-Manager.html</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-17B26802-5E39-4DC2-9432-4A10DA3B96BE"></a>
+<h3 id="BIGUG-GUID-17B26802-5E39-4DC2-9432-4A10DA3B96BE" class="sect3"><span class="enumeration_section">2.11.4</span> About HDFS Transparent Encryption</h3>
+<div>
+<p>HDFS Transparent Encryption<a id="d3757e5029" class="indexterm-anchor"></a><a id="d3757e5031" class="indexterm-anchor"></a> protects Hadoop data that is at rest on disk. After HDFS Transparent Encryption is enabled for a cluster on Oracle Big Data Appliance, data writes and reads to encrypted <span class="italic">zones</span><a id="d3757e5036" class="indexterm-anchor"></a> (HDFS directories) on the disk are automatically encrypted and decrypted. This process is &ldquo;transparent&rdquo; because it is invisible to the application working with the data.</p>
+<p>HDFS Transparent Encryption does not affect user access to Hadoop data, although it can have a minor impact on performance.</p>
+<p>HDFS Transparent Encryption is an option that you can select during the initial installation of the software by the Mammoth utility. You can also enable or disable HDFS Transparent Encryption at any time by using the <code>bdacli</code> utility. Note that HDFS Transparent Encryption can be installed only on a Kerberos-secured cluster.</p>
+<p>Oracle recommends that you set up the Navigator Key Trustee (the service that manages keys and certificates) on a separate server, external to the Oracle Big Data Appliance.</p>
+<p>See the following MOS documents at <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a> for instructions on installing and enabling HDFS Transparent Encryption.</p>
+<div class="tblformal" id="GUID-17B26802-5E39-4DC2-9432-4A10DA3B96BE__MOSDOCIDTITLE2111352.1HOWTOSETUPHIG-F56C16D5">
+<table class="cellalignment75" summary="Provides titles and MOS DOC IDs to MOS documents for setting up Transparent Encryption.">
+<thead align="left">
+<tr>
+<th class="cellalignment76" id="d3757e5062">Title</th>
+<th class="cellalignment76" id="d3757e5064">MOS Doc ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment76" id="d3757e5068" headers="d3757e5062"><span class="italic">How to Setup Highly Available Active and Passive Key Trustee Servers on BDA V4.4 Using 5.5 Parcels</span></td>
+<td class="cellalignment76" headers="d3757e5068 d3757e5064">2112644.1
+<p>Installing using parcels as described in this MOS document is recommended over package-based installation. See Cloudera&rsquo;s comments on <a href="HTTP://WWW.CLOUDERA.COM/DOCUMENTATION/ENTERPRISE/LATEST/TOPICS/CM_IG_PARCELS.HTML?SCROLL=CONCEPT_FWL_D1X_K4_UNIQUE_1" target="_blank">Parcels.</a></p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e5079" headers="d3757e5062"><span class="italic">How to Enable/Disable HDFS Transparent Encryption on Oracle Big Data Appliance V4.4 with bdacli</span></td>
+<td class="cellalignment76" headers="d3757e5079 d3757e5064">2111343.1</td>
+</tr>
+<tr>
+<td class="cellalignment76" id="d3757e5085" headers="d3757e5062"><span class="italic">How to Create Encryption Zones on HDFS on Oracle Big Data Appliance V4.4</span></td>
+<td class="cellalignment76" headers="d3757e5085 d3757e5064">2111829.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infobox-note" id="GUID-17B26802-5E39-4DC2-9432-4A10DA3B96BE__GUID-66C87A4B-05A9-46C1-BC6A-FAA4277846BA">
+<p class="notep1">Note:</p>
+<p>If either HDFS Transparent Encryption or Kerberos is disabled, data stored in the HDFS Transparent Encryption zones in the cluster will remain encrypted and therefore inaccessible. To restore access to the data, re-enable HDFS Transparent Encryption using the same key provider.</p>
+</div>
+<div class="infoboxnotealso" id="GUID-17B26802-5E39-4DC2-9432-4A10DA3B96BE__GUID-E638636B-3763-498F-AD82-95B284C95776">
+<p class="notep1">See Also:</p>
+<p>Cloudera documentation about HDFS at-rest encryption at <a href="http://www.cloudera.com/" target="_blank">http://www.cloudera.com</a> for more information about managing files in encrypted zones.</p>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-728E297A-1BD9-45CA-9656-FEBE433592BE"></a>
+<h3 id="BIGUG-GUID-728E297A-1BD9-45CA-9656-FEBE433592BE" class="sect3"><span class="enumeration_section">2.11.5</span> About HTTPS/Network Encryption</h3>
+<div>
+<p>HTTPS Network/Encryption<a id="d3757e5119" class="indexterm-anchor"></a><a id="d3757e5121" class="indexterm-anchor"></a> on the Big Data Appliance has two components :</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Web Interface Encryption</span></p>
+<p>Configures HTTPS for the following web interfaces: Cloudera Manager, Oozie, and HUE. This encryption is now enabled automatically in new Mammoth installations. For current installations it can be enabled via the bdacli utility. This feature does not require that Kerberos is enabled.</p>
+</li>
+<li>
+<p><span class="bold">Encryption for Data in Transit and Services</span></p>
+<div class="p">There are two subcomponents to this feature. Both are options that can be enabled in the Configuration Utility at installation time or enabled/disabled using the bdacli utility at any time. Both require that Kerberos is enabled.
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Encrypt Hadoop Services</span></p>
+<p>This includes SSL encryption for HDFS, MapReduce, and YARN web interfaces, as well as encrypted shuffle for MapReduce and YARN. It also enable authentication for access to the web consoles for the MapReduce, and YARN roles.</p>
+</li>
+<li>
+<p><span class="bold">Encrypt HDFS Data Transport</span></p>
+<p>This option will enable encryption of data transferred between DataNodes and clients, and among DataNodes.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+<p>HTTPS/Network Encryption is enabled and disabled on a per cluster basis. The <a class="olink BIGOG-GUID-FC59A3F4-C4F2-499B-BB63-688092092CA3" target="_blank" href="../BIGOG/configurator.htm#BIGOG-GUID-FC59A3F4-C4F2-499B-BB63-688092092CA3">Configuration Utility</a> described in the <span class="italic">Oracle Big Data Appliance Owner&rsquo;s Guide</span>, includes settings for enabling encryption for Hadoop Services and HDFS Data Transport when a cluster is created. The <a class="olink BIGOG-GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C" target="_blank" href="../BIGOG/utilities.htm#BIGOG-GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C">bdacli utility</a> reference pages (also in the <span class="italic">Oracle Big Data Appliance Owner&rsquo;s Guide</span> ) provide HTTPS/Network Encryption command line options.</p>
+<div class="infoboxnotealso" id="GUID-728E297A-1BD9-45CA-9656-FEBE433592BE__GUID-E638636B-3763-498F-AD82-95B284C95776">
+<p class="notep1">See Also:</p>
+<p><a href="users.htm#GUID-373DCB9E-09B8-4DAB-9291-A5A048D7D48D">Supporting User Access to Oracle Big Data Appliance</a>for an overview of how Kerberos is used to secure CDH clusters.</p>
+<p><a href="admin.htm#GUID-17B26802-5E39-4DC2-9432-4A10DA3B96BE">About HDFS Transparent Encryption</a> for information about Oracle Big Data Appliance security for Hadoop data at-rest.</p>
+<p>Cloudera documentation at <a href="http://www.cloudera.com/" target="_blank">http://www.cloudera.com</a> for more information about HTTPS communication in Cloudera Manager and network-level encryption in CDH.</p>
+</div>
+</div>
+<div class="sect4"><a id="GUID-28807D18-0489-48AE-9C99-BE348776626E"></a>
+<h4 id="BIGUG-GUID-28807D18-0489-48AE-9C99-BE348776626E" class="sect4"><span class="enumeration_section">2.11.5.1</span> Configuring Web Browsers to use Kerberos Authentication</h4>
+<div>
+<p>If web interface encryption is enabled, each web browser accessing an HDFS, MapReduce, or YARN-encrypted web interface must be configured to authenticate with Kerberos. Note that this is not necessary for the Cloudera Manager, Oozie, and Hue web interfaces, which do not require Kerberos.</p>
+<p>The following are the steps to configure Mozilla Firefox<a id="fn_3" href="#fn_3" onclick='footdisplay(3,"Mozilla Firefox is a registered trademark of the Mozilla Foundation.")'><sup>Foot&nbsp;3</sup></a>, Microsoft Internet Explorer<a id="fn_4" href="#fn_4" onclick='footdisplay(4,"Microsoft Internet Explorer is a registered trademark of Microsoft Corporation.")'><sup>Foot&nbsp;4</sup></a>, and Google Chrome<a id="fn_5" href="#fn_5" onclick='footdisplay(5,"Google Chrome is a registered trademark of Google Inc")'><sup>Foot&nbsp;5</sup></a> for Kerberos authentication.</p>
+<p><span class="bold">To configure Mozilla Firefox:</span></p>
+<ol>
+<li>
+<p>Enter <code>about:config</code> in the Location Bar.</p>
+</li>
+<li>
+<p>In the <span class="bold">Search</span> box on the about:config page, enter: <code>network.negotiate-auth.trusted-uris</code></p>
+</li>
+<li>
+<p>Under Preference Name, double-click the <code>network.negotiate-auth.trusted-uris</code> .</p>
+</li>
+<li>
+<p>In the <span class="bold">Enter string value</span> dialog, enter the hostname or the domain name of the web server that is protected by Kerberos. Separate multiple domains and hostnames with a comma.</p>
+</li>
+</ol>
+<p><span class="bold">To configure Microsoft Internet Explorer:</span></p>
+<ol>
+<li>
+<p>Configure the Local Intranet Domain:</p>
+<ol>
+<li>
+<p>Open Microsoft Internet Explorer and click the Settings "gear" icon in the top-right corner. Select <code>Internet options</code>.</p>
+</li>
+<li>
+<p>Select the <span class="bold">Security</span> tab.</p>
+</li>
+<li>
+<p>Select the <span class="bold">Local intranet</span> zone and click <span class="bold">Sites</span>.</p>
+</li>
+<li>
+<p>Make sure that the first two options, <code>Include all local (intranet) sites not listed in other zones</code> and <code>Include all sites that bypass the proxy server</code> are checked.</p>
+</li>
+<li>
+<p>Click <span class="bold">Advanced</span> on the <code>Local intranet</code> dialog box and, one at a time, add the names of the Kerberos-protected domains to the list of websites.</p>
+</li>
+<li>
+<p>Click <span class="bold">Close</span>.</p>
+</li>
+<li>
+<p>Click <span class="bold">OK</span> to save your configuration changes, then click <span class="bold">OK</span> again to exit the Internet Options panel.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Configure Intranet Authentication for Microsoft Internet Explorer:</p>
+<ol>
+<li>
+<p>Click the <span class="bold">Settings</span> "gear" icon in the top-right corner. Select <code>Internet Options</code>.</p>
+</li>
+<li>
+<p>Select the <span class="bold">Security</span> tab.</p>
+</li>
+<li>
+<p>Select the Local Intranet zone and click the Custom level... button to open the Security Settings - Local Intranet Zone dialog box.</p>
+</li>
+<li>
+<p>Scroll down to the <span class="bold">User Authentication</span> options and select <code>Automatic logon only in Intranet zone</code> .</p>
+</li>
+<li>
+<p>Click <span class="bold">OK</span> to save your changes.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><span class="bold">To configure Google Chrome:</span></p>
+<p>If you are using Microsoft Windows, use the Control Panel to navigate to the Internet Options dialogue box. Configuration changes required are the same as those described above for Microsoft Internet Explorer.</p>
+<p>On<a id="fn_6" href="#fn_6" onclick='footdisplay(6," Mac OS is a registered trademark of Apple, Inc.")'><sup>Foot&nbsp;6</sup></a> or on Linux, add the <code>--auth-server-whitelist</code> parameter to the <code>google-chrome</code> command. For example, to run Chrome from a Linux prompt, run the google-chrome command as follows</p>
+<pre dir="ltr">
+<span class="italic"> google-chrome --auth-server-whitelist = "hostname/domain"</span>
+</pre>
+<div class="infobox-note" id="GUID-28807D18-0489-48AE-9C99-BE348776626E__GUID-6E22AC9A-5BD6-41F9-928A-D42E625CE341">
+<p class="notep1">Note:</p>
+On Microsoft Windows, the Windows user must be an user in the Kerberos realm and must possess a valid ticket. If these requirements are not met, an HTTP 403 is returned to the browser upon attempt to access a Kerberos-secured web interface.</div>
+</div>
+</div>
+</div>
+<a id="BIGUG167"></a><a id="BIGUG166"></a>
+<div class="props_rev_3"><a id="GUID-D47D094E-7852-48BD-90B8-98A6D53F7E6A"></a>
+<h3 id="BIGUG-GUID-D47D094E-7852-48BD-90B8-98A6D53F7E6A" class="sect3"><span class="enumeration_section">2.11.6</span> Port Numbers Used on Oracle Big Data Appliance</h3>
+<div>
+<div class="section">
+<p><a href="admin.htm#GUID-D47D094E-7852-48BD-90B8-98A6D53F7E6A__CHDEGABJ" title="Port numbers used by installed software">Table 2-10</a> identifies the<a id="d3757e5398" class="indexterm-anchor"></a> port numbers that might be used in addition to those used by CDH.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To view the ports used on a particular server:</p>
+<ol>
+<li>
+<p>In Cloudera Manager, click the <span class="bold">Hosts</span> tab at the top of the page to display the Hosts page.</p>
+</li>
+<li>
+<p>In the Name column, click a server link to see its detail page.</p>
+</li>
+<li>
+<p>Scroll down to the Ports section.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-D47D094E-7852-48BD-90B8-98A6D53F7E6A__GUID-4FBA57FD-3979-4F0A-B59E-09332FF3B85F">
+<p class="notep1">See Also:</p>
+<p>For the full list of CDH port numbers, go to the Cloudera website at</p>
+<p><a href="http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Installation-Guide/cm5ig_config_ports.html" target="_blank"><code>http://www.cloudera.com/content/cloudera-content/cloudera-docs/CM5/latest/Cloudera-Manager-Installation-Guide/cm5ig_config_ports.html</code></a></p>
+</div>
+<div class="tblformal" id="GUID-D47D094E-7852-48BD-90B8-98A6D53F7E6A__CHDEGABJ">
+<hr />
+<p class="titleintable">Table 2-10 Oracle Big Data Appliance Port Numbers</p>
+<table class="cellalignment88" title="Oracle Big Data Appliance Port Numbers" summary="Port numbers used by installed software">
+<thead align="left">
+<tr>
+<th class="cellalignment93" id="d3757e5436">Service</th>
+<th class="cellalignment94" id="d3757e5439">Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment93" id="d3757e5444" headers="d3757e5436">
+<p><a id="d3757e5446" class="indexterm-anchor"></a><a id="d3757e5448" class="indexterm-anchor"></a><a id="d3757e5450" class="indexterm-anchor"></a>Automated Service Monitor (ASM)</p>
+</td>
+<td class="cellalignment94" headers="d3757e5444 d3757e5439">
+<p>30920</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5457" headers="d3757e5436">
+<p>HBase master service (node01)</p>
+</td>
+<td class="cellalignment94" headers="d3757e5457 d3757e5439">
+<p>60010</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5464" headers="d3757e5436">
+<p><a id="d3757e5466" class="indexterm-anchor"></a>MySQL Database</p>
+</td>
+<td class="cellalignment94" headers="d3757e5464 d3757e5439">
+<p>3306</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5475" headers="d3757e5436">
+<p><a id="d3757e5477" class="indexterm-anchor"></a>Oracle Data Integrator Agent</p>
+</td>
+<td class="cellalignment94" headers="d3757e5475 d3757e5439">
+<p>20910</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5484" headers="d3757e5436">
+<p>Oracle NoSQL Database administration</p>
+</td>
+<td class="cellalignment94" headers="d3757e5484 d3757e5439">
+<p>5001</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5491" headers="d3757e5436">
+<p><a id="d3757e5493" class="indexterm-anchor"></a>Oracle NoSQL Database processes</p>
+</td>
+<td class="cellalignment94" headers="d3757e5491 d3757e5439">
+<p>5010 to 5020</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5502" headers="d3757e5436">
+<p>Oracle NoSQL Database registration</p>
+</td>
+<td class="cellalignment94" headers="d3757e5502 d3757e5439">
+<p>5000</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5509" headers="d3757e5436">
+<p><a id="d3757e5511" class="indexterm-anchor"></a><a id="d3757e5513" class="indexterm-anchor"></a>Port map</p>
+</td>
+<td class="cellalignment94" headers="d3757e5509 d3757e5439">
+<p>111</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5520" headers="d3757e5436">
+<p><a id="d3757e5522" class="indexterm-anchor"></a>Puppet master service</p>
+</td>
+<td class="cellalignment94" headers="d3757e5520 d3757e5439">
+<p>8140</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5531" headers="d3757e5436">
+<p>Puppet node service</p>
+</td>
+<td class="cellalignment94" headers="d3757e5531 d3757e5439">
+<p>8139</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5538" headers="d3757e5436">
+<p><a id="d3757e5540" class="indexterm-anchor"></a>rpc.statd</p>
+</td>
+<td class="cellalignment94" headers="d3757e5538 d3757e5439">
+<p>668</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5548" headers="d3757e5436">
+<p><a id="d3757e5550" class="indexterm-anchor"></a>ssh</p>
+</td>
+<td class="cellalignment94" headers="d3757e5548 d3757e5439">
+<p>22</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment93" id="d3757e5557" headers="d3757e5436">
+<p><a id="d3757e5559" class="indexterm-anchor"></a><a id="d3757e5561" class="indexterm-anchor"></a>xinetd (service tag)</p>
+</td>
+<td class="cellalignment94" headers="d3757e5557 d3757e5439">
+<p>6481</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG168"></a>
+<div class="props_rev_3"><a id="GUID-E051F9FE-839D-4A42-A0BD-070C8D947B4C"></a>
+<h3 id="BIGUG-GUID-E051F9FE-839D-4A42-A0BD-070C8D947B4C" class="sect3"><span class="enumeration_section">2.11.7</span> About Puppet Security</h3>
+<div>
+<p>The puppet node service (<code>puppetd</code>) runs continuously as <code>root</code> on all servers. It listens on port 8139 for "kick" requests, which trigger it to request updates from the puppet master. It does not receive updates on this port.</p>
+<p>The puppet master service (<code>puppetmasterd</code>) runs continuously as the puppet user on the first server of the primary Oracle Big Data Appliance rack. It listens on port 8140 for requests to push updates to puppet nodes.</p>
+<p>The puppet nodes generate and send certificates to the puppet master to register initially during installation of the software. For updates to the software, the puppet master signals ("kicks") the puppet nodes, which then request all configuration changes from the puppet master node that they are registered with.</p>
+<p>The puppet master sends updates only to puppet nodes that have known, valid certificates. Puppet nodes only accept updates from the puppet master host name they initially registered with. Because Oracle Big Data Appliance uses an internal network for communication within the rack, the puppet master host name resolves using <code>/etc/hosts</code> to an internal, private IP address.</p>
+</div>
+</div>
+</div>
+<a id="BIGUG320"></a>
+<div class="props_rev_3"><a id="GUID-95CEE05F-E84B-43A0-8CE4-6F82F5E82680"></a>
+<h2 id="BIGUG-GUID-95CEE05F-E84B-43A0-8CE4-6F82F5E82680" class="sect2"><span class="enumeration_section">2.12</span> Auditing Oracle Big Data Appliance</h2>
+<div>
+<p>You can use <a id="d3757e5632" class="indexterm-anchor"></a>Oracle Audit Vault and Database Firewall to create and monitor the audit trails for HDFS and MapReduce on Oracle Big Data Appliance.</p>
+<p>This section describes the Oracle Big Data Appliance plug-in:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="admin.htm#GUID-14860FDA-3D87-4A32-AF7B-50484A789F41">About Oracle Audit Vault and Database Firewall</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-4A2BDC86-CE30-4DAC-8C41-AD3ED6ED9103">Setting Up the Oracle Big Data Appliance Plug-in</a></p>
+</li>
+<li>
+<p><a href="admin.htm#GUID-C4912ACA-84DD-4A68-822C-D364E52D29B8">Monitoring Oracle Big Data Appliance</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG321"></a>
+<div class="props_rev_3"><a id="GUID-14860FDA-3D87-4A32-AF7B-50484A789F41"></a>
+<h3 id="BIGUG-GUID-14860FDA-3D87-4A32-AF7B-50484A789F41" class="sect3"><span class="enumeration_section">2.12.1</span> About Oracle Audit Vault and Database Firewall</h3>
+<div>
+<p>Oracle Audit Vault and Database Firewall secures databases and other critical components of IT infrastructure in these key ways:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Provides an integrated auditing platform for your enterprise.</p>
+</li>
+<li>
+<p>Captures activity on Oracle Database, Oracle Big Data Appliance, operating systems, directories, file systems, and so forth.</p>
+</li>
+<li>
+<p>Makes the auditing information available in a single reporting framework so that you can understand the activities across the enterprise. You do not need to monitor each system individually; you can view your computer infrastructure as a whole.</p>
+</li>
+</ul>
+<p>Audit Vault Server provides a web-based, graphic user interface for both administrators and auditors.</p>
+<p>You can configure CDH/Hadoop clusters on Oracle Big Data Appliance as secured targets. The Audit Vault plug-in on Oracle Big Data Appliance collects audit and logging data from these services:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">HDFS</span>: Who makes changes to the file system.</p>
+</li>
+<li>
+<p><span class="bold">Hive DDL</span>: Who makes Hive database changes.</p>
+</li>
+<li>
+<p><span class="bold">MapReduce</span>: Who runs MapReduce jobs that correspond to file access.</p>
+</li>
+<li>
+<p><span class="bold">Oozie workflows</span>: Who runs workflow activities.</p>
+</li>
+</ul>
+<p>The Audit Vault plug-in is an installation option. The Mammoth utility automatically configures monitoring on Oracle Big Data Appliance as part of the software installation process.</p>
+<div class="infoboxnotealso" id="GUID-14860FDA-3D87-4A32-AF7B-50484A789F41__GUID-2C7C1C02-5191-4BF9-B959-6707460A4F6F">
+<p class="notep1">See Also:</p>
+<p>For more information about Oracle Audit Vault and Database Firewall:</p>
+<p><a href="http://www.oracle.com/technetwork/database/database-technologies/audit-vault-and-database-firewall/overview/index.html" target="_blank"><code>http://www.oracle.com/technetwork/database/database-technologies/audit-vault-and-database-firewall/overview/index.html</code></a></p>
+</div>
+</div>
+</div>
+<a id="BIGUG322"></a>
+<div class="props_rev_3"><a id="GUID-4A2BDC86-CE30-4DAC-8C41-AD3ED6ED9103"></a>
+<h3 id="BIGUG-GUID-4A2BDC86-CE30-4DAC-8C41-AD3ED6ED9103" class="sect3"><span class="enumeration_section">2.12.2</span> Setting Up the Oracle Big Data Appliance Plug-in</h3>
+<div>
+<div class="section">
+<p>The Mammoth utility on Oracle Big Data Appliance performs all the steps needed to setup the plug-in, using information that you provide.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To set up the Audit Vault plug-in for Oracle Big Data Appliance:</p>
+<ol>
+<li>
+<p>Ensure that Oracle Audit Vault and Database Firewall Server Release 12.1.1 is up and running on the same network as Oracle Big Data Appliance.</p>
+<div class="infoboxnotealso" id="GUID-4A2BDC86-CE30-4DAC-8C41-AD3ED6ED9103__GUID-1F6EDA89-46E5-4265-8E48-21D6A2976FB1">
+<p class="notep1">See Also:</p>
+<p><a class="olink SIGIG" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E76463-01&amp;id=SIGIG"><span class="italic">Oracle Audit Vault and Database Firewall Installation Guide</span></a></p>
+</div>
+</li>
+<li>
+<p>Complete the Audit Vault Plug-in section of Oracle Big Data Appliance Configuration Generation Utility.</p>
+</li>
+<li>
+<p>Install the Oracle Big Data Appliance software using the Mammoth utility. An Oracle representative typically performs this step.</p>
+<p>You can also add the plug-in at a later time using <code>bdacli</code> . See <a class="olink BIGOG76772" target="_blank" href="../BIGOG/mammoth.htm#BIGOG76772"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a>.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>When the software installation is complete, the Audit Vault plug-in is installed on Oracle Big Data Appliance, and Oracle Audit Vault and Database Firewall is collecting its audit information. You do not need to perform any other installation steps.</p>
+<div class="infoboxnotealso" id="GUID-4A2BDC86-CE30-4DAC-8C41-AD3ED6ED9103__GUID-7F2AF0D1-E922-4218-92C9-0BE95CE465E0">
+<p class="notep1">See Also:</p>
+<p><a class="olink BIGOG76659" target="_blank" href="../BIGOG/mammoth.htm#BIGOG76659"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> for using Oracle Big Data Appliance Configuration Generation Utility</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG324"></a><a id="BIGUG323"></a>
+<div class="props_rev_3"><a id="GUID-C4912ACA-84DD-4A68-822C-D364E52D29B8"></a>
+<h3 id="BIGUG-GUID-C4912ACA-84DD-4A68-822C-D364E52D29B8" class="sect3"><span class="enumeration_section">2.12.3</span> Monitoring Oracle Big Data Appliance</h3>
+<div>
+<div class="section">
+<p>After installing the plug-in, you can monitor Oracle Big Data Appliance the same as any other secured target. Audit Vault Server collects <a id="d3757e5824" class="indexterm-anchor"></a><a id="d3757e5826" class="indexterm-anchor"></a>activity reports automatically.</p>
+<p>The following procedure describes one type of monitoring activity.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">To view an Oracle Big Data Appliance activity report:</p>
+<ol>
+<li>
+<p>Log in to Audit Vault Server as an auditor.</p>
+</li>
+<li>
+<p>Click the <span class="bold">Reports</span> tab.</p>
+</li>
+<li>
+<p>Under Built-in Reports, click <span class="bold">Audit Reports</span>.</p>
+</li>
+<li>
+<p>To browse all activities, in the Activity Reports list, click the <span class="bold">Browse report data</span> icon for All Activity.</p>
+</li>
+<li>
+<p>Add or remove the filters to list the events.</p>
+<p>Event names include ACCESS, CREATE, DELETE, and OPEN.</p>
+</li>
+<li>
+<p>Click the <span class="bold">Single row view</span> icon in the first column to see a detailed report.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="admin.htm#GUID-C4912ACA-84DD-4A68-822C-D364E52D29B8__CACGBICB">Figure 2-11</a> shows the beginning of an activity report, which records access to a Hadoop sequence file.</p>
+<div class="figure" id="GUID-C4912ACA-84DD-4A68-822C-D364E52D29B8__CACGBICB">
+<p class="titleinfigure">Figure 2-11 Activity Report in Audit Vault Server</p>
+<img width="505" height="586" src="img/GUID-92CE92C8-0946-49EF-BB00-FCCA079E887A-default.png" alt="Description of Figure 2-11 follows" title="Description of Figure 2-11 follows" /><br />
+<a href="img_text/GUID-92CE92C8-0946-49EF-BB00-FCCA079E887A-default.htm">Description of "Figure 2-11 Activity Report in Audit Vault Server"</a></div>
+<!-- class="figure" -->
+<div class="infoboxnotealso" id="GUID-C4912ACA-84DD-4A68-822C-D364E52D29B8__GUID-3385060A-5C64-43CB-809E-2A9C047E95E4">
+<p class="notep1">See Also:</p>
+<p><a class="olink SIGAU40584" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E76463-01&amp;id=SIGAU40584"><span class="italic">Oracle Audit Vault and Database Firewall Auditor's Guide</span></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGUG248"></a>
+<div class="props_rev_3"><a id="GUID-E23659EF-3419-4DAA-92FB-7E8B1314A603"></a>
+<h2 id="BIGUG-GUID-E23659EF-3419-4DAA-92FB-7E8B1314A603" class="sect2"><span class="enumeration_section">2.13</span> Collecting Diagnostic Information for Oracle Customer Support</h2>
+<div>
+<div class="section">
+<p>If you need help from <a id="d3757e5909" class="indexterm-anchor"></a><a id="d3757e5911" class="indexterm-anchor"></a><a id="d3757e5913" class="indexterm-anchor"></a><a id="d3757e5915" class="indexterm-anchor"></a><a id="d3757e5919" class="indexterm-anchor"></a><a id="d3757e5921" class="indexterm-anchor"></a>Oracle Support to troubleshoot CDH issues, then you should first collect diagnostic information using the <a id="d3757e5924" class="indexterm-anchor"></a><code>bdadiag</code> utility with the <code>cm</code> option.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To collect diagnostic information:</p>
+<ol>
+<li>
+<p>Log in to an Oracle Big Data Appliance server as <code>root</code>.</p>
+</li>
+<li>
+<p>Run <code>bdadiag</code> with at least the <code>cm</code> option. You can include additional options on the command line as appropriate. See the <a class="olink BIGOG76648" target="_blank" href="../BIGOG/utilities.htm#BIGOG76648"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> for a complete description of the <code>bdadiag</code> syntax.</p>
+<pre dir="ltr">
+# bdadiag cm
+</pre>
+<p>The command output identifies the name and the location of the diagnostic file.</p>
+</li>
+<li>
+<p>Go to My Oracle Support at <a href="http://support.oracle.com" target="_blank"><code>http://support.oracle.com</code></a>.</p>
+</li>
+<li>
+<p>Open a Service Request (SR) if you have not already done so.</p>
+</li>
+<li>
+<p>Upload the <code>bz2</code> file into the SR. If the file is too large, then upload it to <code>sftp.oracle.com</code>, as described in the next procedure.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To upload the diagnostics to ftp.oracle.com:</p>
+<ol>
+<li>
+<p>Open an SFTP client and connect to <code>sftp.oracle.com</code>. Specify port 2021 and remote directory <code>/support/incoming/</code><span class="italic"><code>target</code></span>, where <span class="italic"><code>target</code></span> is the folder name given to you by Oracle Support.</p>
+</li>
+<li>
+<p>Log in with your Oracle Single Sign-on account and password.</p>
+</li>
+<li>
+<p>Upload the diagnostic file to the new directory.</p>
+</li>
+<li>
+<p>Update the SR with the full path and the file name.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="infoboxnotealso" id="GUID-E23659EF-3419-4DAA-92FB-7E8B1314A603__GUID-D0EE0198-8697-4D38-9D90-B347A9D9E80A">
+<p class="notep1">See Also:</p>
+<p>My Oracle Support Note 549180.1 at</p>
+<p><a href="http://support.oracle.com" target="_blank"><code>http://support.oracle.com</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<hr />
+<br />
+<p style="text-decoration:underline">Footnote Legend</p>
+Footnote&nbsp;3: Mozilla Firefox is a registered trademark of the Mozilla Foundation.<br />
+Footnote&nbsp;4: Microsoft Internet Explorer is a registered trademark of Microsoft Corporation.<br />
+Footnote&nbsp;5: Google Chrome is a registered trademark of Google Inc<br />
+Footnote&nbsp;6: Mac OS is a registered trademark of Apple, Inc.<br /></div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment68">
+<tr>
+<td class="cellalignment95">
+<table class="cellalignment73">
+<tr>
+<td class="cellalignment72"><a href="concepts.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment72"><a href="users.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment97">
+<table class="cellalignment71">
+<tr>
+<td class="cellalignment72"><a href="http://docs.oracle.com/bigdata/bda46/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment72"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment72"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment72"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment72"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+</body>
+</html>

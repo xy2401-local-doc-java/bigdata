@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Oracle&reg; Enterprise Manager System Monitoring Plug-in Installation Guide for Oracle Big Data Appliance</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2016-06-15T13:41:38Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Enterprise Manager System Monitoring Plug-in Installation Guide for Oracle Big Data Appliance" />
+<meta name="dcterms.identifier" content="E74773-01" />
+<meta name="dcterms.isVersionOf" content="EMBDA" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2013, 2016,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://www.docs.oracle.com/bigdata/411/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"   src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"   src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="alternate" href="EMBDA.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript"  src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript"  src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript"  src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript"  src="../dcommon/js/foundation.min.js"></script>
+<script type="application/javascript"  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript"  src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript"  src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<!-- End Header -->
+<div class="letterstyle">
+<h1><span>Oracle&reg; Enterprise Manager</span></h1>
+<p class="booktitle"><span>System Monitoring Plug-in Installation Guide for Oracle Big Data Appliance</span></p>
+<p><span class="revnumber"><span>13c Release 2</span></span></p>
+<p class="invpartnumber">E74773-01</p>
+<p class="date">June 2016</p>
+<div>
+<div>
+<p>This document describes how to set up Oracle Big Data Appliance for monitoring within Enterprise Manager Cloud Control. The document contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="#GUID-B888970C-ED34-4843-9B2F-2210D134850A">Description</a></p>
+</li>
+<li>
+<p><a href="#GUID-507DF05F-7003-4210-846B-CA1FE04B890C">Versions Supported</a></p>
+</li>
+<li>
+<p><a href="#GUID-EE08511A-66FF-4E8E-9EE7-4DA72A427392">Prerequisites</a></p>
+</li>
+<li>
+<p><a href="#GUID-DCAA9EF7-15F8-4B65-A89E-EA8B7835DAF2">Deploying the Big Data Appliance Plug-in on OMS</a></p>
+</li>
+<li>
+<p><a href="#GUID-E72C34B3-2B09-475D-B480-4834EAC3B4CB">Performing Rediscovery to Synchronize Cluster Configuration Changes</a></p>
+</li>
+<li>
+<p><a href="#GUID-74DFEF97-D98F-4FAA-93A0-BAB914F2290C">Performing Post-Discovery Configuration and Verification</a></p>
+</li>
+<li>
+<p><a href="#GUID-0A9213A9-0227-4E38-8CAB-0CD507EEBD4D">Verifying and Validating the Plug-in</a></p>
+</li>
+<li>
+<p><a href="#GUID-D61F92C5-1FDD-4539-99CB-D7391290D5D2">Performing Administrative Tasks</a></p>
+</li>
+<li>
+<p><a href="#GUID-3B54D6EA-70F1-4A7B-876B-C36BABC58A9E">Undeploying the Big Data Appliance Plug-in</a></p>
+</li>
+<li>
+<p><a href="#GUID-BB3ECE3B-1F82-410F-BFF0-25B3290EA12C">Documentation Accessibility</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="GUID-B888970C-ED34-4843-9B2F-2210D134850A"></a>
+<h1 id="EMBDA-GUID-B888970C-ED34-4843-9B2F-2210D134850A" class="sect1"><span class="enumeration_section">1.1</span> Description</h1>
+<div>
+<p>Oracle Big Data Appliance is an engineered system of hardware and software optimized to capture and analyze the massive volumes of unstructured data generated by social media feeds, email, web logs, photographs, smart meters, sensors, and similar devices.</p>
+<p>Oracle Big Data Appliance is engineered to work with Oracle Exadata Database Machine and Oracle Exalytics In-Memory Machine to provide the most advanced analysis of all data types, with enterprise-class performance, availability, supportability, and security.</p>
+<p>The Oracle Linux operating system and Cloudera's Distribution including Apache Hadoop (CDH) underlie all other software components installed on Oracle Big Data Appliance.</p>
+<p>The Oracle Enterprise Manager Big Data Appliance plug-in enables you to use the same system monitoring tool for Oracle Big Data Appliance as you use for Oracle Exadata Database Machine or any other Oracle Database installation. With the plug-in, you can view the status of the installed software components in tabular or graphic presentations, and start and stop these software services. You can also monitor the health of the network and the rack components.</p>
+<p>In Enterprise Manager you can monitor all Oracle Big Data Appliance racks on the same InfiniBand fabric. You can see summary views of both the rack hardware and the software layout of the logical clusters.</p>
+<p>You can also do the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Discover the components of a Big Data Appliance Network and add them as managed targets.</p>
+</li>
+<li>
+<p>Manage the hardware and software components that comprise a Big Data Appliance Network as a single target or as individual targets.</p>
+</li>
+<li>
+<p>Study collected metrics to analyze the performance of the network and each BDA component.</p>
+</li>
+<li>
+<p>Trigger alerts based on availability and system health.</p>
+</li>
+<li>
+<p>Respond to warnings and incidents.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="GUID-507DF05F-7003-4210-846B-CA1FE04B890C"></a>
+<h1 id="EMBDA-GUID-507DF05F-7003-4210-846B-CA1FE04B890C" class="sect1"><span class="enumeration_section">1.2</span> Versions Supported</h1>
+<div>
+<p>The Oracle Enterprise Manager Big Data Appliance plug-in requires the following versions of products:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Enterprise Manager Cloud Control 13<code><span class="codeinlineitalic">c</span></code> Release x (and earlier 12.1.0.x supported versions)</p>
+</li>
+<li>
+<p>CDH, Cloudera's Distribution including Apache Hadoop 5.<code><span class="codeinlineitalic">x</span></code> (and earlier supported versions)</p>
+</li>
+<li>
+<p>Oracle Big Data Appliance 3.0 or later</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="GUID-EE08511A-66FF-4E8E-9EE7-4DA72A427392"></a>
+<h1 id="EMBDA-GUID-EE08511A-66FF-4E8E-9EE7-4DA72A427392" class="sect1"><span class="enumeration_section">1.3</span> Prerequisites</h1>
+<div>
+<p>The following prerequisites must be met before you can deploy the Big Data Appliance plug-in:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>&bull;A supported version of Enterprise Manager Cloud Control is installed and up and running. Enterprise Manager can be installed anywhere in the network, provided the Big Data Appliance machines are visible from the location. For performance reasons, try to install Enterprise Manager such that there is minimal latency when connecting to Big Data Appliance machines.</p>
+</li>
+<li>
+<p>Oracle representative has set up Oracle Big Data Appliance hardware.</p>
+</li>
+<li>
+<p>Oracle representative has run the Mammoth utility to install Oracle Big Data Appliance software on the 18 servers in the rack. The utility also installs Management Agents on all the servers and performs automatic discovery of Big Data Appliance Network targets.</p>
+<p>Before running the utility, ensure that the Oracle Management Service (OMS) has the necessary platform agent image as described in <a href="#GUID-222A67D3-3659-4495-ABC0-A3BB3B55F294">Synchronizing the Agent Image on OMS</a>. See also <a href="#GUID-C0207CB5-87C5-4982-8A60-C010089423CD">About the Mammoth Utility</a>.</p>
+</li>
+<li>
+<p>&bull;The Oracle Big Data Appliance plug-in has an engineered systems dependency for hardware monitoring. For Enterprise Manager 12.1.0.x, the appropriate Oracle Exadata plug-in should already be deployed on OMS. For Enterprise Manager 13c Release x, the appropriate Systems Infrastructure plug-in should already be deployed on OMS. In either case, these are default plug-ins and should always be available.</p>
+</li>
+</ul>
+</div>
+<div class="sect2"><a id="GUID-222A67D3-3659-4495-ABC0-A3BB3B55F294"></a>
+<h2 id="EMBDA-GUID-222A67D3-3659-4495-ABC0-A3BB3B55F294" class="sect2"><span class="enumeration_section">1.3.1</span> Synchronizing the Agent Image on OMS</h2>
+<div>
+<p>If the OS where the Management Agent is to be installed differs from the OS where Oracle Management Service is installed, you must install the agent image that matches the Management Agent OS. By default, OMS has the same agent image as the platform on which it is installed. So, for example, if OMS is installed on a solaris64 platform, it has the agent image for solaris64. If the Management Agent is to be installed on a linux64 platform and OMS is on a solaris64 platform, you must install the agent image for linux64 on the OMS host.</p>
+<p>Use the Self Update feature to download and apply the required agent image. To use Self Update effectively, note the following requirements:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The Software Library must be configured.</p>
+</li>
+<li>
+<p>MOS credentials must be set.</p>
+</li>
+<li>
+<p>There can be no refresh errors on the Self Update page (typically indicates a problem with the MOS credentials; try resetting the credentials).</p>
+</li>
+<li>
+<p>Allow time for the refresh job to complete (select <span class="bold">Check Updates</span> on the Self Update page <span class="bold">Actions</span> menu to speed the process).</p>
+</li>
+</ul>
+<p>To use the Self Update feature:</p>
+<ol>
+<li>
+<p>From the <span class="bold">Setup</span> menu, select <span class="bold">Extensibility</span>, then select <span class="bold">Self Update</span>.</p>
+<p>Ensure that the connection mode is success and that the most recent refresh occurred within the past 24 hours.</p>
+</li>
+<li>
+<p>Click <span class="bold">Agent Software</span> and select the image for the platform you need.</p>
+</li>
+<li>
+<p>Download and apply the selected agent image.</p>
+</li>
+</ol>
+<p>Proceed with BDA installation.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-C0207CB5-87C5-4982-8A60-C010089423CD"></a>
+<h2 id="EMBDA-GUID-C0207CB5-87C5-4982-8A60-C010089423CD" class="sect2"><span class="enumeration_section">1.3.2</span> About the Mammoth Utility</h2>
+<div>
+<p>Mammoth is a command-line utility for installing and configuring the Oracle Big Data Appliance software. Using Mammoth, you can:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Set up a cluster for either CDH or Oracle NoSQL Database.</p>
+</li>
+<li>
+<p>Create a cluster on one or more racks.</p>
+</li>
+<li>
+<p>Create multiple clusters on an Oracle Big Data Appliance rack.</p>
+</li>
+<li>
+<p>Extend a cluster to new servers on the same rack or a new rack.</p>
+</li>
+<li>
+<p>Update a cluster with new software.</p>
+</li>
+</ul>
+<p>When you use the Mammoth utility to extend a cluster, Management Agents are added to the new nodes in the cluster. Rediscovery then exposes the roles on these new nodes. Also consider the following scenarios:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If you extend a cluster by adding nodes from the same rack, the new nodes will also have DataNode and TaskTracker services.</p>
+</li>
+<li>
+<p>If you extend a cluster by adding nodes from another rack, a second NameNode service and its failover controllers together with some Zookeeper nodes move to the second rack.</p>
+</li>
+<li>
+<p>A reimaging of all nodes resembles a fresh installation. Any node that goes down is removed from the cluster.</p>
+</li>
+</ul>
+<p>For reconfiguration considerations, adding or removing optional services such as Auto Service Request support for example, Oracle recommends use of the Oracle Big Data Appliance Command-Line Interface (<code>bdacli</code>).</p>
+<p>For information on Big Data Appliance hardware and software setup, the Mammoth utility, and the <code>bdacli</code> utility, see the <span class="italic">Oracle Big Data Appliance Owner's Guide</span>.</p>
+</div>
+</div>
+</div>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="GUID-DCAA9EF7-15F8-4B65-A89E-EA8B7835DAF2"></a>
+<h1 id="EMBDA-GUID-DCAA9EF7-15F8-4B65-A89E-EA8B7835DAF2" class="sect1"><span class="enumeration_section">1.4</span> Deploying the Big Data Appliance Plug-in on OMS</h1>
+<div>
+<p>Deploying the Big Data Appliance plug-in implies first downloading the plug-in from the Enterprise Manager Store to the Software Library from where it can be deployed on OMS. See the "Managing Plug-Ins" chapter in the <span class="italic">Oracle Enterprise Manager Cloud Control Administrator's Guide</span> for steps to download and deploy the plug-in.</p>
+<p>Note that if you are installing Management Agents post BDA plug-in setup using the <code>bdacli</code> utility, you must deploy the BDA plug-in on OMS prior to executing the utility.</p>
+</div>
+</div>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="GUID-E72C34B3-2B09-475D-B480-4834EAC3B4CB"></a>
+<h1 id="EMBDA-GUID-E72C34B3-2B09-475D-B480-4834EAC3B4CB" class="sect1"><span class="enumeration_section">1.5</span> Performing Rediscovery to Synchronize Cluster Configuration Changes</h1>
+<div>
+<p>Cluster expansion performed through the Mammoth utility results in automatic rediscovery of cluster configuration changes. The user interface offers an alternative path to rediscovery. Follow the steps below to synchronize cluster configuration changes. Be sure to restart all services before proceeding.</p>
+<p>To synchronize cluster configuration changes:</p>
+<ol>
+<li>
+<p>From the <span class="bold">Setup</span> menu, select <span class="bold">Add Target</span>, then select <span class="bold">Add Targets Manually</span>.</p>
+<p>Enterprise Manager displays the Add Targets Manually page.</p>
+</li>
+<li>
+<p>Choose <span class="bold">Add Using Guided Process</span>.</p>
+</li>
+<li>
+<p>On the guided process page, select <span class="bold">Oracle Big Data Appliance,</span> then click <span class="bold">Add</span>.</p>
+<p>The Oracle Big Data Discovery wizard opens.</p>
+</li>
+</ol>
+</div>
+<div class="sect2"><a id="GUID-2C55853D-FD0E-43F7-B101-4B4D9AF2C39B"></a>
+<h2 id="EMBDA-GUID-2C55853D-FD0E-43F7-B101-4B4D9AF2C39B" class="sect2"><span class="enumeration_section">1.5.1</span> Starting Big Data Discovery</h2>
+<div>
+<p>Big Data discovery occurs automatically as part of Big Data Appliance installation and setup using the Mammoth utility. You can subsequently use this wizard to perform rediscovery.</p>
+<p>Complete the required fields as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Click the search icon and select any host in the Big Data Network.</p>
+</li>
+<li>
+<p>Provide named credentials for the "oracle" OS account that owns a Management Agent home.</p>
+</li>
+</ul>
+<p>Continue with the next step in the wizard, hardware discovery.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-E5BF35B7-B3AC-4DFB-BC39-8189EACBD0BE"></a>
+<h2 id="EMBDA-GUID-E5BF35B7-B3AC-4DFB-BC39-8189EACBD0BE" class="sect2"><span class="enumeration_section">1.5.2</span> Discovering Big Data Hardware</h2>
+<div>
+<p>The Big Data Discovery Hardware page displays the hardware components discovered for each Big Data Appliance in a Big Data Network. Hardware components include:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Hosts (one for each of the 18 servers in a rack)</p>
+</li>
+<li>
+<p>Switches (both Sun InfiniBand and Cisco Ethernet switches)</p>
+</li>
+<li>
+<p>Integrated Lights Out Manager (ILOM) servers</p>
+</li>
+<li>
+<p>Power Distribution Units (PDU)</p>
+</li>
+</ul>
+<p>Use the <span class="bold">Expand All</span> menu item to display all components.</p>
+<p>For more information on hardware components as managed targets, see the "Discovering, Promoting, and Adding Systems Infrastructure Targets" chapter in the <span class="italic">Enterprise Manager Cloud Control Administrator's Guide</span>.</p>
+<p>Continue with the next step in the wizard, setting hardware credentials.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-F949C0D5-45EC-47A3-9942-8C0671930D79"></a>
+<h2 id="EMBDA-GUID-F949C0D5-45EC-47A3-9942-8C0671930D79" class="sect2"><span class="enumeration_section">1.5.3</span> Setting Hardware Credentials</h2>
+<div>
+<p>If these credentials are not already set as a result of the BDA installation process running the Mammoth utility, set them as necessary. You can set credentials on all or selected categories of components; that is, hosts, ILOM servers, and InfiniBand switches. For ease of use, it is common to use the same credentials to access all components of a given type.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Host Agent</span>&ndash;Named credentials for the "oracle" OS account that owns a Management Agent home.</p>
+</li>
+<li>
+<p><span class="bold">ILOM Server</span>&ndash;Named credentials for the "root" OS account on an Oracle&reg; Integrated Lights Out Manager (Oracle ILOM) server in the Big Data Network.</p>
+</li>
+<li>
+<p><span class="bold">InfiniBand Switch NM2</span> &ndash;Named credentials for the "nm2user" OS account on an InfiniBand switch in the Big Data Network.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-F949C0D5-45EC-47A3-9942-8C0671930D79__GUID-19CB3C05-26E6-4379-A5DB-AF0B3B384964">
+<p class="notep1">Note:</p>
+<p>If you have more than one Big Data Appliance Network target and they have different credentials, you must provide each set of credentials to discover each target. This applies as well to discovering ILOM server and InfiniBand switch targets that have different credentials.</p>
+</div>
+<p>For example, to set credentials for all hosts:</p>
+<ol>
+<li>
+<p>Select the Hosts folder (or any host within).</p>
+</li>
+<li>
+<p>From the <span class="bold">Set Credentials</span> menu, select <span class="bold">All Hosts</span>.</p>
+</li>
+<li>
+<p>Complete the Set Credentials dialog, then click <span class="bold">OK</span>.</p>
+</li>
+</ol>
+<p>To set credentials on selected items, ILOM servers for example:</p>
+<ol>
+<li>
+<p>Open the ILOM Servers folder.</p>
+</li>
+<li>
+<p>Multiselect servers within the folder.</p>
+</li>
+<li>
+<p>From the <span class="bold">Set Credentials</span> menu, select <span class="bold">Selected Items</span>.</p>
+</li>
+<li>
+<p>Complete the Set Credentials dialog, then click <span class="bold">OK</span>.</p>
+</li>
+</ol>
+<p>Continue with the next step in the wizard, Cloudera Manager configuration. This is an optional step.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-C6812F9F-8558-4CF6-BC95-1DB964CEB912"></a>
+<h2 id="EMBDA-GUID-C6812F9F-8558-4CF6-BC95-1DB964CEB912" class="sect2"><span class="enumeration_section">1.5.4</span> Configuring Cloudera Manager</h2>
+<div>
+<p>Each CDH cluster can have its own Cloudera Manager. Use the Cloudera Manager page to add and edit Cloudera Manager configurations. This is an optional step.</p>
+<p>To edit the configuration:</p>
+<ol>
+<li>
+<p>Select the table row, then click the <span class="bold">Edit</span> button.</p>
+</li>
+<li>
+<p>Make changes to the URL and credentials as appropriate.</p>
+</li>
+<li>
+<p>Click <span class="bold">OK</span>.</p>
+</li>
+</ol>
+<p>Continue with the next step in the wizard, Big Data software discovery.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-28A1A1AD-5D91-4A22-8470-24B4144BD5B1"></a>
+<h2 id="EMBDA-GUID-28A1A1AD-5D91-4A22-8470-24B4144BD5B1" class="sect2"><span class="enumeration_section">1.5.5</span> Discovering Big Data Software</h2>
+<div>
+<p>The Big Data Discovery Software page displays the software components in the form of a Hadoop cluster discovered for each Big Data Appliance in a Big Data Appliance Network.</p>
+<p>A Hadoop cluster consists of a myriad of servers, nodes, agents, trackers, and other components, each with specific responsibilities with regard to managing and organizing massive volumes of data.</p>
+<p>This page is for information only, denoting the software components discovered, status, their associated hardware component and appliance. There are no actions to perform on this page.</p>
+<p>Continue with the next step in the wizard, job review and submittal.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-CE32A24D-7B25-4DA8-AED2-A8ABF537302B"></a>
+<h2 id="EMBDA-GUID-CE32A24D-7B25-4DA8-AED2-A8ABF537302B" class="sect2"><span class="enumeration_section">1.5.6</span> Submitting the Discovery Job</h2>
+<div>
+<p>The Review page provides a summary of the discovery process, including the monitoring agents on all hardware components. When satisfied with the results, click <span class="bold">Submit</span> to promote the discovered targets to managed status.</p>
+</div>
+</div>
+</div>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="GUID-74DFEF97-D98F-4FAA-93A0-BAB914F2290C"></a>
+<h1 id="EMBDA-GUID-74DFEF97-D98F-4FAA-93A0-BAB914F2290C" class="sect1"><span class="enumeration_section">1.6</span> Performing Post-Discovery Configuration and Verification</h1>
+<div>
+<p>The Simple Network Management Protocol (SNMP) is a protocol used for managing or monitoring devices, where many of these devices are network-type devices such as routers, switches, and so on. SNMP enables a single application to first retrieve information, then push new information between a wide range of systems independent of the underlying hardware.</p>
+<p>Post-discovery, perform the following setup procedures to monitor SNMP alert traps generated by hardware targets:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="#GUID-209E74A9-A44F-4E9B-AD5C-E4794ECC6F62">Configuring and Verifying SNMP for InfiniBand Switch Targets</a></p>
+</li>
+<li>
+<p><a href="#GUID-64F090CD-B743-4FD3-8BC0-1B85B333238D">Configuring and Verifying ILOM Server SNMP for Enterprise Manager Monitoring</a></p>
+</li>
+<li>
+<p><a href="#GUID-A2DB4E10-641E-4996-B01A-5E8A4F607545">Configuring and Verifying SNMP for Cisco Ethernet Switch Targets</a></p>
+</li>
+<li>
+<p><a href="#GUID-981C3F3D-E545-4EB5-9163-261DF5FA018B">Configuring and Verifying SNMP for Power Distribution Unit (PDU) Targets</a></p>
+</li>
+</ul>
+<p>These procedures are not necessary to otherwise monitor BDA clusters.</p>
+</div>
+<div class="sect2"><a id="GUID-209E74A9-A44F-4E9B-AD5C-E4794ECC6F62"></a>
+<h2 id="EMBDA-GUID-209E74A9-A44F-4E9B-AD5C-E4794ECC6F62" class="sect2"><span class="enumeration_section">1.6.1</span> Configuring and Verifying SNMP for InfiniBand Switch Targets</h2>
+<div>
+<p>The SNMP configuration for Enterprise Manager monitoring of InfiniBand Switches is done automatically as part of the Enterprise Manager guided discovery process. It is good practice, however, to verify that SNMP configuration has been successful.</p>
+<p>To configure (if necessary) and verify the SNMP configuration for an InfiniBand switch:</p>
+<ol>
+<li>
+<p>Log in to the InfiniBand Switch ILOM web interface using the URL <code>https://&lt;ib_switch_hostname&gt;</code> as root.</p>
+<div class="infobox-note" id="GUID-209E74A9-A44F-4E9B-AD5C-E4794ECC6F62__GUID-B58D1D7A-2248-46D6-BEFB-69909CC5BD6E">
+<p class="notep1">Note:</p>
+<p>Try using Internet Explorer if the console does not display all fields/values in your browser of choice.</p>
+</div>
+</li>
+<li>
+<p>Click <span class="bold">Configuration</span>, then <span class="bold">System Management Access</span>, and finally <span class="bold">SNMP</span>.</p>
+</li>
+<li>
+<p>Ensure the following values are set:</p>
+<pre dir="ltr">
+State=Enabled
+Port=161
+Protocols=v1,v2c,v3
+</pre>
+<p>If you need to make changes, make sure you click <span class="bold">Save</span>.</p>
+</li>
+<li>
+<p>Click <span class="bold">Alert Management</span>.</p>
+</li>
+<li>
+<p>If not already listed, for each Agent that monitors the InfiniBand switch target, select an empty alert (one that has the Destination Summary <code>0.0.0.0, snmp v1, community 'public'</code>) and click <span class="bold">Edit</span>. Provide the following values:</p>
+<pre dir="ltr">
+Level = Minor
+Type = SNMP Trap
+Address = [agent server hostname]
+Destination Port = [agent port]
+SNMP Version = v1
+Community Name = public
+</pre>
+<p>Click <span class="bold">Save</span>.</p>
+</li>
+<li>
+<p>Verify the InfiniBand Switch SNMP configuration for Enterprise Manager monitoring:</p>
+<pre dir="ltr">
+snmpget -v 1 -c &lt;community_string&gt; &lt;hostname_of_IB_switch&gt; 1.3.6.1.4.1.42.2.70.101.1.1.9.1.1.5
+</pre>
+<p>For example:</p>
+<pre dir="ltr">
+$ snmpget -v 1 -c public my_IB_switch.my_company.com 1.3.6.1.4.1.42.2.70.101.1.1.9.1.1.5
+SNMPv2-SMI::enterprises.42.2.70.101.1.1.9.1.1.5 = INTEGER: 1
+</pre>
+<p>If a time-out message appears as output for the above command, it means that the InfiniBand switch is not yet configured for SNMP.</p>
+<p>To remove the subscription:</p>
+<pre dir="ltr">
+echo "set /SP/alertmgmt/rules/12 destination='0.0.0.0' destination_port=0" | spsh
+</pre></li>
+</ol>
+<p>You can set up SNMP for InfiniBand switch targets, using the Enterprise Manager Cloud Control console:</p>
+<ol>
+<li>
+<p>Navigate to the IB Network target (not the individual switches) and select <span class="bold">Administration</span>.</p>
+</li>
+<li>
+<p>Select the <span class="bold">IB Switch</span> target type, then one of the IB Switch targets.</p>
+</li>
+<li>
+<p>Select the <span class="bold">Setup SNMP Subscription</span> command, then select the Management Agent URL that monitors the InfiniBand switch target from the Agent URL list. Click <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>Provide credentials for the InfiniBand switch. Click <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>Review the details you provided. If there are no further changes, then click <span class="bold">Submit</span>.</p>
+</li>
+</ol>
+<p>Perform steps 1-5 for both the Monitoring Agent and Backup Monitoring Agent of the InfiniBand switch target.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-64F090CD-B743-4FD3-8BC0-1B85B333238D"></a>
+<h2 id="EMBDA-GUID-64F090CD-B743-4FD3-8BC0-1B85B333238D" class="sect2"><span class="enumeration_section">1.6.2</span> Configuring and Verifying ILOM Server SNMP for Enterprise Manager Monitoring</h2>
+<div>
+<p>The ILOM server targets are responsible for displaying a number of disk failure alerts for their respective server that are received as SNMP traps. For Enterprise Manager to receive these traps, the <code>/opt/oracle/bda/compmon/bda_mon_hw_asr.pl</code> script must be run to configure SNMP subscriptions for the agents that have been configured to monitor the ILOM server targets.</p>
+<p>The <code>bda_mon_hw_asr.pl</code> script is run as the root user with the <code>-set_snmp_subscribers</code> parameter to add SNMP subscribers. For example:</p>
+<pre dir="ltr">
+# /opt/oracle/bda/compmon/bda_mon_hw_asr.pl -set_snmp_subscribers "(host=hostname1.mycompany.com,port=3872,
+community=public,type=asr,fromip=11.222.33.444),(host=hostname2.mycompany.com,port=3872,community=public,type=asr,fromip=12.345.67.890)"
+Try to add ASR destination Host - hostname1.mycompany.com IP - 11.222.33.44 Port - 3872 Community - public From IP - 22.333.44.555
+Try to add ASR destination Host - hostname2.com IP - 11.111.11.111 Port - 3872 Community - public From IP - 22.333.44.555
+</pre>
+<p>The script needs to be run on each server:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The <code>host</code> values should be the host names of the agents configured to monitor the ILOM server target associated with the server.</p>
+</li>
+<li>
+<p>The <code>fromip</code> values should be the IP address of the server that the ILOM server target is associated with.</p>
+</li>
+</ul>
+<p>For example, if you have a rack with server targets <code>bda1node01</code> through <code>bda1node18</code> and associated ILOM server targets <code>bda1node01-c</code> through <code>bda1node18-c</code>, then you would need to run the script once on each server&mdash;therefore, the script would be run 18 times in total.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>On server <code>bda1node01</code>, the <code>host</code> and <code>port</code> values would be the host names and ports of the agents monitoring ILOM server target <code>bda1node01-c</code> and the <code>fromip</code> value would be the IP address of the server itself, <code>bda1node01</code>.</p>
+</li>
+<li>
+<p>On server <code>bda1node02</code>, the <code>host</code> and <code>port</code> values would be the host names and ports of the agents monitoring ILOM server target <code>bda1node02-c</code> and the <code>fromip</code> value would be the IP address of the server itself, bda1node02... and so on.</p>
+</li>
+</ul>
+<p>This is a good example of where Manual selection of Management Agents for targets is useful. If the first two servers are always the Monitoring Agent and Backup Monitoring Agent, then it is easy to work out the values needed for -<code>set_snmp_subscribers</code> parameters, the <code>host</code> and <code>port</code> values would be the same for all servers.</p>
+<p>The <code>bda_mon_hw_asr.pl</code> script, overwrites any existing SNMP subscriptions. While setting the SNMP subscribers, make sure that current subscribers are included in the new list of subscribers.</p>
+<p>It is possible to use the <code>bda_mon_hw_asr.pl</code> script to get the current set of subscribers using the <code>-get_snmp_subscribers</code> parameter.</p>
+<p>For example:</p>
+<pre dir="ltr">
+# /opt/oracle/bda/compmon/bda_mon_hw_asr.pl -get_snmp_subscribers -type=asr
+</pre>
+<p>Suppose the current list is:</p>
+<pre dir="ltr">
+(host=hostname1.mycompany.com,port=162,community=public,type=asr,fromip=11.222.33.444),
+(host=hostname2.mycompany.com,port=162,community=public,type=asr,fromip=11.222.33.444)
+</pre>
+<p>Then new subscriptions can be added using the following command:</p>
+<pre dir="ltr">
+/opt/oracle/bda/compmon/bda_mon_hw_asr.pl -set_snmp_subscribers 
+"(host=asrhostname1.mycompany.com,port=162,community=public,type=asr,fromip=11.222.33.444),
+(host=asrhostname2.mycompany.com,port=162,community=public,type=asr,fromip=11.222.33.444),
+(host=hostname1.mycompany.com,port=3872,community=public,type=asr,fromip=11.222.33.444),
+(host=hostname2.mycompany.com,port=3872,community=public,type=asr,fromip=11.222.33.444)"
+</pre>
+<p>After adding the new subscribers, run the command <code>bda_mon_hw_asr.pl</code> script with the <code>-get_snmp_subscribers</code> parameter to get the list of SNMP subscribers and verify the new SNMP subscriptions were added successfully. For example:</p>
+<pre dir="ltr">
+# /opt/oracle/bda/compmon/bda_mon_hw_asr.pl -get_snmp_subscribers -type=asr
+(host=asrhostname1.mycompany.com,port=162,community=public,type=asr,fromip=10.10.10.226),
+(host=asrhostname2.mycompany.com,port=162,community=public,type=asr,fromip=10.10.10.226),
+(host=hostname1.mycompany.com,port=3872,community=public,type=asr,fromip=10.10.10.226)
+,(host=hostname2.mycompany.com,port=3872,community=public,type=asr,fromip=10.10.10.226)
+</pre>
+<p>To verify that alerts can be successfully raised and cleared for the Oracle ILOM Server targets, perform the following steps:</p>
+<ol>
+<li>
+<p>Log in to the Enterprise Manager Cloud Control console as an administrator.</p>
+</li>
+<li>
+<p>From the <span class="bold">Targets</span> menu, select <span class="bold">BDA</span>. Select an Oracle ILOM Server target using the target navigation pane.</p>
+<p>The ILOM target page displays, showing the current status of the selected target as well as any incidents that have been raised for it.</p>
+</li>
+<li>
+<p>Raise an alert manually from the ILOM Server being validated. Run the following command as root on the first database server in the cluster:</p>
+<pre dir="ltr">
+# ipmitool -I lan -H sclczdb01-c -U root -P <span class="italic">ilomrootpwd</span> -L OPERATOR event PS0/VINOK deassert
+</pre>
+<p>The output should be similar to:</p>
+<pre dir="ltr">
+Finding sensor PS0/VINOK... ok0 | Pre-Init Time-stamp | Power Supply #0x65 | State Deasserted
+</pre>
+<p>After running the above command, wait a few minutes then refresh the ILOM target page. An incident should appear in the Incidents section.</p>
+</li>
+<li>
+<p>Clear the alert raised in Step 3. Run the following command as root on the first database server in the cluster:</p>
+<pre dir="ltr">
+ # ipmitool -I lan -H sclczdb01-c -U root -P <span class="italic">ilomrootpwd</span> -L OPERATOR event PS0/VINOK assert
+</pre>
+<p>The output should be similar to:</p>
+<pre dir="ltr">
+Finding sensor PS0/VINOK... ok    0 | Pre-Init Time-stamp | Power Supply #0x65 | State Asserted
+</pre>
+<p>After running the above command, wait a few minutes then refresh the ILOM target page. The incident that was raised in Step 3 should show as cleared in the Incidents section.</p>
+<div class="infobox-note" id="GUID-64F090CD-B743-4FD3-8BC0-1B85B333238D__GUID-F1F0D8A2-54F1-4D88-993C-D55005AAB8A7">
+<p class="notep1">Note:</p>
+<p>Do not forget to clear the alert raised in Step 3, as it was raised for testing purposes only and does not reflect a true fault condition.</p>
+</div>
+</li>
+<li>
+<p>Repeat for the remaining configured ILOM Servers in the BDA Network.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2"><a id="GUID-A2DB4E10-641E-4996-B01A-5E8A4F607545"></a>
+<h2 id="EMBDA-GUID-A2DB4E10-641E-4996-B01A-5E8A4F607545" class="sect2"><span class="enumeration_section">1.6.3</span> Configuring and Verifying SNMP for Cisco Ethernet Switch Targets</h2>
+<div>
+<p>The Cisco Ethernet Switch must be configured to allow the Agents that monitor it to be able to both poll the switch and to receive SNMP alerts from the switch. To allow this, perform the following steps (swapping the example switch name <code>bda1sw-ip</code> with the name of the Cisco Ethernet Switch target being configured):</p>
+<ol>
+<li>
+<p>Log in to the Cisco switch using Telnet or SSH and enter Configure mode. Note that Telnet is disabled by default on BDA for security reasons. So if Telnet is not available, use SSH as admin or root user.</p>
+<pre dir="ltr">
+# ssh admin@bda1sw-ip 
+User Access Verification Password: 
+bda1sw-ip&gt; enable
+Password:
+bda1sw-ip# configure terminal
+Enter configuration commands, one per line. End with CNTL/Z.
+bda1sw-ip(config)#
+</pre></li>
+<li>
+<p>Enable access to allow the Agents monitoring Cisco Switch target to poll the switch.</p>
+<p>In the command, <code>[EMagentIPaddr]</code> is the IP address of the server where the Enterprise Manager Agent is running. The SNMP community specified must match the value provided when configuring the Cisco Switch target:</p>
+<pre dir="ltr">
+bda1sw-ip(config)# access-list 1 permit [EMagentIPaddr]
+bda1sw-ip(config)# snmp-server community &lt;community_string&gt; ro 1
+</pre></li>
+<li>
+<p>Set the monitoring Agent as the location where SNMP traps are delivered. The SNMP community specified must match the value provided during Enterprise Manager Cisco Switch Management Plug-In setup:</p>
+<pre dir="ltr">
+bda1sw-ip(config)# snmp-server host &lt;EMagentIPaddr&gt; version 1 &lt;community string&gt; udp-port [EMagentRecvltListenPort]
+</pre>
+<p>Where <code>[EMagentRecvltListenPort]</code> is the <code>EMD_URL</code> port of the <code>emagent</code> or <code>SnmpRecvletListenNIC</code> property value if it is enabled.</p>
+</li>
+<li>
+<p>Configure the Cisco Switch to send only environmental monitor SNMP traps:</p>
+<pre dir="ltr">
+bda1sw-ip(config)# snmp-server enable traps envmon
+</pre></li>
+<li>
+<p>Verify settings and save the configuration:</p>
+<pre dir="ltr">
+bda1sw-ip(config)# end
+bda1sw-ip# show running-config
+bda1sw-ip# copy running-config startup-config
+</pre></li>
+</ol>
+<p>To verify the Cisco Switch configuration, run the <code>snmpwalk</code> command line utility or equivalent tool.</p>
+<p>Run the following commands to fetch and display the data from the Cisco switch:</p>
+<pre dir="ltr">
+snmpget &ndash;v 1 &ndash;c &lt;community_string&gt; &lt;hostname_of_cisco_switch&gt; 1.3.6.1.4.1.9.2.1.56.0
+$ snmpget &ndash;v 2c &ndash;c &lt;community_string&gt; &lt;hostname_of_cisco_switch&gt; 1.3.6.1.4.1.9.2.1.56.0
+</pre>
+<p>If a time-out message appears as output for the above command, then it means that the Cisco Switch is not yet configured correctly.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-981C3F3D-E545-4EB5-9163-261DF5FA018B"></a>
+<h2 id="EMBDA-GUID-981C3F3D-E545-4EB5-9163-261DF5FA018B" class="sect2"><span class="enumeration_section">1.6.4</span> Configuring and Verifying SNMP for Power Distribution Unit (PDU) Targets</h2>
+<div>
+<p>To enable Enterprise Manager to collect metric data and raise events for the PDU target, you must configure the PDU to accept SNMP queries from the Agents that monitor the PDU target. Also, appropriate threshold values for different phase values needs to be set on the PDU.</p>
+<p>This section assumes that this is a first-time configuration of the PDU. SNMP must be enabled and the trap section completed. Granting SNMP access to a different monitoring Agent IP address is an example where only the "Trap Host Setup" section needs to be changed.</p>
+<ol>
+<li>
+<p>Log in to the PDU network interface through a browser at <code>http://&lt;pdu-name&gt;</code>, for example: <code>http://bda1-pdu1.example.com</code></p>
+</li>
+<li>
+<p>Click <span class="bold">Net Configuration</span>, then log in again.</p>
+</li>
+<li>
+<p>Scroll down until you reach the SNMP section of the frame.</p>
+<div class="infobox-note" id="GUID-981C3F3D-E545-4EB5-9163-261DF5FA018B__GUID-404AFBA9-4F15-48B7-8F47-6DB8B71AF2C2">
+<p class="notep1">Note:</p>
+<p>The network interface for the PDU is a frame within a window. In order to scroll down on this page, you must see the scroll bar for the PDU frame as well as the outside scroll bar for the browser in which you accessed the PDU.</p>
+</div>
+</li>
+<li>
+<p>If your PDU is not SNMP-enabled, select the <span class="bold">SNMP Enable</span> check box, then click <span class="bold">Submit</span>.</p>
+</li>
+<li>
+<p>Scroll to the NMS region of the frame.</p>
+</li>
+<li>
+<p>Enter the following in Row 1 under NMS:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>IP: Enter the <span class="bold">IP address</span> of the first monitoring Agent</p>
+</li>
+<li>
+<p>Community: Enter <span class="bold">"public"</span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <span class="bold">Submit</span>.</p>
+</li>
+</ol>
+<p>For information on PDU threshold settings, see Section 11.8, "Monitoring the PDU Current," in the <span class="italic">Oracle Big Data Appliance Owner's Guide</span>.</p>
+<p>To verify the PDU configuration, use the <code>snmpwalk</code> command line utility or equivalent tool.</p>
+<p>Run the following command to fetch and display the data from PDU:</p>
+<pre dir="ltr">
+snmpget &ndash;v 1 &ndash;c &lt;community_string&gt; &lt;hostname_of_pdu&gt; 1.3.6.1.4.1.2769.1.2.3.1.1.1.0
+</pre>
+<p>If a time-out message appears as output for the above command, then it means that the PDU is not yet configured correctly.</p>
+</div>
+</div>
+</div>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="GUID-0A9213A9-0227-4E38-8CAB-0CD507EEBD4D"></a>
+<h1 id="EMBDA-GUID-0A9213A9-0227-4E38-8CAB-0CD507EEBD4D" class="sect1"><span class="enumeration_section">1.7</span> Verifying and Validating the Plug-in</h1>
+<div>
+<p>Upon successful discovery of a Big Data Appliance Network and SNMP setup for hardware components, take the following steps to verify and validate that Enterprise Manager is properly monitoring the plug-in target:</p>
+<ol>
+<li>
+<p>From the <span class="bold">Targets</span> menu, select <span class="bold">Big Data Appliance</span>.</p>
+<p>The Big Data page appears.</p>
+</li>
+<li>
+<p>Click the Target Navigation hierarchy icon to the left of the BDA Network target.</p>
+<p>Top-level targets appear for Big Data Appliance, Hadoop Cluster, and Systems Infrastructure Rack.</p>
+</li>
+<li>
+<p>Expand any one of these top-level targets to display respective components in the tree hierarchy:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Big Data Appliance&ndash;host targets that support the BDA network.</p>
+</li>
+<li>
+<p>Hadoop Cluster&ndash; Cloudera Manager and the various file system, framework, engine, and platform components that cooperate to manage massive volumes of data</p>
+</li>
+<li>
+<p>Systems Infrastructure Rack&ndash;the hosts, ILOMs, PDUs, and switches that store and distribute massive volumes of data</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Drill down to check on the availability and health of targets within the BDA Network target.</p>
+<p>For example, when you select the Hadoop Cluster target, you can see the following information at a glance:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The status of all the software components.</p>
+</li>
+<li>
+<p>The security measures in play for the cluster.</p>
+</li>
+<li>
+<p>Host utilization in terms of CPU, memory, and file system as a percentage, and network in terms of megabytes per second.</p>
+</li>
+<li>
+<p>Hadoop performance in terms of containers (running and allocated), name and data node activity, and storage capacity used.</p>
+</li>
+<li>
+<p>A summary of incidents by target and severity.</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="GUID-D61F92C5-1FDD-4539-99CB-D7391290D5D2"></a>
+<h1 id="EMBDA-GUID-D61F92C5-1FDD-4539-99CB-D7391290D5D2" class="sect1"><span class="enumeration_section">1.8</span> Performing Administrative Tasks</h1>
+<div>
+<p>You can perform a limited range of administrative tasks in the Enterprise Manager Cloud Control console, including:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="#GUID-710AF12A-5DEE-439E-A5B8-2F85879463F3">Modifying Cluster Components</a></p>
+</li>
+<li>
+<p><a href="#GUID-4B35A538-9320-4904-B243-B2ECD0C0914B">Administering InfiniBand Network from the Host Page</a></p>
+</li>
+<li>
+<p><a href="#GUID-CC82D323-1A4D-4530-BB17-CDDD68756821">Administering InfiniBand Network from the Systems Infrastructure Switch Page</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2"><a id="GUID-710AF12A-5DEE-439E-A5B8-2F85879463F3"></a>
+<h2 id="EMBDA-GUID-710AF12A-5DEE-439E-A5B8-2F85879463F3" class="sect2"><span class="enumeration_section">1.8.1</span> Modifying Cluster Components</h2>
+<div>
+<ol>
+<li>
+<p>From the <span class="bold">Targets</span> menu, select <span class="bold">Big Data Appliance</span>.</p>
+</li>
+<li>
+<p>Expand the Big Data Network target and select the Hadoop Cluster component.</p>
+</li>
+<li>
+<p>From the Hadoop Cluster menu, select <span class="bold">Cluster Administration</span>, then <span class="bold">Modify Components</span>.</p>
+</li>
+<li>
+<p>Choose to enable, disable, or modify cluster components.</p>
+</li>
+<li>
+<p>Provide root credentials for the primary host to perform selected actions on the cluster components</p>
+</li>
+<li>
+<p>Satisfy additional requirements depending on the cluster, as detailed in <a href="#GUID-710AF12A-5DEE-439E-A5B8-2F85879463F3__BABDHCJC">Table 1-1</a>.</p>
+</li>
+</ol>
+<div class="tblformal" id="GUID-710AF12A-5DEE-439E-A5B8-2F85879463F3__BABDHCJC">
+<hr />
+<p class="titleintable">Table 1-1 Cluster Component Requirements</p>
+<table class="cellalignment398" title="Cluster Component Requirements" summary="Modfiable components and requirements">
+<thead align="left">
+<tr>
+<th class="cellalignment399" id="d1778e87">Component</th>
+<th class="cellalignment400" id="d1778e90">Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment399" id="d1778e95" headers="d1778e87">
+<p>Automatic Service Requests</p>
+</td>
+<td class="cellalignment400" headers="d1778e95 d1778e90">
+<ul style="list-style-type: disc;">
+<li>
+<p>ASR Manager host name and port</p>
+</li>
+<li>
+<p>ASR user and password</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="cellalignment399" id="d1778e107" headers="d1778e87">
+<p>Kerberos</p>
+</td>
+<td class="cellalignment400" headers="d1778e107 d1778e90">
+<ul style="list-style-type: disc;">
+<li>
+<p>Host names of Kerberos domain controllers</p>
+</li>
+<li>
+<p>Kerberos realm</p>
+</li>
+<li>
+<p>KDC password</p>
+</li>
+<li>
+<p>Oracle OS password</p>
+</li>
+<li>
+<p>Cloudera Manager admin password</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="cellalignment399" id="d1778e128" headers="d1778e87">
+<p>Big Data Connectors</p>
+</td>
+<td class="cellalignment400" headers="d1778e128 d1778e90">
+<ul style="list-style-type: disc;">
+<li>
+<p>MySQL root password</p>
+</li>
+<li>
+<p>ODI MySQL password</p>
+</li>
+<li>
+<p>Cloudera Manager admin password</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="cellalignment399" id="d1778e143" headers="d1778e87">
+<p>Audit Vault</p>
+</td>
+<td class="cellalignment400" headers="d1778e143 d1778e90">
+<ul style="list-style-type: disc;">
+<li>
+<p>Audit Vault admin user</p>
+</li>
+<li>
+<p>Audit Vault server, port, and password</p>
+</li>
+<li>
+<p>Audit Vault service</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="cellalignment399" id="d1778e158" headers="d1778e87">
+<p>Big Data SQL</p>
+</td>
+<td class="cellalignment400" headers="d1778e158 d1778e90">
+<ul style="list-style-type: disc;">
+<li>
+<p>Cloudera Manager admin password</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="cellalignment399" id="d1778e167" headers="d1778e87">
+<p>Disk Encryption</p>
+</td>
+<td class="cellalignment400" headers="d1778e167 d1778e90">
+<ul style="list-style-type: disc;">
+<li>
+<p>Post install root password</p>
+</li>
+<li>
+<p>Disk encryption password</p>
+</li>
+<li>
+<p>Oracle OS password</p>
+</li>
+<li>
+<p>Cloudera Manager admin password</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="cellalignment399" id="d1778e185" headers="d1778e87">
+<p>Network Encryption</p>
+</td>
+<td class="cellalignment400" headers="d1778e185 d1778e90">
+<ul style="list-style-type: disc;">
+<li>
+<p>Kerberos enabled</p>
+</li>
+<li>
+<p>Oracle OS password</p>
+</li>
+<li>
+<p>Cloudera Manager admin password</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="cellalignment399" id="d1778e200" headers="d1778e87">
+<p>Sentry</p>
+</td>
+<td class="cellalignment400" headers="d1778e200 d1778e90">
+<ul style="list-style-type: disc;">
+<li>
+<p>Kerberos enabled</p>
+</li>
+<li>
+<p>Oracle OS password</p>
+</li>
+<li>
+<p>Cloudera Manager admin password</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<div class="sect2"><a id="GUID-4B35A538-9320-4904-B243-B2ECD0C0914B"></a>
+<h2 id="EMBDA-GUID-4B35A538-9320-4904-B243-B2ECD0C0914B" class="sect2"><span class="enumeration_section">1.8.2</span> Administering InfiniBand Network from the Host Page</h2>
+<div>
+<p>Administer an InfiniBand Network from the Systems Infrastructure Server page by taking the following steps:</p>
+<ol>
+<li>
+<p>From the <span class="bold">Targets</span> menu, select <span class="bold">Big Data Appliance</span>, then select the Big Data Network target.</p>
+</li>
+<li>
+<p>In the Software Overview section, click a Host link.</p>
+</li>
+<li>
+<p>From the <span class="bold">Host</span> target menu, select <span class="bold">Administration</span>, then select <span class="bold">InfiniBand Network Administration</span>.</p>
+</li>
+<li>
+<p>At the Command step, select an operation and an appropriate port from the respective drop-down menus, then click <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>At the Credentials &amp; Schedule step, select or enter applicable target credentials and specify scheduling parameters, then click <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>At the Review step, verify the settings and, if satisfied, click <span class="bold">Submit</span>.</p>
+</li>
+<li>
+<p>At the Status step, confirm that the job submission succeeded. Click the job name to view job status in the Jobs System. When you are finished, click <span class="bold">Done</span> to close the wizard.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2"><a id="GUID-CC82D323-1A4D-4530-BB17-CDDD68756821"></a>
+<h2 id="EMBDA-GUID-CC82D323-1A4D-4530-BB17-CDDD68756821" class="sect2"><span class="enumeration_section">1.8.3</span> Administering InfiniBand Network from the Systems Infrastructure Switch Page</h2>
+<div>
+<p>Administer an InfiniBand Network from the Systems Infrastructure Switch page by taking the following steps:</p>
+<ol>
+<li>
+<p>From the <span class="bold">Targets</span> menu, select <span class="bold">Big Data Appliance</span>.</p>
+</li>
+<li>
+<p>Expand the Big Data Network target and select the Systems Infrastructure Rack component.</p>
+</li>
+<li>
+<p>From the <span class="bold">Systems Infrastructure Rack</span> target menu, select <span class="bold">Administration</span>, then select <span class="bold">InfiniBand Network Administration</span>.</p>
+</li>
+<li>
+<p>At the Command step, select an operation as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To switch the LED on or off, select the appropriate command from the drop-down menu.</p>
+</li>
+<li>
+<p>To enable or disable a port, or to clear performance or error counters, select the appropriate command and then the applicable port from the respective drop-down menus.</p>
+</li>
+<li>
+<p>To set up an SNMP subscription, select the Agent URL from the drop-down menu and provide the associated SNMP community string.</p>
+</li>
+</ul>
+<p>Click <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>At the Credentials &amp; Schedule step, select or enter applicable target credentials and specify scheduling parameters, then click <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>At the Review step, verify the settings and, if satisfied, click <span class="bold">Submit</span>.</p>
+</li>
+<li>
+<p>At the Status step, confirm that the job submission succeeded. Click the job name to view job status in the Jobs System. When you are finished, click <span class="bold">Done</span> to close the wizard.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="GUID-3B54D6EA-70F1-4A7B-876B-C36BABC58A9E"></a>
+<h1 id="EMBDA-GUID-3B54D6EA-70F1-4A7B-876B-C36BABC58A9E" class="sect1"><span class="enumeration_section">1.9</span> Undeploying the Big Data Appliance Plug-in</h1>
+<div>
+<p>See the "Managing Plug-Ins" chapter in the <span class="italic">Oracle Enterprise Manager Cloud Control Administrator's Guide</span> for steps to undeploy the plug-in.</p>
+</div>
+</div>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="GUID-BB3ECE3B-1F82-410F-BFF0-25B3290EA12C"></a>
+<h1 id="EMBDA-GUID-BB3ECE3B-1F82-410F-BFF0-25B3290EA12C" class="sect1"><span class="enumeration_section">1.10</span> Documentation Accessibility</h1>
+<div>
+<p>For information about Oracle's commitment to accessibility, visit the Oracle Accessibility Program website at <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=docacc" target="_blank"><code>http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=docacc</code></a>.</p>
+<div class="section">
+<p class="subhead1">Access to Oracle Support</p>
+<p>Oracle customers that have purchased support have access to electronic support through My Oracle Support. For information, visit <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=info" target="_blank"><code>http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=info</code></a> or visit <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=trs" target="_blank"><code>http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=trs</code></a> if you are hearing impaired.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<hr />
+<div class="notices">
+<p><span>Oracle&reg; Enterprise Manager</span> <span>System Monitoring Plug-in Installation Guide for Oracle Big Data Appliance</span>, <span>13c Release 2</span></p>
+<p>E74773-01</p>
+<p>Copyright &copy; 2013, 2016,&nbsp;Oracle and/or its affiliates. All rights reserved.</p>
+<div>
+<div>
+<p>This software and related documentation are provided under a license agreement containing restrictions on use and disclosure and are protected by intellectual property laws. Except as expressly permitted in your license agreement or allowed by law, you may not use, copy, reproduce, translate, broadcast, modify, license, transmit, distribute, exhibit, perform, publish, or display any part, in any form, or by any means. Reverse engineering, disassembly, or decompilation of this software, unless required by law for interoperability, is prohibited.</p>
+<p>The information contained herein is subject to change without notice and is not warranted to be error-free. If you find any errors, please report them to us in writing.</p>
+</div>
+</div>
+<div>
+<div>
+<p>If this is software or related documentation that is delivered to the U.S. Government or anyone licensing it on behalf of the U.S. Government, then the following notice is applicable:</p>
+<p>U.S. GOVERNMENT END USERS: Oracle programs, including any operating system, integrated software, any programs installed on the hardware, and/or documentation, delivered to U.S. Government end users are "commercial computer software" pursuant to the applicable Federal Acquisition Regulation and agency-specific supplemental regulations. As such, use, duplication, disclosure, modification, and adaptation of the programs, including any operating system, integrated software, any programs installed on the hardware, and/or documentation, shall be subject to license terms and license restrictions applicable to the programs. No other rights are granted to the U.S. Government.</p>
+</div>
+</div>
+<div>
+<div>
+<p>This software or hardware is developed for general use in a variety of information management applications. It is not developed or intended for use in any inherently dangerous applications, including applications that may create a risk of personal injury. If you use this software or hardware in dangerous applications, then you shall be responsible to take all appropriate fail-safe, backup, redundancy, and other measures to ensure its safe use. Oracle Corporation and its affiliates disclaim any liability for any damages caused by use of this software or hardware in dangerous applications.</p>
+</div>
+</div>
+<div>
+<div>
+<p>Oracle and Java are registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.</p>
+<p>Intel and Intel Xeon are trademarks or registered trademarks of Intel Corporation. All SPARC trademarks are used under license and are trademarks or registered trademarks of SPARC International, Inc. AMD, Opteron, the AMD logo, and the AMD Opteron logo are trademarks or registered trademarks of Advanced Micro Devices. UNIX is a registered trademark of The Open Group.</p>
+</div>
+</div>
+<div>
+<div>
+<p>This software or hardware and documentation may provide access to or information about content, products, and services from third parties. Oracle Corporation and its affiliates are not responsible for and expressly disclaim all warranties of any kind with respect to third-party content, products, and services unless otherwise set forth in an applicable agreement between you and Oracle. Oracle Corporation and its affiliates will not be responsible for any loss, costs, or damages incurred due to your access to or use of third-party content, products, or services, except as set forth in an applicable agreement between you and Oracle.</p>
+</div>
+</div>
+<div>
+<div>
+<p>Cloudera, Cloudera CDH, and Cloudera Manager are registered and unregistered trademarks of Cloudera, Inc.</p>
+</div>
+</div>
+<div class="alphabetanotice">
+<div>
+<p>This documentation is in preproduction status and is intended for demonstration and preliminary use only. It may not be specific to the hardware on which you are using the software. Oracle Corporation and its affiliates are not responsible for and expressly disclaim all warranties of any kind with respect to this documentation and will not be responsible for any loss, costs, or damages incurred due to the use of this documentation.</p>
+</div>
+</div>
+<div class="revenuerecognitionnotice">
+<div>
+<p>The information contained in this document is for informational sharing purposes only and should be considered in your capacity as a customer advisory board member or pursuant to your beta trial agreement only. It is not a commitment to deliver any material, code, or functionality, and should not be relied upon in making purchasing decisions. The development, release, and timing of any features or functionality described in this document remains at the sole discretion of Oracle.</p>
+<p>This document in any form, software or printed matter, contains proprietary information that is the exclusive property of Oracle. Your access to and use of this confidential material is subject to the terms and conditions of your Oracle Master Agreement, Oracle License and Services Agreement, Oracle PartnerNetwork Agreement, Oracle distribution agreement, or other license agreement which has been executed by you and Oracle and with which you agree to comply. This document and information contained herein may not be disclosed, copied, reproduced, or distributed to anyone outside Oracle without prior written consent of Oracle. This document is not part of your license agreement nor can it be incorporated into any contractual agreement with Oracle or its subsidiaries or affiliates.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment392">
+<tr>
+<td class="cellalignment401">&nbsp;</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2013, 2016,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment403">
+<table class="cellalignment395">
+<tr>
+<td class="cellalignment396"><a href="http://www.docs.oracle.com/bigdata/411/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment396"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment396"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

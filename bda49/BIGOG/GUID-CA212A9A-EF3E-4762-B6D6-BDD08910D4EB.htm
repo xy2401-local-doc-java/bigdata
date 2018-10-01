@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Changes in Oracle Big Data Appliance Release 4 (4.2)</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-07-19T22:53:35Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E84219-06" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda49/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="GUID-7B749DD6-52ED-499A-8E3E-125529A1D7D5.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-49D758FF-3FF5-42A8-BC33-6FA1A31A8AB3.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"322179",ustr:"",originlat:"0",clientrtt:"0",ghostip:"23.212.3.15",ipv6:false,pct:"10",clientip:"45.78.37.67",requestid:"1fe277a",region:"32996",protocol:"",blver:14,akM:"dsca",akN:"ae",akTT:"O",akTX:"1",akTI:"1fe277a",ai:"206465",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-CA212A9A-EF3E-4762-B6D6-BDD08910D4EB"></a> <span id="PAGE" style="display:none;">38/42</span> <!-- End Header -->
+<a id="BIGOG77069"></a><a id="BIGOG77070"></a><a id="BIGOG77071"></a><a id="BIGOG77068"></a>
+<h1 id="BIGOG-GUID-CA212A9A-EF3E-4762-B6D6-BDD08910D4EB" class="sect1"><span class="enumeration_section">G.7</span> Changes in Oracle Big Data Appliance Release 4 (4.2)</h1>
+<div>
+<p>The following are changes in Oracle Big Data Appliance release 4 (4.2):</p>
+<div class="section">
+<p class="subhead1">New Features</p>
+</div>
+<!-- class="section" -->
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Software Upgrades</span></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Cloudera's Distribution including Apache Hadoop 5.4.0</p>
+</li>
+<li>
+<p>Cloudera Manager 5.4.0</p>
+</li>
+<li>
+<p>Perfect Balance 2.4.0</p>
+</li>
+<li>
+<p>Oracle Big Data SQL 1.1</p>
+</li>
+<li>
+<p>No SQL Database 3.2.5</p>
+</li>
+<li>
+<p>Oracle Linux 6.6 and 5.11</p>
+</li>
+<li>
+<p>JDK 8u45</p>
+</li>
+</ul>
+<p>See <a class="olink BIGUG143" target="_blank" href="../BIGUG/admin.htm#BIGUG143"><span class="italic">Oracle Big Data Appliance Software User's Guide</span></a>.</p>
+</li>
+<li>
+<p><span class="bold">Hardware Upgrades</span></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Big Data Appliance is now shipped with 8 TB disk drives</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="bold">Elastic Configuration</span></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Big Data Appliance now provides the flexibility of adding one or more servers on a starter rack using Big Data Appliance X5-2 High Capacity Nodes plus InfiniBand Infrastructure. You can add up to 12 additional servers on a starter rack.</p>
+<p>See <a href="configure_expansion.htm#GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A">Expanding an Oracle Big Data Appliance Starter Rack</a>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="bold">Automatic Installation Support</span></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Spark-on-YARN is deployed automatically</p>
+</li>
+<li>
+<p>Oracle Spatial and Graph is installed and configured automatically</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="bold">Oracle Big Data SQL 1.1</span></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Copy to BDA</p>
+<p>This utility enables you to copy relatively static tables from an Oracle database into Hadoop, with the purpose of improving query times.</p>
+<p>See <a class="olink BIGUG76736" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E87334-01&amp;id=BIGUG76736"><span class="italic">Oracle Big Data Appliance Software User's Guide</span>.</a></p>
+</li>
+<li>
+<p>Oracle NoSQL Database Support</p>
+<p>Oracle databases on Oracle Exadata Database Machine can use Oracle Big Data SQL to connect to clusters running Oracle NoSQL Database.</p>
+</li>
+<li>
+<p>Parquet Support</p>
+<p>CDH 5.2 and later versions include Hive 0.13, which supports the Apache Parquet file format. This file format is used by Cloudera Impala and other Hadoop software.</p>
+<p>See <a class="olink BIGUG21181" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E87334-01&amp;id=BIGUG21181"><span class="italic">Oracle Big Data Appliance Software User's Guide</span>.</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section">
+<p class="subhead1">Other Changes</p>
+</div>
+<!-- class="section" -->
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Oracle Big Data Appliance X5-2</span></p>
+<p>Oracle Big Data Appliance 4.2 software supports Oracle Big Data Appliance X5-2 and earlier version server hardware.</p>
+<p>See <span class="q">"<a href="intro.htm#GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB">Server Components</a>"</span>.</p>
+</li>
+<li>
+<p><span class="bold">Oracle Big Data Appliance Configuration Generation Utility</span></p>
+<p>This utility generates two new configuration files:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">network.json</code>: Supersedes <code class="codeph">BdaDeploy.json</code>. For software upgrades, Mammoth converts the existing<code class="codeph">BdaDeploy.json</code> to <code class="codeph">network.json</code>. New installations must have <code class="codeph">network.json</code>.</p>
+</li>
+<li>
+<p><code class="codeph">networkexpansion.json</code>: Supersedes <code class="codeph">BdaExpansion.json</code>.</p>
+</li>
+</ul>
+<p>See <span class="q">"<a href="configurator.htm#GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F">About the Configuration Files</a>"</span>.</p>
+</li>
+<li>
+<p><span class="bold">CDH Deployment</span></p>
+<p>Mammoth uses parcels instead of RPMs to deploy CDH.</p>
+</li>
+<li>
+<p><span class="bold">Apache Sentry</span></p>
+<p>Installation of Apache Sentry does not require <code class="codeph">sentry-provider.ini</code> as a prerequisite.</p>
+</li>
+<li>
+<p><span class="bold">Microsoft Active Directory Server in Mammoth</span></p>
+<p>Support for directly using Microsoft Active Directory named as Active Directory Kerberos in Mammoth.</p>
+</li>
+<li>
+<p><span class="bold">Oracle Linux Support</span></p>
+<p>Oracle Linux 5 support for Oracle Big Data Appliance X5-2 servers.</p>
+</li>
+<li>
+<p><span class="bold">Cloudera Navigator Trustee Server</span></p>
+<p>Cloudera Navigator Trustee Server installer package and documentation are now shipped in Mammoth. It must be manually installed on a separate server.</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead1">Deprecated Features</p>
+</div>
+<!-- class="section" -->
+<p>The following features are deprecated in this release, and may be desupported in a future release:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Mammoth Reconfiguration Utility</span></p>
+<p>The <code class="codeph">bdacli</code> utility supersedes <code class="codeph">mammoth-reconfig</code>. The <code class="codeph">mammoth-reconfig</code> utility is only needed to change the disk encryption password.</p>
+<p>See <span class="q">"<a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C">bdacli</a>"</span>.</p>
+</li>
+<li>
+<p><span class="bold">MapReduce 1 (MRv1)</span></p>
+<p>YARN (MRv2) supersedes MRv1. Users who want to continue to use MRv1 on Oracle Big Data Appliance versions 3.<span class="italic">x</span> and 4.<span class="italic">x</span> should contact Oracle Support before using Mammoth to patch or upgrade the software.</p>
+</li>
+<li>
+<p><span class="bold">Disk Encryption</span></p>
+<p>A new encryption system that is more flexible and robust will replace the current system in an upcoming release.</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment164">
+<tr>
+<td class="cellalignment197">
+<table class="cellalignment169">
+<tr>
+<td class="cellalignment168"><a href="GUID-7B749DD6-52ED-499A-8E3E-125529A1D7D5.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment168"><a href="GUID-49D758FF-3FF5-42A8-BC33-6FA1A31A8AB3.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment199">
+<table class="cellalignment167">
+<tr>
+<td class="cellalignment168"><a href="http://docs.oracle.com/bigdata/bda49/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment168"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment168"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment168"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

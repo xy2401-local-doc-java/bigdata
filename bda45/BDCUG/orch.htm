@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using Oracle R Advanced Analytics for Hadoop</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="HDFS files, restrictions in Oracle R Advanced Analytics for Hadoop, Hive access from R, ORE functions for Hive, R functions for Hive, character methods for Hive, frame methods for Hive, logical methods for Hive, matrix methods for Hive, numeric methods for Hive, vector methods for Hive, Hive data types, support for, Oracle Database access from ORCH, R functions, categorical listing, Oracle R Advanced Analytics for Hadoop, categorical list of functions, analytic functions in R, HDFS commands, issuing from R, HDFS commands issued from, Hive access in R, Oracle Database, connecting from R, connecting to Oracle Database from R, connecting to Oracle Database, HDFS data, copying in R, copying HDFS data, R data types, converting and testing, coersing data types in R, data type testing in R, MapReduce functions, writing in R, scripts, debugging in R, debugging functions" />
+<meta name="dcterms.created" content="2016-06-27T14:06:15Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Connectors User's Guide" />
+<meta name="dcterms.identifier" content="E74051-02" />
+<meta name="dcterms.isVersionOf" content="BDCUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="analytics-part.htm" title="Previous" type="text/html" />
+<link rel="Next" href="index.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E74051-02.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-09D84C81-CA7A-47C6-8668-81960B49F809"></a> <span id="PAGE" style="display:none;">16/17</span> <!-- End Header --><a id="BDCUG216"></a>
+<h1 id="BDCUG-GUID-09D84C81-CA7A-47C6-8668-81960B49F809" class="sect1"><span class="enumeration_chapter">8</span> Using Oracle R Advanced Analytics for Hadoop</h1>
+<div>
+<p>This chapter describes R support for big data. It contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="orch.htm#GUID-35B26A5D-839C-40A0-A2CF-177B8C9E7174">About Oracle R Advanced Analytics for Hadoop</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-629AC707-BC40-4D5F-9D2E-A70A4831F6D8">Access to HDFS Files</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-BD18EBFB-80AD-4DB2-BF02-FA2D95B845C2">Access to Apache Hive</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-51E9B904-BB61-40D6-B327-64508FF26CFF">Access to Oracle Database</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-CCCD0A34-2B39-43A4-A64A-E07C1417E5E0">Oracle R Advanced Analytics for Hadoop Functions</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-DB74AD4F-B72E-4956-941B-7F0CD0FD4920">Demos of Oracle R Advanced Analytics for Hadoop Functions</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-516F6C03-5A13-432C-AB6F-72A5EF006973">Security Notes for Oracle R Advanced Analytics for Hadoop</a></p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-09D84C81-CA7A-47C6-8668-81960B49F809__GUID-3BC99139-84FF-43C5-8073-A782846172E2">
+<p class="notep1">Note:</p>
+<p>Oracle R Advanced Analytics for Hadoop was previously called Oracle R Connector for Hadoop or ORCH. ORCH is still mentioned in this document and in the product for backward compatibility.</p>
+</div>
+</div>
+<a id="BDCUG218"></a>
+<div class="props_rev_3"><a id="GUID-35B26A5D-839C-40A0-A2CF-177B8C9E7174"></a>
+<h2 id="BDCUG-GUID-35B26A5D-839C-40A0-A2CF-177B8C9E7174" class="sect2"><span class="enumeration_section">8.1</span> About Oracle R Advanced Analytics for Hadoop</h2>
+<div>
+<p>Oracle R Advanced Analytics for Hadoop provides:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>a general computation framework, in which you can use the R language to write your custom logic as mappers or reducers. The code executes in a distributed, parallel manner using the available compute and storage resources on the Hadoop cluster.</p>
+</li>
+<li>
+<p>an R interface to manipulate Hive tables, which is similar to the transparency layer of Oracle R Enterprise but with a restricted set of functionality.</p>
+</li>
+<li>
+<p>a set of pre-packaged parallel-distributed algorithms.</p>
+</li>
+<li>
+<p>support for Apache Spark, with which you can execute predictive analytics functions on a Hadoop cluster using YARN to dynamically form a Spark cluster or on a dedicated stand-alone Spark cluster. You can switch on or off Spark execution using spark.connect() and spark.disconnect() functions.</p>
+</li>
+<li>
+<p>the ability to use Spark to execute neural network analytical function (orch.neural), for significantly improved performance over MapReduce execution.</p>
+</li>
+</ul>
+</div>
+<a id="BDCUG993"></a>
+<div class="props_rev_3"><a id="GUID-F813BBDE-3E81-4BA2-9727-F9D6E675312D"></a>
+<h3 id="BDCUG-GUID-F813BBDE-3E81-4BA2-9727-F9D6E675312D" class="sect3"><span class="enumeration_section">8.1.1</span> Oracle R Advanced Analytics for Hadoop Architecture</h3>
+<div>
+<p>Oracle R Advanced Analytics for Hadoop:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>is built upon Hadoop streaming, a utility that is a part of Hadoop distribution and allows creation and execution of Map or Reduce jobs with any executable or script as mapper or reducer.</p>
+</li>
+<li>
+<p>is designed for R users to work with Hadoop cluster in a client-server configuration. Client configurations must conform to the requirements of the Hadoop distribution that Oracle R Advanced Analytics for Hadoop is deployed in.</p>
+</li>
+<li>
+<p>uses command line interfaces to HDFS and HIVE to communicate from client nodes to Hadoop clusters.</p>
+</li>
+<li>
+<p>builds the logic required to transform an input stream of data into R data frame object to be readily consumed by user-provided mapper and reducer functions written into R.</p>
+</li>
+<li>
+<p>allows R users to move data from an Oracle Database table or view into Hadoop as an HDFS file, using the Sqoop utility. Similarly data can be moved back from an HDFS file into Oracle Database, using the Sqoop utility or Oracle Loader for Hadoop, depending on the size of data being moved and security requirements</p>
+</li>
+<li>
+<p>support's R's binary RData representation for input and output, for performance sensitive analytic workloads. Conversion utilities from delimiter separated representation to and from RData representation is available as part of Oracle R Advanced Analytics for Hadoop.</p>
+</li>
+<li>
+<p>includes a Hadoop Abstraction Layer (HAL) which manages the similarities and differences across various Hadoop distributions. ORCH will auto-detect the Hadoop version at startup.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDCUG994"></a>
+<div class="props_rev_3"><a id="GUID-71B4CB3B-AA4C-48EE-B9FA-7841FC00EF69"></a>
+<h3 id="BDCUG-GUID-71B4CB3B-AA4C-48EE-B9FA-7841FC00EF69" class="sect3"><span class="enumeration_section">8.1.2</span> Oracle R Advanced Analytics for Hadoop packages and functions</h3>
+<div>
+<p><a id="d59890e147" class="indexterm-anchor"></a>Oracle R Advanced Analytics for Hadoop includes a collection of R packages that provides:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Interfaces to work with the:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Apache Hive tables</p>
+</li>
+<li>
+<p>Apache Hadoop compute infrastructure</p>
+</li>
+<li>
+<p>local R environment</p>
+</li>
+<li>
+<p>Oracle Database tables</p>
+</li>
+<li>
+<p>-Proprietary binary RData representations</p>
+</li>
+<li>
+<p>Apache Spark RDD objects</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Predictive analytic techniques for:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>linear regression</p>
+</li>
+<li>
+<p>generalized linear models</p>
+</li>
+<li>
+<p>neural networks</p>
+</li>
+<li>
+<p>matrix completion using low rank matrix factorization</p>
+</li>
+<li>
+<p>nonnegative matrix factorization</p>
+</li>
+<li>
+<p>k-means clustering</p>
+</li>
+<li>
+<p>principal components analysis</p>
+</li>
+<li>
+<p>multivariate analysis</p>
+</li>
+</ul>
+<p>ORAAH 2.6 introduces full stack of predictive modeling algorithms on Spark. This includes integration of many Spark MLlib capabilities, including Linear Model techniques (Linear Regression, LASSO, Ridge Regression), as well as GLM, SVM, k-Means, Gaussian Mixture clustering, Decision Trees, Random Forests and Gradient Boosted Trees, PCA and SVD. Existing ORAAH custom Spark algorithms are enhanced with the addition of Linear Models and Stepwise capability for both LM and GLM.</p>
+<p>While these techniques have R interfaces, Oracle R Advanced Analytics for Hadoop implement them in either Java or R as distributed, parallel MapReduce jobs, thereby leveraging all nodes of your Hadoop cluster.</p>
+</li>
+</ul>
+<p>You install and load this package as you would any other R package. Using simple R functions, you can perform tasks like these:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Access and transform HDFS data using a Hive-enabled transparency layer</p>
+</li>
+<li>
+<p>Use the R language for writing mappers and reducers</p>
+</li>
+<li>
+<p>Copy data between R memory, the local file system, HDFS, Hive, and Oracle Database instances</p>
+</li>
+<li>
+<p>Manipulate Hive data transparently from R</p>
+</li>
+<li>
+<p>Execute R programs as Hadoop MapReduce jobs and return the results to any of those locations</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>With Oracle R Advanced Analytics for Hadoop, MapReduce jobs can be submitted from R for both non-cluster (local) execution and Hadoop cluster execution</p>
+</li>
+<li>
+<p>When Oracle R Enterprise and Oracle R Advanced Analytics for Hadoop are used together on a database server, you can schedule database jobs using the DBMS_SCHEDULER to execute scripts containing ORCH functions</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>To use Oracle R Advanced Analytics for Hadoop, you should be familiar with MapReduce programming, R programming, and statistical methods.</p>
+</div>
+</div>
+<a id="BDCUG995"></a>
+<div class="props_rev_3"><a id="GUID-AFC3100D-B2C7-430A-83EF-F8A141318A18"></a>
+<h3 id="BDCUG-GUID-AFC3100D-B2C7-430A-83EF-F8A141318A18" class="sect3"><span class="enumeration_section">8.1.3</span> Oracle R Advanced Analytics for Hadoop APIs</h3>
+<div>
+<div class="section">
+<p>Oracle R Advanced Analytics for Hadoop provides access from a local R client to Apache Hadoop using functions with these prefixes:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>hadoop</code>: Identifies functions that provide an interface to Hadoop MapReduce</p>
+</li>
+<li>
+<p><code>hdfs</code>: Identifies functions that provide an interface to HDFS</p>
+</li>
+<li>
+<p><code>orch</code>: Identifies a variety of functions; <code>orch</code> is a general prefix for <code>ORCH</code> functions</p>
+</li>
+<li>
+<p><code>ore</code>: Identifies functions that provide an interface to a Hive data store</p>
+</li>
+</ul>
+<p>Oracle R Advanced Analytics for Hadoop uses data frames as the primary object type, but it can also operate on vectors and matrices to exchange data with HDFS. The APIs support the numeric, integer, and character data types in R.</p>
+<p>All of the APIs are included in the <code>ORCH</code> library. The functions are listed in <span class="q">"<a href="orch.htm#GUID-CCCD0A34-2B39-43A4-A64A-E07C1417E5E0">Oracle R Advanced Analytics for Hadoop Functions</a>"</span>.</p>
+<div class="infoboxnotealso" id="GUID-AFC3100D-B2C7-430A-83EF-F8A141318A18__GUID-525FFBDE-D3F5-42E8-8E57-E901EBFE177E">
+<p class="notep1">See Also:</p>
+<p>The R Project website at <a href="http://www.r-project.org/" target="_blank"><code>http://www.r-project.org/</code></a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG996"></a>
+<div class="props_rev_3"><a id="GUID-C15458DB-1E89-4B6D-B511-CD66AF519912"></a>
+<h3 id="BDCUG-GUID-C15458DB-1E89-4B6D-B511-CD66AF519912" class="sect3"><span class="enumeration_section">8.1.4</span> Inputs to Oracle R Advanced Analytics for Hadoop</h3>
+<div>
+<p>Oracle R Advanced Analytics for Hadoop can work with delimited text files resident in an HDFS directory, HIVE tables, or binary RData representations of data. If the input data to an Oracle R Advanced Analytics for Hadoop orchestrated map-reduce computation does not reside in HDFS, a copy of the data in HDFS is created automatically prior to launching the computation.</p>
+<p>Before Oracle R Advanced Analytics for Hadoop can work with delimited text files it determines metadata associated with the files and captures the same in a file stored alongside of the data files. This file is named __ORCHMETA__. The metadata contains information such as:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If the file contains key(s), then the delimiter that is the key separator</p>
+</li>
+<li>
+<p>The delimiter that is the value separator</p>
+</li>
+<li>
+<p>Number and data types of columns in the file</p>
+</li>
+<li>
+<p>Optional names of columns</p>
+</li>
+<li>
+<p>Dictionary information for categorical columns</p>
+</li>
+<li>
+<p>Other Oracle R Advanced Analytics for Hadoop-specific system data</p>
+</li>
+</ul>
+<p>Oracle R Advanced Analytics for Hadoop runs an automatic metadata discovery procedure on HDFS objects as part of hdfs.attach() invocation to create the metadata file. When working with HIVE tables, __ORCHMETA__ file is created automatically from the HIVE table definition2.</p>
+<p>Oracle R Advanced Analytics for Hadoop can optionally convert input data into R's binary RData representation for I/O performance that is on par with a pure Java based map-reduce implementation.</p>
+<p>Oracle R Advanced Analytics for Hadoop captures row streams from HDFS files and delivers them formatted as a data frame object (or optionally matrix, vector, or list objects generated from the data frame object or AS IS, if RData representation is used) to the mapped function written in R. To accomplish this, Oracle R Advanced Analytics for Hadoop must recognize the tokens and data types of the tokens that become columns of a data frame. Oracle R Advanced Analytics for Hadoop uses R's facilities to parse and interpret tokens in input row streams. If missing values are not represented using R's &ldquo;NA" token, they can be explicitly identified by the na.strings argument of hdfs.attach().</p>
+<p>Delimited text files with the same key and value separator are preferred over files with a different key delimiter and value delimiter. The Read performance of files with the same key and value delimiter is roughly 2x better than that of files with different key and value delimiter.</p>
+<p>The key delimiter and value delimiter can be specified through the key.sep and val.sep arguments of hdfs.attach() or when running a MapReduce job for its output HDFS data.</p>
+<p>Binary RData representation is the most performance efficient representation of input data in Oracle R Advanced Analytics for Hadoop. When possible, users are encouraged to use this binary data representation for performance sensitive analytics.</p>
+</div>
+</div>
+</div>
+<a id="BDCUG397"></a>
+<div class="props_rev_3"><a id="GUID-629AC707-BC40-4D5F-9D2E-A70A4831F6D8"></a>
+<h2 id="BDCUG-GUID-629AC707-BC40-4D5F-9D2E-A70A4831F6D8" class="sect2"><span class="enumeration_section">8.2</span> Access to HDFS Files</h2>
+<div>
+<p>For Oracle R Advanced Analytics for Hadoop to access the data stored in HDFS, the input files must comply with the following requirements:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>All input files for a MapReduce job must be stored in one directory as the parts of one logical file. Any valid HDFS directory name and file name extensions are acceptable.</p>
+</li>
+<li>
+<p>Any file in that directory with a name beginning with an underscore (_) is ignored.</p>
+</li>
+</ul>
+<p>All delimiters are supported, and key and value delimiters can be different.</p>
+<p>You can also convert a delimited file into binary format, using the Rdata representation from R, for the best I/O performance.</p>
+</div>
+</div>
+<a id="BDCUG399"></a>
+<div class="props_rev_3"><a id="GUID-BD18EBFB-80AD-4DB2-BF02-FA2D95B845C2"></a>
+<h2 id="BDCUG-GUID-BD18EBFB-80AD-4DB2-BF02-FA2D95B845C2" class="sect2"><span class="enumeration_section">8.3</span> Access to Apache Hive</h2>
+<div>
+<p>Apache Hive provides an alternative storage and retrieval mechanism to HDFS files through a querying language called HiveQL, which closely resembles SQL. Hive uses MapReduce for distributed processing. However, the data is structured and has additional metadata to support data discovery. Oracle R Advanced Analytics for Hadoop uses the data preparation and analysis features of HiveQL, while enabling you to use R language constructs.</p>
+<div class="infoboxnotealso" id="GUID-BD18EBFB-80AD-4DB2-BF02-FA2D95B845C2__GUID-FBC7FB59-B2F7-457A-9F78-AE3B9F4ED697">
+<p class="notep1">See Also:</p>
+<p>The Apache Hive website at <a href="http://hive.apache.org" target="_blank"><code>http://hive.apache.org</code></a></p>
+</div>
+</div>
+<a id="BDCUG957"></a>
+<div class="props_rev_3"><a id="GUID-0A3A46C2-D141-4B24-BE3F-6B90EDB145F2"></a>
+<h3 id="BDCUG-GUID-0A3A46C2-D141-4B24-BE3F-6B90EDB145F2" class="sect3"><span class="enumeration_section">8.3.1</span> ORCH Functions for Hive</h3>
+<div>
+<div class="section">
+<p>ORCH provides these conversion functions to help you move data between HDFS and Hive:</p>
+<pre dir="ltr">
+hdfs.toHive
+hdfs.fromHive
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG400"></a>
+<div class="props_rev_3"><a id="GUID-48EFF163-2038-47DC-8F48-C74B7BB41003"></a>
+<h3 id="BDCUG-GUID-48EFF163-2038-47DC-8F48-C74B7BB41003" class="sect3"><span class="enumeration_section">8.3.2</span> ORE Functions for Hive</h3>
+<div>
+<div class="section">
+<p>You can connect to Hive and analyze and transform Hive table objects using R functions that have an <code>ore</code> prefix, such as <code>ore.connect</code>. If you are also using Oracle R Enterprise, then you will recognize these functions. The <code>ore</code> functions in Oracle R Enterprise create and manage objects in an Oracle database, and the <code>ore</code> functions in Oracle R Advanced Analytics for Hadoop create and manage objects in a Hive database. You can connect to one database at a time, either Hive or Oracle Database, but not both simultaneously.</p>
+<div class="infobox-note" id="GUID-48EFF163-2038-47DC-8F48-C74B7BB41003__GUID-E804C369-1465-420F-84D9-72F8EBDD20CB">
+<p class="notep1">Note:</p>
+<p>For information about requirements and instructions to set up and use Oracle R Enterprise, refer to Oracle R Enterprise library at: <a href="http://docs.oracle.com/cd/E40980_01/" target="_blank"><code>http://docs.oracle.com/cd/E40980_01/</code></a>.</p>
+</div>
+<p>For example, the <code>ore.connect(type="HIVE")</code> establishes a connection with the default HIVE d<code>atabase.ore.hiveOptions(dbname='dbtmp')</code> and allows you to change the default database, while <code>ore.showHiveOptions()</code> allows you to examine the current default HIVE database.</p>
+<p>See <a href="orch.htm#GUID-39A27568-63DF-4F42-B461-DABA7519FE00__CHDEJBHC" title="Functions for data conversion">Table 8-7</a> for a list of ORE <code>as.ore.*</code> and <code>is.ore.*</code> functions.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG402"></a><a id="BDCUG401"></a>
+<div class="props_rev_3"><a id="GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC"></a>
+<h3 id="BDCUG-GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC" class="sect3"><span class="enumeration_section">8.3.3</span> Generic R Functions Supported in Hive</h3>
+<div>
+<div class="section">
+<p>Oracle R Advanced Analytics for Hadoop also overloads the following standard generic R functions with methods to work with Hive objects.</p>
+<dl>
+<dt class="dlterm"><a id="GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC__GUID-6F8FCE46-14E9-4ED1-87D6-7B96FB6B7A88"><!-- --></a>Character methods</dt>
+<dd>
+<p><code>casefold</code>, <code>chartr</code>, <code>gsub</code>, <code>nchar</code>, <code>substr</code>, <code>substring</code>, <code>tolower</code>, <code>toupper</code></p>
+<p>This release does not support <code>grepl</code> or <code>sub</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC__GUID-4189FFCC-632F-42C8-A2D3-2DD1B961EEDF"><!-- --></a>Frame methods</dt>
+<dd>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>attach</code>, <code>show</code></p>
+</li>
+<li>
+<p><code>[</code>, <code>$</code>, <code>$&lt;-</code>, <code>[[</code>, <code>[[&lt;-</code></p>
+</li>
+<li>
+<p>Subset functions: <code>head</code>, <code>tail</code></p>
+</li>
+<li>
+<p>Metadata functions: <code>dim</code>, <code>length</code>, <code>NROW</code>, <code>nrow</code>, <code>NCOL</code>, <code>ncol</code>, <code>names</code>, <code>names&lt;-</code>, <code>colnames</code>, <code>colnames&lt;-</code></p>
+</li>
+<li>
+<p>Conversion functions: <code>as.data.frame</code>, <code>as.env</code>, <code>as.list</code></p>
+</li>
+<li>
+<p>Arithmetic operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>^</code>, <code>%%</code>, <code>%/%</code>, <code>/</code></p>
+</li>
+<li>
+<p><code>Compare</code>, <code>Logic</code>, <code>xor</code>, <code>!</code></p>
+</li>
+<li>
+<p>Test functions: <code>is.finite</code>, <code>is.infinite</code>, <code>is.na</code>, <code>is.nan</code></p>
+</li>
+<li>
+<p>Mathematical transformations: <code>abs</code>, <code>acos</code>, <code>asin</code>, <code>atan</code>, <code>ceiling</code>, <code>cos</code>, <code>exp</code>, <code>expm1</code>, <code>floor</code>, <code>log</code>, <code>log10</code>, <code>log1p</code>, <code>log2</code>, <code>logb</code>, <code>round</code>, <code>sign</code>, <code>sin</code>, <code>sqrt</code>, <code>tan</code>, <code>trunc</code></p>
+</li>
+<li>
+<p>Basic statistics: <code>colMeans</code>, <code>colSums</code>, <code>rowMeans</code>, <code>rowSums</code>, <code>Summary</code>, <code>summary</code>, <code>unique</code></p>
+</li>
+<li>
+<p><code>by</code>, <code>merge</code></p>
+</li>
+<li>
+<p><code>unlist</code>, <code>rbind</code>, <code>cbind</code>, <code>data.frame</code>, <code>eval</code></p>
+</li>
+</ul>
+<p>This release does not support <code>dimnames</code>, <code>interaction</code>, <code>max.col</code>, <code>row.names</code>, <code>row.names&lt;-</code>, <code>scale</code>, <code>split</code>, <code>subset</code>, <code>transform</code>, <code>with</code>, or <code>within</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC__GUID-37BDD68B-D7DC-444C-8933-83BA05417969"><!-- --></a>Logical methods</dt>
+<dd>
+<p><code>ifelse</code>, <code>Logic</code>, <code>xor</code>, <code>!</code></p>
+</dd>
+<dt class="dlterm"><a id="GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC__GUID-4A15DC81-29F8-42AD-B255-2254F1737E96"><!-- --></a>Matrix methods</dt>
+<dd>
+<p>Not supported</p>
+</dd>
+<dt class="dlterm"><a id="GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC__GUID-016A7508-02E6-408F-AA7D-F54412309D2E"><!-- --></a>Numeric methods</dt>
+<dd>
+<ul style="list-style-type: disc;">
+<li>
+<p>Arithmetic operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>^</code>, <code>%%</code>, <code>%/%</code>, <code>/</code></p>
+</li>
+<li>
+<p>Test functions: <code>is.finite</code>, <code>is.infinite</code>, <code>is.nan</code></p>
+</li>
+<li>
+<p><code>abs</code>, <code>acos</code>, <code>asin</code>, <code>atan</code>, <code>ceiling</code>, <code>cos</code>, <code>exp</code>, <code>expm1</code>, <code>floor</code>, <code>log</code>, <code>log1p</code>, <code>log2</code>, <code>log10</code>, <code>logb</code>, <code>mean</code>, <code>round</code>, <code>sign</code>, <code>sin</code>, <code>sqrt</code>, <code>Summary</code>, <code>summary</code>, <code>tan</code>, <code>trunc</code>, <code>zapsmall</code></p>
+</li>
+</ul>
+<p>This release does not support <code>atan2</code>, <code>besselI</code>, <code>besselK</code>, <code>besselJ</code>, <code>besselY</code>, <code>diff</code>, <code>factorial</code>, <code>lfactorial</code>, <code>pmax</code>, <code>pmin</code>, or <code>tabulate</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC__GUID-1AA4CA58-757B-40AD-80E7-796802577230"><!-- --></a>Vector methods</dt>
+<dd>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>show</code>, <code>length</code>, <code>c</code></p>
+</li>
+<li>
+<p>Test functions: <code>is.vector</code>, <code>is.na</code></p>
+</li>
+<li>
+<p>Conversion functions: <code>as.vector</code>, <code>as.character</code>, <code>as.numeric</code>, <code>as.integer</code>, <code>as.logical</code></p>
+</li>
+<li>
+<p><code>[</code>, <code>[&lt;-</code>, <code>|</code></p>
+</li>
+<li>
+<p><code>by</code>, <code>Compare</code>, <code>head</code>, <code>%in%</code>, <code>paste</code>, <code>sort</code>, <code>table</code>, <code>tail</code>, <code>tapply</code>, <code>unique</code></p>
+</li>
+</ul>
+<p>This release does not support <code>interaction</code>, <code>lengthb</code>, <code>rank</code>, or <code>split</code>.</p>
+</dd>
+</dl>
+<p><a href="orch.htm#GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC__BABIIIEJ">Example 8-1</a> shows simple data preparation and processing. For additional details, see <span class="q">"<a href="orch.htm#GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961">Support for Hive Data Types</a>."</span></p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC__BABIIIEJ">
+<p class="titleinexample">Example 8-1 Using R to Process Data in Hive Tables</p>
+<pre dir="ltr">
+# Connect to Hive
+ore.connect(type="HIVE")
+
+# Attach the current envt. into search path of R
+ore.attach()
+
+# create a Hive table by pushing the numeric columns of the iris data set
+IRIS_TABLE &lt;- ore.push(iris[1:4])
+
+# Create bins based on Petal Length
+ IRIS_TABLE$PetalBins = ifelse(IRIS_TABLE$Petal.Length &lt; 2.0, "SMALL PETALS",
++                        ifelse(IRIS_TABLE$Petal.Length &lt; 4.0, "MEDIUM PETALS",
++                        ifelse(IRIS_TABLE$Petal.Length &lt; 6.0,
++                               "MEDIUM LARGE PETALS", "LARGE PETALS")))
+
+#PetalBins is now a derived column of the HIVE object
+&gt; names(IRIS_TABLE)
+[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "PetalBins"   
+
+# Based on the bins, generate summary statistics for each group
+aggregate(IRIS_TABLE$Petal.Length, by = list(PetalBins = IRIS_TABLE$PetalBins),
++           FUN = summary)
+1        LARGE PETALS    6 6.025000 6.200000 6.354545 6.612500  6.9    0
+2 MEDIUM LARGE PETALS    4 4.418750 4.820000 4.888462 5.275000  5.9    0
+3       MEDIUM PETALS    3 3.262500 3.550000 3.581818 3.808333  3.9    0
+4        SMALL PETALS    1 1.311538 1.407692 1.462000 1.507143  1.9    0
+Warning message:
+ORE object has no unique key - using random order 
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BDCUG404"></a><a id="BDCUG405"></a><a id="BDCUG406"></a><a id="BDCUG403"></a>
+<div class="props_rev_3"><a id="GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961"></a>
+<h3 id="BDCUG-GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961" class="sect3"><span class="enumeration_section">8.3.4</span> Support for Hive Data Types</h3>
+<div>
+<p>Oracle R Advanced Analytics for Hadoop can access any Hive table containing columns with string and numeric data types such as <code>tinyint</code>, <code>smallint</code>, <code>bigint</code>, <code>int</code>, <code>float</code>, and <code>double</code>.</p>
+<p>There is no support for these complex data types:</p>
+<pre dir="ltr">
+array
+binary
+map
+struct
+timestamp
+union
+</pre>
+<p>If you attempt to access a Hive table containing an unsupported data type, you will receive an error message. To access the table, you must convert the column to a supported data type.</p>
+<div class="section">
+<p class="subhead3">To convert a column to a supported data type:</p>
+<ol>
+<li>
+<p>Open the Hive command interface:</p>
+<pre dir="ltr">
+$ hive
+hive&gt;
+</pre></li>
+<li>
+<p>Identify the column with an unsupported data type:</p>
+<pre dir="ltr">
+hive&gt; describe <span class="italic">table_name</span>;
+</pre></li>
+<li>
+<p>View the data in the column:</p>
+<pre dir="ltr">
+hive&gt; select <span class="italic">column_name</span> from <span class="italic">table_name</span>;
+</pre></li>
+<li>
+<p>Create a table for the converted data, using only supported data types.</p>
+</li>
+<li>
+<p>Copy the data into the new table, using an appropriate conversion tool.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<p><a href="orch.htm#GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961__BABHAFAE">Example 8-2</a> shows the conversion of an array. <a href="orch.htm#GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961__BABGGDID">Example 8-3</a> and <a href="orch.htm#GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961__BABBIHFA">Example 8-4</a> show the conversion of timestamp data.</p>
+<div class="example" id="GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961__BABHAFAE">
+<p class="titleinexample">Example 8-2 Converting an Array to String Columns</p>
+<pre dir="ltr">
+R&gt; ore.sync(table="t1")
+   Warning message:
+   table t1 contains unsupported data types 
+     .
+     .
+     .
+hive&gt; <span class="bold">describe t1;</span>
+OK
+      col1   int
+      col2   array&lt;string&gt;
+
+hive&gt; <span class="bold">select * from t1;</span>
+OK
+1      ["a","b","c"]
+2      ["d","e","f"]
+3      ["g","h","i"]
+
+hive&gt; <span class="bold">create table t2 (c1 string, c2 string, c2 string);</span>
+hive&gt; <span class="bold">insert into table t2 select col2[0], col2[1], col2[2] from t1;</span>
+     .
+     .
+     .
+R&gt; <span class="bold">ore.sync(table="t2")</span>
+R&gt; <span class="bold">ore.ls()</span>
+[1] "t2"
+R&gt; <span class="bold">t2$c1</span>
+[1] "a" "d" "g" 
+</pre></div>
+<!-- class="example" -->
+<p><a href="orch.htm#GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961__BABGGDID">Example 8-3</a> uses automatic conversion of the <code>timestamp</code> data type into string. The data is stored in a table named <code>t5</code> with a column named <code>tstmp</code>.</p>
+<div class="example" id="GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961__BABGGDID">
+<p class="titleinexample">Example 8-3 Converting a Timestamp Column</p>
+<pre dir="ltr">
+hive&gt; select * from t5;
+
+
+hive&gt; create table t6 (timestmp string); 
+hive&gt; insert into table t6 SELECT tstmp from t5;
+ 
+</pre></div>
+<!-- class="example" -->
+<p><a href="orch.htm#GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961__BABBIHFA">Example 8-4</a> uses the Hive <code>get_json_object</code> function to extract the two columns of interest from the JSON table into a separate table for use by Oracle R Advanced Analytics for Hadoop.</p>
+<div class="example" id="GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961__BABBIHFA">
+<p class="titleinexample">Example 8-4 Converting a Timestamp Column in a JSON File</p>
+<pre dir="ltr">
+hive&gt; select * from t3;
+OK
+      {"custId":1305981,"movieId":null,"genreId":null,"time":"2010-12-30:23:59:32","recommended":null,"activity":9}
+
+hive&gt; create table t4 (custid int, time string);
+ 
+hive&gt; insert into table t4 SELECT cast(get_json_object(c1, '$.custId') as int), cast(get_json_object(c1, '$.time') as string) from t3;
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="BDCUG407"></a>
+<div class="props_rev_3"><a id="GUID-02AC609B-22BF-4CD5-B5E5-79795A35ED83"></a>
+<h3 id="BDCUG-GUID-02AC609B-22BF-4CD5-B5E5-79795A35ED83" class="sect3"><span class="enumeration_section">8.3.5</span> Usage Notes for Hive Access</h3>
+<div>
+<p>The Hive command language interface (CLI) is used for executing queries and provides support for Linux clients. There is no JDBC or ODBC support.</p>
+<p>The <a id="d59890e1325" class="indexterm-anchor"></a><code>ore.create</code> function creates Hive tables only as text files. However, Oracle R Advanced Analytics for Hadoop can access Hive tables stored as either text files or sequence files.</p>
+<p>You can use the <a id="d59890e1332" class="indexterm-anchor"></a><code>ore.exec</code> function to execute Hive commands from the R console. For a demo, run the <code>hive_sequencefile</code> demo.</p>
+<p>Oracle R Advanced Analytics for Hadoop can access tables and views in the default Hive database only. To allow read access to objects in other databases, you must expose them in the default database. For example, you can create views.</p>
+<p>Oracle R Advanced Analytics for Hadoop does not have a concept of ordering in Hive. An R frame persisted in Hive might not have the same ordering after it is pulled out of Hive and into memory. Oracle R Advanced Analytics for Hadoop is designed primarily to support data cleanup and filtering of huge HDFS data sets, where ordering is not critical. You might see warning messages when working with unordered Hive frames:</p>
+<pre dir="ltr">
+Warning messages:
+1: ORE object has no unique key - using <a id="d59890e1346" class="indexterm-anchor"></a>random order 
+2: ORE object has no unique key - using random order 
+</pre>
+<p>To suppress these warnings, set the <a id="d59890e1351" class="indexterm-anchor"></a><code>ore.warn.order</code> option in your R session:</p>
+<pre dir="ltr">
+R&gt; options(ore.warn.order = FALSE)
+</pre></div>
+</div>
+<a id="BDCUG409"></a><a id="BDCUG408"></a>
+<div class="props_rev_3"><a id="GUID-E799E9FF-CBB3-4D5E-BBF1-6BAB82A1DF43"></a>
+<h3 id="BDCUG-GUID-E799E9FF-CBB3-4D5E-BBF1-6BAB82A1DF43" class="sect3"><span class="enumeration_section">8.3.6</span> Example: Loading Hive Tables into Oracle R Advanced Analytics for Hadoop</h3>
+<div>
+<div class="section">
+<p><a href="orch.htm#GUID-E799E9FF-CBB3-4D5E-BBF1-6BAB82A1DF43__CHDBDFFC">Example 8-5</a> provides an example of loading a Hive table into an R data frame for analysis. It uses these Oracle R Advanced Analytics for Hadoop functions:</p>
+<pre dir="ltr">
+hdfs.attach
+ore.attach
+ore.connect
+ore.create
+ore.hiveOptions
+ore.sync
+</pre></div>
+<!-- class="section" -->
+<div class="example" id="GUID-E799E9FF-CBB3-4D5E-BBF1-6BAB82A1DF43__CHDBDFFC">
+<p class="titleinexample">Example 8-5 Loading a Hive Table</p>
+<pre dir="ltr">
+# Connect to HIVE metastore and sync the HIVE input table into the R session.
+ore.connect(type="HIVE")
+ore.sync(table="datatab")
+ore.attach()
+ 
+# The "datatab" object is a Hive table with columns named custid, movieid, activity, and rating.
+# Perform filtering to remove missing (NA) values from custid and movieid columns 
+# Project out three columns: custid, movieid and rating
+t1 &lt;- datatab[!is.na(datatab$custid) &amp;
+    !is.na(datatab$movieid) &amp; 
+    datatab$activity==1, c("custid","movieid", "rating")]
+ 
+# Set HIVE field delimiters to ','. By default, it is Ctrl+a for text files but
+# ORCH 2.0 supports only ',' as a file separator.
+ore.hiveOptions(delim=',')
+
+# Create another Hive table called "datatab1" after the transformations above.
+ore.create (t1, table="datatab1")
+ 
+# Use the HDFS directory, where the table data for datatab1 is stored, to attach
+# it to ORCH framework. By default, this location is "/user/hive/warehouse"
+dfs.id &lt;- hdfs.attach("/user/hive/warehouse/datatab1")
+
+# dfs.id can now be used with all hdfs.*, orch.* and hadoop.* APIs of ORCH for further processing and analytics.
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<a id="BDCUG271"></a>
+<div class="props_rev_3"><a id="GUID-51E9B904-BB61-40D6-B327-64508FF26CFF"></a>
+<h2 id="BDCUG-GUID-51E9B904-BB61-40D6-B327-64508FF26CFF" class="sect2"><span class="enumeration_section">8.4</span> Access to Oracle Database</h2>
+<div>
+<p>Oracle R Advanced Analytics for Hadoop provides a basic level of database access. You can move the contents of a database table to HDFS, and move the results of HDFS analytics back to the database.</p>
+<p>You can then perform additional analysis on this smaller set of data using a separate product named Oracle R Enterprise. It enables you to perform statistical analysis on database tables, views, and other data objects using the R language. You have transparent access to database objects, including support for Business Intelligence and in-database analytics.</p>
+<p>Access to the data stored in an Oracle database is always restricted to the access rights granted by your DBA.</p>
+<p>Oracle R Enterprise is included in the Oracle Advanced Analytics option to Oracle Database Enterprise Edition. It is not included in the Oracle Big Data Connectors.</p>
+<div class="infoboxnotealso" id="GUID-51E9B904-BB61-40D6-B327-64508FF26CFF__GUID-C144B1D1-E862-4337-BD29-D7EE9BE6DB68">
+<p class="notep1">See Also:</p>
+<p><a class="olink OREUG" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E73350-01&amp;id=OREUG"><span class="italic">Oracle R Enterprise User's Guide</span></a></p>
+</div>
+</div>
+<a id="BDCUG410"></a>
+<div class="props_rev_3"><a id="GUID-08FBE6B8-5604-4850-B0D1-11B3D88DE0B6"></a>
+<h3 id="BDCUG-GUID-08FBE6B8-5604-4850-B0D1-11B3D88DE0B6" class="sect3"><span class="enumeration_section">8.4.1</span> Usage Notes for Oracle Database Access</h3>
+<div>
+<p>Oracle R Advanced Analytics for Hadoop uses <a id="d59890e1445" class="indexterm-anchor"></a>Sqoop to move data between HDFS and Oracle Database. Sqoop imposes several limitations on Oracle R Advanced Analytics for Hadoop:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>You cannot import Oracle tables with <code>BINARY_FLOAT</code> or <code>BINARY_DOUBLE</code> columns. As a work-around, you can create a view that casts these columns to <code>NUMBER</code> data type.</p>
+</li>
+<li>
+<p>All column names must be in upper case.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="BDCUG411"></a>
+<div class="props_rev_3"><a id="GUID-AEF7F295-5C82-42DE-9033-207F757CC967"></a>
+<h3 id="BDCUG-GUID-AEF7F295-5C82-42DE-9033-207F757CC967" class="sect3"><span class="enumeration_section">8.4.2</span> Scenario for Using Oracle R Advanced Analytics for Hadoop with Oracle R Enterprise</h3>
+<div>
+<div class="section">
+<p>The following scenario may help you identify opportunities for using Oracle R Advanced Analytics for Hadoop with Oracle R Enterprise.</p>
+<p>Using Oracle R Advanced Analytics for Hadoop, you can look for files that you have access to on HDFS and execute R calculations on data in one such file. You can also upload data stored in text files on your local file system into HDFS for calculations, schedule an R script for execution on the Hadoop cluster using <code>DBMS_SCHEDULER</code>, and download the results into a local file.</p>
+<p>Using Oracle R Enterprise, you can open the R interface and connect to Oracle Database to work on the tables and views that are visible based on your database privileges. You can filter out rows, add derived columns, project new columns, and perform visual and statistical analysis.</p>
+<p>Again using Oracle R Advanced Analytics for Hadoop, you might deploy a MapReduce job on Hadoop for CPU-intensive calculations written in R. The calculation can use data stored in HDFS or, with Oracle R Enterprise, in an Oracle database. You can return the output of the calculation to an Oracle database and to the R console for visualization or additional processing.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BDCUG958"></a>
+<div class="props_rev_3"><a id="GUID-CCCD0A34-2B39-43A4-A64A-E07C1417E5E0"></a>
+<h2 id="BDCUG-GUID-CCCD0A34-2B39-43A4-A64A-E07C1417E5E0" class="sect2"><span class="enumeration_section">8.5</span> Oracle R Advanced Analytics for Hadoop Functions</h2>
+<div>
+<p>The Oracle R Advanced Analytics for Hadoop functions are described in R Help topics. This section groups them into functional categories and provides brief descriptions.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="orch.htm#GUID-511368CB-25E1-4F09-9B04-F673BF443ED9">Native Analytical Functions</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-882B5400-023C-4F92-9EF7-1DD32F80E868">Using the Hadoop Distributed File System (HDFS)</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-FA9380DA-A46F-400E-8AEC-5455F65B18D3">Using Apache Hive</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-58FC5760-5E35-4263-A93B-54ABAF0ECDAD">Using Aggregate Functions in Hive</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-6585C893-69F8-4C54-BD61-3EC46F008C2B">Making Database Connections</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-57091381-2F58-4B12-A828-03AF2726B0A8">Copying Data and Working with HDFS Files</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-39A27568-63DF-4F42-B461-DABA7519FE00">Converting to R Data Types</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-62A449AF-43F8-49CB-BDD9-8A4B87BD0EFF">Using MapReduce</a></p>
+</li>
+<li>
+<p><a href="orch.htm#GUID-D3B22C98-5062-4984-A1ED-9B294B74544E">Debugging Scripts</a></p>
+</li>
+</ul>
+</div>
+<a id="BDCUG413"></a><a id="BDCUG959"></a>
+<div class="props_rev_3"><a id="GUID-511368CB-25E1-4F09-9B04-F673BF443ED9"></a>
+<h3 id="BDCUG-GUID-511368CB-25E1-4F09-9B04-F673BF443ED9" class="sect3"><span class="enumeration_section">8.5.1</span> Native Analytical Functions</h3>
+<div>
+<div class="section">
+<p><a href="orch.htm#GUID-511368CB-25E1-4F09-9B04-F673BF443ED9__BABFFBGB" title="Descriptions of R Connector analytic functions">Table 8-1</a> describes the native analytic functions.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-511368CB-25E1-4F09-9B04-F673BF443ED9__BABFFBGB">
+<hr />
+<p class="titleintable">Table 8-1 Functions for Statistical Analysis</p>
+<table class="cellalignment8" title="Functions for Statistical Analysis" summary="Descriptions of R Connector analytic functions">
+<thead align="left">
+<tr>
+<th class="cellalignment14" id="d59890e1601">Function</th>
+<th class="cellalignment15" id="d59890e1604">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment14" id="d59890e1609" headers="d59890e1601">
+<p><code>orch.cor</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1609 d59890e1604">
+<p>Generates a correlation matrix with a Pearson's correlation coefficients.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1617" headers="d59890e1601">
+<p><code>orch.cov</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1617 d59890e1604">
+<p>Generates a covariance matrix.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1625" headers="d59890e1601">
+<p><code>orch.getXlevels</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1625 d59890e1604">
+<p>Creates a list of factor levels that can be used in the <code>xlev</code> argument of a <code>model.matrix</code> call. It is equivalent to the <code>.getXlevels</code> function in the stats package.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1642" headers="d59890e1601">
+<p><code>orch.glm</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1642 d59890e1604">
+<p>Fits and uses generalized linear models on data stored in HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1650" headers="d59890e1601">
+<p><code>orch.kmeans</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1650 d59890e1604">
+<p>Perform k-means clustering on a data matrix that is stored as a file in HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1658" headers="d59890e1601">
+<p><code>orch.lm</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1658 d59890e1604">
+<p>Fits a linear model using tall-and-skinny QR (TSQR) factorization and parallel distribution. The function computes the same statistical parameters as the Oracle R Enterprise <code>ore.lm</code> function.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1669" headers="d59890e1601">
+<p><code>orch.lmf</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1669 d59890e1604">
+<p>Fits a low rank matrix factorization model using either the jellyfish algorithm or the Mahout alternating least squares with weighted regularization (ALS-WR) algorithm.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1677" headers="d59890e1601">
+<p><code>orch.neural</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1677 d59890e1604">
+<p>Provides a neural network to model complex, nonlinear relationships between inputs and outputs, or to find patterns in the data.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1685" headers="d59890e1601">
+<p><code>orch.nmf</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1685 d59890e1604">
+<p>Provides the main entry point to create a nonnegative matrix factorization model using the jellyfish algorithm. This function can work on much larger data sets than the R <code>NMF</code> package, because the input does not need to fit into memory.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1696" headers="d59890e1601">
+<p><code>orch.nmf.NMFalgo</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1696 d59890e1604">
+<p>Plugs in to the R <code>NMF</code> package framework as a custom algorithm. This function is used for benchmark testing.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1707" headers="d59890e1601">
+<p><code>orch.princomp</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1707 d59890e1604">
+<p>Analyzes the performance of principal component.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1716" headers="d59890e1601">
+<p><code>orch.recommend</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1716 d59890e1604">
+<p>Computes the top <span class="italic">n</span> items to be recommended for each user that has predicted ratings based on the input <code>orch.mahout.lmf.asl</code> model.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1730" headers="d59890e1601">
+<p><code>orch.sample</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1730 d59890e1604">
+<p>Provides the reservoir sampling.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment14" id="d59890e1738" headers="d59890e1601">
+<p><code>orch.scale</code></p>
+</td>
+<td class="cellalignment15" headers="d59890e1738 d59890e1604">
+<p>Performs scaling.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BDCUG961"></a><a id="BDCUG960"></a>
+<div class="props_rev_3"><a id="GUID-882B5400-023C-4F92-9EF7-1DD32F80E868"></a>
+<h3 id="BDCUG-GUID-882B5400-023C-4F92-9EF7-1DD32F80E868" class="sect3"><span class="enumeration_section">8.5.2</span> Using the Hadoop Distributed File System (HDFS)</h3>
+<div>
+<p><a href="orch.htm#GUID-882B5400-023C-4F92-9EF7-1DD32F80E868__CHDGGEGH" title="Functions for HDFS commands">Table 8-2</a> describes the functions that execute HDFS commands from within the R environment.</p>
+<div class="tblformal" id="GUID-882B5400-023C-4F92-9EF7-1DD32F80E868__CHDGGEGH">
+<hr />
+<p class="titleintable">Table 8-2 Functions for Using HDFS</p>
+<table class="cellalignment8" title="Functions for Using HDFS" summary="Functions for HDFS commands">
+<thead align="left">
+<tr>
+<th class="cellalignment22" id="d59890e1790">Function</th>
+<th class="cellalignment21" id="d59890e1793">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment22" id="d59890e1798" headers="d59890e1790">
+<p><code>hdfs.cd</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1798 d59890e1793">
+<p>Sets the default HDFS path.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1806" headers="d59890e1790">
+<p><code>hdfs.cp</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1806 d59890e1793">
+<p>Copies an HDFS file from one location to another.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1814" headers="d59890e1790">
+<p><code>hdfs.describe</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1814 d59890e1793">
+<p>Returns the metadata associated with a file in HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1822" headers="d59890e1790">
+<p><code>hdfs.exists</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1822 d59890e1793">
+<p>Verifies that a file exists in HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1830" headers="d59890e1790">
+<p><code>hdfs.head</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1830 d59890e1793">
+<p>Copies a specified number of lines from the beginning of a file in HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1838" headers="d59890e1790">
+<p><code>hdfs.id</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1838 d59890e1793">
+<p>Converts an HDFS path name to an R <code>dfs.id</code> object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1849" headers="d59890e1790">
+<p><code>hdfs.ls</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1849 d59890e1793">
+<p>Lists the names of all HDFS directories containing data in the specified path.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1857" headers="d59890e1790">
+<p><code>hdfs.mkdir</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1857 d59890e1793">
+<p>Creates a sub<a id="d59890e1864" class="indexterm-anchor"></a>directory in HDFS relative to the current working directory.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1870" headers="d59890e1790">
+<p><code>hdfs.mv</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1870 d59890e1793">
+<p>Moves an HDFS file from one location to another.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1878" headers="d59890e1790">
+<p><code>hdfs.parts</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1878 d59890e1793">
+<p>Returns the number of parts composing a file in HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1886" headers="d59890e1790">
+<p><code>hdfs.pwd</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1886 d59890e1793">
+<p>Identifies the current working directory in HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1895" headers="d59890e1790">
+<p><code>hdfs.rm</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1895 d59890e1793">
+<p>Removes a file or directory from HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1903" headers="d59890e1790">
+<p><code>hdfs.rmdir</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1903 d59890e1793">
+<p>Deletes a directory in HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1911" headers="d59890e1790">
+<p><code>hdfs.root</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1911 d59890e1793">
+<p>Returns the HDFS root directory.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1919" headers="d59890e1790">
+<p><code>hdfs.setroot</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1919 d59890e1793">
+<p>Sets the HDFS root directory.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1927" headers="d59890e1790">
+<p><code>hdfs.size</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1927 d59890e1793">
+<p>Returns the size of a file in HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e1935" headers="d59890e1790">
+<p><code>hdfs.tail</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1935 d59890e1793">
+<p>Copies a specified number of lines from the end of a file in HDFS.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BDCUG963"></a><a id="BDCUG962"></a>
+<div class="props_rev_3"><a id="GUID-FA9380DA-A46F-400E-8AEC-5455F65B18D3"></a>
+<h3 id="BDCUG-GUID-FA9380DA-A46F-400E-8AEC-5455F65B18D3" class="sect3"><span class="enumeration_section">8.5.3</span> Using Apache Hive</h3>
+<div>
+<p><a href="orch.htm#GUID-FA9380DA-A46F-400E-8AEC-5455F65B18D3__CHDDFIDB" title="Functions for using Hive">Table 8-3</a> describes the functions available in Oracle R Advanced Analytics for Hadoop for use with Hive. See <span class="q">"<a href="orch.htm#GUID-48EFF163-2038-47DC-8F48-C74B7BB41003">ORE Functions for Hive</a>"</span>.</p>
+<div class="tblformal" id="GUID-FA9380DA-A46F-400E-8AEC-5455F65B18D3__CHDDFIDB">
+<hr />
+<p class="titleintable">Table 8-3 Functions for Using Hive</p>
+<table class="cellalignment8" title="Functions for Using Hive" summary="Functions for using Hive">
+<thead align="left">
+<tr>
+<th class="cellalignment22" id="d59890e1986">Function</th>
+<th class="cellalignment21" id="d59890e1989">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment22" id="d59890e1994" headers="d59890e1986">
+<p><code>hdfs.fromHive</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e1994 d59890e1989">
+<p>Converts a Hive table to a HDFS identifier in ORCH.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2002" headers="d59890e1986">
+<p><code>hdfs.toHive</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2002 d59890e1989">
+<p>Converts an HDFS object identifier to a Hive table represented by an <code>ore.frame</code> object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2013" headers="d59890e1986">
+<p><code>ore.create</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2013 d59890e1989">
+<p>Creates a database table from a <code>data.frame</code> or <code>ore.frame</code> object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2027" headers="d59890e1986">
+<p><code>ore.drop</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2027 d59890e1989">
+<p>Drops a database table or view.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2035" headers="d59890e1986">
+<p><code>ore.get</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2035 d59890e1989">
+<p>Retrieves the specified <code>ore.frame</code> object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2046" headers="d59890e1986">
+<p><code>ore.pull</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2046 d59890e1989">
+<p>Copies data from a Hive table to an R object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2054" headers="d59890e1986">
+<p><code>ore.push</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2054 d59890e1989">
+<p>Copies data from an R object to a Hive table.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2062" headers="d59890e1986">
+<p><code>ore.recode</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2062 d59890e1989">
+<p>Replaces the values in an <code>ore.vector</code> object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BDCUG965"></a><a id="BDCUG964"></a>
+<div class="props_rev_3"><a id="GUID-58FC5760-5E35-4263-A93B-54ABAF0ECDAD"></a>
+<h3 id="BDCUG-GUID-58FC5760-5E35-4263-A93B-54ABAF0ECDAD" class="sect3"><span class="enumeration_section">8.5.4</span> Using Aggregate Functions in Hive</h3>
+<div>
+<div class="section">
+<p><a href="orch.htm#GUID-58FC5760-5E35-4263-A93B-54ABAF0ECDAD__CHDJHIFC" title="ORE Aggregation Functions">Table 8-4</a> describes the <a id="d59890e2098" class="indexterm-anchor"></a>aggregate functions from the OREstats package that Oracle R Advanced Analytics for Hadoop supports for use with Hive data.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-58FC5760-5E35-4263-A93B-54ABAF0ECDAD__CHDJHIFC">
+<hr />
+<p class="titleintable">Table 8-4 Oracle R Enterprise Aggregate Functions</p>
+<table class="cellalignment8" title="Oracle R Enterprise Aggregate Functions" summary="ORE Aggregation Functions">
+<thead align="left">
+<tr>
+<th class="cellalignment37" id="d59890e2111">Function</th>
+<th class="cellalignment38" id="d59890e2114">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment37" id="d59890e2119" headers="d59890e2111">
+<p><code>aggregate</code></p>
+</td>
+<td class="cellalignment38" headers="d59890e2119 d59890e2114">
+<p>Splits the data into subsets and computes summary statistics for each subset.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment37" id="d59890e2127" headers="d59890e2111">
+<p><code>fivenum</code></p>
+</td>
+<td class="cellalignment38" headers="d59890e2127 d59890e2114">
+<p>Returns Tukey's five-number summary (minimum, lower hinge, median, upper hinge, and maximum) for the input data.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment37" id="d59890e2135" headers="d59890e2111">
+<p><code>IQR</code></p>
+</td>
+<td class="cellalignment38" headers="d59890e2135 d59890e2114">
+<p>Calculates an interquartile range.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment37" id="d59890e2143" headers="d59890e2111">
+<p><code>median</code></p>
+</td>
+<td class="cellalignment38" headers="d59890e2143 d59890e2114">
+<p>Calculates a sample median.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment37" id="d59890e2151" headers="d59890e2111">
+<p><code>quantile</code></p>
+</td>
+<td class="cellalignment38" headers="d59890e2151 d59890e2114">
+<p>Generates sample quantiles that correspond to the specified probabilities.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment37" id="d59890e2159" headers="d59890e2111">
+<p><code>sd</code></p>
+</td>
+<td class="cellalignment38" headers="d59890e2159 d59890e2114">
+<p>Calculates the standard deviation.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment37" id="d59890e2167" headers="d59890e2111">
+<p><code>var</code><a href="#fntarg_1" id="fnsrc_1"><sup>1</sup></a></p>
+</td>
+<td class="cellalignment38" headers="d59890e2167 d59890e2114">
+<p>Calculates the variance.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BDCUG967"></a><a id="BDCUG966"></a>
+<div class="props_rev_3"><a id="GUID-6585C893-69F8-4C54-BD61-3EC46F008C2B"></a>
+<h3 id="BDCUG-GUID-6585C893-69F8-4C54-BD61-3EC46F008C2B" class="sect3"><span class="enumeration_section">8.5.5</span> Making Database Connections</h3>
+<div>
+<div class="section">
+<p><a href="orch.htm#GUID-6585C893-69F8-4C54-BD61-3EC46F008C2B__CHDGBEHB" title="Functions for connecting to the database">Table 8-5</a> describes the functions for establishing a connection to Oracle Database.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-6585C893-69F8-4C54-BD61-3EC46F008C2B__CHDGBEHB">
+<hr />
+<p class="titleintable">Table 8-5 Functions for Using Oracle Database</p>
+<table class="cellalignment8" title="Functions for Using Oracle Database" summary="Functions for connecting to the database">
+<thead align="left">
+<tr>
+<th class="cellalignment22" id="d59890e2225">Function</th>
+<th class="cellalignment21" id="d59890e2228">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment22" id="d59890e2233" headers="d59890e2225">
+<p><code>orch.connect</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2233 d59890e2228">
+<p>Establishes a connection to Oracle Database.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2241" headers="d59890e2225">
+<p><code>orch.connected</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2241 d59890e2228">
+<p>Checks whether Oracle R Advanced Analytics for Hadoop is connected to Oracle Database.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2249" headers="d59890e2225">
+<p><code>orch.dbcon</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2249 d59890e2228">
+<p>Returns a connection object for the current connection to Oracle Database, excluding the authentication credentials.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2257" headers="d59890e2225">
+<p><code>orch.dbinfo</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2257 d59890e2228">
+<p>Displays information about the current connection.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2265" headers="d59890e2225">
+<p><code>orch.disconnect</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2265 d59890e2228">
+<p>Disconnects the local R session from Oracle Database.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment22" id="d59890e2273" headers="d59890e2225">
+<p><code>orch.reconnect</code></p>
+</td>
+<td class="cellalignment21" headers="d59890e2273 d59890e2228">
+<p>Reconnects to Oracle Database with the credentials previously returned by <code>orch.disconnect</code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BDCUG969"></a><a id="BDCUG968"></a>
+<div class="props_rev_3"><a id="GUID-57091381-2F58-4B12-A828-03AF2726B0A8"></a>
+<h3 id="BDCUG-GUID-57091381-2F58-4B12-A828-03AF2726B0A8" class="sect3"><span class="enumeration_section">8.5.6</span> Copying Data and Working with HDFS Files</h3>
+<div>
+<div class="section">
+<p><a href="orch.htm#GUID-57091381-2F58-4B12-A828-03AF2726B0A8__CHDIJEHF" title="Functions for copying data">Table 8-6</a> describes the functions for copying data between platforms, including R data frames, HDFS files, local files, and tables in an Oracle database.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-57091381-2F58-4B12-A828-03AF2726B0A8__CHDIJEHF">
+<hr />
+<p class="titleintable">Table 8-6 Functions for Copying Data</p>
+<table class="cellalignment8" title="Functions for Copying Data" summary="Functions for copying data">
+<thead align="left">
+<tr>
+<th class="cellalignment30" id="d59890e2330">Function</th>
+<th class="cellalignment29" id="d59890e2333">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment30" id="d59890e2338" headers="d59890e2330">
+<p><code>hdfs.attach</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2338 d59890e2333">
+<p>Copies data from an unstructured data file in HDFS into the R framework. By default, data files in HDFS are not visible to the connector. However, if you know the name of the data file, you can use this function to attach it to the Oracle R Advanced Analytics for Hadoop name space.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2346" headers="d59890e2330">
+<p><code>hdfs.download</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2346 d59890e2333">
+<p>Copies a file from HDFS to the local file system.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2354" headers="d59890e2330">
+<p><code>hdfs.get</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2354 d59890e2333">
+<p>Copies data from HDFS into a data frame in the local R environment. All metadata is extracted and all attributes, such as column names and data types, are restored if the data originated in an R environment. Otherwise, generic attributes like val1 and val2 are assigned.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2362" headers="d59890e2330">
+<p><code>hdfs.pull</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2362 d59890e2333">
+<p>Copies data from HDFS into an Oracle database. This operation requires authentication by Oracle Database. See <code>orch.connect</code>.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2373" headers="d59890e2330">
+<p><code>hdfs.push</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2373 d59890e2333">
+<p>Copies data from an Oracle database to HDFS. This operation requires authentication by Oracle Database. See <code>orch.connect</code>.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2384" headers="d59890e2330">
+<p><code>hdfs.put</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2384 d59890e2333">
+<p>Copies data from an R in-memory object (data.frame) to HDFS. All data attributes, like column names and data types, are stored as metadata with the data.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2392" headers="d59890e2330">
+<p><code>hdfs.sample</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2392 d59890e2333">
+<p>Copies a random sample of data from a Hadoop file into an R in-memory object. Use this function to copy a small sample of the original HDFS data for developing the R calculation that you ultimately want to execute on the entire HDFS data set on the Hadoop cluster.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2400" headers="d59890e2330">
+<p><code>hdfs.upload</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2400 d59890e2333">
+<p>Copies a file from the local file system into HDFS.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2408" headers="d59890e2330">
+<p><code>is.hdfs.id</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2408 d59890e2333">
+<p>Indicates whether an R object contains a valid HDFS file identifier.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BDCUG971"></a><a id="BDCUG970"></a>
+<div class="props_rev_3"><a id="GUID-39A27568-63DF-4F42-B461-DABA7519FE00"></a>
+<h3 id="BDCUG-GUID-39A27568-63DF-4F42-B461-DABA7519FE00" class="sect3"><span class="enumeration_section">8.5.7</span> Converting to R Data Types</h3>
+<div>
+<div class="section">
+<p><a href="orch.htm#GUID-39A27568-63DF-4F42-B461-DABA7519FE00__CHDEJBHC" title="Functions for data conversion">Table 8-7</a> describes functions for converting and testing data types. The Oracle R Enterprise <code>OREbase</code> package provides these functions.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-39A27568-63DF-4F42-B461-DABA7519FE00__CHDEJBHC">
+<hr />
+<p class="titleintable">Table 8-7 Functions for Converting and Testing Data Types</p>
+<table class="cellalignment8" title="Functions for Converting and Testing Data Types" summary="Functions for data conversion">
+<thead align="left">
+<tr>
+<th class="cellalignment30" id="d59890e2462">Function</th>
+<th class="cellalignment29" id="d59890e2465">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment30" id="d59890e2470" headers="d59890e2462">
+<p><code>as.ore</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2470 d59890e2465">
+<p>Coerces an in-memory R object to an ORE object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2478" headers="d59890e2462">
+<p><code>as.ore.character</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2478 d59890e2465">
+<p>Coerces an in-memory R object to an ORE character object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2486" headers="d59890e2462">
+<p><code>as.ore.date</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2486 d59890e2465">
+<p>Coerces an in-memory R object to an ORE date object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2494" headers="d59890e2462">
+<p><code>as.ore.datetime</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2494 d59890e2465">
+<p>Coerces an in-memory R object to an ORE datetime object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2502" headers="d59890e2462">
+<p><code>as.ore.difftime</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2502 d59890e2465">
+<p>Coerces an in-memory R object to an ORE difftime object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2510" headers="d59890e2462">
+<p><code>as.ore.factor</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2510 d59890e2465">
+<p>Coerces an in-memory R object to an ORE factor object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2518" headers="d59890e2462">
+<p><code>as.ore.frame</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2518 d59890e2465">
+<p>Coerces an in-memory R object to an ORE frame object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2526" headers="d59890e2462">
+<p><code>as.ore.integer</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2526 d59890e2465">
+<p>Coerces an in-memory R object to an ORE integer object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2534" headers="d59890e2462">
+<p><code>as.ore.list</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2534 d59890e2465">
+<p>Coerces an in-memory R object to an ORE list object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2542" headers="d59890e2462">
+<p><code>as.ore.logical</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2542 d59890e2465">
+<p>Coerces an in-memory R object to an ORE logical object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2550" headers="d59890e2462">
+<p><code>as.ore.matrix</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2550 d59890e2465">
+<p>Coerces an in-memory R object to an ORE matrix object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2559" headers="d59890e2462">
+<p><code>as.ore.numeric</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2559 d59890e2465">
+<p>Coerces an in-memory R object to an ORE numeric object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2567" headers="d59890e2462">
+<p><code>as.ore.object</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2567 d59890e2465">
+<p>Coerces an in-memory R object to an ORE object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2575" headers="d59890e2462">
+<p><code>as.ore.vector</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2575 d59890e2465">
+<p>Coerces an in-memory R object to an ORE vector object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2583" headers="d59890e2462">
+<p><code>is.ore</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2583 d59890e2465">
+<p>Tests whether the specified value is an object of a particular Oracle R Enterprise class.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2591" headers="d59890e2462">
+<p><code>is.ore.character</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2591 d59890e2465">
+<p>Tests whether the specified value is a character.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2599" headers="d59890e2462">
+<p><code>is.ore.date</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2599 d59890e2465">
+<p>Tests whether the specified value is a date.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2607" headers="d59890e2462">
+<p><code>is.ore.datetime</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2607 d59890e2465">
+<p>Tests whether the specified value is a datetime type.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2615" headers="d59890e2462">
+<p><code>is.ore.difftime</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2615 d59890e2465">
+<p>Tests whether the specified value is a difftime type.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2623" headers="d59890e2462">
+<p><code>is.ore.factor</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2623 d59890e2465">
+<p>Tests whether the specified value is a factor.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2631" headers="d59890e2462">
+<p><code>is.ore.frame</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2631 d59890e2465">
+<p>Tests whether the specified value is a frame.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2639" headers="d59890e2462">
+<p><code>is.ore.integer</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2639 d59890e2465">
+<p>Tests whether the specified value is an integer.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2648" headers="d59890e2462">
+<p><code>is.ore.list</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2648 d59890e2465">
+<p>Tests whether the specified value is a list.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2656" headers="d59890e2462">
+<p><code>is.ore.logical</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2656 d59890e2465">
+<p>Tests whether the specified value is a logical type.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2664" headers="d59890e2462">
+<p><code>is.ore.matrix</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2664 d59890e2465">
+<p>Tests whether the specified value is a matrix.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2672" headers="d59890e2462">
+<p><code>is.ore.numeric</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2672 d59890e2465">
+<p>Tests whether the specified value is numeric.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2680" headers="d59890e2462">
+<p><code>is.ore.object</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2680 d59890e2465">
+<p>Tests whether the specified value is an object.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment30" id="d59890e2688" headers="d59890e2462">
+<p><code>is.ore.vector</code></p>
+</td>
+<td class="cellalignment29" headers="d59890e2688 d59890e2465">
+<p>Tests whether the specified value is a vector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BDCUG973"></a><a id="BDCUG972"></a>
+<div class="props_rev_3"><a id="GUID-62A449AF-43F8-49CB-BDD9-8A4B87BD0EFF"></a>
+<h3 id="BDCUG-GUID-62A449AF-43F8-49CB-BDD9-8A4B87BD0EFF" class="sect3"><span class="enumeration_section">8.5.8</span> Using MapReduce</h3>
+<div>
+<div class="section">
+<p><a href="orch.htm#GUID-62A449AF-43F8-49CB-BDD9-8A4B87BD0EFF__CHDGCAFH" title="Functions for MapReduce">Table 8-8</a> describes functions that you use when creating and running MapReduce programs.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-62A449AF-43F8-49CB-BDD9-8A4B87BD0EFF__CHDGCAFH">
+<hr />
+<p class="titleintable">Table 8-8 Functions for Using MapReduce</p>
+<table class="cellalignment8" title="Functions for Using MapReduce" summary="Functions for MapReduce">
+<thead align="left">
+<tr>
+<th class="cellalignment39" id="d59890e2741">Function</th>
+<th class="cellalignment40" id="d59890e2744">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment39" id="d59890e2749" headers="d59890e2741">
+<p><code>hadoop.exec</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2749 d59890e2744">
+<p>Starts the Hadoop engine and sends the mapper, reducer, and combiner R functions for execution. You must load the data into HDFS first.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment39" id="d59890e2757" headers="d59890e2741">
+<p><code>hadoop.jobs</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2757 d59890e2744">
+<p>Lists the running jobs, so that you can evaluate the current load on the Hadoop cluster.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment39" id="d59890e2765" headers="d59890e2741">
+<p><code>hadoop.run</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2765 d59890e2744">
+<p>Starts the Hadoop engine and sends the mapper, reducer, and combiner R functions for execution. If the data is not already stored in HDFS, then <code>hadoop.run</code> first copies the data there.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment39" id="d59890e2776" headers="d59890e2741">
+<p><code>orch.dryrun</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2776 d59890e2744">
+<p>Switches the execution platform between the local host and the Hadoop cluster. No changes in the R code are required for a dry run.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment39" id="d59890e2784" headers="d59890e2741">
+<p><code>orch.export</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2784 d59890e2744">
+<p>Makes R objects from a user's local R session available in the Hadoop execution environment, so that they can be referenced in MapReduce jobs.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment39" id="d59890e2792" headers="d59890e2741">
+<p><code>orch.keyval</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2792 d59890e2744">
+<p>Outputs key-value pairs in a MapReduce job.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment39" id="d59890e2800" headers="d59890e2741">
+<p><code>orch.keyvals</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2800 d59890e2744">
+<p>Outputs a set of key-value pairs in a MapReduce job.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment39" id="d59890e2808" headers="d59890e2741">
+<p><code>orch.pack</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2808 d59890e2744">
+<p>Compresses one or more in-memory R objects that the mappers or reducers must write as the values in key-value pairs.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment39" id="d59890e2816" headers="d59890e2741">
+<p><code>orch.tempPath</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2816 d59890e2744">
+<p>Sets the path where temporary data is stored.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment39" id="d59890e2824" headers="d59890e2741">
+<p><code>orch.unpack</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2824 d59890e2744">
+<p>Restores the R objects that were compressed with a previous call to <code>orch.pack</code>.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment39" id="d59890e2835" headers="d59890e2741">
+<p><code>orch.create.parttab</code></p>
+</td>
+<td class="cellalignment40" headers="d59890e2835 d59890e2744">
+<p>Enables partitioned Hive tables to be used with <code>ORCH</code> MapReduce framework.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BDCUG975"></a><a id="BDCUG974"></a>
+<div class="props_rev_3"><a id="GUID-D3B22C98-5062-4984-A1ED-9B294B74544E"></a>
+<h3 id="BDCUG-GUID-D3B22C98-5062-4984-A1ED-9B294B74544E" class="sect3"><span class="enumeration_section">8.5.9</span> Debugging Scripts</h3>
+<div>
+<div class="section">
+<p><a href="orch.htm#GUID-D3B22C98-5062-4984-A1ED-9B294B74544E__CHDHJFCD" title="Functions for debugging scripts">Table 8-9</a> lists the functions available to help you debug your R program scripts.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-D3B22C98-5062-4984-A1ED-9B294B74544E__CHDHJFCD">
+<hr />
+<p class="titleintable">Table 8-9 Functions for Debugging Scripts</p>
+<table class="cellalignment8" title="Functions for Debugging Scripts" summary="Functions for debugging scripts">
+<thead align="left">
+<tr>
+<th class="cellalignment41" id="d59890e2892">Function</th>
+<th class="cellalignment42" id="d59890e2895">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment41" id="d59890e2900" headers="d59890e2892">
+<p><code>orch.dbg.lasterr</code></p>
+</td>
+<td class="cellalignment42" headers="d59890e2900 d59890e2895">
+<p>Returns the last error message.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment41" id="d59890e2908" headers="d59890e2892">
+<p><code>orch.dbg.off</code></p>
+</td>
+<td class="cellalignment42" headers="d59890e2908 d59890e2895">
+<p>Turns off debugging mode.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment41" id="d59890e2916" headers="d59890e2892">
+<p><code>orch.dbg.on</code></p>
+</td>
+<td class="cellalignment42" headers="d59890e2916 d59890e2895">
+<p>Turns on debugging mode, which prints out the interactions between Hadoop and Oracle R Advanced Analytics for Hadoop including the R commands.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment41" id="d59890e2924" headers="d59890e2892">
+<p><code>orch.dbg.output</code></p>
+</td>
+<td class="cellalignment42" headers="d59890e2924 d59890e2895">
+<p>Directs the output from the debugger.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment41" id="d59890e2932" headers="d59890e2892">
+<p><code>orch.version</code></p>
+</td>
+<td class="cellalignment42" headers="d59890e2932 d59890e2895">
+<p>Identifies the version of the <code>ORCH</code> package.</p>
+</td>
+</tr>
+<tr>
+<td class="cellalignment41" id="d59890e2943" headers="d59890e2892">
+<p><code>orch.debug</code></p>
+</td>
+<td class="cellalignment42" headers="d59890e2943 d59890e2895">
+<p>Enables R style debugging of MapReduce R scripts.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+</div>
+<a id="BDCUG294"></a>
+<div class="props_rev_3"><a id="GUID-DB74AD4F-B72E-4956-941B-7F0CD0FD4920"></a>
+<h2 id="BDCUG-GUID-DB74AD4F-B72E-4956-941B-7F0CD0FD4920" class="sect2"><span class="enumeration_section">8.6</span> Demos of Oracle R Advanced Analytics for Hadoop Functions</h2>
+<div>
+<div class="section">
+<p>Oracle R Advanced Analytics for Hadoop provides an extensive set of demos, which you can access in the same way as any other R demos.</p>
+<p>The <code>demo</code> function lists the functions available in ORCH:</p>
+<pre dir="ltr">
+R&gt;  <span class="bold">demo(package="ORCH")</span>
+Demos in package 'ORCH':
+ 
+hdfs_cpmv               ORCH's copy and move APIs
+hdfs_datatrans          ORCH's HDFS data transfer APIs
+hdfs_dir                ORCH's HDFS directory manipulation APIs
+hdfs_putget             ORCH's get and put API usage
+hive_aggregate          Aggregation in HIVE
+hive_analysis           Basic analysis &amp; data processing operations
+hive_basic              Basic connectivity to HIVE storage
+hive_binning            Binning logic
+hive_columnfns          Column function
+hive_nulls              Handling of NULL in SQL vs. NA in R
+     .
+     .
+     .
+</pre>
+<p>To run a demo from this list, use this syntax:</p>
+<pre dir="ltr">
+demo("<span class="italic">demo_name</span>", package="ORCH")
+</pre>
+<p>For example, this package runs the Hive binning demo:</p>
+<pre dir="ltr">
+R&gt; <span class="bold">demo("hive_binning", package = "ORCH")</span>
+ 
+ 
+ demo('hive_binning', package = 'ORCH')
+ 
+ 
+        demo(hive_binning)
+        ---- ~~~~~~~~~~~~
+ 
+&gt; #
+&gt; #     ORACLE R CONNECTOR FOR HADOOP DEMOS
+&gt; #
+&gt; #     Name: hive_binning.R
+&gt; #     Description: Demonstrates binning logic in R
+&gt; #
+&gt; #
+     .
+     .
+     .
+</pre>
+<p>If an error occurs, exit from R without saving the workspace image and start a new session. You should also delete the temporary files created in both the local file system and the HDFS file system:</p>
+<pre dir="ltr">
+# rm -r /tmp/orch*
+# hdfs dfs -rm -r /tmp/orch*
+</pre>
+<p>Upon completion run these:</p>
+<ol>
+<li>
+<p><span class="italic"><code>hadoop.exec</code></span> to cleanup or remove all empty <span class="italic"><code>part</code></span> files and Hadoop log files.</p>
+</li>
+<li>
+<p><span class="italic"><code>hadoop.run</code></span> to allow overwriting of HDFS objects with the same name.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BDCUG221"></a>
+<div class="props_rev_3"><a id="GUID-516F6C03-5A13-432C-AB6F-72A5EF006973"></a>
+<h2 id="BDCUG-GUID-516F6C03-5A13-432C-AB6F-72A5EF006973" class="sect2"><span class="enumeration_section">8.7</span> Security Notes for Oracle R Advanced Analytics for Hadoop</h2>
+<div>
+<p>Oracle R Advanced Analytics for Hadoop can invoke the Sqoop utility to connect to Oracle Database either to extract data or to store results.</p>
+<p><span class="bold">Sqoop</span> is a command-line utility for Hadoop that imports and exports data between HDFS or Hive and structured databases. The name Sqoop comes from &ldquo;SQL to Hadoop." The following explains how Oracle R Advanced Analytics for Hadoop stores a database user password and sends it to Sqoop.</p>
+<p>Oracle R Advanced Analytics for Hadoop stores a user password only when the user establishes the database connection in a mode that does not require reentering the password each time. The password is stored encrypted in memory. See the Help topic for <code>orch.connect</code>.</p>
+<p>Oracle R Advanced Analytics for Hadoop generates a configuration file for Sqoop and uses it to invoke Sqoop locally. The file contains the user's database password obtained by either prompting the user or from the encrypted in-memory representation. The file has local user access permissions only. The file is created, the permissions are set explicitly, and then the file is open for writing and filled with data.</p>
+<p>Sqoop uses the configuration file to generate custom JAR files dynamically for the specific database job and passes the JAR files to the Hadoop client software. The password is stored inside the compiled JAR file; it is not stored in plain text.</p>
+<p>The JAR file is transferred to the Hadoop cluster over a network connection. The network connection and the transfer protocol are specific to Hadoop, such as port 5900.</p>
+<p>The configuration file is deleted after Sqoop finishes compiling its JAR files and starts its own Hadoop jobs.</p>
+</div>
+</div>
+<div class="p"><a href="#fnsrc_1" id="fntarg_1"><sup>1</sup></a>
+<p>For vectors only</p>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment26">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="analytics-part.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment28">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Configuring Oracle Exadata Database Machine for Use with Oracle Big Data Appliance</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="applications, data pull, pulling data into Exadata, data push, pushing data into Exadata, InfiniBand connections to Exadata, Exadata InfiniBand connections, SDP listener configuration" />
+<meta name="dcterms.created" content="2016-11-07T15:19:26Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Software User's Guide" />
+<meta name="dcterms.identifier" content="E77518-02" />
+<meta name="dcterms.isVersionOf" content="BIGUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda46/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="users.htm" title="Previous" type="text/html" />
+<link rel="Next" href="part-oracle-big-data-appliance-software.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77518-02.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-8780D321-003F-4285-8C91-09FBB0B41995"></a> <span id="PAGE" style="display:none;">8/14</span> <!-- End Header -->
+<a id="BIGUG257"></a>
+<h1 id="BIGUG-GUID-8780D321-003F-4285-8C91-09FBB0B41995" class="sect1"><span class="enumeration_chapter">4</span> Configuring Oracle Exadata Database Machine for Use with Oracle Big Data Appliance</h1>
+<div>
+<p>This chapter provides information about optimizing communications between <a id="d22925e18" class="indexterm-anchor"></a>Oracle Exadata Database Machine and Oracle Big Data Appliance. It describes how you can configure Oracle Exadata Database Machine to use <a id="d22925e21" class="indexterm-anchor"></a>InfiniBand alone, or <a id="d22925e24" class="indexterm-anchor"></a>SDP over InfiniBand, to communicate with Oracle Big Data Appliance.</p>
+<p>This chapter contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="exadata.htm#GUID-45513485-B815-494E-84C8-A557003085A4">About Optimizing Communications</a></p>
+</li>
+<li>
+<p><a href="exadata.htm#GUID-90A19DEB-FBAC-4732-9016-8CA3FE02275F">Prerequisites for Optimizing Communications</a></p>
+</li>
+<li>
+<p><a href="exadata.htm#GUID-FC3B95FC-72DF-4853-8A98-DDB587C5AD2C">Specifying the InfiniBand Connections to Oracle Big Data Appliance</a></p>
+</li>
+<li>
+<p><a href="exadata.htm#GUID-5BCBCADF-EFF2-47CF-BBA5-621C26E6D55D">Specifying the InfiniBand Connections to Oracle Exadata Database Machine</a></p>
+</li>
+<li>
+<p><a href="exadata.htm#GUID-50C90B8C-A17E-4F16-A0BC-14CF19076ADA">Enabling SDP on Exadata Database Nodes</a></p>
+</li>
+<li>
+<p><a href="exadata.htm#GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97">Creating an SDP Listener on the InfiniBand Network</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG258"></a>
+<div class="props_rev_3"><a id="GUID-45513485-B815-494E-84C8-A557003085A4"></a>
+<h2 id="BIGUG-GUID-45513485-B815-494E-84C8-A557003085A4" class="sect2"><span class="enumeration_section">4.1</span> About Optimizing Communications</h2>
+<div>
+<p>Oracle Exadata Database Machine and Oracle Big Data Appliance use Ethernet by default, although typically they are also connected by an InfiniBand network. Ethernet communications are much slower than InfiniBand. After you configure Oracle Exadata Database Machine to communicate using InfiniBand, it can obtain data from Oracle Big Data Appliance many times faster than before.</p>
+<p>Moreover, client applications that run on Oracle Big Data Appliance and push the data to Oracle Database can use <a id="d22925e76" class="indexterm-anchor"></a><a id="d22925e78" class="indexterm-anchor"></a><a id="d22925e82" class="indexterm-anchor"></a>Sockets Direct Protocol (SDP) for an additional performance boost. SDP is a standard communication protocol for clustered server environments, providing an interface between the network interface card and the application. By using SDP, applications place most of the messaging burden upon the network interface card, which frees the CPU for other tasks. As a result, SDP decreases network latency and CPU utilization, and thereby improves performance.</p>
+</div>
+<a id="BIGUG316"></a>
+<div class="props_rev_3"><a id="GUID-4AEDB36F-0A7D-4415-AD39-AFE4386F493C"></a>
+<h3 id="BIGUG-GUID-4AEDB36F-0A7D-4415-AD39-AFE4386F493C" class="sect3"><span class="enumeration_section">4.1.1</span> About Applications that Pull Data Into Oracle Exadata Database Machine</h3>
+<div>
+<p>Oracle SQL Connector for Hadoop Distributed File System (HDFS) is an example of an application that pulls data into Oracle Exadata Database Machine. The connector enables an Oracle external table to access data stored in either HDFS files or a Hive table.</p>
+<p>The external table provide access to the HDFS data. You can use the external table for querying HDFS data or for loading it into an Oracle database table.</p>
+<p>Oracle SQL Connector for HDFS functions as a Hadoop client running on the database servers in Oracle Exadata Database Machine.</p>
+<p>If you use Oracle SQL Connector for HDFS or another tool that pulls the data into Oracle Exadata Database Machine, then for the best performance, you should configure the system to use InfiniBand. See <span class="q">"<a href="exadata.htm#GUID-FC3B95FC-72DF-4853-8A98-DDB587C5AD2C">Specifying the InfiniBand Connections to Oracle Big Data Appliance</a>."</span></p>
+<div class="infobox-note" id="GUID-4AEDB36F-0A7D-4415-AD39-AFE4386F493C__GUID-8D436FCF-AF14-40AD-A364-0B69037F7D85">
+<p class="notep1">See Also</p>
+<p><a class="olink BDCUG125" target="_blank" href="../BDCUG/osch.htm#BDCUG125"><span class="italic">Oracle Big Data Connectors User's Guide</span></a> for information about Oracle SQL Connector for HDFS</p>
+</div>
+</div>
+</div>
+<a id="BIGUG317"></a>
+<div class="props_rev_3"><a id="GUID-D23F0839-EF50-487E-BA88-B7CD03CBF7DA"></a>
+<h3 id="BIGUG-GUID-D23F0839-EF50-487E-BA88-B7CD03CBF7DA" class="sect3"><span class="enumeration_section">4.1.2</span> About Applications that Push Data Into Oracle Exadata Database Machine</h3>
+<div>
+<p>Oracle Loader for Hadoop is an example of an application that pushes data into Oracle Exadata Database Machine. The connector is an efficient and high-performance loader for fast movement of data from a Hadoop cluster into a table in an Oracle database. You can use it to load data from Oracle Big Data Appliance to Oracle Exadata Database Machine.</p>
+<p>Oracle Loader for Hadoop functions as a database client running on the Oracle Big Data Appliance. It must make database connections from Oracle Big Data Appliance to Oracle Exadata Database Machine over the InfiniBand network. Use of Sockets Direct Protocol (SDP) for these database connections further improves performance.</p>
+<p>If you use Oracle Loader for Hadoop or another tool that pushes the data into Oracle Exadata Database Machine, then for the best performance, you should configure the system to use SDP over InfiniBand as described in this chapter.</p>
+<div class="infobox-note" id="GUID-D23F0839-EF50-487E-BA88-B7CD03CBF7DA__GUID-A95BB6D5-3223-4339-B7A6-D2A6D24195DC">
+<p class="notep1">See Also</p>
+<p><a class="olink BDCUG140" target="_blank" href="../BDCUG/olh.htm#BDCUG140"><span class="italic">Oracle Big Data Connectors User's Guide</span></a> for information about Oracle Loader for Hadoop</p>
+</div>
+</div>
+</div>
+</div>
+<a id="BIGUG259"></a>
+<div class="props_rev_3"><a id="GUID-90A19DEB-FBAC-4732-9016-8CA3FE02275F"></a>
+<h2 id="BIGUG-GUID-90A19DEB-FBAC-4732-9016-8CA3FE02275F" class="sect2"><span class="enumeration_section">4.2</span> Prerequisites for Optimizing Communications</h2>
+<div>
+<div class="section">
+<p>Oracle Big Data Appliance and Oracle Exadata Database Machine racks must be cabled together using InfiniBand cables. The IP addresses must be unique across all racks and use the same subnet for the InfiniBand network.</p>
+<div class="infoboxnotealso" id="GUID-90A19DEB-FBAC-4732-9016-8CA3FE02275F__GUID-5E83744A-0E78-44D1-A804-11B8597CFDF2">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a class="olink BIGOG355" target="_blank" href="../BIGOG/app_multi.htm#BIGOG355"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> about multirack cabling</p>
+</li>
+<li>
+<p><a class="olink BIGOG76925" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E76463-01&amp;id=BIGOG76925"><span class="italic">Oracle Big Data Appliance Owner's Guide</span></a> about IP addresses and subnets</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG309"></a>
+<div class="props_rev_3"><a id="GUID-FC3B95FC-72DF-4853-8A98-DDB587C5AD2C"></a>
+<h2 id="BIGUG-GUID-FC3B95FC-72DF-4853-8A98-DDB587C5AD2C" class="sect2"><span class="enumeration_section">4.3</span> Specifying the InfiniBand Connections to Oracle Big Data Appliance</h2>
+<div>
+<div class="section">
+<p>You can configure Oracle Exadata Database Machine to use the InfiniBand IP addresses of the Oracle Big Data Appliance servers. Otherwise, the default network is Ethernet. Use of the InfiniBand network improves the performance of all data transfers between Oracle Big Data Appliance and Oracle Exadata Database Machine.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To identify the Oracle Big Data Appliance InfiniBand IP addresses:</p>
+<ol>
+<li>
+<p>If you have not done so already, install a CDH client on Oracle Exadata Database Machine. See <span class="q">"<a href="users.htm#GUID-C513C5F2-FF99-4BF4-B0AB-A5641DC7C0D4">Providing Remote Client Access to CDH</a>."</span></p>
+</li>
+<li>
+<p>Obtain a list of private host names and InfiniBand IP addresses for all Oracle Big Data Appliance servers.</p>
+<p>An Oracle Big Data Appliance rack can have 6, 12, or 18 servers.</p>
+</li>
+<li>
+<p>Log in to Oracle Exadata Database Machine with <code>root</code> privileges.</p>
+</li>
+<li>
+<p>Edit <code>/etc/hosts</code> on Oracle Exadata Database Machine and add the Oracle Big Data Appliance host names and InfiniBand IP addresses. The following example shows the sequential IP numbering:</p>
+<pre dir="ltr">
+192.168.8.1       bda1node01.example.com    bda1node01
+192.168.8.2       bda1node02.example.com    bda1node02
+192.168.8.3       bda1node03.example.com    bda1node03
+192.168.8.4       bda1node04.example.com    bda1node04
+192.168.8.5       bda1node05.example.com    bda1node05
+192.168.8.6       bda1node06.example.com    bda1node06
+</pre></li>
+<li>
+<p>Check <code>/etc/nsswitch.conf</code> for a line like the following:</p>
+<pre dir="ltr">
+hosts:      files dns 
+</pre>
+<p>Ensure that the line does not reverse the order (<code>dns files</code>); if it does, your additions to <code>/etc/hosts</code> will not be used. Edit the file if necessary.</p>
+</li>
+<li>
+<p>Ping all Oracle Big Data Appliance servers. Ensure that <code>ping</code> completes and shows the InfiniBand IP addresses.</p>
+<pre dir="ltr">
+# <span class="bold">ping bda1node01.example.com</span>
+PING bda1node01.example.com (192.168.8.1) 56(84) bytes of data.
+64 bytes from bda1node01.example.com (192.168.8.1): icmp_seq=1 ttl=50 time=20.2 ms
+     .
+     .
+     .
+</pre></li>
+<li>
+<p>Run CDH locally on Oracle Exadata Database Machine and test HDFS functionality by uploading a large file to an Oracle Big Data Appliance server. Check that your network monitoring tools (such as <code>sar</code>) show I/O activity on the InfiniBand devices.</p>
+<p>To upload a file, use syntax like the following, which copies localfile.dat to the HDFS testdir directory on node05 of Oracle Big Data Appliance:</p>
+<pre dir="ltr">
+hadoop fs -put localfile.dat hdfs://bda1node05.example.com/testdir/
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG347"></a>
+<div class="props_rev_3"><a id="GUID-5BCBCADF-EFF2-47CF-BBA5-621C26E6D55D"></a>
+<h2 id="BIGUG-GUID-5BCBCADF-EFF2-47CF-BBA5-621C26E6D55D" class="sect2"><span class="enumeration_section">4.4</span> Specifying the InfiniBand Connections to Oracle Exadata Database Machine</h2>
+<div>
+<div class="section">
+<p>You can configure Oracle Big Data Appliance to use the InfiniBand IP addresses of the Oracle Exadata Database Machine servers. This configuration supports applications on Oracle Big Data Appliance that must connect to Oracle Exadata Database Machine.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To identify the Oracle Exadata Database Machine InfiniBand IP addresses:</p>
+<ol>
+<li>
+<p>Obtain a list of private host names and InfiniBand IP addresses for all Oracle Exadata Database Machine servers.</p>
+</li>
+<li>
+<p>Log in to Oracle Big Data Appliance with <code>root</code> privileges.</p>
+</li>
+<li>
+<p>Edit <code>/etc/hosts</code> on Oracle Big Data Appliance and add the Oracle Exadata Database Machine host names and InfiniBand IP addresses.</p>
+</li>
+<li>
+<p>Check /<code>etc/nsswitch.conf</code> for a line like the following:</p>
+<pre dir="ltr">
+hosts:      files dns 
+</pre>
+<p>Ensure that the line does not reverse the order (<code>dns files</code>); if it does, your additions to /etc/hosts will not be used. Edit the file if necessary.</p>
+</li>
+<li>
+<p>Restart the <a id="d22925e358" class="indexterm-anchor"></a><code>dnsmasq</code> service:</p>
+<pre dir="ltr">
+# service dnsmasq restart
+</pre></li>
+<li>
+<p>Ping all Oracle Exadata Database Machine servers. Ensure that <code>ping</code> completes and shows the InfiniBand IP addresses.</p>
+</li>
+<li>
+<p>Test the connection by downloading a large file to an Oracle Exadata Database Machine server. Check that your network monitoring tools (such as <code>sar</code>) show I/O activity on the InfiniBand devices.</p>
+<p>To download a file, use syntax like the following, which copies a file named <code>mydata.json</code> to the <code>dm01ce108</code> storage server:</p>
+<pre dir="ltr">
+$ <span class="bold">scp mydata.json oracle@dm01cel08-priv.example.com:mybigdata.json</span>
+oracle@dm01cel08-priv.example.com's password: <span class="italic"><span class="bold">password</span></span>
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG260"></a>
+<div class="props_rev_3"><a id="GUID-50C90B8C-A17E-4F16-A0BC-14CF19076ADA"></a>
+<h2 id="BIGUG-GUID-50C90B8C-A17E-4F16-A0BC-14CF19076ADA" class="sect2"><span class="enumeration_section">4.5</span> Enabling SDP on Exadata Database Nodes</h2>
+<div>
+<div class="section">
+<p>SDP improves the performance of client applications that run on Oracle Big Data Appliance and push large data loads to Oracle Database on Oracle Exadata Database Machine.</p>
+<p>The following procedure describes how to enable SDP on the database nodes in an Oracle Exadata Database Machine running Oracle Linux. <a id="d22925e416" class="indexterm-anchor"></a>You must also configure your application on a job-by-job basis to use SDP.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To enable SDP on Oracle Exadata Database Machine:</p>
+<ol>
+<li>
+<p>Open <code>/etc/infiniband/openib.conf</code> file in a text editor, and add the following line:</p>
+<pre dir="ltr">
+set: SDP_LOAD=yes
+</pre></li>
+<li>
+<p>Save these changes and close the file.</p>
+</li>
+<li>
+<p>To enable both SDP and TCP, open <code>/etc/ofed/libsdp.conf</code> in a text editor, and add the <code>use both</code> rule:</p>
+<pre dir="ltr">
+use both server * : 
+use both client * : 
+</pre></li>
+<li>
+<p>Save these changes and close the file.</p>
+</li>
+<li>
+<p>Open <code>/etc/modprobe.conf</code> file in a text editor, and add this setting:</p>
+<pre dir="ltr">
+options ib_sdp sdp_zcopy_thresh=0 recv_poll=0
+</pre></li>
+<li>
+<p>Save these changes and close the file.</p>
+</li>
+<li>
+<p>Replicate these changes across all database nodes in the Oracle Exadata Database Machine rack.</p>
+</li>
+<li>
+<p>Restart all database nodes for the changes to take effect.</p>
+</li>
+<li>
+<p>If you have multiple Oracle Exadata Database Machine racks, then repeat these steps on all of them.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To specify SDP protocol for a load job:</p>
+<ol>
+<li>
+<p>Add JVM options to the <code>HADOOP_OPTS</code> environment variable to enable JDBC SDP export:</p>
+<pre dir="ltr">
+HADOOP_OPTS="-Doracle.net.SDP=true -Djava.net.preferIPv4Stack=true"
+</pre></li>
+<li>
+<p>In either the Hadoop command or the configuration file for the job, set the <code>mapred.child.java.opts</code> configuration property to enable the child task JVMs for SDP.</p>
+<p>For example, use these options in the command line for a MapReduce job:</p>
+<pre dir="ltr">
+-D mapred.child.java.opts="-Doracle.net.SDP=true -Djava.net.preferIPv4Stack=true"
+</pre></li>
+<li>
+<p>Configure standard Ethernet communications for the job.</p>
+<p>For example, Oracle Loader for Hadoop reads the value of the <code>oracle.hadoop.loader.connection.url</code> property from a job configuration file. The value has this syntax:</p>
+<pre dir="ltr">
+jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=
+     (ADDRESS=(PROTOCOL=TCP)(HOST=<span class="italic">hostName</span>)(PORT=<span class="italic">portNumber</span>)))
+     (CONNECT_DATA=(SERVICE_NAME=<span class="italic">serviceName</span>)))
+</pre>
+<p>Replace <span class="italic">hostName</span>, <span class="italic">portNumber</span>, and <span class="italic">serviceName</span> with the appropriate values to identify the SDP listener on your Oracle Exadata Database Machine.</p>
+</li>
+<li>
+<p>Configure the Oracle listener on Exadata to support the SDP protocol and bind it to a specific port address (such as 1522).</p>
+<p>For example, Oracle Loader for Hadoop reads the value of the <code>oracle.hadoop.loader.connection.oci_url</code> property from a job configuration file. The value has this syntax:</p>
+<pre dir="ltr">
+(DESCRIPTION=(ADDRESS=(PROTOCOL=SDP)
+    (HOST=<span class="italic">hostName</span>) (PORT=<span class="italic">portNumber</span>))
+    (CONNECT_DATA=(SERVICE_NAME=<span class="italic">serviceName</span>)))
+</pre></li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG262"></a>
+<div class="props_rev_3"><a id="GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97"></a>
+<h2 id="BIGUG-GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97" class="sect2"><span class="enumeration_section">4.6</span> Creating an SDP Listener on the InfiniBand Network</h2>
+<div>
+<div class="section">
+<p>To add a listener for the Oracle Big Data Appliance connections coming in on the InfiniBand network, first add a network resource for the InfiniBand network with virtual IP addresses.</p>
+<div class="infobox-note" id="GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97__GUID-54FA2820-B6DE-41D7-AB3C-8D8A7CE58BCE">
+<p class="notep1">Note:</p>
+<p>These instructions apply to Exadata V2, X2-2 , and X3-2 nodes running Oracle Linux 5. Document 1580584.1 in <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a> provides instructions for these same systems as well as for X4-2, X5-2, and X6-2 nodes running Oracle Linux 6 .</p>
+</div>
+<p>This example below lists two nodes for an Oracle Exadata Database Machine quarter rack. If you have an Oracle Exadata Database Machine half or full rack, you must repeat node-specific lines for each node in the cluster.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Edit <code>/etc/hosts</code> on each node in the Exadata rack to add the virtual IP addresses for the InfiniBand network. Make sure that these IP addresses are not in use. For example:</span>
+<div>
+<pre dir="ltr">
+# Added for Listener over IB
+192.168.10.21 dm01db01-ibvip.example.com dm01db01-ibvip
+192.168.10.22 dm01db02-ibvip.example.com dm01db02-ibvip 
+</pre></div>
+</li>
+<li class="stepexpand" id="GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97__CIAIDBJE"><span>As the <code>root</code> user, create a network resource on one database node for the InfiniBand network. For example:</span>
+<div>
+<pre dir="ltr">
+# <span class="bold">/u01/app/grid/product/12.1.0.1/bin/srvctl add network -k 2 -S 192.168.10.0/255.255.255.0/bondib0</span>
+</pre></div>
+</li>
+<li class="stepexpand"><span>Verify that the network was added correctly with a command like the following examples:</span>
+<div>
+<pre dir="ltr">
+# <span class="bold">/u01/app/grid/product/12.1.0.1/bin/crsctl stat res -t | grep net</span>
+ora.net1.network
+ora.net2.network -- Output indicating new Network resource 
+</pre>
+<p><span class="italic"><span class="bold">or</span></span></p>
+<pre dir="ltr">
+# <span class="bold">/u01/app/grid/product/12.1.0.1/bin/srvctl config network -k 2</span>
+Network exists: 2/192.168.10.0/255.255.255.0/bondib0, type static -- Output indicating Network resource on the 192.168.10.0 subnet 
+</pre></div>
+</li>
+<li class="stepexpand" id="GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97__CHDIIICB"><span>Add the virtual IP addresses on the network created in Step <a href="exadata.htm#GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97__CIAIDBJE">2</a>, for each node in the cluster. For example:</span>
+<div>
+<pre dir="ltr">
+# <span class="bold">srvctl add vip -n dm01db01 -A dm01db01-ibvip/255.255.255.0/bondib0 -k 2</span>
+#
+# <span class="bold">srvctl add vip -n dm01db02 -A dm01db02-ibvip/255.255.255.0/bondib0 -k 2</span>
+</pre></div>
+</li>
+<li class="stepexpand"><span>As the <code>oracle</code> user who owns Grid Infrastructure Home, add a listener for the virtual IP addresses created in Step <a href="exadata.htm#GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97__CHDIIICB">4</a>.</span>
+<div>
+<pre dir="ltr">
+# <span class="bold">srvctl add listener -l LISTENER_IB -k 2 -p TCP:1522,/SDP:1522</span>
+</pre></div>
+</li>
+<li class="stepexpand"><span>For each database that will accept connections from the middle tier, modify the <code>listener_networks init</code> parameter to allow load balancing and failover across multiple networks (Ethernet and InfiniBand). You can either enter the full <code>TNSNAMES</code> syntax in the initialization parameter or create entries in <code>tnsnames.ora</code> in the <code>$ORACLE_HOME/network/admin</code> directory. The <code>TNSNAMES.ORA</code> entries must exist in <code>GRID_HOME</code>. The following example first updates <code>tnsnames.ora</code>.</span>
+<div>
+<p>Complete this step on each node in the cluster with the correct IP addresses for that node. <code>LISTENER_IBREMOTE</code> should list all other nodes that are in the cluster. <code>DBM_IB</code> should list all nodes in the cluster.</p>
+<div class="infobox-note" id="GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97__GUID-4408F939-B502-46BE-BF5E-C5D2BD0D608C">
+<p class="notep1">Note:</p>
+<p>The database instance reads the <code>TNSNAMES</code> only on startup. Thus, if you modify an entry that is referred to by any <code>init.ora</code> parameter (<code>LISTENER_NETWORKS</code>), then you must either restart the instance or issue an <code>ALTER SYSTEM SET LISTENER_NETWORKS</code> command for the modifications to take affect by the instance.</p>
+</div>
+<pre dir="ltr">
+DBM =
+(DESCRIPTION =
+(ADDRESS = (PROTOCOL = TCP)(HOST = dm01-scan)(PORT = 1521))
+(CONNECT_DATA =
+(SERVER = DEDICATED)
+(SERVICE_NAME = dbm)
+))
+DBM_IB =
+(DESCRIPTION =
+(LOAD_BALANCE=on)
+(ADDRESS = (PROTOCOL = TCP)(HOST = dm01db01-ibvip)(PORT = 1522))
+(ADDRESS = (PROTOCOL = TCP)(HOST = dm01db02-ibvip)(PORT = 1522))
+(CONNECT_DATA =
+(SERVER = DEDICATED)
+(SERVICE_NAME = dbm)
+))
+LISTENER_IBREMOTE =
+(DESCRIPTION =
+(ADDRESS_LIST =
+(ADDRESS = (PROTOCOL = TCP)(HOST = dm01db02-ibvip.mycompany.com)(PORT = 1522))
+))
+LISTENER_IBLOCAL =
+(DESCRIPTION =
+(ADDRESS_LIST =
+(ADDRESS = (PROTOCOL = TCP)(HOST = dm01db01-ibvip.mycompany.com)(PORT = 1522))
+(ADDRESS = (PROTOCOL = SDP)(HOST = dm01db01-ibvip.mycompany.com)(PORT = 1523))
+))
+LISTENER_IPLOCAL =
+(DESCRIPTION =
+(ADDRESS_LIST =
+(ADDRESS = (PROTOCOL = TCP)(HOST = dm0101-vip.mycompany.com)(PORT = 1521))
+))
+LISTENER_IPREMOTE =
+(DESCRIPTION =
+(ADDRESS_LIST =
+(ADDRESS = (PROTOCOL = TCP)(HOST = dm01-scan.mycompany.com)(PORT = 1521))
+))
+</pre></div>
+</li>
+<li class="stepexpand" id="GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97__CIABBDFE"><span>Connect to the database instance as <code>sysdba</code>.</span></li>
+<li class="stepexpand"><span>Modify the <code>listener_networks init</code> parameter by using the SQL <code>ALTER SYSTEM</code> command:</span>
+<div>
+<pre dir="ltr">
+SQL&gt; <span class="bold">alter system set listener_networks=</span>
+     <span class="bold">'((NAME=network2) (LOCAL_LISTENER=LISTENER_IBLOCAL)</span>
+        <span class="bold">(REMOTE_LISTENER=LISTENER_IBREMOTE))',</span>
+     <span class="bold">'((NAME=network1)(LOCAL_LISTENER=LISTENER_IPLOCAL)</span>
+        <span class="bold">(REMOTE_LISTENER=LISTENER_IPREMOTE))' scope=both;</span>
+</pre></div>
+</li>
+<li class="stepexpand"><span>On the Linux command line, use the <code>srvctl</code> command to restart <code>LISTENER_IB</code> to implement the modification in Step <a href="exadata.htm#GUID-AF377B22-2FB3-4E12-B9F8-524809B18C97__CIABBDFE">7</a>:</span>
+<div>
+<pre dir="ltr">
+# <span class="bold">srvctl stop listener -l LISTENER_IB</span>
+# <span class="bold">srvctl start listener -l LISTENER_IB</span>
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment68">
+<tr>
+<td class="cellalignment95">
+<table class="cellalignment73">
+<tr>
+<td class="cellalignment72"><a href="users.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment72"><a href="part-oracle-big-data-appliance-software.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment97">
+<table class="cellalignment71">
+<tr>
+<td class="cellalignment72"><a href="http://docs.oracle.com/bigdata/bda46/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment72"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment72"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment72"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment72"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

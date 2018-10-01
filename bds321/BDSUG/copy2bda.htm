@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Storing Oracle Data in Hadoop</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Copy to Hadoop and Oracle Database Tablespaces in HDFS are two Oracle Big Data SQL resources for off-loading Oracle Database tables to the HDFS file system on a Hadoop cluster." />
+<meta name="dcterms.created" content="2018-08-05T17:02:43Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL User's Guide" />
+<meta name="dcterms.identifier" content="E87609-07" />
+<meta name="dcterms.isVersionOf" content="BDSUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds321/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="bigsql.htm" title="Previous" type="text/html" />
+<link rel="Next" href="bigsqlref.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E87609-07.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-B897FD6B-2BFE-4C86-AE53-08EA181F92F2"></a> <span id="PAGE" style="display:none;">6/13</span> <!-- End Header -->
+<script  >
+//<![CDATA[
+window.name='copy2bda'
+//]]>
+</script> <script  >
+    function footdisplay(footnum,footnote) {
+    var msg = window.open('about:blank', 'NewWindow' + footnum,
+        'directories=no,height=100,location=no,menubar=no,resizable=yes,' +
+        'scrollbars=yes,status=no,toolbar=no,width=598');
+    msg.document.open('text/html');
+    msg.document.write('<!DOCTYPE html ');
+    msg.document.write('PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" ');
+    msg.document.write('"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'); 
+    msg.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" ><head><title>');
+   
+    msg.document.write('Footnote&amp;nbsp; ' + footnum);
+    msg.document.write('<\/title><meta http-equiv="Content-Type" ');
+    msg.document.write('content="text/html; charset=utf-8" />');
+    msg.document.write('');
+    msg.document.write('<style> <![CDATA[ ');
+    msg.document.write('h1 {text-align: center; font-size: 14pt;}');
+    msg.document.write('fieldset {border: none;}');
+    msg.document.write('form {text-align: center;}');
+    msg.document.write(' ]]\u003e <\/style>');
+    msg.document.write('<\/head><body><div id="footnote"><h1>Footnote&nbsp; ' + footnum + '<\/h1><p>');
+    msg.document.write(footnote);
+    msg.document.write('<\/p><form action="" method="post"><fieldset>');
+    msg.document.write('<input type="button" value="OK" ');
+    msg.document.write('onclick="window.close();" />');
+    msg.document.write('<\/fieldset><\/form><\/div><\/body><\/html>');
+    msg.document.close();
+    setTimeout(function() {
+        var height = msg.document.getElementById('footnote').offsetHeight;
+        msg.resizeTo(598, height + 100);
+    }
+    , 100);
+    msg.focus();
+}
+</script><noscript>
+<p>The script content on this page is for navigation purposes only and does not alter the content in any way.</p>
+</noscript><a id="BIGUG76737"></a><a id="BIGUG76736"></a>
+<h1 id="BDSUG-GUID-B897FD6B-2BFE-4C86-AE53-08EA181F92F2" class="sect1"><span class="enumeration_chapter">3</span> Storing Oracle Data in Hadoop</h1>
+<div>
+<div><span>Copy to Hadoop and Oracle Database Tablespaces in HDFS are two Oracle Big Data SQL resources for off-loading Oracle Database tables to the HDFS file system on a Hadoop cluster.</span></div>
+<p>The table below compares these two tools.</p>
+<div class="tblformal" id="GUID-B897FD6B-2BFE-4C86-AE53-08EA181F92F2__GUID-E5678CDE-D03A-444C-AC1D-98887251C8B5">
+<p class="titleintable">Table 3-1 Comparison of Copy to Hadoop and Oracle Tablespaces in HDFS</p>
+<table class="cellalignment18" title="Comparison of Copy to Hadoop and Oracle Tablespaces in HDFS" summary="Column 1 identifies features of Copy to Hadoop. Column 2 indicates how the functionality of Oracle Tablespaces in HDFS compares in each case.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment19" id="d10919e30">Copy to Hadoop</th>
+<th class="cellalignment19" id="d10919e32">Oracle Tablespaces in HDFS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e36" headers="d10919e30">Copies Oracle Database tables to Oracle Data Pump files stored in HDFS.</td>
+<td class="cellalignment2" headers="d10919e36 d10919e32">Oracle Database tables or partitions are stored within the tablespace in HDFS in their original Oracle-internal format.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e41" headers="d10919e30">Access is through a Hive external table and from the database with Oracle Big Data SQL.</td>
+<td class="cellalignment2" headers="d10919e41 d10919e32">Access is directly though the original Oracle Database tables. External tables are not needed.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e46" headers="d10919e30">Data is available (through Hive) to other processes in the Hadoop ecosystem and to Oracle Database (through Oracle Big Data SQL).</td>
+<td class="cellalignment2" headers="d10919e46 d10919e32">Data is directly available to Oracle Database only. Data is not accessible to other processes in Hadoop.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<div class="sect2"><a id="GUID-E5610B1C-9A27-4DF2-8761-BBDD6E23027E"></a>
+<h2 id="BDSUG-GUID-E5610B1C-9A27-4DF2-8761-BBDD6E23027E" class="sect2"><span class="enumeration_section">3.1</span> Using Copy to Hadoop</h2>
+<div>
+<p>This section describes how to use Copy to Hadoop to copy Oracle Database tables to Hadoop.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="copy2bda.htm#GUID-C4544F9A-E779-4380-BEAD-5E9B6BCD32F4">What Is Copy to Hadoop?</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-41C9CFA3-B2BC-44E6-B974-E99CBAE0CB3A" title="To copy table using Copy to Hadoop, an Oracle Database user must meet one of these requirements.">Getting Started Using Copy to Hadoop</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-6BE23F64-C08A-40A7-95A9-11DBC3F9FAE2">Using Oracle Shell for Hadoop Loaders With Copy to Hadoop</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-3181F1F5-7125-4DB6-9178-0D5BF906CBEC">Using Copy to Hadoop to do Direct Copies</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-300C3ED0-2BFD-40E4-8FE5-750403E96A30" title="This example shows how to use Oracle Shell for Hadoop Loaders (OHSH) to do a staged, two-step copy from Oracle Database to Hadoop.">Using Copy to Hadoop to do Staged Copies</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-3FB134B8-E3EE-401A-AA40-8B5EC06274AF">Querying the Data in Hive</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-92B3095C-207C-4054-AB2F-98C64FD12C31">About Column Mappings and Data Type Conversions</a></p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-A5277847-21F3-4553-8BB0-FA4B2732E96A" title="The Oracle Data Pump files exported by Copy to Hadoop can be used in Spark.&nbsp;&nbsp;">Working With Spark</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGUG76738"></a>
+<div class="props_rev_3"><a id="GUID-C4544F9A-E779-4380-BEAD-5E9B6BCD32F4"></a>
+<h3 id="BDSUG-GUID-C4544F9A-E779-4380-BEAD-5E9B6BCD32F4" class="sect3"><span class="enumeration_section">3.1.1</span> What Is Copy to Hadoop?</h3>
+<div>
+<p>Oracle Big Data SQL includes the Oracle Copy to Hadoop utility. This utility makes it simple to identify and copy Oracle data to the Hadoop Distributed File System. It can be accessed through the command-line interface Oracle Shell for Hadoop Loaders.</p>
+<p>Data exported to the Hadoop cluster by Copy to Hadoop is stored in Oracle Data Pump format. The Oracle Data Pump files can be queried by Hive or Big Data SQL. The Oracle Data Pump format optimizes queries through Big Data SQL in the following ways:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The data is stored as Oracle data types &ndash; eliminating data type conversions.</p>
+</li>
+<li>
+<p>The data is queried directly &ndash; without requiring the overhead associated with Java SerDes.</p>
+</li>
+</ul>
+<p>After Data Pump format files are in HDFS, you can use Apache Hive to query the data. Hive can process the data locally without accessing Oracle Database. When the Oracle table changes, you can refresh the copy in Hadoop. Copy to Hadoop is primarily useful for Oracle tables that are relatively static, and thus do not require frequent refreshes.</p>
+<p>Copy to Hadoop is licensed under Oracle Big Data SQL. You must have an Oracle Big Data SQL license in order to use this utility.</p>
+</div>
+</div>
+<a id="BIGUG76739"></a>
+<div class="props_rev_3"><a id="GUID-41C9CFA3-B2BC-44E6-B974-E99CBAE0CB3A"></a>
+<h3 id="BDSUG-GUID-41C9CFA3-B2BC-44E6-B974-E99CBAE0CB3A" class="sect3"><span class="enumeration_section">3.1.2</span> Getting Started Using Copy to Hadoop</h3>
+<div>
+<div class="section">
+<p>To install and start using Copy to Hadoop:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Follow the Copy to Hadoop and Oracle Shell for Hadoop Loaders installation procedures in the <span class="italic">Oracle Big Data SQL Installation Guide</span>.</span>
+<div>As described in the installation guide, ensure that the prerequisite software is installed on both the Hadoop cluster (on Oracle Big Data Appliance or another Hadoop system) and on the Oracle Database server (Oracle Exadata Database Machine or other).</div>
+</li>
+<li class="stepexpand"><span>Invoke Oracle Shell for Hadoop Loaders (OHSH) to do a direct, one-step copy or a staged, two-step copy of data in Oracle Database to Data Pump format files in HDFS, and create a Hive external table from the files.</span>
+<div>OHSH will choose <code class="codeph">directcopy</code> by default to do a direct, one-step copy. This is faster than a staged, two-step copy and does not require storage on the database server. However, there are situations where you should do a staged, two-step copy:
+<ul style="list-style-type: disc;">
+<li>
+<p>Copying columns from multiple Oracle Database source tables. (The direct, one-step copy copies data from one table only.)</p>
+</li>
+<li>
+<p>Copying columns of type <code class="codeph">TIMESTAMPTZ</code> or <code class="codeph">TIMESTAMPLTZ</code> to Hive.</p>
+<p>Since Hive does not have a data type that supports time zones or time offsets, you must cast these columns to <code class="codeph">TIMESTAMP</code> when manually exporting these columns to Data Pump files</p>
+</li>
+<li>
+<p>Copying data from a view. Views are not supported by the <code class="codeph">directcopy</code> option.</p>
+</li>
+</ul>
+<p>&nbsp;The staged two-step copy using the manual steps is demonstrated in <span class="q">"Appendix A: <a href="generate_data_pump_file.htm#GUID-E25F810B-5D75-4FC4-9C5E-9E7B8B5DDAA3">Manual Steps for Using Copy to Hadoop for Staged Copies</a>"</span>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Query this Hive table the same as you would any other Hive table.</span></li>
+</ol>
+<div class="section">
+<div class="infobox-tip" id="GUID-41C9CFA3-B2BC-44E6-B974-E99CBAE0CB3A__GUID-398B3045-8D39-4CB2-8788-DA941BC89F9C">
+<p class="notep1">Tip:</p>
+For Hadoop power users with specialized requirements, the manual option for Direct Copy is recommended. See <a href="using_copy_to_hadoop_direct_copy.htm#GUID-954CE487-C588-4A58-B238-6505761DBF06" title="Follow these steps.">Manual Steps for Using Copy to Hadoop for Direct Copies</a> in Appendix B.</div>
+</div>
+<!-- class="section" --></div>
+<div class="sect4"><a id="GUID-A54345A9-D762-4F96-B0B8-3A96F739FC3C"></a>
+<h4 id="BDSUG-GUID-A54345A9-D762-4F96-B0B8-3A96F739FC3C" class="sect4"><span class="enumeration_section">3.1.2.1</span> Table Access Requirements for Copy to Hadoop</h4>
+<div>
+<p>To copy table using Copy to Hadoop, an Oracle Database user must meet one of these requirements.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The user is the owner of the table, or</p>
+</li>
+<li>
+<p>The user has one of the following privileges to access a table in another schema:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The <code class="codeph">select_catalog_role</code> privilege (which provides&nbsp;<code class="codeph">SELECT</code>&nbsp; privileges on data dictionary views).</p>
+</li>
+<li>
+<p>The <code class="codeph">SELECT</code> privilege on the table.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3"><a id="GUID-6BE23F64-C08A-40A7-95A9-11DBC3F9FAE2"></a>
+<h3 id="BDSUG-GUID-6BE23F64-C08A-40A7-95A9-11DBC3F9FAE2" class="sect3"><span class="enumeration_section">3.1.3</span> Using Oracle Shell for Hadoop Loaders With Copy to Hadoop</h3>
+<div class="sect4"><a id="GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A"></a>
+<h4 id="BDSUG-GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A" class="sect4"><span class="enumeration_section">3.1.3.1</span> Introducing Oracle Shell for Hadoop Loaders</h4>
+<div>
+<div class="section">
+<p class="subhead3">What is Oracle Shell for Hadoop Loaders?</p>
+</div>
+<!-- class="section" -->
+<p>Oracle Shell for Hadoop Loaders (OHSH) is a helper shell that provides an easy-to-use command line interface to Oracle Loader for Hadoop, Oracle SQL Connector for HDFS, and Copy to Hadoop.&nbsp;It has basic shell features such as command line recall, history, inheriting environment variables from the parent process,&nbsp;setting new or existing environment variables, and performing environmental substitution in the command line.&nbsp;</p>
+<p>The core functionality of Oracle Shell for Hadoop Loaders includes the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Defining named external resources with which Oracle Shell for Hadoop Loaders interacts to perform loading tasks.</p>
+</li>
+<li>
+<p>Setting default values for load operations.</p>
+</li>
+<li>
+<p>Running load commands.</p>
+</li>
+<li>
+<p>Delegating simple pre and post load tasks to the Operating System, HDFS, Hive and Oracle.&nbsp;These tasks include viewing the data to be loaded, and viewing the data in the target table after loading.</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A__GUID-0FB9EACF-7B3F-4D33-8614-7FF49C1DDD27">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>To set up OHSH, follow the instructions in the <a class="olink BDSIG-GUID-82BFB573-1991-406E-8C09-DA9C7630142B" target="_blank" href="../BDSIG/additionaltools.htm#BDSIG-GUID-82BFB573-1991-406E-8C09-DA9C7630142B">Oracle Big Data SQL Installation Guide</a>.</p>
+</li>
+<li>
+<p>The examples directory in the OHSH kit contains many examples that define resources and load data using Oracle Shell for Hadoop Loaders. &nbsp;See <code>&lt;OHSH_KIT&gt;/examples/README.txt</code> for a description of the examples and instructions on how to run OHSH load methods.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3"><a id="GUID-3181F1F5-7125-4DB6-9178-0D5BF906CBEC"></a>
+<h3 id="BDSUG-GUID-3181F1F5-7125-4DB6-9178-0D5BF906CBEC" class="sect3"><span class="enumeration_section">3.1.4</span> Using Copy to Hadoop to do Direct Copies</h3>
+<div>
+<p>This example shows how to use Oracle Shell for Hadoop Loaders (OHSH) to do a direct, one step copy from Oracle Database to Hadoop.&nbsp;</p>
+<div class="section">
+<p>The example assumes OHSH and Oracle Big Data SQL have been installed and configured, and that the examples have been configured by following the instructions in the <code>README.txt</code> file found in the <code>examples</code> directory of the OHSH installation.&nbsp;The example scripts can be found in the <code>examples</code> directory of the OHSH installation.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-3181F1F5-7125-4DB6-9178-0D5BF906CBEC__GUID-41F3D722-3FAC-4E28-AA6E-25BB8D6E8256">
+<p class="titleinexample">Example 3-1 createreplace_directcopy.ohsh</p>
+<p>This script uses create or replace to create a Hive table called <code class="codeph">cp2hadoop_fivdti</code> from the Oracle table <code class="codeph">FIVDTI</code> and then loads the Hive table with 10000 rows.&nbsp; It uses the <code class="codeph">directcopy</code> command to run a map job on Hadoop and split the Oracle table into input splits.&nbsp;It then creates Data Pump format files in HDFS that include all the splits, and creates a Hive external table that maps to the Data Pump format files.</p>
+<pre dir="ltr">
+create or replace hive table hive0:cp2hadoop_fivdti \ 
+from oracle table olhp:fivdti using directcopy 
+</pre>
+<p>The <code class="codeph">load_directcopy.ohsh</code> script shows how to load the Hive table with an additional 30 rows using the <code class="codeph">directcopy</code> command.</p>
+<pre dir="ltr">
+load hive table hive0:cp2hadoop_fivdti from oracle table olhp:fivdti \
+using directcopy where "(i7 &lt; 30)";
+</pre>
+<p>Optionally, the data can be converted to Parquet or ORC formats from OHSH:</p>
+<pre dir="ltr">
+%hive0 create table cp2hadoop_fivdti_parquet stored as parquet as select * from cp2hadoop_fivdti
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<div class="sect3"><a id="GUID-300C3ED0-2BFD-40E4-8FE5-750403E96A30"></a>
+<h3 id="BDSUG-GUID-300C3ED0-2BFD-40E4-8FE5-750403E96A30" class="sect3"><span class="enumeration_section">3.1.5</span> Using Copy to Hadoop to do Staged Copies</h3>
+<div>
+<p>This example shows how to use Oracle Shell for Hadoop Loaders (OHSH) to do a staged, two-step copy from Oracle Database to Hadoop.</p>
+<p>This example assumes OHSH and Big Data SQL have been installed and configured, and that the examples have been configured according to the instructions in <code>README.txt</code> in the <code>examples</code> directory of the OHSH installation.&nbsp;The scripts below and many others are also available in the <code>examples</code> directory.</p>
+<div class="example" id="GUID-300C3ED0-2BFD-40E4-8FE5-750403E96A30__GUID-9CBEE33A-0C0B-42FC-8AFB-A98AEF2BE1C2">
+<p class="titleinexample">Example 3-2 createreplace_stage.ohsh</p>
+<p>This script uses create or replace to create a Hive table called <code class="codeph">cp2hadoop_fivdti</code> from the Oracle table <code class="codeph">FIVDTI</code>.&nbsp; It uses the <code class="codeph">stage</code> command, which automatically does the following:&nbsp;</p>
+<ol>
+<li>
+<p>Exports the contents of the source table in Oracle to Data Pump format files on local disk</p>
+</li>
+<li>
+<p>Moves the Data Pump format files to HDFS.</p>
+</li>
+<li>
+<p>Creates the Hive external table that maps to the Data Pump format files in HDFS.</p>
+</li>
+</ol>
+<pre dir="ltr">
+create or replace hive table hive0:cp2hadoop_fivdti \
+from oracle table olhp:fivdti using stage
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-300C3ED0-2BFD-40E4-8FE5-750403E96A30__GUID-A58ECB4F-96FC-45C0-852A-DB6AED170B7D">
+<p class="titleinexample">Example 3-3 load_stage.ohsh</p>
+<p>The <code class="codeph">load_stage.ohsh</code> script shows how to load the Hive table with an additional 30 rows using the <code class="codeph">stage</code> command.</p>
+<pre dir="ltr">
+load hive table hive0:cp2hadoop_fivdti from oracle table olhp:fivdti \
+using stage where "(i7 &lt; 30)";
+</pre></div>
+<!-- class="example" -->
+<div class="section">
+<p class="subhead3">Manual Option</p>
+<p>The two-step method demonstrated in the <code class="codeph">createreplace_stage.ohsh</code> and <code class="codeph">load_stage.ohsh</code> example scripts automates some of the tasks required to do staged copies. However, there may be reasons to perform the steps manually, such as:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>You want to load columns from multiple Oracle Database source tables.</p>
+</li>
+<li>
+<p>You want to load columns of type <code>TIMESTAMPZ</code> or <code>TIMESTAMPLTZ</code>.</p>
+</li>
+</ul>
+<p>See <a href="generate_data_pump_file.htm#GUID-E25F810B-5D75-4FC4-9C5E-9E7B8B5DDAA3">Appendix A: Manual Steps for Using Copy to Hadoop for Staged Copies</a>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGUG76764"></a>
+<div class="props_rev_3"><a id="GUID-3FB134B8-E3EE-401A-AA40-8B5EC06274AF"></a>
+<h3 id="BDSUG-GUID-3FB134B8-E3EE-401A-AA40-8B5EC06274AF" class="sect3"><span class="enumeration_section">3.1.6</span> Querying the Data in Hive</h3>
+<div>
+<div class="section">
+<p>The following <code class="codeph">OHSH</code> command shows the number of rows in the Hive table after copying from the Oracle table.</p>
+<pre dir="ltr">
+%hive0 select count(*) from cp2hadoop_fivdti;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-92B3095C-207C-4054-AB2F-98C64FD12C31"></a>
+<h3 id="BDSUG-GUID-92B3095C-207C-4054-AB2F-98C64FD12C31" class="sect3"><span class="enumeration_section">3.1.7</span> About Column Mappings and Data Type Conversions</h3>
+<p><a id="BIGUG76752"></a></p>
+<div class="props_rev_3"><a id="GUID-327CADC1-B702-4A05-9D53-C0A0F3A47D8E"></a>
+<h4 id="BDSUG-GUID-327CADC1-B702-4A05-9D53-C0A0F3A47D8E" class="sect4"><span class="enumeration_section">3.1.7.1</span> About Column Mappings</h4>
+<div>
+<p>The Hive table columns automatically have the same names as the Oracle columns, which are provided by the metadata stored in the Data Pump files. Any user-specified column definitions in the Hive table are ignored.</p>
+</div>
+</div>
+<a id="BIGUG76754"></a><a id="BIGUG76753"></a>
+<div class="props_rev_3"><a id="GUID-9F4DE43A-BA88-4D59-861C-3ABC1A4C8F87"></a>
+<h4 id="BDSUG-GUID-9F4DE43A-BA88-4D59-861C-3ABC1A4C8F87" class="sect4"><span class="enumeration_section">3.1.7.2</span> About Data Type Conversions</h4>
+<div>
+<p>Copy to Hadoop automatically converts the data in an Oracle table to an appropriate Hive data type. <a href="copy2bda.htm#GUID-9F4DE43A-BA88-4D59-861C-3ABC1A4C8F87__CHDCEGAD" title="Copy to Hadoop data type mappings">Table 3-2</a> shows the default mappings between Oracle and Hive data types.</p>
+<div class="tblformal" id="GUID-9F4DE43A-BA88-4D59-861C-3ABC1A4C8F87__CHDCEGAD">
+<p class="titleintable">Table 3-2 Oracle to Hive Data Type Conversions</p>
+<table class="cellalignment13" title="Oracle to Hive Data Type Conversions" summary="Copy to Hadoop data type mappings">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment41" id="d10919e586">Oracle Data Type</th>
+<th class="cellalignment42" id="d10919e589">Hive Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e594" headers="d10919e586">
+<p>NUMBER</p>
+</td>
+<td class="cellalignment44" headers="d10919e594 d10919e589">
+<p>INT when the scale is 0 and the precision is less than 10</p>
+<p>BIGINT when the scale is 0 and the precision is less than 19</p>
+<p>DECIMAL when the scale is greater than 0 or the precision is greater than 19</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e605" headers="d10919e586">
+<p>CLOB</p>
+<p>NCLOB</p>
+</td>
+<td class="cellalignment44" headers="d10919e605 d10919e589">
+<p>STRING</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e614" headers="d10919e586">
+<p>INTERVALYM</p>
+<p>INTERVALDS</p>
+</td>
+<td class="cellalignment44" headers="d10919e614 d10919e589">
+<p>STRING</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e623" headers="d10919e586">
+<p>BINARY_DOUBLE</p>
+</td>
+<td class="cellalignment44" headers="d10919e623 d10919e589">
+<p>DOUBLE</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e630" headers="d10919e586">
+<p>BINARY_FLOAT</p>
+</td>
+<td class="cellalignment44" headers="d10919e630 d10919e589">
+<p>FLOAT</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e637" headers="d10919e586">
+<p>BLOB</p>
+</td>
+<td class="cellalignment44" headers="d10919e637 d10919e589">
+<p>BINARY</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e644" headers="d10919e586">
+<p>ROWID</p>
+<p>UROWID</p>
+</td>
+<td class="cellalignment44" headers="d10919e644 d10919e589">
+<p>BINARY</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e653" headers="d10919e586">
+<p>RAW</p>
+</td>
+<td class="cellalignment44" headers="d10919e653 d10919e589">
+<p>BINARY</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e660" headers="d10919e586">
+<p>CHAR</p>
+<p>NCHAR</p>
+</td>
+<td class="cellalignment44" headers="d10919e660 d10919e589">
+<p>CHAR</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e669" headers="d10919e586">
+<p>VARCHAR2</p>
+<p>NVARCHAR2</p>
+</td>
+<td class="cellalignment44" headers="d10919e669 d10919e589">
+<p>VARCHAR</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e678" headers="d10919e586">
+<p>DATE</p>
+</td>
+<td class="cellalignment44" headers="d10919e678 d10919e589">
+<p>TIMESTAMP</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e686" headers="d10919e586">
+<p>TIMESTAMP</p>
+</td>
+<td class="cellalignment44" headers="d10919e686 d10919e589">
+<p>TIMESTAMP</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d10919e693" headers="d10919e586">
+<p>TIMESTAMPTZ</p>
+<p>TIMESTAMPLTZ<a id="fn_1" href="#fn_1" onclick='footdisplay(1,"To copy TIMESTAMPTZ and TIMESTAMPLTZ data to Hive, follow the instructions in Appendix A: Manual Steps for Using Copy to Hadoop to do Staged Copies. Cast the columns to TIMESTAMP when exporting them to the Data Pump files. ")'><sup>Foot&nbsp;1</sup></a></p>
+</td>
+<td class="cellalignment44" headers="d10919e693 d10919e589">
+<p>Unsupported</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;1</sup></p>
+<p>To copy <code>TIMESTAMPTZ</code> and <code>TIMESTAMPLTZ</code> data to Hive, follow the instructions in <a href="generate_data_pump_file.htm#GUID-E25F810B-5D75-4FC4-9C5E-9E7B8B5DDAA3">Appendix A: Manual Steps for Using Copy to Hadoop to do Staged Copies</a>. Cast the columns to TIMESTAMP when exporting them to the Data Pump files.</p>
+</div>
+</div>
+</div>
+<div class="sect3"><a id="GUID-A5277847-21F3-4553-8BB0-FA4B2732E96A"></a>
+<h3 id="BDSUG-GUID-A5277847-21F3-4553-8BB0-FA4B2732E96A" class="sect3"><span class="enumeration_section">3.1.8</span> Working With Spark</h3>
+<div>
+<p>The Oracle Data Pump files exported by Copy to Hadoop can be used in Spark.&nbsp;&nbsp;</p>
+<div class="p">The Spark installation must be configured to work with Hive.&nbsp;&nbsp;Launch a Spark shell by specifying the Copy to Hadoop jars.
+<pre dir="ltr">
+prompt&gt; spark-shell --jars orahivedp.jar,ojdbc7.jar,oraloader.jar,orai18n.jar,ora-hadoop-common.jar
+</pre></div>
+<div class="p">Verify the type of sqlContext in spark-shell:
+<pre dir="ltr">
+scala&gt; sqlContext
+</pre>
+Your output will look like the following:
+<pre dir="ltr">
+ res0:org.apache.spark.sql.SQLContext = <a href="mailto:org.apache.spark.sql.hive.HiveContext@66ad7167" target="_blank">org.apache.spark.sql.hive.HiveContext@66ad7167</a>
+</pre>
+If the default sqlContext is not HiveContext, create it:
+<pre dir="ltr">
+scala&gt; val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+</pre>
+You can now create a Data Frame <code class="codeph">df</code> that points to a Hive external table over Oracle Data Pump files:
+<pre dir="ltr">
+scala&gt; val df = sqlContext.table("&lt;hive external table&gt;") &lt;hive external table&gt;: 
+org.apache.spark.sql.DataFrame = [ &lt;column names&gt; ]
+</pre>
+Now you can access data via the data frame.
+<pre dir="ltr">
+scala&gt; df.count
+scala&gt; df.head
+</pre>
+If a Hive external table had not been created and you only had the Oracle Data Pump files created by Copy to Hadoop, you can create the Hive external table from within Spark.
+<pre dir="ltr">
+scala&gt; sqlContext.sql(&ldquo;CREATE EXTERNAL TABLE &lt;hive external table&gt; ROW FORMAT SERDE 
+'oracle.hadoop.hive.datapump.DPSerDe' STORED AS INPUTFORMAT
+'oracle.hadoop.hive.datapump.DPInputFormat' OUTPUTFORMAT
+'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat' LOCATION
+'/user/oracle/oracle_warehouse/&lt;hive database name&gt;'")
+</pre></div>
+</div>
+</div>
+<div class="sect3"><a id="GUID-727C1F75-2748-4FE1-9ED4-540D41C97DA2"></a>
+<h3 id="BDSUG-GUID-727C1F75-2748-4FE1-9ED4-540D41C97DA2" class="sect3"><span class="enumeration_section">3.1.9</span> Using Oracle SQL Developer with Copy to Hadoop</h3>
+<div>
+<p>Oracle SQL Developer is a free, GUI-based development environment that provides easy to use tools for working Oracle Big Data Connectors, including Copy to Hadoop.</p>
+<p>Using Oracle SQL Developer, you can copy data and create a new Hive table, or append data to an existing Hive external table that was created by Copy to Hadoop. In the GUI, you can initiate Copy to Hadoop in Oracle SQL Developer by right-clicking the Tables icon under any Hive schema. You can then append to an existing Hive external table by right-clicking the icon for that Hive table.</p>
+<p>See <a href="bigsql.htm#GUID-E6E5F4CF-3F31-46B1-9D61-A70E8FBAA407__INSTALLINGORACLESQLDEVELOPER-D26F705F">Installing Oracle SQL Developer</a> in this manual for instructions on where to obtain Oracle SQL Developer and how do the basic installation.</p>
+</div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-D5907C17-ABA1-487A-8D34-C81A46A9035C"></a>
+<h2 id="BDSUG-GUID-D5907C17-ABA1-487A-8D34-C81A46A9035C" class="sect2"><span class="enumeration_section">3.2</span> Storing Oracle Tablespaces in HDFS</h2>
+<div>
+<p>You can store Oracle read-only tablespaces on HDFS and use Big Data SQL Smart Scan to off-load query processing of data stored in that tablespace to the Hadoop cluster.&nbsp;Big Data SQL Smart Scan performs data local processing - filtering query results on the Hadoop cluster prior to the return of the data to Oracle Database. In most circumstances, this can be a significant performance optimization. In addition to Smart Scan, querying tablespaces in HDFS also leverages native Oracle Database access structures and performance features.&nbsp;This includes features such as indexes, Hybrid Columnar Compression, Partition Pruning, and Oracle Database In-Memory.</p>
+<p>Tables, partitions, and data in tablespaces in HDFS retain their original Oracle Database internal format. This is not a data dump. Unlike other means of accessing data in Hadoop (or other noSQL systems), you do not need to create Oracle External table. After copying the corresponding Oracle tablespaces to HDFS, you refer to the original Oracle table to access the data.</p>
+<p>Permanent online, read only, and offline tablespaces (including ASM tablespaces) are eligible for the move to HDFS.</p>
+<div class="infobox-note" id="GUID-D5907C17-ABA1-487A-8D34-C81A46A9035C__GUID-51F608FA-5614-4FA7-820C-A4F7EDDCB3AE">
+<p class="notep1">Note:</p>
+Since tablespaces allocated to HDFS are may not be altered, offline tablespaces must remain as offline. For offline tablespaces, then, what this feature provides is a hard backup into HDFS.</div>
+</div>
+<div class="sect3"><a id="GUID-3600AA1D-8E5D-44AB-9025-B68BCD80E2CE"></a>
+<h3 id="BDSUG-GUID-3600AA1D-8E5D-44AB-9025-B68BCD80E2CE" class="sect3"><span class="enumeration_section">3.2.1</span> Advantages and Limitations of Tablespaces in HDFS</h3>
+<div>
+<p>The following are some reasons to store Oracle Database tablespaces in HDFS.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Because the data remains in Oracle Database internal format, I/O requires no resource-intensive datatype conversions.</p>
+</li>
+<li>
+<p>All Oracle Database performance optimizations such as indexing, Hybrid Columnar Compression, Partition Pruning, and Oracle Database In-Memory can be applied.</p>
+</li>
+<li>
+<p>Oracle user-based security is maintained. Other Oracle Database security features such as Oracle Data Redaction and ASO transparent encryption remain in force if enabled. In HDFS, tablespaces can be stored in zones under HDFS Transparent HDFS encryption.</p>
+</li>
+<li>
+<p>Query processing can be off-loaded. Oracle Big Data SQL Smart Scan is applied to Oracle Database tablespaces in HDFS. Typically, Smart Scan can provide a significant performance boost for queries. With Smart Scan, much of the query processing workload is off-loaded to the Oracle Big Data SQL server cells on the Hadoop cluster where the tablespaces reside. Smart Scan then performs predicate filtering in-place on the Hadoop nodes to eliminate irrelevant data so that only data that meets the query conditions is returned to the database tier for processing. Data movement and network traffic are reduced to the degree that smart scan predicate filtering can distill the dataset before returning it to the database.</p>
+</li>
+<li>
+<p>For each table in the tablespace, there is only a single object to manage &ndash; the Oracle-internal table itself. To be accessible to Oracle Database, data stored in other file formats typically used in HDFS requires an overlay of an external table and a view.</p>
+</li>
+<li>
+<p>As is always the case with Oracle internal partitioning, partitioned tables and indexes can have partitions in different tablespaces some of which may be in Exadata , ZFSSA, and other storage devices. This feature adds HDFS as another storage option.</p>
+</li>
+</ul>
+<p>There are some constraints on using Oracle tablespaces in HDFS. As is the case with all data stored in HDFS, Oracle Database tables, partitions, and data stored in HDFS are immutable. Updates are done by deleting and replacing the data. This form of storage is best suited to off-loading tables and partitions for archival purposes. Also, with the exception of OD4H, data in Oracle tablespaces in HDFS is not accessible to other tools in the Hadoop environment, such as Spark, Oracle Big Data Discovery, and Oracle Big Data Spatial and Graph.</p>
+</div>
+</div>
+<div class="sect3"><a id="GUID-99907CE0-F0BE-417E-A4C0-1262ADB098C9"></a>
+<h3 id="BDSUG-GUID-99907CE0-F0BE-417E-A4C0-1262ADB098C9" class="sect3"><span class="enumeration_section">3.2.2</span> About Tablespaces in HDFS and Data Encryption</h3>
+<div>
+<p>Oracle Database Tablespaces in HDFS can work with ASO ( Oracle Advanced Security) transparent table encryption as well as HDFS Transparent Encryption in HDFS.</p>
+<div class="section">
+<p class="subhead3">Tablespaces With Oracle Database ASO Encryption</p>
+<p>In Oracle Database, ASO transparent encryption may be enabled for a tablespace or objects within the tablespace. This encryption is retained if the tablespace is subsequently moved to HDFS. For queries against this data, the <code class="codeph">CELL_OFFLOAD_DECRYPTION</code> setting determines whether Oracle Big Data SQL or Oracle Database decrypts the data.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If <code class="codeph">CELL_OFFLOAD_DECRYPTION = TRUE</code>, then the encryption keys are sent to the Oracle Big Data server cells in Hadoop and data is decrypted at the cells.</p>
+</li>
+<li>
+<p>If <code class="codeph">CELL_OFFLOAD_DECRYPTION = FALSE</code> , encryption keys are not sent to the cells and therefore the cells cannot perform TDE decryption. The data is returned to Oracle Database for decryption.</p>
+</li>
+</ul>
+<p>The default value is <code class="codeph">TRUE</code>.</p>
+<div class="infobox-note" id="GUID-99907CE0-F0BE-417E-A4C0-1262ADB098C9__GUID-50ED48B0-729C-4424-8337-694FB480A55E">
+<p class="notep1">Note:</p>
+In cases where <code class="codeph">CELL_OFFLOAD_DECRYPTION</code> is set to <code class="codeph">FALSE</code>, Smart Scan cannot read the encrypted data and is unable to provide the performance boost that results from the Hadoop-side filtering of the query result set. TDE Column Encryption prevents Smart Scan processing of the encrypted columns only. TDE Tablespace Encryption prevents Smart Scan processing of the entire tablespace.</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Tablespaces in HDFS Transparent Encryption Zones</p>
+<p>You can move Oracle Database tablespaces into zones under HDFS Transparent Encryption with no impact on query access or on the ability of Smart Scan to filter data.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect3"><a id="GUID-528AA4D3-8BB2-4E7C-8096-14C53E2DE130"></a>
+<h3 id="BDSUG-GUID-528AA4D3-8BB2-4E7C-8096-14C53E2DE130" class="sect3"><span class="enumeration_section">3.2.3</span> Moving Tablespaces to HDFS</h3>
+<div>
+<p>Oracle Big Data SQL provides two options for moving tablespaces from Oracle Database to the HDFS file system in Hadoop.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="copy2bda.htm#GUID-A9671C78-4C30-4B42-AAA7-7B9F2ACFCD51" title="On the Oracle Database server, you can use the script bds-copy-tbs-to-hdfs.sh to select and move Oracle tablespaces to HDFS. This script is in the bds-database-install directory that you extracted from the database installation bundle when you installed Oracle Big Data SQL.">Using bds-copy-tbs-to-hdfs</a></p>
+<p>The script <code>bds-copy-tbs-to-hdfs.sh</code> lets you select a preexisting tablespace in Oracle Database. The script automates the move of the selected tablespace to HDFS and performs necessary SQL ALTER operations and datafile permission changes for you. The DataNode where the tablespace is relocated is predetermined by the script. The script uses FUSE-DFS to move the datafiles from Oracle Database to the HDFS file system in the Hadoop cluster .</p>
+<p>You can find <code>bds-copy-tbs-to-hdfs.sh</code> in the cluster installation directory &ndash; <code class="codeph">$ORACLE_HOME/BDSJaguar-3.2.1/&lt;<span class="codeinlineitalic">string identifer for the cluster</span>&gt;</code>.</p>
+</li>
+<li>
+<p><a href="copy2bda.htm#GUID-790CB0C3-D5D2-4F94-AFF3-9B46A0735492" title="As an alternative to bds-copy-tbs-to-hdfs.sh, you can use the following manual steps to move Oracle tablespaces to HDFS.">Manually Moving Tablespaces to HDFS</a></p>
+<p>As an alternative to <code>bds-copy-tbs-to-hdfs.sh</code>, you can manually perform the steps to move the tablespaces to HDFS. You can either move an existing tablespace, or, create a new tablespace and selectively add tables and partitions that you want to off-load. In this case, you can set up either FUSE-DFS or an HDFS NFS gateway service to move the datafiles to HDFS.</p>
+</li>
+</ul>
+<p>The scripted method is more convenient. The manual method is somewhat more flexible. Both are supported.</p>
+<div class="infobox-note" id="GUID-528AA4D3-8BB2-4E7C-8096-14C53E2DE130__GUID-1CB2B154-217F-451E-9043-9B4E3F44B64B">
+<p class="notep1">Before You Start:</p>
+As cited in the <span class="italic">Prerequisites</span> section of the installation guide, both methods require that the following RPMs are pre-installed:
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">fuse</code></p>
+</li>
+<li>
+<p><code class="codeph">fuse-libs</code></p>
+</li>
+</ul>
+<pre dir="ltr">
+# yum -y install fuse fuse-libs
+</pre>
+<p>These RPMs are available in the Oracle public yum repository.</p>
+</div>
+</div>
+<div class="sect4"><a id="GUID-A9671C78-4C30-4B42-AAA7-7B9F2ACFCD51"></a>
+<h4 id="BDSUG-GUID-A9671C78-4C30-4B42-AAA7-7B9F2ACFCD51" class="sect4"><span class="enumeration_section">3.2.3.1</span> Using bds-copy-tbs-to-hdfs</h4>
+<div>
+<p>On the Oracle Database server, you can use the script <code>bds-copy-tbs-to-hdfs.sh</code> to select and move Oracle tablespaces to HDFS. This script is in the <code>bds-database-install</code> directory that you extracted from the database installation bundle when you installed Oracle Big Data SQL.</p>
+<div class="section">
+<p class="subhead3">Syntax</p>
+<p><code>bds-copy-tbs-to-hdfs.sh</code> syntax is as follows:</p>
+<pre dir="ltr">
+bds-copy-tbs-to-hdfs.sh
+bds-copy-tbs-to-hdfs.sh --install
+bds-copy-tbs-to-hdfs.sh --uninstall
+bds-copy-tbs-to-hdfs.sh --force-uninstall-script
+bds-copy-tbs-to-hdfs.sh --tablespace=&lt;<span class="italic">tablespace name</span>&gt; [-pdb=&lt;<span class="italic">pluggable database name</span>&gt;]
+bds-copy-tbs-to-hdfs.sh --list=&lt;<span class="italic">tablespace name</span>&gt; [--pdb=&lt;<span class="italic">pluggable database name</span>&gt;]
+bds-copy-tbs-to-hdfs.sh --show=&lt;<span class="italic">tablespace name</span>&gt; [--pdb=&lt;<span class="italic">pluggable database name</span>&gt;]
+</pre>
+<p>Additional command line parameters are described in the table below.</p>
+<div class="tblformal" id="GUID-A9671C78-4C30-4B42-AAA7-7B9F2ACFCD51__GUID-9A43BC5D-14C5-4349-AAF4-43691DEDE6C1">
+<p class="titleintable">Table 3-3 bds-copy-tbs-to-hdfs.sh Parameter Options</p>
+<table class="cellalignment18" title="bds-copy-tbs-to-hdfs.sh Parameter Options" summary="The first column identifies the parameter lists recognized by the script. The second column describes the actions performed by each combination of parameters.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment19" id="d10919e1053">Parameter List</th>
+<th class="cellalignment19" id="d10919e1055">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e1059" headers="d10919e1053"><code class="codeph">No parameters</code></td>
+<td class="cellalignment2" headers="d10919e1059 d10919e1055">Returns the FUSE-DFS status.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e1065" headers="d10919e1053"><code class="codeph">--install</code></td>
+<td class="cellalignment2" headers="d10919e1065 d10919e1055">Installs the FUSE-DFS service. No action is taken if the service is already installed.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e1071" headers="d10919e1053"><code class="codeph">--uninstall</code></td>
+<td class="cellalignment2" headers="d10919e1071 d10919e1055">Uninstalls the FUSE-DFS service and removes the mountpoint.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e1077" headers="d10919e1053"><code class="codeph">--grid-home</code></td>
+<td class="cellalignment2" headers="d10919e1077 d10919e1055">Specifies the Oracle Grid home directory.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e1083" headers="d10919e1053"><code class="codeph">--base-mountpoint</code></td>
+<td class="cellalignment2" headers="d10919e1083 d10919e1055">By default, the mountpoint is under <code>/mnt</code>. However, on some systems access to this directory is restricted. This parameter lets you specify an alternate location.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e1092" headers="d10919e1053"><code class="codeph">--aux-run-mode</code></td>
+<td class="cellalignment2" headers="d10919e1092 d10919e1055">Because Oracle Big Data SQL is installed on the database side as a regular user (not a superuser), tasks that must be done as root and/or the Grid user require the installer to spawn shells to run other scripts under those accounts while bds-copy-tbs-to-hdfs.sh is paused. The <code class="codeph">--aux-run-mode</code> parameter specifies a mode for running these auxiliary scripts.
+<pre dir="ltr">
+--aux-run-mode=&lt;<span class="italic">mode</span>&gt;
+</pre>
+<p>Mode options are:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">session</code> &ndash; through a spawned session.</p>
+</li>
+<li>
+<p><code class="codeph">su</code> &mdash; as a substitute user.</p>
+</li>
+<li>
+<p><code class="codeph">sudo</code> &mdash; through sudo.</p>
+</li>
+<li>
+<p><code class="codeph">ssh</code> &mdash; through secure shell.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e1130" headers="d10919e1053"><code class="codeph">--force-uninstall-script</code></td>
+<td class="cellalignment2" headers="d10919e1130 d10919e1055">This option creates a secondary script that runs as root and forces the FUSE-DFS uninstall.
+<div class="infobox-note" id="GUID-A9671C78-4C30-4B42-AAA7-7B9F2ACFCD51__GUID-E34D3D77-9B8F-4BB3-943A-06E897072C93">
+<p class="notep1">Caution:</p>
+Limit use of this option to system recovery, an attempt to end a system hang, or other situations that may require removal of the FUSE-DFS service. Forcing the uninstall could potentially leave the database in an unstable state. The customer assumes responsibility for this choice. Warning message are displayed to remind you of the risk if you use this option.</div>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e1138" headers="d10919e1053"><code class="codeph">--tablespace=&lt;<span class="codeinlineitalic">tablespace name</span>&gt; [--pdb=&lt;<span class="codeinlineitalic">pluggable database name</span>&gt;]</code></td>
+<td class="cellalignment2" headers="d10919e1138 d10919e1055">Moves the named tablespace in the named PDB to storage in HDFS on the Hadoop cluster. If there are no PDBs, then the <code class="codeph">--pdb</code> argument is discarded.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e1153" headers="d10919e1053"><code class="codeph">--list=&lt;<span class="codeinlineitalic">tablespace name</span>&gt; [--pdb=&lt;<span class="codeinlineitalic">pluggable database name</span>&gt;</code></td>
+<td class="cellalignment2" headers="d10919e1153 d10919e1055">Lists tablespaces whose name equals or includes the name provided. The <code class="codeph">--pdb</code> parameter is an optional scope. <code class="codeph">--list=*</code> returns all tablespaces. <code class="codeph">--pdb=*</code> returns matches for the tablespace name within all PDBs.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d10919e1174" headers="d10919e1053"><code class="codeph">--show=&lt;<span class="codeinlineitalic">tablespace name</span>&gt; [--pdb=&lt;<span class="codeinlineitalic">pluggable database name</span>&gt;</code></td>
+<td class="cellalignment2" headers="d10919e1174 d10919e1055">Shows tablespaces whose name equals or includes the name provided and are already moved to HDFS. The <code class="codeph">--pdb</code> parameter is an optional scope. <code class="codeph">--show=*</code> returns all tablespaces. <code class="codeph">--pdb=*</code> returns matches for the tablespace name within all PDBs.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Usage</p>
+<p>Use <code class="codeph">bds-copy-tbs-to-hdfs.sh</code> to move a tablespace to HDFS as follows.</p>
+<ol>
+<li>
+<p>Log on as the <code class="codeph">oracle</code> Linux user and cd to the <code>bds-database-install</code> directory where the database bundle was extracted. Find <code>bds-copy-tbs-to-hdfs.sh</code> in this directory.</p>
+</li>
+<li>
+<p>Check that FUSE-DFS is installed.</p>
+<pre dir="ltr">
+$ ./bds-copy-tbs-to-hdfs.sh
+</pre></li>
+<li>
+<p>Install the FUSE-DFS service (if it was not found in the previous check). This command will also start the FUSE-DFS the service.</p>
+<pre dir="ltr">
+$ ./bds-copy-tbs-to-hdfs.sh --install
+</pre>
+<p>If this script does not find the mount point, it launches a secondary script. Run this script as <code class="codeph">root</code> when prompted. It will set up the HDFS mount. You can run the secondary script in a separate session and then return to this session if you prefer.</p>
+<div class="infobox-note" id="GUID-A9671C78-4C30-4B42-AAA7-7B9F2ACFCD51__GUID-8131472E-FBEE-48EA-828E-4B449F9EF465">
+<p class="notep1">For RAC Databases: Install FUSE_DFS on All Nodes:</p>
+<p>On a RAC database, the script will prompt you that you must install FUSE-DFS on the other nodes of the database.</p>
+</div>
+</li>
+<li>
+<p>List the eligible tablespaces in a selected PDB or all PDBs. You can skip this step if you already know the tablespace name and location.</p>
+<pre dir="ltr">
+$ ./bds-copy-tbs-to-hdfs.sh --list=mytablesapce --pdb=pdb1
+</pre></li>
+<li>
+<p>Select a tablespace from the list and then, as <code class="codeph">oracle</code>, run <code>bds-copy-tbs-to-hdfs.sh</code> again, but this time pass in the <code class="codeph">--tablespace</code> parameter (and the <code class="codeph">--pdb</code> parameter if specified). The script moves the tablespace to the HDFS file system.</p>
+<pre dir="ltr">
+$ ./bds-copy-tbs-to-hdfs.sh --tablespace=mytablespace --pdb=pdb1
+</pre>
+<p>This command automatically makes the tablespace eligible for Smart Scan in HDFS. It does this in SQL by adding the &ldquo;hdfs:&rdquo; prefix to the datafile name in the tablespace definition. The rename changes the pointer in the database control file. It does not change the physical file name.</p>
+</li>
+</ol>
+<div class="infobox-tip" id="GUID-A9671C78-4C30-4B42-AAA7-7B9F2ACFCD51__GUID-D0BC1502-A9E5-480F-B998-02CAC8A2119B">
+<p class="notep1">Tip:</p>
+<p>If the datafiles are stored in ASM, the extraction will be made using RMAN. At this time, RMAN does not support a direct copy from ASM into HDFS. This will result in an error.</p>
+<div class="p">As workaround, you can use the <code class="codeph">--staging-dir</code> parameter, which that enables you to do a two-stage copy &ndash; first to a file system directory and then into HDFS. The file system directory specified by <code class="codeph">--staging-dir</code> must have sufficient space for the ASM datafile.
+<pre dir="ltr">
+$ ./bds-copy-tbs-to-hdfs.sh --tablespace=mytablespace --pdb=pdb1 --staging-dir=/home/user
+</pre>
+For non-ASM datafiles, <code class="codeph">--staging-dir</code> is ignored.</div>
+</div>
+<p>The tablespace should be back online and ready for access when you have completed this procedure.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect4"><a id="GUID-790CB0C3-D5D2-4F94-AFF3-9B46A0735492"></a>
+<h4 id="BDSUG-GUID-790CB0C3-D5D2-4F94-AFF3-9B46A0735492" class="sect4"><span class="enumeration_section">3.2.3.2</span> Manually Moving Tablespaces to HDFS</h4>
+<div>
+<p>As an alternative to <code>bds-copy-tbs-to-hdfs.sh</code>, you can use the following manual steps to move Oracle tablespaces to HDFS.</p>
+<div class="infobox-note" id="GUID-790CB0C3-D5D2-4F94-AFF3-9B46A0735492__GUID-0288D367-ACB1-449A-AE9D-037FF8236A80">
+<p class="notep1">Note:</p>
+In the case of an ASM tablespace, you must first use RMAN or ASMCMD to copy the tablespace to the filesystem.</div>
+<p>Oracle Big Data SQL includes FUSE-DFS and these instructions use it to connect to the HDFS file system. You could use an HDFS NFS gateway service instead. The documentation for your Hadoop distribution should provide the instructions for that method.</p>
+<p>Perform all of these steps on the Oracle Database server. Run all Linux shell commands as <code class="codeph">root</code>. For SQL commands, log on to the Oracle Database as the <code class="codeph">oracle</code> user.</p>
+<ol>
+<li>
+<p>If FUSE-DFS is not installed or is not started, run <code class="codeph">bds-copy-tbs-to-hdfs.sh --install</code> . This script will install FUSE-DFS (if it&rsquo;s not already installed) and then start it.</p>
+<p>The script will automatically create the mount point <code class="codeph">/mnt/fuse-&lt;<span class="codeinlineitalic">clustername</span>&gt;-hdfs</code>.</p>
+<div class="infobox-note" id="GUID-790CB0C3-D5D2-4F94-AFF3-9B46A0735492__GUID-25CBD5CC-97E9-48D2-83DD-D6A112B2F610">
+<p class="notep1">Note:</p>
+The script <code>bds-copy-tbs-to-hdfs.sh</code> is compatible with FUSE-DFS 2.8 only.</div>
+</li>
+<li>
+<p>In SQL, use <code class="codeph">CREATE TABLESPACE</code> to create the tablespace. Store it in a local <code>.dbf</code> file. After this file is populated, you will move it to the Hadoop cluster. A single, bigfile tablespace is recommended.</p>
+<div class="p">For example:
+<pre dir="ltr">
+SQL&gt; CREATE TABLESPACE movie_cold_hdfs DATAFILE '/u01/app/oracle/oradata/cdb/orcl/movie_cold_hdfs1.dbf' SIZE 100M reuse AUTOEXTEND ON nologging;
+</pre></div>
+</li>
+<li>
+<p>Use <code class="codeph">ALTER TABLE</code> with the MOVE clause to move objects in the tablespace.</p>
+<div class="p">For example:
+<pre dir="ltr">
+SQL&gt; ALTER TABLE movie_fact MOVE PARTITION 2010_JAN TABLESPACE movie_cold_hdfs ONLINE UPDATE INDEXES;
+</pre></div>
+<div class="p">You should check the current status of the objects to confirm the change. In this case, check which tablespace the partition belongs to.
+<pre dir="ltr">
+SQL&gt; SELECT table_name, partition_name, tablespace_name FROM user_tab_partitions WHERE table_name='MOVIE_FACT';
+</pre></div>
+</li>
+<li>
+<p>Make the tablespace read only and take it offline.</p>
+<pre dir="ltr">
+SQL&gt; ALTER TABLESPACE movie_cold_hdfs READ ONLY;
+SQL&gt; ALTER TABLESPACE movie_cold_hdfs OFFLINE;
+</pre></li>
+<li>
+<p>Copy the datafile to HDFS and then change the file permissions to read only.</p>
+<pre dir="ltr">
+hadoop fs -put /u01/app/oracle/oradata/cdb/orcl/movie_cold_hdfs1.dbf /user/oracle/tablespaces/
+hadoop fs &ndash;chmod 440 /user/oracle/tablespaces/movie_cold_hdfs1.dbf
+</pre>
+<p>As a general security practice for Oracle Big Data SQL , apply appropriate HDFS file permissions to prevent unauthorized read/write access.</p>
+<p>You may need to source <code>$ORACLE_HOME/bigdatasql/hadoop_&lt;clustername&gt;.env</code> before running hadoop fs commands.</p>
+<p>As an alternative, you could use the LINUX <code class="codeph">cp</code> command to copy the files to FUSE.</p>
+</li>
+<li>
+<p>Rename the datafiles, using ALTER TABLESPACE with the RENAME DATAFILE clause.</p>
+<div class="infobox-note" id="GUID-790CB0C3-D5D2-4F94-AFF3-9B46A0735492__GUID-22F66B80-7511-45AB-8896-45870BF1A10E">
+<p class="notep1">Important:</p>
+Note the &ldquo;<code class="codeph">hdfs:</code>&rdquo; prefix to the file path in the SQL example below. This is the keyword that tells Smart Scan that it should scan the file. Smart Scan also requires that the file is read only. The cluster name is optional.
+<p>Also, before running the SQL statement below, the directory <code>$ORACLE_HOME/dbs/hdfs:&lt;clustername&gt;/user/oracle/tablespaces</code> should include the soft link <code class="codeph">movie_cold_hdfs1.dbf</code>, pointing to <code>/mnt/fuse-&lt;clustername&gt;-hdfs/user/oracle/tablespaces/movie_cold_hdfs1.dbf.</code></p>
+</div>
+<pre dir="ltr">
+SQL&gt; ALTER TABLESPACE movie_cold_hdfs RENAME DATAFILE '/u01/app/oracle/oradata/cdb/orcl/movie_cold_hdfs1.dbf' TO 'hdfs:&lt;clustername&gt;/user/oracle/tablespaces/movie_cold_hdfs1.dbf';
+</pre>
+<p>When you rename the datafile, only the pointer in the database control file changes. This procedure does not physically rename the datafile.</p>
+<p>The tablespace must exist on a single cluster. If there are multiple datafiles, these must point to the same cluster.</p>
+</li>
+<li>
+<div class="p">Bring the tablespace back online and test it.
+<pre dir="ltr">
+SQL&gt; ALTER TABLESPACE movie_cold_hdfs ONLINE;
+SQL&gt; SELECT avg(rating) FROM movie_fact;
+</pre></div>
+</li>
+</ol>
+<p>Below is the complete code example. In this case we move three partitions from local Oracle Database storage to the tablespace in HDFS.</p>
+<div class="example" id="GUID-790CB0C3-D5D2-4F94-AFF3-9B46A0735492__GUID-BB329EFB-C822-4DD1-B8D8-B01E920165CE">
+<pre dir="ltr">
+mount hdfs
+select * from dba_tablespaces;
+
+CREATE TABLESPACE movie_cold_hdfs DATAFILE '/u01/app/oracle/oradata/cdb/orcl/movie_cold_hdfs1.dbf' SIZE 100M reuse AUTOEXTEND ON nologging;
+
+ALTER TABLE movie_fact 
+MOVE PARTITION 2010_JAN TABLESPACE movie_cold_hdfs ONLINE UPDATE INDEXES;
+ALTER TABLE movie_fact 
+MOVE PARTITION 2010_FEB TABLESPACE movie_cold_hdfs ONLINE UPDATE INDEXES;
+ALTER TABLE movie_fact 
+MOVE PARTITION 2010_MAR TABLESPACE movie_cold_hdfs ONLINE UPDATE INDEXES;
+
+-- Check for the changes 
+SELECT table_name, partition_name, tablespace_name FROM user_tab_partitions WHERE table_name='MOVIE_FACT';
+
+ALTER TABLESPACE movie_cold_hdfs READ ONLY;
+ALTER TABLESPACE movie_cold_hdfs OFFLINE;
+
+hadoop fs -put /u01/app/oracle/oradata/cdb/orcl/movie_cold_hdfs1.dbf /user/oracle/tablespaces/
+hadoop fs &ndash;chmod 444 /user/oracle/tablespaces/ movie_cold_hdfs1.dbf
+
+ALTER TABLESPACE movie_cold_hdfs RENAME DATAFILE '/u01/app/oracle/oradata/cdb/orcl/movie_cold_hdfs1.dbf' TO 'hdfs:hadoop_cl_1/user/oracle/tablespaces/movie_cold_hdfs1.dbf';
+ALTER TABLESPACE movie_cold_hdfs ONLINE;
+
+-- Test
+select avg(rating) from movie_fact;
+
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<div class="sect3"><a id="GUID-8250CF1C-6899-429C-AC40-3B152CEDDDA1"></a>
+<h3 id="BDSUG-GUID-8250CF1C-6899-429C-AC40-3B152CEDDDA1" class="sect3"><span class="enumeration_section">3.2.4</span> Smart Scan for TableSpaces in HDFS</h3>
+<div>
+<p>Smart Scan is an Oracle performance optimization that moves processing to the location where the data resides. In Big Data SQL, Smart Scan searches for datafiles whose path includes the &ldquo;hdfs:&rdquo; prefix. This prefix is the key that indicates the datafile is eligible for scanning.</p>
+<div class="section">
+<p>After you have moved your tablespace data to HDFS and the tablespace and have prefixed the datafile path with the "hdfs:" tag, then queries that access the data in these files will leverage Big Data SQL Smart Scan by default. All of the Big Data SQL Smart Scan performance optimizations will apply. This greatly reduces the amount of data that moves from the storage tier to the database tier. These performance optimizations include:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The massively parallel processing power of the Hadoop cluster is employed to filter data at its source.</p>
+</li>
+<li>
+<p>Storage Indexes can be leveraged to reduce the amount of data that is scanned.</p>
+</li>
+<li>
+<p>Data mining scoring can be off-loaded.</p>
+</li>
+<li>
+<p>Encrypted data scans can be off-loaded.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead3">Disabling or Enabling Smart Scan</p>
+<p>The initialization parameter <code class="codeph">_CELL_OFFLOAD_HYBRID_PROCESSING</code> determines whether Smart Scan for HDFS is enabled or disabled. It is enabled by default.</p>
+<p>To disable Smart Scan for tablespaces in HDFS do the following.</p>
+<ol>
+<li>
+<p>Set the parameter to <code class="codeph">FALSE</code> in <code>init</code> or in a parameter file:</p>
+<pre dir="ltr">
+ _CELL_OFFLOAD_HYBRID_PROCESSING=FALSE 
+</pre>
+<p>The underscore prefix is required in this parameter name.</p>
+</li>
+<li>
+<p>Restart the Oracle Database instance.</p>
+</li>
+</ol>
+<p>You can also make this change dynamically using the <code class="codeph">ALTER SYSTEM</code> directive in SQL. This does not require a restart.</p>
+<pre dir="ltr">
+SQL&gt; alter system set _cell_offload_hybrid_processing=false;
+</pre>
+<p>One reason to turn off Smart Scan is if you need to move the Oracle tablespace datafiles out of HDFS and back to their original locations.</p>
+<p>You can re-enable Smart Scan by resetting <code class="codeph">_CELL_OFFLOAD_HYBRID_PROCESSING</code> to <code class="codeph">TRUE</code>.</p>
+<div class="infobox-note" id="GUID-8250CF1C-6899-429C-AC40-3B152CEDDDA1__GUID-B7A7E39F-152E-4478-B9D5-CF778CFBB8CF">
+<p class="notep1">Note:</p>
+When <code class="codeph">_CELL_OFFLOAD_HYBRID_PROCESSING</code> is set to <code class="codeph">FALSE</code>, Smart Scan is disabled for Oracle tablespaces residing in HDFS.</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="bigsql.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="bigsqlref.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="http://docs.oracle.com/bigdata/bds321/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Running Job Analyzer Using the Perfect Balance API</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-07-17T10:57:32Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Software User's Guide" />
+<meta name="dcterms.identifier" content="E94259-04" />
+<meta name="dcterms.isVersionOf" content="BIGUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="GUID-D5C004C4-3402-4EFB-9521-14A8063AA497.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-8753E2D7-F618-43F0-888B-556641698726.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGUG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-200DCF94-5474-4609-A421-2037493F0037"></a> <span id="PAGE" style="display:none;">23/42</span> <!-- End Header -->
+<h1 id="BIGUG-GUID-200DCF94-5474-4609-A421-2037493F0037" class="sect1"><span class="enumeration_section">5.4.3.1</span> Running Job Analyzer Using the Perfect Balance API</h1>
+<div>
+<div class="section">
+<p>This section first explains how to prepare your code using the API and then how to run Job Analyzer.</p>
+<div class="infobox-note" id="GUID-200DCF94-5474-4609-A421-2037493F0037__GUID-E39275CE-48F9-45CE-B5E7-2A631130023D">
+<p class="notep1">Before You Start:</p>
+Before running Job Analyzer, invoke Balancer in your application code. Make the following updates to your code and recompile.
+<ul style="list-style-type: disc;">
+<li>
+<p>Import the <code class="codeph">Balancer</code> class.</p>
+</li>
+<li>
+<p>After the job finishes, you can also call <code class="codeph">Balancer.save()</code>.</p>
+<p>If Balancer ran, this optional method saves the partition file report into the <code>_balancer</code> subdirectory of the job output directory. It also writes a JobAnalyzer report.</p>
+</li>
+</ul>
+<p>For example:</p>
+<pre dir="ltr">
+...
+import oracle.hadoop.balancer.Balancer;
+...
+&lt;Configure your job&gt;
+...
+job.waitForCompletion(true);
+Balancer.save(job);
+...
+</pre></div>
+<p>After compiling the modified application, follow these steps to generate Job Analyzer:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Log in to the server where you will submit the job that uses Perfect Balance.</span></li>
+<li><span>Set up Perfect Balance by taking the steps in <span class="q">"<a href="GUID-09CD1BEA-8E71-4E19-ADEF-F25C4E807251.htm">Getting Started with Perfect Balance</a>."</span></span></li>
+<li><span>Run the job.</span></li>
+</ol>
+<div class="section">
+<p>The example below runs a script that does the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Sets the required variables</p>
+</li>
+<li>
+<p>Uses Perfect Balance to run a job with Job Analyzer (and without load balancing).</p>
+</li>
+<li>
+<p>Creates the report in the default location.</p>
+</li>
+<li>
+<p>Copies the HTML version of the report from HDFS to the <code class="codeph">/home/jdoe</code> local directory.</p>
+</li>
+<li>
+<p>Opens the report in a browser</p>
+</li>
+</ul>
+<p>The output includes warnings, which you can ignore.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-200DCF94-5474-4609-A421-2037493F0037__BBAICIIG">
+<p class="titleinexample">Example 5-2 Running Job Analyzer with Perfect Balance</p>
+<pre dir="ltr">
+$ <span class="bold">cat ja_nobalance.sh</span>
+ 
+# set up perfect balance
+BALANCER_HOME=/opt/oracle/orabalancer-&lt;version&gt;-h2
+export HADOOP_CLASSPATH=${BALANCER_HOME}/jlib/orabalancer-&lt;version&gt;.jar:${BALANCER_HOME}/jlib/commons-math-2.2.jar:${HADOOP_CLASSPATH} 
+
+# run the job
+hadoop jar application_jarfile.jar ApplicationClass \ 
+ -D application_config_property \
+ -D mapreduce.input.fileinputformat.inputdir=jdoe_application/input \
+ -D mapreduce.output.fileoutputformat.outputdir=jdoe_nobal_outdir \
+ -D mapreduce.job.name=nobal \
+ -D mapreduce.job.reduces=10 \
+ -conf application_config_file.xml 
+
+$ <span class="bold">sh ja_nobalance.sh</span>
+14/04/14 14:52:42 INFO input.FileInputFormat: Total input paths to process : 5
+14/04/14 14:52:42 INFO mapreduce.JobSubmitter: number of splits:5
+14/04/14 14:52:42 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1397066986369_3478
+14/04/14 14:52:43 INFO impl.YarnClientImpl: Submitted application application_1397066986369_3478
+     .
+     .
+     .
+File Input Format Counters 
+Bytes Read=112652976
+File Output Format Counters 
+Bytes Written=384974202
+ 
+$ <span class="bold">hadoop fs -get jdoe_nobal_outdir/_balancer/jobanalyzer-report.html /home/jdoe</span>
+$ <span class="bold">cd /home/jdoe</span>
+$ <span class="bold">firefox jobanalyzer-report.html</span>
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment126">
+<tr>
+<td class="cellalignment133">
+<table class="cellalignment131">
+<tr>
+<td class="cellalignment130"><a href="GUID-D5C004C4-3402-4EFB-9521-14A8063AA497.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment130"><a href="GUID-8753E2D7-F618-43F0-888B-556641698726.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment135">
+<table class="cellalignment129">
+<tr>
+<td class="cellalignment130"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment130"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment130"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment130"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment130"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

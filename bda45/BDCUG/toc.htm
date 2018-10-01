@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Big Data Connectors User's Guide - Contents</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Describes installation and use of Oracle Big Data Connectors: Oracle SQL Connector for Hadoop Distributed File System, Oracle Loader for Hadoop, Oracle Data Integrator, Oracle XQuery for Hadoop, and Oracle R Advanced Analytics for Hadoop." />
+<meta name="dcterms.created" content="2016-06-27T14:06:15Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Connectors User's Guide" />
+<meta name="dcterms.identifier" content="E74051-02" />
+<meta name="dcterms.isVersionOf" content="BDCUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"   src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"   src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Next" href="title.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E74051-02.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript"  src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript"  src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript"  src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript"  src="../dcommon/js/foundation.min.js"></script>
+<script type="application/javascript"  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript"  src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript"  src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">1/17</span> <!-- End Header -->
+<h1 class="toc">Contents</h1>
+<h2 class="tocheader"><a href="title.htm">Title and Copyright Information</a></h2>
+<h2 class="tocheader"><a href="preface.htm#GUID-F352F15B-3B1D-4149-88E2-AB965A139F14">Preface</a></h2>
+<ul style="list-style-type: none">
+<li><a href="preface.htm#GUID-2A17C437-865D-4A77-9238-7E9450BDBB71">Audience</a></li>
+<li><a href="preface.htm#GUID-87B3CA97-677A-4DD9-9BBA-8E44EFFC3EAB">Related Documents</a></li>
+<li><a href="preface.htm#GUID-167B4CB4-4B25-4321-8F7E-36C1EFAD5016">Text Conventions</a></li>
+<li><a href="preface.htm#GUID-18267A26-5BFE-4B91-8E92-20BA3DCBC303">Syntax Conventions</a></li>
+</ul>
+<h2 class="tocheader"><a href="release_changes.htm#GUID-632CEE28-14B0-4D88-9E7F-EACB33A9DC0C">Changes in This Release for Oracle Big Data Connectors User's Guide</a></h2>
+<ul style="list-style-type: none">
+<li><a href="release_changes.htm#GUID-6931DF3D-675F-4CC9-BA68-AC8FA6296C74">Changes in Oracle Big Data Connectors Release 4 (4.5)</a></li>
+<li><a href="release_changes.htm#GUID-1E85FD4B-12E8-483F-9864-037BB0DF3ACA">Changes in Oracle Big Data Connectors Release 4 (4.4)</a></li>
+<li><a href="release_changes.htm#GUID-2E723DD3-B40C-4A6C-A225-08A1FB08272F">Changes in Oracle Big Data Connectors Release 4 (4.3)</a></li>
+<li><a href="release_changes.htm#GUID-05DBFB23-2405-47F3-A1D4-8BC4515BC4BA">Changes in Oracle Big Data Connectors Release 4 (4.2)</a></li>
+<li><a href="release_changes.htm#GUID-BCBC3F5C-845F-456A-8066-FAE793246A5E">Changes in Oracle Big Data Connectors Release 4 (4.1)</a></li>
+<li><a href="release_changes.htm#GUID-395691AB-AD99-488B-96D3-CC1D8C1873B7">Changes in Oracle Big Data Connectors Release 4 (4.0)</a></li>
+</ul>
+<h2 class="tocheader"><a href="setup-part.htm#GUID-CED3A56A-B680-4C10-B119-3A4238F5B875">Part I Setup</a></h2>
+<h2 class="tocheader"><a href="start.htm#GUID-2EBC43C8-784E-40E2-BA6D-8D51F2500439"><span class="secnum">1</span> Getting Started with Oracle Big Data Connectors</a></h2>
+<ul style="list-style-type: none">
+<li><a href="start.htm#GUID-DC07D7F9-81FB-482E-B750-88F70E3A2602"><span class="secnum">1.1</span> About Oracle Big Data Connectors</a></li>
+<li><a href="start.htm#GUID-3EA4E259-5746-4499-9A97-403B187068DC"><span class="secnum">1.2</span> Big Data Concepts and Technologies</a>
+<ul style="list-style-type: none">
+<li><a href="start.htm#GUID-D59A9428-F4C8-4FC2-93FF-5ECC4ED0F9ED"><span class="secnum">1.2.1</span> What is MapReduce?</a></li>
+<li><a href="start.htm#GUID-CE7A831C-CCF0-4864-826A-499B9052646C"><span class="secnum">1.2.2</span> What is Apache Hadoop?</a></li>
+</ul>
+</li>
+<li><a href="start.htm#GUID-038F6AF2-2D71-47B5-9574-B675D46DFB3C"><span class="secnum">1.3</span> Downloading the Oracle Big Data Connectors Software</a></li>
+<li><a href="start.htm#GUID-0C502703-D303-44DC-8F7C-4BD858DF62BC"><span class="secnum">1.4</span> Oracle SQL Connector for Hadoop Distributed File System Setup</a>
+<ul style="list-style-type: none">
+<li><a href="start.htm#GUID-399B07EC-E708-4C03-9BB4-453539B3EF69"><span class="secnum">1.4.1</span> Software Requirements</a></li>
+<li><a href="start.htm#GUID-1DC6751B-13F9-4AC6-9779-B9B767F9A125"><span class="secnum">1.4.2</span> Installing and Configuring a Hadoop Client on the Oracle Database System</a></li>
+<li><a href="start.htm#GUID-AF1ED141-F0DF-418F-B8D6-024C56401615"><span class="secnum">1.4.3</span> Installing Oracle SQL Connector for HDFS</a></li>
+<li><a href="start.htm#GUID-31C3A137-0424-4425-9236-64B06E67012C"><span class="secnum">1.4.4</span> Granting User Privileges in Oracle Database</a></li>
+<li><a href="start.htm#GUID-3CF6C2E9-B91B-48CB-ADFC-9D5FA25FBCBE"><span class="secnum">1.4.5</span> Setting Up User Accounts on the Oracle Database System</a></li>
+<li><a href="start.htm#GUID-969D15F2-D7A1-4742-8A44-0041B346CDAC"><span class="secnum">1.4.6</span> Using Oracle SQL Connector for HDFS on a Secure Hadoop Cluster</a></li>
+</ul>
+</li>
+<li><a href="start.htm#GUID-F6C3C7EA-60A3-47A7-BE31-5E8B4C19988B"><span class="secnum">1.5</span> Oracle Loader for Hadoop Setup</a>
+<ul style="list-style-type: none">
+<li><a href="start.htm#GUID-7C8CCFD8-E8A9-42EF-8659-B550012B25EE"><span class="secnum">1.5.1</span> Software Requirements</a></li>
+<li><a href="start.htm#GUID-B8290781-1082-456F-9987-27A977BF3441"><span class="secnum">1.5.2</span> Installing Oracle Loader for Hadoop</a></li>
+<li><a href="start.htm#GUID-DE70C4E0-438A-48FA-B151-93751F2A4D32"><span class="secnum">1.5.3</span> Providing Support for Offline Database Mode</a></li>
+<li><a href="start.htm#GUID-DB393FBD-48E6-483E-9762-91700CEA26C3"><span class="secnum">1.5.4</span> Using Oracle Loader for Hadoop on a Secure Hadoop Cluster</a></li>
+</ul>
+</li>
+<li><a href="start.htm#GUID-708821F3-6162-4536-B45B-A9003B43791F"><span class="secnum">1.6</span> Oracle Shell for Hadoop Loaders Setup</a></li>
+<li><a href="start.htm#GUID-1E70571A-EAF2-43BE-895E-F9A57AC37C04"><span class="secnum">1.7</span> Oracle XQuery for Hadoop Setup</a>
+<ul style="list-style-type: none">
+<li><a href="start.htm#GUID-32023FA5-8EEF-478E-892A-0C1C30CC43DE"><span class="secnum">1.7.1</span> Software Requirements</a></li>
+<li><a href="start.htm#GUID-E5EB1E76-518C-4FF6-9369-AF4C81F7B12D"><span class="secnum">1.7.2</span> Installing Oracle XQuery for Hadoop</a></li>
+<li><a href="start.htm#GUID-FC45521E-DF7B-4A72-88D2-3B5F47EE4E0D"><span class="secnum">1.7.3</span> Troubleshooting the File Paths</a></li>
+<li><a href="start.htm#GUID-91F4FDCA-1FFD-40D8-8CC2-13A761355819"><span class="secnum">1.7.4</span> Configuring Oozie for the Oracle XQuery for Hadoop Action</a></li>
+</ul>
+</li>
+<li><a href="start.htm#GUID-D7EB910C-949B-438B-8832-AF1422C0A5B1"><span class="secnum">1.8</span> Oracle R Advanced Analytics for Hadoop Setup</a>
+<ul style="list-style-type: none">
+<li><a href="start.htm#GUID-E3512653-9AC2-4111-9503-5C59A37EA71E"><span class="secnum">1.8.1</span> Installing the Software on Hadoop</a>
+<ul style="list-style-type: none">
+<li><a href="start.htm#GUID-F7109BAA-44AA-48D0-8C9E-F78CC0D22039"><span class="secnum">1.8.1.1</span> Software Requirements for a Third-Party Hadoop Cluster</a></li>
+<li><a href="start.htm#GUID-77A55188-1880-4D03-91A0-77F88D826881"><span class="secnum">1.8.1.2</span> Installing Sqoop on a Third-Party Hadoop Cluster</a></li>
+<li><a href="start.htm#GUID-C3312412-82DA-4711-B3B3-D7BC6A2DB047"><span class="secnum">1.8.1.3</span> Installing Hive on a Third-Party Hadoop Cluster</a></li>
+<li><a href="start.htm#GUID-ECBEBD46-6A55-4AE9-BE1B-BA3E0A44BF28"><span class="secnum">1.8.1.4</span> Installing R on a Hadoop Client</a></li>
+<li><a href="start.htm#GUID-FCFED7EC-69E7-46A4-9083-75C66F7DF0F8"><span class="secnum">1.8.1.5</span> Installing R on a Third-Party Hadoop Cluster</a></li>
+<li><a href="start.htm#GUID-B676A346-DF8D-4E5D-816D-355B3E56B581"><span class="secnum">1.8.1.6</span> Installing the ORCH Package on a Third-Party Hadoop Cluster</a></li>
+</ul>
+</li>
+<li><a href="start.htm#GUID-00C33EBE-E2BE-438E-ABE2-FC9BDAC1A950"><span class="secnum">1.8.2</span> Installing Additional R Packages</a></li>
+<li><a href="start.htm#GUID-3E639783-5C07-4594-8F13-083E99F2A6D1"><span class="secnum">1.8.3</span> Providing Remote Client Access to R Users</a>
+<ul style="list-style-type: none">
+<li><a href="start.htm#GUID-70BF6D47-6FCE-4719-A099-08B1E6DF9D83"><span class="secnum">1.8.3.1</span> Software Requirements for Remote Client Access</a></li>
+<li><a href="start.htm#GUID-734D0842-4D6B-471B-9132-9956D7DFD540"><span class="secnum">1.8.3.2</span> Configuring the Server as a Hadoop Client</a></li>
+<li><a href="start.htm#GUID-D2F55315-0E56-41FA-89D7-EEABFC1A018E"><span class="secnum">1.8.3.3</span> Installing Sqoop on a Hadoop Client</a></li>
+<li><a href="start.htm#unique_1396822527"><span class="secnum">1.8.3.4</span> Installing R on a Hadoop Client</a></li>
+<li><a href="start.htm#GUID-0D361F1B-CE3F-42CB-8BBF-ECB81C27E48F"><span class="secnum">1.8.3.5</span> Installing the ORCH Package on a Hadoop Client</a></li>
+<li><a href="start.htm#GUID-674FD2C3-5713-4A7E-BB06-96D34CC5B096"><span class="secnum">1.8.3.6</span> Installing the Oracle R Enterprise Client Packages (Optional)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="start.htm#GUID-DA112DAB-1D7A-4909-9824-F6840A5FB506"><span class="secnum">1.9</span> Oracle Data Integrator</a></li>
+</ul>
+<h2 class="tocheader"><a href="connectors-part.htm#GUID-BA7D6341-DE82-4C6F-8126-4B65DFB7A245">Part II Oracle Database Connectors</a></h2>
+<h2 class="tocheader"><a href="osch.htm#GUID-03254C3C-3C8F-4C88-AD9D-91ADFDBC488D"><span class="secnum">2</span> Oracle SQL Connector for Hadoop Distributed File System</a></h2>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-4E28BF02-4DB2-4C20-900E-1AC0238387C1"><span class="secnum">2.1</span> About Oracle SQL Connector for HDFS</a></li>
+<li><a href="osch.htm#GUID-24900721-3F45-4E57-B7DF-51B1BBEE8B23"><span class="secnum">2.2</span> Getting Started With Oracle SQL Connector for HDFS</a></li>
+<li><a href="osch.htm#GUID-B7D11F0D-B75F-449E-85D6-62D61E43F240"><span class="secnum">2.3</span> Configuring Your System for Oracle SQL Connector for HDFS</a></li>
+<li><a href="osch.htm#GUID-20FEC35B-5935-4289-9B6E-4031863F1D01"><span class="secnum">2.4</span> Using Oracle SQL Connector for HDFS with Oracle Big Data Appliance and Oracle Exadata</a></li>
+<li><a href="osch.htm#GUID-B8306DC5-7EC6-4BC2-A3E3-2468AE3748F0"><span class="secnum">2.5</span> Using the ExternalTable Command-Line Tool</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-1623AC95-C2C9-43B8-AF6B-59A84741E7A6"><span class="secnum">2.5.1</span> About ExternalTable</a></li>
+<li><a href="osch.htm#GUID-485E5CE2-7D1C-4ACC-BBF0-79EEE312AB22"><span class="secnum">2.5.2</span> ExternalTable Command-Line Tool Syntax</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-DE18BF85-1C5A-4FC9-A9F7-74D25B7131DB"><span class="secnum">2.6</span> Creating External Tables</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-12B55EF6-391A-4CD1-A253-6AB41E57FE71"><span class="secnum">2.6.1</span> Creating External Tables with the ExternalTable Tool</a></li>
+<li><a href="osch.htm#GUID-E7C2C668-81C1-4DB3-AAEB-3C7F64DCF4D1"><span class="secnum">2.6.2</span> Creating External Tables from Data Pump Format Files</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-8CEB9412-419D-421C-A3B8-52B2F69D5173"><span class="secnum">2.6.2.1</span> Required Properties</a></li>
+<li><a href="osch.htm#GUID-3438FE68-FC93-4245-A584-90094E2B85DF"><span class="secnum">2.6.2.2</span> Optional Properties</a></li>
+<li><a href="osch.htm#GUID-B493D4F6-E099-4841-B94F-0C15DD476865"><span class="secnum">2.6.2.3</span> Defining Properties in XML Files for Data Pump Format Files</a></li>
+<li><a href="osch.htm#GUID-39A0A87C-7051-41E1-9F53-45802075C1FD"><span class="secnum">2.6.2.4</span> Example</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-04DCB165-5114-45C0-BEC6-4AACE4916CC2"><span class="secnum">2.6.3</span> Creating External Tables from Hive Tables</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-51E94897-9EC2-4057-BC63-5C93CAED72F9"><span class="secnum">2.6.3.1</span> Hive Table Requirements</a></li>
+<li><a href="osch.htm#GUID-D03BCC23-ED5E-4E01-9806-2416F99BFDD1"><span class="secnum">2.6.3.2</span> Data Type Mappings</a></li>
+<li><a href="osch.htm#GUID-0EAAD4BC-4A84-4069-A3CF-FDAC0C11EA3C"><span class="secnum">2.6.3.3</span> Required Properties</a></li>
+<li><a href="osch.htm#GUID-2E30336C-48BD-43DF-AA83-EF9E9E57F11E"><span class="secnum">2.6.3.4</span> Optional Properties</a></li>
+<li><a href="osch.htm#GUID-C7FBA747-CD1A-4449-971D-EF223771E14E"><span class="secnum">2.6.3.5</span> Defining Properties in XML Files for Hive Tables</a></li>
+<li><a href="osch.htm#GUID-3720F3B8-A087-4225-ABD7-FE0239F788D2"><span class="secnum">2.6.3.6</span> Example</a></li>
+<li><a href="osch.htm#GUID-644E03E3-CA31-4E2C-9C54-4FC14780E396"><span class="secnum">2.6.3.7</span> Creating External Tables from Partitioned Hive Tables</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-8E3F6EDA-87A7-44AE-AA9F-E47F17FA1DE6"><span class="secnum">2.6.3.7.1</span> Database Objects that Support Access to Partitioned Hive Tables</a></li>
+<li><a href="osch.htm#GUID-F1691C30-454F-45C2-8F7E-BEE9811AF880"><span class="secnum">2.6.3.7.2</span> Querying the Metadata Table</a></li>
+<li><a href="osch.htm#GUID-AF57FC67-76A6-4BDF-B033-428FCBEBFF73"><span class="secnum">2.6.3.7.3</span> Creating UNION ALL Views for Querying</a></li>
+<li><a href="osch.htm#GUID-3EE1D0B7-C595-47F3-8BC4-9B760A9B8F39"><span class="secnum">2.6.3.7.4</span> Error Messages</a></li>
+<li><a href="osch.htm#GUID-9241C297-CC71-4155-A658-10B8A658A397"><span class="secnum">2.6.3.7.5</span> Dropping Dangling Objects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-D6443754-E986-465D-9447-FF0C2650F358"><span class="secnum">2.6.4</span> Creating External Tables from Delimited Text Files</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-6E5CA2E6-F9A6-4A02-8BBA-C3979D5F7C00"><span class="secnum">2.6.4.1</span> Data Type Mappings</a></li>
+<li><a href="osch.htm#GUID-30DE733A-CFF2-407E-961C-6E945DD5417A"><span class="secnum">2.6.4.2</span> Required Properties</a></li>
+<li><a href="osch.htm#GUID-B8D548BA-04B0-4CEE-885E-3F94C31779D0"><span class="secnum">2.6.4.3</span> Optional Properties</a></li>
+<li><a href="osch.htm#GUID-19D12EFE-9600-44E6-8768-DDCF758F3254"><span class="secnum">2.6.4.4</span> Defining Properties in XML Files for Delimited Text Files</a></li>
+<li><a href="osch.htm#GUID-6244E2B1-8BCF-4FA3-AAF9-F419FC585CFF"><span class="secnum">2.6.4.5</span> Example</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-F4F36969-1063-4E7C-92DB-B4F3F09BC036"><span class="secnum">2.6.5</span> Creating External Tables in SQL</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-1B68FABA-7C4B-4057-B8E4-7CEDEF09FC87"><span class="secnum">2.7</span> Publishing the HDFS Data Paths</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-652CE65B-ADA4-4742-B923-A163687C0127"><span class="secnum">2.7.1</span> ExternalTable Syntax for Publish</a></li>
+<li><a href="osch.htm#GUID-85BCFFDE-E461-4733-9EC8-CE1AD481FF6E"><span class="secnum">2.7.2</span> ExternalTable Example for Publish</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-C8057DF4-54D1-4478-8849-B7FED3A65CC0"><span class="secnum">2.8</span> Exploring External Tables and Location Files</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-A4CF889C-1068-41F7-8434-F15CF50CF7F1"><span class="secnum">2.8.1</span> ExternalTable Syntax for Describe</a></li>
+<li><a href="osch.htm#GUID-42913367-DDEB-4915-8A85-1439FCCD6DB0"><span class="secnum">2.8.2</span> ExternalTable Example for Describe</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-C4C64DDC-C5D8-4D21-828E-B854714A8236"><span class="secnum">2.9</span> Dropping Database Objects Created by Oracle SQL Connector for HDFS</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-172394AC-5379-4E85-BC3D-35DE44B0BA7A"><span class="secnum">2.9.1</span> ExternalTable Syntax for Drop</a></li>
+<li><a href="osch.htm#GUID-02787E77-EBDE-458D-B524-37999BAADB91"><span class="secnum">2.9.2</span> ExternalTable Example for Drop</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-DE43256A-317C-4462-B6C1-F3D26B961121"><span class="secnum">2.10</span> More About External Tables Generated by the ExternalTable Tool</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-BA0FF9E5-917B-481E-B0C1-BA8E870918FB"><span class="secnum">2.10.1</span> About Configurable Column Mappings</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-B7F25023-AE85-4D33-96A9-9DB1DDC95624"><span class="secnum">2.10.1.1</span> Default Column Mappings</a></li>
+<li><a href="osch.htm#GUID-81C9BB14-A830-403B-B4ED-266BD3508DDC"><span class="secnum">2.10.1.2</span> All Column Overrides</a></li>
+<li><a href="osch.htm#GUID-0EBB119E-4A9E-4B59-AF9B-FA968B69CEC1"><span class="secnum">2.10.1.3</span> One Column Overrides</a></li>
+<li><a href="osch.htm#GUID-D49D55BF-45D6-4FE0-B5A4-08BC727F0BBB"><span class="secnum">2.10.1.4</span> Mapping Override Examples</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-B1B4CF1C-C1AD-45DF-8D33-0CC85BDDBC79"><span class="secnum">2.10.2</span> What Are Location Files?</a></li>
+<li><a href="osch.htm#GUID-1D4B2FFF-B2FA-4C2A-9DCF-B6EC4283FB09"><span class="secnum">2.10.3</span> Enabling Parallel Processing</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-E328AFC6-F0E9-41D3-B7C3-F312DE88071E"><span class="secnum">2.10.3.1</span> Setting Up the Degree of Parallelism</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-B761157E-AF8B-4087-A91C-66EAE4203887"><span class="secnum">2.10.4</span> Location File Management</a></li>
+<li><a href="osch.htm#GUID-2F837B38-0DFB-4850-9E63-ACB654B615E4"><span class="secnum">2.10.5</span> Location File Names</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-ACF0F58B-307F-42F0-939E-F1891977C713"><span class="secnum">2.11</span> Configuring Oracle SQL Connector for HDFS</a>
+<ul style="list-style-type: none">
+<li><a href="osch.htm#GUID-8B6BF6AB-C6C0-4DAA-8417-B4215E1A5470"><span class="secnum">2.11.1</span> Creating a Configuration File</a></li>
+<li><a href="osch.htm#GUID-E075C432-FB5C-4EFF-836C-9BF06E845C15"><span class="secnum">2.11.2</span> Oracle SQL Connector for HDFS Configuration Property Reference</a></li>
+</ul>
+</li>
+<li><a href="osch.htm#GUID-DAD4017F-D8C8-467D-8B3F-BF307C49B7F6"><span class="secnum">2.12</span> Performance Tips for Querying Data in HDFS</a></li>
+</ul>
+<h2 class="tocheader"><a href="olh.htm#GUID-DD78109A-77D8-4A31-B930-2F57ACE6F98E"><span class="secnum">3</span> Oracle Loader for Hadoop</a></h2>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-021C689C-EF42-49A5-A92E-AABAEC302F4F"><span class="secnum">3.1</span> What Is Oracle Loader for Hadoop?</a></li>
+<li><a href="olh.htm#GUID-3D76103E-6620-42F9-924B-36DEAA1BF483"><span class="secnum">3.2</span> About the Modes of Operation</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-8F233118-40EF-4C54-950B-C51F00DF55BD"><span class="secnum">3.2.1</span> Online Database Mode</a></li>
+<li><a href="olh.htm#GUID-10ADC8ED-8774-4C81-89CC-A94A1B66FFD0"><span class="secnum">3.2.2</span> Offline Database Mode</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-7EB8939B-165A-4A4A-84FE-D8BA00573C7D"><span class="secnum">3.3</span> Getting Started With Oracle Loader for Hadoop</a></li>
+<li><a href="olh.htm#GUID-94F2DD27-FED2-469F-8968-D94FB6AE962C"><span class="secnum">3.4</span> Creating the Target Table</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-1DF7832A-ED71-4818-B5A2-66EC462E362B"><span class="secnum">3.4.1</span> Supported Data Types for Target Tables</a></li>
+<li><a href="olh.htm#GUID-41FE5210-EABE-45FB-87BA-3D4DEBA31007"><span class="secnum">3.4.2</span> Supported Partitioning Strategies for Target Tables</a></li>
+<li><a href="olh.htm#GUID-D9B902D6-E059-45C6-8FE8-F7297DE3F95D"><span class="secnum">3.4.3</span> Compression</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-9D47AE4C-0D31-44E0-AC6A-07BBDD94EE05"><span class="secnum">3.5</span> Creating a Job Configuration File</a></li>
+<li><a href="olh.htm#GUID-526F38E4-3C77-4611-9B55-1AF080AA861D"><span class="secnum">3.6</span> About the Target Table Metadata</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-03BFB4D6-1CD2-4EC6-84B0-5970E74A8740"><span class="secnum">3.6.1</span> Providing the Connection Details for Online Database Mode</a></li>
+<li><a href="olh.htm#GUID-3770DD78-09B3-47FC-A3D9-33F56D4AB9FB"><span class="secnum">3.6.2</span> Generating the Target Table Metadata for Offline Database Mode</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-88957DE7-446F-40DF-88D5-8D51C0059D91"><span class="secnum">3.6.2.1</span> OraLoaderMetadata Utility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-D697AE02-273B-4966-9570-1AB8604D9E76"><span class="secnum">3.7</span> About Input Formats</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-B4F984B7-98BA-4612-A720-41C9BFCAF676"><span class="secnum">3.7.1</span> Delimited Text Input Format</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-B0F7CCC2-2CE6-4F98-9A41-73935D53187A"><span class="secnum">3.7.1.1</span> About DelimitedTextInputFormat</a></li>
+<li><a href="olh.htm#GUID-70A17953-CA56-4088-B9E3-A33F1C8C05F1"><span class="secnum">3.7.1.2</span> Required Configuration Properties</a></li>
+<li><a href="olh.htm#GUID-6A318A71-FFE9-4BD6-BFE3-C662969EB072"><span class="secnum">3.7.1.3</span> Optional Configuration Properties</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-780BF4F2-FAA0-4692-8233-83FF0319A248"><span class="secnum">3.7.2</span> Complex Text Input Formats</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-E5AE4808-5209-4118-9230-F437ED68FD68"><span class="secnum">3.7.2.1</span> About RegexInputFormat</a></li>
+<li><a href="olh.htm#GUID-4913A30A-5E6A-4DCF-B2C0-A6959AC8CEA0"><span class="secnum">3.7.2.2</span> Required Configuration Properties</a></li>
+<li><a href="olh.htm#GUID-F08D64B5-E007-4ADB-AD1C-707813D88888"><span class="secnum">3.7.2.3</span> Optional Configuration Properties</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-D427BB50-481B-4ECB-A279-CA73A92CEFC5"><span class="secnum">3.7.3</span> Hive Table Input Format</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-37A34CB4-D914-4734-8492-F930555BDD8E"><span class="secnum">3.7.3.1</span> About HiveToAvroInputFormat</a></li>
+<li><a href="olh.htm#GUID-AF1E67C3-AE07-4FD1-9AE2-8D0931E56B6C"><span class="secnum">3.7.3.2</span> Required Configuration Properties</a></li>
+<li><a href="olh.htm#GUID-2A6D1D6A-E621-4ADD-9702-1E040A242880"><span class="secnum">3.7.3.3</span> Optional Configuration Properties</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-0B070B2F-188E-4F16-BEDA-DFD9335DEFDC"><span class="secnum">3.7.4</span> Avro Input Format</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-EA33544B-C6A0-46FC-9656-FE4D83A167BF"><span class="secnum">3.7.4.1</span> Configuration Properties</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-9C29C448-1CF7-4ECE-96E1-F60F32B501E9"><span class="secnum">3.7.5</span> Oracle NoSQL Database Input Format</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-41CEF022-4C1E-4B82-B274-B672C36E9542"><span class="secnum">3.7.5.1</span> About KVAvroInputFormat</a></li>
+<li><a href="olh.htm#GUID-255F2C80-81A7-48F5-A868-238E0CB28E5F"><span class="secnum">3.7.5.2</span> Required Configuration Properties</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-2D25213B-5D3F-4B4D-9266-685A9C3D8E45"><span class="secnum">3.7.6</span> Custom Input Formats</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-463D8876-6C11-4346-9199-BB4F592BA1EB"><span class="secnum">3.7.6.1</span> About Implementing a Custom Input Format</a></li>
+<li><a href="olh.htm#GUID-7761B9EB-C3C6-4950-B222-467207944864"><span class="secnum">3.7.6.2</span> About Error Handling</a></li>
+<li><a href="olh.htm#GUID-72A9EA98-7F59-4DD6-8431-FE0944DB331C"><span class="secnum">3.7.6.3</span> Supporting Data Sampling</a></li>
+<li><a href="olh.htm#GUID-A7CFFD47-2D34-42AE-BDDE-BF528A569048"><span class="secnum">3.7.6.4</span> InputFormat Source Code Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-3C845932-1F8C-4ECC-AD87-B71E8344D5BF"><span class="secnum">3.8</span> Mapping Input Fields to Target Table Columns</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-CC622991-C4A3-4E34-BD76-7361A724825E"><span class="secnum">3.8.1</span> Automatic Mapping</a></li>
+<li><a href="olh.htm#GUID-5AFD27AA-5196-4B6F-A832-F6E5EB349331"><span class="secnum">3.8.2</span> Manual Mapping</a></li>
+<li><a href="olh.htm#GUID-AA543062-960D-44F5-B09B-0C352A6A18CD"><span class="secnum">3.8.3</span> Converting a Loader Map File</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-3D329A46-E0D5-4813-AE23-8D0C3F247B82"><span class="secnum">3.9</span> About Output Formats</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-0B2E5A4B-A6D1-47E4-97C1-37D27A156C05"><span class="secnum">3.9.1</span> JDBC Output Format</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-589F37E0-CF9B-4D28-B752-24351D9C1C8B"><span class="secnum">3.9.1.1</span> About JDBCOutputFormat</a></li>
+<li><a href="olh.htm#GUID-652D7781-9516-486F-92EC-EE1B84A083F4"><span class="secnum">3.9.1.2</span> Configuration Properties</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-15DE7B55-E308-4965-8B9E-8F37FB6B4A3B"><span class="secnum">3.9.2</span> Oracle OCI Direct Path Output Format</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-FC5ACE7B-9927-4785-8701-151E26EDA125"><span class="secnum">3.9.2.1</span> About OCIOutputFormat</a></li>
+<li><a href="olh.htm#GUID-029EB56D-F868-4FE1-B136-B6576D8F9F6B"><span class="secnum">3.9.2.2</span> Configuration Properties</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-052CF2D1-3F5C-4652-A894-6CFBE40402D5"><span class="secnum">3.9.3</span> Delimited Text Output Format</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-B7363850-D1E0-4E14-9391-01FCB6175C3A"><span class="secnum">3.9.3.1</span> About DelimitedTextOutputFormat</a></li>
+<li><a href="olh.htm#GUID-9EC44830-A5D1-41C8-B852-4F2BDD5E2912"><span class="secnum">3.9.3.2</span> Configuration Properties</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-02512C0C-1B34-4CD0-AC0A-01BC053B28FE"><span class="secnum">3.9.4</span> Oracle Data Pump Output Format</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-4CFAC56A-DFFA-48A6-9BF4-2126AE558B28"><span class="secnum">3.9.4.1</span> About DataPumpOutputFormat</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-EF6FA81A-556F-4454-B039-DAA8BB9F317A"><span class="secnum">3.10</span> Running a Loader Job</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-AB7AC6F3-B6A1-468D-889E-E3CC767511DC"><span class="secnum">3.10.1</span> Specifying Hive Input Format JAR Files</a></li>
+<li><a href="olh.htm#GUID-0C76C68E-9B48-4A70-99D4-ABA4469C6E19"><span class="secnum">3.10.2</span> Specifying Oracle NoSQL Database Input Format JAR Files</a></li>
+<li><a href="olh.htm#GUID-43E28B4E-4A51-47B6-A806-394F3ECD9903"><span class="secnum">3.10.3</span> Job Reporting</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-E435097B-41B3-4DD7-B0CA-4B94D6BF6729"><span class="secnum">3.11</span> Handling Rejected Records</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-E7FEFCCD-C7BD-4764-BE74-EDC0AA14687D"><span class="secnum">3.11.1</span> Logging Rejected Records in Bad Files</a></li>
+<li><a href="olh.htm#GUID-8812484F-2D34-4096-9D21-B67232222B96"><span class="secnum">3.11.2</span> Setting a Job Reject Limit</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-75DCE50C-2476-4FDC-8DF5-FAE9F0CF78EA"><span class="secnum">3.12</span> Balancing Loads When Loading Data into Partitioned Tables</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-1A2EE56B-2573-41B3-94DB-9D6E04DE997B"><span class="secnum">3.12.1</span> Using the Sampling Feature</a></li>
+<li><a href="olh.htm#GUID-DD23EE99-BA74-403E-B995-D7D3C9596CBE"><span class="secnum">3.12.2</span> Tuning Load Balancing</a></li>
+<li><a href="olh.htm#GUID-27759415-4F7E-4E7B-8F34-2A8F1AD4C06F"><span class="secnum">3.12.3</span> Tuning Sampling Behavior</a></li>
+<li><a href="olh.htm#GUID-9DA5DFF6-5A24-4315-8C69-143B4CB3E7BA"><span class="secnum">3.12.4</span> When Does Oracle Loader for Hadoop Use the Sampler's Partitioning Scheme?</a></li>
+<li><a href="olh.htm#GUID-6CCEC5B2-AEAC-4D92-8AE0-6A9EEB5B9F4D"><span class="secnum">3.12.5</span> Resolving Memory Issues</a></li>
+<li><a href="olh.htm#GUID-21384B99-E4AA-47E1-B234-663C828A38DA"><span class="secnum">3.12.6</span> What Happens When a Sampling Feature Property Has an Invalid Value?</a></li>
+</ul>
+</li>
+<li><a href="olh.htm#GUID-39037FAE-724C-4661-9FA0-59E5D7C18FF7"><span class="secnum">3.13</span> Optimizing Communications Between Oracle Engineered Systems</a></li>
+<li><a href="olh.htm#GUID-8D428E86-5EA8-4919-A0DE-1FE163436B52"><span class="secnum">3.14</span> Oracle Loader for Hadoop Configuration Property Reference</a></li>
+<li><a href="olh.htm#GUID-62577B2C-C4D3-4180-8E9F-8D965AA29267"><span class="secnum">3.15</span> Third-Party Licenses for Bundled Software</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-9320A8D4-1D32-4E7E-B9B3-9D9F85B490D3"><span class="secnum">3.15.1</span> Apache Licensed Code</a></li>
+<li><a href="olh.htm#GUID-6AE555DE-5B16-42C9-9AF6-5BDB555497C5"><span class="secnum">3.15.2</span> Apache License</a>
+<ul style="list-style-type: none">
+<li><a href="olh.htm#GUID-6BA21DA0-B108-42A2-98B7-228278036BA6"><span class="secnum">3.15.2.1</span> Apache Avro 1.7.3</a></li>
+<li><a href="olh.htm#GUID-9309AE14-5B12-4A0D-8C81-D4A6E192CDBA"><span class="secnum">3.15.2.2</span> Apache Commons Mathematics Library 2.2</a></li>
+<li><a href="olh.htm#GUID-E91AD03E-5E80-4EB0-8B62-3FFF910972B9"><span class="secnum">3.15.2.3</span> Jackson JSON 1.8.8</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="easofusetools.htm#GUID-65C0E3F8-6644-458D-A81A-9548442C42EA"><span class="secnum">4</span> Ease of Use Tools for Oracle Big Data Connectors</a></h2>
+<ul style="list-style-type: none">
+<li><a href="easofusetools.htm#GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A"><span class="secnum">4.1</span> Oracle Shell for Hadoop Loaders</a>
+<ul style="list-style-type: none">
+<li><a href="easofusetools.htm#GUID-1E4E51AF-4C84-4BE1-84CC-220E4A034518"><span class="secnum">4.1.1</span> Third-Party Licenses for Bundled Software</a>
+<ul style="list-style-type: none">
+<li><a href="easofusetools.htm#GUID-DAC02D5C-7FBF-4BB2-8522-220676D367C2"><span class="secnum">4.1.1.1</span> ANTLR 4.5.2</a></li>
+<li><a href="easofusetools.htm#GUID-427926CF-809F-4E58-9500-D5D98F6267A6"><span class="secnum">4.1.1.2</span> JLine 2.13</a></li>
+<li><a href="easofusetools.htm#GUID-F8A636AB-8B51-4900-A299-DA0B88E99780"><span class="secnum">4.1.1.3</span> Apache Commons Exec 1.3</a></li>
+<li><a href="easofusetools.htm#GUID-4B92693A-B48C-4159-84FB-F6D7433DC886"><span class="secnum">4.1.1.4</span> Apache Commons CLI 1.3.1</a></li>
+<li><a href="easofusetools.htm#GUID-6AE555DE-5B16-42C9-9AF6-5BDB555497C5"><span class="secnum">4.1.1.5</span> Apache License</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="xquery-part.htm#GUID-225384FC-835F-4C49-9EF9-2D28D4FC48FB">Part III Oracle XQuery for Hadoop</a></h2>
+<h2 class="tocheader"><a href="oxh.htm#GUID-D8F344D0-48CA-42B7-98A1-3D644686A058"><span class="secnum">5</span> Using Oracle XQuery for Hadoop</a></h2>
+<ul style="list-style-type: none">
+<li><a href="oxh.htm#GUID-7E5A2BB0-DAAA-4188-A990-1826FD5CEF00"><span class="secnum">5.1</span> What Is Oracle XQuery for Hadoop?</a></li>
+<li><a href="oxh.htm#GUID-B7018472-74E5-4499-AAF3-B4CB3A312015"><span class="secnum">5.2</span> Getting Started With Oracle XQuery for Hadoop</a>
+<ul style="list-style-type: none">
+<li><a href="oxh.htm#GUID-47D02551-9D8F-4162-95BD-E2503C97F442"><span class="secnum">5.2.1</span> Basic Steps</a></li>
+<li><a href="oxh.htm#GUID-B861A415-6D77-4074-8464-5E7923925219"><span class="secnum">5.2.2</span> Example: Hello World!</a></li>
+</ul>
+</li>
+<li><a href="oxh.htm#GUID-AA060012-974A-43AC-81D8-96CCC2B6723C"><span class="secnum">5.3</span> About the Oracle XQuery for Hadoop Functions</a>
+<ul style="list-style-type: none">
+<li><a href="oxh.htm#GUID-9AF6241C-24C2-4A96-B1C3-E00FB85A85CC"><span class="secnum">5.3.1</span> About the Adapters</a></li>
+<li><a href="oxh.htm#GUID-D090195C-D62D-4313-881B-61012EC857E7"><span class="secnum">5.3.2</span> About Other Modules for Use With Oracle XQuery for Hadoop</a></li>
+</ul>
+</li>
+<li><a href="oxh.htm#GUID-AC9E88E4-CC2E-4FA2-B029-5C917F0D75CB"><span class="secnum">5.4</span> Creating an XQuery Transformation</a>
+<ul style="list-style-type: none">
+<li><a href="oxh.htm#GUID-B93E00B7-28D8-4CAB-9D63-821EFC0FEBA3"><span class="secnum">5.4.1</span> XQuery Transformation Requirements</a></li>
+<li><a href="oxh.htm#GUID-529C3622-82A2-44A9-9C7B-94468B085D0D"><span class="secnum">5.4.2</span> About XQuery Language Support</a></li>
+<li><a href="oxh.htm#GUID-A5520B53-50FB-424F-A382-1A5D49B05247"><span class="secnum">5.4.3</span> Accessing Data in the Hadoop Distributed Cache</a></li>
+<li><a href="oxh.htm#GUID-3967C81E-8567-49EC-8989-9176C8C30D67"><span class="secnum">5.4.4</span> Calling Custom Java Functions from XQuery</a></li>
+<li><a href="oxh.htm#GUID-162C16BC-6B06-459B-82C0-E58523489324"><span class="secnum">5.4.5</span> Accessing User-Defined XQuery Library Modules and XML Schemas</a></li>
+<li><a href="oxh.htm#GUID-0B48F391-7DC4-443F-9DA6-D33FCF579F1A"><span class="secnum">5.4.6</span> XQuery Transformation Examples</a></li>
+</ul>
+</li>
+<li><a href="oxh.htm#GUID-43ECAEB3-176F-413C-BFA5-BE35F2692E54"><span class="secnum">5.5</span> Running Queries</a>
+<ul style="list-style-type: none">
+<li><a href="oxh.htm#GUID-D9064659-549F-4DFE-B43D-9F595A7A5A4B"><span class="secnum">5.5.1</span> Oracle XQuery for Hadoop Options</a></li>
+<li><a href="oxh.htm#GUID-6F7FDEB0-B55F-468A-B103-08C39BB3998C"><span class="secnum">5.5.2</span> Generic Options</a></li>
+<li><a href="oxh.htm#GUID-7336FA45-F220-4895-8005-617716D805C8"><span class="secnum">5.5.3</span> About Running Queries Locally</a></li>
+</ul>
+</li>
+<li><a href="oxh.htm#GUID-2A58FB5A-3B92-45B9-9246-CA925703D744"><span class="secnum">5.6</span> Running Queries from Apache Oozie</a>
+<ul style="list-style-type: none">
+<li><a href="oxh.htm#GUID-130CF5EE-E0ED-4A06-A736-7B8BEC809EC3"><span class="secnum">5.6.1</span> Getting Started Using the Oracle XQuery for Hadoop Oozie Action</a></li>
+<li><a href="oxh.htm#GUID-9EDAACCE-C09F-46F3-8262-FDE29621A00B"><span class="secnum">5.6.2</span> Supported XML Elements</a></li>
+<li><a href="oxh.htm#GUID-429F9F4B-8FFD-4D5A-81C4-E8B5A37A9B44"><span class="secnum">5.6.3</span> Example: Hello World</a></li>
+</ul>
+</li>
+<li><a href="oxh.htm#GUID-A98B2F83-05B1-487C-B1C5-580D675155C2"><span class="secnum">5.7</span> Oracle XQuery for Hadoop Configuration Properties</a></li>
+<li><a href="oxh.htm#GUID-408B921E-ED14-435E-9D80-87A2843BB245"><span class="secnum">5.8</span> Third-Party Licenses for Bundled Software</a>
+<ul style="list-style-type: none">
+<li><a href="oxh.htm#GUID-9320A8D4-1D32-4E7E-B9B3-9D9F85B490D3"><span class="secnum">5.8.1</span> Apache Licensed Code</a></li>
+<li><a href="oxh.htm#GUID-6AE555DE-5B16-42C9-9AF6-5BDB555497C5"><span class="secnum">5.8.2</span> Apache License</a></li>
+<li><a href="oxh.htm#GUID-0859B014-8523-4072-B5B3-7F8D0C8A78FE"><span class="secnum">5.8.3</span> ANTLR 3.2</a></li>
+<li><a href="oxh.htm#GUID-7844B3F1-F583-4EA1-B5B8-4CCADDD091DB"><span class="secnum">5.8.4</span> Apache Ant 1.7.1</a></li>
+<li><a href="oxh.htm#GUID-6392900E-462D-4B27-8DD7-606F9CCEC689"><span class="secnum">5.8.5</span> Apache Xerces 2.9.1</a></li>
+<li><a href="oxh.htm#GUID-6ECB15DA-5488-43B3-83E2-690891D1148F"><span class="secnum">5.8.6</span> Apache XMLBeans 2.3, 2.5</a></li>
+<li><a href="oxh.htm#GUID-78F5BCAA-1945-45B3-A5EF-8E8E5AE7870E"><span class="secnum">5.8.7</span> Jackson 1.8.8</a></li>
+<li><a href="oxh.htm#GUID-CD998826-F76B-4DAD-9FC8-752835FB3549"><span class="secnum">5.8.8</span> Woodstox XML Parser 4.2.0</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="oxh_ref.htm#GUID-F84626F5-E1F9-4A2C-8369-2B426D7D7904"><span class="secnum">6</span> Oracle XQuery for Hadoop Reference</a></h2>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-2E501DE7-621C-4A69-A8A1-E5C4213A694D"><span class="secnum">6.1</span> Avro File Adapter</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-A37F4211-16B7-4FF5-B1A6-2BF4AC388609"><span class="secnum">6.1.1</span> Built-in Functions for Reading Avro Files</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-F0718FC2-7A27-4208-B72C-798581243C99"><span class="secnum">6.1.1.1</span> avro:collection-avroxml</a></li>
+<li><a href="oxh_ref.htm#GUID-6BD570A9-C5B3-4395-8D53-A464089F17FF"><span class="secnum">6.1.1.2</span> avro:get</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-5B154913-5337-41ED-9302-8977F8B8AA57"><span class="secnum">6.1.2</span> Custom Functions for Reading Avro Container Files</a></li>
+<li><a href="oxh_ref.htm#GUID-487A8337-4CF6-4912-87A7-F031A976F84A"><span class="secnum">6.1.3</span> Custom Functions for Writing Avro Files</a></li>
+<li><a href="oxh_ref.htm#GUID-A09EE4E2-A207-41D4-A418-2B9766144935"><span class="secnum">6.1.4</span> Examples of Avro File Adapter Functions</a></li>
+<li><a href="oxh_ref.htm#GUID-6D9ECB91-7782-45F2-81E7-7292F4DA42FC"><span class="secnum">6.1.5</span> About Converting Values Between Avro and XML</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-AB8EE1B1-A3B6-40F9-8A95-C033526EF906"><span class="secnum">6.1.5.1</span> Reading Avro as XML</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-9E0BAF32-B98F-4DBD-8EFD-B3EDD0BCB451"><span class="secnum">6.1.5.1.1</span> Reading Records</a></li>
+<li><a href="oxh_ref.htm#GUID-44BC1AEB-AE71-43D4-B1AA-1890E41A7A5C"><span class="secnum">6.1.5.1.2</span> Reading Maps</a></li>
+<li><a href="oxh_ref.htm#GUID-EB0C99F1-E74E-4FC3-9D01-64F47786A0C9"><span class="secnum">6.1.5.1.3</span> Reading Arrays</a></li>
+<li><a href="oxh_ref.htm#GUID-C672137F-79FF-4B65-9A66-1526FCA5A6CC"><span class="secnum">6.1.5.1.4</span> Reading Unions</a></li>
+<li><a href="oxh_ref.htm#GUID-A69421F3-2059-44AC-AFFB-883D574CE4DF"><span class="secnum">6.1.5.1.5</span> Reading Primitives</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-6D5BD0B4-7377-45C3-A258-71DF590A939B"><span class="secnum">6.1.5.2</span> Writing XML as Avro</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-7083B00F-F917-4CEB-AE77-DB3662338D5D"><span class="secnum">6.1.5.2.1</span> Writing Records</a></li>
+<li><a href="oxh_ref.htm#GUID-43DAE9E4-E64A-4873-86FD-1E737B0FBA54"><span class="secnum">6.1.5.2.2</span> Writing Maps</a></li>
+<li><a href="oxh_ref.htm#GUID-FBD65518-457E-4A90-BB3F-32B38D9305ED"><span class="secnum">6.1.5.2.3</span> Writing Arrays</a></li>
+<li><a href="oxh_ref.htm#GUID-E3C0117A-6C80-4BBA-8936-6C62E3A2EEEA"><span class="secnum">6.1.5.2.4</span> Writing Unions</a></li>
+<li><a href="oxh_ref.htm#GUID-B3665A72-56E6-467A-A772-03CF08CFCBEB"><span class="secnum">6.1.5.2.5</span> Writing Primitives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-6F6BE3C3-B944-4B84-895A-00EF0CB7DE89"><span class="secnum">6.2</span> JSON File Adapter</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-BC0663F9-C369-495E-B37D-208D0A4760D8"><span class="secnum">6.2.1</span> Built-in Functions for Reading JSON</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-64EE64BF-59B7-4826-9C8D-F67DEB0B2232"><span class="secnum">6.2.1.1</span> json:collection-jsonxml</a></li>
+<li><a href="oxh_ref.htm#GUID-75EDF233-E0C4-456B-81A4-1D178F0B7387"><span class="secnum">6.2.1.2</span> json:parse-as-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-A825CD41-07BD-4A53-8141-688C316DABE0"><span class="secnum">6.2.1.3</span> json:get</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-E4FBD869-B696-4473-A827-A66246361828"><span class="secnum">6.2.2</span> Custom Functions for Reading JSON Files</a></li>
+<li><a href="oxh_ref.htm#GUID-01AF8B30-1582-47E4-A830-098A09E60080"><span class="secnum">6.2.3</span> Examples of JSON Functions</a></li>
+<li><a href="oxh_ref.htm#GUID-046EB306-3E8D-4551-B0F7-2957E00462FD"><span class="secnum">6.2.4</span> JSON File Adapter Configuration Properties</a></li>
+<li><a href="oxh_ref.htm#GUID-E7DA0DDB-A1B9-4DDD-9BB7-A33320559903"><span class="secnum">6.2.5</span> About Converting JSON Data Formats to XML</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-3C447BC5-6BF3-4F49-82B9-D8B14F496255"><span class="secnum">6.2.5.1</span> About Converting JSON Objects to XML</a></li>
+<li><a href="oxh_ref.htm#GUID-FB2B7F8F-4B15-411C-962D-7FAD6A4641F4"><span class="secnum">6.2.5.2</span> About Converting JSON Arrays to XML</a></li>
+<li><a href="oxh_ref.htm#GUID-5FDC6250-3191-475F-A0E3-D19D1229FCB0"><span class="secnum">6.2.5.3</span> About Converting Other JSON Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-45EAD813-5A24-4D95-9B7D-DA343A572EE9"><span class="secnum">6.3</span> Oracle Database Adapter</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-805992BB-7206-41F8-9082-E487650C5066"><span class="secnum">6.3.1</span> Custom Functions for Writing to Oracle Database</a></li>
+<li><a href="oxh_ref.htm#GUID-EE71E7C2-BBC7-448D-B72F-58C456051277"><span class="secnum">6.3.2</span> Examples of Oracle Database Adapter Functions</a></li>
+<li><a href="oxh_ref.htm#GUID-FFF7CD75-28B6-4AEE-BEDC-293026CE7626"><span class="secnum">6.3.3</span> Oracle Loader for Hadoop Configuration Properties and Corresponding %oracle-property Annotations</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-0FECDBE2-DA61-43DB-B2FD-F02C63EE4DF8"><span class="secnum">6.4</span> Oracle NoSQL Database Adapter</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-9D16D634-DCF7-44DE-81B5-F6318A76B313"><span class="secnum">6.4.1</span> Prerequisites for Using the Oracle NoSQL Database Adapter</a></li>
+<li><a href="oxh_ref.htm#GUID-786053EC-686A-4C88-957A-7E2B6CFF41F5"><span class="secnum">6.4.2</span> Built-in Functions for Reading from and Writing to Oracle NoSQL Database</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-DCDF2F8A-7551-4E8E-A7E8-5125A2952ACE"><span class="secnum">6.4.2.1</span> kv:collection-text</a></li>
+<li><a href="oxh_ref.htm#GUID-DB2BA52B-8FC1-4E77-A7AD-8CE0909AF0FF"><span class="secnum">6.4.2.2</span> kv:collection-avroxml</a></li>
+<li><a href="oxh_ref.htm#GUID-BFB75004-5D56-4144-AE67-C18F42941A53"><span class="secnum">6.4.2.3</span> kv:collection-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-67ABD514-B25E-458B-BDE2-05D121AB396D"><span class="secnum">6.4.2.4</span> kv:collection-binxml</a></li>
+<li><a href="oxh_ref.htm#GUID-3E7ADE20-6E8B-4EAF-BE18-F9433BC8BE96"><span class="secnum">6.4.2.5</span> kv:collection-tika</a></li>
+<li><a href="oxh_ref.htm#GUID-6EF96B83-AC42-4DF5-9A72-1BA1D2E336FB"><span class="secnum">6.4.2.6</span> kv:put-text</a></li>
+<li><a href="oxh_ref.htm#GUID-0E6E0DA0-C27D-4376-AF34-1A085B69FE70"><span class="secnum">6.4.2.7</span> kv:put-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-300720DF-9BA2-4E7A-B2AD-43995C729ADB"><span class="secnum">6.4.2.8</span> kv:put-binxml</a></li>
+<li><a href="oxh_ref.htm#GUID-C7EB123D-99B6-42C3-8CB5-C0807F3DA572"><span class="secnum">6.4.2.9</span> kv:get-text</a></li>
+<li><a href="oxh_ref.htm#GUID-9671608A-3A7B-49C5-8584-666572981C11"><span class="secnum">6.4.2.10</span> kv:get-avroxml</a></li>
+<li><a href="oxh_ref.htm#GUID-A482DB1B-7E06-4D0D-A6DE-F1623A4F7779"><span class="secnum">6.4.2.11</span> kv:get-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-7B2E8D77-0C47-4184-80AC-5859BF1A5ED3"><span class="secnum">6.4.2.12</span> kv:get-binxml</a></li>
+<li><a href="oxh_ref.htm#GUID-4CF25244-D3D1-4DA7-B812-2BF786736CDC"><span class="secnum">6.4.2.13</span> kv:get-tika</a></li>
+<li><a href="oxh_ref.htm#GUID-FA0A721B-07E4-42AF-8AFD-0DB1F7A9E9F0"><span class="secnum">6.4.2.14</span> kv:key-range</a></li>
+<li><a href="oxh_ref.htm#GUID-3E59ECB2-0B66-4B9E-82F1-F4947A3A13B9"><span class="secnum">6.4.2.15</span> kv:key-range</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-BDBB6D96-5A5F-42FE-B8B1-87535A876232"><span class="secnum">6.4.3</span> Built-in Functions for Reading from and Writing to Oracle NoSQL Database using Table API</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-1F9BB5F5-A1DD-4AD4-B022-CD8B0E5E1318"><span class="secnum">6.4.3.1</span> kv-table:collection-jsontext</a></li>
+<li><a href="oxh_ref.htm#GUID-C82C17C7-96AC-46C9-920E-F48E111482BD"><span class="secnum">6.4.3.2</span> kv-table:get-jsontext</a></li>
+<li><a href="oxh_ref.htm#GUID-342D7390-D59D-4130-A443-9114293E0BCE"><span class="secnum">6.4.3.3</span> kv-table:put-jsontext</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-7312E8F7-5C72-4384-B2DC-E36754191691"><span class="secnum">6.4.4</span> Built-in Functions for Reading from and Writing to Oracle NoSQL Database using Large Object API</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-D3315806-A7D0-4B84-BD00-E495EFFC2A0A"><span class="secnum">6.4.4.1</span> kv-lob:get-text</a></li>
+<li><a href="oxh_ref.htm#GUID-CAAB1108-19C2-4213-824F-F4203E943D78"><span class="secnum">6.4.4.2</span> kv-lob:get-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-2F6B8877-1681-4F3E-ABC4-4D5FD1A563A8"><span class="secnum">6.4.4.3</span> kv-lob:get-binxml</a></li>
+<li><a href="oxh_ref.htm#GUID-D4C15216-6CCB-4119-ACD7-3BABCA89C6B8"><span class="secnum">6.4.4.4</span> kv-lob:get-tika</a></li>
+<li><a href="oxh_ref.htm#GUID-1FA4B8A9-9935-4309-BF14-2E5A508A9922"><span class="secnum">6.4.4.5</span> kv-lob:put-text</a></li>
+<li><a href="oxh_ref.htm#GUID-9ED5B6E0-AA6F-477C-9AD7-8BC9EB3E9877"><span class="secnum">6.4.4.6</span> kv-lob:put-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-B8CC301C-A2AF-42E6-93B6-20BD75074B66"><span class="secnum">6.4.4.7</span> kv-lob:put-binxml</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-AA0BBE96-B555-4660-8C3C-3970848CBDBF"><span class="secnum">6.4.5</span> Custom Functions for Reading Values from Oracle NoSQL Database</a></li>
+<li><a href="oxh_ref.htm#GUID-80593657-7EDA-4BD1-B9C7-34360DB033C7"><span class="secnum">6.4.6</span> Custom Functions for Retrieving Single Values from Oracle NoSQL Database</a></li>
+<li><a href="oxh_ref.htm#GUID-6E516C92-9B78-41E0-86B9-0B89FCAB5894"><span class="secnum">6.4.7</span> Custom Functions for Reading Values from Oracle NoSQL Database using Table API</a></li>
+<li><a href="oxh_ref.htm#GUID-06F109D4-F8A9-4E7B-A6A5-14EB381D2C83"><span class="secnum">6.4.8</span> Custom Functions for Reading Single Row from Oracle NoSQL Database using Table API</a></li>
+<li><a href="oxh_ref.htm#GUID-6927A933-73C2-4F93-BB55-CBCF0711AA39"><span class="secnum">6.4.9</span> Custom Functions for Retrieving Single Values from Oracle NoSQL Database using Large Object API</a></li>
+<li><a href="oxh_ref.htm#GUID-9544CFCE-ADE3-4CA6-964D-A8381F330D50"><span class="secnum">6.4.10</span> Custom Functions for Writing to Oracle NoSQL Database</a></li>
+<li><a href="oxh_ref.htm#GUID-866099C5-6A31-41C3-959B-B7B803BFB9B1"><span class="secnum">6.4.11</span> Custom Functions for Writing Values to Oracle NoSQL Database using Table API</a></li>
+<li><a href="oxh_ref.htm#GUID-41F62F39-8E6C-4139-B89A-F67DCA9194B5"><span class="secnum">6.4.12</span> Custom Functions for Writing Values to Oracle NoSQL Database using Large Object API</a></li>
+<li><a href="oxh_ref.htm#GUID-7582DCAB-68D0-4B3D-8CBD-42179F013F15"><span class="secnum">6.4.13</span> Examples of Oracle NoSQL Database Adapter Functions</a></li>
+<li><a href="oxh_ref.htm#GUID-E5F0D118-6BC8-4F16-A15A-0EC93D29A148"><span class="secnum">6.4.14</span> Oracle NoSQL Database Adapter Configuration Properties</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-214695C5-3584-4058-BA2B-CC55401DF845"><span class="secnum">6.5</span> Sequence File Adapter</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-C52F5DF2-0BDF-40A9-AC3D-7A02A9F76859"><span class="secnum">6.5.1</span> Built-in Functions for Reading and Writing Sequence Files</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-1EF13DE6-2A28-4469-85D2-5D82B36876AF"><span class="secnum">6.5.1.1</span> seq:collection</a></li>
+<li><a href="oxh_ref.htm#GUID-9BA458C1-3773-4411-AC94-EE76C8AA21CE"><span class="secnum">6.5.1.2</span> seq:collection-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-6A317849-56F8-4109-95BB-C0AA465813ED"><span class="secnum">6.5.1.3</span> seq:collection-binxml</a></li>
+<li><a href="oxh_ref.htm#GUID-CEFA0D28-055F-4B8F-9251-10492A223810"><span class="secnum">6.5.1.4</span> seq:collection-tika</a></li>
+<li><a href="oxh_ref.htm#GUID-A5D1D66A-70E8-4DFE-8796-2F421124285F"><span class="secnum">6.5.1.5</span> seq:put</a></li>
+<li><a href="oxh_ref.htm#GUID-4D003FFD-5977-4911-B6DF-2162D5C65A45"><span class="secnum">6.5.1.6</span> seq:put-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-61AF5E5C-9F0C-4972-B2D6-1C677E0A3E7D"><span class="secnum">6.5.1.7</span> seq:put-binxml</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-6D32A2A4-B353-44A7-AFC9-C68635AF1416"><span class="secnum">6.5.2</span> Custom Functions for Reading Sequence Files</a></li>
+<li><a href="oxh_ref.htm#GUID-D86489E6-D5AC-4FA6-9542-BE5C17D9E262"><span class="secnum">6.5.3</span> Custom Functions for Writing Sequence Files</a></li>
+<li><a href="oxh_ref.htm#GUID-139B1EDD-993A-4370-A88F-FE66A9E9D972"><span class="secnum">6.5.4</span> Examples of Sequence File Adapter Functions</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-77FBEE8B-F850-4DF2-B618-CBD6B67E73DE"><span class="secnum">6.6</span> Solr Adapter</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-7C068633-3FE8-458A-BDE0-08D36645785D"><span class="secnum">6.6.1</span> Prerequisites for Using the Solr Adapter</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-7931B445-99E3-4E69-BB61-7626FB52EE4B"><span class="secnum">6.6.1.1</span> Configuration Settings</a></li>
+<li><a href="oxh_ref.htm#GUID-FDB510B1-9654-45F3-8F33-139F4D404AF3"><span class="secnum">6.6.1.2</span> Example Query Using the Solr Adapter</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-4D6A0CF4-EBC3-4C2A-8CD9-EC19C582BCE7"><span class="secnum">6.6.2</span> Built-in Functions for Loading Data into Solr Servers</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-D52742BE-CD13-487D-81B4-F996770F5746"><span class="secnum">6.6.2.1</span> solr:put</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-C459019F-83EA-430C-8514-E0B4E260EA28"><span class="secnum">6.6.3</span> Custom Functions for Loading Data into Solr Servers</a></li>
+<li><a href="oxh_ref.htm#GUID-55D02E17-FEB0-4D31-9C7E-E6A9E11BFF61"><span class="secnum">6.6.4</span> Examples of Solr Adapter Functions</a></li>
+<li><a href="oxh_ref.htm#GUID-3EE94912-31A3-4E6A-875F-4D27B5CE6A2C"><span class="secnum">6.6.5</span> Solr Adapter Configuration Properties</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-9E0B8917-D101-49A8-9EC9-00786B01C24C"><span class="secnum">6.7</span> Text File Adapter</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-9A98C31E-41A5-4165-B2C5-7308A44BDCCE"><span class="secnum">6.7.1</span> Built-in Functions for Reading and Writing Text Files</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-4434A044-D906-4EF1-B490-D635B59CC900"><span class="secnum">6.7.1.1</span> text:collection</a></li>
+<li><a href="oxh_ref.htm#GUID-1913ED3C-93E9-4EE4-BB4A-D07C669ED463"><span class="secnum">6.7.1.2</span> text:collection-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-CC7F9175-47A2-49C7-816F-97C321C15AE2"><span class="secnum">6.7.1.3</span> text:put</a></li>
+<li><a href="oxh_ref.htm#GUID-1386065B-AEE5-4E2E-A2C2-6F2BDD4CF95A"><span class="secnum">6.7.1.4</span> text:put-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-5928139A-8EB4-4C67-A8F0-A3E964EF46E9"><span class="secnum">6.7.1.5</span> text:trace</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-E5053CB1-3D56-41FC-982C-92A1B9E1E482"><span class="secnum">6.7.2</span> Custom Functions for Reading Text Files</a></li>
+<li><a href="oxh_ref.htm#GUID-92F0784E-1912-452F-8A9C-7CE20FFDEB68"><span class="secnum">6.7.3</span> Custom Functions for Writing Text Files</a></li>
+<li><a href="oxh_ref.htm#GUID-9218384E-7511-48B5-A353-AE968DDE477F"><span class="secnum">6.7.4</span> Examples of Text File Adapter Functions</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-6B8E60B5-5BBA-410E-B97C-2917C2177014"><span class="secnum">6.8</span> Tika File Adapter</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-1A98D28D-CE34-463A-8C26-454636F3D02F"><span class="secnum">6.8.1</span> Built-in Library Functions for Parsing Files with Tika</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-8161EA96-C88A-4EB9-9CA2-BCACEB08C6D4"><span class="secnum">6.8.1.1</span> tika:collection</a></li>
+<li><a href="oxh_ref.htm#GUID-8E08ADF0-E189-4E06-9E15-EFA215CB3BE4"><span class="secnum">6.8.1.2</span> tika:parse</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-EB552E7D-A593-4C9B-8E0C-FBB08E2EF730"><span class="secnum">6.8.2</span> Custom Functions for Parsing Files with Tika</a></li>
+<li><a href="oxh_ref.htm#GUID-4B931558-D4A5-47BE-85CF-B739F0D4BFF1"><span class="secnum">6.8.3</span> Tika Parser Output Format</a></li>
+<li><a href="oxh_ref.htm#GUID-BF636B9D-ABAC-4EDC-B35B-88415B399877"><span class="secnum">6.8.4</span> Tika Adapter Configuration Properties</a></li>
+<li><a href="oxh_ref.htm#GUID-A4A520D5-980E-4FFA-BB8A-66F82133553A"><span class="secnum">6.8.5</span> Examples of Tika File Adapter Functions</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-C8085B84-9570-4F53-BA5E-E7EE13010130"><span class="secnum">6.9</span> XML File Adapter</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-8094FF74-4E6E-45CB-86ED-9FB40EC64204"><span class="secnum">6.9.1</span> Built-in Functions for Reading XML Files</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-8FF0DF11-EC0B-4CCA-BF40-46F450B7A7AB"><span class="secnum">6.9.1.1</span> xmlf:collection (Single Task)</a></li>
+<li><a href="oxh_ref.htm#GUID-C351DA84-2DC3-4716-8654-154C4CDA3756"><span class="secnum">6.9.1.2</span> xmlf:collection-multipart (Single Task)</a></li>
+<li><a href="oxh_ref.htm#GUID-D56CF746-BFFB-4FD0-9C1E-68F3A8DD49DF"><span class="secnum">6.9.1.3</span> xmlf:collection (Multiple Tasks)</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-3EB3872D-66C2-41BC-8BC1-CCA3E2049D22"><span class="secnum">6.9.2</span> Custom Functions for Reading XML Files</a></li>
+<li><a href="oxh_ref.htm#GUID-41A04A59-4F92-4DE3-A8BF-6EEDA4CCFEB7"><span class="secnum">6.9.3</span> Examples of XML File Adapter Functions</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-7B02969A-1525-4B58-8720-E04ACB1F7B07"><span class="secnum">6.10</span> Utility Module</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-65FBF15D-D1FA-4648-89E4-C613295F2787"><span class="secnum">6.10.1</span> Oracle XQuery Functions for Duration, Date, and Time</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-DCB091E4-0DC4-4F1A-977F-2F3E165C6317"><span class="secnum">6.10.1.1</span> ora-fn:date-from-string-with-format</a></li>
+<li><a href="oxh_ref.htm#GUID-44910E87-C56D-4F83-857F-412A08B0234A"><span class="secnum">6.10.1.2</span> ora-fn:date-to-string-with-format</a></li>
+<li><a href="oxh_ref.htm#GUID-9B138783-D1C1-4635-B5FC-EB8051B9FB39"><span class="secnum">6.10.1.3</span> ora-fn:dateTime-from-string-with-format</a></li>
+<li><a href="oxh_ref.htm#GUID-D70AE8F0-23CA-4B2D-AE40-F2F2C011E30E"><span class="secnum">6.10.1.4</span> ora-fn:dateTime-to-string-with-format</a></li>
+<li><a href="oxh_ref.htm#GUID-2F0C19D0-F2A5-49EF-A5C5-DE29CE26DF0E"><span class="secnum">6.10.1.5</span> ora-fn:time-from-string-with-format</a></li>
+<li><a href="oxh_ref.htm#GUID-8E822A4B-489B-46E1-8DA8-553C31B81F1E"><span class="secnum">6.10.1.6</span> ora-fn:time-to-string-with-format</a></li>
+<li><a href="oxh_ref.htm#GUID-0209668E-BBE9-4ADE-A4BB-ABDA3B4B3346"><span class="secnum">6.10.1.7</span> Format Argument</a></li>
+<li><a href="oxh_ref.htm#GUID-0F2E2FD8-D9BA-4EA8-B452-5BA5B2AC350B"><span class="secnum">6.10.1.8</span> Locale Argument</a></li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-F8F59CE8-C172-4C5E-BBC9-208332B96CC2"><span class="secnum">6.10.2</span> Oracle XQuery Functions for Strings</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-7DB5EB9D-A95C-42F4-AED7-3CF6208E8194"><span class="secnum">6.10.2.1</span> ora-fn:pad-left</a></li>
+<li><a href="oxh_ref.htm#GUID-5D2BE1DE-5EA6-4E2D-ADD5-44D028899DC0"><span class="secnum">6.10.2.2</span> ora-fn:pad-right</a></li>
+<li><a href="oxh_ref.htm#GUID-9C664B13-A1C4-4DDA-87E0-720379FF1BD7"><span class="secnum">6.10.2.3</span> ora-fn:trim</a></li>
+<li><a href="oxh_ref.htm#GUID-09B54A7A-F2D1-4717-BEE7-C6E4BD852F80"><span class="secnum">6.10.2.4</span> ora-fn:trim-left</a></li>
+<li><a href="oxh_ref.htm#GUID-99D161E3-CDBE-489C-8AD2-93370FD0DD92"><span class="secnum">6.10.2.5</span> ora-fn:trim-right</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-969E3FF3-02E9-410E-80C6-746F5BBA7173"><span class="secnum">6.11</span> Hadoop Module</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-5F32DBC5-CF7F-4375-AF15-F953A6EC11BB"><span class="secnum">6.11.1</span> Built-in Functions for Using Hadoop</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_ref.htm#GUID-3F3F1094-5465-42BB-AD59-6D5A8B17887B"><span class="secnum">6.11.1.1</span> oxh:find</a></li>
+<li><a href="oxh_ref.htm#GUID-6B7476E2-E086-4099-BFA3-6493AD117018"><span class="secnum">6.11.1.2</span> oxh:increment-counter</a></li>
+<li><a href="oxh_ref.htm#GUID-67940DD5-66E2-40F3-9708-36BCF67929BF"><span class="secnum">6.11.1.3</span> oxh:println</a></li>
+<li><a href="oxh_ref.htm#GUID-A2D7F034-8145-4539-96C2-B139DF06E1C4"><span class="secnum">6.11.1.4</span> oxh:println-xml</a></li>
+<li><a href="oxh_ref.htm#GUID-07E74E57-E4D6-4D1F-B691-5939E235C35C"><span class="secnum">6.11.1.5</span> oxh:property</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="oxh_ref.htm#GUID-73E21786-FA93-44A1-9A87-BE33061BF4C5"><span class="secnum">6.12</span> Serialization Annotations</a></li>
+</ul>
+<h2 class="tocheader"><a href="oxh_hive.htm#GUID-357AABA9-596D-4902-AE40-E2E84E4393D6"><span class="secnum">7</span> Oracle XML Extensions for Hive</a></h2>
+<ul style="list-style-type: none">
+<li><a href="oxh_hive.htm#GUID-8CF8190F-F7B7-44B6-8A84-76036E9BC2B0"><span class="secnum">7.1</span> What are the XML Extensions for Hive?</a></li>
+<li><a href="oxh_hive.htm#GUID-8F957573-9C44-4C6E-B59C-3B7494818B16"><span class="secnum">7.2</span> Using the Hive Extensions</a></li>
+<li><a href="oxh_hive.htm#GUID-7ECF36DC-4791-4964-945A-802226CA99E6"><span class="secnum">7.3</span> About the Hive Functions</a></li>
+<li><a href="oxh_hive.htm#GUID-6B848924-C150-4E90-998E-CF4B35ACD9BA"><span class="secnum">7.4</span> Creating XML Tables</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_hive.htm#GUID-8268F310-D88A-48F5-8971-6A3625B0644F"><span class="secnum">7.4.1</span> Hive CREATE TABLE Syntax for XML Tables</a></li>
+<li><a href="oxh_hive.htm#GUID-2C34F568-B846-41AC-9A57-231D3FDAC3F1"><span class="secnum">7.4.2</span> CREATE TABLE Configuration Properties</a></li>
+<li><a href="oxh_hive.htm#GUID-6EA8BF3B-6C48-4EE7-91DB-14EA39C28838"><span class="secnum">7.4.3</span> CREATE TABLE Examples</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_hive.htm#GUID-118138E4-E97D-4FFD-836D-BB93C0031749"><span class="secnum">7.4.3.1</span> Syntax Example</a></li>
+<li><a href="oxh_hive.htm#GUID-595795D3-1EE9-495B-8C22-31191BAF86F4"><span class="secnum">7.4.3.2</span> Simple Examples</a></li>
+<li><a href="oxh_hive.htm#GUID-58FF7900-7878-4A89-B3F3-7FD0057A610F"><span class="secnum">7.4.3.3</span> OpenStreetMap Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="oxh_hive.htm#GUID-74F7CECB-4C77-43E4-8296-5A15A7E9BC7E"><span class="secnum">7.1</span> Oracle XML Functions for&nbsp;Hive Reference</a>
+<ul style="list-style-type: none">
+<li><a href="oxh_hive.htm#GUID-9C4363D0-1F29-4BF4-9C22-5CB8A3845738"><span class="secnum">7.1.1</span> Data Type Conversions</a></li>
+<li><a href="oxh_hive.htm#GUID-808C8CC2-5007-4A9D-A0A3-E7E4983B63D0"><span class="secnum">7.1.2</span> Hive Access to External Files</a></li>
+</ul>
+</li>
+<li><a href="oxh_hive.htm#GUID-752B31ED-DFF2-4978-8CA8-41D1A00E45C5"><span class="secnum">7.2</span> Online Documentation of Functions</a></li>
+<li><a href="oxh_hive.htm#GUID-C8C7C9DE-245B-4D8A-9E41-938D738977B9"><span class="secnum">7.3</span> xml_exists</a></li>
+<li><a href="oxh_hive.htm#GUID-1F1C224E-CC06-4400-8002-13DF6D800938"><span class="secnum">7.4</span> xml_query</a></li>
+<li><a href="oxh_hive.htm#GUID-310A4E3C-AC5E-421F-8F3F-0751D1F8D4F2"><span class="secnum">7.5</span> xml_query_as_primitive</a></li>
+<li><a href="oxh_hive.htm#GUID-DC0D869E-3C6D-447F-BF02-25D819399F74"><span class="secnum">7.6</span> xml_table</a></li>
+</ul>
+<h2 class="tocheader"><a href="analytics-part.htm#GUID-9AADEDC2-50FE-4CFF-A1FE-F8EAEE743FF5">Part IV Oracle R Advanced Analytics for Hadoop</a></h2>
+<h2 class="tocheader"><a href="orch.htm#GUID-09D84C81-CA7A-47C6-8668-81960B49F809"><span class="secnum">8</span> Using Oracle R Advanced Analytics for Hadoop</a></h2>
+<ul style="list-style-type: none">
+<li><a href="orch.htm#GUID-35B26A5D-839C-40A0-A2CF-177B8C9E7174"><span class="secnum">8.1</span> About Oracle R Advanced Analytics for Hadoop</a>
+<ul style="list-style-type: none">
+<li><a href="orch.htm#GUID-F813BBDE-3E81-4BA2-9727-F9D6E675312D"><span class="secnum">8.1.1</span> Oracle R Advanced Analytics for Hadoop Architecture</a></li>
+<li><a href="orch.htm#GUID-71B4CB3B-AA4C-48EE-B9FA-7841FC00EF69"><span class="secnum">8.1.2</span> Oracle R Advanced Analytics for Hadoop packages and functions</a></li>
+<li><a href="orch.htm#GUID-AFC3100D-B2C7-430A-83EF-F8A141318A18"><span class="secnum">8.1.3</span> Oracle R Advanced Analytics for Hadoop APIs</a></li>
+<li><a href="orch.htm#GUID-C15458DB-1E89-4B6D-B511-CD66AF519912"><span class="secnum">8.1.4</span> Inputs to Oracle R Advanced Analytics for Hadoop</a></li>
+</ul>
+</li>
+<li><a href="orch.htm#GUID-629AC707-BC40-4D5F-9D2E-A70A4831F6D8"><span class="secnum">8.2</span> Access to HDFS Files</a></li>
+<li><a href="orch.htm#GUID-BD18EBFB-80AD-4DB2-BF02-FA2D95B845C2"><span class="secnum">8.3</span> Access to Apache Hive</a>
+<ul style="list-style-type: none">
+<li><a href="orch.htm#GUID-0A3A46C2-D141-4B24-BE3F-6B90EDB145F2"><span class="secnum">8.3.1</span> ORCH Functions for Hive</a></li>
+<li><a href="orch.htm#GUID-48EFF163-2038-47DC-8F48-C74B7BB41003"><span class="secnum">8.3.2</span> ORE Functions for Hive</a></li>
+<li><a href="orch.htm#GUID-B4DFAF2B-A0D4-48C7-8F30-FAD31B6921FC"><span class="secnum">8.3.3</span> Generic R Functions Supported in Hive</a></li>
+<li><a href="orch.htm#GUID-898D2837-B129-4E6F-B0FE-EE9D8BCC6961"><span class="secnum">8.3.4</span> Support for Hive Data Types</a></li>
+<li><a href="orch.htm#GUID-02AC609B-22BF-4CD5-B5E5-79795A35ED83"><span class="secnum">8.3.5</span> Usage Notes for Hive Access</a></li>
+<li><a href="orch.htm#GUID-E799E9FF-CBB3-4D5E-BBF1-6BAB82A1DF43"><span class="secnum">8.3.6</span> Example: Loading Hive Tables into Oracle R Advanced Analytics for Hadoop</a></li>
+</ul>
+</li>
+<li><a href="orch.htm#GUID-51E9B904-BB61-40D6-B327-64508FF26CFF"><span class="secnum">8.4</span> Access to Oracle Database</a>
+<ul style="list-style-type: none">
+<li><a href="orch.htm#GUID-08FBE6B8-5604-4850-B0D1-11B3D88DE0B6"><span class="secnum">8.4.1</span> Usage Notes for Oracle Database Access</a></li>
+<li><a href="orch.htm#GUID-AEF7F295-5C82-42DE-9033-207F757CC967"><span class="secnum">8.4.2</span> Scenario for Using Oracle R Advanced Analytics for Hadoop with Oracle R Enterprise</a></li>
+</ul>
+</li>
+<li><a href="orch.htm#GUID-CCCD0A34-2B39-43A4-A64A-E07C1417E5E0"><span class="secnum">8.5</span> Oracle R Advanced Analytics for Hadoop Functions</a>
+<ul style="list-style-type: none">
+<li><a href="orch.htm#GUID-511368CB-25E1-4F09-9B04-F673BF443ED9"><span class="secnum">8.5.1</span> Native Analytical Functions</a></li>
+<li><a href="orch.htm#GUID-882B5400-023C-4F92-9EF7-1DD32F80E868"><span class="secnum">8.5.2</span> Using the Hadoop Distributed File System (HDFS)</a></li>
+<li><a href="orch.htm#GUID-FA9380DA-A46F-400E-8AEC-5455F65B18D3"><span class="secnum">8.5.3</span> Using Apache Hive</a></li>
+<li><a href="orch.htm#GUID-58FC5760-5E35-4263-A93B-54ABAF0ECDAD"><span class="secnum">8.5.4</span> Using Aggregate Functions in Hive</a></li>
+<li><a href="orch.htm#GUID-6585C893-69F8-4C54-BD61-3EC46F008C2B"><span class="secnum">8.5.5</span> Making Database Connections</a></li>
+<li><a href="orch.htm#GUID-57091381-2F58-4B12-A828-03AF2726B0A8"><span class="secnum">8.5.6</span> Copying Data and Working with HDFS Files</a></li>
+<li><a href="orch.htm#GUID-39A27568-63DF-4F42-B461-DABA7519FE00"><span class="secnum">8.5.7</span> Converting to R Data Types</a></li>
+<li><a href="orch.htm#GUID-62A449AF-43F8-49CB-BDD9-8A4B87BD0EFF"><span class="secnum">8.5.8</span> Using MapReduce</a></li>
+<li><a href="orch.htm#GUID-D3B22C98-5062-4984-A1ED-9B294B74544E"><span class="secnum">8.5.9</span> Debugging Scripts</a></li>
+</ul>
+</li>
+<li><a href="orch.htm#GUID-DB74AD4F-B72E-4956-941B-7F0CD0FD4920"><span class="secnum">8.6</span> Demos of Oracle R Advanced Analytics for Hadoop Functions</a></li>
+<li><a href="orch.htm#GUID-516F6C03-5A13-432C-AB6F-72A5EF006973"><span class="secnum">8.7</span> Security Notes for Oracle R Advanced Analytics for Hadoop</a></li>
+</ul>
+<h2 class="tocheader"><a href="index.htm">Index</a></h2>
+</div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment26">
+<table class="cellalignment32">
+<tr>
+<td class="cellalignment5"><a href="title.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment28">
+<table class="cellalignment31">
+<tr>
+<td class="cellalignment5"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

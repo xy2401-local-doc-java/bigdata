@@ -1,0 +1,2305 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using Oracle Big Data Appliance Configuration Generation Utility</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="Configuration Generation Utility, overview, configuration worksheets, bda.zip configuration archive, bda-install-review.html file, bda-preinstall-checkip.sh file, preinstall-checkip.sh file, network.json configuration file, BdaDeploy.json file, network configuration file, mammoth-, rack_name, -config.json, cluster_name, master.xml configuration file, input file, network settings, preinstall validation, Customer Details Page (configuration), Hardware Selection page (configuration), Rack Details page (configuration), client network, configuration, Networking page (configuration), network configuration, Administrative Network page (configuration), IP addresses, administrative network configuration, General Network Properties page (configuration), domain name system configuration, network time protocol, search domain configuration, Review and Edit Details page (configuration), editing individual, Define Clusters page (configuration), servers, allocating into clusters, Cluster page (configuration), Oracle NoSQL Database, InfiniBand Network page (configuration), InfiniBand network configuration, CDH cluster configuration, Hadoop cluster configuration, Auto Service Request, Enterprise Management Cloud Control configuration, email alerts configuration, alert notifications, email accounts, alerts (Cloudera Manager), adding to an existing cluster configuration options, Configuration, , Client Network Config Summary page, Complete page, configuration files, generating" />
+<meta name="dcterms.created" content="2018-07-19T22:53:35Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E84219-06" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda49/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="network.htm" title="Previous" type="text/html" />
+<link rel="Next" href="asr.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-21E52539-3A77-4BB5-9CC9-429B5140609A"></a> <span id="PAGE" style="display:none;">9/42</span> <!-- End Header -->
+<a id="BIGOG76906"></a>
+<h1 id="BIGOG-GUID-21E52539-3A77-4BB5-9CC9-429B5140609A" class="sect1"><span class="enumeration_chapter">4</span> Using Oracle Big Data Appliance Configuration Generation Utility</h1>
+<div>
+<p>This chapter describes how to use Oracle Big Data Appliance Configuration Generation Utility.</p>
+<p>This chapter contains the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configurator.htm#GUID-D33D4E8C-6714-4FE2-96BD-4F76D9982BFE">Overview of Oracle Big Data Appliance Configuration Generation Utility</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-92C6E1FE-6107-4170-BC08-66C4CF9FEE41">Generating the Configuration Files</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F">About the Configuration Files</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-16433A68-14D9-418B-80FB-AAA077AFB461">Validating the Network Settings</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-DFC755A9-295D-40A8-AD2D-753251C68228">Customer Details Page</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-651EEFED-9E60-4A75-96F5-F43242DC9CB7">Hardware Selection Page</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-689D7C9B-744B-4411-8E40-E6B2CF54A396">Rack Details</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-9EF007DD-6804-4196-979B-B1C5C6776E8F">Networking Page</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-164DB8A5-D9E7-4BC0-B978-7B2B323B2DC0">Administration Network Page</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-521A91B2-D5E6-47FB-8C13-2CF2B4F64679">General Network Properties Page</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-DA64E1CE-CC59-48F6-B599-6AB42C180232">Review and Edit Details Page</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-4A6D4738-FFE4-400E-BE52-FF8C5BFBD33D">Define Clusters Page</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-FC59A3F4-C4F2-499B-BB63-688092092CA3">Cluster Page</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-CAF9CE4B-0EE5-4A81-A696-341E51BF023E">Complete Page</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76907"></a><a id="BIGOG76908"></a><a id="BDA_WELCOME"></a>
+<div class="props_rev_3"><a id="GUID-D33D4E8C-6714-4FE2-96BD-4F76D9982BFE"></a>
+<h2 id="BIGOG-GUID-D33D4E8C-6714-4FE2-96BD-4F76D9982BFE" class="sect2"><span class="enumeration_section">4.1</span> Overview of Oracle Big Data Appliance Configuration Generation Utility</h2>
+<div>
+<p>Oracle Big Data Appliance Configuration Generation Utility acquires information from you, such as IP addresses and software preferences, that are required for deploying Oracle Big Data Appliance. After guiding you through a series of pages, the utility generates a set of configuration files. These files help automate the deployment process and ensure that Oracle Big Data Appliance is configured to your specifications.</p>
+<p>Choose the option that describes the type of hardware installation you are configuring:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Click <span class="bold">One or more new Big Data Appliance racks being installed</span> if you do not have a previously-generated <code>master.xml</code> configuration file to start with.</p>
+</li>
+</ul>
+<p>The other three choices activate the <span class="bold">Import</span> button, so that you can select the <code class="codeph">master.xml</code> file from a previous configuration. After selecting one of these options, import the <code>master.xml</code>,</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Click <span class="bold">One or more Big Data Appliance racks being added to an existing group of Big Data Appliances</span> if you need to configure new rack hardware and do not intend to add servers or make any cluster changes at this time.</p>
+</li>
+<li>
+<p>Click <span class="bold">One or more nodes being added to a Big Data Appliance starter rack or partially filled rack</span> for in-rack or cluster expansion &ndash; adding new nodes to the existing racks and/or to existing clusters.</p>
+</li>
+<li>
+<p>Click <span class="bold">An in-process configuration using a saved master.xml configuration file</span> for general editing purposes.</p>
+</li>
+</ul>
+<p>Click <span class="bold">Next</span> to go to the Customer Details page. If you are working off of an existing <code>master.xml</code> file, fields are pre-populated and selectors are preset throughout the pages of the utility based on the data in the file.</p>
+<p><a href="configurator.htm#GUID-D33D4E8C-6714-4FE2-96BD-4F76D9982BFE__CHDFFCJI">Figure 4-1</a> shows the Customer Details page of the Oracle Big Data Appliance Configuration Generation Utility.</p>
+<div class="figure" id="GUID-D33D4E8C-6714-4FE2-96BD-4F76D9982BFE__CHDFFCJI">
+<p class="titleinfigure">Figure 4-1 Oracle Big Data Appliance Configuration Generation Utility</p>
+<img width="768" height="564" src="img/GUID-071AB0A6-79CC-4287-B4F7-603BFBB61BF2-default.png" alt="Description of Figure 4-1 follows" title="Description of Figure 4-1 follows" /><br />
+<a href="img_text/GUID-071AB0A6-79CC-4287-B4F7-603BFBB61BF2-default.htm">Description of "Figure 4-1 Oracle Big Data Appliance Configuration Generation Utility"</a></div>
+<!-- class="figure" -->
+<div class="infobox-note" id="GUID-D33D4E8C-6714-4FE2-96BD-4F76D9982BFE__GUID-1FFFEFD8-0566-48B1-8514-F01F0212CB18">
+<p class="notep1">Note:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Big Data Appliance uses Cloudera's Distribution including Apache Hadoop (CDH). A Hadoop cluster on Oracle Big Data Appliance is called a <span class="bold">CDH cluster</span>.</p>
+</li>
+<li>
+<p>The terms <span class="bold">appliance</span> and <span class="bold">rack</span> refer to Oracle Big Data Appliance, Oracle Big Data Appliance X3&ndash;2, Oracle Big Data Appliance X4-2, Oracle Big Data Appliance X5-2, and Oracle Big Data Appliance X6&ndash;2.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGOG76909"></a>
+<div class="props_rev_3"><a id="GUID-92C6E1FE-6107-4170-BC08-66C4CF9FEE41"></a>
+<h2 id="BIGOG-GUID-92C6E1FE-6107-4170-BC08-66C4CF9FEE41" class="sect2"><span class="enumeration_section">4.2</span> Generating the Configuration Files</h2>
+<div>
+<div class="section">
+<p>The following procedures explain how to install Oracle Big Data Appliance Configuration Generation Utility and generate the configuration files.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To configure Oracle Big Data Appliance:</p>
+<ol>
+<li>
+<p><a id="d22211e212" class="indexterm-anchor"></a>Download Oracle Big Data Appliance Configuration Generation Utility from Oracle Technology Network at</p>
+<p><a href="http://www.oracle.com/technetwork/database/bigdata-appliance/downloads/index.html" target="_blank"><code class="codeph">http://www.oracle.com/technetwork/database/bigdata-appliance/downloads/index.html</code></a></p>
+<p>The file is named <code class="codeph">BDAConfigurator-</code><span class="italic"><code class="codeph">version</code></span><code class="codeph">.zip</code>. The utility requires Oracle JRE 1.7 or later.</p>
+</li>
+<li>
+<p>Extract the files in <code class="codeph">BDAConfigurator-</code><span class="italic"><code class="codeph">version</code></span><code class="codeph">.zip</code>. For example:</p>
+<pre dir="ltr">
+$ unzip BDAConfigurator-&lt;version&gt;.zip
+Archive:  BDAConfigurator-&lt;version&gt;.zip
+   creating: BDAConfigurator-&lt;version&gt;/
+  inflating: BDAConfigurator-&lt;version&gt;/exagen.jar
+  inflating: BDAConfigurator-&lt;version&gt;/oracle_ice.jar
+  inflating: BDAConfigurator-&lt;version&gt;/passwd.jar
+  inflating: BDAConfigurator-&lt;version&gt;/orai18n-utility.jar
+     .
+     .
+     .
+</pre></li>
+<li>
+<p>Change to the <code class="codeph">BDAConfigurator-</code><span class="italic"><code class="codeph">version</code></span> directory.</p>
+</li>
+<li>
+<p>Run Oracle Big Data Appliance Configuration Generation Utility.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>On Linux:</p>
+<pre dir="ltr">
+$ sh bdaconf.sh
+</pre></li>
+<li>
+<p>On Microsoft Windows, double-click <code class="codeph">bdaconf.cmd</code> in Windows Explorer, or run the file from the command line:</p>
+<pre dir="ltr">
+C:\ bdaconf.cmd
+</pre></li>
+</ul>
+</li>
+<li>
+<p>On the Welcome page, select a configuration type.</p>
+</li>
+<li>
+<p>Click <span class="bold">Import</span><a id="d22211e279" class="indexterm-anchor"></a> if the button is activated, and select a previously saved <code class="codeph">master.xml</code> configuration file.</p>
+</li>
+<li>
+<p>Follow the steps of the wizard. On the Complete page, click <span class="bold">Create Files</span><a id="d22211e292" class="indexterm-anchor"></a>.</p>
+</li>
+<li>
+<p>Validate the network configuration.</p>
+<p>See <span class="q">"<a href="configurator.htm#GUID-16433A68-14D9-418B-80FB-AAA077AFB461">Validating the Network Settings</a>."</span></p>
+</li>
+<li>
+<p>Send the generated <code class="codeph">bda.zip</code> file to your Oracle representative.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76910"></a>
+<div class="props_rev_3"><a id="GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F"></a>
+<h2 id="BIGOG-GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F" class="sect2"><span class="enumeration_section">4.3</span> About the Configuration Files</h2>
+<div>
+<p>Oracle Big Data Appliance Configuration Generation Utility generates the following files to use when you configure the system. You can select the directory where they are saved.</p>
+<p><a id="d22211e365" class="indexterm-anchor"></a>This is the basic structure of the directory tree</p>
+<pre dir="ltr">
+<span class="italic">company_name</span>/ 
+   bda-timestamp.zip
+   bda-install-preview.html
+   bda-preinstall-checkip.sh
+   <span class="italic">rack_name</span>/
+      <span class="italic">rack_name</span>-network.json
+      <span class="italic">rack_name</span>-rack-network.json
+   <span class="italic">cluster_name</span>/
+      <span class="italic">cluster_name</span>-config.json
+      <span class="italic">cluster_name</span>-cluster-network.json
+      master.xml
+</pre>
+<p>If there is more than one rack or more than one cluster in the configuration, separate directories are included for these as well. &ldquo;Rack_name&rdquo; and &ldquo;cluster_name&rdquo; in the example above and in the table below are placeholders that refer to the actual name of the rack and cluster. For example, if your cluster name is &ldquo;cluster01&rdquo; then the configuration output includes <code class="codeph">cluster01-config.json</code> and <code class="codeph">cluster01&ndash;cluster-network.json</code>.</p>
+<dl>
+<dt class="dlterm"><a id="GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F__GUID-8A1A7078-4131-4378-81C2-ABA8FD6FA651"><!-- --></a>bda-<span class="italic">timestamp</span>.zip</dt>
+<dd>
+<p>Contains a copy of the configuration files. If an Oracle customer service representative will perform the installation, then send this file to Oracle before the installation date. Otherwise, transfer the file to a USB drive for copying to Oracle Big Data Appliance.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F__GUID-A8E1514F-2DD1-4632-BF9D-A4B847856832"><!-- --></a>bda-install-preview.html</dt>
+<dd>
+<p>Provides a report that lists all the details of the configuration. You can view the this report in a browser. Check it carefully to ensure that all of the settings are correct.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F__GUID-A0A3B672-D615-4DF1-9D3C-03EAD7163DE6"><!-- --></a>bda-preinstall-checkip.sh</dt>
+<dd>
+<p>Runs a series of tests to ensure the specified names and IP addresses for Oracle Big Data Appliance were added correctly to the name server, and they do not conflict with the existing network configuration.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F__GUID-12742120-D1E9-4626-8B4C-58BA78C4C0F8"><!-- --></a>&lt;<span class="italic">rack_name</span>&gt;-network.json</dt>
+<dd>
+<p>Contains the network configuration for a full rack, a starter rack, or a starter rack with additional servers. It contains information about all the servers, switches, and PDUs.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F__GUID-C2EA61C1-9095-4EC2-B3BB-DC1E928064A2"><!-- --></a>&lt;<span class="italic">rack_name</span>&gt;-rack-network.json</dt>
+<dd>
+<p>Contains network configuration for the administration network on a single rack of servers, including information about switches and PDUs. This is part of a pair of files (the other being <code>cluster-network.json</code>) that together contain the same information as <code class="codeph">&lt;<span class="codeinlineitalic">rackname</span>&gt;-network.json</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F__GUID-E167FFAD-75DE-4802-9419-84F7FA4E2062"><!-- --></a>&lt;<span class="italic">cluster_name</span>&gt;-config.json</dt>
+<dd>
+<p>Contains all the information for a cluster, including the network configuration, port numbers, user names, and passwords. The configuration utility creates a separate parameter file for each cluster. If several clusters are being configured, then each parameter file is located in a separate subdirectory.</p>
+<p>If additional servers are configured over a starter rack as an addition to an existing cluster, then the configuration utility does not generate a parameter file; the Mammoth utility generates it.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F__GUID-BCC914BF-D56B-4662-BE9C-47EEC537D509"><!-- --></a>&lt;<span class="italic">cluster_name</span>&gt;-cluster-network.json</dt>
+<dd>
+<p>Contains network configuration information for the cluster, including client and private networks. This is part of a pair of files (the other being <code>rack-network.json</code>) that together contain the same information as <code class="codeph">&lt;<span class="codeinlineitalic">rackname</span>&gt;-network.json</code>.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F__GUID-0DA099A1-FDBC-4AD5-8001-F08A94C718C2"><!-- --></a>master.xml</dt>
+<dd>
+<p>Contains all the configuration settings in XML format so that Oracle Big Data Appliance Configuration Generation Utility can read it. To alter the configuration of an Oracle Big Data Appliance deployment, you can load this file, enter the changes, and regenerate the configuration files.</p>
+<p>This file is used only by Oracle Big Data Appliance Configuration Generation Utility. It is not used for the actual configuration of Oracle Big Data Appliance.</p>
+</dd>
+</dl>
+<p>Rename <code class="codeph">&lt;<span class="codeinlineitalic">rack_name</span>&gt;-network.json</code> to <code>network.json</code> and use that file to configure the cluster. The &ldquo;rack_name-&rdquo; prefix exists only so that you can distinguish one set of files for another in the configurator output. The scripts that use this file do not recognize the prefix.</p>
+</div>
+</div>
+<a id="BIGOG76911"></a>
+<div class="props_rev_3"><a id="GUID-16433A68-14D9-418B-80FB-AAA077AFB461"></a>
+<h2 id="BIGOG-GUID-16433A68-14D9-418B-80FB-AAA077AFB461" class="sect2"><span class="enumeration_section">4.4</span> Validating the Network Settings</h2>
+<div>
+<div class="section">
+<p>Validating the network settings before the Oracle Big Data Appliance hardware arrives at your site is a critical step. Network problems can cause extended delays in the installation.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">To validate the network configuration settings:</p>
+<ol>
+<li>
+<p>Copy the <code class="codeph">bda-preinstall-checkip.sh</code> file generated by Oracle Big Data Appliance Configuration Generation Utility to a Linux host on the same network that Oracle Big Data Appliance will use.</p>
+</li>
+<li>
+<p>Log in to the Linux host and run <code class="codeph">bda-preinstall-checkip.sh</code>:</p>
+<pre dir="ltr">
+$ sh bda-preinstall-checkip.sh
+</pre>
+<p>This script checks your existing network for conflicts with the Oracle Big Data Appliance IP address pool.</p>
+</li>
+<li>
+<p>Correct any network problems discovered by the script before installation begins. Network problems during the installation can cause extensive delays.</p>
+</li>
+<li>
+<p>Run the network connections to the planned location for Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Inform your Oracle representative when you have completed these steps.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76912"></a><a id="BIGOG76913"></a><a id="BDA_CUSTOMER"></a>
+<div class="props_rev_3"><a id="GUID-DFC755A9-295D-40A8-AD2D-753251C68228"></a>
+<h2 id="BIGOG-GUID-DFC755A9-295D-40A8-AD2D-753251C68228" class="sect2"><span class="enumeration_section">4.5</span> Customer Details Page</h2>
+<div>
+<p>The following table describes the customer details fields. The Generated Names shows the names created from the entered values.</p>
+<div class="tblformal" id="GUID-DFC755A9-295D-40A8-AD2D-753251C68228__GUID-4F45D610-5D5F-4678-B309-226D2E78836F">
+<p class="titleintable">Table 4-1 Customer Details Page</p>
+<table class="cellalignment188" title="Customer Details Page" summary="Field descriptions of names and locales">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment268" id="d22211e588">Customer Details Field</th>
+<th class="cellalignment269" id="d22211e591">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e596" headers="d22211e588">
+<p>Customer Name</p>
+</td>
+<td class="cellalignment271" headers="d22211e596 d22211e591">
+<p>The name of your enterprise. Required.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e603" headers="d22211e588">
+<p>Region</p>
+</td>
+<td class="cellalignment271" headers="d22211e603 d22211e591">
+<p>The geographic area where Oracle Big Data Appliance will be installed.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e610" headers="d22211e588">
+<p><a id="d22211e612" class="indexterm-anchor"></a>Time Zone</p>
+</td>
+<td class="cellalignment271" headers="d22211e610 d22211e591">
+<p>The time zone for your installation. You must select the appropriate region before selecting the time zone.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e621" headers="d22211e588">
+<p><a id="d22211e623" class="indexterm-anchor"></a>Rack Base Name</p>
+</td>
+<td class="cellalignment271" headers="d22211e621 d22211e591">
+<p>A maximum of 10 alphanumeric characters for the name of the Oracle Big Data Appliance rack.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e630" headers="d22211e588">
+<p>Rack Start Index</p>
+</td>
+<td class="cellalignment271" headers="d22211e630 d22211e591">
+<p>A digit that uniquely identifies the rack. It is a suffix of the rack base name.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e637" headers="d22211e588">
+<p>Server Base Name</p>
+</td>
+<td class="cellalignment271" headers="d22211e637 d22211e591">
+<p>Base name for all servers. A two-digit suffix uniquely identifies each server.</p>
+<p>The rack name and server base name are used to generate the host names for all network interfaces: eth0, bondib0, bondeth0, and Oracle ILOM. For example, a rack base name of <code class="codeph">bda</code>, a rack start index of <code class="codeph">1</code>, and a server base name of <code class="codeph">node</code> results in host names of bda1node01, bda1node02, and so forth.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e655" headers="d22211e588">
+<p><a id="d22211e657" class="indexterm-anchor"></a>Admin Name Suffix</p>
+</td>
+<td class="cellalignment271" headers="d22211e655 d22211e591">
+<p>Suffix to the basic host name to form the eth0 host names</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e664" headers="d22211e588">
+<p>Private Name Suffix</p>
+</td>
+<td class="cellalignment271" headers="d22211e664 d22211e591">
+<p>Suffix to the basic host name to form the bondib0 host name</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e671" headers="d22211e588">
+<p>ILOM Name Suffix</p>
+</td>
+<td class="cellalignment271" headers="d22211e671 d22211e591">
+<p>Suffix to the basic host name to form the Oracle ILOM name</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e678" headers="d22211e588">
+<p>Switch Base Name</p>
+</td>
+<td class="cellalignment271" headers="d22211e678 d22211e591">
+<p><a id="d22211e683" class="indexterm-anchor"></a>Suffix to the rack name to form the base name for all switches. For example, a rack name of <code class="codeph">bda</code> and a switch base name of <code class="codeph">sw</code> results in switch names of bda1sw-ip, bda1sw-ib1, and so forth.</p>
+<p><span class="bold">Important</span>: Ensure that the fully constructed switch names (such as bda1sw-ib1) do not exceed 20 characters.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment270" id="d22211e699" headers="d22211e588">
+<p>Domain Name</p>
+</td>
+<td class="cellalignment271" headers="d22211e699 d22211e591">
+<p>Name of the domain in which Oracle Big Data Appliance operates. Required.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="BIGOG76914"></a>
+<div class="props_rev_3"><a id="GUID-28033B00-CBC2-4318-A34C-89FAE1D61BA7"></a>
+<h3 id="BIGOG-GUID-28033B00-CBC2-4318-A34C-89FAE1D61BA7" class="sect3"><span class="enumeration_section">4.5.1</span> Using Standardized Host Names</h3>
+<div>
+<p>The rack name is used in the assignment of standardized host names for all Oracle Big Data Appliance servers. The host name for all servers on the client network is in this format:</p>
+<p><span class="italic"><code class="codeph">rackname</code></span><span class="italic"><code class="codeph">NodeNN</code></span>.<span class="italic"><code class="codeph">domain</code></span></p>
+<p>In this syntax:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="italic">NN</span> is the position number of the server node in the rack (01 to 18).</p>
+</li>
+<li>
+<p><span class="italic">domain</span> is the domain name.</p>
+</li>
+</ul>
+<p>Host names must have fewer than 16 characters, which can be ASCII lower-case letters (a to z), numbers (0 to 9), and hyphens (-) only. Do not begin or end the name with a hyphen.</p>
+</div>
+</div>
+<a id="BIGOG76915"></a>
+<div class="props_rev_3"><a id="GUID-2F0B820C-C570-4322-BEE7-09EAF03D823B"></a>
+<h3 id="BIGOG-GUID-2F0B820C-C570-4322-BEE7-09EAF03D823B" class="sect3"><span class="enumeration_section">4.5.2</span> Using Customized Host Names</h3>
+<div>
+<p>You can change the suffixes used for the different network interfaces.</p>
+<p>You can enter server host names that do not follow the naming conventions on the <a href="configurator.htm#GUID-DA64E1CE-CC59-48F6-B599-6AB42C180232">Review and Edit Details Page</a>.</p>
+</div>
+</div>
+<a id="BIGOG76916"></a>
+<div class="props_rev_3"><a id="GUID-2AB57983-B8A4-4A2E-B1BF-24C07BE4B07C"></a>
+<h3 id="BIGOG-GUID-2AB57983-B8A4-4A2E-B1BF-24C07BE4B07C" class="sect3"><span class="enumeration_section">4.5.3</span> Naming Multirack Clusters</h3>
+<div>
+<p><a id="d22211e796" class="indexterm-anchor"></a>Oracle recommends that for a cluster of multiple racks, you use the cluster name as the rack name.</p>
+<p>For example, in a three-rack cluster, if the cluster name is <code class="codeph">cluster1</code> and the domain name is <code class="codeph">example.com</code>, then the fully qualified host name of the server at the bottom of the first rack is <code class="codeph">cluster101node01.example.com</code>. For the top server in the third rack of this cluster, the host name is <code class="codeph">cluster103node18.example.com</code>.</p>
+</div>
+</div>
+<a id="BIGOG76917"></a>
+<div class="props_rev_3"><a id="GUID-99BE6C90-D02C-40FD-9911-B3E55A060796"></a>
+<h3 id="BIGOG-GUID-99BE6C90-D02C-40FD-9911-B3E55A060796" class="sect3"><span class="enumeration_section">4.5.4</span> Connecting to Oracle Big Data Appliance Over the Networks</h3>
+<div>
+<p><a id="d22211e832" class="indexterm-anchor"></a><a id="d22211e834" class="indexterm-anchor"></a>The host names on the other networks have a short extension that follows the unit number. If you retained the default extensions, then use these formats to connect to Oracle Big Data Appliance after it is connected to the network:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>For short host names over the administration network:</p>
+<p><span class="italic"><code class="codeph">rackname</code></span><span class="italic"><code class="codeph">NodeNN</code></span><code class="codeph">-adm</code></p>
+</li>
+<li>
+<p>For the private InfiniBand network host names:</p>
+<p><span class="italic"><code class="codeph">rackname</code></span><span class="italic"><code class="codeph">NodeNN</code></span><code class="codeph">-priv</code></p>
+</li>
+<li>
+<p>For the Oracle Integrated Lights Out Manager (ILOM) host names:</p>
+<p><span class="italic"><code class="codeph">rackname</code></span><span class="italic"><code class="codeph">NodeNN</code></span><code class="codeph">-ilom</code></p>
+</li>
+<li>
+<p>For the switch host names:</p>
+<p><span class="italic"><code class="codeph">rackname</code></span><code class="codeph">sw-ib</code><span class="italic"><code class="codeph">M</code></span></p>
+</li>
+</ul>
+<p>In this syntax:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="italic">NN</span> is the position number of the server in the rack (01 to 18).</p>
+</li>
+<li>
+<p><span class="italic">M</span> is 1, 2, or 3, depending on the switch location in the rack.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a id="BIGOG76918"></a><a id="BIGOG76919"></a><a id="BDA_HARDWARE"></a>
+<div class="props_rev_3"><a id="GUID-651EEFED-9E60-4A75-96F5-F43242DC9CB7"></a>
+<h2 id="BIGOG-GUID-651EEFED-9E60-4A75-96F5-F43242DC9CB7" class="sect2"><span class="enumeration_section">4.6</span> Hardware Selection Page</h2>
+<div>
+<p>The hardware page identifies one or more racks that you want to deploy at the same time. The racks must be cabled together.</p>
+<p>For example, if you are deploying three full racks, then add Full Rack three times to your deployment.</p>
+<p>The following table describes the hardware selection choices.</p>
+<div class="tblformal" id="GUID-651EEFED-9E60-4A75-96F5-F43242DC9CB7__GUID-4F4D8403-8F34-4670-9688-FB9BD9DF0E7C">
+<p class="titleintable">Table 4-2 Hardware Selection Page</p>
+<table class="cellalignment188" title="Hardware Selection Page" summary="Hardware selection configuration">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e943">Hardware Selection Field</th>
+<th class="cellalignment194" id="d22211e946">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e951" headers="d22211e943">
+<p>Select interconnected hardware to deploy</p>
+</td>
+<td class="cellalignment196" headers="d22211e951 d22211e946">
+<p><a id="d22211e956" class="indexterm-anchor"></a>Lists the available hardware configurations. Choose one or more racks. You can choose the same type of rack multiple times.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Full rack: Contains 18 servers.</p>
+</li>
+<li>
+<p>Starter rack: Contains 6 servers.</p>
+</li>
+<li>
+<p>Partially filled rack: Contains any number of servers between 7 and 17.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e970" headers="d22211e943">
+<p>This is your deployment</p>
+</td>
+<td class="cellalignment196" headers="d22211e970 d22211e946">
+<p>Lists the hardware selected for your site.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e977" headers="d22211e943">
+<p>Will you use non-Oracle PDUs?</p>
+</td>
+<td class="cellalignment196" headers="d22211e977 d22211e946">
+<p>Oracle strongly recommends that the PDUs that are shipped with Oracle Big Data Appliance be used to supply power to its servers and switches.</p>
+<p>However, if your data center has specific requirements that the Oracle-supplied PDUs do not meet, then you can use other PDUs to supply power to the Oracle Big Data Appliance servers and switches. Oracle does not support customer-supplied PDUs, and Oracle Enterprise Manager Cloud Control does not monitor them.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76960"></a><a id="BIGOG76961"></a><a id="BDA_RACK_DETAILS"></a>
+<div class="props_rev_3"><a id="GUID-689D7C9B-744B-4411-8E40-E6B2CF54A396"></a>
+<h2 id="BIGOG-GUID-689D7C9B-744B-4411-8E40-E6B2CF54A396" class="sect2"><span class="enumeration_section">4.7</span> Rack Details</h2>
+<div>
+<p>The rack details page identifies the optional network connections for an Oracle Big Data Appliance rack.</p>
+<p>The following table describes the rack detail fields.</p>
+<div class="tblformal" id="GUID-689D7C9B-744B-4411-8E40-E6B2CF54A396__GUID-7A5B4475-3105-4CC8-9AB7-3035275D7DA1">
+<p class="titleintable">Table 4-3 Rack Details Page</p>
+<table class="cellalignment188" title="Rack Details Page" summary="rack configuration settings">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e1027">Rack Detail Field</th>
+<th class="cellalignment194" id="d22211e1030">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1035" headers="d22211e1027">
+<p>Rack Name</p>
+</td>
+<td class="cellalignment196" headers="d22211e1035 d22211e1030">
+<p>Enter the name of the rack.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1042" headers="d22211e1027">
+<p>Number of 10 GbE Connections</p>
+</td>
+<td class="cellalignment196" headers="d22211e1042 d22211e1030">
+<p>The two Sun Network QDR InfiniBand Gateway switches in every Oracle Big Data Appliance must have an equal number of 10 GbE links to the client network. Each gateway switch supports up to eight 10-GbE links, for a total of 16 links. Each server is assigned to one 10-Gbe link on each gateway switch.</p>
+<p>Therefore, an Oracle Big Data Appliance full rack or starter rack with an extension kit can use up to 16 10-GbE links. A starter rack can use up to 12 10-GbE links.</p>
+<p>Oracle recommends using as many 10 GbE links to the Oracle Big Data Appliance rack as the data center can support. The additional links increase the network bandwidth available between Oracle Big Data Appliance and the client network, and reduces the impact if a link fails.</p>
+<p>Oracle uses this information to ensure that the correct number of cables is ordered or available at the installation site. It also lets the Oracle field engineer plan how many 10 GbE links to connect to the Oracle Big Data Appliance rack.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1055" headers="d22211e1027">
+<p>BDA will be connected via InfiniBand to any Oracle engineered systems</p>
+</td>
+<td class="cellalignment196" headers="d22211e1055 d22211e1030">Select this option if you are connecting this rack to another rack through the InfiniBand fabric. When connecting multiple racks, ensure the following:
+<ul style="list-style-type: disc;">
+<li>
+<p>The InfiniBand IP addresses of all servers are unique, including the servers in other Oracle engineered systems.</p>
+</li>
+<li>
+<p>All InfiniBand IP addresses are on the same network.</p>
+</li>
+</ul>
+<p>For example, if you connect an Oracle Big Data Appliance rack to Oracle Exadata Database Machine, then you must use the same netmask on the InfiniBand networks for both systems. Moreover, after you apply this netmask to the InfiniBand IP addresses of the Exadata database servers, the Exadata storage servers, and the Oracle Big Data Appliance servers, all IP addresses are in the same subnet."</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76920"></a><a id="BDA_NETWORK"></a>
+<div class="props_rev_3"><a id="GUID-9EF007DD-6804-4196-979B-B1C5C6776E8F"></a>
+<h2 id="BIGOG-GUID-9EF007DD-6804-4196-979B-B1C5C6776E8F" class="sect2"><span class="enumeration_section">4.8</span> Networking Page</h2>
+<div>
+<p>The networking page identifies the number of IP addresses required for each network. The administration, client Ethernet, and InfiniBand networks are required. You must allocate the specified number of IP addresses for them.</p>
+<p>Each IP address pool initially contains a range of consecutive IP addresses. If some IP addresses in the range are not available, then you can change individual addresses on the <a href="configurator.htm#GUID-DA64E1CE-CC59-48F6-B599-6AB42C180232">Review and Edit Details Page</a>.</p>
+</div>
+</div>
+<a id="BIGOG76923"></a><a id="BIGOG76924"></a><a id="BDA_ADMIN"></a>
+<div class="props_rev_3"><a id="GUID-164DB8A5-D9E7-4BC0-B978-7B2B323B2DC0"></a>
+<h2 id="BIGOG-GUID-164DB8A5-D9E7-4BC0-B978-7B2B323B2DC0" class="sect2"><span class="enumeration_section">4.9</span> Administration Network Page</h2>
+<div>
+<p>The values that you enter on this page are used to add the Oracle Big Data Appliance servers, switches, and PDUs to your existing administration network. Each server has two network interfaces for administration. One interface provides access to the operating system, and the other provides access to Oracle Integrated Lights Out Manager (ILOM).</p>
+<div class="infobox-note" id="GUID-164DB8A5-D9E7-4BC0-B978-7B2B323B2DC0__GUID-74007107-8398-4119-B0F3-E91782FC5473">
+<p class="notep1">Note:</p>
+<p>Each network must be on a separate subnet from the other networks.</p>
+</div>
+<p>The following table describes the administration network fields.</p>
+<div class="tblformal" id="GUID-164DB8A5-D9E7-4BC0-B978-7B2B323B2DC0__GUID-E9AF10F0-9562-4598-87FB-A0E08981FF19">
+<p class="titleintable">Table 4-4 Administration Network Page</p>
+<table class="cellalignment188" title="Administration Network Page" summary="admin network fields">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e1147">Administration Network Field</th>
+<th class="cellalignment194" id="d22211e1150">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1155" headers="d22211e1147">
+<p>Starting IP Address for Pool</p>
+</td>
+<td class="cellalignment196" headers="d22211e1155 d22211e1150">
+<p>The first IP address on the administration network available for use by Oracle Big Data Appliance.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1162" headers="d22211e1147">
+<p>Pool Size</p>
+</td>
+<td class="cellalignment196" headers="d22211e1162 d22211e1150">
+<p>The required number of IP addresses on the administration network.</p>
+<p>The IP addresses for a rack are assigned in this order: Oracle Big Data Appliance servers, Oracle ILOMs, Ethernet switch, spine switch, leaf switches (2), and PDUs (2).</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1171" headers="d22211e1147">
+<p>Ending IP Address for Pool</p>
+</td>
+<td class="cellalignment196" headers="d22211e1171 d22211e1150">
+<p>The last IP address on the administration network assigned to Oracle Big Data Appliance. The value in this field is automatically calculated from the starting IP address and the pool size.</p>
+<p>Ensure that all of the IP addresses are available for use in the pool defined by the starting and ending addresses. If they are not available, then you can either assign a different range or manually change individual IP addresses on the <a href="configurator.htm#GUID-DA64E1CE-CC59-48F6-B599-6AB42C180232">Review and Edit Details Page</a>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1183" headers="d22211e1147">
+<p>Subnet Mask</p>
+</td>
+<td class="cellalignment196" headers="d22211e1183 d22211e1150">
+<p>The subnet mask for the administration network.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1190" headers="d22211e1147">
+<p>Gateway</p>
+</td>
+<td class="cellalignment196" headers="d22211e1190 d22211e1150">
+<p>The IP address for the gateway.</p>
+<p>The gateway IP address is generated automatically, so verify that it is correct.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76927"></a><a id="BIGOG76928"></a><a id="BIGOG76929"></a><a id="BDA_GENERAL"></a>
+<div class="props_rev_3"><a id="GUID-521A91B2-D5E6-47FB-8C13-2CF2B4F64679"></a>
+<h2 id="BIGOG-GUID-521A91B2-D5E6-47FB-8C13-2CF2B4F64679" class="sect2"><span class="enumeration_section">4.10</span> General Network Properties Page</h2>
+<div>
+<p>The client and administration networks typically use the same Domain Name System (DNS) and Network Time Protocol (NTP) servers. If they are different on your networks, then enter the values for the client network first.</p>
+<p>The following table describes the general network properties.</p>
+<div class="tblformal" id="GUID-521A91B2-D5E6-47FB-8C13-2CF2B4F64679__GUID-D763E0D3-876F-4792-BD0A-FF9D009AEF5E">
+<p class="titleintable">Table 4-5 General Network Properties Page</p>
+<table class="cellalignment188" title="General Network Properties Page" summary="Field descriptions of rack network properties">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment207" id="d22211e1243">General Network Properties Field</th>
+<th class="cellalignment296" id="d22211e1246">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment210" id="d22211e1251" headers="d22211e1243">
+<p>DNS Servers</p>
+</td>
+<td class="cellalignment297" headers="d22211e1251 d22211e1246">
+<p>Up to six IP addresses for the DNS servers. At least one <a id="d22211e1257" class="indexterm-anchor"></a>DNS server must be accessible on the client network.</p>
+<p>DNS servers are not required on the administration network, although Oracle Big Data Appliance uses them if they are available.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment210" id="d22211e1263" headers="d22211e1243">
+<p>NTP Servers</p>
+</td>
+<td class="cellalignment297" headers="d22211e1263 d22211e1246">
+<p>Up to six IP addresses for the NTP servers. Both the client network and the administration network must have access to at least one <a id="d22211e1269" class="indexterm-anchor"></a>NTP server.</p>
+<p>The NTP servers for the administration network can be different from the NTP servers for the client network. If they are, then identify the NTP servers for the client network in this field.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment210" id="d22211e1275" headers="d22211e1243">
+<p>Search Domains</p>
+</td>
+<td class="cellalignment297" headers="d22211e1275 d22211e1246">
+<p>Up to six domain names in which Oracle Big Data Appliance operates, such as <code class="codeph">example.com</code> and <code class="codeph">us.example.com</code></p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment210" id="d22211e1287" headers="d22211e1243">
+<p>Are administration host name entries in DNS?</p>
+</td>
+<td class="cellalignment297" headers="d22211e1287 d22211e1246">
+<p>Select Yes or No:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Yes</span>: Administration host name DNS entries are validated during preinstall checks and network configuration.</p>
+</li>
+<li>
+<p><span class="bold">No</span>: Administration host name DNS entries are not validated during preinstall checks and network configuration.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p>The next table describes the network properties for the administration network if they are different from the client network. Typically, these properties are the same for both networks. They default to the values you entered for the general network properties.</p>
+<div class="tblformal" id="GUID-521A91B2-D5E6-47FB-8C13-2CF2B4F64679__GUID-44BDDE3C-3629-4D55-B8B2-79CC0E7DCA91">
+<p class="titleintable">Table 4-6 Advanced Network Properties</p>
+<table class="cellalignment188" title="Advanced Network Properties" summary="Advanced network property descriptions">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e1316">Advanced Network Properties Field</th>
+<th class="cellalignment194" id="d22211e1319">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1324" headers="d22211e1316">
+<p>Advanced Network Configuration</p>
+</td>
+<td class="cellalignment196" headers="d22211e1324 d22211e1319">
+<p>Select this option if the client and administration networks are isolated on your system and use different DNS and NTP servers, different domains, or both. You can then complete the fields for the administration network.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1331" headers="d22211e1316">
+<p>Admin Domain Name</p>
+</td>
+<td class="cellalignment196" headers="d22211e1331 d22211e1319">
+<p>The name of the administration domain.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1338" headers="d22211e1316">
+<p>Admin DNS Servers</p>
+</td>
+<td class="cellalignment196" headers="d22211e1338 d22211e1319">
+<p>Up to six IP addresses for the administration Domain Name System server, if they are different from the client network.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1345" headers="d22211e1316">
+<p>Admin NTP Servers</p>
+</td>
+<td class="cellalignment196" headers="d22211e1345 d22211e1319">
+<p>Up to six IP addresses for the administration Network Time Protocol server, if they are different from the client network.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1352" headers="d22211e1316">
+<p>Admin Search Domains</p>
+</td>
+<td class="cellalignment196" headers="d22211e1352 d22211e1319">
+<p>Up to six domain names in which Oracle Big Data Appliance administration network operates, if they are different from the client network.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76930"></a><a id="BDA_REVIEW"></a>
+<div class="props_rev_3"><a id="GUID-DA64E1CE-CC59-48F6-B599-6AB42C180232"></a>
+<h2 id="BIGOG-GUID-DA64E1CE-CC59-48F6-B599-6AB42C180232" class="sect2"><span class="enumeration_section">4.11</span> Review and Edit Details Page</h2>
+<div>
+<p>Use this page to review and modify the network configuration settings.</p>
+<p>If you specified a range of IP addresses for any of the networks that includes addresses already in use, then replace those IP addresses on this page. Otherwise, the network configuration of Oracle Big Data Appliance will fail, causing unnecessary delays. When you are done making changes, click <span class="bold">Regenerate using changed base values</span>.</p>
+</div>
+</div>
+<a id="BIGOG76931"></a><a id="BIGOG76932"></a><a id="BDA_DEFCLUSTER"></a>
+<div class="props_rev_3"><a id="GUID-4A6D4738-FFE4-400E-BE52-FF8C5BFBD33D"></a>
+<h2 id="BIGOG-GUID-4A6D4738-FFE4-400E-BE52-FF8C5BFBD33D" class="sect2"><span class="enumeration_section">4.12</span> Define Clusters Page</h2>
+<div>
+<p>Use the define clusters page to identify the number of clusters to create and the servers that compose each cluster. You can configure clusters for either CDH or Oracle NoSQL Database on this page. A cluster can occupy a single rack or span multiple racks.</p>
+<div class="infobox-note" id="GUID-4A6D4738-FFE4-400E-BE52-FF8C5BFBD33D__GUID-F84BFA24-D1BB-4666-84EC-8ABA278B73AE">
+<p class="notep1">Note:</p>
+In a multi-cluster environment, it is not required that all clusters uniformly run the same version of Oracle Big Data Appliance. Multiple clusters running different versions of the software on different racks or the same rack are supported configurations.</div>
+<p>The minimum cluster size for each type is as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>CDH cluster &ndash; five servers minimum is recommended for production in order to support high availability. Clusters as small as three servers can be created. These are generally recommended for development only. However the five server minimum for clusters in production is a guideline, not a rule, and has no implications for Oracle support.</p>
+</li>
+<li>
+<p>NoSQL Database cluster &ndash; three servers minimum</p>
+</li>
+</ul>
+<p>For each rack contributing servers to a cluster of either type, the minimum number of servers is three.</p>
+<p>The following table describes the cluster definition choices.</p>
+<div class="tblformal" id="GUID-4A6D4738-FFE4-400E-BE52-FF8C5BFBD33D__GUID-6F8B90B2-619C-4642-B262-0E2B4EECE84D">
+<p class="titleintable">Table 4-7 Define Clusters Page</p>
+<table class="cellalignment188" title="Define Clusters Page" summary="Define Clusters field descriptions">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e1448">Define Clusters Field</th>
+<th class="cellalignment194" id="d22211e1451">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1456" headers="d22211e1448">
+<p>Number of clusters to create</p>
+</td>
+<td class="cellalignment196" headers="d22211e1456 d22211e1451">
+<p>Select the number of clusters. For each cluster, a new tab appears on the page, and a new page appears in Oracle Big Data Appliance Configuration Generation Utility. Be sure to complete all tabs before continuing to the next page.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1463" headers="d22211e1448">
+<p><a id="d22211e1465" class="indexterm-anchor"></a>Cluster Name</p>
+</td>
+<td class="cellalignment196" headers="d22211e1463 d22211e1451">
+<p>Enter a unique name for the cluster. The name must begin with a letter and can consist of alphanumeric characters and dashes (-). Underscores, (_) and other non-alphanumeric characters are not accepted.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1472" headers="d22211e1448">
+<p><span class="italic">Cluster Type</span></p>
+</td>
+<td class="cellalignment196" headers="d22211e1472 d22211e1451">
+<p>Choose the type of cluster:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">CDH cluster</span>: Installs Cloudera's Distribution including Apache Hadoop and optional software on cluster of new servers</p>
+</li>
+<li>
+<p><span class="bold">NoSQL DB cluster</span>: Installs Oracle NoSQL Database on a cluster of new servers</p>
+</li>
+<li>
+<p><span class="bold">Adding to existing cluster</span>: Installs the same software on the new servers as the rest of the cluster.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1496" headers="d22211e1448">
+<p><span class="italic">Unassigned Servers</span></p>
+</td>
+<td class="cellalignment196" headers="d22211e1496 d22211e1451">
+<p>From the list on the left, select the servers for the cluster and move them to the list of assigned servers on the right.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1504" headers="d22211e1448">
+<p><span class="italic">Assigned Servers</span></p>
+</td>
+<td class="cellalignment196" headers="d22211e1504 d22211e1451">
+<p>Lists the servers selected for the cluster. A CDH cluster must consist of at least three servers. A minimum of five is recommended for a production environment. Oracle NoSQL Database clusters must consist of a minimum of three servers for development or production.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76933"></a><a id="BDA_CLUSTER"></a>
+<div class="props_rev_3"><a id="GUID-FC59A3F4-C4F2-499B-BB63-688092092CA3"></a>
+<h2 id="BIGOG-GUID-FC59A3F4-C4F2-499B-BB63-688092092CA3" class="sect2"><span class="enumeration_section">4.13</span> Cluster Page</h2>
+<div>
+<p>Select the software to install on this cluster. The fields displayed on this field depend on the type of cluster being configured:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configurator.htm#GUID-D3828F18-37A0-46A7-85B5-82EFDDF02B91">A New Oracle NoSQL Database Cluster</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-0BCC9610-205F-4A9B-9C39-85404E5E4629">A New CDH Cluster</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76935"></a>
+<div class="props_rev_3"><a id="GUID-D3828F18-37A0-46A7-85B5-82EFDDF02B91"></a>
+<h3 id="BIGOG-GUID-D3828F18-37A0-46A7-85B5-82EFDDF02B91" class="sect3"><span class="enumeration_section">4.13.1</span> A New Oracle NoSQL Database Cluster</h3>
+<div>
+<p>For each new Oracle NoSQL Database cluster, the Configuration Utility provides a page where you configure the networking for the cluster. On this page, provide the following general information about the cluster&rsquo;s client network:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Cluster Name</p>
+</li>
+<li>
+<p>DNS Servers</p>
+</li>
+<li>
+<p>NTP Servers</p>
+</li>
+<li>
+<p>Search Domains</p>
+</li>
+<li>
+<p>Domain Name</p>
+</li>
+<li>
+<p>Region</p>
+</li>
+<li>
+<p>Time Zone</p>
+</li>
+</ul>
+<p>Also provide the configuration details requested in the following subsections of the page:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configurator.htm#GUID-DA5093CD-6DA3-4097-8166-606C287F4CB4">User and Groups</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#unique_271079219">Client Network</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#unique_1135826698">InfiniBand Network</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-33DE7B49-E6E8-4562-9D59-56806BDBDACE">MIT Kerberos</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-0F4D5CDB-3937-4368-AA57-5C8172C8781D">Auto Service Request</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-8292CCED-6EAA-486F-BBE0-1EE200CF0BFB">Installed Components</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-7AF3670D-FBD2-4D42-B23A-7077D05EC4F1">Oracle NoSQL Configuration</a></p>
+</li>
+</ul>
+</div>
+<div class="props_rev_3"><a id="GUID-DA5093CD-6DA3-4097-8166-606C287F4CB4"></a>
+<h4 id="BIGOG-GUID-DA5093CD-6DA3-4097-8166-606C287F4CB4" class="sect4"><span class="enumeration_section">4.13.1.1</span> User and Groups</h4>
+<div>
+<p>The following table describes the user name, groups, and password fields for a new Oracle NoSQL Database cluster. Passwords are optional, but you must enter them during the software installation if you do not provide them here.</p>
+<div class="tblformal" id="GUID-DA5093CD-6DA3-4097-8166-606C287F4CB4__USERGROUPSFORANEWORACLENOSQLDATABAS-0A31DD4C">
+<p class="titleintable">Table 4-8 User and Groups for a New Oracle NoSQL Database Cluster</p>
+<table class="cellalignment188" title="User and Groups for a New Oracle NoSQL Database Cluster" summary="Oracle NoSQL Database cluster user, group, and password fields">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e1653">User/Groups Field</th>
+<th class="cellalignment194" id="d22211e1656">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1661" headers="d22211e1653">
+<p>OS password for root user</p>
+</td>
+<td class="cellalignment196" headers="d22211e1661 d22211e1656">
+<p>The <code class="codeph">root</code> password on all servers in the cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1671" headers="d22211e1653">
+<p>OS password for oracle user</p>
+</td>
+<td class="cellalignment196" headers="d22211e1671 d22211e1656">
+<p>The <code class="codeph">oracle</code> password on all servers in the cluster. Oracle applications run under this identity.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1681" headers="d22211e1653">
+<p><a id="d22211e1683" class="indexterm-anchor"></a>oracle user ID</p>
+</td>
+<td class="cellalignment196" headers="d22211e1681 d22211e1656">
+<p>The ID number of the <code class="codeph">oracle</code> user. It must match the <code class="codeph">oracle</code> UID of a connected Oracle Exadata Database Machine. The UID ensures that the <code class="codeph">oracle</code> user can log in from Oracle Big Data Appliance to the correct account in Oracle Database. Required.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1699" headers="d22211e1653">
+<p><a id="d22211e1701" class="indexterm-anchor"></a>oinstall group ID</p>
+</td>
+<td class="cellalignment196" headers="d22211e1699 d22211e1656">
+<p>The ID number of the <a id="d22211e1707" class="indexterm-anchor"></a>Oracle Inventory Group (<code class="codeph">oinstall</code>). It must match the <code class="codeph">oinstall</code> group ID of a connected Oracle Exadata Database Machine.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1717" headers="d22211e1653">
+<p><a id="d22211e1719" class="indexterm-anchor"></a>dba group ID</p>
+</td>
+<td class="cellalignment196" headers="d22211e1717 d22211e1656">
+<p>The ID number of the <code class="codeph">dba</code> group. It must match the <code class="codeph">dba</code> group ID of a connected <a id="d22211e1731" class="indexterm-anchor"></a>Oracle Exadata Database Machine.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-C2DE87C4-A1A9-4783-8817-9ACC3A7CF6DB"></a>
+<h4 id="BIGOG-GUID-C2DE87C4-A1A9-4783-8817-9ACC3A7CF6DB" class="sect4"><span class="enumeration_section">4.13.1.2</span> Client Network</h4>
+<div>
+<p><a id="d22211e1754" class="indexterm-anchor"></a><a id="d22211e1761" class="indexterm-anchor"></a><a id="d22211e1763" class="indexterm-anchor"></a></p>
+<p>The following table describes the fields of the Client Network panel on the Cluster Page of the Oracle Big Data Configuration Utility.</p>
+<p>Note that Client and private InfiniBand networks within a cluster may not use the same subnet. However, subnets may be shared by client networks on different clusters.</p>
+<div class="tblformal" id="GUID-C2DE87C4-A1A9-4783-8817-9ACC3A7CF6DB__B10F3859">
+<p class="titleintable">Table 4-9 Client Network</p>
+<table class="cellalignment188" title="Client Network" summary="Describes fields in the Client Network section of the Configuration Utility.">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e1779">Client Network Field</th>
+<th class="cellalignment194" id="d22211e1782">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1787" headers="d22211e1779">
+<p>Starting IP Address for Pool</p>
+</td>
+<td class="cellalignment196" headers="d22211e1787 d22211e1782">
+<p>The first IP address on the client network you are configuring.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1794" headers="d22211e1779">
+<p>Pool Size</p>
+</td>
+<td class="cellalignment196" headers="d22211e1794 d22211e1782">
+<p>The required number of IP addresses (one for each node in the current cluster).</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1801" headers="d22211e1779">
+<p>Ending IP Address for Pool</p>
+</td>
+<td class="cellalignment196" headers="d22211e1801 d22211e1782">
+<p>The last IP address on the client network. This is calculated automatically based on the starting address and pool size.</p>
+<p>Ensure that all of the IP addresses are available for use in the pool defined by the starting and ending addresses. If not all are available, then you can either assign a different range or manually change individual IP addresses on the Client and InfiniBand Network page.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1810" headers="d22211e1779">
+<p>Subnet Mask</p>
+</td>
+<td class="cellalignment196" headers="d22211e1810 d22211e1782">
+<p>The subnet mask of the client network on the current cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1817" headers="d22211e1779">
+<p>Gateway</p>
+</td>
+<td class="cellalignment196" headers="d22211e1817 d22211e1782">
+<p>The IP address of the client network on the current cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1824" headers="d22211e1779">
+<p>VLAN ID</p>
+</td>
+<td class="cellalignment196" headers="d22211e1824 d22211e1782">
+<p>Note that the default VLAN ID value is <code>NO</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1834" headers="d22211e1779">
+<p>Domain</p>
+</td>
+<td class="cellalignment196" headers="d22211e1834 d22211e1782">
+<p>FQDN of the domain hosting the network.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1841" headers="d22211e1779">
+<p>Use LACP/LAG</p>
+</td>
+<td class="cellalignment196" headers="d22211e1841 d22211e1782">
+<p>Click this checkbox to create a Link Aggregation Group for client networks.</p>
+<p>Note that after a LAG is created, the connectors in the LAG are not available for individual selection, nor inclusion in other LAGs or for use in a VLAN or VNIC.</p>
+<p>LAG setup on the Oracle Big Data Appliance side is automated if you select this option and assign connectors to the LAG. However, you must manually enable LAG mode on external switches that will communicate with the InfiniBand switch over the LAG. See <a href="network.htm#GUID-CDD8E898-4196-491C-89DA-EFDD854BE892" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Configuring for LACP/LAG Connections</a></p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1857" headers="d22211e1779">
+<p>Connectors</p>
+</td>
+<td class="cellalignment196" headers="d22211e1857 d22211e1782">
+<p>You must check at least one connector from the eight connectors for each cluster&rsquo;s client network. This provides each cluster with least two connectors. (One connector is dedicated to failover and is located on the secondary InfiniBand switch.) Make the10 GbE connections to the same ports on both switches.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1864" headers="d22211e1779">
+<p>Add a Client to this Cluster</p>
+</td>
+<td class="cellalignment196" headers="d22211e1864 d22211e1782">
+<p>Add another client network to this cluster. Click this button to create another set of input fields. Add the necessary identfiers to these fields in order to configure the additional client network.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1871" headers="d22211e1779">
+<p>Remove a Client from this Cluster</p>
+</td>
+<td class="cellalignment196" headers="d22211e1871 d22211e1782">
+<p>Removes the last additional client from the list of client networks.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-A4CA8AD1-551B-4504-BF83-EED0A6B7FF9B"></a>
+<h4 id="BIGOG-GUID-A4CA8AD1-551B-4504-BF83-EED0A6B7FF9B" class="sect4"><span class="enumeration_section">4.13.1.3</span> InfiniBand Network</h4>
+<div>
+<p>The InfiniBand network connects the Oracle Big Data Appliance servers within a rack. It can also connect multiple racks to form a multirack Hadoop cluster, or to provide access to Oracle Big Data Appliance from Oracle Exadata Database Machine.</p>
+<p>Although you can configure multiple client networks within a cluster, each cluster can support only one InfiniBand network.</p>
+<p>The following table describes the InfiniBand network fields.</p>
+<div class="tblformal" id="GUID-A4CA8AD1-551B-4504-BF83-EED0A6B7FF9B__GUID-6266199B-7318-47F0-BA9A-5F2E29D1FE20">
+<p class="titleintable">Table 4-10 InfiniBand Network Page</p>
+<table class="cellalignment188" title="InfiniBand Network Page" summary="client network">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e1921">InfiniBand Network Field</th>
+<th class="cellalignment194" id="d22211e1924">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1929" headers="d22211e1921">
+<p>Starting IP Address for Pool</p>
+</td>
+<td class="cellalignment196" headers="d22211e1929 d22211e1924">
+<p>The first IP address on the private InfiniBand network available for use by the Oracle Big Data Appliance servers. The default is 192.168.10.1.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1936" headers="d22211e1921">
+<p>Pool Size</p>
+</td>
+<td class="cellalignment196" headers="d22211e1936 d22211e1924">
+<p>The required number of IP addresses. All Oracle Big Data Appliance servers require an IP address on the InfiniBand network. The pool size is calculated for the deployment that you identified on the <a href="configurator.htm#GUID-651EEFED-9E60-4A75-96F5-F43242DC9CB7">Hardware Selection Page</a>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1946" headers="d22211e1921">
+<p>Ending IP Address for Pool</p>
+</td>
+<td class="cellalignment196" headers="d22211e1946 d22211e1924">
+<p>The last IP address assigned to the InfiniBand network for this deployment. This address is automatically calculated from the starting IP address and the pool size.</p>
+<p>Ensure that all of the IP addresses are available for use in the pool defined by the starting and ending addresses. If they are not available, then you can either assign a different range or manually change individual IP addresses on the <a href="configurator.htm#GUID-DA64E1CE-CC59-48F6-B599-6AB42C180232">Review and Edit Details Page</a>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1958" headers="d22211e1921">
+<p>Subnet Mask</p>
+</td>
+<td class="cellalignment196" headers="d22211e1958 d22211e1924">
+<p>The subnet mask for the InfiniBand network. The default is 255.255.252.0.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1965" headers="d22211e1921">PKey</td>
+<td class="cellalignment196" headers="d22211e1965 d22211e1924">The unique ID of the InfiniBand partition used by this network.</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1970" headers="d22211e1921">PName</td>
+<td class="cellalignment196" headers="d22211e1970 d22211e1924">The partition name.</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1975" headers="d22211e1921">PType</td>
+<td class="cellalignment196" headers="d22211e1975 d22211e1924">The partition membership type (FULL or LIMITED).</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e1980" headers="d22211e1921">MTU</td>
+<td class="cellalignment196" headers="d22211e1980 d22211e1924">Maximum Transmission Unit for this network.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-33DE7B49-E6E8-4562-9D59-56806BDBDACE"></a>
+<h4 id="BIGOG-GUID-33DE7B49-E6E8-4562-9D59-56806BDBDACE" class="sect4"><span class="enumeration_section">4.13.1.4</span> MIT Kerberos</h4>
+<div>
+<p><a id="d22211e2002" class="indexterm-anchor"></a>MIT Kerberos authentication is a security option for NoSQL clusters.</p>
+<div class="infobox-note" id="GUID-33DE7B49-E6E8-4562-9D59-56806BDBDACE__GUID-E13F0C50-529F-4355-945A-3161C083E23A">
+<p class="notep1">Note:</p>
+The MIT Kerberos option is only available if you choose to install Oracle NoSQL Enterprise Edition. This option is not available for Oracle NoSQL Community Edition.</div>
+<p>The following table describes the MIT Kerberos fields.</p>
+<div class="tblformal" id="GUID-33DE7B49-E6E8-4562-9D59-56806BDBDACE__GUID-07F9ECDC-1D35-4375-8BF8-1F1A9C7F4BDF-1">
+<p class="titleintable">Table 4-11 MIT Kerberos</p>
+<table class="cellalignment188" title="MIT Kerberos" summary="NoSQL cluster MIT Kerberos fields">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e2023">Kerberos Field</th>
+<th class="cellalignment194" id="d22211e2026">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2031" headers="d22211e2023">
+<p>Enable MIT Kerberos-based authentication?</p>
+</td>
+<td class="cellalignment196" headers="d22211e2031 d22211e2026">
+<p>Select this option to support MIT Kerberos on Oracle Big Data Appliance.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2038" headers="d22211e2023">
+<p>Kerberos KDC database password</p>
+</td>
+<td class="cellalignment196" headers="d22211e2038 d22211e2026">
+<p>A password for the KDC database, if it is being created on Oracle Big Data Appliance.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2045" headers="d22211e2023">
+<p>Kerberos realm</p>
+</td>
+<td class="cellalignment196" headers="d22211e2045 d22211e2026">
+<p>Enter the name of the realm for Oracle Big Data Appliance, such as <code class="codeph">EXAMPLE.COM</code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p>If MIT Kerberos is selected, the configurator will create a default <code class="codeph">admin</code> user with administrator privileges. The same password is used for the Kerberos KDC. The password may not include the dollar sign or backslash characters (<code class="codeph">$</code>,<code class="codeph">\</code>).</p>
+</div>
+</div>
+<a id="BIGOG76974"></a><a id="BIGOG76973"></a>
+<div class="props_rev_3"><a id="GUID-8292CCED-6EAA-486F-BBE0-1EE200CF0BFB"></a>
+<h4 id="BIGOG-GUID-8292CCED-6EAA-486F-BBE0-1EE200CF0BFB" class="sect4"><span class="enumeration_section">4.13.1.5</span> Installed Components</h4>
+<div>
+<p>You can install either Community Edition or Enterprise Edition of Oracle NoSQL Database.</p>
+<p>The following table describes these choices.</p>
+<div class="tblformal" id="GUID-8292CCED-6EAA-486F-BBE0-1EE200CF0BFB__GUID-D9CDF86E-7C8E-4C53-A537-D745F0E8FB43">
+<p class="titleintable">Table 4-12 Installed Components</p>
+<table class="cellalignment188" title="Installed Components" summary="Field descriptions of software options">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e2098">Component Field</th>
+<th class="cellalignment194" id="d22211e2101">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2106" headers="d22211e2098">
+<p><a id="d22211e2108" class="indexterm-anchor"></a>Oracle NoSQL Database Edition</p>
+</td>
+<td class="cellalignment196" headers="d22211e2106 d22211e2101">
+<p>Choose between Community Edition and Enterprise Edition:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Community Edition</span> is included in the license for Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p><span class="bold">Enterprise Edition</span> requires a separate license. You must have this license to install Enterprise Edition on Oracle Big Data Appliance.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76998"></a><a id="BIGOG76997"></a>
+<div class="props_rev_3"><a id="GUID-7AF3670D-FBD2-4D42-B23A-7077D05EC4F1"></a>
+<h4 id="BIGOG-GUID-7AF3670D-FBD2-4D42-B23A-7077D05EC4F1" class="sect4"><span class="enumeration_section">4.13.1.6</span> Oracle NoSQL Configuration</h4>
+<div>
+<p>Oracle NoSQL Database 12<span class="italic">c</span> Release 1.3.0.5 and later versions support secondary zones, which are composed of nodes that function only as replicas. You can use the secondary zones on Oracle Big Data Appliance to maintain extra copies of the data for increased redundancy and read capacity, or to provide low latency, read access to data at a distant location.</p>
+<p>The following table describes the modifiable configuration settings.</p>
+<div class="tblformal" id="GUID-7AF3670D-FBD2-4D42-B23A-7077D05EC4F1__GUID-EDB8401A-452C-4EA2-B0FB-27B6A2F7C0EC">
+<p class="titleintable">Table 4-13 Oracle NoSQL Configuration</p>
+<table class="cellalignment188" title="Oracle NoSQL Configuration" summary="Field descriptions of configuration settings">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e2164">Configuration Field</th>
+<th class="cellalignment194" id="d22211e2167">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2172" headers="d22211e2164">
+<p>Oracle NoSQL store name</p>
+</td>
+<td class="cellalignment196" headers="d22211e2172 d22211e2167">
+<p>A unique name for the KV store on Oracle Big Data Appliance. The default value is BDAKV1.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2179" headers="d22211e2164">
+<p>Oracle NoSQL primary zone name</p>
+</td>
+<td class="cellalignment196" headers="d22211e2179 d22211e2167">
+<p>The name of the primary zone for all nodes in the cluster. The default value is BDAKV1_PRIMARY_ZN.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2186" headers="d22211e2164">
+<p>Oracle NoSQL primary zone replication factor</p>
+</td>
+<td class="cellalignment196" headers="d22211e2186 d22211e2167">
+<p>A replication factor of 1 or more for the primary zone. The default value is 3.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+</div>
+<a id="BIGOG76937"></a>
+<div class="props_rev_3"><a id="GUID-0BCC9610-205F-4A9B-9C39-85404E5E4629"></a>
+<h3 id="BIGOG-GUID-0BCC9610-205F-4A9B-9C39-85404E5E4629" class="sect3"><span class="enumeration_section">4.13.2</span> A New CDH Cluster</h3>
+<div>
+<p>For each new cluster, the Configuration Utility provides a page where you configure the networking for the cluster. On this page, provide the following general information about the cluster&rsquo;s client network:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Cluster Name</p>
+</li>
+<li>
+<p>DNS Servers</p>
+</li>
+<li>
+<p>NTP Servers</p>
+</li>
+<li>
+<p>Search Domains</p>
+</li>
+<li>
+<p>Domain Name</p>
+</li>
+<li>
+<p>Region</p>
+</li>
+<li>
+<p>Time Zone</p>
+</li>
+</ul>
+<p>Also provide the configuration details requested in the following subsections of the page:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="configurator.htm#GUID-07816639-8838-41E1-AE77-8C9BF6604673">User/Groups</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#unique_271079219">Client Network</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#unique_1135826698">InfiniBand Network</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-DA2846F8-09F8-4157-9218-DCA575EB55B6">Big Data SQL</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-EA937C07-94C8-41F4-851D-E4E6A36508A3">Big Data Connectors</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-64A934C4-A9A0-4D1D-9608-EC2A17ED9DA1">MIT Kerberos</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-FEA6BD3E-4A40-4AD0-BD9D-4BB13D6BC484">Active Directory Kerberos</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-58CA882F-6E47-4518-ADA0-6F52972DD1D0">HDFS Transparent Encryption</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-0F4D5CDB-3937-4368-AA57-5C8172C8781D">Auto Service Request</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-9AF56F34-AC99-47B0-BF10-B8E5B19C9466">Enterprise Management Cloud Control</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-C56771B9-7C89-465E-86AE-EF752572ED91">Email Alerting</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG76939"></a><a id="BIGOG76938"></a>
+<div class="props_rev_3"><a id="GUID-07816639-8838-41E1-AE77-8C9BF6604673"></a>
+<h4 id="BIGOG-GUID-07816639-8838-41E1-AE77-8C9BF6604673" class="sect4"><span class="enumeration_section">4.13.2.1</span> User/Groups</h4>
+<div>
+<p>The following table describes the user name, groups, and password fields for a new CDH cluster. Passwords are optional, but you must enter them during the software installation if you do not provide them here.</p>
+<div class="tblformal" id="GUID-07816639-8838-41E1-AE77-8C9BF6604673__GUID-DB7A2812-ABE9-4CBD-9D53-149EF4D7C3CA">
+<p class="titleintable">Table 4-14 User /Groups for a New CDH Cluster</p>
+<table class="cellalignment188" title="User /Groups for a New CDH Cluster" summary="CDH cluster user, group, and password fields">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e2318">User/Groups Field</th>
+<th class="cellalignment194" id="d22211e2321">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2326" headers="d22211e2318">
+<p>OS password for root user</p>
+</td>
+<td class="cellalignment196" headers="d22211e2326 d22211e2321">
+<p>The <code class="codeph">root</code> password on all servers in the cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2336" headers="d22211e2318">
+<p>OS password for oracle user</p>
+</td>
+<td class="cellalignment196" headers="d22211e2336 d22211e2321">
+<p>The <code class="codeph">oracle</code> password on all servers in the cluster. Oracle applications run under this identity.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2346" headers="d22211e2318">
+<p><a id="d22211e2348" class="indexterm-anchor"></a>oracle user ID</p>
+</td>
+<td class="cellalignment196" headers="d22211e2346 d22211e2321">
+<p>The ID number of the <code class="codeph">oracle</code> user. It must match the <code class="codeph">oracle</code> UID of a connected Oracle Exadata Database Machine. The UID ensures that the <code class="codeph">oracle</code> user can log in from Oracle Big Data Appliance to the correct account in Oracle Database. Required.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2364" headers="d22211e2318">
+<p><a id="d22211e2366" class="indexterm-anchor"></a>oinstall group ID</p>
+</td>
+<td class="cellalignment196" headers="d22211e2364 d22211e2321">
+<p>The ID number of the <a id="d22211e2372" class="indexterm-anchor"></a>Oracle Inventory Group (<code class="codeph">oinstall</code>). It must match the <code class="codeph">oinstall</code> group ID of a connected Oracle Exadata Database Machine.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2382" headers="d22211e2318">
+<p><a id="d22211e2384" class="indexterm-anchor"></a>dba group ID</p>
+</td>
+<td class="cellalignment196" headers="d22211e2382 d22211e2321">
+<p>The ID number of the <code class="codeph">dba</code> group. It must match the <code class="codeph">dba</code> group ID of a connected <a id="d22211e2396" class="indexterm-anchor"></a>Oracle Exadata Database Machine.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2400" headers="d22211e2318">
+<p>Cloudera Manager admin password</p>
+</td>
+<td class="cellalignment196" headers="d22211e2400 d22211e2321">
+<p>The password for the <code class="codeph">admin</code> user for Cloudera Manager. Available only for CDH clusters.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2410" headers="d22211e2318">
+<p>MySQL admin password</p>
+</td>
+<td class="cellalignment196" headers="d22211e2410 d22211e2321">
+<p>The password for the MySQL Database administration user. Available only for CDH clusters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<div class="props_rev_3"><a id="unique_271079219"></a>
+<h4 id="BIGOG-unique_271079219" class="sect4"><span class="enumeration_section">4.13.2.2</span> Client Network</h4>
+<div>
+<p><a id="d22211e2436" class="indexterm-anchor"></a><a id="d22211e2443" class="indexterm-anchor"></a><a id="d22211e2445" class="indexterm-anchor"></a></p>
+<p>The following table describes the fields of the Client Network panel on the Cluster Page of the Oracle Big Data Configuration Utility.</p>
+<p>Note that Client and private InfiniBand networks within a cluster may not use the same subnet. However, subnets may be shared by client networks on different clusters.</p>
+<div class="tblformal" id="unique_271079219__B10F3859">
+<p class="titleintable">Table 4-15 Client Network</p>
+<table class="cellalignment188" title="Client Network" summary="Describes fields in the Client Network section of the Configuration Utility.">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e2461">Client Network Field</th>
+<th class="cellalignment194" id="d22211e2464">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2469" headers="d22211e2461">
+<p>Starting IP Address for Pool</p>
+</td>
+<td class="cellalignment196" headers="d22211e2469 d22211e2464">
+<p>The first IP address on the client network you are configuring.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2476" headers="d22211e2461">
+<p>Pool Size</p>
+</td>
+<td class="cellalignment196" headers="d22211e2476 d22211e2464">
+<p>The required number of IP addresses (one for each node in the current cluster).</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2483" headers="d22211e2461">
+<p>Ending IP Address for Pool</p>
+</td>
+<td class="cellalignment196" headers="d22211e2483 d22211e2464">
+<p>The last IP address on the client network. This is calculated automatically based on the starting address and pool size.</p>
+<p>Ensure that all of the IP addresses are available for use in the pool defined by the starting and ending addresses. If not all are available, then you can either assign a different range or manually change individual IP addresses on the Client and InfiniBand Network page.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2492" headers="d22211e2461">
+<p>Subnet Mask</p>
+</td>
+<td class="cellalignment196" headers="d22211e2492 d22211e2464">
+<p>The subnet mask of the client network on the current cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2499" headers="d22211e2461">
+<p>Gateway</p>
+</td>
+<td class="cellalignment196" headers="d22211e2499 d22211e2464">
+<p>The IP address of the client network on the current cluster.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2506" headers="d22211e2461">
+<p>VLAN ID</p>
+</td>
+<td class="cellalignment196" headers="d22211e2506 d22211e2464">
+<p>Note that the default VLAN ID value is <code>NO</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2516" headers="d22211e2461">
+<p>Domain</p>
+</td>
+<td class="cellalignment196" headers="d22211e2516 d22211e2464">
+<p>FQDN of the domain hosting the network.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2523" headers="d22211e2461">
+<p>Use LACP/LAG</p>
+</td>
+<td class="cellalignment196" headers="d22211e2523 d22211e2464">
+<p>Click this checkbox to create a Link Aggregation Group for client networks.</p>
+<p>Note that after a LAG is created, the connectors in the LAG are not available for individual selection, nor inclusion in other LAGs or for use in a VLAN or VNIC.</p>
+<p>LAG setup on the Oracle Big Data Appliance side is automated if you select this option and assign connectors to the LAG. However, you must manually enable LAG mode on external switches that will communicate with the InfiniBand switch over the LAG. See <a href="network.htm#GUID-CDD8E898-4196-491C-89DA-EFDD854BE892" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Configuring for LACP/LAG Connections</a></p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2539" headers="d22211e2461">
+<p>Connectors</p>
+</td>
+<td class="cellalignment196" headers="d22211e2539 d22211e2464">
+<p>You must check at least one connector from the eight connectors for each cluster&rsquo;s client network. This provides each cluster with least two connectors. (One connector is dedicated to failover and is located on the secondary InfiniBand switch.) Make the10 GbE connections to the same ports on both switches.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2546" headers="d22211e2461">
+<p>Add a Client to this Cluster</p>
+</td>
+<td class="cellalignment196" headers="d22211e2546 d22211e2464">
+<p>Add another client network to this cluster. Click this button to create another set of input fields. Add the necessary identfiers to these fields in order to configure the additional client network.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2553" headers="d22211e2461">
+<p>Remove a Client from this Cluster</p>
+</td>
+<td class="cellalignment196" headers="d22211e2553 d22211e2464">
+<p>Removes the last additional client from the list of client networks.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<div class="props_rev_3"><a id="unique_1135826698"></a>
+<h4 id="BIGOG-unique_1135826698" class="sect4"><span class="enumeration_section">4.13.2.3</span> InfiniBand Network</h4>
+<div>
+<p>The InfiniBand network connects the Oracle Big Data Appliance servers within a rack. It can also connect multiple racks to form a multirack Hadoop cluster, or to provide access to Oracle Big Data Appliance from Oracle Exadata Database Machine.</p>
+<p>Although you can configure multiple client networks within a cluster, each cluster can support only one InfiniBand network.</p>
+<p>The following table describes the InfiniBand network fields.</p>
+<div class="tblformal" id="unique_1135826698__GUID-6266199B-7318-47F0-BA9A-5F2E29D1FE20">
+<p class="titleintable">Table 4-16 InfiniBand Network Page</p>
+<table class="cellalignment188" title="InfiniBand Network Page" summary="client network">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e2603">InfiniBand Network Field</th>
+<th class="cellalignment194" id="d22211e2606">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2611" headers="d22211e2603">
+<p>Starting IP Address for Pool</p>
+</td>
+<td class="cellalignment196" headers="d22211e2611 d22211e2606">
+<p>The first IP address on the private InfiniBand network available for use by the Oracle Big Data Appliance servers. The default is 192.168.10.1.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2618" headers="d22211e2603">
+<p>Pool Size</p>
+</td>
+<td class="cellalignment196" headers="d22211e2618 d22211e2606">
+<p>The required number of IP addresses. All Oracle Big Data Appliance servers require an IP address on the InfiniBand network. The pool size is calculated for the deployment that you identified on the <a href="configurator.htm#GUID-651EEFED-9E60-4A75-96F5-F43242DC9CB7">Hardware Selection Page</a>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2628" headers="d22211e2603">
+<p>Ending IP Address for Pool</p>
+</td>
+<td class="cellalignment196" headers="d22211e2628 d22211e2606">
+<p>The last IP address assigned to the InfiniBand network for this deployment. This address is automatically calculated from the starting IP address and the pool size.</p>
+<p>Ensure that all of the IP addresses are available for use in the pool defined by the starting and ending addresses. If they are not available, then you can either assign a different range or manually change individual IP addresses on the <a href="configurator.htm#GUID-DA64E1CE-CC59-48F6-B599-6AB42C180232">Review and Edit Details Page</a>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2640" headers="d22211e2603">
+<p>Subnet Mask</p>
+</td>
+<td class="cellalignment196" headers="d22211e2640 d22211e2606">
+<p>The subnet mask for the InfiniBand network. The default is 255.255.252.0.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2647" headers="d22211e2603">PKey</td>
+<td class="cellalignment196" headers="d22211e2647 d22211e2606">The unique ID of the InfiniBand partition used by this network.</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2652" headers="d22211e2603">PName</td>
+<td class="cellalignment196" headers="d22211e2652 d22211e2606">The partition name.</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2657" headers="d22211e2603">PType</td>
+<td class="cellalignment196" headers="d22211e2657 d22211e2606">The partition membership type (FULL or LIMITED).</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2662" headers="d22211e2603">MTU</td>
+<td class="cellalignment196" headers="d22211e2662 d22211e2606">Maximum Transmission Unit for this network.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG77000"></a><a id="BIGOG76999"></a>
+<div class="props_rev_3"><a id="GUID-DA2846F8-09F8-4157-9218-DCA575EB55B6"></a>
+<h4 id="BIGOG-GUID-DA2846F8-09F8-4157-9218-DCA575EB55B6" class="sect4"><span class="enumeration_section">4.13.2.4</span> Big Data SQL</h4>
+<div>
+<p>You can install Oracle Big Data SQL on a CDH cluster. You must have a separate license for this product. The following table describes the Oracle Big Data SQL fields.</p>
+<div class="tblformal" id="GUID-DA2846F8-09F8-4157-9218-DCA575EB55B6__GUID-DD6E9097-3435-4E6C-AAFF-541DC4A8C058">
+<p class="titleintable">Table 4-17 Big Data SQL</p>
+<table class="cellalignment188" title="Big Data SQL" summary="Big Data SQL fields. Column 1 names each field. Column 2 provided the corresponding field description.">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e2697">Big Data SQL Field</th>
+<th class="cellalignment194" id="d22211e2700">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2705" headers="d22211e2697">
+<p>Is Big Data SQL licensed?</p>
+</td>
+<td class="cellalignment196" headers="d22211e2705 d22211e2700">
+<p>Oracle Big Data SQL supports queries from Oracle Database against data stored in Hive and HDFS on Oracle Big Data Appliance. This technology requires a separate license. If you have a license, choose <span class="bold">Yes</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2715" headers="d22211e2697">
+<p>Install Big Data SQL?</p>
+</td>
+<td class="cellalignment196" headers="d22211e2715 d22211e2700">
+<p>Choose <span class="bold">Yes</span> to install Oracle Big Data SQL 2.0 during the initial software release. Oracle Big Data Appliance must be connected over the InfiniBand network to Oracle Exadata Database Machine. Choose <span class="bold">No</span> to defer this installation to a later date.</p>
+<p>If you opt to install Big Data SQL 3.0.1 instead of 2.0, then choose <span class="bold">No</span>. Big Data SQL 3.0.1 can be installed via patch after the installation. It is not a Mammoth installation option. See the <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=390612538651082&amp;id=2119369.1&amp;_adf.ctrl-state=7jgmshi49_134" target="_blank">Oracle Big Data SQL Master Compatibility Matrix (Doc ID 2119369.1)</a> in My Oracle Support.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2737" headers="d22211e2697">
+<p>Is Big Data SQL using InfiniBand?</p>
+</td>
+<td class="cellalignment196" headers="d22211e2737 d22211e2700">
+<p>Choose Yes to use the InfiniBand network. Choose <span class="bold">No</span> to use the Client network. The default is <span class="bold">Yes</span>.</p>
+<p>Note: Ethernet networking for Oracle Big Data SQL between Oracle SPARC SuperCluster and Oracle Big Data Appliance is not supported at this time.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76941"></a><a id="BIGOG76940"></a>
+<div class="props_rev_3"><a id="GUID-EA937C07-94C8-41F4-851D-E4E6A36508A3"></a>
+<h4 id="BIGOG-GUID-EA937C07-94C8-41F4-851D-E4E6A36508A3" class="sect4"><span class="enumeration_section">4.13.2.5</span> Big Data Connectors</h4>
+<div>
+<p>You can install <a id="d22211e2772" class="indexterm-anchor"></a>Oracle Big Data Connectors on a CDH cluster. You must have a separate license for this product. The following table describes the installed components field.</p>
+<div class="tblformal" id="GUID-EA937C07-94C8-41F4-851D-E4E6A36508A3__GUID-1A29E3A4-DEB0-431C-9525-44A19C553369">
+<p class="titleintable">Table 4-18 Installed Components</p>
+<table class="cellalignment188" title="Installed Components" summary="Field descriptions of software options">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e2787">Component Field</th>
+<th class="cellalignment194" id="d22211e2790">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2795" headers="d22211e2787">
+<p>Are Big Data Connectors licensed?</p>
+</td>
+<td class="cellalignment196" headers="d22211e2795 d22211e2790">
+<p><a id="d22211e2800" class="indexterm-anchor"></a><a id="d22211e2804" class="indexterm-anchor"></a><a id="d22211e2808" class="indexterm-anchor"></a>Oracle Big Data Connectors facilitate data access between data stored in the CDH cluster and Oracle Database. The connectors require a separate license. If you have a license, choose <span class="bold">Yes</span>. This choice activates the other fields.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2817" headers="d22211e2787">
+<p>Install <a id="d22211e2820" class="indexterm-anchor"></a>Oracle Data Integrator Agent?</p>
+</td>
+<td class="cellalignment196" headers="d22211e2817 d22211e2790">
+<p>The agent supports Oracle Data Integrator, which is one of the Oracle Big Data Connectors.To configure Oracle Data Integrator for use immediately, choose <span class="bold">Yes</span>.</p>
+<p>You must have a license for Oracle Big Data Connectors.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2834" headers="d22211e2787">
+<p>MySQL password for <a id="d22211e2837" class="indexterm-anchor"></a>Oracle Data Integrator Agent?</p>
+</td>
+<td class="cellalignment196" headers="d22211e2834 d22211e2790">
+<p>The password for the Oracle Data Integrator user in MySQL Database.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76943"></a><a id="BIGOG76942"></a>
+<div class="props_rev_3"><a id="GUID-64A934C4-A9A0-4D1D-9608-EC2A17ED9DA1"></a>
+<h4 id="BIGOG-GUID-64A934C4-A9A0-4D1D-9608-EC2A17ED9DA1" class="sect4"><span class="enumeration_section">4.13.2.6</span> MIT Kerberos</h4>
+<div>
+<p><a id="d22211e2864" class="indexterm-anchor"></a>MIT Kerberos authentication is a security option for CDH clusters. It is included with your Oracle Big Data Appliance license.</p>
+<p>To use a key distribution center (KDC) elsewhere on the network (that is, not on Oracle Big Data Appliance), you must complete several steps before installing the software. See <span class="q">"<a href="mammoth.htm#GUID-5D0B03C7-7205-4752-BBB9-CFBD69EFD109">Installation Prerequisites</a>."</span></p>
+<p>The following table describes the MIT Kerberos fields.</p>
+<div class="tblformal" id="GUID-64A934C4-A9A0-4D1D-9608-EC2A17ED9DA1__GUID-07F9ECDC-1D35-4375-8BF8-1F1A9C7F4BDF-1">
+<p class="titleintable">Table 4-19 MIT Kerberos</p>
+<table class="cellalignment188" title="MIT Kerberos" summary="CDH cluster MIT Kerberos fields">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e2887">Kerberos Field</th>
+<th class="cellalignment194" id="d22211e2890">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2895" headers="d22211e2887">
+<p>Enable MIT Kerberos-based authentication?</p>
+</td>
+<td class="cellalignment196" headers="d22211e2895 d22211e2890">
+<p>Select this option to support MIT Kerberos on Oracle Big Data Appliance.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2902" headers="d22211e2887">
+<p>Set up <a id="d22211e2905" class="indexterm-anchor"></a>key distribution center on BDA</p>
+</td>
+<td class="cellalignment196" headers="d22211e2902 d22211e2890">
+<p>Choose <span class="bold">Yes</span> to set up a key distribution center (KDC) on Oracle Big Data Appliance. Otherwise, a KDC must always be available on the network to all clients.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2915" headers="d22211e2887">
+<p>Kerberos KDC database password</p>
+</td>
+<td class="cellalignment196" headers="d22211e2915 d22211e2890">
+<p>A password for the KDC database, if it is being created on Oracle Big Data Appliance.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2922" headers="d22211e2887">
+<p>Non-BDA key distribution center hosts</p>
+</td>
+<td class="cellalignment196" headers="d22211e2922 d22211e2890">
+<p>List the fully qualified names or the IP addresses of the KDCs, available on the same network, that can serve as either the primary or backup KDC for Oracle Big Data Appliance.</p>
+<div class="infobox-note" id="GUID-64A934C4-A9A0-4D1D-9608-EC2A17ED9DA1__GUID-641F6BAD-0FF5-4EC1-B3CA-643A2CC7D049">
+<p class="notep1">Important:</p>
+The first external KDC server in the list (the one at the top of the list), must be the same server identified as the Kerberos Admin Server in <code>Krb5.conf</code>.</div>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2934" headers="d22211e2887">
+<p>Kerberos realm</p>
+</td>
+<td class="cellalignment196" headers="d22211e2934 d22211e2890">
+<p>Enter the name of the realm for Oracle Big Data Appliance, such as <code class="codeph">EXAMPLE.COM</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2944" headers="d22211e2887">
+<p>Encrypt HDFS Data Transport</p>
+</td>
+<td class="cellalignment196" headers="d22211e2944 d22211e2890">
+<p>Enables encryption of data transfer between DataNodes and clients, and among DataNodes.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2951" headers="d22211e2887">
+<p>Encrypt Hadoop Services</p>
+</td>
+<td class="cellalignment196" headers="d22211e2951 d22211e2890">
+<p>Enables SSL encryption for HDFS, MapReduce, and YARN web interfaces, as well as encrypted shuffle for MapReduce and YARN. It also enables authentication for access to the web console for the HDFS, MapReduce, and YARN roles.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e2958" headers="d22211e2887">Enable Sentry Authorization</td>
+<td class="cellalignment196" headers="d22211e2958 d22211e2890">
+<p>Select this option to use Apache Sentry to provide fine-grained authorization to data stored in Hadoop.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG77073"></a><a id="BIGOG77072"></a>
+<div class="props_rev_3"><a id="GUID-FEA6BD3E-4A40-4AD0-BD9D-4BB13D6BC484"></a>
+<h4 id="BIGOG-GUID-FEA6BD3E-4A40-4AD0-BD9D-4BB13D6BC484" class="sect4"><span class="enumeration_section">4.13.2.7</span> Active Directory Kerberos</h4>
+<div>
+<p><a id="d22211e2983" class="indexterm-anchor"></a>Active Directory Kerberos authentication is a Windows-based security option for CDH clusters. It is included with your Oracle Big Data Appliance license.</p>
+<p>The following table describes the Active Directory Kerberos fields.</p>
+<div class="tblformal" id="GUID-FEA6BD3E-4A40-4AD0-BD9D-4BB13D6BC484__GUID-ED9DD35B-DEA8-4E2F-859B-E749FACD8248">
+<p class="titleintable">Table 4-20 Active Directory Kerberos</p>
+<table class="cellalignment188" title="Active Directory Kerberos" summary="CDH cluster Active Directory Kerberos fields">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment278" id="d22211e3000">Kerberos Field</th>
+<th class="cellalignment280" id="d22211e3003">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment279" id="d22211e3008" headers="d22211e3000">
+<p>Enable Active Directory Kerberos-based authentication?</p>
+</td>
+<td class="cellalignment281" headers="d22211e3008 d22211e3003">
+<p>Select this option to support Active Directory Kerberos on Oracle Big Data Appliance.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment279" id="d22211e3015" headers="d22211e3000">
+<p>Active Directory Host</p>
+</td>
+<td class="cellalignment281" headers="d22211e3015 d22211e3003">
+<p>The fully qualified name or IP address of the Active Directory host.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment279" id="d22211e3022" headers="d22211e3000">
+<p>Kerberos realm</p>
+</td>
+<td class="cellalignment281" headers="d22211e3022 d22211e3003">
+<p>Enter the name of the realm for Oracle Big Data Appliance, such as EXAMPLE.COM.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment279" id="d22211e3029" headers="d22211e3000">
+<p>Active Directory Domain</p>
+</td>
+<td class="cellalignment281" headers="d22211e3029 d22211e3003">
+<p>Domain distinguished name where all the accounts are created on the Active Directory, such as ou=bda,DC=example,DC=com.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment279" id="d22211e3036" headers="d22211e3000">
+<p>Active Directory Account Prefix</p>
+</td>
+<td class="cellalignment281" headers="d22211e3036 d22211e3003">
+<p>Add an optional prefix for all Active Directory account names in this domain. 10 characters maximum length. Restricted to <code class="codeph">aA-zZ</code>, <code class="codeph">0-9</code>, <code class="codeph">-</code>, <code class="codeph">_</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment279" id="d22211e3055" headers="d22211e3000">
+<p>Active Directory admin user</p>
+</td>
+<td class="cellalignment281" headers="d22211e3055 d22211e3003">
+<p>Name of the Active Director Admin user that can create, delete, and modify accounts on the Active Directory.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment279" id="d22211e3062" headers="d22211e3000">
+<p>Active Directory admin password</p>
+</td>
+<td class="cellalignment281" headers="d22211e3062 d22211e3003">
+<p>Password for the Active Director Admin user.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment279" id="d22211e3069" headers="d22211e3000">
+<p>Encrypt HDFS Data Transport</p>
+</td>
+<td class="cellalignment281" headers="d22211e3069 d22211e3003">
+<p>Enables encryption of data transfer between DataNodes and clients, and among DataNodes.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment279" id="d22211e3076" headers="d22211e3000">
+<p>Encrypt Hadoop Services</p>
+</td>
+<td class="cellalignment281" headers="d22211e3076 d22211e3003">
+<p>Enables SSL encryption for HDFS, MapReduce, and YARN web interfaces, as well as encrypted shuffle for MapReduce and YARN. It also enables authentication for access to the web console for the HDFS, MapReduce, and YARN roles.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment279" id="d22211e3083" headers="d22211e3000">
+<p>Enable Sentry authorization</p>
+</td>
+<td class="cellalignment281" headers="d22211e3083 d22211e3003">
+<p>Select this option to use Apache Sentry to provide fine-grained authorization to data stored in Hadoop.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-58CA882F-6E47-4518-ADA0-6F52972DD1D0"></a>
+<h4 id="BIGOG-GUID-58CA882F-6E47-4518-ADA0-6F52972DD1D0" class="sect4"><span class="enumeration_section">4.13.2.8</span> HDFS Transparent Encryption</h4>
+<div>
+<p><a id="d22211e3107" class="indexterm-anchor"></a>HDFS Transparent Encryption is a security option for data at-rest in CDH clusters.</p>
+<p>HDFS Transparent Encryption requires that you enable Kerberos. It works with either Active Directory Kerberos or MIT Kerberos. (See <span class="q">"<a href="mammoth.htm#GUID-5D0B03C7-7205-4752-BBB9-CFBD69EFD109">Installation Prerequisites</a>."</span>)</p>
+<p>The following table describes the HDFS Transparent Encryption fields.</p>
+<div class="tblformal" id="GUID-58CA882F-6E47-4518-ADA0-6F52972DD1D0__GUID-07F9ECDC-1D35-4375-8BF8-1F1A9C7F4BDF">
+<p class="titleintable">Table 4-21 HDFS Transparent Encryption</p>
+<table class="cellalignment188" title="HDFS Transparent Encryption" summary="CDH cluster HDFS Transparent Encryption fields">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e3131">HDFS Transparent Field</th>
+<th class="cellalignment194" id="d22211e3134">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3139" headers="d22211e3131">
+<p>Enable HDFS Transparent Encryption.</p>
+</td>
+<td class="cellalignment196" headers="d22211e3139 d22211e3134">
+<p>Select this option to enable encryption of Hadoop data at rest on the Oracle Big Data Appliance.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3146" headers="d22211e3131">
+<p>Set up Key Trustee Servers on the BDA</p>
+</td>
+<td class="cellalignment196" headers="d22211e3146 d22211e3134">
+<p>Select this option to set up Key Trustee Servers internally on BDA cluster. If you enable this option, the remaining key trustee setup parameters are not needed. Mammoth will configure the installation.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3153" headers="d22211e3131">
+<p>Active Navigator Key Trustee Server</p>
+</td>
+<td class="cellalignment196" headers="d22211e3153 d22211e3134">
+<p>Manages encryption keys, certificates, and passwords. In the current implementation, this must be a server external to the Oracle Big Data Appliance.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3160" headers="d22211e3131">
+<p>Passive Navigator Key Trustee Server</p>
+</td>
+<td class="cellalignment196" headers="d22211e3160 d22211e3134">
+<p>The passive Navigator Key Trustee Server is a backup to ensure that this service does not become a single point of failure.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3167" headers="d22211e3131">
+<p>Key Trustee Organization</p>
+</td>
+<td class="cellalignment196" headers="d22211e3167 d22211e3134">
+<p>Key Trustee organization name configured by the Key Trustee Server administrator. This is the organization that keys are stored against.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3174" headers="d22211e3131">
+<p>Key Trustee Authorization Code</p>
+</td>
+<td class="cellalignment196" headers="d22211e3174 d22211e3134">
+<p>The authorization code that corresponds to the Navigator Key Trustee organization. This code is used by Cloudera Manager to authenticate against the Key Trustee Server.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76947"></a><a id="BIGOG76946"></a>
+<div class="props_rev_3"><a id="GUID-0F4D5CDB-3937-4368-AA57-5C8172C8781D"></a>
+<h4 id="BIGOG-GUID-0F4D5CDB-3937-4368-AA57-5C8172C8781D" class="sect4"><span class="enumeration_section">4.13.2.9</span> Auto Service Request</h4>
+<div>
+<p>ASR monitors the health of Oracle Big Data Appliance hardware and automatically submits a service request when it detects a fault. Although you can opt out of this program, Oracle recommends that you enable ASR.</p>
+<p>ASR Manager must be installed and configured to run on a separate server outside of Oracle Big Data Appliance before the software is installed and configured on Oracle Big Data Appliance. The software installation fails with an error if Enable Auto Service Request is selected, but ASR Manager is not accessible using the specified host address and port number. The Mammoth utility does not install ASR Manager.</p>
+<p>The software on Oracle Big Data Appliance must be able to connect to <a id="d22211e3212" class="indexterm-anchor"></a>ASR Manager. ASR Manager must be able to route to the Internet, either directly or through a proxy, to send event information that automatically opens service requests.</p>
+<p>The following table describes the Auto Service Request fields.</p>
+<div class="tblformal" id="GUID-0F4D5CDB-3937-4368-AA57-5C8172C8781D__GUID-08BB3CAA-6398-43CB-9BDE-6F9D738B0211">
+<p class="titleintable">Table 4-22 Auto Service Request</p>
+<table class="cellalignment188" title="Auto Service Request" summary="ASR properties">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e3227">ASR Field</th>
+<th class="cellalignment194" id="d22211e3230">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3235" headers="d22211e3227">
+<p>Enable Auto Service Request</p>
+</td>
+<td class="cellalignment196" headers="d22211e3235 d22211e3230">
+<p>Select this option to support Auto Service Request.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3242" headers="d22211e3227">
+<p>ASR Manager Host Name</p>
+</td>
+<td class="cellalignment196" headers="d22211e3242 d22211e3230">
+<p>The fully qualified name or the IP address of a Linux server on the network where ASR will be installed</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3249" headers="d22211e3227">
+<p><a id="d22211e3251" class="indexterm-anchor"></a><a id="d22211e3255" class="indexterm-anchor"></a>ASR Manager Port</p>
+</td>
+<td class="cellalignment196" headers="d22211e3249 d22211e3230">
+<p>The port number for ASR Manager. The default port is 162.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3264" headers="d22211e3227">
+<p>ASR Root Password</p>
+</td>
+<td class="cellalignment196" headers="d22211e3264 d22211e3230">
+<p>Password for <code class="codeph">root</code> on the ASR Manager host</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76949"></a><a id="BIGOG76948"></a>
+<div class="props_rev_3"><a id="GUID-9AF56F34-AC99-47B0-BF10-B8E5B19C9466"></a>
+<h4 id="BIGOG-GUID-9AF56F34-AC99-47B0-BF10-B8E5B19C9466" class="sect4"><span class="enumeration_section">4.13.2.10</span> Enterprise Management Cloud Control</h4>
+<div>
+<p>The Mammoth utility deploys and validates agents on Oracle Big Data Appliance that Enterprise Manager uses to monitor the appliance. Mammoth does not install <a id="d22211e3298" class="indexterm-anchor"></a><a id="d22211e3300" class="indexterm-anchor"></a><a id="d22211e3306" class="indexterm-anchor"></a>Oracle Enterprise Manager Cloud Control.</p>
+<p>Before you can configure Oracle Big Data Appliance for the Enterprise Manager system monitoring plugin, you must install and configure Enterprise Manager to run on a separate server outside of Oracle Big Data Appliance. The Oracle Big Data Appliance software installation fails with an error if you choose the Enterprise Manager option, but Enterprise Manager is not installed and accessible using the specified host address, port numbers, and so forth.</p>
+<p>The following table describes the Enterprise Manager Cloud Control fields.</p>
+<div class="tblformal" id="GUID-9AF56F34-AC99-47B0-BF10-B8E5B19C9466__GUID-63A478AB-FD18-4C20-B201-3EDC808DB6C4">
+<p class="titleintable">Table 4-23 Enterprise Manager Cloud Control</p>
+<table class="cellalignment188" title="Enterprise Manager Cloud Control" summary="Enterprise Manager configuration">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e3327">Cloud Control Field</th>
+<th class="cellalignment194" id="d22211e3330">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3335" headers="d22211e3327">
+<p>Enable Oracle Enterprise Manager Cloud Control Agent</p>
+</td>
+<td class="cellalignment196" headers="d22211e3335 d22211e3330">
+<p>Select this option to use the Oracle Enterprise Manager system monitoring plugin.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3342" headers="d22211e3327">
+<p>OMS Host Name</p>
+</td>
+<td class="cellalignment196" headers="d22211e3342 d22211e3330">
+<p>The fully qualified name or the IP address of the server where Oracle Management Server (OMS) is installed with the plugin for Oracle Big Data Appliance.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3349" headers="d22211e3327">
+<p>OMS HTTPS Console Port</p>
+</td>
+<td class="cellalignment196" headers="d22211e3349 d22211e3330">
+<p>The port number for the Oracle Enterprise Manager Cloud Control web interface.</p>
+<p>To obtain the HTTPS port numbers, use an <code class="codeph">emctl status oms -details</code> command from the Enterprise Manager host.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3361" headers="d22211e3327">
+<p>OMS HTTPS Upload Port</p>
+</td>
+<td class="cellalignment196" headers="d22211e3361 d22211e3330">
+<p>The HTTP upload port number for Oracle Enterprise Manager Cloud Control web interface.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3368" headers="d22211e3327">
+<p>EM Super Admin User</p>
+</td>
+<td class="cellalignment196" headers="d22211e3368 d22211e3330">
+<p>A Cloud Control user with super-administration privileges to perform administration <code class="codeph">emcli</code> commands. Typically, this user is <code class="codeph">sysman</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3381" headers="d22211e3327">
+<p>EM Super Admin Password</p>
+</td>
+<td class="cellalignment196" headers="d22211e3381 d22211e3330">
+<p>Password for the Cloud Control user name.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3388" headers="d22211e3327">
+<p>EM Agent Registration Password</p>
+</td>
+<td class="cellalignment196" headers="d22211e3388 d22211e3330">
+<p>The password for validating the Oracle Management agents on Oracle Big Data Appliance.</p>
+<p>The Agent Registration password is part of the security setup of Enterprise Manager. To obtain the password in Enterprise Manager, click <span class="bold">Setup</span> at the top right of the window, <span class="bold">Security</span>, and then <span class="bold">Registration Passwords</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3406" headers="d22211e3327">
+<p>Cloud Control SYS Password</p>
+</td>
+<td class="cellalignment196" headers="d22211e3406 d22211e3330">
+<p>The <code class="codeph">SYS</code> password for the Cloud Control repository.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3416" headers="d22211e3327">
+<p>Inventory Location</p>
+</td>
+<td class="cellalignment196" headers="d22211e3416 d22211e3330">
+<p>The full path of the <code class="codeph">oraInventory</code> directory for the system where Oracle Enterprise Manager is installed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="BIGOG76951"></a><a id="BIGOG76950"></a>
+<div class="props_rev_3"><a id="GUID-C56771B9-7C89-465E-86AE-EF752572ED91"></a>
+<h4 id="BIGOG-GUID-C56771B9-7C89-465E-86AE-EF752572ED91" class="sect4"><span class="enumeration_section">4.13.2.11</span> Email Alerting</h4>
+<div>
+<p>Cloudera Manager sends email alerts when it detects a problem in the CDH cluster.</p>
+<p>The following table describes the email alert fields.</p>
+<div class="tblformal" id="GUID-C56771B9-7C89-465E-86AE-EF752572ED91__GUID-947D9CDE-DB06-40E9-98A4-60539CB321F6">
+<p class="titleintable">Table 4-24 Email Alerting Page</p>
+<table class="cellalignment188" title="Email Alerting Page" summary="Email alert configuration">
+<thead>
+<tr class="cellalignment165">
+<th class="cellalignment193" id="d22211e3468">Email Alerting Field</th>
+<th class="cellalignment194" id="d22211e3471">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3476" headers="d22211e3468">
+<p>SMTP Server</p>
+</td>
+<td class="cellalignment196" headers="d22211e3476 d22211e3471">
+<p>The fully qualified name or the IP address of the existing SMTP server that the company uses on its internal network. Required.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3483" headers="d22211e3468">
+<p>Uses SSL</p>
+</td>
+<td class="cellalignment196" headers="d22211e3483 d22211e3471">
+<p>Select <span class="bold">Yes</span> if a Secure Sockets Layer (SSL) connection is required.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3493" headers="d22211e3468">
+<p>SMTP Port</p>
+</td>
+<td class="cellalignment196" headers="d22211e3493 d22211e3471">
+<p>The port number used by the email server</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3500" headers="d22211e3468">
+<p>Requires Authentication</p>
+</td>
+<td class="cellalignment196" headers="d22211e3500 d22211e3471">
+<p>Select this option if your SMTP server requires authentication. You can then enter a user name and a password.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3507" headers="d22211e3468">
+<p>SMTP User Name</p>
+</td>
+<td class="cellalignment196" headers="d22211e3507 d22211e3471">
+<p>User name for Cloudera Manager to log in to the SMTP server.</p>
+<p>This field is hidden when authentication not selected.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3516" headers="d22211e3468">
+<p>SMTP Password</p>
+</td>
+<td class="cellalignment196" headers="d22211e3516 d22211e3471">
+<p>Password for the user name.</p>
+<p>This field is hidden when authentication is not selected.</p>
+</td>
+</tr>
+<tr class="cellalignment165">
+<td class="cellalignment195" id="d22211e3525" headers="d22211e3468">
+<p>Recipient Addresses</p>
+</td>
+<td class="cellalignment196" headers="d22211e3525 d22211e3471">
+<p>The valid email addresses of users who need to get alerts from Cloudera Manager. Enter each email address on a separate line. Required.</p>
+<p>The field to the right indicates the number of email addresses entered in the dialog box.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+</div>
+<a id="BIGOG76934"></a>
+<div class="props_rev_3"><a id="GUID-BBB0E5E9-6688-47EA-9FC9-29DE3D1BCB49"></a>
+<h3 id="BIGOG-GUID-BBB0E5E9-6688-47EA-9FC9-29DE3D1BCB49" class="sect3"><span class="enumeration_section">4.13.3</span> Adding to an Existing Cluster</h3>
+<div>
+<p>You cannot use the Oracle Big Data Appliance Configuration Utility to add servers to an existing cluster. Use the Mammoth Utility to do this.</p>
+<p>See <span class="q">"<a href="mammoth.htm#GUID-4B64DAA8-9624-484D-9B55-D2F09B2629C5">Adding Servers to a Cluster</a>."</span></p>
+</div>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-6B42F3B6-DC6A-4EBC-9133-7161DB7A0685"></a>
+<h2 id="BIGOG-GUID-6B42F3B6-DC6A-4EBC-9133-7161DB7A0685" class="sect2"><span class="enumeration_section">4.14</span> Client Network Config Summary</h2>
+<div>
+<p>This page provides an opportunity to view all of the client network IP addresses on the rack and make any final changes before generating the configuration files.</p>
+<p>You can also click <span class="bold">Reset all IPs using default values</span> to void all client IP addresses and re-generate IP address assignments from the default client network IP address pool.</p>
+</div>
+</div>
+<a id="BIGOG76952"></a><a id="BDA_COMPLETE"></a>
+<div class="props_rev_3"><a id="GUID-CAF9CE4B-0EE5-4A81-A696-341E51BF023E"></a>
+<h2 id="BIGOG-GUID-CAF9CE4B-0EE5-4A81-A696-341E51BF023E" class="sect2"><span class="enumeration_section">4.15</span> Complete Page</h2>
+<div>
+<p>You have now set all the installation and configuration options. Click <span class="bold">Back</span> to return to a page and change its settings. The <span class="bold">Back</span> button does not clear the pages; your settings remain unless you change them.</p>
+<p>The text boxes on this page provide a place for you to identify the Hadoop components and any third-party applications that you plan to use on the cluster, and to record any notes that might be useful at a later date. This information is saved in a file named <code class="codeph">master.xml</code>, which you can use to reload these configuration settings into Oracle Big Data Appliance Configuration Generation Utility.</p>
+<p>To generate the configuration files, click <span class="bold">Create Files</span> and click <span class="bold">Yes</span> in response to the prompt. An operating system window automatically opens in the directory where the files are saved.</p>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment164">
+<tr>
+<td class="cellalignment197">
+<table class="cellalignment169">
+<tr>
+<td class="cellalignment168"><a href="network.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment168"><a href="asr.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment199">
+<table class="cellalignment167">
+<tr>
+<td class="cellalignment168"><a href="http://docs.oracle.com/bigdata/bda49/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment168"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment168"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment168"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

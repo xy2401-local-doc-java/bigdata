@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Changes in This Release for Oracle Big Data Spatial and Graph User's Guide and Reference</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2017-01-19T11:36:36Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Spatial and Graph User&rsquo;s Guide and Reference" />
+<meta name="dcterms.identifier" content="E67958-07" />
+<meta name="dcterms.isVersionOf" content="BDSPA" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda47/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="big-data-spatial-preface.htm" title="Previous" type="text/html" />
+<link rel="Next" href="big-data-spatial-overview.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDSPA.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-CCDBA84C-D2B6-4267-B344-C1D44A48036E"></a> <span id="PAGE" style="display:none;">6/15</span> <!-- End Header -->
+<h1 id="BDSPA-GUID-CCDBA84C-D2B6-4267-B344-C1D44A48036E" class="sect1">Changes in This Release for Oracle Big Data Spatial and Graph User's Guide and Reference</h1>
+<div>
+<p>This preface describes significant new features and changes in <span class="italic">Oracle Big Data Spatial and Graph User's Guide and Reference</span> for Oracle Big Data Spatial and Graph Release 2.1.</p>
+</div>
+<div class="props_rev_3"><a id="GUID-5FBE630D-884F-424F-A7A9-D79ED219342C"></a>
+<h2 id="BDSPA-GUID-5FBE630D-884F-424F-A7A9-D79ED219342C" class="sect2">Property Graph Query Language (PGQL) Enhancements</h2>
+<div>
+<p>Information about the Property Graph Query Language (PGQL) has been significantly expanded, and new PGQL capabilities have been added, including:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Arithmetic expressions in SELECT, ORDER BY, GROUP BY: Previously, arithmetic expressions were only allowed in the WHERE clause, while the SELECT, GROUP BY, and ORDER BY clauses only allowed basic expression. Now, all the clauses have full support for arithmetic expressions.</p>
+</li>
+<li>
+<p>MIN, MAX, and COUNT aggregates in PGQL now work with String values.</p>
+</li>
+</ul>
+<p>For information about PGQL and examples of how to use it, see the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="using-property-graphs-big-data.htm#GUID-25432BC8-B8EA-494E-8A6A-5C19ECD6760F">Querying Property Graph Data Using PGQL</a></p>
+</li>
+<li>
+<p><a href="using-in-memory-analyst.htm#GUID-96D9C0AA-CE52-48E6-A09E-D97E872A79A1">Using Pattern-Matching Queries with Graphs</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-FF94AA82-1567-47CF-866E-C008E2610C77"></a>
+<h2 id="BDSPA-GUID-FF94AA82-1567-47CF-866E-C008E2610C77" class="sect2">Zeppelin Notebook Interpreter</h2>
+<div>
+<p>The in-memory analyst now provides a Zeppelin Notebook (<a href="https://zeppelin.apache.org/" target="_blank">https://zeppelin.apache.org/</a>) interpreter. You can add graph analysis features to a Zeppelin notebook server, which enables collaborative editing graph analysis, and producing reports that can be live-edited and updated.</p>
+<p>For information, see <a href="using-in-memory-analyst.htm#GUID-C46BBFC0-EDDB-43E9-B313-56472404483A">Using the In-Memory Analyst Zeppelin Interpreter</a>.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-4261BDC5-7C3A-4DE4-AC43-824D7D095220"></a>
+<h2 id="BDSPA-GUID-4261BDC5-7C3A-4DE4-AC43-824D7D095220" class="sect2">Apache Spark Integration Enhancements</h2>
+<div>
+<p>Apache Spark integration with property graph support has been enhanced. For more information, see <a href="using-property-graphs-big-data.htm#GUID-EFECEBBB-6BD6-4A63-B962-DB5AD7EB4C03">Using Apache Spark with Property Graph Data</a> and<a href="using-in-memory-analyst.htm#GUID-286D11B2-5A66-4072-808D-8FA569DDCC4A">Using the In-Memory Analyst to Analyze Graph Data in Apache Spark</a>.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-0BA409AF-3497-4232-8382-C3F5086976AD"></a>
+<h2 id="BDSPA-GUID-0BA409AF-3497-4232-8382-C3F5086976AD" class="sect2">Vector Analysis API for Apache Spark</h2>
+<div>
+<p>A new Vector Analysis API is available for Apache Spark and Apache Spark SQL that allows you to create spatial RDDs (Resilient Distributed Datasets) for performing spatial transformations and actions, as explained in <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-96B6492E-E93F-46F6-844F-E59F39DB1B00">Oracle Big Data Spatial Vector Analysis for Spark</a>.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-4CE63652-7C14-4306-98FF-A20F298AD1DD"></a>
+<h2 id="BDSPA-GUID-4CE63652-7C14-4306-98FF-A20F298AD1DD" class="sect2">In-Memory Analyst Shell Syntax Enhancements</h2>
+<div>
+<p>Arguments to Java methods (such as on the <code>analyst</code> built-in object) can now be done in abbreviated parameterized form (<code>someMethod(g : var1, v : var2)</code>), in addition to the previously supported traditional way (<code>someMethod(param1, param2)</code>) and standard parameterized form (<code>someMethod(graph : var1, vertex : var2)</code>). Example of abbreviated parameterized form:</p>
+<pre dir="ltr">
+```
+analyst.whomToFollow(g: g, v: g.pickRandomVertex(), maxIt: 100, sDF: 0.85, sMD: 0.01)
+```
+</pre></div>
+</div>
+<div class="props_rev_3"><a id="GUID-3C37F125-9638-48D3-9AAB-51A372179280"></a>
+<h2 id="BDSPA-GUID-3C37F125-9638-48D3-9AAB-51A372179280" class="sect2">Enterprise Scheduler Added</h2>
+<div>
+<p>An enterprise scheduler has been added, which by default manages the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Concurrent execution of tasks from multiple sessions</p>
+</li>
+<li>
+<p>Detailed configuration for thread pools with pool weight, priority, and maximum number of threads</p>
+</li>
+<li>
+<p>Dynamically sizing the I/O thread pool</p>
+</li>
+<li>
+<p>Detailed per-task settings for each thread pool</p>
+</li>
+</ul>
+<p>For information, see <a href="using-in-memory-analyst.htm#GUID-722CE294-EBB0-4893-8AF8-D5D3887C1A90">Using the In-Memory Analyst Enterprise Scheduler</a>.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-5F499958-EC73-4354-881C-4C9C48AC29BE"></a>
+<h2 id="BDSPA-GUID-5F499958-EC73-4354-881C-4C9C48AC29BE" class="sect2">Manipulation API Enhancements</h2>
+<div>
+<p>Reading (loading), undirecting, and simplifying graphs now allow filtering. The ability to filter a graph while reading it can significantly reduce memory requirements. For example, if every vertex has 10 properties but you know you only need one property for the analysis that you want to do, you do not need to load all 10. With a very large graph, this could make the difference between being able to read or not read all the requested data.</p>
+<p>Simplifying and undirecting graphs now can use a <code>MutationStrategy</code> to choose or merge properties, or use edge reduction strategies.</p>
+<p>For details, see the <code>PgxGraph</code> information in <a class="olink PGXJV" target="_blank" href="../PGXJV/toc.htm"><span class="italic">Oracle Big Data Spatial and Graph In-Memory Analyst Java API Reference</span></a> (Javadoc).</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-BC4EACEF-2093-4AC0-9B81-517F51F5457E"></a>
+<h2 id="BDSPA-GUID-BC4EACEF-2093-4AC0-9B81-517F51F5457E" class="sect2">Reading from Files in Parallel</h2>
+<div>
+<p>The in-memory analyst can now read from multiple files in adjacency list or edge list format in parallel.</p>
+<p><a href="using-in-memory-analyst.htm#GUID-9624C4F8-4169-4506-B84B-7DAAABDF0D56">Reading Custom Graph Data</a> provides an extended example where the graph uses the adjacency list format.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-4245F730-358A-499F-9E96-C56BC53A26B9"></a>
+<h2 id="BDSPA-GUID-4245F730-358A-499F-9E96-C56BC53A26B9" class="sect2">Arithmetic Expression Support in Filter Expressions</h2>
+<div>
+<p>You can now use arithmetic expressions in filter expressions when reading a subgraph from NoSQL or Apache HBase, running filtered algorithms, or creating a subgraph in memory.</p>
+<p><a href="using-in-memory-analyst.htm#GUID-066BC440-E42F-49E0-B605-8306F0801FA4">Creating Subgraphs</a> explains filter expressions and provides examples of using filter expressions to create subgraphs.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-B77E1279-FD7B-4830-8AC1-03A6DEC522CA"></a>
+<h2 id="BDSPA-GUID-B77E1279-FD7B-4830-8AC1-03A6DEC522CA" class="sect2">Deprecated Features for Release 2.1</h2>
+<div>
+<p>Several in-memory analyst APIs and features have been deprecated for this release. They will xcontinue to work in this release, but may not in future releases. You are encouraged to avoid them for future development and to change existing code to use alternatives.</p>
+<p>In the&nbsp;<code>GraphConfigBuilder</code>&nbsp;class, the methods&nbsp;<code>forSingleFileFormats()</code>&nbsp;and&nbsp;<code>forMultipleFileFormats()</code>&nbsp;are now deprecated and have been unified into a new&nbsp;<code>forFileFormats()</code> method, which accepts all of the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>A single file using the&nbsp;<code>setUri()</code>&nbsp;method</p>
+</li>
+<li>
+<p>Multiple using the <code>addUri()</code>&nbsp;method</p>
+</li>
+<li>
+<p>Multiple vertex and edge files using the&nbsp;<code>addVertexUri()</code>&nbsp;and&nbsp;<code>addEdgeUri()</code>&nbsp;methods</p>
+</li>
+</ul>
+<p>In the&nbsp;<code>GraphConfigBuilder</code>&nbsp;class,&nbsp;the methods <code>forSingleFileFormat(Format)</code>&nbsp;and&nbsp;<code>forMultipleFileFormat(Format)</code>&nbsp;are now deprecated and have been unified into the <code>newforFileFormat(Format)</code> method</p>
+<p>With the introduction of the enterprise scheduler, the following in-memory analyst configuration fields are deprecated:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>num_workers_analysis</code>,&nbsp;<code>num_workers_fast_track_analysis</code>,&nbsp;and&nbsp;<code>num_workers_io</code>&nbsp;on the top level are now deprecated. Instead, they must be placed into the new, nested&nbsp;<code>fj_pool_config</code>&nbsp;field. For example, the following configuration file segment:</p>
+<pre dir="ltr">
+{
+  ...
+  "num_workers_analysis": 64,
+  "num_workers_fast_track_analysis": 1,
+  "num_workers_io": 72,
+  ...
+}
+</pre>
+<p>must now be expressed as:</p>
+<pre dir="ltr">
+{
+   ...
+   "basic_scheduler_config": {
+     "num_workers_analysis": 64,
+     "num_workers_fast_track_analysis": 1,
+     "num_workers_io": 72
+   },
+   ...
+ }
+</pre></li>
+<li>
+<p><code>parallelization_strategy</code>&nbsp;is now deprecated and has been replaced by a new field,&nbsp;<code>scheduler</code>. For example, the following configuration file segment:</p>
+<pre dir="ltr">
+{
+  ...
+  "parallelization_strategy": "task_stealing_counted",
+  ...
+}
+</pre>
+<p>must now be expressed as:</p>
+<pre dir="ltr">
+{
+  ...
+  "scheduler": "basic_scheduler",
+  ...
+ }
+</pre></li>
+<li>
+<p>The previous value&nbsp;<code>rts</code>&nbsp;for&nbsp;<code>parallelization_strategy</code>&nbsp;is mapped to the&nbsp;<code>scheduler</code>&nbsp;value <code>enterprise_scheduler</code>.</p>
+</li>
+<li>
+<p>The strategies&nbsp;<code>task_stealing</code>&nbsp;and&nbsp;<code>segmented</code>&nbsp;are deprecated and no longer have any effect, and will be treated like setting the&nbsp;<code>scheduler</code>&nbsp;value to&nbsp;<code>basic_scheduler</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment322">
+<tr>
+<td class="cellalignment359">
+<table class="cellalignment327">
+<tr>
+<td class="cellalignment326"><a href="big-data-spatial-preface.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment326"><a href="big-data-spatial-overview.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment361">
+<table class="cellalignment325">
+<tr>
+<td class="cellalignment326"><a href="http://docs.oracle.com/bigdata/bda47/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment326"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment326"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

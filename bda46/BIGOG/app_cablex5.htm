@@ -1,0 +1,2379 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>In-Rack Cabling Tables for Oracle Big Data Appliance X6&ndash;2 and X5-2</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="rack layouts, without KVM, starter rack, physical layout, rack layout illustration, components, location in the rack, servers, server locations in the rack, PDAs, location in the rack, switches" />
+<meta name="dcterms.created" content="2018-07-23T02:05:52Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E77517-03" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda46/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="app_fru.htm" title="Previous" type="text/html" />
+<link rel="Next" href="app_cablex3.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77517-03.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-9068A223-4AA4-4DE0-A221-C6D2A8684699"></a> <span id="PAGE" style="display:none;">27/31</span> <!-- End Header -->
+<script  >
+//<![CDATA[
+window.name='app_cablex5'
+//]]>
+</script> <script  >
+    function footdisplay(footnum,footnote) {
+    var msg = window.open('about:blank', 'NewWindow' + footnum,
+        'directories=no,height=100,location=no,menubar=no,resizable=yes,' +
+        'scrollbars=yes,status=no,toolbar=no,width=598');
+    msg.document.open('text/html');
+    msg.document.write('<!DOCTYPE html ');
+    msg.document.write('PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" ');
+    msg.document.write('"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'); 
+    msg.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" ><head><title>');
+   
+    msg.document.write('Footnote&amp;nbsp; ' + footnum);
+    msg.document.write('<\/title><meta http-equiv="Content-Type" ');
+    msg.document.write('content="text/html; charset=utf-8" />');
+    msg.document.write('');
+    msg.document.write('<style> <![CDATA[ ');
+    msg.document.write('h1 {text-align: center; font-size: 14pt;}');
+    msg.document.write('fieldset {border: none;}');
+    msg.document.write('form {text-align: center;}');
+    msg.document.write(' ]]\u003e <\/style>');
+    msg.document.write('<\/head><body><div id="footnote"><h1>Footnote&nbsp; ' + footnum + '<\/h1><p>');
+    msg.document.write(footnote);
+    msg.document.write('<\/p><form action="" method="post"><fieldset>');
+    msg.document.write('<input type="button" value="OK" ');
+    msg.document.write('onclick="window.close();" />');
+    msg.document.write('<\/fieldset><\/form><\/div><\/body><\/html>');
+    msg.document.close();
+    setTimeout(function() {
+        var height = msg.document.getElementById('footnote').offsetHeight;
+        msg.resizeTo(598, height + 100);
+    }
+    , 100);
+    msg.focus();
+}
+</script><noscript>
+<p>The script content on this page is for navigation purposes only and does not alter the content in any way.</p>
+</noscript><a id="BIGOG77020"></a>
+<h1 id="BIGOG-GUID-9068A223-4AA4-4DE0-A221-C6D2A8684699" class="sect1"><span class="enumeration_chapter">C</span> In-Rack Cabling Tables for Oracle Big Data Appliance X6&ndash;2 and X5-2</h1>
+<div>
+<div class="section">
+<p><a id="d88800e18" class="indexterm-anchor"></a><a id="d88800e22" class="indexterm-anchor"></a>The tables in this appendix show the in-rack cable connections for Oracle Big Data Appliance X6-2 and X5-2 racks. This appendix contains the following sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="app_cablex5.htm#GUID-AE57088E-0282-4AD0-B859-9BC45274672C">Cable Color Coding</a></p>
+</li>
+<li>
+<p><a href="app_cablex5.htm#GUID-4FA5FCD0-41F3-43F3-945D-2D7384B02FA0">Oracle Big Data Appliance Rack Layout</a></p>
+</li>
+<li>
+<p><a href="app_cablex5.htm#GUID-B5E4B94D-49AA-4032-8108-8E694392EDB4">Administrative Gigabit Ethernet Cable Connections</a></p>
+</li>
+<li>
+<p><a href="app_cablex5.htm#GUID-5AE8F90B-E9D3-42A7-8969-2DF57C16B5E6">Oracle Integrated Lights Out Manager Cable Connections</a></p>
+</li>
+<li>
+<p><a href="app_cablex5.htm#GUID-B30002DF-855D-43EA-985D-AD11AB34465C">Single-Phase Power Distribution Unit Cable Connections</a></p>
+</li>
+<li>
+<p><a href="app_cablex5.htm#GUID-76C457DA-482A-48D9-85A4-2C5EE5E986A3">Three-Phase Power Distribution Unit Cable Connections</a></p>
+</li>
+<li>
+<p><a href="app_cablex5.htm#GUID-5869318A-699D-4A5C-A6D5-8EC7248BECD5">In-Rack InfiniBand Switch-to-Switch Cable Connections</a></p>
+</li>
+<li>
+<p><a href="app_cablex5.htm#GUID-DC9D8E37-7418-4022-A135-88F526877B00">In-Rack InfiniBand Switch-to-Server Cable Connections</a></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+<a id="BIGOG77048"></a>
+<div class="props_rev_3"><a id="GUID-AE57088E-0282-4AD0-B859-9BC45274672C"></a>
+<h2 id="BIGOG-GUID-AE57088E-0282-4AD0-B859-9BC45274672C" class="sect2"><span class="enumeration_section">C.1</span> Cable Color Coding</h2>
+<div>
+<div class="section">
+<p>The <a id="d88800e79" class="indexterm-anchor"></a><a id="d88800e83" class="indexterm-anchor"></a>cables used in Oracle Big Data Appliance are color-coded as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a id="d88800e89" class="indexterm-anchor"></a><a id="d88800e91" class="indexterm-anchor"></a><a id="d88800e93" class="indexterm-anchor"></a><a id="d88800e95" class="indexterm-anchor"></a><span class="bold">Black</span>: InfiniBand cables or AC power jumper cables</p>
+</li>
+<li>
+<p><span class="bold">Red</span>: Integrated Lights Out Management (Oracle ILOM) Ethernet management cables</p>
+</li>
+<li>
+<p><span class="bold">Blue</span>: Gigabit Ethernet management (eth0) cables</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG77050"></a><a id="BIGOG77051"></a><a id="BIGOG77052"></a><a id="BIGOG77049"></a>
+<div class="props_rev_3"><a id="GUID-4FA5FCD0-41F3-43F3-945D-2D7384B02FA0"></a>
+<h2 id="BIGOG-GUID-4FA5FCD0-41F3-43F3-945D-2D7384B02FA0" class="sect2"><span class="enumeration_section">C.2</span> Oracle Big Data Appliance Rack Layout</h2>
+<div>
+<div class="section">
+<p>The following figures show the front and rear layouts for three configurations of Oracle Big Data Appliance X6-2 and X5-2: full rack, starter rack, and starter rack with High Capacity nodes plus InfiniBand Infrastructure.</p>
+<p><a href="app_cablex5.htm#GUID-4FA5FCD0-41F3-43F3-945D-2D7384B02FA0__CHDCEIEF">Figure C-1</a> shows the layout of a full rack for Oracle Big Data Appliance X6-2 and X5-2.</p>
+<div class="figure" id="GUID-4FA5FCD0-41F3-43F3-945D-2D7384B02FA0__CHDCEIEF">
+<p class="titleinfigure">Figure C-1 Oracle Big Data Appliance X6-2 and X5-2 Full Rack Layout</p>
+<img width="662" height="716" src="img/GUID-6B7CBBD4-600D-4D93-B29A-A7F960DC435B-default.png" alt="Description of Figure C-1 follows" title="Description of Figure C-1 follows" /><br />
+<a href="img_text/GUID-6B7CBBD4-600D-4D93-B29A-A7F960DC435B-print.htm">Description of "Figure C-1 Oracle Big Data Appliance X6-2 and X5-2 Full Rack Layout"</a></div>
+<!-- class="figure" -->
+<p><a href="app_cablex5.htm#GUID-4FA5FCD0-41F3-43F3-945D-2D7384B02FA0__CHDEDBHH">Figure C-2</a> shows the layout of a starter rack for Oracle Big Data Appliance X6-2 or X5-2.</p>
+<div class="figure" id="GUID-4FA5FCD0-41F3-43F3-945D-2D7384B02FA0__CHDEDBHH">
+<p class="titleinfigure">Figure C-2 Oracle Big Data Appliance X6-2 and X5-2 Starter Rack Layout</p>
+<img width="662" height="716" src="img/GUID-787D962D-9D91-433A-B1B5-458F2417DC1C-default.png" alt="Description of Figure C-2 follows" title="Description of Figure C-2 follows" /><br />
+<a href="img_text/GUID-787D962D-9D91-433A-B1B5-458F2417DC1C-print.htm">Description of "Figure C-2 Oracle Big Data Appliance X6-2 and X5-2 Starter Rack Layout"</a></div>
+<!-- class="figure" -->
+<p><a href="app_cablex5.htm#GUID-4FA5FCD0-41F3-43F3-945D-2D7384B02FA0__CHDEAFHD">Figure C-3</a> shows the layout of an Oracle Big Data Appliance X6&ndash;2 or X5-2 starter rack with High Capacity Nodes plus InfiniBand Infrastructure.</p>
+<div class="figure" id="GUID-4FA5FCD0-41F3-43F3-945D-2D7384B02FA0__CHDEAFHD">
+<p class="titleinfigure">Figure C-3 Oracle Big Data Appliance X6-2 and X5-2 Starter Rack With Big Data Appliance High Capacity Nodes Plus InfiniBand Infrastructure</p>
+<img width="662" height="716" src="img/GUID-7ED677CF-802B-4047-8CB0-57739BB5D076-default.png" alt="Description of Figure C-3 follows" title="Description of Figure C-3 follows" /><br />
+<a href="img_text/GUID-7ED677CF-802B-4047-8CB0-57739BB5D076-print.htm">Description of "Figure C-3 Oracle Big Data Appliance X6-2 and X5-2 Starter Rack With Big Data Appliance High Capacity Nodes Plus InfiniBand Infrastructure"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG77054"></a><a id="BIGOG77053"></a>
+<div class="props_rev_3"><a id="GUID-B5E4B94D-49AA-4032-8108-8E694392EDB4"></a>
+<h2 id="BIGOG-GUID-B5E4B94D-49AA-4032-8108-8E694392EDB4" class="sect2"><span class="enumeration_section">C.3</span> Administrative Gigabit Ethernet Cable Connections</h2>
+<div>
+<div class="section">
+<p><a href="app_cablex5.htm#GUID-B5E4B94D-49AA-4032-8108-8E694392EDB4__CHDCHGFB" title="Administrative Ethernet cabling">Table C-1</a> shows the cable connections for the administrative Gigabit Ethernet network (Net 0). The Ethernet switch is located in rack unit 21. The cables are 10 feet long and black, with the exception of the PDU cables, which are 1 meter long and white.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-B5E4B94D-49AA-4032-8108-8E694392EDB4__CHDCHGFB">
+<p class="titleintable">Table C-1 Administrative Gigabit Ethernet Cabling</p>
+<table class="cellalignment130" title="Administrative Gigabit Ethernet Cabling " summary="Administrative Ethernet cabling">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment169" id="d88800e224">From Rack Unit(1)</th>
+<th class="cellalignment135" id="d88800e236">Component</th>
+<th class="cellalignment131" id="d88800e239">To Ethernet Port</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e244" headers="d88800e224">
+<p>U39</p>
+</td>
+<td class="cellalignment137" headers="d88800e244 d88800e236">
+<p>Server 18</p>
+</td>
+<td class="cellalignment133" headers="d88800e244 d88800e239">
+<p>1</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e254" headers="d88800e224">
+<p>U37</p>
+</td>
+<td class="cellalignment137" headers="d88800e254 d88800e236">
+<p>Server 17</p>
+</td>
+<td class="cellalignment133" headers="d88800e254 d88800e239">
+<p>3</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e264" headers="d88800e224">
+<p>U35</p>
+</td>
+<td class="cellalignment137" headers="d88800e264 d88800e236">
+<p>Server 16</p>
+</td>
+<td class="cellalignment133" headers="d88800e264 d88800e239">
+<p>5</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e274" headers="d88800e224">
+<p>U33</p>
+</td>
+<td class="cellalignment137" headers="d88800e274 d88800e236">
+<p>Server 15</p>
+</td>
+<td class="cellalignment133" headers="d88800e274 d88800e239">
+<p>7</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e284" headers="d88800e224">
+<p>U31</p>
+</td>
+<td class="cellalignment137" headers="d88800e284 d88800e236">
+<p>Server 14</p>
+</td>
+<td class="cellalignment133" headers="d88800e284 d88800e239">
+<p>9</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e294" headers="d88800e224">
+<p>U29</p>
+</td>
+<td class="cellalignment137" headers="d88800e294 d88800e236">
+<p>Server 13</p>
+</td>
+<td class="cellalignment133" headers="d88800e294 d88800e239">
+<p>11</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e304" headers="d88800e224">
+<p>U27</p>
+</td>
+<td class="cellalignment137" headers="d88800e304 d88800e236">
+<p>Server 12</p>
+</td>
+<td class="cellalignment133" headers="d88800e304 d88800e239">
+<p>13</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e314" headers="d88800e224">
+<p>U25</p>
+</td>
+<td class="cellalignment137" headers="d88800e314 d88800e236">
+<p>Server 11</p>
+</td>
+<td class="cellalignment133" headers="d88800e314 d88800e239">
+<p>17</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e324" headers="d88800e224">
+<p>U23</p>
+</td>
+<td class="cellalignment137" headers="d88800e324 d88800e236">
+<p>Server 10</p>
+</td>
+<td class="cellalignment133" headers="d88800e324 d88800e239">
+<p>21</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e334" headers="d88800e224">
+<p>U22</p>
+</td>
+<td class="cellalignment137" headers="d88800e334 d88800e236">
+<p>NM2-IB Switch</p>
+</td>
+<td class="cellalignment133" headers="d88800e334 d88800e239">
+<p>45</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e344" headers="d88800e224">
+<p>U20</p>
+</td>
+<td class="cellalignment137" headers="d88800e344 d88800e236">
+<p>NM2-IB Switch</p>
+</td>
+<td class="cellalignment133" headers="d88800e344 d88800e239">
+<p>46</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e355" headers="d88800e224">
+<p>U18</p>
+</td>
+<td class="cellalignment137" headers="d88800e355 d88800e236">
+<p>Server 9</p>
+</td>
+<td class="cellalignment133" headers="d88800e355 d88800e239">
+<p>25</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e365" headers="d88800e224">
+<p>U16</p>
+</td>
+<td class="cellalignment137" headers="d88800e365 d88800e236">
+<p>Server 8</p>
+</td>
+<td class="cellalignment133" headers="d88800e365 d88800e239">
+<p>29</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e375" headers="d88800e224">
+<p>U14</p>
+</td>
+<td class="cellalignment137" headers="d88800e375 d88800e236">
+<p>Server 7</p>
+</td>
+<td class="cellalignment133" headers="d88800e375 d88800e239">
+<p>31</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e385" headers="d88800e224">
+<p>U12</p>
+</td>
+<td class="cellalignment137" headers="d88800e385 d88800e236">
+<p>Server 6</p>
+</td>
+<td class="cellalignment133" headers="d88800e385 d88800e239">
+<p>33</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e395" headers="d88800e224">
+<p>U10</p>
+</td>
+<td class="cellalignment137" headers="d88800e395 d88800e236">
+<p>Server 5</p>
+</td>
+<td class="cellalignment133" headers="d88800e395 d88800e239">
+<p>35</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e405" headers="d88800e224">
+<p>U8</p>
+</td>
+<td class="cellalignment137" headers="d88800e405 d88800e236">
+<p>Server 4</p>
+</td>
+<td class="cellalignment133" headers="d88800e405 d88800e239">
+<p>37</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e415" headers="d88800e224">
+<p>U6</p>
+</td>
+<td class="cellalignment137" headers="d88800e415 d88800e236">
+<p>Server 3</p>
+</td>
+<td class="cellalignment133" headers="d88800e415 d88800e239">
+<p>39</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e425" headers="d88800e224">
+<p>U4</p>
+</td>
+<td class="cellalignment137" headers="d88800e425 d88800e236">
+<p>Server 2</p>
+</td>
+<td class="cellalignment133" headers="d88800e425 d88800e239">
+<p>41</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e435" headers="d88800e224">
+<p>U2</p>
+</td>
+<td class="cellalignment137" headers="d88800e435 d88800e236">
+<p>Server 1</p>
+</td>
+<td class="cellalignment133" headers="d88800e435 d88800e239">
+<p>43</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e445" headers="d88800e224">
+<p>U1</p>
+</td>
+<td class="cellalignment137" headers="d88800e445 d88800e236">
+<p>NM2-IB Switch</p>
+</td>
+<td class="cellalignment133" headers="d88800e445 d88800e239">
+<p>47</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e455" headers="d88800e224">
+<p>PDU-A</p>
+</td>
+<td class="cellalignment137" headers="d88800e455 d88800e236">
+<p>PDU-A</p>
+</td>
+<td class="cellalignment133" headers="d88800e455 d88800e239">
+<p>15</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment171" id="d88800e466" headers="d88800e224">
+<p>PDU-B</p>
+</td>
+<td class="cellalignment137" headers="d88800e466 d88800e236">
+<p>PDU-B</p>
+</td>
+<td class="cellalignment133" headers="d88800e466 d88800e239">
+<p>19</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;1</sup> Un is the unit location in the rack, where n is the number.</p>
+</div>
+</div>
+<a id="BIGOG77056"></a><a id="BIGOG77055"></a>
+<div class="props_rev_3"><a id="GUID-5AE8F90B-E9D3-42A7-8969-2DF57C16B5E6"></a>
+<h2 id="BIGOG-GUID-5AE8F90B-E9D3-42A7-8969-2DF57C16B5E6" class="sect2"><span class="enumeration_section">C.4</span> Oracle Integrated Lights Out Manager Cable Connections</h2>
+<div>
+<div class="section">
+<p><a href="app_cablex5.htm#GUID-5AE8F90B-E9D3-42A7-8969-2DF57C16B5E6__CHDDEAAE" title="ILOM cabling in full rack">Table C-2</a> shows the cable connections from the servers to the Oracle ILOM switch. The Oracle ILOM ports on the servers are labeled Net Mgt and connect to the Cisco Ethernet switch located in rack unit 21.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-5AE8F90B-E9D3-42A7-8969-2DF57C16B5E6__CHDDEAAE">
+<p class="titleintable">Table C-2 Oracle ILOM Cabling</p>
+<table class="cellalignment130" title="Oracle ILOM Cabling" summary="ILOM cabling in full rack">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment186" id="d88800e514">From Rack Unit(2)</th>
+<th class="cellalignment177" id="d88800e526">Component</th>
+<th class="cellalignment118" id="d88800e529">Ethernet Port</th>
+<th class="cellalignment118" id="d88800e532">Cable Length</th>
+<th class="cellalignment114" id="d88800e535">Cable Color</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e540" headers="d88800e514">
+<p>U39</p>
+</td>
+<td class="cellalignment178" headers="d88800e540 d88800e526">
+<p>Server 18</p>
+</td>
+<td class="cellalignment120" headers="d88800e540 d88800e529">
+<p>2</p>
+</td>
+<td class="cellalignment120" headers="d88800e540 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e540 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e556" headers="d88800e514">
+<p>U37</p>
+</td>
+<td class="cellalignment178" headers="d88800e556 d88800e526">
+<p>Server 17</p>
+</td>
+<td class="cellalignment120" headers="d88800e556 d88800e529">
+<p>4</p>
+</td>
+<td class="cellalignment120" headers="d88800e556 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e556 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e572" headers="d88800e514">
+<p>U35</p>
+</td>
+<td class="cellalignment178" headers="d88800e572 d88800e526">
+<p>Server 16</p>
+</td>
+<td class="cellalignment120" headers="d88800e572 d88800e529">
+<p>6</p>
+</td>
+<td class="cellalignment120" headers="d88800e572 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e572 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e588" headers="d88800e514">
+<p>U33</p>
+</td>
+<td class="cellalignment178" headers="d88800e588 d88800e526">
+<p>Server 15</p>
+</td>
+<td class="cellalignment120" headers="d88800e588 d88800e529">
+<p>8</p>
+</td>
+<td class="cellalignment120" headers="d88800e588 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e588 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e604" headers="d88800e514">
+<p>U31</p>
+</td>
+<td class="cellalignment178" headers="d88800e604 d88800e526">
+<p>Server 14</p>
+</td>
+<td class="cellalignment120" headers="d88800e604 d88800e529">
+<p>10</p>
+</td>
+<td class="cellalignment120" headers="d88800e604 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e604 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e620" headers="d88800e514">
+<p>U29</p>
+</td>
+<td class="cellalignment178" headers="d88800e620 d88800e526">
+<p>Server 13</p>
+</td>
+<td class="cellalignment120" headers="d88800e620 d88800e529">
+<p>12</p>
+</td>
+<td class="cellalignment120" headers="d88800e620 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e620 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e636" headers="d88800e514">
+<p>U27</p>
+</td>
+<td class="cellalignment178" headers="d88800e636 d88800e526">
+<p>Server 12</p>
+</td>
+<td class="cellalignment120" headers="d88800e636 d88800e529">
+<p>14</p>
+</td>
+<td class="cellalignment120" headers="d88800e636 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e636 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e652" headers="d88800e514">
+<p>U25</p>
+</td>
+<td class="cellalignment178" headers="d88800e652 d88800e526">
+<p>Server 11</p>
+</td>
+<td class="cellalignment120" headers="d88800e652 d88800e529">
+<p>18</p>
+</td>
+<td class="cellalignment120" headers="d88800e652 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e652 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e668" headers="d88800e514">
+<p>U23</p>
+</td>
+<td class="cellalignment178" headers="d88800e668 d88800e526">
+<p>Server 10</p>
+</td>
+<td class="cellalignment120" headers="d88800e668 d88800e529">
+<p>22</p>
+</td>
+<td class="cellalignment120" headers="d88800e668 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e668 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e684" headers="d88800e514">
+<p>U18</p>
+</td>
+<td class="cellalignment178" headers="d88800e684 d88800e526">
+<p>Server 9</p>
+</td>
+<td class="cellalignment120" headers="d88800e684 d88800e529">
+<p>26</p>
+</td>
+<td class="cellalignment120" headers="d88800e684 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e684 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e700" headers="d88800e514">
+<p>U16</p>
+</td>
+<td class="cellalignment178" headers="d88800e700 d88800e526">
+<p>Server 8</p>
+</td>
+<td class="cellalignment120" headers="d88800e700 d88800e529">
+<p>30</p>
+</td>
+<td class="cellalignment120" headers="d88800e700 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e700 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e717" headers="d88800e514">
+<p>U14</p>
+</td>
+<td class="cellalignment178" headers="d88800e717 d88800e526">
+<p>Server 7</p>
+</td>
+<td class="cellalignment120" headers="d88800e717 d88800e529">
+<p>32</p>
+</td>
+<td class="cellalignment120" headers="d88800e717 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e717 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e733" headers="d88800e514">
+<p>U12</p>
+</td>
+<td class="cellalignment178" headers="d88800e733 d88800e526">
+<p>Server 6</p>
+</td>
+<td class="cellalignment120" headers="d88800e733 d88800e529">
+<p>34</p>
+</td>
+<td class="cellalignment120" headers="d88800e733 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e733 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e749" headers="d88800e514">
+<p>U10</p>
+</td>
+<td class="cellalignment178" headers="d88800e749 d88800e526">
+<p>Server 5</p>
+</td>
+<td class="cellalignment120" headers="d88800e749 d88800e529">
+<p>36</p>
+</td>
+<td class="cellalignment120" headers="d88800e749 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e749 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e765" headers="d88800e514">
+<p>U8</p>
+</td>
+<td class="cellalignment178" headers="d88800e765 d88800e526">
+<p>Server 4</p>
+</td>
+<td class="cellalignment120" headers="d88800e765 d88800e529">
+<p>38</p>
+</td>
+<td class="cellalignment120" headers="d88800e765 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e765 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e781" headers="d88800e514">
+<p>U6</p>
+</td>
+<td class="cellalignment178" headers="d88800e781 d88800e526">
+<p>Server 3</p>
+</td>
+<td class="cellalignment120" headers="d88800e781 d88800e529">
+<p>40</p>
+</td>
+<td class="cellalignment120" headers="d88800e781 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e781 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e797" headers="d88800e514">
+<p>U4</p>
+</td>
+<td class="cellalignment178" headers="d88800e797 d88800e526">
+<p>Server 2</p>
+</td>
+<td class="cellalignment120" headers="d88800e797 d88800e529">
+<p>42</p>
+</td>
+<td class="cellalignment120" headers="d88800e797 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e797 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e813" headers="d88800e514">
+<p>U2</p>
+</td>
+<td class="cellalignment178" headers="d88800e813 d88800e526">
+<p>Server 1</p>
+</td>
+<td class="cellalignment120" headers="d88800e813 d88800e529">
+<p>44</p>
+</td>
+<td class="cellalignment120" headers="d88800e813 d88800e532">
+<p>10 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e813 d88800e535">
+<p>Red</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment188" id="d88800e829" headers="d88800e514">
+<p>Not applicable</p>
+</td>
+<td class="cellalignment178" headers="d88800e829 d88800e526">
+<p>Service</p>
+</td>
+<td class="cellalignment120" headers="d88800e829 d88800e529">
+<p>48</p>
+</td>
+<td class="cellalignment120" headers="d88800e829 d88800e532">
+<p>7 feet</p>
+</td>
+<td class="cellalignment116" headers="d88800e829 d88800e535">
+<p>Blue</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;2</sup> Un is the unit location in the rack, where n is the number.</p>
+</div>
+</div>
+<a id="BIGOG77058"></a><a id="BIGOG77057"></a>
+<div class="props_rev_3"><a id="GUID-B30002DF-855D-43EA-985D-AD11AB34465C"></a>
+<h2 id="BIGOG-GUID-B30002DF-855D-43EA-985D-AD11AB34465C" class="sect2"><span class="enumeration_section">C.5</span> Single-Phase Power Distribution Unit Cable Connections</h2>
+<div>
+<div class="section">
+<p><a href="app_cablex5.htm#GUID-B30002DF-855D-43EA-985D-AD11AB34465C__CHDDCDCF" title="Single-phase PDU cabling for full rack">Table C-3</a> shows the connections for single-phase cabling from each power distribution unit (PDU) to the power supplies in the rack. The cables terminate at PDU-A on the left and are routed to the right to enter the cable management arm (CMA). The cables are bundled in groups of four.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-B30002DF-855D-43EA-985D-AD11AB34465C__CHDDCDCF">
+<p class="titleintable">Table C-3 Single-Phase PDU Cabling</p>
+<table class="cellalignment130" title="Single-Phase PDU Cabling " summary="Single-phase PDU cabling for full rack">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment143" id="d88800e882">Rack Unit(3)</th>
+<th class="cellalignment149" id="d88800e894">PDU-A/PS-00</th>
+<th class="cellalignment149" id="d88800e897">PDU-B/PS-01</th>
+<th class="cellalignment149" id="d88800e900">Cable Length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e905" headers="d88800e882">
+<p>U39</p>
+</td>
+<td class="cellalignment152" headers="d88800e905 d88800e894">
+<p>G5-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e905 d88800e897">
+<p>G0-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e905 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e918" headers="d88800e882">
+<p>U37</p>
+</td>
+<td class="cellalignment152" headers="d88800e918 d88800e894">
+<p>G5-3</p>
+</td>
+<td class="cellalignment152" headers="d88800e918 d88800e897">
+<p>G0-3</p>
+</td>
+<td class="cellalignment152" headers="d88800e918 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e931" headers="d88800e882">
+<p>U35</p>
+</td>
+<td class="cellalignment152" headers="d88800e931 d88800e894">
+<p>G5-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e931 d88800e897">
+<p>G0-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e931 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e944" headers="d88800e882">
+<p>U33</p>
+</td>
+<td class="cellalignment152" headers="d88800e944 d88800e894">
+<p>G4-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e944 d88800e897">
+<p>G1-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e944 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e957" headers="d88800e882">
+<p>U31</p>
+</td>
+<td class="cellalignment152" headers="d88800e957 d88800e894">
+<p>G4-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e957 d88800e897">
+<p>G1-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e957 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e970" headers="d88800e882">
+<p>U29</p>
+</td>
+<td class="cellalignment152" headers="d88800e970 d88800e894">
+<p>G4-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e970 d88800e897">
+<p>G1-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e970 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e983" headers="d88800e882">
+<p>U27</p>
+</td>
+<td class="cellalignment152" headers="d88800e983 d88800e894">
+<p>G3-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e983 d88800e897">
+<p>G2-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e983 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e996" headers="d88800e882">
+<p>U25</p>
+</td>
+<td class="cellalignment152" headers="d88800e996 d88800e894">
+<p>G3-5</p>
+</td>
+<td class="cellalignment152" headers="d88800e996 d88800e897">
+<p>G2-1</p>
+</td>
+<td class="cellalignment152" headers="d88800e996 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1009" headers="d88800e882">
+<p>U23</p>
+</td>
+<td class="cellalignment152" headers="d88800e1009 d88800e894">
+<p>G3-3</p>
+</td>
+<td class="cellalignment152" headers="d88800e1009 d88800e897">
+<p>G2-3</p>
+</td>
+<td class="cellalignment152" headers="d88800e1009 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1022" headers="d88800e882">
+<p>U22</p>
+</td>
+<td class="cellalignment152" headers="d88800e1022 d88800e894">
+<p>G3-1</p>
+</td>
+<td class="cellalignment152" headers="d88800e1022 d88800e897">
+<p>G2-5</p>
+</td>
+<td class="cellalignment152" headers="d88800e1022 d88800e900">
+<p>1 meter</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1035" headers="d88800e882">
+<p>U21</p>
+</td>
+<td class="cellalignment152" headers="d88800e1035 d88800e894">
+<p>G3-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1035 d88800e897">
+<p>G2-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1035 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1049" headers="d88800e882">
+<p>U20</p>
+</td>
+<td class="cellalignment152" headers="d88800e1049 d88800e894">
+<p>G2-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1049 d88800e897">
+<p>G3-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1049 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1062" headers="d88800e882">
+<p>U18</p>
+</td>
+<td class="cellalignment152" headers="d88800e1062 d88800e894">
+<p>G2-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1062 d88800e897">
+<p>G3-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1062 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1075" headers="d88800e882">
+<p>U16</p>
+</td>
+<td class="cellalignment152" headers="d88800e1075 d88800e894">
+<p>G1-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1075 d88800e897">
+<p>G4-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1075 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1088" headers="d88800e882">
+<p>U14</p>
+</td>
+<td class="cellalignment152" headers="d88800e1088 d88800e894">
+<p>G2-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1088 d88800e897">
+<p>G3-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1088 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1101" headers="d88800e882">
+<p>U12</p>
+</td>
+<td class="cellalignment152" headers="d88800e1101 d88800e894">
+<p>G1-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1101 d88800e897">
+<p>G4-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1101 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1114" headers="d88800e882">
+<p>U10</p>
+</td>
+<td class="cellalignment152" headers="d88800e1114 d88800e894">
+<p>G1-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1114 d88800e897">
+<p>G4-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1114 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1127" headers="d88800e882">
+<p>U8</p>
+</td>
+<td class="cellalignment152" headers="d88800e1127 d88800e894">
+<p>G1-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1127 d88800e897">
+<p>G4-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1127 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1140" headers="d88800e882">
+<p>U6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1140 d88800e894">
+<p>G0-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1140 d88800e897">
+<p>G5-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1140 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1153" headers="d88800e882">
+<p>U4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1153 d88800e894">
+<p>G0-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1153 d88800e897">
+<p>G5-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1153 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1166" headers="d88800e882">
+<p>U2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1166 d88800e894">
+<p>G0-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1166 d88800e897">
+<p>G5-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1166 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1179" headers="d88800e882">
+<p>U1</p>
+</td>
+<td class="cellalignment152" headers="d88800e1179 d88800e894">
+<p>G0-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1179 d88800e897">
+<p>G5-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1179 d88800e900">
+<p>2 meters</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;3</sup> Un is the unit location in the rack, where n is the number.</p>
+</div>
+</div>
+<a id="BIGOG77060"></a><a id="BIGOG77059"></a>
+<div class="props_rev_3"><a id="GUID-76C457DA-482A-48D9-85A4-2C5EE5E986A3"></a>
+<h2 id="BIGOG-GUID-76C457DA-482A-48D9-85A4-2C5EE5E986A3" class="sect2"><span class="enumeration_section">C.6</span> Three-Phase Power Distribution Unit Cable Connections</h2>
+<div>
+<div class="section">
+<p><a href="app_cablex5.htm#GUID-76C457DA-482A-48D9-85A4-2C5EE5E986A3__CHDIFFHJ" title="PDU cabling for full rack for three phase power.">Table C-4</a> describes three-phase cabling from each power distribution unit (PDU) to the power supplies in the rack. The cables are terminated to PDU-A on the left, are routed to the right to enter the cable management arm (CMA), and are bundled in groups of four.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-76C457DA-482A-48D9-85A4-2C5EE5E986A3__CHDIFFHJ">
+<p class="titleintable">Table C-4 Three-Phase PDU Cabling</p>
+<table class="cellalignment130" title="Three-Phase PDU Cabling " summary="PDU cabling for full rack for three phase power.">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment143" id="d88800e1230">Rack Unit(4)</th>
+<th class="cellalignment149" id="d88800e1242">PDU-A/PS-00</th>
+<th class="cellalignment149" id="d88800e1245">PDU-B/PS-01</th>
+<th class="cellalignment149" id="d88800e1248">Cable Length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1253" headers="d88800e1230">
+<p>U39</p>
+</td>
+<td class="cellalignment152" headers="d88800e1253 d88800e1242">
+<p>G5-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1253 d88800e1245">
+<p>G2-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1253 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1266" headers="d88800e1230">
+<p>U37</p>
+</td>
+<td class="cellalignment152" headers="d88800e1266 d88800e1242">
+<p>G5-3</p>
+</td>
+<td class="cellalignment152" headers="d88800e1266 d88800e1245">
+<p>G2-3</p>
+</td>
+<td class="cellalignment152" headers="d88800e1266 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1279" headers="d88800e1230">
+<p>U35</p>
+</td>
+<td class="cellalignment152" headers="d88800e1279 d88800e1242">
+<p>G5-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1279 d88800e1245">
+<p>G2-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1279 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1292" headers="d88800e1230">
+<p>U33</p>
+</td>
+<td class="cellalignment152" headers="d88800e1292 d88800e1242">
+<p>G4-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1292 d88800e1245">
+<p>G1-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1292 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1305" headers="d88800e1230">
+<p>U31</p>
+</td>
+<td class="cellalignment152" headers="d88800e1305 d88800e1242">
+<p>G4-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1305 d88800e1245">
+<p>G1-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1305 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1318" headers="d88800e1230">
+<p>U29</p>
+</td>
+<td class="cellalignment152" headers="d88800e1318 d88800e1242">
+<p>G4-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1318 d88800e1245">
+<p>G1-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1318 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1331" headers="d88800e1230">
+<p>U27</p>
+</td>
+<td class="cellalignment152" headers="d88800e1331 d88800e1242">
+<p>G3-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1331 d88800e1245">
+<p>G0-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1331 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1344" headers="d88800e1230">
+<p>U25</p>
+</td>
+<td class="cellalignment152" headers="d88800e1344 d88800e1242">
+<p>G3-5</p>
+</td>
+<td class="cellalignment152" headers="d88800e1344 d88800e1245">
+<p>G0-1</p>
+</td>
+<td class="cellalignment152" headers="d88800e1344 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1357" headers="d88800e1230">
+<p>U23</p>
+</td>
+<td class="cellalignment152" headers="d88800e1357 d88800e1242">
+<p>G3-3</p>
+</td>
+<td class="cellalignment152" headers="d88800e1357 d88800e1245">
+<p>G0-3</p>
+</td>
+<td class="cellalignment152" headers="d88800e1357 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1370" headers="d88800e1230">
+<p>U22</p>
+</td>
+<td class="cellalignment152" headers="d88800e1370 d88800e1242">
+<p>G5-1</p>
+</td>
+<td class="cellalignment152" headers="d88800e1370 d88800e1245">
+<p>G2-5</p>
+</td>
+<td class="cellalignment152" headers="d88800e1370 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1383" headers="d88800e1230">
+<p>U21</p>
+</td>
+<td class="cellalignment152" headers="d88800e1383 d88800e1242">
+<p>G3-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1383 d88800e1245">
+<p>G0-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1383 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1397" headers="d88800e1230">
+<p>U20</p>
+</td>
+<td class="cellalignment152" headers="d88800e1397 d88800e1242">
+<p>G2-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1397 d88800e1245">
+<p>G5-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1397 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1410" headers="d88800e1230">
+<p>U18</p>
+</td>
+<td class="cellalignment152" headers="d88800e1410 d88800e1242">
+<p>G2-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1410 d88800e1245">
+<p>G5-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1410 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1423" headers="d88800e1230">
+<p>U16</p>
+</td>
+<td class="cellalignment152" headers="d88800e1423 d88800e1242">
+<p>G1-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1423 d88800e1245">
+<p>G4-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1423 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1436" headers="d88800e1230">
+<p>U14</p>
+</td>
+<td class="cellalignment152" headers="d88800e1436 d88800e1242">
+<p>G2-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1436 d88800e1245">
+<p>G5-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1436 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1449" headers="d88800e1230">
+<p>U12</p>
+</td>
+<td class="cellalignment152" headers="d88800e1449 d88800e1242">
+<p>G1-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1449 d88800e1245">
+<p>G4-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1449 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1462" headers="d88800e1230">
+<p>U10</p>
+</td>
+<td class="cellalignment152" headers="d88800e1462 d88800e1242">
+<p>G1-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1462 d88800e1245">
+<p>G4-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1462 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1475" headers="d88800e1230">
+<p>U8</p>
+</td>
+<td class="cellalignment152" headers="d88800e1475 d88800e1242">
+<p>G1-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1475 d88800e1245">
+<p>G4-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1475 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1488" headers="d88800e1230">
+<p>U6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1488 d88800e1242">
+<p>G0-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1488 d88800e1245">
+<p>G3-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1488 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1501" headers="d88800e1230">
+<p>U4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1501 d88800e1242">
+<p>G0-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1501 d88800e1245">
+<p>G3-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1501 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1514" headers="d88800e1230">
+<p>U2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1514 d88800e1242">
+<p>G0-2</p>
+</td>
+<td class="cellalignment152" headers="d88800e1514 d88800e1245">
+<p>G3-4</p>
+</td>
+<td class="cellalignment152" headers="d88800e1514 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment145" id="d88800e1527" headers="d88800e1230">
+<p>U1</p>
+</td>
+<td class="cellalignment152" headers="d88800e1527 d88800e1242">
+<p>G0-0</p>
+</td>
+<td class="cellalignment152" headers="d88800e1527 d88800e1245">
+<p>G3-6</p>
+</td>
+<td class="cellalignment152" headers="d88800e1527 d88800e1248">
+<p>2 meters</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;4</sup> Un is the unit location in the rack, where n is the number.</p>
+</div>
+</div>
+<a id="BIGOG77062"></a><a id="BIGOG77063"></a><a id="BIGOG77061"></a>
+<div class="props_rev_3"><a id="GUID-5869318A-699D-4A5C-A6D5-8EC7248BECD5"></a>
+<h2 id="BIGOG-GUID-5869318A-699D-4A5C-A6D5-8EC7248BECD5" class="sect2"><span class="enumeration_section">C.7</span> In-Rack InfiniBand Switch-to-Switch Cable Connections</h2>
+<div>
+<div class="section">
+<p><a href="app_cablex5.htm#GUID-5869318A-699D-4A5C-A6D5-8EC7248BECD5__CHDEDDGB" title="InfiniiBand switch-to-switch cabling">Table C-5</a> lists the location, ports, and cables for the InfiniBand connections from switch to switch.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-5869318A-699D-4A5C-A6D5-8EC7248BECD5__CHDEDDGB">
+<p class="titleintable">Table C-5 InfiniBand Switch-to-Switch Cabling</p>
+<table class="cellalignment130" title="InfiniBand Switch-to-Switch Cabling" summary="InfiniiBand switch-to-switch cabling">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment126" id="d88800e1580">From InfiniBand Switch Rack Unit(5)</th>
+<th class="cellalignment179" id="d88800e1592">Port</th>
+<th class="cellalignment177" id="d88800e1595">To InfiniBand Switch Rack Unit5</th>
+<th class="cellalignment180" id="d88800e1600">Port</th>
+<th class="cellalignment177" id="d88800e1603">Cable Length</th>
+<th class="cellalignment177" id="d88800e1606">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment128" id="d88800e1611" headers="d88800e1580">
+<p>U20</p>
+</td>
+<td class="cellalignment181" headers="d88800e1611 d88800e1592">
+<p>9B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1611 d88800e1595">
+<p>U22</p>
+</td>
+<td class="cellalignment182" headers="d88800e1611 d88800e1600">
+<p>9A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1611 d88800e1603">
+<p>2 meters</p>
+</td>
+<td class="cellalignment178" headers="d88800e1611 d88800e1606">
+<p>Leaf to leaf</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment128" id="d88800e1630" headers="d88800e1580">
+<p>U20</p>
+</td>
+<td class="cellalignment181" headers="d88800e1630 d88800e1592">
+<p>10B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1630 d88800e1595">
+<p>U22</p>
+</td>
+<td class="cellalignment182" headers="d88800e1630 d88800e1600">
+<p>10A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1630 d88800e1603">
+<p>2 meters</p>
+</td>
+<td class="cellalignment178" headers="d88800e1630 d88800e1606">
+<p>Leaf to leaf</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment128" id="d88800e1649" headers="d88800e1580">
+<p>U20</p>
+</td>
+<td class="cellalignment181" headers="d88800e1649 d88800e1592">
+<p>11B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1649 d88800e1595">
+<p>U22</p>
+</td>
+<td class="cellalignment182" headers="d88800e1649 d88800e1600">
+<p>11A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1649 d88800e1603">
+<p>2 meters</p>
+</td>
+<td class="cellalignment178" headers="d88800e1649 d88800e1606">
+<p>Leaf to leaf</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment128" id="d88800e1668" headers="d88800e1580">
+<p>U20</p>
+</td>
+<td class="cellalignment181" headers="d88800e1668 d88800e1592">
+<p>8A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1668 d88800e1595">
+<p>U22</p>
+</td>
+<td class="cellalignment182" headers="d88800e1668 d88800e1600">
+<p>8A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1668 d88800e1603">
+<p>2 meters</p>
+</td>
+<td class="cellalignment178" headers="d88800e1668 d88800e1606">
+<p>Leaf to leaf</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment128" id="d88800e1687" headers="d88800e1580">
+<p>U20</p>
+</td>
+<td class="cellalignment181" headers="d88800e1687 d88800e1592">
+<p>9A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1687 d88800e1595">
+<p>U22</p>
+</td>
+<td class="cellalignment182" headers="d88800e1687 d88800e1600">
+<p>9B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1687 d88800e1603">
+<p>2 meters</p>
+</td>
+<td class="cellalignment178" headers="d88800e1687 d88800e1606">
+<p>Leaf to leaf</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment128" id="d88800e1706" headers="d88800e1580">
+<p>U20</p>
+</td>
+<td class="cellalignment181" headers="d88800e1706 d88800e1592">
+<p>10A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1706 d88800e1595">
+<p>U22</p>
+</td>
+<td class="cellalignment182" headers="d88800e1706 d88800e1600">
+<p>10B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1706 d88800e1603">
+<p>2 meters</p>
+</td>
+<td class="cellalignment178" headers="d88800e1706 d88800e1606">
+<p>Leaf to leaf</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment128" id="d88800e1725" headers="d88800e1580">
+<p>U20</p>
+</td>
+<td class="cellalignment181" headers="d88800e1725 d88800e1592">
+<p>11A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1725 d88800e1595">
+<p>U22</p>
+</td>
+<td class="cellalignment182" headers="d88800e1725 d88800e1600">
+<p>11B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1725 d88800e1603">
+<p>2 meters</p>
+</td>
+<td class="cellalignment178" headers="d88800e1725 d88800e1606">
+<p>Leaf to leaf</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment128" id="d88800e1744" headers="d88800e1580">
+<p>U1</p>
+</td>
+<td class="cellalignment181" headers="d88800e1744 d88800e1592">
+<p>1B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1744 d88800e1595">
+<p>U20</p>
+</td>
+<td class="cellalignment182" headers="d88800e1744 d88800e1600">
+<p>8B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1744 d88800e1603">
+<p>3 meters</p>
+</td>
+<td class="cellalignment178" headers="d88800e1744 d88800e1606">
+<p>Spine to leaf</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment128" id="d88800e1763" headers="d88800e1580">
+<p>U1</p>
+</td>
+<td class="cellalignment181" headers="d88800e1763 d88800e1592">
+<p>0B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1763 d88800e1595">
+<p>U22</p>
+</td>
+<td class="cellalignment182" headers="d88800e1763 d88800e1600">
+<p>8B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1763 d88800e1603">
+<p>3 meters</p>
+</td>
+<td class="cellalignment178" headers="d88800e1763 d88800e1606">
+<p>Spine to leaf</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;5</sup> Un is the unit location in the rack, where n is the number.</p>
+<div class="section">
+<p><a id="d88800e1783" class="indexterm-anchor"></a><a id="d88800e1785" class="indexterm-anchor"></a><a id="d88800e1787" class="indexterm-anchor"></a><a href="app_cablex5.htm#GUID-5869318A-699D-4A5C-A6D5-8EC7248BECD5__CHDJIHJE">Figure C-4</a> identifies the locations of the ports on a Sun Network QDR InfiniBand Gateway switch. Ports 5A, 5B, 6A, 6B, and 7A are available to connect to another device, such as Oracle Exalytics In-Memory Machine. Oracle recommends that you start with port 5A. Port 7B is reserved for future use by Oracle Big Data Appliance.</p>
+<div class="figure" id="GUID-5869318A-699D-4A5C-A6D5-8EC7248BECD5__CHDJIHJE">
+<p class="titleinfigure">Figure C-4 Sun Network QDR InfiniBand Gateway Ports</p>
+<img width="665" height="264" src="img/GUID-4D14E391-208C-49EC-A962-118B40A47CA5-default.png" alt="Description of Figure C-4 follows" title="Description of Figure C-4 follows" /><br />
+<a href="img_text/GUID-4D14E391-208C-49EC-A962-118B40A47CA5-print.htm">Description of "Figure C-4 Sun Network QDR InfiniBand Gateway Ports"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG77065"></a><a id="BIGOG77064"></a>
+<div class="props_rev_3"><a id="GUID-DC9D8E37-7418-4022-A135-88F526877B00"></a>
+<h2 id="BIGOG-GUID-DC9D8E37-7418-4022-A135-88F526877B00" class="sect2"><span class="enumeration_section">C.8</span> In-Rack InfiniBand Switch-to-Server Cable Connections</h2>
+<div>
+<div class="section">
+<p><a href="app_cablex5.htm#GUID-DC9D8E37-7418-4022-A135-88F526877B00__CHDHHDIG" title="Cabling information for the InfiniBand cables on full rack.">Table C-6</a> lists the location, ports, and cables for the InfiniBand connections from the leaf switches to the servers.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-DC9D8E37-7418-4022-A135-88F526877B00__CHDHHDIG">
+<p class="titleintable">Table C-6 InfiniBand Switch-to-Server Cabling</p>
+<table class="cellalignment130" title="InfiniBand Switch-to-Server Cabling " summary="Cabling information for the InfiniBand cables on full rack.">
+<thead>
+<tr class="cellalignment107">
+<th class="cellalignment154" id="d88800e1835">From InfiniBand Switch Rack Unit(6)</th>
+<th class="cellalignment177" id="d88800e1847">Port</th>
+<th class="cellalignment177" id="d88800e1850">To Rack Unit6</th>
+<th class="cellalignment177" id="d88800e1855">Port(7)</th>
+<th class="cellalignment126" id="d88800e1867">Cable Length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e1872" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e1872 d88800e1847">
+<p>0A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1872 d88800e1850">
+<p>U39</p>
+</td>
+<td class="cellalignment178" headers="d88800e1872 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e1872 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e1888" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e1888 d88800e1847">
+<p>0B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1888 d88800e1850">
+<p>U37</p>
+</td>
+<td class="cellalignment178" headers="d88800e1888 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e1888 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e1904" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e1904 d88800e1847">
+<p>1A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1904 d88800e1850">
+<p>U35</p>
+</td>
+<td class="cellalignment178" headers="d88800e1904 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e1904 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e1920" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e1920 d88800e1847">
+<p>1B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1920 d88800e1850">
+<p>U33</p>
+</td>
+<td class="cellalignment178" headers="d88800e1920 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e1920 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e1936" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e1936 d88800e1847">
+<p>2A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1936 d88800e1850">
+<p>U31</p>
+</td>
+<td class="cellalignment178" headers="d88800e1936 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e1936 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e1952" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e1952 d88800e1847">
+<p>2B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1952 d88800e1850">
+<p>U29</p>
+</td>
+<td class="cellalignment178" headers="d88800e1952 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e1952 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e1968" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e1968 d88800e1847">
+<p>3A</p>
+</td>
+<td class="cellalignment178" headers="d88800e1968 d88800e1850">
+<p>U27</p>
+</td>
+<td class="cellalignment178" headers="d88800e1968 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e1968 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e1984" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e1984 d88800e1847">
+<p>3B</p>
+</td>
+<td class="cellalignment178" headers="d88800e1984 d88800e1850">
+<p>U25</p>
+</td>
+<td class="cellalignment178" headers="d88800e1984 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e1984 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2000" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e2000 d88800e1847">
+<p>4A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2000 d88800e1850">
+<p>U23</p>
+</td>
+<td class="cellalignment178" headers="d88800e2000 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e2000 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2016" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2016 d88800e1847">
+<p>0A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2016 d88800e1850">
+<p>U39</p>
+</td>
+<td class="cellalignment178" headers="d88800e2016 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2016 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2032" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2032 d88800e1847">
+<p>0B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2032 d88800e1850">
+<p>U37</p>
+</td>
+<td class="cellalignment178" headers="d88800e2032 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2032 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2049" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2049 d88800e1847">
+<p>1A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2049 d88800e1850">
+<p>U35</p>
+</td>
+<td class="cellalignment178" headers="d88800e2049 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2049 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2065" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2065 d88800e1847">
+<p>1B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2065 d88800e1850">
+<p>U33</p>
+</td>
+<td class="cellalignment178" headers="d88800e2065 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2065 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2081" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2081 d88800e1847">
+<p>2A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2081 d88800e1850">
+<p>U31</p>
+</td>
+<td class="cellalignment178" headers="d88800e2081 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2081 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2097" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2097 d88800e1847">
+<p>2B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2097 d88800e1850">
+<p>U29</p>
+</td>
+<td class="cellalignment178" headers="d88800e2097 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2097 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2113" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2113 d88800e1847">
+<p>3A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2113 d88800e1850">
+<p>U27</p>
+</td>
+<td class="cellalignment178" headers="d88800e2113 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2113 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2129" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2129 d88800e1847">
+<p>3B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2129 d88800e1850">
+<p>U25</p>
+</td>
+<td class="cellalignment178" headers="d88800e2129 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2129 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2145" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2145 d88800e1847">
+<p>4A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2145 d88800e1850">
+<p>U23</p>
+</td>
+<td class="cellalignment178" headers="d88800e2145 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2145 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2161" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2161 d88800e1847">
+<p>4B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2161 d88800e1850">
+<p>U18</p>
+</td>
+<td class="cellalignment178" headers="d88800e2161 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e2161 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2177" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2177 d88800e1847">
+<p>12A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2177 d88800e1850">
+<p>U16</p>
+</td>
+<td class="cellalignment178" headers="d88800e2177 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e2177 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2193" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2193 d88800e1847">
+<p>12B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2193 d88800e1850">
+<p>U14</p>
+</td>
+<td class="cellalignment178" headers="d88800e2193 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e2193 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2209" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2209 d88800e1847">
+<p>13A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2209 d88800e1850">
+<p>U12</p>
+</td>
+<td class="cellalignment178" headers="d88800e2209 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e2209 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2226" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2226 d88800e1847">
+<p>13B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2226 d88800e1850">
+<p>U10</p>
+</td>
+<td class="cellalignment178" headers="d88800e2226 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e2226 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2242" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2242 d88800e1847">
+<p>14A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2242 d88800e1850">
+<p>U8</p>
+</td>
+<td class="cellalignment178" headers="d88800e2242 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e2242 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2258" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2258 d88800e1847">
+<p>14B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2258 d88800e1850">
+<p>U6</p>
+</td>
+<td class="cellalignment178" headers="d88800e2258 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e2258 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2274" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2274 d88800e1847">
+<p>15A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2274 d88800e1850">
+<p>U4</p>
+</td>
+<td class="cellalignment178" headers="d88800e2274 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e2274 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2290" headers="d88800e1835">
+<p>U20</p>
+</td>
+<td class="cellalignment178" headers="d88800e2290 d88800e1847">
+<p>15B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2290 d88800e1850">
+<p>U2</p>
+</td>
+<td class="cellalignment178" headers="d88800e2290 d88800e1855">
+<p>PCIe 3 P1</p>
+</td>
+<td class="cellalignment128" headers="d88800e2290 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2306" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e2306 d88800e1847">
+<p>4B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2306 d88800e1850">
+<p>U18</p>
+</td>
+<td class="cellalignment178" headers="d88800e2306 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2306 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2322" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e2322 d88800e1847">
+<p>12A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2322 d88800e1850">
+<p>U16</p>
+</td>
+<td class="cellalignment178" headers="d88800e2322 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2322 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2338" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e2338 d88800e1847">
+<p>12B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2338 d88800e1850">
+<p>U14</p>
+</td>
+<td class="cellalignment178" headers="d88800e2338 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2338 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2354" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e2354 d88800e1847">
+<p>13A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2354 d88800e1850">
+<p>U12</p>
+</td>
+<td class="cellalignment178" headers="d88800e2354 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2354 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2370" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e2370 d88800e1847">
+<p>13B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2370 d88800e1850">
+<p>U10</p>
+</td>
+<td class="cellalignment178" headers="d88800e2370 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2370 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2386" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e2386 d88800e1847">
+<p>14A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2386 d88800e1850">
+<p>U8</p>
+</td>
+<td class="cellalignment178" headers="d88800e2386 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2386 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2403" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e2403 d88800e1847">
+<p>14B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2403 d88800e1850">
+<p>U6</p>
+</td>
+<td class="cellalignment178" headers="d88800e2403 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2403 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2419" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e2419 d88800e1847">
+<p>15A</p>
+</td>
+<td class="cellalignment178" headers="d88800e2419 d88800e1850">
+<p>U4</p>
+</td>
+<td class="cellalignment178" headers="d88800e2419 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2419 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+<tr class="cellalignment107">
+<td class="cellalignment156" id="d88800e2435" headers="d88800e1835">
+<p>U22</p>
+</td>
+<td class="cellalignment178" headers="d88800e2435 d88800e1847">
+<p>15B</p>
+</td>
+<td class="cellalignment178" headers="d88800e2435 d88800e1850">
+<p>U2</p>
+</td>
+<td class="cellalignment178" headers="d88800e2435 d88800e1855">
+<p>PCIe 3 P2</p>
+</td>
+<td class="cellalignment128" headers="d88800e2435 d88800e1867">
+<p>3 meters</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;6</sup> Un is the unit location in the rack, where n is the number.</p>
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;7</sup> Pn is the InfiniBand port, where n is the port number.</p>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment106">
+<tr>
+<td class="cellalignment139">
+<table class="cellalignment111">
+<tr>
+<td class="cellalignment110"><a href="app_fru.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment110"><a href="app_cablex3.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment141">
+<table class="cellalignment109">
+<tr>
+<td class="cellalignment110"><a href="http://docs.oracle.com/bigdata/bda46/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment110"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment110"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment110"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment110"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+</body>
+</html>

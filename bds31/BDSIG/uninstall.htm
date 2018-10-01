@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Uninstalling Oracle Big Data SQL</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="If you want to completely uninstall Oracle Big Data SQL, the software must be removed from the Hadoop cluster management server and the Oracle Database nodes where it is currently installed." />
+<meta name="dcterms.created" content="2018-04-30T10:38:15Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E77165-10" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds31/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="installdbside.htm" title="Previous" type="text/html" />
+<link rel="Next" href="adaptingtochange.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77165-10.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-3634DD3B-5878-406D-BC08-8A4EE48CC406"></a> <span id="PAGE" style="display:none;">7/13</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-3634DD3B-5878-406D-BC08-8A4EE48CC406" class="sect1"><span class="enumeration_chapter">4</span> Uninstalling Oracle Big Data SQL</h1>
+<div>
+<p>If you want to completely uninstall Oracle Big Data SQL, the software must be removed from the Hadoop cluster management server and the Oracle Database nodes where it is currently installed.</p>
+<p>If the Hadoop DataNode service is removed from a subset of the nodes, then Oracle Big Data SQL must be removed from those nodes only.</p>
+</div>
+<div class="sect2"><a id="GUID-F4A55E32-C2AF-42D9-9ABB-F9054C23378B"></a>
+<h2 id="BDSIG-GUID-F4A55E32-C2AF-42D9-9ABB-F9054C23378B" class="sect2"><span class="enumeration_section">4.1</span> General Guidelines for Removing the Software</h2>
+<div>
+<p>Oracle Big Data SQL can be uninstalled from the Hadoop cluster management server or from any Oracle Database servers connected to the cluster management server. The procedure is the same for all Hadoop platforms.</p>
+<p>Guidelines for uninstalling Oracle Big Data SQL are as follows:</p>
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>To perform a complete uninstall of Oracle Big Data SQL, remove the software from the cluster management server and from each Oracle Database server connected to the BDS service.</p>
+<p>This is a single script execution on each server. Not other manual steps are needed.</p>
+</li>
+<li>
+<p>You can uninstall from the cluster management server first or from the database servers first.</p>
+<div class="infobox-tip" id="GUID-F4A55E32-C2AF-42D9-9ABB-F9054C23378B__GUID-3E86110B-8779-473B-9F79-39C95510AE04">
+<p class="notep1">Tip:</p>
+If you are removing the software from both sides of the installation, uninstall it from the database side first. If you uninstall from the cluster management server first, queries in process will fail.</div>
+</li>
+<li>
+<p>On the database side, uninstall from any secondary nodes before uninstalling from the primary node.</p>
+<p>This is not critical to the uninstall process, but active queries from secondary nodes will fail if the primary node is disconnected from the service.</p>
+</li>
+<li>
+<p>You can uninstall from one or more secondary database nodes without impacting the operation of the Big Data SQL service on the Hadoop cluster management server.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-F4A55E32-C2AF-42D9-9ABB-F9054C23378B__GUID-BA54E398-F62D-48E9-9809-366B490FA549">
+<p class="notep1">Note:</p>
+In a Oracle RAC database, be sure to run the uninstall script on all nodes of the database.</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-FBF3B1B3-B6E7-4DED-8B7D-510091BEB2D4"></a>
+<h2 id="BDSIG-GUID-FBF3B1B3-B6E7-4DED-8B7D-510091BEB2D4" class="sect2"><span class="enumeration_section">4.2</span> Uninstalling From an Oracle Database Server</h2>
+<div>
+<p>On any database server where you want to uninstall Oracle Big Data SQL, run the appropriate command below as the database owner (usually the <code class="codeph">oracle</code> user). In the case of a RAC database, be sure to perform the uninstall on each instance of the RAC.</p>
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph"># ./bds-database-install.sh --uninstall-as-primary</code></p>
+<pre dir="ltr">
+</pre>
+<p>or</p>
+</li>
+<li>
+<p><code class="codeph"># ./bds-database-install.sh --uninstall-as-secondary</code></p>
+</li>
+</ul>
+<p>If you use the <code class="codeph">--uninstall-as-secondary</code> switch to uninstall the software from the primary Hadoop cluster configuration, cleanup of database objects will be incomplete. This can be remedied by running the uninstall again. Error messages may appear if your run a second uninstall for cleanup purposes, but the cleanup should complete successfully.</p>
+<p>See <a href="installoutput.htm#GUID-D15A3626-F4F6-4EBB-A6BE-476EBC137CC9__USINGBDS-DATABASE-INSTALL.SHTOUNINS-A7F7F2EB">Using bds-database-install.sh to Uninstall Oracle Big Data SQL</a> for an example.</p>
+<p>The <code>bds-database-install.sh</code> script is for installing/uninstalling the database side for Oracle Big Data SQL 3.1 or greater. Note that if you are uninstalling Release 3.0.1 or earlier on Oracle Big Data Appliance, use the <code class="codeph">bds-exa-install.sh</code> script from your existing Oracle Big Data SQL installation instead.</p>
+<pre dir="ltr">
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-659B5BBB-3BE9-491A-895D-16AEE160C6F3"></a>
+<h2 id="BDSIG-GUID-659B5BBB-3BE9-491A-895D-16AEE160C6F3" class="sect2"><span class="enumeration_section">4.3</span> Removing Oracle Big Data SQL From Hadoop Cluster Nodes</h2>
+<div>
+<p>Oracle Big Data SQL works with the Hadoop DataNode service. When you run the Oracle Big Data SQL installer on the configuration management server, it automatically propagates the Oracle Big Data SQL components to all Hadoop cluster nodes where the DataNode service is running. If the DataNode service is removed from one or more nodes, then you must also remove the Oracle Big Data SQL components from those same nodes.</p>
+<div class="section">
+<div class="infobox-note" id="GUID-659B5BBB-3BE9-491A-895D-16AEE160C6F3__GUID-1E660D21-C4C7-47F1-8F9C-27B70F7BA7E2">
+<p class="notep1">Note:</p>
+This task does not apply to Oracle Big Data Appliance.</div>
+</div>
+<!-- class="section" -->
+<div class="p">On the cluster management server (where CM or Ambari is running), log on as <code class="codeph">root</code>, cd to the Oracle Big Data SQL installer directory (where the download bundle BigDataSQL-&lt;<span class="italic">Hadoop distribution</span>&gt;&lt;<span class="italic">version</span>&gt;.zip was extracted), and enter the following command:</div>
+<!-- class="section" -->
+<div class="section">
+<pre dir="ltr">
+# ./setup-bds remove bds-config.json
+</pre>
+<p>The <code class="codeph">setup-bds</code> script with the <code class="codeph">remove</code> option analyzes the cluster to discover any nodes where Oracle Big Data SQL was installed, but where the DataNode service had been subsequently removed. <code class="codeph">setup-bds remove</code> removes the Oracle Big Data SQL components from those nodes. It also updates the <code>bigdata.hosts</code> file on each remaining Oracle Big Data SQL-enabled node in order to provide an up-to-date inventory of which nodes within the cluster are running Oracle Big Data SQL.</p>
+<p><a href="uninstall.htm#GUID-CB0E3BC7-0A7E-4A6A-92F0-191641AD8302" title="Log on to the Hadoop cluster management server as root and use setup-bds uninstall to uninstall the software."><code class="codeph">setup-bds uninstall</code></a> has a different purpose. The uninstall option is for a complete de-installation of Oracle Big Data SQL.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-CB0E3BC7-0A7E-4A6A-92F0-191641AD8302"></a>
+<h2 id="BDSIG-GUID-CB0E3BC7-0A7E-4A6A-92F0-191641AD8302" class="sect2"><span class="enumeration_section">4.4</span> Uninstalling From the Hadoop Cluster Management Server</h2>
+<div>
+<p>Log on to the Hadoop cluster management server as <code class="codeph">root</code> and use <code>setup-bds uninstall</code> to uninstall the software.</p>
+<div class="infobox-note" id="GUID-CB0E3BC7-0A7E-4A6A-92F0-191641AD8302__GUID-FF2703BA-D9FA-45BD-B6C0-F11F47EABFD0">
+<p class="notep1">Before You Start:</p>
+<p>If the Hadoop system is Oracle Big Data Appliance and you uninstalling Oracle Big Data SQL 3.0.1 in order to upgrade to Release 3.1, do not use the <code>setup-bds uninstall</code> command show below. Instead, use <a class="olink BIGOG-GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C/GUID-BC2AC6AB-06A4-477A-A345-91FC62D2CAF8" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E77143-01&amp;id=BIGOG-GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C/GUID-BC2AC6AB-06A4-477A-A345-91FC62D2CAF8"><code class="codeph">bdacli disable big_data_sql</code></a> as described in the <span class="italic">Oracle Big Data Appliance Owner&rsquo;s Guide</span>.</p>
+</div>
+<div class="section">
+<p>To uninstall Oracle Big Data SQL 3.1 or later, from the <code>bds-database-install</code> directory run the following command as <code class="codeph">root</code>.</p>
+<pre dir="ltr">
+# ./setup-bds uninstall bds-config.json
+</pre>
+<p>The script will return the following to standard output. This example shows the output of the uninstall on an HDP cluster management server. The output is similar for CDH. Italicized annotations in brackets are included for the purposes of the example.</p>
+<pre dir="ltr">
+[root@mycluster22bda16-adm BDSSetup]# ./setup-bds uninstall bds-config.json 
+BigDataSQL: FQDN: mycluster22bda16-adm.us.oracle.com.
+BigDataSQL: Hostname: mycluster22bda16-adm.us.oracle.com.
+BigDataSQL: Local directories at /root/bds/BDSSetup/deployment_manager/bigdata_platforms/hortonworks.
+BigDataSQL: Verifying configuration parameters...
+BigDataSQL: Starting server...
+BigDataSQL: API protocol: http.
+BigDataSQL: API port: 8080.
+BigDataSQL: Waiting for server to respond...
+
+Admin User: admin
+Password:
+
+BigDataSQL: Authentication succeeded.
+BigDataSQL: API version: 1.
+BigDataSQL: Cluster type: HDP.
+BigDataSQL: Retrieving cluster...
+BigDataSQL: Cluster name: HDP24.
+BigDataSQL: Cluster version: HDP-2.4.
+BigDataSQL: Setting target cluster...
+BigDataSQL: Service: ORACLESERVICE.
+BigDataSQL: Looking for configured port on the JSON config file...
+BigDataSQL: Testing port...
+BigDataSQL: Using port: 81.
+BigDataSQL: Local directories at /root/bds/BDSSetup/deployment_manager/bigdata_platforms/hortonworks/services/bigdatasql.
+BigDataSQL: Verifying service configuration...
+BigDataSQL: Service TCP connection: False.
+BigDataSQL: Uninstalling service...
+BigDataSQL: Restoring cluster...
+BigDataSQL: Removing service distribution...
+BigDataSQL: Cleaning up service...
+BigDataSQL: UNINSTALL workflow completed.
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="installdbside.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="adaptingtochange.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds31/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

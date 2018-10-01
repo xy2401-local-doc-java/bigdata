@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Ease of Use Tools for Oracle Big Data Connectors</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2016-11-07T14:14:49Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Connectors User's Guide" />
+<meta name="dcterms.identifier" content="E77519-02" />
+<meta name="dcterms.isVersionOf" content="BDCUG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda46/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="olh.htm" title="Previous" type="text/html" />
+<link rel="Next" href="xquery-part.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E77519-02.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-65C0E3F8-6644-458D-A81A-9548442C42EA"></a> <span id="PAGE" style="display:none;">9/19</span> <!-- End Header -->
+<h1 id="BDCUG-GUID-65C0E3F8-6644-458D-A81A-9548442C42EA" class="sect1"><span class="enumeration_chapter">4</span> Ease of Use Tools for Oracle Big Data Connectors</h1>
+<div>
+<p>Oracle Big Data Connectors are a powerful toolset for data interchange between Hadoop and Oracle Database. Learning how to set up the environment for these tools and use them to full potential is worthwhile, but there are ways to get started and be productive without fully completing that learning curve. Oracle is developing a set of ease-of-use tools for this purpose.</p>
+<p>Oracle Shell for Hadoop Loaders is the first ease-of-use tool for Oracle Big Data Connectors.</p>
+</div>
+<div class="sect2"><a id="GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A"></a>
+<h2 id="BDCUG-GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A" class="sect2"><span class="enumeration_section">4.1</span> Introducing Oracle Shell for Hadoop Loaders</h2>
+<div>
+<div class="section">
+<p class="subhead2">What is Oracle Shell for Hadoop Loaders?</p>
+</div>
+<!-- class="section" -->
+<p>Oracle Shell for Hadoop Loaders (OHSH) is a helper shell that provides a simple to use command line interface to Oracle Loader for Hadoop, Oracle SQL Connector for HDFS, and Copy to Hadoop.&nbsp;It has basic shell features such as command line recall, history, inheriting environment variables from the parent process,&nbsp;setting new or existing environment variables, and performing environmental substitution in the command line.&nbsp;</p>
+<p>The core functionality of Oracle Shell for Hadoop Loaders includes the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Defining named external resources with which Oracle Shell for Hadoop Loaders interacts to perform loading tasks.</p>
+</li>
+<li>
+<p>Setting default values for load operations.</p>
+</li>
+<li>
+<p>Running load commands.</p>
+</li>
+<li>
+<p>Delegating simple pre and post load tasks to the Operating System, HDFS, Hive and Oracle.&nbsp;These tasks include viewing the data to be loaded, and viewing the data in the target table after loading.</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead2">Getting Started with Oracle Shell for Hadoop Loaders</p>
+</div>
+<!-- class="section" -->
+<p>To set up Oracle Shell for Hadoop Loaders, follow the instructions in the <span class="italic">Oracle Big Data SQL Installation Guide</span>.</p>
+<p>The examples directory in the OHSH kit contains many examples that define resources and load data using Oracle Shell for Hadoop Loaders.&nbsp;See <code>&lt;OHSH_KIT&gt;/examples/README.txt</code> for a description of the examples and instructions for running them.</p>
+<div class="section">
+<p class="subhead2">Getting Help</p>
+</div>
+<!-- class="section" -->
+<p>The OHSH shell provides online help for all commands.</p>
+<p>To get a list of all possible OHSH commands:</p>
+<pre dir="ltr">
+ohsh&gt;% help
+</pre>
+<p>To get help on a specific command, enter <code>help</code>, followed by the command:&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<pre dir="ltr">
+ohsh&gt;% help show
+</pre>
+<p>The table below describes the help categories available.</p>
+<div class="tblformal" id="GUID-9A5A4601-C617-474D-A5B1-3FDA122FE87A__THELEFTCOLUMNLISTSOSHELLHELPCOMMAND-353C0657">
+<table class="cellalignment26" summary="The left column lists OHSH help commands. The right column provides the description for each command.">
+<thead align="left">
+<tr>
+<th class="cellalignment25" id="d31913e96">Help Command</th>
+<th class="cellalignment25" id="d31913e98">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cellalignment25" id="d31913e102" headers="d31913e96"><code>help load</code></td>
+<td class="cellalignment25" headers="d31913e102 d31913e98">Describes load commands for Oracle and Hadoop tables.</td>
+</tr>
+<tr>
+<td class="cellalignment25" id="d31913e108" headers="d31913e96"><code>help set</code></td>
+<td class="cellalignment25" headers="d31913e108 d31913e98">Shows help for setting defaults for load operations. It also describes what load methods are impacted by a particular setting.</td>
+</tr>
+<tr>
+<td class="cellalignment25" id="d31913e114" headers="d31913e96"><code>help show</code></td>
+<td class="cellalignment25" headers="d31913e114 d31913e98">Shows help for inspecting default settings.</td>
+</tr>
+<tr>
+<td class="cellalignment25" id="d31913e120" headers="d31913e96"><code>help shell</code></td>
+<td class="cellalignment25" headers="d31913e120 d31913e98">Shows shell-like commands.</td>
+</tr>
+<tr>
+<td class="cellalignment25" id="d31913e126" headers="d31913e96"><code>help resource</code></td>
+<td class="cellalignment25" headers="d31913e126 d31913e98">Show commands for creating and dropping named resources.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<div class="props_rev_3"><a id="GUID-1E4E51AF-4C84-4BE1-84CC-220E4A034518"></a>
+<h3 id="BDCUG-GUID-1E4E51AF-4C84-4BE1-84CC-220E4A034518" class="sect3"><span class="enumeration_section">4.1.1</span> Third-Party Licenses for Bundled Software</h3>
+<div>
+<div class="section">
+<p><a id="d31913e150" class="indexterm-anchor"></a><a id="d31913e152" class="indexterm-anchor"></a>Oracle Shell for Hadoop Loaders installs the following third-party products:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>ANTLR 4.5.2</p>
+</li>
+<li>
+<p>JLine 2.13</p>
+</li>
+<li>
+<p>Apache Commons Exec 1.3</p>
+</li>
+<li>
+<p>Apache Commons CLI 1.3.1</p>
+</li>
+</ul>
+<p><span class="bold">Unless otherwise specifically noted, or as required under the terms of the third party license (e.g., LGPL), the licenses and statements herein, including all statements regarding Apache-licensed code, are intended as notices only.</span></p>
+</div>
+<!-- class="section" --></div>
+<div class="sect4"><a id="GUID-DAC02D5C-7FBF-4BB2-8522-220676D367C2"></a>
+<h4 id="BDCUG-GUID-DAC02D5C-7FBF-4BB2-8522-220676D367C2" class="sect4"><span class="enumeration_section">4.1.1.1</span> ANTLR 4.5.2</h4>
+<div>
+<div class="section">
+<p>Copyright (c) 2015 Terence Parr, Sam Harwell</p>
+<p>All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ol>
+<li>
+<p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+</li>
+<li>
+<p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
+</li>
+<li>
+<p>The name of the author may not be used to endorse or promote products derived from this software without specific prior written permission.</p>
+</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect4"><a id="GUID-427926CF-809F-4E58-9500-D5D98F6267A6"></a>
+<h4 id="BDCUG-GUID-427926CF-809F-4E58-9500-D5D98F6267A6" class="sect4"><span class="enumeration_section">4.1.1.2</span> JLine 2.13</h4>
+<div>
+<div class="section">
+<p>Copyright (c) 2002-2015 Marc Prud'hommeaux &lt;mwp1@cornell.edu&gt;</p>
+<p>All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+<p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
+<p>Neither the name of JLine nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect4"><a id="GUID-F8A636AB-8B51-4900-A299-DA0B88E99780"></a>
+<h4 id="BDCUG-GUID-F8A636AB-8B51-4900-A299-DA0B88E99780" class="sect4"><span class="enumeration_section">4.1.1.3</span> Apache Commons Exec 1.3</h4>
+<div>
+<div class="section">
+<p>Include the following License ONLY ONCE in the documentation even if there are multiple products licensed under the license.</p>
+<p>The following applies to all products licensed under the Apache 2.0 License:</p>
+<p>You may not use the identified files except in compliance with the Apache License, Version 2.0 (the "License.").</p>
+<p>You may obtain a copy of the License at <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">http://www.apache.org/licenses/LICENSE-2.0</a>. A copy of the license is also reproduced below.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect4"><a id="GUID-4B92693A-B48C-4159-84FB-F6D7433DC886"></a>
+<h4 id="BDCUG-GUID-4B92693A-B48C-4159-84FB-F6D7433DC886" class="sect4"><span class="enumeration_section">4.1.1.4</span> Apache Commons CLI 1.3.1</h4>
+<div>
+<p>Include the following License ONLY ONCE in the documentation even if there are multiple products licensed under the license.</p>
+<div class="section">
+<p>The following applies to all products licensed under the Apache 2.0 License:</p>
+<p>You may not use the identified files except in compliance with the Apache License, Version 2.0 (the "License.")</p>
+<p>You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 <a href="HTTP://WWW.APACHE.ORG/LICENSES/LICENSE-2.0" target="_blank">http://www.apache.org/licenses/LICENSE-2.0</a>. A copy of the license is also reproduced below.</p>
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p>
+<p>See the License for the specific language governing permissions and limitations under the License.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="props_rev_3"><a id="GUID-6AE555DE-5B16-42C9-9AF6-5BDB555497C5"></a>
+<h4 id="BDCUG-GUID-6AE555DE-5B16-42C9-9AF6-5BDB555497C5" class="sect4"><span class="enumeration_section">4.1.1.5</span> Apache License</h4>
+<div>
+<div class="section">
+<ul class="simple">
+<li>Version 2.0, January 2004</li>
+<li><a href="http://www.apache.org/licenses/" target="_blank"><code>http://www.apache.org/licenses/</code></a></li>
+</ul>
+<p>TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION</p>
+<ol>
+<li>
+<p><span class="bold">Definitions</span></p>
+<p>"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.</p>
+<p>"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.</p>
+<p>"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.</p>
+<p>"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.</p>
+<p>"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.</p>
+<p>"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.</p>
+<p>"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).</p>
+<p>"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.</p>
+<p>"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."</p>
+<p>"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.</p>
+</li>
+<li>
+<p><span class="bold">Grant of Copyright License</span>. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.</p>
+</li>
+<li>
+<p><span class="bold">Grant of Patent License</span>. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.</p>
+</li>
+<li>
+<p><span class="bold">Redistribution</span>. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:</p>
+<ol>
+<li>
+<p>You must give any other recipients of the Work or Derivative Works a copy of this License; and</p>
+</li>
+<li>
+<p>You must cause any modified files to carry prominent notices stating that You changed the files; and</p>
+</li>
+<li>
+<p>You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and</p>
+</li>
+<li>
+<p>If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.</p>
+</li>
+</ol>
+<p>You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.</p>
+</li>
+<li>
+<p><span class="bold">Submission of Contributions</span>. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.</p>
+</li>
+<li>
+<p><span class="bold">Trademarks</span>. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.</p>
+</li>
+<li>
+<p><span class="bold">Disclaimer of Warranty</span>. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.</p>
+</li>
+<li>
+<p><span class="bold">Limitation of Liability</span>. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.</p>
+</li>
+<li>
+<p><span class="bold">Accepting Warranty or Additional Liability</span>. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.</p>
+</li>
+</ol>
+<p>END OF TERMS AND CONDITIONS</p>
+<p><span class="bold">APPENDIX: How to apply the Apache License to your work</span></p>
+<p>To apply the Apache License to your work, attach the following boilerplate notice, with the fields enclosed by brackets "[]" replaced with your own identifying information. (Don't include the brackets!) The text should be enclosed in the appropriate comment syntax for the file format. We also recommend that a file or class name and description of purpose be included on the same "printed page" as the copyright notice for easier identification within third-party archives.</p>
+<p>Copyright [yyyy] [name of copyright owner]</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank"><code>http://www.apache.org/licenses/LICENSE-2.0</code></a></p>
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+This product includes software developed by The Apache Software Foundation (<a href="http://www.apache.org/" target="_blank"><span class="bold">http://www.apache.org/</span></a>) (listed below):</div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment27">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="olh.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="xquery-part.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2016, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment29">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="http://docs.oracle.com/bigdata/bda46/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

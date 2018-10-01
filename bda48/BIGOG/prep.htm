@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Site Requirements for Oracle Big Data Appliance</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="keywords" content="ventilation requirements" />
+<meta name="dcterms.created" content="2018-07-19T23:52:02Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E85370-07" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda48/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="intro.htm" title="Previous" type="text/html" />
+<link rel="Next" href="network.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-2F0463FF-D15C-4059-B81F-59E20413DC44"></a> <span id="PAGE" style="display:none;">7/31</span> <!-- End Header -->
+<script  >
+//<![CDATA[
+window.name='prep'
+//]]>
+</script> <script  >
+    function footdisplay(footnum,footnote) {
+    var msg = window.open('about:blank', 'NewWindow' + footnum,
+        'directories=no,height=100,location=no,menubar=no,resizable=yes,' +
+        'scrollbars=yes,status=no,toolbar=no,width=598');
+    msg.document.open('text/html');
+    msg.document.write('<!DOCTYPE html ');
+    msg.document.write('PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" ');
+    msg.document.write('"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'); 
+    msg.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" ><head><title>');
+   
+    msg.document.write('Footnote&amp;nbsp; ' + footnum);
+    msg.document.write('<\/title><meta http-equiv="Content-Type" ');
+    msg.document.write('content="text/html; charset=utf-8" />');
+    msg.document.write('');
+    msg.document.write('<style> <![CDATA[ ');
+    msg.document.write('h1 {text-align: center; font-size: 14pt;}');
+    msg.document.write('fieldset {border: none;}');
+    msg.document.write('form {text-align: center;}');
+    msg.document.write(' ]]\u003e <\/style>');
+    msg.document.write('<\/head><body><div id="footnote"><h1>Footnote&nbsp; ' + footnum + '<\/h1><p>');
+    msg.document.write(footnote);
+    msg.document.write('<\/p><form action="" method="post"><fieldset>');
+    msg.document.write('<input type="button" value="OK" ');
+    msg.document.write('onclick="window.close();" />');
+    msg.document.write('<\/fieldset><\/form><\/div><\/body><\/html>');
+    msg.document.close();
+    setTimeout(function() {
+        var height = msg.document.getElementById('footnote').offsetHeight;
+        msg.resizeTo(598, height + 100);
+    }
+    , 100);
+    msg.focus();
+}
+</script><noscript>
+<p>The script content on this page is for navigation purposes only and does not alter the content in any way.</p>
+</noscript><a id="BIGOG118"></a>
+<h1 id="BIGOG-GUID-2F0463FF-D15C-4059-B81F-59E20413DC44" class="sect1"><span class="enumeration_chapter">2</span> Site Requirements for Oracle Big Data Appliance</h1>
+<div>
+<p>This chapter describes the site requirements for Oracle Big Data Appliance. Use this chapter while you complete the <span class="italic">Oracle Big Data Appliance Site Checklists</span>.</p>
+<p>This chapter contains these sections:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="prep.htm#GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1">General Environmental Requirements</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-A07A66BB-DC3D-4CDA-8927-BF00D9147B28">Space Requirements</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70">Flooring Requirements</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-B92C0636-6F26-4229-972A-CDBBFF7CFA4E">Electrical Power Requirements</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A">Temperature and Humidity Requirements</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-61CA5078-E2AF-436C-930B-62B5C4E8E3BC">Network Connection Requirements</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-F73FBBBA-6A75-491D-96FB-55C840226F71">Ensuring That the Site Is Ready</a></p>
+</li>
+</ul>
+</div>
+<a id="BIGOG77015"></a><a id="BIGOG77078"></a><a id="BIGOG76874"></a><a id="BIGOG120"></a><a id="BIGOG119"></a>
+<div class="props_rev_3"><a id="GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1"></a>
+<h2 id="BIGOG-GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1" class="sect2"><span class="enumeration_section">2.1</span> General Environmental Requirements</h2>
+<div>
+<div class="section">
+<p>The environmental requirements for Oracle Big Data Appliance depend on the model and the size of the system. The following tables provide an overview of the rack requirements. Measurements are approximate. The other sections in this chapter provide detailed information.</p>
+<p><a href="prep.htm#GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1__CEGBEDIF" title="Environmental requirements for Oracle Big Data Appliance">Table 2-1</a> identifies the general environmental requirements for an Oracle Big Data Appliance X6-2 or X5-2 rack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1__CEGBEDIF">
+<p class="titleintable">Table 2-1 Environmental Requirements for Oracle Big Data Appliance X6-2 and X5-2</p>
+<table class="cellalignment184" title="Environmental Requirements for Oracle Big Data Appliance X6-2 and X5-2" summary="Environmental requirements for Oracle Big Data Appliance">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment255" id="d12123e99">Environmental Component</th>
+<th class="cellalignment209" id="d12123e102">Starter Rack</th>
+<th class="cellalignment203" id="d12123e105">Full Rack</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e110" headers="d12123e99">
+<p><a id="d12123e112" class="indexterm-anchor"></a><a id="d12123e116" class="indexterm-anchor"></a>Net Weight</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70">Flooring Requirements</a>"</span></p>
+</td>
+<td class="cellalignment211" headers="d12123e110 d12123e102">
+<p>415 kg (915 lb)</p>
+</td>
+<td class="cellalignment206" headers="d12123e110 d12123e105">
+<p>836 kg (1843 lb)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e133" headers="d12123e99">
+<p><a id="d12123e135" class="indexterm-anchor"></a><a id="d12123e137" class="indexterm-anchor"></a><a id="d12123e139" class="indexterm-anchor"></a>Acoustic levels</p>
+</td>
+<td class="cellalignment211" headers="d12123e133 d12123e102">
+<p>8.4 Bel</p>
+</td>
+<td class="cellalignment206" headers="d12123e133 d12123e105">
+<p>8.5 Bel</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e149" headers="d12123e99">
+<p><a id="d12123e151" class="indexterm-anchor"></a>Power</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-B92C0636-6F26-4229-972A-CDBBFF7CFA4E">Electrical Power Requirements</a>"</span></p>
+</td>
+<td class="cellalignment211" headers="d12123e149 d12123e102">
+<p>Maximum: 5.2 kW</p>
+<p>Typical: 3.6 kW</p>
+</td>
+<td class="cellalignment206" headers="d12123e149 d12123e105">
+<p>Maximum: 13.0 kW</p>
+<p>Typical: 9.1 kW</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e171" headers="d12123e99">
+<p><a id="d12123e173" class="indexterm-anchor"></a>Cooling</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A">Temperature and Humidity Requirements</a>"</span> and <span class="q">"<a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a>"</span></p>
+</td>
+<td class="cellalignment211" headers="d12123e171 d12123e102">
+<p>Maximum: 17,521 BTU/hour (18,485 kJ/hour)</p>
+<p>Typical: 12,265 BTU/hour (12,940 kJ/hour)</p>
+</td>
+<td class="cellalignment206" headers="d12123e171 d12123e105">
+<p>Maximum: 44,136 BTU/hour (46,564 kJ/hour)</p>
+<p>Typical: 30,895 BTU/hour 32,594 kJ/hour)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e198" headers="d12123e99">
+<p><a id="d12123e200" class="indexterm-anchor"></a>Air flow front-to-back (subject to actual data center environment)</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A">Temperature and Humidity Requirements</a>"</span>, and <span class="q">"<a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a>"</span></p>
+</td>
+<td class="cellalignment211" headers="d12123e198 d12123e102">
+<p>Maximum: 811 CFM</p>
+<p>Typical: 568 CFM</p>
+</td>
+<td class="cellalignment206" headers="d12123e198 d12123e105">
+<p>Maximum: 2043 CFM</p>
+<p>Typical: 1430 CFM</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e225" headers="d12123e99">
+<p><a id="d12123e227" class="indexterm-anchor"></a>IP addresses</p>
+<p><span class="bold">See Also:</span> <a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a>.</p>
+</td>
+<td class="cellalignment211" headers="d12123e225 d12123e102">
+<p>12 for Ethernet network</p>
+<p>6 for InfiniBand network</p>
+</td>
+<td class="cellalignment206" headers="d12123e225 d12123e105">
+<p>24 for Ethernet network</p>
+<p>18 for InfiniBand network</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e251" headers="d12123e99">
+<p><a id="d12123e253" class="indexterm-anchor"></a>Network drops</p>
+<p><span class="bold">See Also:</span> <a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a>.</p>
+</td>
+<td class="cellalignment211" headers="d12123e251 d12123e102">
+<p>One network connection</p>
+</td>
+<td class="cellalignment206" headers="d12123e251 d12123e105">
+<p>One network connection</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e273" headers="d12123e99">
+<p><a id="d12123e275" class="indexterm-anchor"></a>External connectivity</p>
+<p><span class="bold">See Also:</span> <a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a>.</p>
+</td>
+<td class="cellalignment211" headers="d12123e273 d12123e102">
+<p>1 x 1 Gbps Ethernet port</p>
+<p>6 x 10 Gbps Ethernet ports</p>
+</td>
+<td class="cellalignment206" headers="d12123e273 d12123e105">
+<p>1 x 1 Gbps Ethernet ports</p>
+<p>18 x 10 Gbps Ethernet ports</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="prep.htm#GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1__BABHFBEG" title="Environmental requirements for Oracle Big Data Appliance">Table 2-2</a> identifies the general environmental requirements for an Oracle Big Data Appliance X5-2 High Capacity Node plus Infiniband Infrastructure.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1__BABHFBEG">
+<p class="titleintable">Table 2-2 Environmental Requirements for Oracle Big Data Appliance X6-2 and X5-2 High Capacity Node plus Infiniband Infrastructure</p>
+<table class="cellalignment184" title="Environmental Requirements for Oracle Big Data Appliance X6-2 and X5-2 High Capacity Node plus Infiniband Infrastructure" summary="Environmental requirements for Oracle Big Data Appliance">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment255" id="d12123e316">Environmental Component</th>
+<th class="cellalignment258" id="d12123e319">High Capacity Node plus Infiniband Infrastructure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e324" headers="d12123e316">
+<p>Height</p>
+</td>
+<td class="cellalignment260" headers="d12123e324 d12123e319">
+<p>3.5 inches (87.6 mm)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e331" headers="d12123e316">
+<p>Width</p>
+</td>
+<td class="cellalignment260" headers="d12123e331 d12123e319">
+<p>17.5 inches (445.0 mm)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e338" headers="d12123e316">
+<p>Depth</p>
+</td>
+<td class="cellalignment260" headers="d12123e338 d12123e319">
+<p>29.0 inches (737.0 mm)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e345" headers="d12123e316">
+<p><a id="d12123e347" class="indexterm-anchor"></a><a id="d12123e351" class="indexterm-anchor"></a>Net Weight</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70">Flooring Requirements</a>"</span></p>
+</td>
+<td class="cellalignment260" headers="d12123e345 d12123e319">
+<p>33.1 kg (73.0 lb)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e365" headers="d12123e316">
+<p><a id="d12123e367" class="indexterm-anchor"></a>Power</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-B92C0636-6F26-4229-972A-CDBBFF7CFA4E">Electrical Power Requirements</a>"</span></p>
+</td>
+<td class="cellalignment260" headers="d12123e365 d12123e319">
+<p>Maximum: 0.7 kW</p>
+<p>Typical: 0.5 kW</p>
+<p>(Typical power usage varies by application workload)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e384" headers="d12123e316">
+<p><a id="d12123e386" class="indexterm-anchor"></a>Cooling</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A">Temperature and Humidity Requirements</a>"</span> and <span class="q">"<a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a>"</span></p>
+</td>
+<td class="cellalignment260" headers="d12123e384 d12123e319">
+<p>Maximum: 2,481 BTU/hour (2617 kJ/hour)</p>
+<p>Typical: 1,736 BTU/hour (1831 kJ/hour)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e406" headers="d12123e316">
+<p><a id="d12123e408" class="indexterm-anchor"></a>Air flow front-to-back (subject to actual data center environment)</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A">Temperature and Humidity Requirements</a>"</span>, and <span class="q">"<a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a>"</span></p>
+</td>
+<td class="cellalignment260" headers="d12123e406 d12123e319">
+<p>Maximum: 115 CFM</p>
+<p>Typical: 80 CFM</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="prep.htm#GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1__CEGDJJEH" title="Environmental requirements for Oracle Big Data Appliance">Table 2-3</a> shows the general <a id="d12123e434" class="indexterm-anchor"></a>environmental requirements for Oracle Big Data Appliance X4-2 and Oracle Big Data Appliance X3-2.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1__CEGDJJEH">
+<p class="titleintable">Table 2-3 Environmental Requirements for Oracle Big Data Appliance X4-2 and X3-2</p>
+<table class="cellalignment184" title="Environmental Requirements for Oracle Big Data Appliance X4-2 and X3-2" summary="Environmental requirements for Oracle Big Data Appliance">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment255" id="d12123e451">Environmental Component</th>
+<th class="cellalignment209" id="d12123e454">Starter Rack</th>
+<th class="cellalignment203" id="d12123e457">Full Rack</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e462" headers="d12123e451">
+<p><a id="d12123e464" class="indexterm-anchor"></a><a id="d12123e468" class="indexterm-anchor"></a>Net Weight</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70">Flooring Requirements</a>"</span></p>
+</td>
+<td class="cellalignment211" headers="d12123e462 d12123e454">
+<p>418 kg (922 lb)</p>
+</td>
+<td class="cellalignment206" headers="d12123e462 d12123e457">
+<p>829 kg (1828 lb)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e485" headers="d12123e451">
+<p><a id="d12123e487" class="indexterm-anchor"></a><a id="d12123e489" class="indexterm-anchor"></a><a id="d12123e491" class="indexterm-anchor"></a>Acoustic levels</p>
+</td>
+<td class="cellalignment211" headers="d12123e485 d12123e454">
+<p>76 Bel</p>
+</td>
+<td class="cellalignment206" headers="d12123e485 d12123e457">
+<p>8.3 Bel</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e501" headers="d12123e451">
+<p><a id="d12123e503" class="indexterm-anchor"></a>Power</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-B92C0636-6F26-4229-972A-CDBBFF7CFA4E">Electrical Power Requirements</a>"</span></p>
+</td>
+<td class="cellalignment211" headers="d12123e501 d12123e454">
+<p>Maximum: 4.2 kW</p>
+<p>Typical: 3 kW</p>
+</td>
+<td class="cellalignment206" headers="d12123e501 d12123e457">
+<p>Maximum: 10 kW (10.2 kVA)</p>
+<p>Typical: 7 kW (7.15 kVA)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e523" headers="d12123e451">
+<p><a id="d12123e525" class="indexterm-anchor"></a>Cooling</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A">Temperature and Humidity Requirements</a>"</span> and <span class="q">"<a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a>"</span></p>
+</td>
+<td class="cellalignment211" headers="d12123e523 d12123e454">
+<p>Maximum: 14,052 BTU/hour (14,825.6 kJ/hour</p>
+<p>Typical: 9,836 BTU/hour (10,377.5 kJ/hour)</p>
+</td>
+<td class="cellalignment206" headers="d12123e523 d12123e457">
+<p>Maximum: 34,142 BTU/hour (34,838 kJ/hour)</p>
+<p>Typical: 23,940 BTU/hour (24,420 kJ/hour)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e550" headers="d12123e451">
+<p><a id="d12123e552" class="indexterm-anchor"></a>Air flow front-to-back (subject to actual data center environment)</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A">Temperature and Humidity Requirements</a>"</span>, and <span class="q">"<a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a>"</span></p>
+</td>
+<td class="cellalignment211" headers="d12123e550 d12123e454">
+<p>Maximum: 676 CFM</p>
+<p>Typical: 473 CFM</p>
+</td>
+<td class="cellalignment206" headers="d12123e550 d12123e457">
+<p>Maximum: 1,573 CFM</p>
+<p>Typical: 1,103 CFM</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e577" headers="d12123e451">
+<p><a id="d12123e579" class="indexterm-anchor"></a>IP addresses</p>
+<p><span class="bold">See Also:</span> <a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a>.</p>
+</td>
+<td class="cellalignment211" headers="d12123e577 d12123e454">
+<p>12 for Ethernet network</p>
+<p>6 for InfiniBand network</p>
+</td>
+<td class="cellalignment206" headers="d12123e577 d12123e457">
+<p>24 for Ethernet network</p>
+<p>18 for InfiniBand network</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e603" headers="d12123e451">
+<p><a id="d12123e605" class="indexterm-anchor"></a>Network drops</p>
+<p><span class="bold">See Also:</span> <a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a>.</p>
+</td>
+<td class="cellalignment211" headers="d12123e603 d12123e454">
+<p>One network connection</p>
+</td>
+<td class="cellalignment206" headers="d12123e603 d12123e457">
+<p>One network connection</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment256" id="d12123e625" headers="d12123e451">
+<p><a id="d12123e627" class="indexterm-anchor"></a>External connectivity</p>
+<p><span class="bold">See Also:</span> <a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a>.</p>
+</td>
+<td class="cellalignment211" headers="d12123e625 d12123e454">
+<p>1 x 1 Gbps Ethernet port</p>
+<p>6 x 10 Gbps Ethernet ports</p>
+</td>
+<td class="cellalignment206" headers="d12123e625 d12123e457">
+<p>1 x 1 Gbps Ethernet ports</p>
+<p>18 x 10 Gbps Ethernet ports</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p><a href="prep.htm#GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1__BABDIFJJ" title="Environmental requirements for Oracle Big Data Appliance">Table 2-4</a> identifies the general environmental requirements for the Oracle Big Data Appliance Sun Fire X4270 M2-based rack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1__BABDIFJJ">
+<p class="titleintable">Table 2-4 Environmental Requirements for Oracle Big Data Appliance Sun Fire X4270 M2-Based Rack</p>
+<table class="cellalignment184" title="Environmental Requirements for Oracle Big Data Appliance Sun Fire X4270 M2-Based Rack " summary="Environmental requirements for Oracle Big Data Appliance">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment272" id="d12123e668">Environmental Component</th>
+<th class="cellalignment272" id="d12123e671">Full Rack</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment273" id="d12123e676" headers="d12123e668">
+<p><a id="d12123e678" class="indexterm-anchor"></a><a id="d12123e682" class="indexterm-anchor"></a>Net Weight</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70">Flooring Requirements</a>"</span></p>
+</td>
+<td class="cellalignment273" headers="d12123e676 d12123e671">
+<p>816.5 kg (1800 lb)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment273" id="d12123e696" headers="d12123e668">
+<p><a id="d12123e698" class="indexterm-anchor"></a><a id="d12123e700" class="indexterm-anchor"></a><a id="d12123e702" class="indexterm-anchor"></a>Acoustic levels</p>
+</td>
+<td class="cellalignment273" headers="d12123e696 d12123e671">
+<p>8.3 Bel</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment273" id="d12123e709" headers="d12123e668">
+<p><a id="d12123e711" class="indexterm-anchor"></a>Power</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-B92C0636-6F26-4229-972A-CDBBFF7CFA4E">Electrical Power Requirements</a>"</span></p>
+</td>
+<td class="cellalignment273" headers="d12123e709 d12123e671">
+<p>Maximum: 12.0 kW (12.25 kVA)</p>
+<p>Typical: 8.4 kW (8.6 kVA)</p>
+<p>(Typical power usage varies by application workload)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment273" id="d12123e728" headers="d12123e668">
+<p><a id="d12123e730" class="indexterm-anchor"></a>Cooling</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A">Temperature and Humidity Requirements</a>"</span> and <span class="q">"<a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a>"</span></p>
+</td>
+<td class="cellalignment273" headers="d12123e728 d12123e671">
+<p>Maximum: 40,971 BTU/hour (41,807 kJ/hour)</p>
+<p>Typical: 28,680 BTU/hour (29,265 kJ/hour)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment273" id="d12123e750" headers="d12123e668">
+<p><a id="d12123e752" class="indexterm-anchor"></a>Air flow front-to-back (subject to actual data center environment)</p>
+<p><span class="bold">See Also:</span> <span class="q">"<a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A">Temperature and Humidity Requirements</a>"</span>, and <span class="q">"<a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a>"</span></p>
+</td>
+<td class="cellalignment273" headers="d12123e750 d12123e671">
+<p>Maximum: Approximately 1,886 CFM</p>
+<p>Typical: Approximately 1,340 CFM</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment273" id="d12123e772" headers="d12123e668">
+<p><a id="d12123e774" class="indexterm-anchor"></a>IP addresses</p>
+<p><span class="bold">See Also:</span> <a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a>.</p>
+</td>
+<td class="cellalignment273" headers="d12123e772 d12123e671">
+<p>24 for Ethernet network</p>
+<p>18 for InfiniBand network</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment273" id="d12123e793" headers="d12123e668">
+<p><a id="d12123e795" class="indexterm-anchor"></a>Network drops</p>
+<p><span class="bold">See Also:</span> <a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a>.</p>
+</td>
+<td class="cellalignment273" headers="d12123e793 d12123e671">
+<p>Minimum of two network connections</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment273" id="d12123e812" headers="d12123e668">
+<p><a id="d12123e814" class="indexterm-anchor"></a>External connectivity</p>
+<p><span class="bold">See Also:</span> <a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a>.</p>
+</td>
+<td class="cellalignment273" headers="d12123e812 d12123e671">
+<p>2 x 1 Gbps Ethernet ports</p>
+<p>18 x 10 Gbps Ethernet ports</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG121"></a>
+<div class="props_rev_3"><a id="GUID-A07A66BB-DC3D-4CDA-8927-BF00D9147B28"></a>
+<h2 id="BIGOG-GUID-A07A66BB-DC3D-4CDA-8927-BF00D9147B28" class="sect2"><span class="enumeration_section">2.2</span> Space Requirements</h2>
+<div>
+<div class="section">
+<p><a id="d12123e852" class="indexterm-anchor"></a><a id="d12123e856" class="indexterm-anchor"></a><a id="d12123e858" class="indexterm-anchor"></a>The space requirements for Oracle Big Data Appliance are as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Height: 200 cm (79 inches)</p>
+</li>
+<li>
+<p>Width: 60 cm with side panels (24 inches)</p>
+</li>
+<li>
+<p>Depth: 120 cm (47.5 inches)</p>
+</li>
+</ul>
+<p>The <a id="d12123e873" class="indexterm-anchor"></a><a id="d12123e875" class="indexterm-anchor"></a>minimum ceiling height for the cabinet is 230 cm (90 inches), measured from the true floor or raised floor, whichever is higher. An additional 92 cm (36 inches) is required above the rack height in the front and rear aisle space for maintenance access. The space surrounding the cabinet must not restrict the movement of cool air between the air conditioner and the front of the systems within the cabinet, or the movement of hot air coming out of the rear of the cabinet.</p>
+</div>
+<!-- class="section" --></div>
+<a id="BIGOG76959"></a><a id="BIGOG123"></a><a id="BIGOG122"></a>
+<div class="props_rev_3"><a id="GUID-8D5BE003-598A-45ED-B230-8996C128F076"></a>
+<h3 id="BIGOG-GUID-8D5BE003-598A-45ED-B230-8996C128F076" class="sect3"><span class="enumeration_section">2.2.1</span> Receiving and Unpacking Requirements</h3>
+<div>
+<div class="section">
+<p><a id="d12123e900" class="indexterm-anchor"></a><a id="d12123e902" class="indexterm-anchor"></a><a id="d12123e906" class="indexterm-anchor"></a><a id="d12123e908" class="indexterm-anchor"></a>Before Oracle Big Data Appliance arrives, ensure that the receiving area is large enough for the package. <a href="prep.htm#GUID-8D5BE003-598A-45ED-B230-8996C128F076__CEGBEFDH" title="Unit dimensions and weight">Table 2-5</a> lists the dimensions and weight of the shipped items.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-8D5BE003-598A-45ED-B230-8996C128F076__CEGBEFDH">
+<p class="titleintable">Table 2-5 Shipping Measurements</p>
+<table class="cellalignment184" title="Shipping Measurements" summary="Unit dimensions and weight">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment264" id="d12123e930">Measurement</th>
+<th class="cellalignment274" id="d12123e933">Full Rack</th>
+<th class="cellalignment274" id="d12123e936">Starter Rack</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment266" id="d12123e941" headers="d12123e930">
+<p>Height</p>
+</td>
+<td class="cellalignment275" headers="d12123e941 d12123e933">
+<p>216 cm (85 inches)</p>
+</td>
+<td class="cellalignment275" headers="d12123e941 d12123e936">
+<p>216 cm (85 inches)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment266" id="d12123e951" headers="d12123e930">
+<p>Width</p>
+</td>
+<td class="cellalignment275" headers="d12123e951 d12123e933">
+<p>122 cm (48 inches)</p>
+</td>
+<td class="cellalignment275" headers="d12123e951 d12123e936">
+<p>122 cm (48 inches)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment266" id="d12123e961" headers="d12123e930">
+<p>Depth</p>
+</td>
+<td class="cellalignment275" headers="d12123e961 d12123e933">
+<p>157.5 cm (62 inches)</p>
+</td>
+<td class="cellalignment275" headers="d12123e961 d12123e936">
+<p>157.5 cm (62 inches)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment266" id="d12123e971" headers="d12123e930">
+<p>Weight</p>
+</td>
+<td class="cellalignment275" headers="d12123e971 d12123e933">
+<p>979 kg (2158 lb)</p>
+</td>
+<td class="cellalignment275" headers="d12123e971 d12123e936">
+<p>546 kg (1203 lb)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p>If your <a id="d12123e983" class="indexterm-anchor"></a>loading dock meets the height and ramp requirements for a standard freight carrier truck, then you can use a <a id="d12123e986" class="indexterm-anchor"></a>pallet jack to unload the rack. If not, you must provide a standard <a id="d12123e989" class="indexterm-anchor"></a>forklift or other means to unload the rack. You can also request that the rack be shipped in a truck with a <a id="d12123e992" class="indexterm-anchor"></a>lift gate.</p>
+<p>Leave Oracle Big Data Appliance in its shipping container until it arrives at the installation site. Ensure sufficient clearance and clear pathways for moving it from the unpacking location to the installation location. The entire access route to the installation site should be free of raised-pattern <a id="d12123e997" class="indexterm-anchor"></a>flooring that can cause vibration.</p>
+<p>Use a conditioned space when removing the packaging material to reduce particles before entering the data center. Allow enough space for unpacking Oracle Big Data Appliance from its shipping cartons. <a href="prep.htm#GUID-8D5BE003-598A-45ED-B230-8996C128F076__CHDCGJDG" title="Access route requirements">Table 2-6</a> lists the <a id="d12123e1009" class="indexterm-anchor"></a><a id="d12123e1011" class="indexterm-anchor"></a><a id="d12123e1013" class="indexterm-anchor"></a>access route requirements.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-8D5BE003-598A-45ED-B230-8996C128F076__CHDCGJDG">
+<p class="titleintable">Table 2-6 Access Route Requirements for Oracle Big Data Appliance</p>
+<table class="cellalignment184" title="Access Route Requirements for Oracle Big Data Appliance" summary="Access route requirements">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment217" id="d12123e1028">Access Route Item</th>
+<th class="cellalignment224" id="d12123e1041">With Shipping Pallet</th>
+<th class="cellalignment274" id="d12123e1044">Without Shipping Pallet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment220" id="d12123e1049" headers="d12123e1028">
+<p>Minimum door height</p>
+</td>
+<td class="cellalignment226" headers="d12123e1049 d12123e1041">
+<p>218.4 cm (86 inches)</p>
+</td>
+<td class="cellalignment275" headers="d12123e1049 d12123e1044">
+<p>204 cm (80.5 inches)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment220" id="d12123e1059" headers="d12123e1028">
+<p>Minimum door width</p>
+</td>
+<td class="cellalignment226" headers="d12123e1059 d12123e1041">
+<p>127 cm (50 inches)</p>
+</td>
+<td class="cellalignment275" headers="d12123e1059 d12123e1044">
+<p>64 cm (25.5 inches)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment220" id="d12123e1069" headers="d12123e1028">
+<p>Minimum elevator depth</p>
+</td>
+<td class="cellalignment226" headers="d12123e1069 d12123e1041">
+<p>162.6 cm (64 inches)</p>
+</td>
+<td class="cellalignment275" headers="d12123e1069 d12123e1044">
+<p>124 cm (49 inches)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment220" id="d12123e1079" headers="d12123e1028">
+<p>Maximum incline</p>
+</td>
+<td class="cellalignment226" headers="d12123e1079 d12123e1041">
+<p>6 degrees</p>
+</td>
+<td class="cellalignment275" headers="d12123e1079 d12123e1044">
+<p>6 degrees</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment220" id="d12123e1089" headers="d12123e1028">
+<p>Minimum elevator, pallet jack, and floor loading capacity</p>
+</td>
+<td class="cellalignment226" headers="d12123e1089 d12123e1041">
+<p>1134 kg (2500 lb)</p>
+</td>
+<td class="cellalignment275" headers="d12123e1089 d12123e1044">
+<p>1134 kg (2500 lb)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG125"></a><a id="BIGOG124"></a>
+<div class="props_rev_3"><a id="GUID-55D5AAE1-D1F3-4A57-8853-C30F00E1E309"></a>
+<h3 id="BIGOG-GUID-55D5AAE1-D1F3-4A57-8853-C30F00E1E309" class="sect3"><span class="enumeration_section">2.2.2</span> Maintenance Access Requirements</h3>
+<div>
+<div class="section">
+<p>The maintenance area must be large enough for Oracle Big Data Appliance and have the required access space. For example, the required space to remove the side panels is 67.6 cm (26.6 inches). <a href="prep.htm#GUID-55D5AAE1-D1F3-4A57-8853-C30F00E1E309__CEGFIGCA" title="Maintenance access requirements">Table 2-7</a> lists the <a id="d12123e1125" class="indexterm-anchor"></a>maintenance access requirements.</p>
+<p>Open tiles are required for <a id="d12123e1130" class="indexterm-anchor"></a>electrical access.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-55D5AAE1-D1F3-4A57-8853-C30F00E1E309__CEGFIGCA">
+<p class="titleintable">Table 2-7 Maintenance Access Requirements for Oracle Big Data Appliance</p>
+<table class="cellalignment184" title="Maintenance Access Requirements for Oracle Big Data Appliance" summary="Maintenance access requirements">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment185" id="d12123e1144">Location</th>
+<th class="cellalignment186" id="d12123e1147">Maintenance Access Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d12123e1152" headers="d12123e1144">
+<p>Rear maintenance</p>
+</td>
+<td class="cellalignment188" headers="d12123e1152 d12123e1147">
+<p>91.4 cm (36 inches)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d12123e1159" headers="d12123e1144">
+<p>Front maintenance</p>
+</td>
+<td class="cellalignment188" headers="d12123e1159 d12123e1147">
+<p>91.4 cm (36 inches)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment187" id="d12123e1166" headers="d12123e1144">
+<p>Top maintenance</p>
+</td>
+<td class="cellalignment188" headers="d12123e1166 d12123e1147">
+<p>91.4 cm (36 inches)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG127"></a><a id="BIGOG126"></a>
+<div class="props_rev_3"><a id="GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70"></a>
+<h2 id="BIGOG-GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70" class="sect2"><span class="enumeration_section">2.3</span> Flooring Requirements</h2>
+<div>
+<div class="section">
+<p>Oracle recommends that Oracle Big Data Appliance be installed on raised <a id="d12123e1195" class="indexterm-anchor"></a><a id="d12123e1199" class="indexterm-anchor"></a>flooring. The site floor and the raised flooring must be able to support the total weight.</p>
+<p><a href="prep.htm#GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70__CHDEHGHF" title="Rack weight and load requirements">Table 2-8</a> lists the floor load requirements.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70__CHDEHGHF">
+<p class="titleintable">Table 2-8 Floor Load Requirements for Oracle Big Data Appliance</p>
+<table class="cellalignment184" title="Floor Load Requirements for Oracle Big Data Appliance" summary="Rack weight and load requirements">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment276" id="d12123e1219">Description</th>
+<th class="cellalignment274" id="d12123e1222">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment277" id="d12123e1227" headers="d12123e1219">
+<p><a id="d12123e1229" class="indexterm-anchor"></a>Maximum allowable weight of installed rack equipment</p>
+</td>
+<td class="cellalignment275" headers="d12123e1227 d12123e1222">
+<p>952.5 kg (2100 lb)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment277" id="d12123e1236" headers="d12123e1219">
+<p>Maximum allowable weight of installed power distribution units</p>
+</td>
+<td class="cellalignment275" headers="d12123e1236 d12123e1222">
+<p>52 kg (115 lb)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment277" id="d12123e1243" headers="d12123e1219">
+<p>Maximum dynamic load (maximum allowable weight of installed equipment including PDUs)</p>
+</td>
+<td class="cellalignment275" headers="d12123e1243 d12123e1222">
+<p>1050 kg (2315 lb)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG128"></a>
+<div class="props_rev_3"><a id="GUID-B92C0636-6F26-4229-972A-CDBBFF7CFA4E"></a>
+<h2 id="BIGOG-GUID-B92C0636-6F26-4229-972A-CDBBFF7CFA4E" class="sect2"><span class="enumeration_section">2.4</span> Electrical Power Requirements</h2>
+<div>
+<div class="section">
+<p>Oracle Big Data Appliance can operate effectively over a wide range of voltages and frequencies. However, it must have a reliable power source. Damage may occur if the ranges are exceeded. Electrical disturbances such as the following may damage Oracle Big Data Appliance:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a id="d12123e1273" class="indexterm-anchor"></a><a id="d12123e1275" class="indexterm-anchor"></a><a id="d12123e1277" class="indexterm-anchor"></a>Fluctuations caused by brownouts</p>
+</li>
+<li>
+<p>Wide and rapid variations in input voltage levels or in input power frequency</p>
+</li>
+<li>
+<p><a id="d12123e1285" class="indexterm-anchor"></a>Electrical storms</p>
+</li>
+<li>
+<p>Faults in the distribution system, such as defective wiring</p>
+</li>
+</ul>
+<p>To protect Oracle Big Data Appliance from such disturbances, you should have a dedicated power distribution system, power-conditioning equipment, and lightning arresters or power cables to protect from electrical storms.</p>
+<p>Each rack has two preinstalled power distribution units (PDUs). The PDUs accept different power sources. You must specify the type of PDU that is correct for your Oracle Big Data Appliance and data center.</p>
+</div>
+<!-- class="section" --></div>
+<a id="BIGOG129"></a>
+<div class="props_rev_3"><a id="GUID-760AE57B-3DB4-4DF6-9413-750FBD7B4C2A"></a>
+<h3 id="BIGOG-GUID-760AE57B-3DB4-4DF6-9413-750FBD7B4C2A" class="sect3"><span class="enumeration_section">2.4.1</span> PDUs for Oracle Big Data Appliance</h3>
+<div>
+<div class="section">
+<p><a id="d12123e1315" class="indexterm-anchor"></a><a id="d12123e1317" class="indexterm-anchor"></a><a id="d12123e1319" class="indexterm-anchor"></a>The type of PDU depends on the location where Oracle Big Data Appliance is installed. Refer to the appropriate sections for your location:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="prep.htm#GUID-16DD8449-1F1D-486A-BFCF-6CB7A0EBC5A9">Single-Phase PDUs for North America, South America, Japan, and Taiwan</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-F6FF0E0D-CDAE-4AF5-AE11-0A07EFB4D40E">Three-Phase PDUs for North America, South America, Japan, and Taiwan</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-0DEF47D5-00DC-4AD5-89AE-DE7143794823">Single-Phase PDUs for Europe, the Middle East, Africa, and Asia Pacific</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-96741BDD-19D2-4222-A1B1-912C878E30E2">Three-Phase PDUs for Europe, the Middle East, Africa, and Asia Pacific</a></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+<a id="BIGOG131"></a><a id="BIGOG132"></a><a id="BIGOG130"></a>
+<div class="props_rev_3"><a id="GUID-16DD8449-1F1D-486A-BFCF-6CB7A0EBC5A9"></a>
+<h4 id="BIGOG-GUID-16DD8449-1F1D-486A-BFCF-6CB7A0EBC5A9" class="sect4"><span class="enumeration_section">2.4.1.1</span> Single-Phase PDUs for North America, South America, Japan, and Taiwan</h4>
+<div>
+<div class="section">
+<p><a href="prep.htm#GUID-16DD8449-1F1D-486A-BFCF-6CB7A0EBC5A9__CEGEDJHH" title="Low-voltage PDU specifications for North America, South America, Japan and Taiwan.">Table 2-9</a> <a id="d12123e1366" class="indexterm-anchor"></a><a id="d12123e1368" class="indexterm-anchor"></a>lists the requirements for low-voltage single-phase PDUs for <a id="d12123e1371" class="indexterm-anchor"></a><a id="d12123e1373" class="indexterm-anchor"></a><a id="d12123e1375" class="indexterm-anchor"></a><a id="d12123e1377" class="indexterm-anchor"></a><a id="d12123e1379" class="indexterm-anchor"></a><a id="d12123e1381" class="indexterm-anchor"></a>North America, South America, Japan, and Taiwan. There are two PDUs per rack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-16DD8449-1F1D-486A-BFCF-6CB7A0EBC5A9__CEGEDJHH">
+<p class="titleintable">Table 2-9 Low-Voltage 15 kVA Single-Phase PDUs</p>
+<table class="cellalignment184" title="Low-Voltage 15 kVA Single-Phase PDUs " summary="Low-voltage PDU specifications for North America, South America, Japan and Taiwan.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment189" id="d12123e1397">Option</th>
+<th class="cellalignment190" id="d12123e1400">Requirement per PDU</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1405" headers="d12123e1397">
+<p>Number of inputs</p>
+</td>
+<td class="cellalignment192" headers="d12123e1405 d12123e1400">
+<p>3 x 30A single phase</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1412" headers="d12123e1397">
+<p>Voltage</p>
+</td>
+<td class="cellalignment192" headers="d12123e1412 d12123e1400">
+<p>200 to 240 VAC</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1419" headers="d12123e1397">
+<p>Frequency</p>
+</td>
+<td class="cellalignment192" headers="d12123e1419 d12123e1400">
+<p>50/60 Hz</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1426" headers="d12123e1397">
+<p>Current</p>
+</td>
+<td class="cellalignment192" headers="d12123e1426 d12123e1400">
+<p>24A maximum per input</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1433" headers="d12123e1397">
+<p>Power rating</p>
+</td>
+<td class="cellalignment192" headers="d12123e1433 d12123e1400">
+<p>15 kVA</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1440" headers="d12123e1397">
+<p>Output current</p>
+</td>
+<td class="cellalignment192" headers="d12123e1440 d12123e1400">
+<p>72A (3 x 24A)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1447" headers="d12123e1397">
+<p>Outlets</p>
+</td>
+<td class="cellalignment192" headers="d12123e1447 d12123e1400">
+<p>42 x C13; 6 x C19</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1454" headers="d12123e1397">
+<p>Outlet groups</p>
+</td>
+<td class="cellalignment192" headers="d12123e1454 d12123e1400">
+<p>6</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1461" headers="d12123e1397">
+<p>Group protection<a id="fn_1" href="#fn_1" onclick='footdisplay(1,"UL489 2-pole circuit breaker ")'><sup>Foot&nbsp;1</sup></a></p>
+</td>
+<td class="cellalignment192" headers="d12123e1461 d12123e1400">
+<p>20A</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1471" headers="d12123e1397">
+<p>Data center receptacle</p>
+</td>
+<td class="cellalignment192" headers="d12123e1471 d12123e1400">
+<p>15 kVA, with three 30A/250V 2-pole/3-wire NEMA L6-30P plugs</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;1</sup></p>
+<p>UL489 2-pole circuit breaker</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The following are needed to connect Oracle Big Data Appliance to a low-voltage single-phase power source:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>6 power cords for two PDUs, 30A at 200 to 240 VAC</p>
+</li>
+<li>
+<p>6 receptacles to connect the PDUs to 6 NEMA L6-30 data center receptacles</p>
+</li>
+</ul>
+<p><a href="prep.htm#GUID-16DD8449-1F1D-486A-BFCF-6CB7A0EBC5A9__CEGDBJGB">Figure 2-1</a> shows the low-voltage, single-phase PDU power connector for North America, South America, Japan, and Taiwan.</p>
+<div class="figure" id="GUID-16DD8449-1F1D-486A-BFCF-6CB7A0EBC5A9__CEGDBJGB">
+<p class="titleinfigure">Figure 2-1 Low-Voltage, Single-Phase Power Connector</p>
+<img width="205" height="94" src="img/GUID-D49F14E0-D583-4BD8-B4C9-F34F9B990F96-default.gif" alt="Description of Figure 2-1 follows" title="Description of Figure 2-1 follows" /><br />
+<a href="img_text/GUID-D49F14E0-D583-4BD8-B4C9-F34F9B990F96-default.htm">Description of "Figure 2-1 Low-Voltage, Single-Phase Power Connector"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG134"></a><a id="BIGOG135"></a><a id="BIGOG133"></a>
+<div class="props_rev_3"><a id="GUID-F6FF0E0D-CDAE-4AF5-AE11-0A07EFB4D40E"></a>
+<h4 id="BIGOG-GUID-F6FF0E0D-CDAE-4AF5-AE11-0A07EFB4D40E" class="sect4"><span class="enumeration_section">2.4.1.2</span> Three-Phase PDUs for North America, South America, Japan, and Taiwan</h4>
+<div>
+<div class="section">
+<p><a href="prep.htm#GUID-F6FF0E0D-CDAE-4AF5-AE11-0A07EFB4D40E__CEGJJGBB" title="Low-voltage PDU specifications for North America, South America, Japan and Taiwan.">Table 2-10</a> <a id="d12123e1522" class="indexterm-anchor"></a><a id="d12123e1524" class="indexterm-anchor"></a>lists the requirements for low-voltage three-phase PDUs for <a id="d12123e1527" class="indexterm-anchor"></a><a id="d12123e1529" class="indexterm-anchor"></a><a id="d12123e1531" class="indexterm-anchor"></a><a id="d12123e1533" class="indexterm-anchor"></a><a id="d12123e1535" class="indexterm-anchor"></a><a id="d12123e1537" class="indexterm-anchor"></a>North America, South America, Japan, and Taiwan. There are two PDUs per rack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-F6FF0E0D-CDAE-4AF5-AE11-0A07EFB4D40E__CEGJJGBB">
+<p class="titleintable">Table 2-10 Low-Voltage 15 kVA Three-Phase PDUs</p>
+<table class="cellalignment184" title="Low-Voltage 15 kVA Three-Phase PDUs" summary="Low-voltage PDU specifications for North America, South America, Japan and Taiwan.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment189" id="d12123e1553">Option</th>
+<th class="cellalignment190" id="d12123e1556">Requirement per PDU</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1561" headers="d12123e1553">
+<p>Number of inputs</p>
+</td>
+<td class="cellalignment192" headers="d12123e1561 d12123e1556">
+<p>1 x 60A three-phase 4-wire</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1568" headers="d12123e1553">
+<p>Voltage</p>
+</td>
+<td class="cellalignment192" headers="d12123e1568 d12123e1556">
+<p>190 to 220 VAC</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1575" headers="d12123e1553">
+<p>Frequency</p>
+</td>
+<td class="cellalignment192" headers="d12123e1575 d12123e1556">
+<p>50/60 Hz</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1582" headers="d12123e1553">
+<p>Current</p>
+</td>
+<td class="cellalignment192" headers="d12123e1582 d12123e1556">
+<p>40A maximum per phase</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1589" headers="d12123e1553">
+<p>Power rating</p>
+</td>
+<td class="cellalignment192" headers="d12123e1589 d12123e1556">
+<p>14.4 kVA</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1596" headers="d12123e1553">
+<p>Output current</p>
+</td>
+<td class="cellalignment192" headers="d12123e1596 d12123e1556">
+<p>69A (3 x 23A)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1603" headers="d12123e1553">
+<p>Outlets</p>
+</td>
+<td class="cellalignment192" headers="d12123e1603 d12123e1556">
+<p>42 x C13; 6 x C19</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1610" headers="d12123e1553">
+<p>Outlet groups</p>
+</td>
+<td class="cellalignment192" headers="d12123e1610 d12123e1556">
+<p>6</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1617" headers="d12123e1553">
+<p>Group protection<a id="fn_2" href="#fn_2" onclick='footdisplay(2,"UL489 2-pole circuit breaker ")'><sup>Foot&nbsp;2</sup></a></p>
+</td>
+<td class="cellalignment192" headers="d12123e1617 d12123e1556">
+<p>20A</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1627" headers="d12123e1553">
+<p>Data center receptacle</p>
+</td>
+<td class="cellalignment192" headers="d12123e1627 d12123e1556">
+<p>15 kVA IEC 60309 60A 4-pin 250 VAC three-phase IP67</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;2</sup></p>
+<p>UL489 2-pole circuit breaker</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The following are needed to connect Oracle Big Data Appliance to a low-voltage three-phase power source:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>2 power cords for two PDUs, 60A at 190 to 220 VAC three-phase</p>
+</li>
+<li>
+<p>2 receptacles to connect the PDUs to 2 IEC 60309 60A 4-pin 250 VAC three-phase IP67 data center receptacles</p>
+</li>
+</ul>
+<p><a href="prep.htm#GUID-F6FF0E0D-CDAE-4AF5-AE11-0A07EFB4D40E__CEGHJDIA">Figure 2-2</a> shows the low-voltage three-phase PDU power connector for North America, South America, Japan, and Taiwan.</p>
+<div class="figure" id="GUID-F6FF0E0D-CDAE-4AF5-AE11-0A07EFB4D40E__CEGHJDIA">
+<p class="titleinfigure">Figure 2-2 Low-Voltage Three-Phase Power Connector</p>
+<img width="126" height="76" src="img/GUID-5EB4F54C-441D-4510-926A-F8A93A3FA1B3-default.gif" alt="Description of Figure 2-2 follows" title="Description of Figure 2-2 follows" /><br />
+<a href="img_text/GUID-5EB4F54C-441D-4510-926A-F8A93A3FA1B3-default.htm">Description of "Figure 2-2 Low-Voltage Three-Phase Power Connector"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG76987"></a><a id="BIGOG76988"></a><a id="BIGOG136"></a>
+<div class="props_rev_3"><a id="GUID-0DEF47D5-00DC-4AD5-89AE-DE7143794823"></a>
+<h4 id="BIGOG-GUID-0DEF47D5-00DC-4AD5-89AE-DE7143794823" class="sect4"><span class="enumeration_section">2.4.1.3</span> Single-Phase PDUs for Europe, the Middle East, Africa, and Asia Pacific</h4>
+<div>
+<div class="section">
+<p><a href="prep.htm#GUID-0DEF47D5-00DC-4AD5-89AE-DE7143794823__CEGFFFIC" title="High-voltage PDU specifications for Europe, EMEA, and APAC, except Japan and Taiwan.">Table 2-11</a> lists the requirements for a 15 kVA high-voltage single-phase PDU for Europe, the Middle East, Africa, and Asia Pacific, except Japan and Taiwan. There are two PDUs per rack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-0DEF47D5-00DC-4AD5-89AE-DE7143794823__CEGFFFIC">
+<p class="titleintable">Table 2-11 High-voltage 22 kVA Single Phase PDUs</p>
+<table class="cellalignment184" title="High-voltage 22 kVA Single Phase PDUs" summary="High-voltage PDU specifications for Europe, EMEA, and APAC, except Japan and Taiwan.">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment189" id="d12123e1690">Option</th>
+<th class="cellalignment190" id="d12123e1693">Requirement per PDU</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1698" headers="d12123e1690">
+<p>Voltage</p>
+</td>
+<td class="cellalignment192" headers="d12123e1698 d12123e1693">
+<p>220 to 240 VAC</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1705" headers="d12123e1690">
+<p>Frequency</p>
+</td>
+<td class="cellalignment192" headers="d12123e1705 d12123e1693">
+<p>50/60 Hz</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1712" headers="d12123e1690">
+<p>Current</p>
+</td>
+<td class="cellalignment192" headers="d12123e1712 d12123e1693">
+<p>25A maximum per input</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1719" headers="d12123e1690">
+<p>Power rating</p>
+</td>
+<td class="cellalignment192" headers="d12123e1719 d12123e1693">
+<p>15 kVA</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1726" headers="d12123e1690">
+<p>Output current</p>
+</td>
+<td class="cellalignment192" headers="d12123e1726 d12123e1693">
+<p>72A (3 x 32A)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1733" headers="d12123e1690">
+<p>Outlets</p>
+</td>
+<td class="cellalignment192" headers="d12123e1733 d12123e1693">
+<p>42 x C13; 6 x C19</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1740" headers="d12123e1690">
+<p>Outlet groups</p>
+</td>
+<td class="cellalignment192" headers="d12123e1740 d12123e1693">
+<p>6</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1747" headers="d12123e1690">
+<p>Group protection<a id="fn_3" href="#fn_3" onclick='footdisplay(3,"UL489 1-pole circuit breaker ")'><sup>Foot&nbsp;3</sup></a></p>
+</td>
+<td class="cellalignment192" headers="d12123e1747 d12123e1693">
+<p>20A</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1757" headers="d12123e1690">
+<p>Data center receptacle</p>
+</td>
+<td class="cellalignment192" headers="d12123e1757 d12123e1693">
+<p>15 kVA, with three blue 32A/240V splash-proof 2-pole/3-wire IEC 60309 plugs</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;3</sup></p>
+<p>UL489 1-pole circuit breaker</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The following are needed to connect Oracle Big Data Appliance to a high-voltage single-phase power source:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>6 power cords for two PDUs, 25A at 220/380 to 240/415 VAC 1-phase voltage</p>
+</li>
+<li>
+<p>6 receptacles to connect the PDUs to 2 IEC 60309 32A 3-pin 250 VAC IP44 data center receptacles, and that require 22 kVA, 1-phase</p>
+</li>
+</ul>
+<p><a href="prep.htm#GUID-0DEF47D5-00DC-4AD5-89AE-DE7143794823__CEGJDJBG">Figure 2-3</a> shows the high-voltage single-phase PDU power connector for EMEA and APAC, except for Japan and Taiwan.</p>
+<div class="figure" id="GUID-0DEF47D5-00DC-4AD5-89AE-DE7143794823__CEGJDJBG">
+<p class="titleinfigure">Figure 2-3 High-voltage Single Phase Power Connector</p>
+<img width="212" height="107" src="img/GUID-E79580F9-E21D-442B-B148-39B6C0AAF619-default.gif" alt="Description of Figure 2-3 follows" title="Description of Figure 2-3 follows" /><br />
+<a href="img_text/GUID-E79580F9-E21D-442B-B148-39B6C0AAF619-default.htm">Description of "Figure 2-3 High-voltage Single Phase Power Connector"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG140"></a><a id="BIGOG141"></a><a id="BIGOG139"></a>
+<div class="props_rev_3"><a id="GUID-96741BDD-19D2-4222-A1B1-912C878E30E2"></a>
+<h4 id="BIGOG-GUID-96741BDD-19D2-4222-A1B1-912C878E30E2" class="sect4"><span class="enumeration_section">2.4.1.4</span> Three-Phase PDUs for Europe, the Middle East, Africa, and Asia Pacific</h4>
+<div>
+<div class="section">
+<p><a href="prep.htm#GUID-96741BDD-19D2-4222-A1B1-912C878E30E2__CEGEDJGD" title="High- voltage PDU specifications for Europe, the Middle East, Africa, and Asia Pacific, except Japan and Taiwan">Table 2-12</a> l<a id="d12123e1808" class="indexterm-anchor"></a><a id="d12123e1810" class="indexterm-anchor"></a>ists the requirements for high-voltage three-phase PDUs for <a id="d12123e1813" class="indexterm-anchor"></a><a id="d12123e1815" class="indexterm-anchor"></a><a id="d12123e1817" class="indexterm-anchor"></a><a id="d12123e1819" class="indexterm-anchor"></a><a id="d12123e1821" class="indexterm-anchor"></a>Europe, the Middle East, Africa, and Asia Pacific, except Japan and Taiwan. There are two PDUs per rack. The following specifications are per PDU.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-96741BDD-19D2-4222-A1B1-912C878E30E2__CEGEDJGD">
+<p class="titleintable">Table 2-12 High-Voltage 15 kVA Three-Phase PDUs</p>
+<table class="cellalignment184" title="High-Voltage 15 kVA Three-Phase PDUs" summary="High- voltage PDU specifications for Europe, the Middle East, Africa, and Asia Pacific, except Japan and Taiwan">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment189" id="d12123e1837">Option</th>
+<th class="cellalignment190" id="d12123e1840">Requirement per PDU</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1845" headers="d12123e1837">
+<p>Number of inputs</p>
+</td>
+<td class="cellalignment192" headers="d12123e1845 d12123e1840">
+<p>1 x 25A three-phase 5 wire</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1852" headers="d12123e1837">
+<p>Voltage</p>
+</td>
+<td class="cellalignment192" headers="d12123e1852 d12123e1840">
+<p>220/380 to 240/415 VAC three-phase</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1859" headers="d12123e1837">
+<p>Frequency</p>
+</td>
+<td class="cellalignment192" headers="d12123e1859 d12123e1840">
+<p>50/60 Hz</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1866" headers="d12123e1837">
+<p>Current</p>
+</td>
+<td class="cellalignment192" headers="d12123e1866 d12123e1840">
+<p>25A maximum per phase</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1873" headers="d12123e1837">
+<p>Power rating</p>
+</td>
+<td class="cellalignment192" headers="d12123e1873 d12123e1840">
+<p>14.4 kVA</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1880" headers="d12123e1837">
+<p>Output current</p>
+</td>
+<td class="cellalignment192" headers="d12123e1880 d12123e1840">
+<p>62.7A (3 x 20.9A)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1887" headers="d12123e1837">
+<p>Outlets</p>
+</td>
+<td class="cellalignment192" headers="d12123e1887 d12123e1840">
+<p>42 x C13; 6 x C19</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1894" headers="d12123e1837">
+<p>Outlet groups</p>
+</td>
+<td class="cellalignment192" headers="d12123e1894 d12123e1840">
+<p>6</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1901" headers="d12123e1837">
+<p>Group protection<a id="fn_4" href="#fn_4" onclick='footdisplay(4,"UL489 1-pole circuit breaker ")'><sup>Foot&nbsp;4</sup></a></p>
+</td>
+<td class="cellalignment192" headers="d12123e1901 d12123e1840">
+<p>20A</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment191" id="d12123e1911" headers="d12123e1837">
+<p>Data center receptacle</p>
+</td>
+<td class="cellalignment192" headers="d12123e1911 d12123e1840">
+<p>15 kVA, three-phase, 5-pin, IEC 60309 32A, 5-pin 230/400V, three-phase IP44</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p class="tablefootnote"><sup class="tablefootnote">Footnote&nbsp;4</sup></p>
+<p>UL489 1-pole circuit breaker</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>The following are needed to connect Oracle Big Data Appliance to a high-voltage three-phase power source:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>2 power cords for two PDUs, 25A at 220/380 to 240/415 VAC three-phase</p>
+</li>
+<li>
+<p>2 receptacles to connect the PDUs to 2 IEC 60309 32A 5-pin 230/400 VAC three-phase IP44 data center receptacles</p>
+</li>
+</ul>
+<p><a href="prep.htm#GUID-96741BDD-19D2-4222-A1B1-912C878E30E2__CEGHEEBI">Figure 2-4</a> shows the high-voltage three-phase PDU power connector for EMEA and APAC, except for Japan and Taiwan.</p>
+<div class="figure" id="GUID-96741BDD-19D2-4222-A1B1-912C878E30E2__CEGHEEBI">
+<p class="titleinfigure">Figure 2-4 High-Voltage Three-Phase Power Connector</p>
+<img width="231" height="122" src="img/GUID-BA0F42D8-BE6D-42C2-8533-52926F412E4C-default.gif" alt="Description of Figure 2-4 follows" title="Description of Figure 2-4 follows" /><br />
+<a href="img_text/GUID-BA0F42D8-BE6D-42C2-8533-52926F412E4C-default.htm">Description of "Figure 2-4 High-Voltage Three-Phase Power Connector"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG142"></a>
+<div class="props_rev_3"><a id="GUID-1C5CF6D9-D369-4BFF-9C99-66AF099BCD11"></a>
+<h3 id="BIGOG-GUID-1C5CF6D9-D369-4BFF-9C99-66AF099BCD11" class="sect3"><span class="enumeration_section">2.4.2</span> Facility Power Requirements</h3>
+<div>
+<div class="section">
+<p>Electrical work and installations must obey applicable local, state, or national electrical codes. Contact your facilities manager or a qualified electrician to determine what type of power is supplied to the building.</p>
+<p>To prevent catastrophic failures, design the input power sources to ensure adequate power is provided to the PDUs. Use dedicated <a id="d12123e1958" class="indexterm-anchor"></a>AC breaker panels for all power circuits that supply power to the PDU. When planning for power distribution requirements, balance the power load between available AC supply branch circuits. In the United States and Canada, ensure that the overall system AC input current load does not exceed 80 percent of the branch circuit AC current rating.</p>
+<p><a id="d12123e1962" class="indexterm-anchor"></a><a id="d12123e1964" class="indexterm-anchor"></a><a id="d12123e1966" class="indexterm-anchor"></a>PDU power cords are 4 meters (13.12 feet) long, and 1 to 1.5 meters (3.3 to 4.9 feet) of the cord is routed within the rack cabinet. The installation site AC power receptacle must be within 2 meters (6.6 feet) of the rack.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG143"></a>
+<div class="props_rev_3"><a id="GUID-E13B4E3D-7BAE-4C79-BF50-7EF7115863CE"></a>
+<h3 id="BIGOG-GUID-E13B4E3D-7BAE-4C79-BF50-7EF7115863CE" class="sect3"><span class="enumeration_section">2.4.3</span> Circuit Breaker Requirements</h3>
+<div>
+<div class="section">
+<p>To prevent catastrophic failures, the design of your power system must ensure that adequate power is provided to the servers. Use dedicated AC <a id="d12123e1991" class="indexterm-anchor"></a><a id="d12123e1993" class="indexterm-anchor"></a>breaker panels for all power circuits that supply power to the server. Electrical work and installations must obey applicable local, state, and national electrical codes. Servers require that electrical circuits be <a id="d12123e1996" class="indexterm-anchor"></a>grounded to the earth.</p>
+<p>In addition to circuit breakers, provide a stable power source, such as an uninterruptible <a id="d12123e2001" class="indexterm-anchor"></a><a id="d12123e2005" class="indexterm-anchor"></a>power supply (UPS), to reduce the possibility of component failures. If computer equipment is subjected to repeated power interruptions and fluctuations, then it is susceptible to a higher rate of component failure.</p>
+<div class="infobox-note" id="GUID-E13B4E3D-7BAE-4C79-BF50-7EF7115863CE__GUID-C4A2890C-69F2-4A39-9816-149488F93ED6">
+<p class="notep1">Note:</p>
+<p>The owner supplies the <a id="d12123e2011" class="indexterm-anchor"></a>circuit breakers. Each <a id="d12123e2014" class="indexterm-anchor"></a>power cord requires one circuit breaker.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG144"></a>
+<div class="props_rev_3"><a id="GUID-559CD879-4715-4A5C-B3BE-5E765D8B1B05"></a>
+<h3 id="BIGOG-GUID-559CD879-4715-4A5C-B3BE-5E765D8B1B05" class="sect3"><span class="enumeration_section">2.4.4</span> Grounding Guidelines</h3>
+<div>
+<div class="section">
+<p>The cabinets for Oracle Big Data Appliance are shipped with grounding-type <a id="d12123e2038" class="indexterm-anchor"></a>power cords. Always connect the cords to grounded <a id="d12123e2041" class="indexterm-anchor"></a>power outlets. Because different grounding methods are used depending on location, check the grounding type and refer to documentation, such as <a id="d12123e2044" class="indexterm-anchor"></a>International Electrotechnical Commission (IEC) documents, for the correct grounding method. Ensure that the facility administrator or qualified electrical engineer verifies the grounding method for the building and performs the grounding work.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="BIGOG146"></a><a id="BIGOG145"></a>
+<div class="props_rev_3"><a id="GUID-16628892-23AB-4EF4-9E45-B17091B7F16A"></a>
+<h2 id="BIGOG-GUID-16628892-23AB-4EF4-9E45-B17091B7F16A" class="sect2"><span class="enumeration_section">2.5</span> Temperature and Humidity Requirements</h2>
+<div>
+<div class="section">
+<p><a id="d12123e2068" class="indexterm-anchor"></a>Airflow through Oracle Big Data Appliance is from front to back. See <a href="prep.htm#GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1__BABDIFJJ" title="Environmental requirements for Oracle Big Data Appliance">Table 2-4</a> for information about cooling and airflow.</p>
+<div class="infobox-note" id="GUID-16628892-23AB-4EF4-9E45-B17091B7F16A__GUID-F40E9B72-33C7-4917-AF94-C6F2873A3030">
+<p class="notep1">Note:</p>
+<p>Studies show that temperature increases of 10 degrees Celsius (15 degrees Fahrenheit) above 20 degrees Celsius (70 degrees Fahrenheit) reduce long-term electronics reliability by 50 percent.</p>
+<p>Excessive internal temperatures may result in full or partial shutdown of Oracle Big Data Appliance.</p>
+</div>
+<p><a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A__CHDHAHCA" title="Temperature and humidity requirements">Table 2-13</a> lists the <a id="d12123e2087" class="indexterm-anchor"></a><a id="d12123e2091" class="indexterm-anchor"></a><a id="d12123e2093" class="indexterm-anchor"></a><a id="d12123e2095" class="indexterm-anchor"></a>temperature, humidity, and altitude requirements for operating and nonoperating systems.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<div class="tblformal" id="GUID-16628892-23AB-4EF4-9E45-B17091B7F16A__CHDHAHCA">
+<p class="titleintable">Table 2-13 Temperature, Humidity, and Altitude Requirements</p>
+<table class="cellalignment184" title="Temperature, Humidity, and Altitude Requirements" summary="Temperature and humidity requirements">
+<thead>
+<tr class="cellalignment161">
+<th class="cellalignment172" id="d12123e2111">Condition</th>
+<th class="cellalignment203" id="d12123e2114">Operating Requirement</th>
+<th class="cellalignment203" id="d12123e2117">Nonoperating Requirement</th>
+<th class="cellalignment219" id="d12123e2120">Optimum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d12123e2125" headers="d12123e2111">
+<p>Temperature</p>
+</td>
+<td class="cellalignment206" headers="d12123e2125 d12123e2114">
+<p>5 to 35 degrees Celsius (40 to 95 degrees Fahrenheit)</p>
+</td>
+<td class="cellalignment206" headers="d12123e2125 d12123e2117">
+<p>-40 to 70 degrees Celsius (-40 to 158 degrees Fahrenheit)</p>
+</td>
+<td class="cellalignment222" headers="d12123e2125 d12123e2120">
+<p>For optimal rack cooling, data center temperatures from 21 to 23 degrees Celsius (70 to 74 degrees Fahrenheit)</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d12123e2138" headers="d12123e2111">
+<p>Relative humidity</p>
+</td>
+<td class="cellalignment206" headers="d12123e2138 d12123e2114">
+<p>10 to 90 percent relative humidity, noncondensing</p>
+</td>
+<td class="cellalignment206" headers="d12123e2138 d12123e2117">
+<p>Up to 93 percent relative humidity</p>
+</td>
+<td class="cellalignment222" headers="d12123e2138 d12123e2120">
+<p>For optimal data center rack cooling, 45 to 50 percent, noncondensing</p>
+</td>
+</tr>
+<tr class="cellalignment161">
+<td class="cellalignment174" id="d12123e2151" headers="d12123e2111">
+<p>Altitude</p>
+</td>
+<td class="cellalignment206" headers="d12123e2151 d12123e2114">
+<p>3,000 meters (9,840 feet) maximum</p>
+</td>
+<td class="cellalignment206" headers="d12123e2151 d12123e2117">
+<p>12,000 meters (39,400 feet) maximum</p>
+</td>
+<td class="cellalignment222" headers="d12123e2151 d12123e2120">
+<p>Ambient temperature is reduced by 1 degree Celsius for each 300 meters above 900 meters altitude above sea level</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section">
+<p>Set conditions to the optimal temperature and humidity ranges to minimize the chance of downtime due to component failure. Operating Oracle Big Data Appliance for extended periods at or near the operating range limits, or installing it in an environment where it remains at or near nonoperating range limits, could significantly increase hardware component failure.</p>
+<p>The <a id="d12123e2168" class="indexterm-anchor"></a><a id="d12123e2170" class="indexterm-anchor"></a>ambient temperature range of 21 to 23 degrees Celsius (70 to 74 degrees Fahrenheit) is optimal for server reliability and operator comfort. Most computer equipment can operate in a wide temperature range, but near 22 degrees Celsius (72 degrees Fahrenheit) is desirable because it is easier to maintain safe humidity levels. Operating in this temperature range provides a safety buffer if the <a id="d12123e2175" class="indexterm-anchor"></a>air conditioning system fails.</p>
+<p>The <a id="d12123e2180" class="indexterm-anchor"></a><a id="d12123e2182" class="indexterm-anchor"></a><a id="d12123e2184" class="indexterm-anchor"></a>ambient relative humidity range of 45 to 50 percent is suitable for safe data processing operations. Most computer equipment can operate in a wide range (20 to 80 percent), but the range of 45 to 50 percent is recommended for the following reasons:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Helps protect computer systems from <a id="d12123e2191" class="indexterm-anchor"></a>corrosion problems associated with high humidity levels.</p>
+</li>
+<li>
+<p>Provides the greatest operating time buffer if the air conditioner control fails.</p>
+</li>
+<li>
+<p>Helps avoid failures or temporary malfunctions caused by intermittent interference from <a id="d12123e2200" class="indexterm-anchor"></a>static discharges that may occur when relative humidity is too low.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-16628892-23AB-4EF4-9E45-B17091B7F16A__GUID-06F5C96E-973A-4876-BDBC-F9159133E012">
+<p class="notep1">Note:</p>
+<p><a id="d12123e2205" class="indexterm-anchor"></a>Electrostatic discharge (ESD) is easily generated and hard to dissipate in areas of low relative humidity, such as below 35 percent. ESD becomes critical when humidity drops below 30 percent. Maintaining humidity in a data center is not difficult, because a high-efficiency vapor barrier and a low rate of air changes are normally present.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG148"></a><a id="BIGOG147"></a>
+<div class="props_rev_3"><a id="GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C"></a>
+<h2 id="BIGOG-GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C" class="sect2"><span class="enumeration_section">2.6</span> Ventilation and Cooling Requirements</h2>
+<div>
+<div class="section">
+<p>Always provide adequate space in front and behind the rack to allow for proper <a id="d12123e2235" class="indexterm-anchor"></a><a id="d12123e2237" class="indexterm-anchor"></a>ventilation. Do not obstruct the front or rear of the rack with equipment or objects that might prevent air from flowing through the rack. Rack-mountable servers and equipment typically draw cool air in through the front of the rack and let out warm air through the rear of the rack. There is no air flow requirement for the left and right sides due to front-to-back cooling.</p>
+<p>If the rack is not completely filled with components, then cover the empty sections with <a id="d12123e2242" class="indexterm-anchor"></a>filler panels. Gaps between components can adversely affect air flow and cooling within the rack.</p>
+<p><a id="d12123e2246" class="indexterm-anchor"></a>Relative humidity is the percentage of the total water vapor that can exist in the air without condensing, and it is inversely proportional to air temperature. Humidity goes down when the temperature rises, and goes up when the temperature drops. For example, air with a relative humidity of 45 percent at a temperature of 24 degrees Celsius (75 degrees Fahrenheit) has a relative humidity of 65 percent at a temperature of 18 degrees Celsius (64 degrees Fahrenheit). As the temperature drops, the relative humidity rises to more than 65 percent, and water droplets form.</p>
+<p>Air conditioning facilities usually do not precisely monitor or control temperature and humidity throughout an entire computer room. Generally, you should monitor individual points corresponding to multiple exhaust vents in the main unit and other units in the room, because the distribution of temperature and humidity is uneven across the room. Pay special consideration to humidity when using underfloor ventilation.</p>
+<p>Oracle Big Data Appliance is designed to function while mounted in a natural convection air flow. Follow these requirements to meet the environmental specification:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Ensure that the rack has adequate air flow.</p>
+</li>
+<li>
+<p>Ensure that the rack has front-to-back cooling. The air inlet is at the front of the server, and the air outlet is at the rear.</p>
+</li>
+<li>
+<p>Allow a minimum clearance of 91.4 cm (36 inches) at the front of the rack and 91.4 cm (36 inches) at the rear of the rack for ventilation.</p>
+</li>
+</ul>
+<p>Use <a id="d12123e2265" class="indexterm-anchor"></a><a id="d12123e2267" class="indexterm-anchor"></a>perforated tiles, rated for 400 cubic feet per minute (CFM) per tile air flow, in front of the rack for cold air intake. The tiles can be arranged in any order in front of the rack, if cold air from the tiles can flow into the rack. Inadequate cold air flow could result in a higher inlet temperature in the servers due to exhaust air recirculation. Oracle recommends four floor tiles for Oracle Big Data Appliance.</p>
+<p><a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C__CEGBDDAE">Figure 2-5</a> shows a typical installation of the floor tiles for Oracle Big Data Appliance in a typical data center.</p>
+<div class="figure" id="GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C__CEGBDDAE">
+<p class="titleinfigure">Figure 2-5 Typical Data Center Configuration for Perforated Floor Tiles</p>
+<img width="357" height="384" src="img/GUID-7F277D29-07DE-411B-9CDE-D136A1ED0D7A-default.png" alt="Description of Figure 2-5 follows" title="Description of Figure 2-5 follows" /><br />
+<a href="img_text/GUID-7F277D29-07DE-411B-9CDE-D136A1ED0D7A-print.htm">Description of "Figure 2-5 Typical Data Center Configuration for Perforated Floor Tiles"</a></div>
+<!-- class="figure" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG150"></a>
+<div class="props_rev_3"><a id="GUID-61CA5078-E2AF-436C-930B-62B5C4E8E3BC"></a>
+<h2 id="BIGOG-GUID-61CA5078-E2AF-436C-930B-62B5C4E8E3BC" class="sect2"><span class="enumeration_section">2.7</span> Network Connection Requirements</h2>
+<div>
+<div class="section">
+<p><a id="d12123e2298" class="indexterm-anchor"></a><a id="d12123e2302" class="indexterm-anchor"></a><a id="d12123e2304" class="indexterm-anchor"></a><a id="d12123e2308" class="indexterm-anchor"></a><a id="d12123e2312" class="indexterm-anchor"></a>Before installation, network cables must run from your existing network infrastructure to the installation site. The requirements to connect Oracle Big Data Appliance to your existing network infrastructure are as follows:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a id="d12123e2320" class="indexterm-anchor"></a><a id="d12123e2322" class="indexterm-anchor"></a><a id="d12123e2326" class="indexterm-anchor"></a>Management network connection requirements</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>One 1 Gbps Ethernet connection for the management switch in the rack</p>
+</li>
+<li>
+<p>One 1 Gbps Ethernet connection for the KVM switch in the rack (Sun Fire X4270 M2-based racks only)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><a id="d12123e2340" class="indexterm-anchor"></a><a id="d12123e2344" class="indexterm-anchor"></a>Client access network connection requirements</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>2 (minimum) to 16 (maximum) 10 Gbps Ethernet connections split between the two Sun Network QDR InfiniBand Gateway switches in the rack. The exact number of connections depends on your bandwidth requirements.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-61CA5078-E2AF-436C-930B-62B5C4E8E3BC__GUID-7E36003F-D867-4D6F-8FFB-64CF85162298">
+<p class="notep1">See Also:</p>
+<p><a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a></p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="BIGOG159"></a><a id="BIGOG160"></a><a id="BIGOG161"></a><a id="BIGOG163"></a><a id="BIGOG158"></a>
+<div class="props_rev_3"><a id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71"></a>
+<h2 id="BIGOG-GUID-F73FBBBA-6A75-491D-96FB-55C840226F71" class="sect2"><span class="enumeration_section">2.8</span> Ensuring That the Site Is Ready</h2>
+<div>
+<div class="section">
+<p><a id="d12123e2384" class="indexterm-anchor"></a><a id="d12123e2386" class="indexterm-anchor"></a>Before Oracle Big Data Appliance is delivered to the site, perform these tasks to ensure that the site is ready:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="prep.htm#GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__CEGHEJJF">Task 1, "Review Site Requirements"</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__CEGDFFJC">Task 2, "Generate the Configuration Files"</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__CEGDAFCD">Task 3, "Configure the Network"</a></p>
+</li>
+<li>
+<p><a href="prep.htm#GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__CEGCHAHH">Task 4, "Prepare the Site Based on Requirements"</a></p>
+</li>
+</ul>
+<dl>
+<dt class="dlterm"><a id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__CEGHEJJF"><!-- --></a>Task 1&nbsp;&nbsp;&nbsp;Review Site Requirements</dt>
+<dd>
+<p>Review the site requirements in this chapter and in the <span class="italic">Oracle Big Data Appliance Site Checklists</span> to understand the requirements of Oracle Big Data Appliance and ensure you are ready for delivery.</p>
+</dd>
+<dt class="dlterm"><a id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__CEGDFFJC"><!-- --></a>Task 2&nbsp;&nbsp;&nbsp;Generate the Configuration Files</dt>
+<dd>
+<p>Run the Oracle Big Data Appliance Configuration Generation Utility. Enter the network configuration settings, software installation choices, and credentials in the fields provided by this utility. When you are done, generate the configuration files.</p>
+<div class="infoboxnotealso" id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__GUID-1AB2A455-9CB9-476A-AF32-C6A4CAE3B3B8">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2" title="A Link Aggregation Group (LAG) bonds two or more Ethernet connections together for increased uplink speed and greater resiliency.">Understanding the Network Requirements</a></p>
+</li>
+<li>
+<p><a href="configurator.htm#GUID-21E52539-3A77-4BB5-9CC9-429B5140609A">Using Oracle Big Data Appliance Configuration Generation Utility</a></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="dlterm"><a id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__CEGDAFCD"><!-- --></a>Task 3&nbsp;&nbsp;&nbsp;Configure the Network</dt>
+<dd>
+<p>Configure the existing network. This includes registering the networks in the Domain Name System (<a id="d12123e2446" class="indexterm-anchor"></a><a id="d12123e2448" class="indexterm-anchor"></a><a id="d12123e2450" class="indexterm-anchor"></a><a id="d12123e2452" class="indexterm-anchor"></a>DNS), assigning IP addresses, and configuring data center switches and firewalls. Run the <code class="codeph">bda-preinstall-checkip.sh</code> script and fix any errors.</p>
+<div class="infoboxnotealso" id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__GUID-0EEE6701-037A-46EF-AF2E-8A7EC577E9AD">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="configurator.htm#GUID-16433A68-14D9-418B-80FB-AAA077AFB461">Validating the Network Settings</a>"</span></p>
+</div>
+</dd>
+<dt class="dlterm"><a id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__CEGCHAHH"><!-- --></a>Task 4&nbsp;&nbsp;&nbsp;Prepare the Site Based on Requirements</dt>
+<dd>
+<p>Prepare the site based on the requirements described earlier in this chapter, such as installing the network cables and power supplies, before the arrival of Oracle Big Data Appliance:</p>
+<ol>
+<li>
+<p>Review the safety guidelines.</p>
+<div class="infoboxnotealso" id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__GUID-A7E2CE60-85FC-4F9B-ACE6-CDBDEE5B5A44">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="unpack.htm#GUID-C7D6186B-73AE-4357-ADE3-526D7871C3CD">Reviewing Safety Guidelines</a>"</span></p>
+</div>
+</li>
+<li>
+<p>Note problems or peculiarities at the site. For example, ensure that the doors are tall enough and wide enough for Oracle Big Data Appliance.</p>
+<div class="infoboxnotealso" id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__GUID-5EFB8FF3-B9BD-40CB-881C-1C42277DD1CE">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="prep.htm#GUID-A07A66BB-DC3D-4CDA-8927-BF00D9147B28">Space Requirements</a>"</span></p>
+</div>
+</li>
+<li>
+<p>Verify that the installation site flooring has a strength rating to withstand the combined weight of Oracle Big Data Appliance and any other installed equipment.</p>
+<div class="infoboxnotealso" id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__GUID-E06C7BB0-06C0-4C76-AFD5-29B8B09D52D1">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="prep.htm#GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70">Flooring Requirements</a>"</span></p>
+</div>
+</li>
+<li>
+<p>Install all necessary electrical equipment, and ensure that sufficient power is provided for Oracle Big Data Appliance.</p>
+<div class="infoboxnotealso" id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__GUID-98420402-7A2A-46EA-A91D-DCDE55A81ED2">
+<p class="notep1">See Also:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="q">"<a href="prep.htm#GUID-B92C0636-6F26-4229-972A-CDBBFF7CFA4E">Electrical Power Requirements</a>"</span></p>
+</li>
+<li>
+<p><span class="italic">Sun Rack II Power Distribution Units User's Guide</span> for the power distribution unit (PDU) power requirements at</p>
+<p><a href="http://docs.oracle.com/cd/E19844-01/" target="_blank"><code class="codeph">http://docs.oracle.com/cd/E19844-01/</code></a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Ensure that the installation site provides adequate air conditioning.</p>
+<div class="infoboxnotealso" id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__GUID-7B21B701-CA71-43BB-BBB8-2157BE042B3C">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C">Ventilation and Cooling Requirements</a>"</span></p>
+</div>
+</li>
+<li>
+<p>Operate the <a id="d12123e2525" class="indexterm-anchor"></a>air conditioning system for 48 hours to bring the room temperature to the appropriate level.</p>
+<div class="infoboxnotealso" id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__GUID-6B578FCC-98ED-4B09-AE53-BE7B562B1DF1">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A">Temperature and Humidity Requirements</a>"</span></p>
+</div>
+</li>
+<li>
+<p>Install the network cables for Oracle Big Data Appliance.</p>
+<div class="infoboxnotealso" id="GUID-F73FBBBA-6A75-491D-96FB-55C840226F71__GUID-201B3D41-FCE6-46DD-B315-1A6B3249D5B5">
+<p class="notep1">See Also:</p>
+<p><span class="q">"<a href="prep.htm#GUID-61CA5078-E2AF-436C-930B-62B5C4E8E3BC">Network Connection Requirements</a>"</span></p>
+</div>
+</li>
+<li>
+<p>Clean and vacuum the area thoroughly in preparation for installation.</p>
+</li>
+</ol>
+</dd>
+</dl>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment160">
+<tr>
+<td class="cellalignment193">
+<table class="cellalignment165">
+<tr>
+<td class="cellalignment164"><a href="intro.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment164"><a href="network.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment195">
+<table class="cellalignment163">
+<tr>
+<td class="cellalignment164"><a href="http://docs.oracle.com/bigdata/bda48/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment164"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment164"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment164"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+</body>
+</html>

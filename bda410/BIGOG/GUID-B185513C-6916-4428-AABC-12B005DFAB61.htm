@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Output for Examples for Oracle Linux 5 to Oracle Linux 6 Migration Scripts</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="This section provides examples of typical output from the three scripts used to migrate Oracle Linux 5 nodes to Oracle Linux 6." />
+<meta name="dcterms.created" content="2018-08-05T17:35:45Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E93282-04" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda49/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="GUID-D482D7E9-D801-483A-8C60-6BC93CB18D6E.htm" title="Previous" type="text/html" />
+<link rel="Next" href="index.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-B185513C-6916-4428-AABC-12B005DFAB61"></a> <span id="PAGE" style="display:none;">37/38</span> <!-- End Header -->
+<h1 id="BIGOG-GUID-B185513C-6916-4428-AABC-12B005DFAB61" class="sect1"><span class="enumeration_appendix">H</span> Output for Examples for Oracle Linux 5 to Oracle Linux 6 Migration Scripts</h1>
+<div>
+<p>This section provides examples of typical output from the three scripts used to migrate Oracle Linux 5 nodes to Oracle Linux 6.</p>
+<div class="section">
+<p class="subhead1"></p>
+<p><a id="d165545e20" class="indexterm-anchor"></a><a id="d165545e22" class="indexterm-anchor"></a>Some of the software versions in these examples may not match the versions installed on your system.</p>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-B185513C-6916-4428-AABC-12B005DFAB61__BDADUMPNODEOUTPUT-D4F61389">
+<p class="titleinexample">Example H-1 bdadumpnode Output</p>
+<pre dir="ltr">
+ [root@myclusternode01 compmon]# ./bdadumpnode.sh
+bdadumpnode: working directory : /opt/oracle/bda/compmon
+Please enter CM admin user:
+
+Please enter CM admin password:
+
+Please enter MySQL root password:
+
+bdadumpnode: Backup directory selected : /u01/osupgrade_backup
+bdadumpnode: Stopping all hadoop roles on host : myclusternode0
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/cm_commands.out
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/hosts_f7f22eca-6d02-418f-b967-4e32b66d64be_view_full_1494577840.out
+bdadumpnode: Stopping yarn - yarn-RESOURCEMANAGER-80351bb5fab099e86aa3e19b36edfe5d
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_yarn_roleCommands_stop_1494577840.out
+
+Command 757 finished after 5 seconds
+Operation completed successfully
+bdadumpnode: Stopping zookeeper - zookeeper-SERVER-80351bb5fab099e86aa3e19b36edfe5d
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_zookeeper_roleCommands_stop_1494577846.out
+
+Command 760 finished after 5 seconds
+Operation completed successfully
+bdadumpnode: Stopping hdfs - hdfs-FAILOVERCONTROLLER-80351bb5fab099e86aa3e19b36edfe5d
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hdfs_roleCommands_stop_1494577852.out
+
+Command 763 finished after 5 seconds
+Operation completed successfully
+bdadumpnode: Stopping hdfs - hdfs-NAMENODE-80351bb5fab099e86aa3e19b36edfe5d
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hdfs_roleCommands_stop_1494577858.out
+
+Command 766 finished after 5 seconds
+Operation completed successfully
+bdadumpnode: Stopping hdfs - hdfs-JOURNALNODE-80351bb5fab099e86aa3e19b36edfe5d
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hdfs_roleCommands_stop_1494577864.out
+
+Command 769 finished after 5 seconds
+Operation completed successfully
+bdadumpnode: Stopping hdfs - hdfs-DATANODE-80351bb5fab099e86aa3e19b36edfe5d
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hdfs_roleCommands_stop_1494577870.out
+
+Command 772 finished after 5 seconds
+Operation completed successfully
+bdadumpnode: Stopping yarn - yarn-NODEMANAGER-80351bb5fab099e86aa3e19b36edfe5d
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_yarn_roleCommands_stop_1494577876.out
+
+Command 776 finished after 5 seconds
+Operation completed successfully
+bdadumpnode: Stopping Cloudera Manager Agent and Server on host : myclusternode0
+Stopping cloudera-scm-agent: [ OK ]
+bdadumpnode: Backing up files on host : myclusternode0
+bdadumpnode: Copying : /etc/auto_direct_bda
+bdadumpnode: Copying : /etc/auto.master
+bdadumpnode: Copying : /etc/cloudera-scm-agent
+bdadumpnode: Copying : /etc/cloudera-scm-server
+bdadumpnode: Copying : /etc/dnsmasq.conf
+bdadumpnode: Copying : /etc/exports
+bdadumpnode: Copying : /etc/group
+bdadumpnode: Copying : /etc/hosts
+bdadumpnode: Copying : /etc/my.cnf
+bdadumpnode: Copying : /etc/passwd
+bdadumpnode: Copying : /etc/puppet
+bdadumpnode: Copying : /etc/resolv.conf
+bdadumpnode: Copying : /etc/shadow
+bdadumpnode: Copying : /etc/ssh
+bdadumpnode: Copying : /etc/yum.conf
+bdadumpnode: Copying : /etc/yum.repos.d/bda.repo
+bdadumpnode: Copying : /home
+bdadumpnode: Copying : /opt/cloudera/security
+bdadumpnode: Copying : /opt/exportdir
+bdadumpnode: Copying : /opt/hadoop
+bdadumpnode: Copying : /opt/oracle/bda/bin/krb5prop.sh
+bdadumpnode: Copying : /opt/oracle/bda/cluster-hosts-infiniband
+bdadumpnode: Copying : /opt/oracle/bda/install/log
+bdadumpnode: Copying : /opt/oracle/bda/install/state/config.json
+bdadumpnode: Copying : /opt/oracle.cellos
+bdadumpnode: Copying : /opt/oracle.ExaWatcher
+bdadumpnode: Copying : /opt/oracle/odiagent
+bdadumpnode: Copying : /opt/oracle.oswatcher
+bdadumpnode: Copying : /opt/oracle/oxh-4.9.0-1.cdh5.0.0
+bdadumpnode: Copying : /root/.ssh
+bdadumpnode: Copying : /usr/java/default/jre/lib/security/local_policy.jar
+bdadumpnode: Copying : /usr/share/java/mysql-connector-java-commercial-5.1.34-bin.jar
+bdadumpnode: Copying : /usr/share/java/mysql-connector-java.jar
+bdadumpnode: Copying : /var/lib/cloudera-scm-agent
+bdadumpnode: Copying : /var/lib/cloudera-scm-navigator
+bdadumpnode: Copying : /var/lib/cloudera-scm-server
+bdadumpnode: Copying : /var/lib/oozie
+bdadumpnode: Copying : /var/lib/puppet
+bdadumpnode: Copying : /var/lib/zookeeper
+bdadumpnode: backing up AD Kerberos related directories and files : myclusternode01
+bdadumpnode: Node dump completed successfully on host : myclusternode01 
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-B185513C-6916-4428-AABC-12B005DFAB61__BDAREIMAGENODEOUTPUT-D4F62F60">
+<p class="titleinexample">Example H-2 bdareimagenode Output</p>
+<pre dir="ltr">
+[root@myclusternode06 compmon]# ./bdareimagenode.sh
+bdareimagenode: Using /tmp/BDABaseImage-ol6-4.9.0_RELEASE/BDABaseImage-ol6-4.9.0_RELEASE.iso to re-image
+BDABaseImage-ol6-4.9.0_RELEASE.iso: OK
+bdareimagenode: Using node nr : 6
+bdareimagenode: Resetting disk labels of data partitions to DO_NOT_WIPE on specified servers
+hba slot: s0p4
+hba slot: s1p4
+hba slot: s2p1
+hba slot: s3p1
+hba slot: s4p1
+hba slot: s5p1
+hba slot: s6p1
+hba slot: s7p1
+hba slot: s8p1
+hba slot: s9p1
+hba slot: s10p1
+hba slot: s11p1
+label elem: DO_NOT_WIPE DO_NOT_WIPE DO_NOT_WIPE DO_NOT_WIPE DO_NOT_WIPE DO_NOT_WIPE DO_NOT_WIPE DO_NOT_WIPE DO_NOT_WIPE DO_NOT_WIPE DO_NOT_WIPE DO_NOT_WIPE
+bdareimagenode: All disk labels have been set to DO_NOT_WIPE 
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-B185513C-6916-4428-AABC-12B005DFAB61__BDARESTORENODEOUTPUT-D4F5F82D">
+<p class="titleinexample">Example H-3 bdarestorenode Output</p>
+<pre dir="ltr">
+[root@myclusternode02 compmon]# ./bdarestorenode.sh
+bdarestorenode: working directory : /opt/oracle/bda/compmon
+bdarestorenode: restoring backup data on host : myclusternode02
+bdarestorenode: working directory : /u01/osupgrade_backup
+bdarestorenode: merging passwd, shadow and group
+bdarestorenode: restoring /etc directories
+bdarestorenode: restoring /var/lib directories
+bdarestorenode: restoring /opt directories
+bdarestorenode: restoring puppet, ssh, jce, and mysql java directories
+Stopping automount: [ OK ]
+Starting automount: [ OK ]
+Shutting down dnsmasq: [ OK ]
+Starting dnsmasq: [ OK ]
+bdarestorenode: checking ol6 bundle directory on node : scaj21bda01
+bdarestorenode: Ensure CDH ol6 parcel in the remote temp repo
+bdarestorenode: Ensure Cloudera Manager ol6 pkgs in the bdarepo
+bdarestorenode: Ensure MySQL ol6 pkgs in the bdarepo
+192.168.41.1: Loaded plugins: downloadonly, security
+192.168.41.1: Cleaning up Everything
+192.168.41.2: Loaded plugins: aliases, changelog, filter-data, keys, list-data, ps, security,
+192.168.41.2: : verify
+192.168.41.2: Cleaning repos: bda
+192.168.41.2: Cleaning up Everything
+192.168.41.3: Loaded plugins: aliases, changelog, filter-data, keys, list-data, ps, security,
+192.168.41.3: : verify
+192.168.41.3: Cleaning repos: bda
+192.168.41.3: Cleaning up Everything
+Previous repo file missing: /var/www/html/bda/repodata/primary.xml.gz
+1873/1873 - RPMS/i386/sun-servicetag-1.1.5-1.i386.rpm rpmarch.rpm
+Saving Primary metadata
+Saving file lists metadata
+Saving other metadata
+bdarestorenode: restoring Active Directory configuration files
+bdarestorenode: installing MySQL ol6 pkgs on host : myclusternode02
+bdarestorenode: restoring my.cnf
+Initializing MySQL database: [ OK ]
+Installing validate password plugin: [ OK ]
+Starting mysqld: [ OK ]
+bdarestorenode: remove mysql plugin validate_password
+Stopping mysqld: [ OK ]
+Starting mysqld: [ OK ]
+bdarestorenode: reset mysql tmp root password
+bdarestorenode: grant root privileges
+grant root privileges to node: scaj21bda01
+grant root privileges to node: myclusternode02
+grant root privileges to node: scaj21bda03
+Stopping cloudera-scm-server: [ OK ]
+bdarestorenode: turn off MySQL replication
+bdarestorenode: Restoring MySQL slave from MySQL master
+bdarestorenode: Running pre-dump MySQL DB
+bdarestorenode: Running dump MySQL DB
+bdarestorenode: Running post-dump MySQL DB
+bdarestorenode: restoring MySQL DB. It takes time&hellip;
+mysql: [Warning] Using a password on the command line interface can be insecure.
+bdarestorenode: imported dump
+bdarestorenode: reset MySQL replication password
+mysql: [Warning] Using a password on the command line interface can be insecure.
+changemaster: true
+bdarestorenode: dump log from master
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+bdarestorenode: Mysql master log file : mysql-bin.000009
+Mysql master log pos 154
+bdarestorenode: Running changemaster
+Stopping mysqld: [ OK ]
+Starting mysqld: [ OK ]
+Starting cloudera-scm-server: [ OK ]
+bdarestorenode: installing cloudera manager pkgs
+Warning: RPMDB altered outside of yum.
+bdarestorenode: restoring cloudera directories
+bdarestorenode: starting cloudera manager services
+Starting cloudera-scm-agent: [ OK ]
+bdarestorenode: waiting for CDH parcel to automatically deploy on node : myclusternode02
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/cm_commands.out
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/cm_config_1494576328.out
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_parcels_products_CDH_versions_5.11.1-1.cdh5.11.1.p0.11_1494576508.out
+bdarestorenode: CDH parcel activated successfully! : CDH-5.11.1-1.cdh5.11.1.p0.11-el6.parcel
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/cm_commands.out
+bdarestorenode: Starting all hadoop roles on host : myclusternode02
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/hosts_7a3e8a84-8fa0-4450-a0ea-e55b24e59138_view_full_1494576540.out
+bdarestorenode: Starting hdfs - hdfs-JOURNALNODE-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hdfs_roleCommands_start_1494576541.out
+&hellip;.
+Command 712 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting hdfs - hdfs-FAILOVERCONTROLLER-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hdfs_roleCommands_start_1494576567.out
+&hellip;.
+Command 715 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting hue - hue-KT_RENEWER-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hue_roleCommands_start_1494576594.out
+&hellip;.
+Command 719 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting hdfs - hdfs-DATANODE-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hdfs_roleCommands_start_1494576622.out
+&hellip;.
+Command 722 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting hdfs - hdfs-HTTPFS-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hdfs_roleCommands_start_1494576649.out
+&hellip;.
+Command 726 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting hive - hive-HIVEMETASTORE-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hive_roleCommands_start_1494576675.out
+&hellip;.
+Command 729 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting hive - hive-WEBHCAT-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hive_roleCommands_start_1494576702.out
+&hellip;.
+Command 733 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting hue - hue-HUE_SERVER-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hue_roleCommands_start_1494576730.out
+&hellip;.
+Command 736 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting hdfs - hdfs-NAMENODE-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hdfs_roleCommands_start_1494576757.out
+&hellip;.
+Command 739 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting hive - hive-HIVESERVER2-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_hive_roleCommands_start_1494576783.out
+&hellip;.
+Command 742 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting yarn - yarn-NODEMANAGER-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_yarn_roleCommands_start_1494576810.out
+&hellip;.
+Command 746 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting oozie - oozie-OOZIE_SERVER-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_oozie_roleCommands_start_1494576837.out
+&hellip;.
+Command 749 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: Starting zookeeper - zookeeper-SERVER-f11b7d0d9e2d3a5022ac16cec437b8f2
+Succeeded. Output in : /opt/oracle/BDAMammoth/bdaconfig/tmp/clusters_scaja_services_zookeeper_roleCommands_start_1494576864.out
+&hellip;.
+Command 753 finished after 25 seconds
+Operation completed successfully
+bdarestorenode: OS upgrade completed successfully on host : myclusternode02 
+
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment164">
+<tr>
+<td class="cellalignment197">
+<table class="cellalignment169">
+<tr>
+<td class="cellalignment168"><a href="GUID-D482D7E9-D801-483A-8C60-6BC93CB18D6E.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment168"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment199">
+<table class="cellalignment167">
+<tr>
+<td class="cellalignment168"><a href="http://docs.oracle.com/bigdata/bda49/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment168"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment168"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment168"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

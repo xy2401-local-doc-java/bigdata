@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using the Oracle Big Data Manager bdm-cli Utility</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line." />
+<meta name="dcterms.created" content="2018-07-02T14:42:41Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Manager User&rsquo;s Guide" />
+<meta name="dcterms.identifier" content="E96163-02" />
+<meta name="dcterms.isVersionOf" content="BBDMG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2018, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="GUID-A11034AF-819E-419A-8EFA-2B781E68A22A.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-98BEEAAE-6CAF-45A0-8F48-F74C910BCB0A.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BBDMG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF"></a> <span id="PAGE" style="display:none;">44/45</span> <!-- End Header -->
+<h1 id="BBDMG-GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" class="sect1"><span class="enumeration_chapter">9</span> Using the Oracle Big Data Manager <span>bdm-cli</span> Utility</h1>
+<div>
+<p>Use the <code class="codeph"><span>bdm-cli</span></code> (<span>Oracle Big Data Manager</span> Command Line Interface) utility to copy data and manage copy jobs at the command line.</p>
+<div class="section" id="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF__USINGBDM-CLI-D1AB10F5">
+<p><code class="codeph"><span>bdm-cli</span></code> has several commands that duplicate <code class="codeph"><span>odcp</span></code> commands , but <code class="codeph"><span>bdm-cli</span></code> also includes additional commands for scheduling and managing copy jobs and other administrative tasks.</p>
+<p>You have to download and install <code class="codeph"><span>bdm-cli</span></code> yourself, either on a node of the cluster or on a remote operating system. If you install it on your cluster, you must use SSH to connect to the cluster. If you install it on a remote system, you can run the commands without SSH. See <a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-083E1709-7202-4F11-B2BD-0D74BD214F1F" title="The bdm-cli (Big Data Command Line Interface) is a command line utility for copying data and managing copy jobs. You can download and install bdm-cli from GitHub. You can install it on a remote operating system, so you don&rsquo;t have to use SSH to connect to the cluster.">Installing the bdm-cli Utility</a>.</p>
+There are no special requirements for using <code class="codeph"><span>bdm-cli</span></code> when it&rsquo;s installed outside the cluster.</div>
+<!-- class="section" -->
+<div class="section" id="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF__SYNTAX-D1AB0F1B"></div>
+<!-- class="section" --></div>
+<div class="sect2"><a id="GUID-083E1709-7202-4F11-B2BD-0D74BD214F1F"></a>
+<h2 id="BBDMG-GUID-083E1709-7202-4F11-B2BD-0D74BD214F1F" class="sect2"><span class="enumeration_section">9.1</span> Installing the <span>bdm-cli</span> Utility</h2>
+<div>
+<p>The <code class="codeph"><span>bdm-cli</span></code> (Big Data Command Line Interface) is a command line utility for copying data and managing copy jobs. You can download and install <code class="codeph"><span>bdm-cli</span></code> from GitHub. You can install it on a remote operating system, so you don&rsquo;t have to use SSH to connect to the cluster.</p>
+<div class="section">
+<p>To install <code class="codeph"><span>bdm-cli</span></code>:</p>
+<ol>
+<li>
+<p>If you use a proxy server, first call:</p>
+<div class="p">
+<pre dir="ltr">
+export http_proxy="<span class="variable">your_proxy_server</span>" 
+export https_proxy="<span class="variable">your_proxy_server</span>"
+</pre></div>
+</li>
+<li>
+<p>Then call:</p>
+<p><code class="codeph">curl -L https://github.com/jazeman/bdm-python-cli/blob/1.0/install-rpm?raw=true | bash</code></p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4"></a>
+<h2 id="BBDMG-GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4" class="sect2"><span class="enumeration_section">9.2</span> Usage</h2>
+<div>
+<p>You can use <code class="codeph"><span>bdm-cli</span></code> at the command line to create and manage copy jobs.</p>
+<div class="section">
+<p class="subhead2">Syntax</p>
+<pre dir="ltr">
+bdm-cli [<span class="italic">global_options</span>] <span class="italic">subcommand</span> [<span class="italic">options</span>][<span class="italic">arguments</span>]...
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Supported Storage Protocols and Paths</p>
+<p>The protocols and paths to the file systems and storage services supported by <code class="codeph"><span>bdm-cli</span></code> are:</p>
+<div class="p">
+<ul style="list-style-type: disc;">
+<li>
+<p>HDFS:</p>
+<p><code class="codeph">hdfs:///</code></p>
+</li>
+<li>
+<p><span>Oracle Cloud Infrastructure Object Storage Classic</span> (formerly known as Oracle Storage Cloud Service):</p>
+<p><code class="codeph">swift://container.provider/</code></p>
+</li>
+<li>
+<p><span>Oracle Cloud Infrastructure Object Storage</span> (formerly known as Oracle Bare Metal Cloud Object Storage Service):</p>
+<p><code class="codeph">oss:///container</code></p>
+<p>For operations with <span>Oracle Cloud Infrastructure Object Storage</span>, you must specify the provider by using the options <code class="codeph">src-provider</code> and <code class="codeph">dst-provider</code>. For example, those options are used with <code class="codeph"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F" title="Execute a new job from an existing template.">bdm-cli create_job</a></code> when used with <span>Oracle Cloud Infrastructure Object Storage</span>.</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Finding a Job&rsquo;s UUID</p>
+<p>A number of <span>bdm-cli</span> subcommands require that you identify a job by its Universally Unique Identifier (UUID). To find UUIDs, execute <a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13" title="List all jobs from the execution history.">bdm-cli list_all_jobs</a>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Specifying Source and Destination Paths</p>
+<p>When specifying sources and destinations, fully qualify the paths:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph"><span class="variable">source</span> ...</code></p>
+<p>File name qualified by protocol and full path, for example: <code class="codeph">hdfs:///user/oracle/test.raw</code></p>
+</li>
+<li>
+<p><code class="codeph"><span class="variable">destination</span></code></p>
+<p>Directory name qualified by protocol and full path, for example: <code class="codeph">swift://container.storagename/test-dir</code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Setting Environment Variables</p>
+<div class="p">You can set some <code class="codeph"><span>bdm-cli</span></code> options as environment variables. For example, you can set <span>Oracle Big Data Manager</span> URL and user password file, as follows:
+<pre dir="ltr">
+export BDM_URL=https://<span class="italic">hostname</span>:8888/bdcs/api &amp;&amp; export BDM_PASSWORD=/tmp/<span class="italic">password_file</span>
+</pre></div>
+<p>All the <code class="codeph"><span>bdm-cli</span></code> options that can be set as environment variables are documented in the sections below.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Getting Help</p>
+<div class="p">To get help for <code class="codeph">bdm-cli</code> use:
+<pre dir="ltr">
+bdm-cli --help
+</pre></div>
+<div class="p">To get help for a specific command use:
+<pre dir="ltr">
+bdm-cli <span class="italic">command</span> --help
+</pre></div>
+<div class="p">For example:
+<pre dir="ltr">
+bdm-cli edit_job_template --help
+</pre></div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-70B6242C-7BD0-4BDB-B38B-BF7700D84C35"></a>
+<h2 id="BBDMG-GUID-70B6242C-7BD0-4BDB-B38B-BF7700D84C35" class="sect2"><span class="enumeration_section">9.3</span> Options</h2>
+<div>
+<p>Options that can be used by all <span>bdm-cli</span> commands are explained below.</p>
+<div class="section" id="GUID-70B6242C-7BD0-4BDB-B38B-BF7700D84C35__OPTIONS-D1AB096D">
+<div class="tblformal" id="GUID-70B6242C-7BD0-4BDB-B38B-BF7700D84C35__GUID-317CF4A0-AE85-47A3-8310-6C40E0B66283">
+<table class="cellalignment16" summary="This table shows the options of the bdm-cli command.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e341">Option</th>
+<th class="cellalignment18" id="d7834e343">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e347" headers="d7834e341"><code class="codeph">--bdm-passwd <span class="variable">path_to_password_file</span></code></td>
+<td class="cellalignment20" headers="d7834e347 d7834e343">
+<p>Path to the <span>Oracle Big Data Manager</span> user password file.</p>
+<p>Environment variable: <code class="codeph">BDM_PASSWORD</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e363" headers="d7834e341"><code class="codeph">--bdm-url <span class="variable">bdm_url</span></code></td>
+<td class="cellalignment20" headers="d7834e363 d7834e343">
+<p><span>Oracle Big Data Manager</span> server URL.</p>
+<p>Environment variable: <code class="codeph">BDM_URL</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e378" headers="d7834e341"><code class="codeph">--bdm-username <span class="variable">username</span></code></td>
+<td class="cellalignment20" headers="d7834e378 d7834e343">
+<p><span>Oracle Big Data Manager</span> server user name.</p>
+<p>Default value: <code class="codeph">oracle</code></p>
+<p>Environment variable: <code class="codeph">BDM_USERNAME</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e397" headers="d7834e341"><code class="codeph">-f [table|csv|json]</code></td>
+<td class="cellalignment20" headers="d7834e397 d7834e343">Specify the output format:
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">table</code> (default)</p>
+<p>Each field is displayed in a separate column.</p>
+</li>
+<li>
+<p>csv</p>
+<p>Each record is displayed as a comma-separated list on a single line.</p>
+</li>
+<li>
+<p><code class="codeph">json</code>:</p>
+<p>The output is displayed in JavaScript Object Notation (JSON) format.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e423" headers="d7834e341"><code class="codeph">--fields <span class="variable">fields</span></code></td>
+<td class="cellalignment20" headers="d7834e423 d7834e343">
+<p>Specifies comma-separated fields depending on the type of object.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e432" headers="d7834e341">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e432 d7834e343">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e443" headers="d7834e341"><code class="codeph">--no-check-certificate</code></td>
+<td class="cellalignment20" headers="d7834e443 d7834e343">
+<p>Don't validate the server's certificate.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e450" headers="d7834e341"><code class="codeph">--proxy <span class="variable">proxy</span></code></td>
+<td class="cellalignment20" headers="d7834e450 d7834e343">
+<p>Proxy server.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e459" headers="d7834e341"><code class="codeph">--tenant-name <span class="variable">tenant_name</span></code></td>
+<td class="cellalignment20" headers="d7834e459 d7834e343">
+<p>Name of the tenant.</p>
+<p>Default value: <code class="codeph">admin</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e472" headers="d7834e341"><code class="codeph">-v</code></td>
+<td class="cellalignment20" headers="d7834e472 d7834e343">
+<p>Print the REST request body.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e479" headers="d7834e341"><code class="codeph">--version</code></td>
+<td class="cellalignment20" headers="d7834e479 d7834e343">Show the <span>Oracle Big Data Manager</span> version and exit.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-CCCDB16A-AABD-40EF-A1DA-5ACF8842197C"></a>
+<h2 id="BBDMG-GUID-CCCDB16A-AABD-40EF-A1DA-5ACF8842197C" class="sect2"><span class="enumeration_section">9.4</span> Subcommands</h2>
+<div>
+<p>The following table summarizes the <span>bdm-cli</span> subcommands. For more details on each, click the name of the command.</p>
+<div class="section" id="GUID-CCCDB16A-AABD-40EF-A1DA-5ACF8842197C__SUMMARYOFSUBCOMMANDS-D21DC341">
+<div class="tblformal" id="GUID-CCCDB16A-AABD-40EF-A1DA-5ACF8842197C__GUID-6D517AFD-EE2C-44F4-91DE-04AA60E141EB">
+<table class="cellalignment16" summary="This table list the subcommands you can use with the bdm-cli command.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment21" id="d7834e523">Command</th>
+<th class="cellalignment22" id="d7834e525">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d7834e529" headers="d7834e523"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470" title="Abort a running job.">bdm-cli abort_job</a></td>
+<td class="cellalignment24" headers="d7834e529 d7834e525">Abort a running job.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d7834e538" headers="d7834e523"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D" title="Execute a job to copy sources to destination.">bdm-cli copy</a></td>
+<td class="cellalignment24" headers="d7834e538 d7834e525">Execute a job to copy sources to destination.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d7834e547" headers="d7834e523"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F" title="Execute a new job from an existing template.">bdm-cli create_job</a></td>
+<td class="cellalignment24" headers="d7834e547 d7834e525">Execute a new job from an existing template.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d7834e556" headers="d7834e523"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-31B94CB2-62B0-4838-8910-C265027DDE0A" title="Create a new job template.">bdm-cli create_job_template</a></td>
+<td class="cellalignment24" headers="d7834e556 d7834e525">Create a new job template.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d7834e565" headers="d7834e523"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-866C995A-F11E-4623-9A88-A0920EF7FA15" title="Find a data source by name.">bdm-cli get_data_source</a></td>
+<td class="cellalignment24" headers="d7834e565 d7834e525">Find a data source by name.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d7834e574" headers="d7834e523"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1" title="Get a job by UUID.">bdm-cli get_job</a></td>
+<td class="cellalignment24" headers="d7834e574 d7834e525">Get a job by UUID.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d7834e583" headers="d7834e523"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7" title="Get a job log.">bdm-cli get_job_log</a></td>
+<td class="cellalignment24" headers="d7834e583 d7834e525">Get a job log.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d7834e592" headers="d7834e523"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13" title="List all jobs from the execution history.">bdm-cli list_all_jobs</a></td>
+<td class="cellalignment24" headers="d7834e592 d7834e525">List all jobs from the execution history.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d7834e601" headers="d7834e523"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA" title="List all jobs from the execution history for the given template.">bdm-cli list_template_executions</a></td>
+<td class="cellalignment24" headers="d7834e601 d7834e525">List all jobs from the execution history for the given template.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d7834e610" headers="d7834e523"><a href="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF.htm#GUID-201FED3F-0354-4693-98FF-011139852431" title="List files from a specific location.">bdm-cli ls</a></td>
+<td class="cellalignment24" headers="d7834e610 d7834e525">List files from a specific location.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470"></a>
+<h2 id="BBDMG-GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470" class="sect2"><span class="enumeration_section">9.5</span> bdm-cli abort_job</h2>
+<div>
+<p>Abort a running job.</p>
+<div class="section" id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470__ABORT_JOB-D21DC6BF">
+<p class="subhead2">Syntax</p>
+<div class="p">
+<pre dir="ltr">
+bdm-cli abort_job [<span class="variable">options</span>] <span class="variable">job_uuid</span>
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Options</p>
+<div class="p">
+<div class="tblformal" id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1C29BBF">
+<table class="cellalignment16" summary="This table shows the options for this bdm-cli subcommand.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e661">Option</th>
+<th class="cellalignment18" id="d7834e663">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e667" headers="d7834e661">
+<p><code class="codeph">--force</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e667 d7834e663">
+<p>Force abort job.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e675" headers="d7834e661">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e675 d7834e663">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="section" -->
+<div class="section" id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470__GUID-D7FA1A5E-1CDF-4F6D-AE29-263B24BAEFE4">
+<p class="subhead2">Example</p>
+<p>Abort a job.</p>
+<div class="p">
+<pre dir="ltr">
+/usr/bin/bdm-cli -f json --no-check-certificate --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username ${DATA_USER} --bdm-passwd ${USER_PASSWORD_FILE} abort_job 24ef30e8-913b-4402-baf8-74b99c211f50
+</pre></div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D"></a>
+<h2 id="BBDMG-GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D" class="sect2"><span class="enumeration_section">9.6</span> <span>bdm-cli</span> copy</h2>
+<div>
+<p>Execute a job to copy sources to destination.</p>
+<div class="section" id="GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D__COPY-D224341E">
+<p class="subhead2">Syntax</p>
+<div class="p">
+<pre dir="ltr">
+bdm-cli copy [<span class="variable">options</span>] <span class="variable">source...</span> <span class="variable">destination</span>
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Options</p>
+<div class="p">
+<div class="tblformal" id="GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1C8D86B">
+<table class="cellalignment16" summary="This table shows the options for this bdm-clisubcommand.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e743">Option</th>
+<th class="cellalignment18" id="d7834e745">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e749" headers="d7834e743">
+<p><code class="codeph">block-size</code> <span class="variable">block_size</span></p>
+</td>
+<td class="cellalignment20" headers="d7834e749 d7834e745">
+<p>Specify the block size in bytes.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e760" headers="d7834e743">
+<p><code class="codeph">--description <span class="variable">description</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e760 d7834e745">
+<p>Data source description.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e771" headers="d7834e743">
+<p><code class="codeph">--driver-memory-size <span class="variable">driver_memory_size</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e771 d7834e745">
+<p>Specify the maximum amount of memory for the Oracle Storage Cloud Service driver.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e781" headers="d7834e743">
+<p><code class="codeph">--dst-provider <span class="variable">oss_destination_provider</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e781 d7834e745">
+<p>Specify the provider of the destination, when using <span>Oracle Cloud Infrastructure Object Storage Classic</span> destination.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e794" headers="d7834e743">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e794 d7834e745">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e805" headers="d7834e743">
+<p><code class="codeph">--memory-size-per-node <span class="variable">memory_size_per_node</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e805 d7834e745">
+<p>Specify the Spark executors memory limit in GB per node, for example, <code class="codeph">40GB</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e819" headers="d7834e743">
+<p><code class="codeph">--number-of-executor-nodes<span class="variable">number_of_executors_per_node</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e819 d7834e745">
+<p>Specify the maximum number of Spark executors per node, for example, <code class="codeph">10GB</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e832" headers="d7834e743">
+<p><code class="codeph">--number-of-threads&mdash;per-node<span class="variable">number_of_threads_per_node</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e832 d7834e745">
+<p>Specify the maximum number of threads per node.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e842" headers="d7834e743">
+<p><code class="codeph">part-size <span class="variable">part_size</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e842 d7834e745">
+<p>Specify the part size in bytes.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e852" headers="d7834e743">
+<p><code class="codeph">--recursive</code></p>
+<p><code class="codeph">--no-recursive</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e852 d7834e745">
+<p>Recursively copy (enabled by default).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e863" headers="d7834e743">
+<p><code class="codeph">--retry</code></p>
+<p><code class="codeph">--no-retry</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e863 d7834e745">
+<p>Retry data transfer in case of failure.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e875" headers="d7834e743">
+<p><code class="codeph">--src-provider <span class="variable">oss_source_provider</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e875 d7834e745">
+<p>Specify the provider of the source, when using for <span>Oracle Cloud Infrastructure Object Storage Classic</span>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e888" headers="d7834e743">
+<p><code class="codeph">--sync</code></p>
+<p><code class="codeph">--no-sync</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e888 d7834e745">
+<p>Synchronize the source with the destination.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>Copy a file from HDFS to Oracle Storage Cloud Service:</p>
+<p><code class="codeph">/usr/bin/bdm-cli&nbsp; -f json&nbsp; --no-check-certificate&nbsp; --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username ${DATA_USER} --bdm-passwd ${USER_PASSWORD_FILE}&nbsp;&nbsp; copy hdfs:///user/${DATA_USER}/1MFile.raw oss:///${DATA_USER} --dst-provider ${OSS_PROVIDER}</code></p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F"></a>
+<h2 id="BBDMG-GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F" class="sect2"><span class="enumeration_section">9.7</span> <span>bdm-cli</span> create_job</h2>
+<div>
+<p>Execute a new job from an existing template.</p>
+<div class="section" id="GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F__CREATE_JOB-D2242F4C">
+<p class="subhead2">Syntax</p>
+<div class="p">
+<pre dir="ltr">
+bdm-cli create_job [<span class="variable">options</span>] <span class="variable">job_template_name</span>
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Options</p>
+<div class="p">
+<div class="tblformal" id="GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D21E58F7">
+<table class="cellalignment16" summary="This table shows the options for this bdm-cli subcommand.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e950">Option</th>
+<th class="cellalignment18" id="d7834e952">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e956" headers="d7834e950">
+<p><code class="codeph">--run-now</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e956 d7834e952">
+<p>Execute job immediately if job scheduling is set. Ignored otherwise.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e964" headers="d7834e950">
+<p><code class="codeph">--source <span class="variable">source</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e964 d7834e952">
+<p>Source file, for example:</p>
+<p><code class="codeph">hdfs:///user/oracle/test.raw</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e978" headers="d7834e950">
+<p><code class="codeph">--destination <span class="variable">destination</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e978 d7834e952">
+<p>The destination directory, for example: <code class="codeph">swift://container.storagename/test-dir</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e992" headers="d7834e950">
+<p><code class="codeph">--driver-memory-size <span class="variable">driver_memory_size</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e992 d7834e952">
+<p>Specify the maximum amount of memory for an Oracle Storage Cloud Service driver.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1003" headers="d7834e950">
+<p><code class="codeph">--memory-size-per-node <span class="variable">memory_size_per_node</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1003 d7834e952">
+<p>Specify the Spark executors memory limit in GB per node, for example: <code class="codeph">40G</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1018" headers="d7834e950">
+<p><code class="codeph">--number-of-executor-nodes <span class="variable">number_of_executors_per_node</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1018 d7834e952">
+<p>Specify the maximum number of Spark executors per node, for example: <code class="codeph">10G</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1032" headers="d7834e950">
+<p><code class="codeph">--number-of-threads-per-node</code> <span class="variable">number_of_threads_per_node</span></p>
+</td>
+<td class="cellalignment20" headers="d7834e1032 d7834e952">
+<p>Specify the maximum number of threads per node.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1043" headers="d7834e950">
+<p><code class="codeph">--block-size <span class="variable">block_size</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1043 d7834e952">
+<p>Specify the block size in bytes.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1053" headers="d7834e950">
+<p><code class="codeph">--part-size <span class="variable">part_size</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1053 d7834e952">
+<p>Specify the part size in bytes.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1063" headers="d7834e950">
+<p><code class="codeph">--retry</code></p>
+<p><code class="codeph">--no-retry</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1063 d7834e952">
+<p>Retry data transfer in case of failure.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1074" headers="d7834e950">
+<p><code class="codeph">--sync</code></p>
+<p><code class="codeph">--no-sync</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1074 d7834e952">
+<p>Synchronize the source with the destination.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1086" headers="d7834e950">
+<p><code class="codeph">--recursive</code></p>
+<p><code class="codeph">--no-recursive</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1086 d7834e952">
+<p>Recursively copy (enabled by default).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1097" headers="d7834e950">
+<p><code class="codeph">--job-executable-class <span class="variable">job_executable_class</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1097 d7834e952">
+<p>Main Java class used for the Spark job execution.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1107" headers="d7834e950">
+<p><code class="codeph">--src-provider <span class="variable">oss_source_provider</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1107 d7834e952">
+<p>Specify the provider of the source, when using an <span>Oracle Cloud Infrastructure Object Storage Classic</span> source.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1120" headers="d7834e950">
+<p><code class="codeph">--dst-provider <span class="variable">oss_destination_provider</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1120 d7834e952">
+<p>Specify the provider of the destination, when using an <span>Oracle Cloud Infrastructure Object Storage Classic</span> destination.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1133" headers="d7834e950">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1133 d7834e952">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-31B94CB2-62B0-4838-8910-C265027DDE0A"></a>
+<h2 id="BBDMG-GUID-31B94CB2-62B0-4838-8910-C265027DDE0A" class="sect2"><span class="enumeration_section">9.8</span> <span>bdm-cli</span> create_job_template</h2>
+<div>
+<p>Create a new job template.</p>
+<div class="section" id="GUID-31B94CB2-62B0-4838-8910-C265027DDE0A__CREATE_JOB_TEMPLATE-D21DCD76">
+<p class="subhead2">Syntax</p>
+<div class="p">
+<pre dir="ltr">
+bdm-cli create_job_template [<span class="variable">options</span>] <span class="variable">job_template_name</span> <span class="variable">source</span> ... <span class="variable">destination</span>
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Options</p>
+<div class="p">
+<div class="tblformal" id="GUID-31B94CB2-62B0-4838-8910-C265027DDE0A__GUID-6C3CDDEE-EAFA-4538-BBF6-50DC92031337">
+<table class="cellalignment16" summary="This table shows the options for this bdm-cli subcommand.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e1194">Option</th>
+<th class="cellalignment18" id="d7834e1196">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1200" headers="d7834e1194">
+<p><code class="codeph">--abort-running-job</code></p>
+<p><code class="codeph">--no-abort-running-job</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1200 d7834e1196">
+<p>Abort an already running execution if the next scheduled execution is started.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1211" headers="d7834e1194">
+<p><code class="codeph">--block-size <span class="variable">block_size</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1211 d7834e1196">
+<p>Specify block size in bytes.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1221" headers="d7834e1194">
+<p><code class="codeph">--data-source-name <span class="variable">data_source_name</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1221 d7834e1196">
+<p>Job's data source name.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1231" headers="d7834e1194">
+<p><code class="codeph">--description <span class="variable">description</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1231 d7834e1196">
+<p>Job template description.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1241" headers="d7834e1194">
+<p><code class="codeph">--dst-provider <span class="variable">destination_provider</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1241 d7834e1196">
+<p>Specify for <code class="codeph">oss:///</code> destination.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1254" headers="d7834e1194">
+<p><code class="codeph">--environment <span class="variable">environment</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1254 d7834e1196">
+<p>Environment in JSON format:</p>
+<p><code class="codeph">{"envName1": "envValue2", "envName2": "envValue2"}</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1267" headers="d7834e1194">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1267 d7834e1196">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1278" headers="d7834e1194">
+<p><code class="codeph">--history-size <span class="variable">history_size</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1278 d7834e1196">
+<p>Count of executions history log.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1288" headers="d7834e1194">
+<p><code class="codeph">--job-executable-class <span class="variable">job_executable_class</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1288 d7834e1196">
+<p>Main Java class used for the Spark job execution.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1298" headers="d7834e1194">
+<p><code class="codeph">--job-schedule <span class="variable">job_schedule</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1298 d7834e1196">
+<p>Specify cron-like job schedule, for example:</p>
+<p><code class="codeph">"0 56 8 * * ?"</code> means run every day at 08h 56m UTC time.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1312" headers="d7834e1194">
+<p><code class="codeph">--job-template-type <span class="variable">job_template_type</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1312 d7834e1196">
+<p>Specify job template type. Allowed values are:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">DATA_MOVEMENT_COPY</code></p>
+</li>
+<li>
+<p><code class="codeph">GENERAL</code></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1332" headers="d7834e1194">
+<p><code class="codeph">--libraries <span class="variable">libraries</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1332 d7834e1196">
+<p>Hadoop libraries, for example: <code class="codeph">OdcpLibraries</code>.</p>
+<p>This option can have multiple values, for example:</p>
+<p><code class="codeph">--libraries OdcpLibraries --libraries OdcpLibraries</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1350" headers="d7834e1194">
+<p><code class="codeph">--memory-size-per-node <span class="variable">memory_size_per_node</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1350 d7834e1196">
+<p>Specify the Spark executors memory limit in GB per node, for example: <code class="codeph">40G</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1363" headers="d7834e1194">
+<p><code class="codeph">--number-of-executor-nodes <span class="variable">number_of_executor_per_node</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1363 d7834e1196">
+<p>Specify the maximum number of Spark executors per node, for example: <code class="codeph">10G</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1376" headers="d7834e1194">
+<p><code class="codeph">--number-of-threads-per-node <span class="variable">number_of_threads_per_node</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1376 d7834e1196">
+<p>Specify the maximum of threads per node.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1386" headers="d7834e1194">
+<p><code class="codeph">--part-size <span class="variable">part_size</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1386 d7834e1196">
+<p>Specify part size in bytes.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1396" headers="d7834e1194">
+<p><code class="codeph">--recursive</code></p>
+<p><code class="codeph">--no-recursive</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1396 d7834e1196">
+<p>Recursively copy (enabled by default).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1407" headers="d7834e1194">
+<p><code class="codeph">--retry</code></p>
+<p><code class="codeph">--no-retry</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1407 d7834e1196">
+<p>Retry data transfer in case of failure.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1418" headers="d7834e1194">
+<p><code class="codeph">--src-provider <span class="variable">oss_source_provider</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1418 d7834e1196">
+<p>Specify the provider of the source, when using for Oracle Bare Metal Cloud Object Storage Service.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1428" headers="d7834e1194">
+<p><code class="codeph">--sync</code></p>
+<p><code class="codeph">--no-sync</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1428 d7834e1196">
+<p>Synchronize source with destination.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1439" headers="d7834e1194">
+<p><code class="codeph">--tags <span class="variable">tags</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1439 d7834e1196">
+<p>User defined tag. This option can have multiple values, for example:</p>
+<p><code class="codeph">--tags system --tags datamovement --tags copy</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-866C995A-F11E-4623-9A88-A0920EF7FA15"></a>
+<h2 id="BBDMG-GUID-866C995A-F11E-4623-9A88-A0920EF7FA15" class="sect2"><span class="enumeration_section">9.9</span> <span>bdm-cli</span> get_data_source</h2>
+<div>
+<p>Find a data source by name.</p>
+<div class="section" id="GUID-866C995A-F11E-4623-9A88-A0920EF7FA15__GET_DATA_SOURCE-D21DD706">
+<p class="subhead2">Syntax</p>
+<div class="p">
+<pre dir="ltr">
+bdm-cli get_data_source [<span class="variable">options</span>] <span class="variable">data_source_name</span>
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Options</p>
+<div class="p">
+<div class="tblformal" id="GUID-866C995A-F11E-4623-9A88-A0920EF7FA15__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1B7C313">
+<table class="cellalignment16" summary="This table shows the options for this bdm-cli subcommand.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e1495">Option</th>
+<th class="cellalignment18" id="d7834e1497">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1501" headers="d7834e1495">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1501 d7834e1497">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1"></a>
+<h2 id="BBDMG-GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1" class="sect2"><span class="enumeration_section">9.10</span> <span>bdm-cli</span> get_job</h2>
+<div>
+<p>Get a job by UUID.</p>
+<div class="section" id="GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1__GET_JOB-D21DDDD1">
+<p class="subhead2">Syntax</p>
+<div class="p">
+<pre dir="ltr">
+bdm-cli get_job [<span class="variable">options</span>] <span class="variable">job_uuid</span>
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Options</p>
+<div class="p">
+<div class="tblformal" id="GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1B7C398">
+<table class="cellalignment16" summary="This table shows the options for this bdm-cli subcommand.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e1555">Option</th>
+<th class="cellalignment18" id="d7834e1557">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1561" headers="d7834e1555">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1561 d7834e1557">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>Get information on a job.</p>
+<p><code class="codeph">/usr/bin/bdm-cli&nbsp; -f json&nbsp; --no-check-certificate&nbsp; --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username ${DATA_USER} --bdm-passwd ${USER_PASSWORD_FILE}&nbsp;&nbsp; get_job ${JOB_UUID}</code></p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7"></a>
+<h2 id="BBDMG-GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7" class="sect2"><span class="enumeration_section">9.11</span> <span>bdm-cli</span> get_job_log</h2>
+<div>
+<p>Get a job log.</p>
+<div class="section" id="GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7__GET_JOB_LOG-D21DE480">
+<p class="subhead2">Syntax</p>
+<div class="p">
+<pre dir="ltr">
+bdm-cli get_job_log [<span class="variable">options</span>] <span class="variable">job_uuid</span>
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Options</p>
+<div class="p">
+<div class="tblformal" id="GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1C8D8B4">
+<table class="cellalignment16" summary="This table shows the options for this bdm-cli subcommand.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e1624">Option</th>
+<th class="cellalignment18" id="d7834e1626">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1630" headers="d7834e1624">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1630 d7834e1626">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13"></a>
+<h2 id="BBDMG-GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13" class="sect2"><span class="enumeration_section">9.12</span> <span>bdm-cli</span> list_all_jobs</h2>
+<div>
+<p>List all jobs from the execution history.</p>
+<div class="section" id="GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13__LIST_ALL_JOBS-D21DDB8A">
+<p class="subhead2">Syntax</p>
+<div class="p">
+<pre dir="ltr">
+bdm-cli list_all_jobs [<span class="variable">options</span>]
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Options</p>
+<div class="p">
+<div class="tblformal" id="GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1B7C2F4">
+<table class="cellalignment16" summary="This table shows the options for this bdm-cli subcommand.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e1682">Option</th>
+<th class="cellalignment18" id="d7834e1684">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1688" headers="d7834e1682">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1688 d7834e1684">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1699" headers="d7834e1682">
+<p><code class="codeph">--limit <span class="variable">limit</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1699 d7834e1684">
+<p>Specify the size of the page.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1709" headers="d7834e1682">
+<p><code class="codeph">--offset <span class="variable">offset</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1709 d7834e1684">
+<p>Specify the paging offset.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Example</p>
+<p>List all jobs.</p>
+<div class="p">
+<pre dir="ltr">
+/usr/bin/bdm-cli  -f json  --no-check-certificate  --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username ${DATA_USER} --bdm-passwd ${USER_PASSWORD_FILE}   list_all_jobs
+</pre></div>
+<p>Use the <code class="codeph">--offset</code> and <code class="codeph">--limit</code> options to restrict the results. For example to get the eighth page when there are 20 rows per page, do the following:</p>
+<pre dir="ltr">
+bdm-cli list_all_jobs --offset 8 --limit 20
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA"></a>
+<h2 id="BBDMG-GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA" class="sect2"><span class="enumeration_section">9.13</span> <span>bdm-cli</span> list_template_executions</h2>
+<div>
+<p>List all jobs from the execution history for the given template.</p>
+<div class="section" id="GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA__LIST_TEMPLATE_EXECUTIONS-D2242242">
+<p class="subhead2">Syntax</p>
+<div class="p">
+<pre dir="ltr">
+bdm-cli list_template_executions  [<span class="variable">options</span>] <span class="variable">job_uuid</span>
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Options</p>
+<div class="p">
+<div class="tblformal" id="GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1DE4ECD">
+<table class="cellalignment16" summary="This table shows the options for this bdm-cli subcommand.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e1780">Option</th>
+<th class="cellalignment18" id="d7834e1782">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1786" headers="d7834e1780">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1786 d7834e1782">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-201FED3F-0354-4693-98FF-011139852431"></a>
+<h2 id="BBDMG-GUID-201FED3F-0354-4693-98FF-011139852431" class="sect2"><span class="enumeration_section">9.14</span> bdm-cli ls</h2>
+<div>
+<p>List files from a specific location.</p>
+<div class="section" id="GUID-201FED3F-0354-4693-98FF-011139852431__LS-D2242584">
+<p class="subhead2">Syntax</p>
+<div class="p">
+<pre dir="ltr">
+bdm-cli ls [<span class="variable">options</span>] <span class="variable">path_1</span> ... <span class="variable">path_n</span>
+</pre></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Options</p>
+<div class="p">
+<div class="tblformal" id="GUID-201FED3F-0354-4693-98FF-011139852431__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1C8D8E3">
+<table class="cellalignment16" summary="This table shows the options for this bdm-cli subcommand.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment17" id="d7834e1842">Option</th>
+<th class="cellalignment18" id="d7834e1844">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1848" headers="d7834e1842">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">-&ndash;human-readable</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1848 d7834e1844">
+<p>Human readable file sizes.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1859" headers="d7834e1842">
+<p><code class="codeph">-d</code></p>
+<p><code class="codeph">--dirs-only</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1859 d7834e1844">
+<p>List directories only.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1870" headers="d7834e1842">
+<p><code class="codeph">--provider <span class="variable">oss_provider</span></code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1870 d7834e1844">
+<p>Specify for Oracle Bare Metal Cloud Object Storage Service paths.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment19" id="d7834e1880" headers="d7834e1842">
+<p><code class="codeph">-h</code></p>
+<p><code class="codeph">--help</code></p>
+</td>
+<td class="cellalignment20" headers="d7834e1880 d7834e1844">
+<p>Show this message and exit.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Examples</p>
+<p>List HDFS content under selected user.</p>
+<pre dir="ltr">
+/usr/bin/bdm-cli  -f json  --no-check-certificate  --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username ${DATA_USER} --bdm-passwd ${USER_PASSWORD_FILE}   ls hdfs:///user/${DATA_USER}/integration_in --provider hdfs
+</pre>
+<p>List <span>Oracle Cloud Infrastructure Object Storage Classic</span> content under selected user.</p>
+<pre dir="ltr">
+/usr/bin/bdm-cli  -f json  --no-check-certificate  --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username test20170324113533 --bdm-passwd ${USER_PASSWORD_FILE}    ls oss:///${OSS_CONTAINER}/ --provider ${OSS_PROVIDER}
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="GUID-A11034AF-819E-419A-8EFA-2B781E68A22A.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="GUID-98BEEAAE-6CAF-45A0-8F48-F74C910BCB0A.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2018, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

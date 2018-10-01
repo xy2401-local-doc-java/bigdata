@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Changes in This Release for Oracle Big Data Spatial and Graph User's Guide and Reference</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2017-04-07T08:21:39Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Spatial and Graph User&rsquo;s Guide and Reference" />
+<meta name="dcterms.identifier" content="E67958-10" />
+<meta name="dcterms.isVersionOf" content="BDSPA" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bda48/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="big-data-spatial-preface.htm" title="Previous" type="text/html" />
+<link rel="Next" href="big-data-spatial-overview.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BDSPA.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-CCDBA84C-D2B6-4267-B344-C1D44A48036E"></a> <span id="PAGE" style="display:none;">6/15</span> <!-- End Header -->
+<h1 id="BDSPA-GUID-CCDBA84C-D2B6-4267-B344-C1D44A48036E" class="sect1">Changes in This Release for Oracle Big Data Spatial and Graph User's Guide and Reference</h1>
+<div>
+<p>This preface describes significant new features and changes in <span class="italic">Oracle Big Data Spatial and Graph User's Guide and Reference</span> for Oracle Big Data Spatial and Graph Release 2.2.</p>
+</div>
+<div class="props_rev_3"><a id="GUID-59AB8271-5E4F-48C2-BADD-03922F15B27A"></a>
+<h2 id="BDSPA-GUID-59AB8271-5E4F-48C2-BADD-03922F15B27A" class="sect2">In-Memory Analyst (PGX) Enhancements</h2>
+<div>
+<p>The in-memory analyst (PGX) API has been enhanced for this release. For detailed information about any API feature, see <a class="olink PGXJV" target="_blank" href="../PGXJV/toc.htm">Oracle Spatial and Graph In-Memory Analyst (PGX) Java API Reference</a>. The more notable changes include the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Type Casting in PGQL</span>: Data values can be cast from one data type to another using the CAST function. The syntax is like that for the SQL CAST function: <code class="codeph">CAST(expression AS datatype)</code>. For example:</p>
+<pre dir="ltr">
+SELECT CAST(n.age AS STRING), CAST('123' AS INT), CAST('true' AS BOOLEAN)
+WHERE (n:Person)
+</pre>
+<p>For information about PGQL, see <a href="using-in-memory-analyst.htm#GUID-96D9C0AA-CE52-48E6-A09E-D97E872A79A1">Using Pattern-Matching Queries with Graphs</a>.</p>
+</li>
+<li>
+<p><span class="bold">Transpose of a Graph</span>: The transpose of a directed graph is the same graph but with all of the edges reversed. You can use the new method <code class="codeph">PgxGraph.transpose()</code> to (non-destructively) return a new graph that is a transpose of the original.</p>
+</li>
+<li>
+<p><span class="bold">New Algorithms</span>:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The PRIM algorithm can be used to find minimum spanning trees in a graph.</p>
+</li>
+<li>
+<p>Additional personalization options are available for the SALSA algorithm.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="bold">Apache Spark Support Improvements</span>:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Vertex IDs can be of string type.</p>
+</li>
+<li>
+<p>Vertex and edge label support has been added.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="bold">Distributed PGX Improvements</span>: The PGX distributed run-time implementation of the in-memory analyst now supports properties of value type string.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-91D88D86-307A-422B-8707-3D1ABE4ED908"></a>
+<h2 id="BDSPA-GUID-91D88D86-307A-422B-8707-3D1ABE4ED908" class="sect2">Spark Vector Analysis API Support for Scala</h2>
+<div>
+<p>New <code class="codeph">SpatialRDD</code> and <code class="codeph">DistributedSpatialIndex</code> implementations have been added to provide better integration between the Spark Vector Analysis API and Scala.</p>
+<p>The new <code class="codeph">SpatialRDD</code> extends the native Spark&rsquo;s RDD class and adds spatial transformations and actions, just like the <code class="codeph">SpatialJavaRDD</code> class.</p>
+<p>Both <code class="codeph">SpatialRDD</code> and Scala&rsquo;s <code class="codeph">DistributedSpatialIndex</code> allow passing Scala function literals (lambdas) to the spatial transformations and actions, making it easier to work with the Vector API from Scala.</p>
+<p>For information about the Scala support, see <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-96B6492E-E93F-46F6-844F-E59F39DB1B00">Oracle Big Data Spatial Vector Analysis for Spark</a>.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-1E41308F-B86A-4F83-BB61-DB19BADD8B62"></a>
+<h2 id="BDSPA-GUID-1E41308F-B86A-4F83-BB61-DB19BADD8B62" class="sect2">Nearest Neighbors Using Distributed Spatial Index</h2>
+<div>
+<p>The nearest neighbors action has been added to <code class="codeph">DistributedSpatialIndex</code>. A Distrbuted Spatial Index may decrease the execution time when running the nearest neighbors action.</p>
+<p>For more information, see <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-D41E4954-426E-4AFE-AD85-34F3DC2485D0">Spatial Actions (MBR and NearestNeighbors)</a>.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-941060C1-20F9-460F-99A1-373DE372ABDB"></a>
+<h2 id="BDSPA-GUID-941060C1-20F9-460F-99A1-373DE372ABDB" class="sect2">Controlling Execution of Spatial Evaluation</h2>
+<div>
+<p>You can control whether a spatial operation is evaluated before or after calling a user-defined filtering lambda when executing a filtering transformation or a nearest neighbors action.</p>
+<p>For more information, see <a href="using-big-data-spatial-graph-spatial-data.htm#GUID-C2B4FBD2-BC8C-48AE-BCDE-EDE527F5B9D8">Controlling Spatial Evaluation</a>.</p>
+</div>
+</div>
+<div class="props_rev_3"><a id="GUID-E926A699-4C4C-4314-A214-422441636420"></a>
+<h2 id="BDSPA-GUID-E926A699-4C4C-4314-A214-422441636420" class="sect2">New Utility Methods to Write Vertex and Edge Records</h2>
+<div>
+<p>Two new utility methods let you write a vertex or edge record directly in Oracle flat file format, so that you no longer need to worry about encoding special characters.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">OraclePropertyGraphUtils.outputVertexRecord(os, vid, key, value)</code> lets you serialize a vertex record directly in Oracle flat file format. (See <a href="using-property-graphs-big-data.htm#GUID-4C3A57B8-7297-4F00-9EC9-F79149A1CE71">Vertex File</a>.)</p>
+</li>
+<li>
+<p><code class="codeph">OraclePropertyGraphUtils.outputEdgeRecord(os, eid,svid, dvid, label, key, value)</code> lets you write a new line of text in the given output stream describing the <span class="italic">key</span>/<span class="italic">value</span> property of the given edge identified with <span class="italic">eid</span>. (See <a href="using-property-graphs-big-data.htm#GUID-4DB23F3E-FD23-4561-BE64-34A7ED2E732A">Edge File</a>.)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment320">
+<tr>
+<td class="cellalignment357">
+<table class="cellalignment325">
+<tr>
+<td class="cellalignment324"><a href="big-data-spatial-preface.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment324"><a href="big-data-spatial-overview.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2015, 2017, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment359">
+<table class="cellalignment323">
+<tr>
+<td class="cellalignment324"><a href="http://docs.oracle.com/bigdata/bda48/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment324"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment324"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

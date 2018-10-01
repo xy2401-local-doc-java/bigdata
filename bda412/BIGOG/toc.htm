@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Big Data Appliance Owner's Guide - Contents</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Describes data center site planning, network configuration, hardware and software installation, and maintenance of Oracle Big Data Appliance." />
+<meta name="dcterms.created" content="2018-08-11T12:13:02Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E93623-06" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.htm" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"   src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"   src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Next" href="lot.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript"  src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript"  src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript"  src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript"  src="../dcommon/js/foundation.min.js"></script>
+<script type="application/javascript"  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript"  src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript"  src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">1/33</span> <!-- End Header -->
+<h1 class="toc">Contents</h1>
+<h2 class="tocheader"><a href="lot.htm">List of Tables</a></h2>
+<h2 class="tocheader"><a href="title.htm">Title and Copyright Information</a></h2>
+<h2 class="tocheader"><a href="preface.htm#GUID-BB731293-2B28-4DAD-82D3-31D828FE499A">Preface</a></h2>
+<ul style="list-style-type: none">
+<li><a href="preface.htm#GUID-ECCDC2EC-774A-4C39-82A0-CB300BBA8CA5">Audience</a></li>
+<li><a href="preface.htm#GUID-E409CC44-9A8F-4043-82C8-6B95CD939296">Documentation Accessibility</a></li>
+<li><a href="preface.htm#GUID-8AD96560-DC08-4CFA-A820-6B8BC9A817C5">Related Documentation</a></li>
+<li><a href="preface.htm#GUID-77B2315F-A5D9-48C6-82BF-5EFA20C04B27">Conventions</a></li>
+<li><a href="preface.htm#GUID-6A191767-F1ED-491A-83F7-8D32C0C2159E">Backus-Naur Form Syntax</a></li>
+<li><a href="preface.htm#GUID-F18A5823-C487-4D01-BF21-EBAD8A5C9B07">Changes in Oracle Big Data Appliance Release 4.12</a></li>
+</ul>
+<h2 class="tocheader"><a href="part-preinstallation.htm#GUID-4925A4CB-E090-4D65-A7DC-411984CF0C65">Part I Preinstallation</a></h2>
+<h2 class="tocheader"><a href="intro.htm#GUID-072D09FA-D014-45F7-85A9-B540AF4E1393"><span class="secnum">1</span> Introduction to Oracle Big Data Appliance</a></h2>
+<ul style="list-style-type: none">
+<li><a href="intro.htm#GUID-43E7F436-137D-4AE6-BEDF-C8FC195E97AA"><span class="secnum">1.1</span> About Oracle Big Data Appliance</a></li>
+<li><a href="intro.htm#GUID-CCBF3E39-7F8A-47B6-9AF8-25E450E3E903"><span class="secnum">1.2</span> Oracle Big Data Appliance Rack Components</a></li>
+<li><a href="intro.htm#GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB"><span class="secnum">1.3</span> Server Components</a></li>
+<li><a href="intro.htm#GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D"><span class="secnum">1.4</span> Spare Parts Kit Components</a></li>
+<li><a href="intro.htm#GUID-ABEAC9ED-A052-4C8D-AB3B-BE69445F3CED"><span class="secnum">1.5</span> Oracle Big Data Appliance Management Software</a></li>
+<li><a href="intro.htm#GUID-E293FDD6-E1A3-4EA0-B683-EB123D34D045"><span class="secnum">1.6</span> Supportability Guidelines</a></li>
+</ul>
+<h2 class="tocheader"><a href="prep.htm#GUID-2F0463FF-D15C-4059-B81F-59E20413DC44"><span class="secnum">2</span> Site Requirements for Oracle Big Data Appliance</a></h2>
+<ul style="list-style-type: none">
+<li><a href="prep.htm#GUID-495CF903-ABFF-4B48-A12F-25CCC2FB96B1"><span class="secnum">2.1</span> General Environmental Requirements</a></li>
+<li><a href="prep.htm#GUID-A07A66BB-DC3D-4CDA-8927-BF00D9147B28"><span class="secnum">2.2</span> Space Requirements</a>
+<ul style="list-style-type: none">
+<li><a href="prep.htm#GUID-8D5BE003-598A-45ED-B230-8996C128F076"><span class="secnum">2.2.1</span> Receiving and Unpacking Requirements</a></li>
+<li><a href="prep.htm#GUID-55D5AAE1-D1F3-4A57-8853-C30F00E1E309"><span class="secnum">2.2.2</span> Maintenance Access Requirements</a></li>
+</ul>
+</li>
+<li><a href="prep.htm#GUID-3AC8BFCA-E1EE-436F-9B2D-862E5DF7CC70"><span class="secnum">2.3</span> Flooring Requirements</a></li>
+<li><a href="prep.htm#GUID-B92C0636-6F26-4229-972A-CDBBFF7CFA4E"><span class="secnum">2.4</span> Electrical Power Requirements</a>
+<ul style="list-style-type: none">
+<li><a href="prep.htm#GUID-760AE57B-3DB4-4DF6-9413-750FBD7B4C2A"><span class="secnum">2.4.1</span> PDUs for Oracle Big Data Appliance</a>
+<ul style="list-style-type: none">
+<li><a href="prep.htm#GUID-16DD8449-1F1D-486A-BFCF-6CB7A0EBC5A9"><span class="secnum">2.4.1.1</span> Single-Phase PDUs for North America, South America, Japan, and Taiwan</a></li>
+<li><a href="prep.htm#GUID-F6FF0E0D-CDAE-4AF5-AE11-0A07EFB4D40E"><span class="secnum">2.4.1.2</span> Three-Phase PDUs for North America, South America, Japan, and Taiwan</a></li>
+<li><a href="prep.htm#GUID-0DEF47D5-00DC-4AD5-89AE-DE7143794823"><span class="secnum">2.4.1.3</span> Single-Phase PDUs for Europe, the Middle East, Africa, and Asia Pacific</a></li>
+<li><a href="prep.htm#GUID-96741BDD-19D2-4222-A1B1-912C878E30E2"><span class="secnum">2.4.1.4</span> Three-Phase PDUs for Europe, the Middle East, Africa, and Asia Pacific</a></li>
+</ul>
+</li>
+<li><a href="prep.htm#GUID-1C5CF6D9-D369-4BFF-9C99-66AF099BCD11"><span class="secnum">2.4.2</span> Facility Power Requirements</a></li>
+<li><a href="prep.htm#GUID-E13B4E3D-7BAE-4C79-BF50-7EF7115863CE"><span class="secnum">2.4.3</span> Circuit Breaker Requirements</a></li>
+<li><a href="prep.htm#GUID-559CD879-4715-4A5C-B3BE-5E765D8B1B05"><span class="secnum">2.4.4</span> Grounding Guidelines</a></li>
+</ul>
+</li>
+<li><a href="prep.htm#GUID-16628892-23AB-4EF4-9E45-B17091B7F16A"><span class="secnum">2.5</span> Temperature and Humidity Requirements</a></li>
+<li><a href="prep.htm#GUID-8D2C81E7-959E-4781-B70F-8A997649EB5C"><span class="secnum">2.6</span> Ventilation and Cooling Requirements</a></li>
+<li><a href="prep.htm#GUID-61CA5078-E2AF-436C-930B-62B5C4E8E3BC"><span class="secnum">2.7</span> Network Connection Requirements</a></li>
+<li><a href="prep.htm#GUID-F73FBBBA-6A75-491D-96FB-55C840226F71"><span class="secnum">2.8</span> Ensuring That the Site Is Ready</a></li>
+</ul>
+<h2 class="tocheader"><a href="network.htm#GUID-0361A05A-7FA9-455F-A0AE-58F2DAAAAFA2"><span class="secnum">3</span> Understanding the Network Requirements</a></h2>
+<ul style="list-style-type: none">
+<li><a href="network.htm#GUID-7AF72A8D-4D65-4F3C-AFEF-95D269F0B155"><span class="secnum">3.1</span> Overview of Network Requirements</a>
+<ul style="list-style-type: none">
+<li><a href="network.htm#GUID-DB6D6DBF-6A83-4FFA-AB6B-C700C3D62C78"><span class="secnum">3.1.1</span> Default Network Connections</a></li>
+<li><a href="network.htm#GUID-2E7739D7-F036-4EAC-97DB-DA1577B18A4D"><span class="secnum">3.1.2</span> Minimum Requirements for the Networks</a></li>
+<li><a href="network.htm#GUID-A88C5CB9-E25E-49C1-BAC8-2C73D7FB1E07"><span class="secnum">3.1.3</span> Network Diagram</a></li>
+</ul>
+</li>
+<li><a href="network.htm#GUID-2365E7B6-6213-4F90-95B9-BCD6468BB64F"><span class="secnum">3.2</span> Cabling the Client Network</a>
+<ul style="list-style-type: none">
+<li><a href="network.htm#GUID-B0572A90-4A97-48B7-AC4F-D2F6A3D85CD9"><span class="secnum">3.2.1</span> How the Servers Connect to the Gateway Switches</a></li>
+<li><a href="network.htm#GUID-6B7FAB8E-5924-4981-B52D-F3ED9EAB6F87"><span class="secnum">3.2.2</span> Using Splitter Cables for Connecting to the 40 Gbps Physical Ports</a></li>
+<li><a href="network.htm#GUID-4F9B43E4-97EC-471A-A186-BE64062D78DD"><span class="secnum">3.2.3</span> What About Data Centers Without a 10 GbE Infrastructure?</a></li>
+<li><a href="network.htm#GUID-778091C6-EAEE-45EC-A860-5D7AB2190F0A"><span class="secnum">3.2.4</span> Guidelines for Connecting to the Gateway Switches</a>
+<ul style="list-style-type: none">
+<li><a href="network.htm#GUID-CDD8E898-4196-491C-89DA-EFDD854BE892"><span class="secnum">3.2.4.1</span> Configuring for LACP/LAG Connections</a></li>
+</ul>
+</li>
+<li><a href="network.htm#GUID-37714136-6F22-451F-9728-20F2852D1144"><span class="secnum">3.2.5</span> Configuring Multiple Racks into a Single Hadoop Cluster</a></li>
+</ul>
+</li>
+<li><a href="network.htm#GUID-70BDE0E8-9478-4B80-888A-C28079B86336"><span class="secnum">3.3</span> Factory Network Settings</a></li>
+<li><a href="network.htm#GUID-ECF24F57-74F9-491D-B473-342BC10BD4B3"><span class="secnum">3.4</span> Port Assignments for Oracle Big Data Appliance Software</a></li>
+<li><a href="network.htm#GUID-11B35927-3AE2-420C-B38C-4210190A507A"><span class="secnum">3.5</span> Preparing the Network for Oracle Big Data Appliance</a></li>
+</ul>
+<h2 class="tocheader"><a href="configurator.htm#GUID-21E52539-3A77-4BB5-9CC9-429B5140609A"><span class="secnum">4</span> Using Oracle Big Data Appliance Configuration Generation Utility</a></h2>
+<ul style="list-style-type: none">
+<li><a href="configurator.htm#GUID-D33D4E8C-6714-4FE2-96BD-4F76D9982BFE"><span class="secnum">4.1</span> Overview of Oracle Big Data Appliance Configuration Generation Utility</a></li>
+<li><a href="configurator.htm#GUID-92C6E1FE-6107-4170-BC08-66C4CF9FEE41"><span class="secnum">4.2</span> Generating the Configuration Files</a></li>
+<li><a href="configurator.htm#GUID-FFE4B6CD-BD89-4566-897B-F32451D6C11F"><span class="secnum">4.3</span> About the Configuration Files</a></li>
+<li><a href="configurator.htm#GUID-16433A68-14D9-418B-80FB-AAA077AFB461"><span class="secnum">4.4</span> Validating the Network Settings</a></li>
+<li><a href="configurator.htm#GUID-DFC755A9-295D-40A8-AD2D-753251C68228"><span class="secnum">4.5</span> Customer Details Page</a>
+<ul style="list-style-type: none">
+<li><a href="configurator.htm#GUID-28033B00-CBC2-4318-A34C-89FAE1D61BA7"><span class="secnum">4.5.1</span> Using Standardized Host Names</a></li>
+<li><a href="configurator.htm#GUID-2F0B820C-C570-4322-BEE7-09EAF03D823B"><span class="secnum">4.5.2</span> Using Customized Host Names</a></li>
+<li><a href="configurator.htm#GUID-2AB57983-B8A4-4A2E-B1BF-24C07BE4B07C"><span class="secnum">4.5.3</span> Naming Multirack Clusters</a></li>
+<li><a href="configurator.htm#GUID-99BE6C90-D02C-40FD-9911-B3E55A060796"><span class="secnum">4.5.4</span> Connecting to Oracle Big Data Appliance Over the Networks</a></li>
+</ul>
+</li>
+<li><a href="configurator.htm#GUID-651EEFED-9E60-4A75-96F5-F43242DC9CB7"><span class="secnum">4.6</span> Hardware Selection Page</a></li>
+<li><a href="configurator.htm#GUID-689D7C9B-744B-4411-8E40-E6B2CF54A396"><span class="secnum">4.7</span> Rack Details</a></li>
+<li><a href="configurator.htm#GUID-9EF007DD-6804-4196-979B-B1C5C6776E8F"><span class="secnum">4.8</span> Networking Page</a></li>
+<li><a href="configurator.htm#GUID-164DB8A5-D9E7-4BC0-B978-7B2B323B2DC0"><span class="secnum">4.9</span> Administration Network Page</a></li>
+<li><a href="configurator.htm#GUID-521A91B2-D5E6-47FB-8C13-2CF2B4F64679"><span class="secnum">4.10</span> General Network Properties Page</a></li>
+<li><a href="configurator.htm#GUID-DA64E1CE-CC59-48F6-B599-6AB42C180232"><span class="secnum">4.11</span> Review and Edit Details Page</a></li>
+<li><a href="configurator.htm#GUID-4A6D4738-FFE4-400E-BE52-FF8C5BFBD33D"><span class="secnum">4.12</span> Define Clusters Page</a></li>
+<li><a href="configurator.htm#GUID-FC59A3F4-C4F2-499B-BB63-688092092CA3"><span class="secnum">4.13</span> Cluster Page</a>
+<ul style="list-style-type: none">
+<li><a href="configurator.htm#GUID-D3828F18-37A0-46A7-85B5-82EFDDF02B91"><span class="secnum">4.13.1</span> A New Oracle NoSQL Database Cluster</a>
+<ul style="list-style-type: none">
+<li><a href="configurator.htm#GUID-DA5093CD-6DA3-4097-8166-606C287F4CB4"><span class="secnum">4.13.1.1</span> User and Groups</a></li>
+<li><a href="configurator.htm#GUID-C2DE87C4-A1A9-4783-8817-9ACC3A7CF6DB"><span class="secnum">4.13.1.2</span> Client Network</a></li>
+<li><a href="configurator.htm#GUID-A4CA8AD1-551B-4504-BF83-EED0A6B7FF9B"><span class="secnum">4.13.1.3</span> InfiniBand Network</a></li>
+<li><a href="configurator.htm#GUID-33DE7B49-E6E8-4562-9D59-56806BDBDACE"><span class="secnum">4.13.1.4</span> MIT Kerberos</a></li>
+<li><a href="configurator.htm#GUID-8292CCED-6EAA-486F-BBE0-1EE200CF0BFB"><span class="secnum">4.13.1.5</span> Installed Components</a></li>
+<li><a href="configurator.htm#GUID-7AF3670D-FBD2-4D42-B23A-7077D05EC4F1"><span class="secnum">4.13.1.6</span> Oracle NoSQL Configuration</a></li>
+</ul>
+</li>
+<li><a href="configurator.htm#GUID-0BCC9610-205F-4A9B-9C39-85404E5E4629"><span class="secnum">4.13.2</span> A New CDH Cluster</a>
+<ul style="list-style-type: none">
+<li><a href="configurator.htm#GUID-07816639-8838-41E1-AE77-8C9BF6604673"><span class="secnum">4.13.2.1</span> User/Groups</a></li>
+<li><a href="configurator.htm#unique_2032025336"><span class="secnum">4.13.2.2</span> Client Network</a></li>
+<li><a href="configurator.htm#unique_780422596"><span class="secnum">4.13.2.3</span> InfiniBand Network</a></li>
+<li><a href="configurator.htm#GUID-DA2846F8-09F8-4157-9218-DCA575EB55B6"><span class="secnum">4.13.2.4</span> Big Data SQL</a></li>
+<li><a href="configurator.htm#GUID-EA937C07-94C8-41F4-851D-E4E6A36508A3"><span class="secnum">4.13.2.5</span> Big Data Connectors</a></li>
+<li><a href="configurator.htm#GUID-B20B9F5A-47A0-41A1-9A8D-1AB65E8D987C"><span class="secnum">4.13.2.6</span> Oracle Big Data Spatial and Graph</a></li>
+<li><a href="configurator.htm#GUID-64A934C4-A9A0-4D1D-9608-EC2A17ED9DA1"><span class="secnum">4.13.2.7</span> MIT Kerberos</a></li>
+<li><a href="configurator.htm#GUID-FEA6BD3E-4A40-4AD0-BD9D-4BB13D6BC484"><span class="secnum">4.13.2.8</span> Active Directory Kerberos</a></li>
+<li><a href="configurator.htm#GUID-58CA882F-6E47-4518-ADA0-6F52972DD1D0"><span class="secnum">4.13.2.9</span> HDFS Transparent Encryption</a></li>
+<li><a href="configurator.htm#GUID-0F4D5CDB-3937-4368-AA57-5C8172C8781D"><span class="secnum">4.13.2.10</span> Auto Service Request</a></li>
+<li><a href="configurator.htm#GUID-C56771B9-7C89-465E-86AE-EF752572ED91"><span class="secnum">4.13.2.11</span> Email Alerting</a></li>
+</ul>
+</li>
+<li><a href="configurator.htm#GUID-5D81A777-D8AB-4976-8EB0-17F53784AD5C"><span class="secnum">4.13.3</span> A New Kafka Cluster</a>
+<ul style="list-style-type: none">
+<li><a href="configurator.htm#unique_1147849912"><span class="secnum">4.13.3.1</span> User/Groups</a></li>
+<li><a href="configurator.htm#unique_1521658267"><span class="secnum">4.13.3.2</span> Client Network</a></li>
+<li><a href="configurator.htm#unique_248993876"><span class="secnum">4.13.3.3</span> InfiniBand Network</a></li>
+<li><a href="configurator.htm#GUID-4E4C6C94-A528-4B12-AB87-2B5AF2ADC862"><span class="secnum">4.13.3.4</span> MIT Kerberos</a></li>
+<li><a href="configurator.htm#GUID-F20979BC-2BBE-4299-BF53-AAD5571D81F6"><span class="secnum">4.13.3.5</span> Active Directory Kerberos</a></li>
+<li><a href="configurator.htm#unique_1467280542"><span class="secnum">4.13.3.6</span> Auto Service Request</a></li>
+<li><a href="configurator.htm#unique_1691804953"><span class="secnum">4.13.3.7</span> Email Alerting</a></li>
+</ul>
+</li>
+<li><a href="configurator.htm#GUID-BBB0E5E9-6688-47EA-9FC9-29DE3D1BCB49"><span class="secnum">4.13.4</span> Adding to an Existing Cluster</a></li>
+</ul>
+</li>
+<li><a href="configurator.htm#GUID-6B42F3B6-DC6A-4EBC-9133-7161DB7A0685"><span class="secnum">4.14</span> Client Network Config Summary</a></li>
+<li><a href="configurator.htm#GUID-CAF9CE4B-0EE5-4A81-A696-341E51BF023E"><span class="secnum">4.15</span> Complete Page</a></li>
+</ul>
+<h2 class="tocheader"><a href="asr.htm#GUID-6D1BCF7C-FCDD-4767-A10C-BD5519C3EF6A"><span class="secnum">5</span> Setting Up Auto Service Request</a></h2>
+<ul style="list-style-type: none">
+<li><a href="asr.htm#GUID-D4AA87AA-4080-485C-A399-65FD25D54E77"><span class="secnum">5.1</span> Understanding Auto Service Request</a></li>
+<li><a href="asr.htm#GUID-0D209F10-1767-4944-AF41-7F24DF157A7B"><span class="secnum">5.2</span> Getting Ready to Install ASR</a></li>
+<li><a href="asr.htm#GUID-F2783FD4-ED52-4D04-93A6-2E56CF615E22"><span class="secnum">5.3</span> Installing ASR Manager</a></li>
+<li><a href="asr.htm#GUID-335A894F-4B23-45F7-9785-746E52FBF9E0"><span class="secnum">5.4</span> Verifying the ASR Manager Installation</a></li>
+<li><a href="asr.htm#GUID-13787743-07CE-441A-9279-4830E780468D"><span class="secnum">5.5</span> Configuring the Trap Destinations on Oracle Big Data Appliance</a></li>
+<li><a href="asr.htm#GUID-A78023F5-8D00-4522-A187-AE2A7471AFC3"><span class="secnum">5.6</span> Verifying ASR Assets</a></li>
+<li><a href="asr.htm#GUID-160440A5-6AF3-4779-8FB3-DB546F0B302B"><span class="secnum">5.7</span> Validating Auto Service Request on Oracle Big Data Appliance</a></li>
+<li><a href="asr.htm#GUID-DE89D576-8947-4C0F-A671-FCB3C182B216"><span class="secnum">5.8</span> Troubleshooting ASR</a></li>
+</ul>
+<h2 class="tocheader"><a href="part-hardware-installation.htm#GUID-A1A5FA88-49BE-46DA-88BF-8A9497EACD81">Part II Hardware Installation and Configuration</a></h2>
+<h2 class="tocheader"><a href="unpack.htm#GUID-21BD5FDB-9536-4F09-AF74-CA86AD4AB1C8"><span class="secnum">6</span> Installing Oracle Big Data Appliance at&nbsp;the&nbsp;Site</a></h2>
+<ul style="list-style-type: none">
+<li><a href="unpack.htm#GUID-C7D6186B-73AE-4357-ADE3-526D7871C3CD"><span class="secnum">6.1</span> Reviewing Safety Guidelines</a></li>
+<li><a href="unpack.htm#GUID-A9AC0AF8-1357-45B4-BD0A-DB74AC3F2981"><span class="secnum">6.2</span> Unpacking Oracle Big Data Appliance</a>
+<ul style="list-style-type: none">
+<li><a href="unpack.htm#GUID-3992820A-BA5F-4C92-823D-BA16A1675FB9"><span class="secnum">6.2.1</span> Contents of the Shipping Kit</a></li>
+<li><a href="unpack.htm#GUID-D0DABE16-9ACD-4A6A-85E4-550CEEE2561A"><span class="secnum">6.2.2</span> Removing Oracle Big Data Appliance from the Shipping Crate</a></li>
+</ul>
+</li>
+<li><a href="unpack.htm#GUID-C03CF1C1-BC9C-4524-B27D-0F932D102EE0"><span class="secnum">6.3</span> Placing Oracle Big Data Appliance in Its Allocated Space</a>
+<ul style="list-style-type: none">
+<li><a href="unpack.htm#GUID-5AF7E49E-8AF6-4DF7-9925-70346385EE2D"><span class="secnum">6.3.1</span> Moving Oracle Big Data Appliance</a></li>
+<li><a href="unpack.htm#GUID-37AD7036-AA3B-4022-87FE-047E4B856D7A"><span class="secnum">6.3.2</span> Securing an Oracle Big Data Appliance Rack</a>
+<ul style="list-style-type: none">
+<li><a href="unpack.htm#GUID-1CC037BF-DCEE-4113-B94D-1E535D82FD8E"><span class="secnum">6.3.2.1</span> Secure the Oracle Big Data Appliance Rack with Leveling Feet</a></li>
+</ul>
+</li>
+<li><a href="unpack.htm#GUID-88BB9B3A-0315-466B-93E9-94734E3ABA6B"><span class="secnum">6.3.3</span> Attaching a Ground Cable (Optional)</a></li>
+</ul>
+</li>
+<li><a href="unpack.htm#GUID-3FD25D2A-DD68-4394-B888-2FF16486BC0E"><span class="secnum">6.4</span> Powering On the System for the First Time</a>
+<ul style="list-style-type: none">
+<li><a href="unpack.htm#GUID-316E5BCF-93F8-4885-AFEE-599726C7BAB4"><span class="secnum">6.4.1</span> Inspecting the Oracle Big Data Appliance Rack After It Is in Place</a></li>
+<li><a href="unpack.htm#GUID-8B8B737E-31AE-4899-B27E-081D19DDB713"><span class="secnum">6.4.2</span> Connecting Power Cords</a></li>
+<li><a href="unpack.htm#GUID-A5D8626A-A38A-471E-800F-14BA5E7398FC"><span class="secnum">6.4.3</span> Powering On Oracle Big Data Appliance</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="configure.htm#GUID-BD34C9EF-67C1-4871-A6AA-27E3534DE682"><span class="secnum">7</span> Configuring an Oracle Big Data Appliance Full Rack or Starter Rack</a></h2>
+<ul style="list-style-type: none">
+<li><a href="configure.htm#GUID-9751FDED-9AA9-49A1-A055-E80E4CFC7176"><span class="secnum">7.1</span> Configuring the KVM Switch</a>
+<ul style="list-style-type: none">
+<li><a href="configure.htm#GUID-33272701-70D2-4716-9C1F-F6DE2D9C7AB8"><span class="secnum">7.1.1</span> Starting the KVM Switch</a></li>
+<li><a href="configure.htm#GUID-85806E30-E7E8-4C01-87FB-DAE4BF6FBF3B"><span class="secnum">7.1.2</span> Connecting the KVM Switch to the Management Network</a></li>
+<li><a href="configure.htm#GUID-8DE01173-254E-4F38-873C-DF038263A26D"><span class="secnum">7.1.3</span> Configuring the KVM Switch to Access the Servers</a></li>
+<li><a href="configure.htm#GUID-29EDB107-A958-4099-A804-56F4E5FAADA4"><span class="secnum">7.1.4</span> Accessing a Server by Using the KVM Switch</a></li>
+</ul>
+</li>
+<li><a href="configure.htm#GUID-C1DAEAED-C421-4A2C-B60C-09F912A24DA7"><span class="secnum">7.2</span> Configuring the Ethernet Switch</a>
+<ul style="list-style-type: none">
+<li><a href="configure.htm#GUID-92E87FB2-DA14-434F-9FC5-BF70E2C9B563"><span class="secnum">7.2.1</span> Configuring the Cisco Nexus 93108-1G Ethernet Switch</a>
+<ul style="list-style-type: none">
+<li><a href="configure.htm#GUID-6BDF03D8-7DA0-4B5E-AAD5-AF13B91E0889"><span class="secnum">7.2.1.1</span> Performing the Initial Switch Configuration for the Cisco Nexus 93108-1G Ethernet Switch</a></li>
+<li><a href="configure.htm#GUID-8531B901-1D56-469B-A03C-3F0D7C3BD6AB"><span class="secnum">7.2.1.2</span> Setting the Clock on the Cisco 93108-1G Ethernet Switch</a></li>
+</ul>
+</li>
+<li><a href="configure.htm#GUID-638C8CCB-9A50-43A6-95CF-04B626FD658D"><span class="secnum">7.2.2</span> Configuring the Cisco Catalyst 4948 Ethernet Switch</a>
+<ul style="list-style-type: none">
+<li><a href="configure.htm#GUID-8CC1DBB0-21F8-4616-ADF0-55525B92AC30"><span class="secnum">7.2.2.1</span> Scope of the Configuration</a></li>
+<li><a href="configure.htm#GUID-4A18EDEB-40E3-4F7F-BEF7-D1B6148289F4"><span class="secnum">7.2.2.2</span> Prerequisites for Configuring the Ethernet Switch</a></li>
+<li><a href="configure.htm#GUID-2AFC5E5C-3707-458E-833F-C48877B007C1"><span class="secnum">7.2.2.3</span> Configuring the Ethernet Switch on the Customer Network</a></li>
+<li><a href="configure.htm#GUID-1F928FF3-A506-40F3-B27A-AB03D70270E9"><span class="secnum">7.2.2.4</span> Setting Up Telnet Access on the Ethernet Switch</a></li>
+<li><a href="configure.htm#GUID-46C0FDBD-4669-4268-8C31-7C912C452DC5"><span class="secnum">7.2.2.5</span> Configuring SSH on the Ethernet Switch</a></li>
+<li><a href="configure.htm#GUID-2082BA91-5A58-4EF9-8151-6904B94703DC"><span class="secnum">7.2.2.6</span> Setting the Clock and Time Zone on the Ethernet Switch</a></li>
+<li><a href="configure.htm#GUID-8EBB35C9-0B8D-4925-BB14-5258D03346BE"><span class="secnum">7.2.2.7</span> Configuring the NTP Servers for the Ethernet Switch</a></li>
+<li><a href="configure.htm#GUID-5764CBFD-00C1-47E4-8271-EC9675B3247C"><span class="secnum">7.2.2.8</span> Disabling the Spanning Tree</a></li>
+<li><a href="configure.htm#GUID-A0DB1B62-4083-439A-BDC7-67B67A1CFDF0"><span class="secnum">7.2.2.9</span> Verifying the Ethernet Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="configure.htm#GUID-6FB8396C-554B-4139-9425-2C4E9683193B"><span class="secnum">7.3</span> Configuring the InfiniBand Leaf and Spine Switches</a>
+<ul style="list-style-type: none">
+<li><a href="configure.htm#GUID-2ADC5AB6-4BF8-4EFE-B18C-8E75C28B442C"><span class="secnum">7.3.1</span> Configuring an InfiniBand Switch</a></li>
+<li><a href="configure.htm#GUID-3CD0F5F9-4A88-4733-9613-2D7FF977F95C"><span class="secnum">7.3.2</span> Setting the Time Zone and Clock on an InfiniBand Switch</a></li>
+<li><a href="configure.htm#GUID-EAE534A8-32FB-48E8-BDB2-C09B3E43B201"><span class="secnum">7.3.3</span> Checking the Health of an InfiniBand Switch</a></li>
+<li><a href="configure.htm#GUID-DD65E194-3CFA-4D89-A19A-A429A264AC95"><span class="secnum">7.3.4</span> Checking the Sun Network QDR InfiniBand Gateway Switches</a></li>
+</ul>
+</li>
+<li><a href="configure.htm#GUID-8C6DE13D-4F5B-4313-923D-42D0C88EF2D7"><span class="secnum">7.4</span> Configuring the Power Distribution Units</a>
+<ul style="list-style-type: none">
+<li><a href="configure.htm#GUID-94F05B2D-57E7-4B95-B0AC-6001DFFF15B1"><span class="secnum">7.4.1</span> Connecting the PDUs to the Network</a></li>
+<li><a href="configure.htm#GUID-355C1142-00D2-4FAC-900A-34A7342B58E6"><span class="secnum">7.4.2</span> Updating the PDU Firmware Version</a></li>
+</ul>
+</li>
+<li><a href="configure.htm#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1"><span class="secnum">7.5</span> Configuring the Oracle Big Data Appliance Servers</a></li>
+<li><a href="configure.htm#GUID-0EFE7F4E-B14B-4D4F-A3A1-3C39C8ED39EF"><span class="secnum">7.6</span> Configuring the Network</a>
+<ul style="list-style-type: none">
+<li><a href="configure.htm#GUID-5C52B962-A412-43C4-957A-949B5946A0E1"><span class="secnum">7.6.1</span> Copying the Configuration Files to Oracle Big Data Appliance</a></li>
+<li><a href="configure.htm#GUID-C2A21E1A-4243-4466-830E-9A0DFAF8F1AE"><span class="secnum">7.6.2</span> Starting the Network Configuration</a></li>
+<li><a href="configure.htm#GUID-83E92C8A-C7FE-4F80-8AE0-2EDBF1843390"><span class="secnum">7.6.3</span> Connecting to the Administrative Network</a></li>
+<li><a href="configure.htm#GUID-77D3178E-183F-441D-AC86-896D7FA37652"><span class="secnum">7.6.4</span> Connecting to the Client Network</a></li>
+<li><a href="configure.htm#GUID-11ACD53C-8FA5-486F-89F4-A42F273F8762"><span class="secnum">7.6.5</span> Completing the Network Configuration</a></li>
+<li><a href="configure.htm#GUID-AEC18A84-BA8E-4D88-A4AE-3F1E2F4AE608"><span class="secnum">7.6.6</span> Checking the Virtual Interface Cards (VNICs)</a></li>
+<li><a href="configure.htm#GUID-05F03EA1-3C97-4E34-B2A1-39CD1909521E"><span class="secnum">7.6.7</span> Verifying Access to the Network Services</a></li>
+</ul>
+</li>
+<li><a href="configure.htm#GUID-FB0B6083-0C81-4919-8109-437A8D248EB1"><span class="secnum">7.7</span> Configuring Multiple Oracle Big Data Appliance Racks</a>
+<ul style="list-style-type: none">
+<li><a href="configure.htm#GUID-520881D9-314A-43ED-ABCE-D05573F0A9CA"><span class="secnum">7.7.1</span> Configuring and Cabling Multiple Racks</a></li>
+<li><a href="configure.htm#GUID-EB85A6AD-52B0-4825-8D71-B01EB6B79939"><span class="secnum">7.7.2</span> Validating a Multirack InfiniBand Network</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="configure_expansion.htm#GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A"><span class="secnum">8</span> Expanding an Oracle Big Data Appliance Starter Rack</a></h2>
+<ul style="list-style-type: none">
+<li><a href="configure_expansion.htm#GUID-73BD91BA-B9E5-4AA6-B84C-AC4D8E1F2F6A"><span class="secnum">8.1</span> About Expanding an Oracle Big Data Appliance Starter Rack</a>
+<ul style="list-style-type: none">
+<li><a href="configure_expansion.htm#GUID-48DFD14F-65A4-4295-8E88-397D76F6D7E5"><span class="secnum">8.1.1</span> Checking the Contents of a High Capacity Node plus Infiniband Infrastructure</a></li>
+<li><a href="configure_expansion.htm#GUID-530F7846-A65E-481C-A26E-00748F160545"><span class="secnum">8.1.2</span> Checking the Status of a Starter Rack</a></li>
+<li><a href="configure_expansion.htm#GUID-8A4CBC94-787D-4E85-9A7A-9D6EE92ABAA5"><span class="secnum">8.1.3</span> Expanding an Oracle Big Data Appliance X4-2 Starter Rack</a></li>
+</ul>
+</li>
+<li><a href="configure_expansion.htm#GUID-A5141EED-02D8-4473-ABFC-B8D2D4B1BAEE"><span class="secnum">8.2</span> Installing New Servers to an Oracle Big Data Appliance Starter Rack</a></li>
+<li><a href="configure_expansion.htm#GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6"><span class="secnum">8.3</span> Configuring the New Oracle Big Data Appliance Servers</a></li>
+<li><a href="configure_expansion.htm#GUID-D24C1147-4059-4467-93F2-3B68383E7A5F"><span class="secnum">8.4</span> Setting Up the Network</a>
+<ul style="list-style-type: none">
+<li><a href="configure_expansion.htm#GUID-D4585B4C-22A7-46C0-978A-7803C4B6B299"><span class="secnum">8.4.1</span> Copying the Configuration Files</a></li>
+<li><a href="configure_expansion.htm#GUID-BB4982A7-8FB2-4FE9-920A-51192EDA2309"><span class="secnum">8.4.2</span> Configuring the Network</a></li>
+<li><a href="configure_expansion.htm#GUID-0EA51BAA-FE42-4329-B459-29F12E7B6D86"><span class="secnum">8.4.3</span> Verifying the Network Configuration</a></li>
+</ul>
+</li>
+<li><a href="configure_expansion.htm#GUID-D7115845-7070-45C0-B304-BC4996370937"><span class="secnum">8.5</span> Installing Oracle Big Data Appliance Software on the New Servers</a></li>
+</ul>
+<h2 class="tocheader"><a href="hardware.htm#GUID-621F1684-9BC9-41B0-9BE8-E5F88F5782CA"><span class="secnum">9</span> Connecting Multiple Oracle Big Data Appliance Racks</a></h2>
+<ul style="list-style-type: none">
+<li><a href="hardware.htm#GUID-1CEB6A58-80E1-4A9E-91D8-541399FDA4C3"><span class="secnum">9.1</span> Extending a Rack by Adding Another Rack</a></li>
+<li><a href="hardware.htm#GUID-86D7B736-D440-4811-B6A2-30A64D1CE8FD"><span class="secnum">9.2</span> Prerequisites for Multirack Cabling</a></li>
+<li><a href="hardware.htm#GUID-6CB979AE-561C-47F5-846F-65BEA0D002A0"><span class="secnum">9.3</span> Cabling Two Racks Together</a></li>
+<li><a href="hardware.htm#GUID-1C01CE1D-176D-433B-93A9-819D38D47FF7"><span class="secnum">9.4</span> Cabling Several Racks Together</a></li>
+</ul>
+<h2 class="tocheader"><a href="part-software-installation.htm#GUID-F5425BD3-41BC-4419-8952-A27F3E6AE0AA">Part III Software Installation and Configuration</a></h2>
+<h2 class="tocheader"><a href="mammoth.htm#GUID-2D0DC456-2DD1-4894-A5FA-3CC612CD9C5A"><span class="secnum">10</span> Installing the Oracle Big Data Appliance Software</a></h2>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-AE60E01C-0853-487A-A43A-A687470E3876"><span class="secnum">10.1</span> About the Mammoth Utility</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-FD6DE509-12FA-4CE5-A454-DF61AE04C19B"><span class="secnum">10.1.1</span> About Rolling Upgrades</a></li>
+</ul>
+</li>
+<li><a href="mammoth.htm#GUID-5D0B03C7-7205-4752-BBB9-CFBD69EFD109"><span class="secnum">10.2</span> Installation Prerequisites</a></li>
+<li><a href="mammoth.htm#GUID-29022554-078A-4E5F-9868-4AD9AF3858AA"><span class="secnum">10.3</span> Downloading the Mammoth Software Deployment Bundle</a></li>
+<li><a href="mammoth.htm#GUID-E6355C9C-BCE5-485A-80A0-DC80CFC36842"><span class="secnum">10.4</span> Installing the Software on a New Rack</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-F372AB92-C9E3-4B59-832A-662504B25F76"><span class="secnum">10.4.1</span> Installing the Software</a></li>
+</ul>
+</li>
+<li><a href="mammoth.htm#GUID-C9A914CE-524B-4EF4-9EDF-13D768530195"><span class="secnum">10.5</span> What If an Error Occurs During the Installation?</a></li>
+<li><a href="mammoth.htm#GUID-4B64DAA8-9624-484D-9B55-D2F09B2629C5"><span class="secnum">10.6</span> Adding Servers to a Cluster</a></li>
+<li><a href="mammoth.htm#GUID-35C6A18E-94E1-40B7-9193-F461D5AFCBC0"><span class="secnum">10.7</span> Upgrading the Software on Oracle Big Data Appliance</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-DCC0E7D3-31AD-48AA-924A-12063C6BD1BE"><span class="secnum">10.7.1</span> About the Operating System Versions</a></li>
+<li><a href="mammoth.htm#GUID-E54BC906-D6A1-4903-A73D-198393784C89"><span class="secnum">10.7.2</span> Upgrading the Software</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-295AB4B3-CC16-4D90-A504-FC1E7C2D00DA"><span class="secnum">10.7.2.1</span> Prerequisites</a></li>
+<li><a href="mammoth.htm#GUID-232DF034-7BB6-4581-98F9-E4F0C2DEDE4A"><span class="secnum">10.7.2.2</span> Upgrading to the Current Software Version</a></li>
+<li><a href="mammoth.htm#GUID-E4395F51-AD76-42A4-84C6-BEA372A1751F"><span class="secnum">10.7.2.3</span> Performing Parcel Upgrades Outside of the One-Off Patch Mechanism</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="mammoth.htm#GUID-D9B445F2-A5DD-4C6C-9BA1-2F5330ED4798"><span class="secnum">10.8</span> Enabling Optional Software Included With the Release</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-DCA05BF1-0E4B-4907-A42D-E0B0B3D12E62"><span class="secnum">10.8.1</span> Enable or Disable Oracle Big Data Connectors</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-112130AE-A94F-44CE-ACDD-4E8447C7E504"><span class="secnum">10.8.1.1</span> Adding Oracle Big Data Connectors</a></li>
+<li><a href="mammoth.htm#GUID-FDE55707-C297-49D5-B824-92F658625871"><span class="secnum">10.8.1.2</span> Removing Oracle Big Data Connectors</a></li>
+</ul>
+</li>
+<li><a href="mammoth.htm#GUID-6B39D96D-23B7-4972-9B71-56137DACA6DC"><span class="secnum">10.8.2</span> Enable or Disable Oracle Big Data Spatial and Graph</a></li>
+<li><a href="mammoth.htm#GUID-B43325C5-FC4C-4152-9F53-96D2B8064A84"><span class="secnum">10.8.3</span> Enable or Disable Auto Service Request</a></li>
+<li><a href="mammoth.htm#GUID-9AEAD5C7-EC41-4686-99A8-A289939F530B"><span class="secnum">10.8.4</span> Enable Kerberos Authentication</a></li>
+<li><a href="mammoth.htm#GUID-3A6A4251-4BFF-4853-852C-3447D31FD47A"><span class="secnum">10.8.5</span> Installing Oracle Big Data SQL</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-DD816D88-33B6-49B8-979E-A92752E11AD6"><span class="secnum">10.8.5.1</span> Installing on Oracle Big Data Appliance</a></li>
+<li><a href="mammoth.htm#GUID-B28E8660-E46A-4C0D-88D3-A5FD5EDDB76E"><span class="secnum">10.8.5.2</span> Customizing the Default Oracle Big Data SQL Installation</a></li>
+<li><a href="mammoth.htm#GUID-0B5888E3-481E-4E14-B4AC-2424A50D34BF"><span class="secnum">10.8.5.3</span> Installing Oracle Big Data SQL on the Oracle Database System</a></li>
+<li><a href="mammoth.htm#GUID-6F2BD78E-3AA2-420D-94ED-52677CE24992"><span class="secnum">10.8.5.4</span> Managing the Oracle Big Data SQL Service</a></li>
+<li><a href="mammoth.htm#GUID-D91D277D-2C36-406F-9401-D864055F364E"><span class="secnum">10.8.5.5</span> Uninstalling Oracle Big Data SQL</a></li>
+</ul>
+</li>
+<li><a href="mammoth.htm#GUID-7D916CCE-4BC4-466B-94D4-DA1EDFF10EF9"><span class="secnum">10.8.6</span> Setting Up and Configuring HBase</a></li>
+</ul>
+</li>
+<li><a href="mammoth.htm#GUID-1E7A9553-65CC-4AF9-9D19-79BCA67264B1"><span class="secnum">10.9</span> Installing Other Approved Software</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-FC7CF4DA-5665-4E9D-8250-72BC8A4A36B2"><span class="secnum">10.9.1</span> Add Support for Oracle Enterprise Manager Cloud Control</a></li>
+<li><a href="mammoth.htm#GUID-1582D5ED-EFD3-438C-8049-8D7F777F4D13"><span class="secnum">10.9.2</span> Installing Oracle Big Data Discovery</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-98ABF757-4BA5-4085-AFBE-AE1A03BC7820"><span class="secnum">10.9.2.1</span> How Oracle Big Data Discovery is Deployed on Oracle Big Data Appliance</a></li>
+<li><a href="mammoth.htm#GUID-CF92E72B-7FB8-4EC5-95EB-65F2D8A0C767"><span class="secnum">10.9.2.2</span> Installing and Enabling Oracle Big Data Discovery</a></li>
+<li><a href="mammoth.htm#GUID-EA8CB7D0-B00C-4479-ADB0-8ABA18C7A356"><span class="secnum">10.9.2.3</span> Using Oracle Big Data Discovery</a></li>
+</ul>
+</li>
+<li><a href="mammoth.htm#GUID-02610A39-DFB5-4869-A0CB-076C3E014C70"><span class="secnum">10.9.3</span> Installing Cloudera Data Science Workbench</a></li>
+</ul>
+</li>
+<li><a href="mammoth.htm#GUID-D9F92052-5A1B-44BA-8B95-5B4C10D57DA1"><span class="secnum">10.10</span> Reinstalling the Base Image</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-8AE24D0E-465C-4ADC-BF1A-AEE722073083"><span class="secnum">10.10.1</span> Reimaging a Single Oracle Big Data Appliance Server</a></li>
+<li><a href="mammoth.htm#GUID-1ED03FDD-CFAE-4A97-A54F-FFA3BB08E7B6"><span class="secnum">10.10.2</span> Reimaging an Oracle Big Data Appliance Rack</a></li>
+<li><a href="mammoth.htm#GUID-BADEA83A-4E51-4ADD-ABD6-800DFEF3BBE3"><span class="secnum">10.10.3</span> Reimaging an Oracle Big Data Appliance Cluster</a></li>
+</ul>
+</li>
+<li><a href="mammoth.htm#GUID-24573DBB-79A4-4CFB-8526-2A9E840E4097"><span class="secnum">10.11</span> Installing a One-Off Patch</a></li>
+<li><a href="mammoth.htm#GUID-2C9C6188-2D32-41C0-9BE7-098109B7416F"><span class="secnum">10.12</span> Mammoth Software Installation and Configuration Utility</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-6A312CB7-95FA-49DE-8725-D019CB8ED244"><span class="secnum">10.12.1</span> Mammoth Options</a></li>
+<li><a href="mammoth.htm#GUID-A1C3510A-77A2-4B1D-A4B1-555F1833149E"><span class="secnum">10.12.2</span> Mammoth Installation Steps</a></li>
+</ul>
+</li>
+<li><a href="mammoth.htm#GUID-C87C7224-3ED6-4C75-BD37-08C98FCB94CA"><span class="secnum">10.13</span> Oracle Big Data Appliance Base Imaging Utilities</a>
+<ul style="list-style-type: none">
+<li><a href="mammoth.htm#GUID-B731C141-ABC0-4173-9FBD-7593AB616230"><span class="secnum">10.13.1</span> makebdaimage</a></li>
+<li><a href="mammoth.htm#GUID-38C558D8-F3AB-45D6-A3AC-BA1012274075"><span class="secnum">10.13.2</span> reimagecluster</a></li>
+<li><a href="mammoth.htm#GUID-452E29B5-1282-44D7-83CE-72C26171DC9E"><span class="secnum">10.13.3</span> reimagerack</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="part-maintenance.htm#GUID-47324F31-E588-4DA5-B3A7-3DB8AE80BDE5">Part IV Maintenance</a></h2>
+<h2 class="tocheader"><a href="utilities.htm#GUID-A04A712A-1380-4305-92C9-6A8EF70C3E33"><span class="secnum">11</span> Oracle Big Data Appliance Utilities</a></h2>
+<ul style="list-style-type: none">
+<li><a href="utilities.htm#GUID-44FE19D5-F7D6-4099-B43D-5B7DEEBBC963"><span class="secnum">11.1</span> bdacheckcluster</a></li>
+<li><a href="utilities.htm#GUID-78682A7C-7461-4A52-AEAC-5BE31077B599"><span class="secnum">11.2</span> bdacheckhw</a></li>
+<li><a href="utilities.htm#GUID-860EC4FC-D582-4608-8751-35B39DA20672"><span class="secnum">11.3</span> bdacheckib</a></li>
+<li><a href="utilities.htm#GUID-11BCC336-8A87-4054-B396-0C0F8795CC8C"><span class="secnum">11.4</span> bdachecknet-cluster</a></li>
+<li><a href="utilities.htm#GUID-52BB92F8-E9C3-4129-A19E-BD8A2FD83DA9"><span class="secnum">11.5</span> bdachecknet-rack</a></li>
+<li><a href="utilities.htm#GUID-0D50A8C4-2D0B-4C65-B72C-A2F24107A33F"><span class="secnum">11.6</span> bdachecksw</a></li>
+<li><a href="utilities.htm#GUID-685D1923-EC2A-42B6-8D97-1DFB8239D57C"><span class="secnum">11.7</span> bdacli</a></li>
+<li><a href="utilities.htm#GUID-B6E3E506-DA8E-4935-AEB3-405546950158"><span class="secnum">11.8</span> bdaclustersynctime</a></li>
+<li><a href="utilities.htm#GUID-DAF89FC9-F9D8-4EB1-A6AA-BF3816A238D4"><span class="secnum">11.9</span> bdadiag</a></li>
+<li><a href="utilities.htm#GUID-0472EF6F-3B65-44BF-9D52-A733F216C7BB"><span class="secnum">11.10</span> bdadiagcluster</a></li>
+<li><a href="utilities.htm#GUID-114F2D3E-3EC6-4D5D-8A95-8503F96B57DB"><span class="secnum">11.11</span> bdagetclientconfig</a></li>
+<li><a href="utilities.htm#GUID-331083F3-E5EE-4594-BDE6-9578F044E776"><span class="secnum">11.12</span> bdaid</a></li>
+<li><a href="utilities.htm#GUID-B4376FF0-BF88-4943-A6E8-BF5F6113DB06"><span class="secnum">11.13</span> bdaibstatus</a></li>
+<li><a href="utilities.htm#GUID-50B293A3-CC1B-48E5-A4FE-15DDBF59C6FA"><span class="secnum">11.14</span> bdaimagevalidate</a></li>
+<li><a href="utilities.htm#GUID-0A490AD3-9570-4A8E-B691-2E867AD010C4"><span class="secnum">11.15</span> bdanodedesc</a></li>
+<li><a href="utilities.htm#GUID-223C44A0-0ABA-4212-A6B4-55A0C4EAEA43"><span class="secnum">11.16</span> bdaredoclientnet</a></li>
+<li><a href="utilities.htm#GUID-D3861A68-1766-4E8D-BB74-7DB0C0B969F7"><span class="secnum">11.17</span> bdaredousb</a></li>
+<li><a href="utilities.htm#GUID-9C37291F-1AD6-4562-861A-44C38C01E2F2"><span class="secnum">11.18</span> bdaserials</a></li>
+<li><a href="utilities.htm#GUID-79C32A70-9F37-49AC-ACCD-6EFA755F172F"><span class="secnum">11.19</span> bdaswapoff</a></li>
+<li><a href="utilities.htm#GUID-B382CF46-97F5-4168-9CAA-D6349DA406DF"><span class="secnum">11.20</span> bdaswapon</a></li>
+<li><a href="utilities.htm#GUID-F303EE9E-A18F-44A2-9735-EBB3DBB9822A"><span class="secnum">11.21</span> bdaupdatefw</a></li>
+<li><a href="utilities.htm#GUID-020B7FED-98ED-418A-A851-2868960D58EB"><span class="secnum">11.22</span> iblinkinfo</a></li>
+<li><a href="utilities.htm#GUID-9AAC628A-EA0E-4A7A-AD46-8CE9F22539AF"><span class="secnum">11.23</span> imagehistory</a></li>
+<li><a href="utilities.htm#GUID-BB9317A6-BD9F-47FE-984A-CEFA60F05825"><span class="secnum">11.24</span> imageinfo</a></li>
+<li><a href="utilities.htm#GUID-48D8B260-A75C-46CD-A99A-2D1D4BA556C8"><span class="secnum">11.25</span> listlinkup</a></li>
+<li><a href="utilities.htm#GUID-CC852C01-92CA-4B76-8D16-3B767BB03DDF"><span class="secnum">11.26</span> mount_hadoop_dirs</a></li>
+<li><a href="utilities.htm#GUID-A6D266C2-1500-4358-9CC5-B87A6E25F186"><span class="secnum">11.27</span> remove-root-ssh</a></li>
+<li><a href="utilities.htm#GUID-3A23857C-EF8B-4E54-953B-DBE911C2D351"><span class="secnum">11.28</span> reset-boot-order</a></li>
+<li><a href="utilities.htm#GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8"><span class="secnum">11.29</span> setup-root-ssh</a></li>
+<li><a href="utilities.htm#GUID-10ECA5F5-A2FE-46CF-8E16-AA4E2AB1683D"><span class="secnum">11.30</span> showusb</a></li>
+<li><a href="utilities.htm#GUID-824B60BF-EC3E-4DE1-8837-FBA798491271"><span class="secnum">11.31</span> showvlan</a></li>
+<li><a href="utilities.htm#GUID-BB89CB9B-4CAF-46FC-8A8B-F82E6B2E81F6"><span class="secnum">11.32</span> showvnics</a></li>
+</ul>
+<h2 class="tocheader"><a href="maintenance.htm#GUID-C9377F5D-557D-4576-986E-F7FCDFF9E444"><span class="secnum">12</span> Maintaining Oracle Big Data Appliance</a></h2>
+<ul style="list-style-type: none">
+<li><a href="maintenance.htm#GUID-100E21BA-582E-4C51-B8F0-6FA4DD5D8923"><span class="secnum">12.1</span> Monitoring the Ambient Temperature of Servers</a></li>
+<li><a href="maintenance.htm#GUID-DDAE6EAC-DB58-4C31-AA4F-4A66D9E837A4"><span class="secnum">12.2</span> Powering On and Off Oracle Big Data Appliance</a>
+<ul style="list-style-type: none">
+<li><a href="maintenance.htm#GUID-184757D8-6241-4382-B24F-61F33331E4BB"><span class="secnum">12.2.1</span> Nonemergency Power Procedures</a>
+<ul style="list-style-type: none">
+<li><a href="maintenance.htm#GUID-C26DC34D-4D75-481A-A675-46B553B3146A"><span class="secnum">12.2.1.1</span> Powering On Oracle Big Data Appliance</a></li>
+<li><a href="maintenance.htm#GUID-31A9F7C6-6DD1-4330-8A1C-EA90BD1FCF35"><span class="secnum">12.2.1.2</span> Powering Off Oracle Big Data Appliance</a>
+<ul style="list-style-type: none">
+<li><a href="maintenance.htm#GUID-211DE4EC-147A-437C-B70A-3FC49FFC3752"><span class="secnum">12.2.1.2.1</span> Powering Off the Servers</a></li>
+<li><a href="maintenance.htm#GUID-ED4F6F13-72D7-471C-A1A1-F765AF10E44D"><span class="secnum">12.2.1.2.2</span> Powering Off Multiple Servers at the Same Time</a></li>
+</ul>
+</li>
+<li><a href="maintenance.htm#GUID-8EAD081A-9D2F-440D-A8CE-923B74537BA6"><span class="secnum">12.2.1.3</span> Powering On and Off Network Switches</a></li>
+</ul>
+</li>
+<li><a href="maintenance.htm#GUID-253E7068-178B-47DD-A06F-C019B2A6B9ED"><span class="secnum">12.2.2</span> Emergency Power-Off Considerations</a>
+<ul style="list-style-type: none">
+<li><a href="maintenance.htm#GUID-F55DE34D-1D1D-4DAA-A274-71E9B3DC15CC"><span class="secnum">12.2.2.1</span> Emergency Power-Off Procedure</a></li>
+<li><a href="maintenance.htm#GUID-E3D38A32-0489-4D8F-9C58-2E33BC477313"><span class="secnum">12.2.2.2</span> Emergency Power-Off Switch</a></li>
+</ul>
+</li>
+<li><a href="maintenance.htm#GUID-226AF5FD-B8E9-4268-B413-21DBA678D74D"><span class="secnum">12.2.3</span> Cautions and Warnings</a></li>
+</ul>
+</li>
+<li><a href="maintenance.htm#GUID-35BF48BA-B8A5-48E5-AE20-80D7920CDA8B"><span class="secnum">12.3</span> Adding Memory to the Servers</a>
+<ul style="list-style-type: none">
+<li><a href="maintenance.htm#GUID-0C3BEAC7-B9C4-44BC-84EA-05BC68C2D7D8"><span class="secnum">12.3.1</span> Adding Memory to an Oracle Server X6-2L</a></li>
+<li><a href="maintenance.htm#GUID-75A1F9DD-6A20-48DC-81DD-C6041F6719E0"><span class="secnum">12.3.2</span> Adding Memory to an Oracle Server X5-2L, Sun Server X4-2L, or Sun Server X3-2L</a></li>
+<li><a href="maintenance.htm#GUID-A0B30636-C4D5-434E-B2BF-AA1B2B2A5D7A"><span class="secnum">12.3.3</span> Adding Memory to Sun Fire X4270 M2 Servers</a></li>
+</ul>
+</li>
+<li><a href="maintenance.htm#GUID-3DBF29E1-0632-4505-A6F7-E0C4A27A1C4E"><span class="secnum">12.4</span> Maintaining the InfiniBand Network</a>
+<ul style="list-style-type: none">
+<li><a href="maintenance.htm#GUID-CABDF02D-5671-4F4D-9BD2-2BF3F163840E"><span class="secnum">12.4.1</span> Replacing a Failed InfiniBand Switch</a></li>
+<li><a href="maintenance.htm#GUID-C481C465-65B2-445C-9DC3-E369B8DEAF63"><span class="secnum">12.4.2</span> Verifying InfiniBand Network Operation</a></li>
+<li><a href="maintenance.htm#GUID-2B473896-F163-4E82-B557-89B60BA7CA18"><span class="secnum">12.4.3</span> Understanding the Network Subnet Manager Master</a></li>
+</ul>
+</li>
+<li><a href="maintenance.htm#GUID-A321B1D6-55A3-47E8-BF27-B76661082C31"><span class="secnum">12.5</span> Changing the Number of Connections to a Gateway Switch</a></li>
+<li><a href="maintenance.htm#GUID-6A52A5B7-A792-4693-9B2F-548B5ED34DEF"><span class="secnum">12.6</span> Changing the NTP Servers</a></li>
+<li><a href="maintenance.htm#GUID-90498F7E-E8CD-40B7-A276-B820FE525CA0"><span class="secnum">12.7</span> Monitoring the PDU Current</a></li>
+<li><a href="maintenance.htm#GUID-8C49FD54-7911-49A0-9818-675FE578B2D2"><span class="secnum">12.8</span> Node Migration</a></li>
+</ul>
+<h2 class="tocheader"><a href="disks.htm#GUID-56941B7D-591A-4712-8343-EA1E04DA34D8"><span class="secnum">13</span> Replacing a Server Disk</a></h2>
+<ul style="list-style-type: none">
+<li><a href="disks.htm#GUID-C67D2144-E4B7-4F20-9201-CFAFDF28E52C"><span class="secnum">13.1</span> Verifying the Server Configuration</a>
+<ul style="list-style-type: none">
+<li><a href="disks.htm#GUID-704559D7-0F24-4E19-B1F3-8CB7EB205A8C"><span class="secnum">13.1.1</span> Verifying Disk Controller Configuration</a></li>
+<li><a href="disks.htm#GUID-C1F90EBB-14AA-4462-B419-D6E16E39EC8D"><span class="secnum">13.1.2</span> Verifying Virtual Drive Configuration</a></li>
+<li><a href="disks.htm#GUID-3E24E3ED-6805-4978-88CB-DE88CA3A1BF0"><span class="secnum">13.1.3</span> Verifying Physical Drive Configuration</a></li>
+</ul>
+</li>
+<li><a href="disks.htm#GUID-DEC2D076-AEAA-4806-BFCC-19DC8946CB30"><span class="secnum">13.2</span> Overview of the Disk Replacement Process</a></li>
+<li><a href="disks.htm#GUID-798B0173-E39B-49AC-86F7-6A1AEA981AEB"><span class="secnum">13.3</span> About Disk Drive Identifiers</a>
+<ul style="list-style-type: none">
+<li><a href="disks.htm#GUID-C307A9CB-5CFE-439D-BF94-3A4C4446FE0C"><span class="secnum">13.3.1</span> Standard Disk Drive Mappings</a></li>
+<li><a href="disks.htm#GUID-E0232BC1-DBEF-4282-9506-1E81CC8BA891"><span class="secnum">13.3.2</span> Standard Mount Points</a></li>
+<li><a href="disks.htm#GUID-644F7749-E073-403C-BE93-5D7766AB021B"><span class="secnum">13.3.3</span> Obtaining the Physical Slot Number of a Disk Drive</a></li>
+</ul>
+</li>
+<li><a href="disks.htm#GUID-E67330A5-D074-4BCA-A31B-307C82EEA168"><span class="secnum">13.4</span> Prerequisites for Replacing a Failing Disk</a></li>
+<li><a href="disks.htm#GUID-E248BD24-0D44-4677-8948-7FD81927ECD0"><span class="secnum">13.5</span> What If a Server Fails to Restart?</a></li>
+<li><a href="disks.htm#GUID-66DE1B47-11A4-4285-83D7-4E17230F18CF"><span class="secnum">13.6</span> Replacing a Disk Drive</a></li>
+<li><a href="disks.htm#GUID-72CE2025-BA5B-4651-B02B-D09591864415"><span class="secnum">13.7</span> Correcting a Mounted Partitions Error</a></li>
+<li><a href="disks.htm#GUID-05A09114-48C4-4971-838F-8B3A8F5F9B7C"><span class="secnum">13.8</span> Identifying the Function of a Disk Drive</a></li>
+<li><a href="disks.htm#GUID-0BC64E2D-7D25-4C6A-B42F-B56DA6B75ACE"><span class="secnum">13.9</span> Configuring an Operating System Disk</a>
+<ul style="list-style-type: none">
+<li><a href="disks.htm#GUID-BA3389F1-5489-472E-88E6-E8A03760E3DE"><span class="secnum">13.9.1</span> Partitioning the Operating System Disk</a>
+<ul style="list-style-type: none">
+<li><a href="disks.htm#GUID-B11D6856-9FCE-448C-B11A-9073B2377A8C"><span class="secnum">13.9.1.1</span> Partitioning for Oracle Linux 6</a></li>
+</ul>
+</li>
+<li><a href="disks.htm#GUID-DFDF1896-DC75-4087-A8DF-E45522721155"><span class="secnum">13.9.2</span> Repairing the RAID Arrays</a></li>
+<li><a href="disks.htm#GUID-A519BB15-FB04-4FA2-A08E-ACD3FBA88F2A"><span class="secnum">13.9.3</span> Formatting the HDFS Partition of an Operating System Disk</a></li>
+<li><a href="disks.htm#GUID-11A40D21-5787-47E0-8FBA-49B7B8A6AFB1"><span class="secnum">13.9.4</span> Restoring the Swap Partition</a></li>
+<li><a href="disks.htm#GUID-7A7FE1EE-89D1-4913-A2C3-928715120C82"><span class="secnum">13.9.5</span> Restoring the GRUB Master Boot Records and HBA Boot Order</a></li>
+</ul>
+</li>
+<li><a href="disks.htm#GUID-4243728C-1BD2-4810-BC08-8AB3B6D6BCE7"><span class="secnum">13.10</span> Configuring an HDFS or Oracle NoSQL Database Disk</a></li>
+<li><a href="disks.htm#GUID-823EE679-6F24-455D-94A9-8FB11FA7D72B"><span class="secnum">13.11</span> Verifying the Disk Configuration</a></li>
+</ul>
+<h2 class="tocheader"><a href="dcli.htm#GUID-ED09B97C-BAAE-41E1-A7D0-A65BF1E8AF8F"><span class="secnum">14</span> Executing Commands Across a Cluster Using the dcli Utility</a></h2>
+<ul style="list-style-type: none">
+<li><a href="dcli.htm#GUID-14EF2F2C-FB52-4F30-B7EA-A2E9D94B4F1A"><span class="secnum">14.1</span> Overview of the dcli Utility</a>
+<ul style="list-style-type: none">
+<li><a href="dcli.htm#GUID-3E1D048B-3EDF-4E14-81E8-93741428708B"><span class="secnum">14.1.1</span> Setting Up Passwordless SSH</a></li>
+<li><a href="dcli.htm#GUID-F9F42C89-CBC6-47F5-A724-04D88528CC3C"><span class="secnum">14.1.2</span> Basic Use of dcli</a>
+<ul style="list-style-type: none">
+<li><a href="dcli.htm#GUID-521309BE-0B91-432C-AAB7-0672A600086E"><span class="secnum">14.1.2.1</span> Getting Help</a></li>
+<li><a href="dcli.htm#GUID-2A2DB45A-B23A-4AB9-8EDD-49DCDFE1182D"><span class="secnum">14.1.2.2</span> Identifying the Target Servers</a></li>
+<li><a href="dcli.htm#GUID-D004544E-0859-4E70-9EEE-6AF008EA0756"><span class="secnum">14.1.2.3</span> Specifying the Commands</a></li>
+<li><a href="dcli.htm#GUID-58D6D517-783C-44A3-B849-21345E33266D"><span class="secnum">14.1.2.4</span> Controlling the Output Levels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="dcli.htm#GUID-1B13C1C5-0E69-4AB2-98A4-635F84C9976F"><span class="secnum">14.2</span> dcli Syntax</a></li>
+<li><a href="dcli.htm#GUID-3AC8A783-1580-47F9-A61A-3805622A93FB"><span class="secnum">14.3</span> dcli Return Values</a></li>
+<li><a href="dcli.htm#GUID-D446B048-D23F-4C8F-A451-9205F6E80655"><span class="secnum">14.4</span> dcli Examples</a></li>
+</ul>
+<h2 class="tocheader"><a href="ilom.htm#GUID-AB39F905-92FA-4571-9585-8F95FC04E99A"><span class="secnum">15</span> Using Oracle Integrated Lights Out Manager</a></h2>
+<ul style="list-style-type: none">
+<li><a href="ilom.htm#GUID-058F077D-C47C-4E40-AE82-45B71489162A"><span class="secnum">15.1</span> Oracle ILOM Overview</a>
+<ul style="list-style-type: none">
+<li><a href="ilom.htm#GUID-ECE29109-FC19-426E-B494-77206C0DE5A6"><span class="secnum">15.1.1</span> Oracle ILOM Interfaces</a></li>
+<li><a href="ilom.htm#GUID-C90317B1-1148-4E55-92A2-BCC1C75BB70D"><span class="secnum">15.1.2</span> Oracle ILOM Users</a></li>
+</ul>
+</li>
+<li><a href="ilom.htm#GUID-793FBFC3-CD69-430A-97AC-87581B77EDED"><span class="secnum">15.2</span> Administrative Network Diagram</a></li>
+<li><a href="ilom.htm#GUID-DA0F9C7E-A09E-48A7-89B9-81B8EB1B60FE"><span class="secnum">15.3</span> Oracle ILOM IP Addresses for Oracle Big Data Appliance Components</a></li>
+<li><a href="ilom.htm#GUID-B366C8F3-D134-4031-A061-BE35F6C9FAF0"><span class="secnum">15.4</span> Connecting to Oracle ILOM Using the Network</a>
+<ul style="list-style-type: none">
+<li><a href="ilom.htm#GUID-7C0D2F15-395E-4B3C-9AC2-C3D52D78F200"><span class="secnum">15.4.1</span> Connecting to the Command-Line Interface</a></li>
+<li><a href="ilom.htm#GUID-9E293020-76E8-446C-97C3-103FA14F8638"><span class="secnum">15.4.2</span> Connecting to the Web GUI</a></li>
+</ul>
+</li>
+<li><a href="ilom.htm#GUID-0BDA96BA-CD9D-446D-8136-0B34A08DF64C"><span class="secnum">15.5</span> Connecting to Oracle ILOM Using a Serial Connection</a>
+<ul style="list-style-type: none">
+<li><a href="ilom.htm#GUID-A9C5A304-4E49-4A43-8836-34D662C254EF"><span class="secnum">15.5.1</span> Connecting to the Oracle ILOM of a Server</a></li>
+<li><a href="ilom.htm#GUID-EEA9E38F-A4CE-4AA2-9914-19F1B9FD9F4A"><span class="secnum">15.5.2</span> Connecting to the Oracle ILOM of an InfiniBand Switch</a></li>
+</ul>
+</li>
+<li><a href="ilom.htm#GUID-183D0A47-E3C5-4E06-A8D0-19B8FAD17F28"><span class="secnum">15.6</span> Backing Up and Restoring Oracle ILOM Settings</a>
+<ul style="list-style-type: none">
+<li><a href="ilom.htm#GUID-63EF11A5-E9FC-43CC-85BE-0DDB13BCB507"><span class="secnum">15.6.1</span> Backing Up the Oracle ILOM Configuration Settings</a></li>
+<li><a href="ilom.htm#GUID-49F61C01-2A18-49AB-9E8F-3BA316C81DB2"><span class="secnum">15.6.2</span> Restoring Oracle ILOM Configuration Settings</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="tocheader"><a href="appendices.htm">Appendixes</a></h2>
+<h2 class="tocheader"><a href="app_error.htm#GUID-06006FC6-1110-49BF-A469-3A4F80349637"><span class="secnum">A</span> Error Messages for Oracle Big Data Appliance</a></h2>
+<h2 class="tocheader"><a href="app_fru.htm#GUID-F7B7E8E5-C5A4-4A42-AE5A-7C5AAF163DAD"><span class="secnum">B</span> Replacement Units</a></h2>
+<ul style="list-style-type: none">
+<li><a href="app_fru.htm#GUID-CA13D356-27F1-4026-98B8-4F01A1309571"><span class="secnum">B.1</span> Understanding Repair Categories</a></li>
+<li><a href="app_fru.htm#GUID-60508A7B-9CDF-45C5-AEA9-0C2FE1C7DC0C"><span class="secnum">B.2</span> Disk Controller Batteries</a></li>
+<li><a href="app_fru.htm#GUID-9B17B2D3-9E74-4610-96D3-8950F0D401C3"><span class="secnum">B.3</span> LED Status Descriptions</a>
+<ul style="list-style-type: none">
+<li><a href="app_fru.htm#GUID-3DB2CFC0-556A-41D2-B76E-C6396E12D28E"><span class="secnum">B.3.1</span> Sun Server LEDs</a></li>
+<li><a href="app_fru.htm#GUID-D49F56C0-DEF0-440C-8C10-0B173FD6D4B6"><span class="secnum">B.3.2</span> Sun InfiniBand Switch LEDs</a></li>
+</ul>
+</li>
+<li><a href="app_fru.htm#GUID-1244F012-7851-4717-9B6C-A761355888E4"><span class="secnum">B.4</span> Parts for Oracle Big Data Appliance Servers</a>
+<ul style="list-style-type: none">
+<li><a href="app_fru.htm#GUID-71FA0A77-C8B0-4980-B9D2-B3EE45C11812"><span class="secnum">B.4.1</span> Oracle Server X7-2L Parts</a></li>
+<li><a href="app_fru.htm#GUID-80516AE5-058E-4644-BF85-9A7E9B7469E0"><span class="secnum">B.4.2</span> Oracle Server X6-2L and X5-2L Parts</a></li>
+<li><a href="app_fru.htm#GUID-285A68AA-AD0B-444D-9CB3-85178E68EA96"><span class="secnum">B.4.3</span> Sun Server X4-2L Parts</a></li>
+<li><a href="app_fru.htm#GUID-F63A2D7D-F66A-4D5B-BDC4-3D841785360E"><span class="secnum">B.4.4</span> Sun Server X3-2L Parts</a></li>
+<li><a href="app_fru.htm#GUID-6634665D-33AA-4C36-BC13-0C864A77A68E"><span class="secnum">B.4.5</span> Sun Fire X4270 M2 Parts</a></li>
+</ul>
+</li>
+<li><a href="app_fru.htm#GUID-37C767A8-E5D7-487A-8536-84A528403BCE"><span class="secnum">B.5</span> Parts for Sun Datacenter InfiniBand Switch 36</a></li>
+<li><a href="app_fru.htm#GUID-36FA618A-70D0-4B3E-8E33-0052243F1002"><span class="secnum">B.6</span> Parts for Sun Network QDR InfiniBand Gateway Switch</a></li>
+<li><a href="app_fru.htm#GUID-72EF7B54-3F42-4870-A63F-4B8F1CEF72EC"><span class="secnum">B.7</span> Parts for the Cisco Ethernet Switch</a></li>
+<li><a href="app_fru.htm#GUID-98BCA234-EB3A-412B-9024-15B0D664A83F"><span class="secnum">B.8</span> Parts for Power Distribution Units</a></li>
+<li><a href="app_fru.htm#GUID-2E8E33CA-BCEF-48AF-ABC6-00C368883377"><span class="secnum">B.9</span> Cables and Cable Accessories for an Oracle Big Data Appliance Rack</a></li>
+</ul>
+<h2 class="tocheader"><a href="app_cablex5.htm#GUID-9068A223-4AA4-4DE0-A221-C6D2A8684699"><span class="secnum">C</span> In-Rack Cabling Tables for Oracle Big Data Appliance X7&ndash;2, X6&ndash;2, and X5-2</a></h2>
+<ul style="list-style-type: none">
+<li><a href="app_cablex5.htm#GUID-AE57088E-0282-4AD0-B859-9BC45274672C"><span class="secnum">C.1</span> Cable Color Coding</a></li>
+<li><a href="app_cablex5.htm#GUID-4FA5FCD0-41F3-43F3-945D-2D7384B02FA0"><span class="secnum">C.2</span> Oracle Big Data Appliance Rack Layout</a></li>
+<li><a href="app_cablex5.htm#GUID-B5E4B94D-49AA-4032-8108-8E694392EDB4"><span class="secnum">C.3</span> Administrative Gigabit Ethernet Cable Connections</a></li>
+<li><a href="app_cablex5.htm#GUID-5AE8F90B-E9D3-42A7-8969-2DF57C16B5E6"><span class="secnum">C.4</span> Oracle Integrated Lights Out Manager Cable Connections</a></li>
+<li><a href="app_cablex5.htm#GUID-B30002DF-855D-43EA-985D-AD11AB34465C"><span class="secnum">C.5</span> Single-Phase Power Distribution Unit Cable Connections</a></li>
+<li><a href="app_cablex5.htm#GUID-76C457DA-482A-48D9-85A4-2C5EE5E986A3"><span class="secnum">C.6</span> Three-Phase Power Distribution Unit Cable Connections</a></li>
+<li><a href="app_cablex5.htm#GUID-5869318A-699D-4A5C-A6D5-8EC7248BECD5"><span class="secnum">C.7</span> In-Rack InfiniBand Switch-to-Switch Cable Connections</a></li>
+<li><a href="app_cablex5.htm#GUID-DC9D8E37-7418-4022-A135-88F526877B00"><span class="secnum">C.8</span> In-Rack InfiniBand Switch-to-Server Cable Connections</a></li>
+</ul>
+<h2 class="tocheader"><a href="app_cablex3.htm#GUID-F74BCB4D-3B0E-4472-9A58-A264728A66A7"><span class="secnum">D</span> In-Rack Cabling Tables for Oracle Big Data Appliance X4-2 and X3-2</a></h2>
+<ul style="list-style-type: none">
+<li><a href="app_cablex3.htm#GUID-F488A55F-631E-4B02-91BC-D75333FFBD46"><span class="secnum">D.1</span> Cable Color Coding</a></li>
+<li><a href="app_cablex3.htm#GUID-67188BAB-E27D-42B4-8C13-BD977B2D8315"><span class="secnum">D.2</span> Oracle Big Data Appliance Rack Layout</a></li>
+<li><a href="app_cablex3.htm#GUID-732B91A7-301E-4460-A23B-2C60E87F8A30"><span class="secnum">D.3</span> Administrative Gigabit Ethernet Cable Connections</a></li>
+<li><a href="app_cablex3.htm#GUID-BEF96CF0-16EC-4F3C-BA26-47A2779CC020"><span class="secnum">D.4</span> Oracle Integrated Lights Out Manager Cable Connections</a></li>
+<li><a href="app_cablex3.htm#GUID-C277F22E-537D-421F-BC40-7A407DF512FD"><span class="secnum">D.5</span> Single-Phase Power Distribution Unit Cable Connections</a></li>
+<li><a href="app_cablex3.htm#GUID-01863756-D62D-4503-B0B8-2180CD745580"><span class="secnum">D.6</span> Three-Phase Power Distribution Unit Cable Connections</a></li>
+<li><a href="app_cablex3.htm#GUID-8FBB1D59-99C4-42EF-95B5-B4BB0EC69CD2"><span class="secnum">D.7</span> In-Rack InfiniBand Switch-to-Switch Cable Connections</a></li>
+<li><a href="app_cablex3.htm#GUID-818E3647-E57F-4D17-A5B2-6EE7BC5AEB0F"><span class="secnum">D.8</span> In-Rack InfiniBand Switch-to-Server Cable Connections</a></li>
+</ul>
+<h2 class="tocheader"><a href="app_cablex2.htm#GUID-963857E1-C009-4B78-BCA1-9CA87DD885AC"><span class="secnum">E</span> In-Rack Cabling Tables for Oracle Big Data Appliance Sun Fire X4270 M2</a></h2>
+<ul style="list-style-type: none">
+<li><a href="app_cablex2.htm#GUID-D463A15F-45D0-4EDF-9E27-438408AC1BDA"><span class="secnum">E.1</span> Cable Color Coding</a></li>
+<li><a href="app_cablex2.htm#GUID-19484EBD-B9B1-40A6-954F-5AE3561753AB"><span class="secnum">E.2</span> Oracle Big Data Appliance Rack Layout</a></li>
+<li><a href="app_cablex2.htm#GUID-51716365-C6AB-41E7-8DE1-4467AC7B4D85"><span class="secnum">E.3</span> KVM Network Cable Connections</a></li>
+<li><a href="app_cablex2.htm#GUID-A3A83942-7DF3-4A60-A52B-3726A10587E6"><span class="secnum">E.4</span> Administrative Gigabit Ethernet Cable Connections</a></li>
+<li><a href="app_cablex2.htm#GUID-73ABC858-0599-4E10-98E8-058C5EBF1E9A"><span class="secnum">E.5</span> Oracle Integrated Lights Out Manager Cable Connections</a></li>
+<li><a href="app_cablex2.htm#GUID-B674C2BB-68AD-4F7A-A955-9832044A8EBF"><span class="secnum">E.6</span> Single-Phase Power Distribution Unit Cable Connections</a></li>
+<li><a href="app_cablex2.htm#GUID-42938FFD-7B67-4596-8D87-922AE05CD445"><span class="secnum">E.7</span> Three-Phase Power Distribution Unit Cable Connections</a></li>
+<li><a href="app_cablex2.htm#GUID-0B6B094C-0247-4950-88A0-22E28843A126"><span class="secnum">E.8</span> In-Rack InfiniBand Switch-to-Switch Cable Connections</a></li>
+<li><a href="app_cablex2.htm#GUID-38248BD9-73BE-45ED-8527-423BEED67106"><span class="secnum">E.9</span> In-Rack InfiniBand Switch-to-Server Cable Connections</a></li>
+</ul>
+<h2 class="tocheader"><a href="app_multi.htm#GUID-F763B287-56C7-4319-9966-E0BBABD39875"><span class="secnum">F</span> Multirack Cabling Tables</a></h2>
+<ul style="list-style-type: none">
+<li><a href="app_multi.htm#GUID-F65A8AFA-9E75-4A40-A25A-2575BA26DEBD"><span class="secnum">F.1</span> Understanding Multirack Cabling</a>
+<ul style="list-style-type: none">
+<li><a href="app_multi.htm#GUID-CB2ACD29-2D08-48DA-A115-1756E6BC57FA"><span class="secnum">F.1.1</span> Cabling Together Oracle Exadata Database Machine and Oracle Big Data Appliance</a></li>
+<li><a href="app_multi.htm#GUID-B2B8FFE2-2DA5-4E33-AECF-D2C2398AA917"><span class="secnum">F.1.2</span> Cabling the Switches in One Rack</a></li>
+<li><a href="app_multi.htm#GUID-4433DDC2-04E1-4455-957F-F267D10A0867"><span class="secnum">F.1.3</span> Cabling the Switches in Two Racks</a></li>
+<li><a href="app_multi.htm#GUID-0EF909BC-84BE-4136-B173-A4F2CD08BDC9"><span class="secnum">F.1.4</span> Cabling the Switches in Up to Eight Racks</a></li>
+</ul>
+</li>
+<li><a href="app_multi.htm#GUID-29AB331F-28A6-4CFF-BC0D-7E140C6E7D97"><span class="secnum">F.2</span> Key to Cabling Table Abbreviations</a></li>
+<li><a href="app_multi.htm#GUID-776BADE5-5298-4DE5-BCF9-C979D0E59A63"><span class="secnum">F.3</span> Two-Rack Cabling</a></li>
+<li><a href="app_multi.htm#GUID-654BC567-2BCB-44BB-9F94-81C90A5F315E"><span class="secnum">F.4</span> Three-Rack Cabling</a></li>
+<li><a href="app_multi.htm#GUID-4B4EA248-C117-444B-8685-C00C67A2F6C2"><span class="secnum">F.5</span> Four-Rack Cabling</a></li>
+<li><a href="app_multi.htm#GUID-954659BD-D101-4506-BA7D-CF6C972D2879"><span class="secnum">F.6</span> Five-Rack Cabling</a></li>
+<li><a href="app_multi.htm#GUID-E129F5D1-8BA7-4E97-8C13-25B268643EDB"><span class="secnum">F.7</span> Six-Rack Cabling</a></li>
+<li><a href="app_multi.htm#GUID-141BE9FE-9D7D-4C12-879A-C50449961061"><span class="secnum">F.8</span> Seven-Rack Cabling</a></li>
+<li><a href="app_multi.htm#GUID-428E38FA-114D-4DA6-897C-3D100F15F539"><span class="secnum">F.9</span> Eight-Rack Cabling</a></li>
+</ul>
+<h2 class="tocheader"><a href="GUID-5F2D8907-4690-4B8F-872E-080EF6EC90CB.htm"><span class="secnum">G</span> Recent Change History</a></h2>
+<ul style="list-style-type: none">
+<li><a href="GUID-0A65BA07-CB6D-4B40-943A-35205EF935B7.htm"><span class="secnum">G.1</span> Changes in Oracle Big Data Appliance Release 4.11</a></li>
+</ul>
+<h2 class="tocheader"><a href="index.htm">Index</a></h2>
+</div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment188">
+<tr>
+<td class="cellalignment221">
+<table class="cellalignment272">
+<tr>
+<td class="cellalignment192"><a href="lot.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment223">
+<table class="cellalignment271">
+<tr>
+<td class="cellalignment192"><a href="../index.htm"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment192"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment192"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment192"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

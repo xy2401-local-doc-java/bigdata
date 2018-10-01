@@ -1,0 +1,347 @@
+@import url("contentstyle.css");
+
+div.BreadCrumbs
+{ 
+  position: fixed;
+  width: 100%;
+  height: 20px;
+  left: 0;
+  top: 0;
+  margin-top: 6px;
+  padding-left: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsiis;
+  color: rgb(80, 80, 80);
+  font-size: 8pt;
+  text-align:  left;
+  vertical-align: center;
+	background: url("../graphics/gradient-center.png") repeat-x;
+	background-position: bottom;
+}
+
+div.BreadCrumbs span.CurrentCrumb
+{
+  color: black;
+  font-weight: bold;
+}
+
+
+div.MastheadPane
+{
+	position: fixed;
+	height: 65px;
+	width: 100%;
+	top: 10px;
+	right: 0;
+	bottom: auto;
+	left: 0;
+	margin-top: 5px;
+	margin-left: 5px;
+	overflow: hidden;
+	
+}
+
+table.MastheadTable {
+	border-style: hidden;
+	border-collapse: collapse;
+	padding: 0px;
+	margin: 0px;
+}
+
+td.largeLogo   { width: 180px;  text-align: right; }
+.largeLogo img { padding-right: 20px;  }
+
+td.smallLogo   { width: 140px;  text-align: right;}
+.smallLogo img { padding-right: 15px;}
+
+
+tr.titlebar {
+	height: 65px;
+	padding: 0px;
+}
+
+.contentpage-doctitle {
+    font-family: "Univers LT Std", Univers, Arial, Helvetica, sans-serif;
+
+	font-size: 16pt;
+	font-weight: bold;
+	text-align: left;
+	padding: 0px;
+}
+
+.contentpage-doctitle a:visited {color:  rgb(85, 85, 85);}
+.contentpage-doctitle a{color:  rgb(85, 85, 85);}
+
+tr.closeprintview {
+	display: none;
+}
+
+.closeprintview {
+	display: none;
+}
+
+tr.skipnavigation {
+	display: none;
+}
+
+
+
+div.ButtonPane {
+	position: fixed;
+	width: 100%;
+	height: 40px;
+	top: 75px;
+	right: auto;
+	bottom: 0;
+	left: 0;
+	vertical-align: center;
+	background: url("../graphics/gradient-center.png") repeat-x;
+	background-position: bottom;
+	border-top: 1px solid rgb(200, 200, 200);
+}	
+
+
+div.ButtonArea1 {
+	position: fixed;
+	left: 3px;
+	margin-top: 5px;
+}
+
+div.ButtonArea2 {
+	position: fixed;
+	left: 315px;
+	margin-top: 5px;
+}
+
+div.ButtonArea3 {
+	position: fixed;
+	left: 460px;
+	margin-top: 5px;
+}
+
+div.Button {
+	display: inline;
+	padding-left: 5px;
+}
+
+div.Button img.grayout { 
+        opacity: 0.4;
+        filter: alpha(opacity=40);
+}
+
+
+div.embeddedtoc {margin: 2px; margin-top: 20px}
+p.toc    {
+	margin: 0px;
+}
+p.level0 {margin-left:0px;}
+p.level1 {margin-left:12px; margin-top: 2px;}
+p.level2 {margin-left:24px; margin-top: 2px;}
+p.level3 {margin-left:36px;}
+p.level4 {margin-left:48px;}
+p.level5 {margin-left: 60px;}
+p.tocsp  {margin-top: 6px}
+
+p.toc {padding: 0px; text-indent: -12px;}
+
+p.level1 a{color: rgb(100,100,100); font-size: 9pt;}
+p.level2 a{color: rgb(100,100,100); font-size: 9pt;}
+p.level3 a{color: rgb(100,100,100); font-size: 8pt;}
+p.level4 a{color: rgb(100,100,100); font-size: 8pt;}
+p.level5 a{color: rgb(100,100,100); font-size: 8pt;}
+
+
+div.onpage {
+	margin: 10px 5px 10px 5px;
+	padding-bottom: 4px;
+	padding-left: 2px;
+	background-image: url("../graphics/gradient-center.png");
+	background-repeat: repeat-x;
+	background-position: bottom;
+	border: 1px solid rgb(165, 165, 165);
+	border-top: 2px solid rgb(255, 0, 0);
+}
+
+.onpage p a{color: black;}
+
+
+div.MainTOCPane
+{
+	position: fixed;
+	width: auto;
+	height: auto;
+	top: 115px;
+	right: 0;
+	bottom: 40px;
+	left: 315px;
+	margin: 5px;
+	margin-right: 5px;
+	overflow: auto;
+}
+
+div.BottomPageControlPane
+{
+	position: fixed;
+	width: auto;
+	height: 35px;
+	top: auto;
+	right: 0;
+	bottom: 0;
+	left: 315px;
+}
+
+table.pagecontrol {
+	width: 100%;
+	layout: fixed;
+	margin-top: 0px;
+	margin-bottom: 5px;
+	padding: 0px;
+}
+
+
+td.printbuttons {
+	width: 300px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+td.searcharea {
+	width: auto;
+	text-align: left;
+	padding-left: 5px;
+}
+
+
+td.pagenavlinks {
+	width: 120px;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.pagenavlinks img {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin: 0px;
+	
+}
+
+.pagebreadcrumb a{color: rgb(85, 85, 85)}
+
+
+div.tocpagefooterlinks {font-size: 10px; margin-top:25px;}
+div.pagefooterlinks {font-size: 10px;}
+a.withleftbar  {border-left:1px solid #000000; padding-right:2px; padding-left:5px; text-decoration:none !important}
+a.withrightbar {border-right:1px solid #000000; padding-right:5px; padding-left:2px; text-decoration:none !important}
+
+
+p.breadcrumb a{color: rgb(255, 0, 0); font-weight: bold;}
+p.breadcrumb{margin-bottom: 20px}
+
+
+div.MainContent a:visited{color: rgb(85, 85, 85)}
+div.MainContent a{color: rgb(0, 0, 0)}
+
+
+div.MastheadPane a{color: rgb(85, 85, 85)}
+
+
+
+body {
+    padding: 1em;
+    margin: 0;
+    background-color: white;
+}
+
+
+h1+p, h2+p, h3+p, h4+p, h5+p {
+	margin-top: 0;
+}
+
+
+
+code, pre {
+	color: black;
+}
+
+pre {
+	background-color: #efefef;
+	border: 1px solid #ccc;
+	padding: 0.5em;
+	overflow: hidden;
+}
+
+a img {
+	border-style: none;
+}
+
+.lmenu {
+    font-size: 12px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    color: #4F4F4F;
+}
+
+
+h2.DocTitle
+{
+font-size: 20px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-weight: bold;
+color: #252525;
+}
+
+h3.SubTitle
+{
+  color: rgb(85, 85, 85);
+  font-family: "Univers LT Std", Univers, Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0px;
+  text-transform: none
+}
+
+.DraftText
+{
+  color: rgb(99, 33, 33);
+  font-family: "Univers LT Std", Univers, Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0px;
+  text-transform: none
+}
+
+h4.TitleDate
+{
+  font-size: 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #252525;
+  margin-top: 12px;
+
+}
+
+
+p.AbstractTitlePage {
+  font-size: 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #252525;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Changes in Oracle Big Data Appliance Release 4 (4.5)</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-07-23T20:06:30Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data Appliance Owner's Guide" />
+<meta name="dcterms.identifier" content="E89801-07" />
+<meta name="dcterms.isVersionOf" content="BIGOG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://www.docs.oracle.com/bigdata/411/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="GUID-CB485977-9591-42BC-86AB-A260FD4E5144.htm" title="Previous" type="text/html" />
+<link rel="Next" href="index.htm" title="Next" type="text/html" />
+<link rel="alternate" href="BIGOG.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"322179",ustr:"",originlat:"0",clientrtt:"1",ghostip:"23.212.3.15",ipv6:false,pct:"10",clientip:"45.78.37.67",requestid:"1fa6185",region:"32996",protocol:"",blver:14,akM:"dsca",akN:"ae",akTT:"O",akTX:"1",akTI:"1fa6185",ai:"206465",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-D482D7E9-D801-483A-8C60-6BC93CB18D6E"></a> <span id="PAGE" style="display:none;">37/38</span> <!-- End Header -->
+<h1 id="BIGOG-GUID-D482D7E9-D801-483A-8C60-6BC93CB18D6E" class="sect1"><span class="enumeration_section">G.6</span> Changes in Oracle Big Data Appliance Release 4 (4.5)</h1>
+<div>
+<p>The following are changes in Oracle Big Data Appliance Release 4 (4.5):</p>
+<div class="section">
+<p class="subhead1">Software Updates</p>
+</div>
+<!-- class="section" -->
+<ul style="list-style-type: disc;">
+<li>
+<p>CDH (Cloudera's Distribution including Apache Hadoop) 5.7</p>
+</li>
+<li>
+<p>CDM (Cloudera Manager) 5.7</p>
+</li>
+<li>
+<p>Cloudera Navigator 2.4.1</p>
+</li>
+<li>
+<p>Java JDK 8u92</p>
+</li>
+<li>
+<p>Oracle Big Data Connectors 4.5</p>
+</li>
+<li>
+<p>Oracle Data Integrator Agent 12.2.1 (for Oracle Big Data Connectors)</p>
+</li>
+<li>
+<p>Oracle NoSQL Database 4.0.5</p>
+</li>
+<li>
+<p>Perfect Balance 2.7</p>
+</li>
+<li>
+<p>Big Data Discovery 1.2.2 (optional)</p>
+</li>
+<li>
+<p>Big Data SQL 3.0.1 (optional)</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead1">Hardware Updates</p>
+</div>
+<!-- class="section" -->
+<ul style="list-style-type: disc;">
+<li>
+<p>Oracle Big Data Appliance X6-2 server</p>
+<div class="p">The X6-2 provides substantial increases in processing power and memory over X5&ndash;2 servers:
+<ul style="list-style-type: disc;">
+<li>
+<p>2 x 22-core (2.2GHz) Intel&reg; Xeon&reg; E5-2699 v4 processors.</p>
+</li>
+<li>
+<p>8 x 32 GB DDR4-2400 memory (expandable to maximum of 768 GB per node).</p>
+</li>
+</ul>
+X6-2 servers are shipped with an Oracle Big Data Appliance v4.4.0 base image.</div>
+<p>X6-2 nodes can be mixed with X5-2 nodes (and older Release 4.5&ndash;compatible nodes) in a CDH or NoSQL cluster. The X6-2 server is not compatible as a node of an Oracle Big Data Appliance cluster in releases prior to Oracle Big Data Appliance Release 4.4.</p>
+<p>See the <a href="http://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/1883358.pdf" target="_blank">Oracle Big Data Appliance X6-2 Data Sheet</a> for more details.</p>
+</li>
+</ul>
+<div class="section">
+<p class="subhead1">New Features</p>
+</div>
+<!-- class="section" -->
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cloudera CDH 5.7 and Cloudera Manager 5.7</span></p>
+<p>See the <a href="http://www.cloudera.com/documentation/enterprise/latest.html" target="_blank">Cloudera Enterprise 5.7.x Documentation</a> for information about CDH 5.7 and Cloudera Manager 5.7</p>
+<p>Upgrades to CDH 5.7.1 are supported. <span class="italic">Note that this upgrade is required in order to install Oracle Big Data Discovery 1.2.2 on Oracle Big Data Appliance 4.5.</span></p>
+</li>
+<li>
+<p><span class="bold">Support for Either Local or Remote Key Trustee Servers</span></p>
+<p>Oracle Big Data Appliance supports both local and remote Key Trustee Servers for HDFS Transparent Encryption. The Oracle Big Data Configuration Utility includes HDFS Transparent Encryption as a configuration option. You can either click a checkbox to automatically install and configure active and passive Key Trustee Servers locally on the Oracle Big Data Appliance or define an &ldquo;off-board&rdquo; configuration, including the address of the active and passive servers, the Key Trustee organization, and the authorization code. You can also enable HDFS Transparent Encryption via the bdacli utility at any time after Mammoth installation and will be prompted to make the same choice between remote or local key trustee services.</p>
+<p>Athough Oracle Big Data Appliance supports local Key Trustee Servers, remote servers are still the recommended choice.</p>
+</li>
+<li>
+<p><span class="bold">Support for Oracle Big Data SQL 3.0.1</span></p>
+<p>Oracle Big Data Appliance Release 4.5 includes Oracle Big Data SQL 3.0.1 as a Mammoth installation option. See the <a href="HTTP://DOCS.ORACLE.COM/CD/E69290_01/DOC.44/E71333/TOC.HTM" target="_blank">Oracle Big Data SQL User's Guide</a> for Release 3.0.1 installation instructions.</p>
+</li>
+<li>
+<p><span class="bold">Enhanced Networking</span></p>
+<p>Release 4.5 provides more flexibility in the configuration of networks on the Oracle Big Data Appliance. This includes support for the following options:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Separate networks for each cluster in a rack (both client and private networks).</p>
+</li>
+<li>
+<p>Multiple client networks on the same BDA cluster.</p>
+</li>
+<li>
+<p>VLAN tagging for client networks.</p>
+</li>
+<li>
+<p>Partition keys for private InfiniBand networks.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="bold">Lower Minimum Size for CDH Clusters</span></p>
+<p>The minimum recommended CDH cluster size for a production environment is now five nodes. For development purposes, the Oracle Big Data Appliance Configuration Generation Utility now enables you to create three-node CDH clusters.</p>
+<p>Note that Oracle Big Data Appliance Starter Rack is still sold with six servers.</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment164">
+<tr>
+<td class="cellalignment197">
+<table class="cellalignment169">
+<tr>
+<td class="cellalignment168"><a href="GUID-CB485977-9591-42BC-86AB-A260FD4E5144.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment168"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2011, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment199">
+<table class="cellalignment167">
+<tr>
+<td class="cellalignment168"><a href="http://www.docs.oracle.com/bigdata/411/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment168"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment168"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment168"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

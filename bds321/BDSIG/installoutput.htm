@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Oracle Big Data SQL Installation Examples</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="The following are samples of the console output for the Oracle Big Data SQL installation." />
+<meta name="dcterms.created" content="2018-08-03T19:36:02Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E87608-09" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds321/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="GUID-F615A82D-D02F-4B92-B9E4-3F580905EC8D.htm" title="Previous" type="text/html" />
+<link rel="Next" href="GUID-AD005660-CA98-46F6-A312-DF265D743B03.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E87608-09.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-D15A3626-F4F6-4EBB-A6BE-476EBC137CC9"></a> <span id="PAGE" style="display:none;">15/18</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-D15A3626-F4F6-4EBB-A6BE-476EBC137CC9" class="sect1"><span class="enumeration_chapter">C</span> Oracle Big Data SQL Installation Examples</h1>
+<div>
+<p>The following are samples of the console output for the Oracle Big Data SQL installation.</p>
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Example 1 shows the output of an installation on Oracle Big Data Appliance.</p>
+</li>
+<li>
+<p>Example 2 shows the parallel installation on Hortonworks HDP.</p>
+</li>
+</ul>
+<p>The database side of the installation is the same for Exadata Database Machine and all commodity Oracle Database platforms.</p>
+<p>The database side of these scripts shows the installation on a system running Oracle Database 12.1. The output is the same for an installation on an Oracle Database 12.2 system, except for minor path changes.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Example 1: Installation on Oracle Big Data Appliance</p>
+<p>This example shows the Hadoop-side installation where the Hadoop system is Oracle Big Data Appliance. These are the factors to note in this scenario:</p>
+<div class="infobox-note" id="GUID-D15A3626-F4F6-4EBB-A6BE-476EBC137CC9__GUID-B6F93535-8562-40E4-A787-189885199A91">
+<p class="notep1">Important:</p>
+Notice that we are using <code class="codeph">scl</code> to ensure that the correct version of Python is invoked.</div>
+<pre dir="ltr">
+[root@clust0601bda14vm03 BDSjaguar-3.2.1]# scl enable python27 "./jaguar install"
+BigDataSQL: =======================================================================.
+BigDataSQL: Oracle Big Data SQL 3.2.1.
+BigDataSQL: Starting execution on: Mon Nov 13 13:47:13 2017.
+BigDataSQL:          in directory: /root/BDSjaguar-3.2.1.
+BigDataSQL:          and hostname: clust0601bda14vm03.vm.oracle.com.
+BigDataSQL: Verifying configuration parameters...
+BigDataSQL: Starting server...
+BigDataSQL: API protocol: http.
+BigDataSQL: API port: 7180.
+BigDataSQL: Waiting for management server to respond...
+BigDataSQL: WARNING: If there are services in the stale state, they will be restarted !!!.
+
+Cloudera Manager user: admin
+Password:
+
+BigDataSQL: Authentication succeeded.
+BigDataSQL: API version: 17.
+BigDataSQL: Cluster type: BDA.
+BigDataSQL: Cluster name: clust0601bda14vm.
+BigDataSQL: Cluster version: CDH5.
+BigDataSQL: Service: BIGDATASQL.
+BigDataSQL: Verifying service configuration..
+BigDataSQL: Connection type: Ethernet.
+BigDataSQL: Initialization completed..
+BigDataSQL: Copying CSD to Cloudera Manager..
+BigDataSQL: Restarting management server...
+BigDataSQL: Waiting for management server to respond...
+BigDataSQL: Restarting Cloudera Management service..
+BigDataSQL: Starting deployment server..
+BigDataSQL: Deployment server listening
+BigDataSQL: Analyzing cluster ....
+BigDataSQL: Checking for Big Data SQL requirements..
+BigDataSQL: Preparing installation..
+BigDataSQL: Installing Big Data SQL agents..
+BigDataSQL: No http_proxy variable defined.
+BigDataSQL: No https_proxy variable defined.
+BigDataSQL: Installing Big Data SQL servers..
+BigDataSQL: Starting bigdatasql service..
+BigDataSQL: Restarting stale services..
+BigDataSQL: Restarting Cloudera Management service..
+BigDataSQL: Big Data SQL task completed..
+BigDataSQL: Creating database side bundle..
+BigDataSQL: Creating bundle file.
+BigDataSQL: Bundle file created: /root/BDSjaguar-3.2.1/db-bundles/bds-3.2.1-db-clust0601bda14vm-171113.1347.zip.
+BigDataSQL: WARNING: Database authentication is enabled, you will need a reqkey file for set it up..
+BigDataSQL:          Ignore this warning if you already have one or if your database already has its key,
+BigDataSQL:          otherwise, use './jaguar --requestdb &lt;db name&gt; databasereq' to create one.
+BigDataSQL: INSTALL workflow completed.
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">Requesting a .reqkey file for database "mashadb." Database Authentication is enabled but the key was not requested in the install operation.</span></p>
+<pre dir="ltr">
+[root@clust0601bda14vm03 BDSjaguar-3.2.1]# scl enable python27 "./jaguar --requestdb mashadb databasereq"
+BigDataSQL: =======================================================================.
+BigDataSQL: Oracle Big Data SQL 3.2.1.
+BigDataSQL: Starting execution on: Mon Nov 13 14:07:21 2017.
+BigDataSQL:          in directory: /root/BDSjaguar-3.2.1.
+BigDataSQL:          and hostname: clust0601bda14vm03.vm.oracle.com.
+BigDataSQL: Verifying configuration parameters...
+BigDataSQL: Starting server...
+BigDataSQL: API protocol: http.
+BigDataSQL: API port: 7180.
+BigDataSQL: Waiting for management server to respond...
+BigDataSQL: WARNING: If there are services in the stale state, they will be restarted !!!.
+
+Cloudera Manager user: admin
+Password:
+
+BigDataSQL: Authentication succeeded.
+BigDataSQL: API version: 17.
+BigDataSQL: Cluster type: BDA.
+BigDataSQL: Cluster name: clust0601bda14vm.
+BigDataSQL: Cluster version: CDH5.
+BigDataSQL: Service: BIGDATASQL.
+BigDataSQL: Verifying service configuration..
+BigDataSQL: Connection type: Ethernet.
+BigDataSQL: Initialization completed..
+BigDataSQL: Starting deployment server..
+BigDataSQL: Deployment server listening
+BigDataSQL: Requiring database keys only..
+BigDataSQL: reqkey file created: /root/BDSjaguar-3.2.1/dbkeys/mashadb.reqkey.
+BigDataSQL: DATABASEREQ workflow completed.
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">Copy the database-side installation bundle and the request key file to the database node.</span></p>
+<pre dir="ltr">
+[root@clust0601bda14vm03 BDSjaguar-3.2.1]# scp /root/BDSjaguar-3.2.1/dbkeys/mashadb.reqkey masha@clust0601bda14vm04:/home/masha
+masha@clust0601bda14vm04's password:
+mashadb.reqkey                                                                                  100%  252     0.3KB/s   00:00
+[root@clust0601bda14vm03 BDSjaguar-3.2.1]# scp /root/BDSjaguar-3.2.1/db-bundles/bds-3.2.1-db-clust0601bda14vm-171113.1347.zip masha@clust0601bda14vm04:/home/masha
+masha@clust0601bda14vm04's password:
+bds-3.2.1-db-clust0601bda14vm-171113.1347.zip                                                    100% 1020MB  51.0MB/s   00:20
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">Unzip the bundle, execute the run file, and copy the request key file into the install directory created by the run file.</span></p>
+<pre dir="ltr">
+[masha@clust0601bda14vm04 ~]$ unzip bds-3.2.1-db-clust0601bda14vm-171113.1347.zip
+Archive:  bds-3.2.1-db-clust0601bda14vm-171113.1347.zip
+  inflating: bds-3.2.1-db-clust0601bda14vm-171113.1347.run
+[masha@clust0601bda14vm04 ~]$ ./bds-3.2.1-db-clust0601bda14vm-171113.1347.run
+bds-3.2.1-db-clust0601bda14vm-171113.1347.run: platform is               : Linux
+bds-3.2.1-db-clust0601bda14vm-171113.1347.run: script started at         : Mon Nov 13 14:19:56 CST 2017
+bds-3.2.1-db-clust0601bda14vm-171113.1347.run: running location          : /home/masha
+bds-3.2.1-db-clust0601bda14vm-171113.1347.run: ORACLE_SID                : mashadb
+bds-3.2.1-db-clust0601bda14vm-171113.1347.run: ORACLE_HOME               : /u03/app/masha/12.1.0/dbhome_mashadb
+bds-3.2.1-db-clust0601bda14vm-171113.1347.run: install directory         : /u03/app/masha/12.1.0/dbhome_mashadb/BDSJaguar-3.2.1/clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com
+bds-3.2.1-db-clust0601bda14vm-171113.1347.run: extracting...
+bds-3.2.1-db-clust0601bda14vm-171113.1347.run: installer extracted successfully
+
+cd $ORACLE_HOME/BDSJaguar-3.2.1/clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com
+
+bds-3.2.1-db-clust0601bda14vm-171113.1347.run: for setup Big Data SQL on this database instance
+[masha@clust0601bda14vm04 ~]$ mv mashadb.reqkey $ORACLE_HOME/BDSJaguar-3.2.1/clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">Change to the install directory and run the install operation of bds-database-install.sh.</span></p>
+<pre dir="ltr">
+[masha@clust0601bda14vm04 ~]$ cd $ORACLE_HOME/BDSJaguar-3.2.1/clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com
+[masha@clust0601bda14vm04 clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com]$ ./bds-database-install.sh --install
+bds-database-install: platform is               : Linux
+bds-database-install: script started at         : Mon Nov 13 14:20:59 CST 2017
+bds-database-install: running location          : /u03/app/masha/12.1.0/dbhome_mashadb/BDSJaguar-3.2.1/clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com
+bds-database-install: ORACLE_SID                : mashadb
+bds-database-install: ORACLE_HOME               : /u03/app/masha/12.1.0/dbhome_mashadb
+bds-database-install: configuration spfile      : spfilemashadb.ora
+bds-database-install: Grid home                 : not detected
+bds-database-install: db resource               : mashadb
+bds-database-install: mta extproc sid           : bds_mashadb_clust0601bda14vm
+bds-database-install: use of crsctl             : false
+bds-database-install: root shell script /u03/app/masha/12.1.0/dbhome_mashadb/install/bds-database-install-10657-root-script-clust0601bda14vm.sh
+please run as root:
+
+&lt;enter&gt; to continue checking.. 
+q&lt;enter&gt; to quit
+
+
+bds-database-install: root script seem to have succeeded, continuing...
+bds-database-install: cluster type              : bda
+bds-database-install: connection type           : Ethernet
+bds-database-install: cluster name              : clust0601bda14vm
+bds-database-install: dictionary cluster name   : clust0601bda14vm
+bds-database-install: Hadoop version            : hadoop-2.6.0-cdh5.12.1
+bds-database-install: Hive version              : hive-1.1.0-cdh5.12.1
+bds-database-install: HBase version             : hbase-1.2.0-cdh5.12.1
+bds-database-install: BDSQL version             : 3.2.1
+bds-database-install: BDSQL install date        : Mon Nov 13 13:59:09 2017
+bds-database-install: bd_cell version           : bd_cell-12.1.2.0.100_LINUX.X64_171109.1-1.x86_64
+bds-database-install: cp2hadoop kit version     : orahivedp-3.2.1
+bds-database-install: ohsh kit version          : ohsh-1.3.1
+bds-database-install: cell config dir           : /etc/oracle/cell/network-config
+bds-database-install: hybrid cell model         : false
+bds-database-install: cell network(s)           : 192.168.254.5/27
+bds-database-install: allow multiple subnets    : _skgxp_ant_options=1
+bds-database-install: use UDP protocol          : _skgxp_dynamic_protocol=2
+bds-database-install: cellaffinity.ora file     : missing
+bds-database-install: listener end point        : EXTPROC1521
+bds-database-install: installing JDK            : jdk1.8.0_151
+bds-database-install: action                    : setup
+bds-database-setup: validating 192.168.254.4/27 against network interfaces
+bds-database-setup: trying to ping cluster nodes from 10.0.2.15
+bds-database-setup: response fail from 192.168.254.4
+bds-database-setup: response fail from 192.168.254.2
+bds-database-setup: response fail from 192.168.254.3
+bds-database-setup: trying to ping cluster nodes from 192.168.254.5
+bds-database-setup: response ok from 192.168.254.4
+bds-database-setup: response ok from 192.168.254.2
+bds-database-setup: response ok from 192.168.254.3
+bds-database-setup: ping succeeded on all nodes, using 192.168.254.5/27 at eth1 instead
+bds-database-setup: installing cluster configuration files
+bds-database-setup: unpacking hadoop-2.6.0-cdh5.12.1.tar.gz
+bds-database-setup: unpacking hadoop-2.6.0-nativelib-ol6.tar.gz
+bds-database-setup: unpacking hive-1.1.0-cdh5.12.1.tar.gz
+bds-database-setup: unpacking hbase-1.2.0-cdh5.12.1.tar.gz
+bds-database-setup: creating database objects
+bds-database-setup: mta will be setup
+bds-database-setup: creating /u03/app/masha/12.1.0/dbhome_mashadb/hs/admin/initbds_mashadb_clust0601bda14vm.ora
+bds-database-setup: mta shutdown bds_mashadb_clust0601bda14vm
+bds-database-setup: removing existing mta parameter settings
+bds-database-setup: setting performance parameters for mta
+bds-database-setup: setting listener_address to EXTPROC1521
+bds-database-setup: starting extproc bds_mashadb_clust0601bda14vm
+bds-database-setup: waiting upto 100 seconds for extproc to register with listener
+....................ok
+bds-database-setup: patching view LOADER_DIR_OBJS
+bds-database-setup: creating mta dblinks
+bds-database-setup: installing cp2hadoop
+bds-database-setup: installing ohsh
+bds-database-setup: reconfiguring database instance mashadb
+bds-database-setup: adding parameter _bigdata_external_table=true
+bds-database-setup: setup cell contiguration
+bds-database-setup: cellinit.ora already has the configured ip address
+bds-database-setup: cellinit.ora already enabled with UDP protocol
+bds-database-setup: celliniteth.ora already has the configured ip address
+bds-database-setup: celliniteth.ora already enabled with UDP protocol
+bds-database-setup: cellaffinity.ora already disabled
+bds-database-setup: no database restart needed
+
+bds-database-setup: activation zip file created: clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com-clust0601bda14vm04.vm.oracle.com.zip
+
+# /u03/app/masha/12.1.0/dbhome_mashadb/BDSJaguar-3.2.1/clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com/clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com-clust0601bda14vm04.vm.oracle.com.zip
+
+bds-database-setup: copy this file to root@clust0601bda14vm03.vm.oracle.com:/opt/oracle/DM/databases/conf
+bds-database-setup: and run:
+
+./jaguar databaseack
+
+bds-database-setup: configuration successful for cluster clust0601bda14vm
+
+bds-database-setup: log files in /u03/app/masha/12.1.0/dbhome_mashadb/install
+bds-database-setup: bds-database-install-10657-* files for more detailed info
+bds-database-setup: full log in bds-database-install-10657-main-script.log
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">This is the output from the root script execution:</span></p>
+<pre dir="ltr">
+[root@clust0601bda14vm04 ~]# /u03/app/masha/12.1.0/dbhome_mashadb/install/bds-database-install-10657-root-script-clust0601bda14vm.sh
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: removing existing entries for 192.168.254.4 from /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: removing existing entries for 192.168.254.2 from /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: removing existing entries for 192.168.254.3 from /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: removing existing entries for clust0601bda14vm03.vm.oracle.com from /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: removing existing entries for clust0601bda14vm01.vm.oracle.com from /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: removing existing entries for clust0601bda14vm02.vm.oracle.com from /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: removing existing entries for clust0601bda14vm03 from /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: removing existing entries for clust0601bda14vm01 from /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: removing existing entries for clust0601bda14vm02 from /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: added entry 192.168.254.4  clust0601bda14vm03.vm.oracle.com  clust0601bda14vm03 to /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: added entry 192.168.254.2  clust0601bda14vm01.vm.oracle.com  clust0601bda14vm01 to /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: added entry 192.168.254.3  clust0601bda14vm02.vm.oracle.com  clust0601bda14vm02 to /etc/hosts
+bds-database-install-10657-root-script-clust0601bda14vm.sh: clust0601bda14vm: root script finished successfully
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">Copy the zip file generated by bds-database-install.sh back to the Hadoop cluster management server. This zip file contains the .ackkey file needed to complete the Database Authentication setup.</span></p>
+<pre dir="ltr">
+[masha@clust0601bda14vm04 clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com]$ scp clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com-clust0601bda14vm04.vm.oracle.com.zip root@clust0601bda14vm03.vm.oracle.com:/opt/oracle/DM/databases/conf
+root@clust0601bda14vm03.vm.oracle.com's password:
+clust0601bda14vm-3-clust0601bda14vm03.vm.oracle.com-clust0601bda14vm04.vm.oracle.com.zip           100%  789     0.8KB/s   00:00
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">As root on the Hadoop cluster management server, run Jaguar&rsquo;s Database Acknowledge operation. This completes the installation.</span></p>
+<pre dir="ltr">
+BigDataSQL: Oracle Big Data SQL 3.2.1.
+BigDataSQL: Starting execution on: Mon Nov 13 14:26:37 2017.
+BigDataSQL:          in directory: /root/BDSJaguar.
+BigDataSQL:          and hostname: clust0601bda14vm03.vm.oracle.com.
+BigDataSQL: Verifying configuration parameters...
+BigDataSQL: Starting server...
+BigDataSQL: API protocol: http.
+BigDataSQL: API port: 7180.
+BigDataSQL: Waiting for management server to respond...
+BigDataSQL: WARNING: If there are services in the stale state, they will be restarted !!!.
+
+Cloudera Manager user: admin
+Password:
+
+BigDataSQL: Authentication succeeded.
+BigDataSQL: API version: 17.
+BigDataSQL: Cluster type: BDA.
+BigDataSQL: Cluster name: clust0601bda14vm.
+BigDataSQL: Cluster version: CDH5.
+BigDataSQL: Service: BIGDATASQL.
+BigDataSQL: Verifying service configuration..
+BigDataSQL: Connection type: Ethernet.
+BigDataSQL: Initialization completed..
+BigDataSQL: Starting deployment server..
+BigDataSQL: Database acknowledge..
+BigDataSQL: Deployment server listening
+BigDataSQL: Refreshing Big Data SQL database connections..
+BigDataSQL: Starting bigdatasql service..
+BigDataSQL: Setting database key for Big Data SQL..
+BigDataSQL: Restarting stale services..
+BigDataSQL: Restarting Cloudera Management service..
+
+Big Data SQL setup finished !!!
+run bdschecksw tool on database node for sanity verification
+
+BigDataSQL: DATABASEACK workflow completed.
+
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Example 2: Installation on an HDP Cluster</p>
+<p>In this example, the Hadoop-side installation is on an HDP system. To show what happens when Database Authentication is enabled but no request key is generated, we deliberately leave the <code class="codeph">&ndash;-requestdb</code> parameter out of the install operation. This is corrected later in the example.</p>
+<pre dir="ltr">
+[root@clust42bda07-adm BDSJaguar]# ./jaguar install
+BigDataSQL: =======================================================================.
+BigDataSQL: Oracle Big Data SQL 3.2.1.
+BigDataSQL: Starting execution on: Mon Nov 13 12:41:05 2017.
+BigDataSQL:          in directory: /root/BDSJaguar.
+BigDataSQL:          and hostname: clust42bda07-adm.us.oracle.com.
+BigDataSQL: Verifying configuration parameters...
+BigDataSQL: Starting server...
+BigDataSQL: API protocol: http.
+BigDataSQL: API port: 8080.
+BigDataSQL: Waiting for management server to respond...
+BigDataSQL: WARNING: If there are services in the stale state, they will be restarted !!!.
+
+Ambari user: admin
+Password:
+
+BigDataSQL: Authentication succeeded.
+BigDataSQL: API version: 1.
+BigDataSQL: Cluster type: HDP.
+BigDataSQL: Cluster name: afghhdp.
+BigDataSQL: Cluster version: HDP-2.6.
+BigDataSQL: Service: BIGDATASQL.
+BigDataSQL: Verifying service configuration...
+BigDataSQL: Connection type: Ethernet.
+BigDataSQL: Initialization completed..
+BigDataSQL: Copying Stack to Ambari..
+BigDataSQL: Restarting management server...
+BigDataSQL: Waiting for management server to respond...
+BigDataSQL: Starting deployment server..
+BigDataSQL: Deployment server listening
+BigDataSQL: Analyzing cluster ....
+BigDataSQL: Checking for Big Data SQL requirements..
+BigDataSQL: Preparing installation..
+BigDataSQL: Installing Big Data SQL agents..
+BigDataSQL: Installing Big Data SQL servers..
+BigDataSQL: Starting bigdatasql service.
+BigDataSQL: Restarting stale services..
+BigDataSQL: Starting hdfs service.
+BigDataSQL: Starting yarn service.
+BigDataSQL: Starting mapreduce2 service.
+BigDataSQL: Starting hbase service.
+BigDataSQL: Big Data SQL task completed..
+BigDataSQL: Creating database side bundle..
+BigDataSQL: Creating bundle file.
+BigDataSQL: Bundle file created: /root/BDSJaguar/db-bundles/bds-3.2.1-db-afghhdp-171113.1241.zip.
+BigDataSQL: WARNING: Database authentication is enabled, you will need a reqkey file for set it up..
+BigDataSQL:          Ignore this warning if you already have one or if your database already has its key,.
+BigDataSQL:          otherwise, use './jaguar --requestdb &lt;db name&gt; databasereq' for create one..
+BigDataSQL: INSTALL workflow completed.
+</pre>
+<p><span class="bold">Database Authentication was enabled but a key was not requested in the install operation and has not been request previously for the"laicadb&rdquo; database where we want to perform the installation. To correct this, we invoke the Jaguar databasereq operation to create a request key for "laicadb":</span></p>
+<pre dir="ltr">
+[root@clust42bda07-adm BDSJaguar]# ./jaguar --requestdb laicadb databasereq
+BigDataSQL: =======================================================================.
+BigDataSQL: Oracle Big Data SQL 3.2.1.
+BigDataSQL: Starting execution on: Mon Nov 13 12:56:39 2017.
+BigDataSQL:          in directory: /root/BDSJaguar.
+BigDataSQL:          and hostname: clust42bda07-adm.us.oracle.com.
+BigDataSQL: Verifying configuration parameters...
+BigDataSQL: Starting server...
+BigDataSQL: API protocol: http.
+BigDataSQL: API port: 8080.
+BigDataSQL: Waiting for management server to respond...
+BigDataSQL: WARNING: If there are services in the stale state, they will be restarted !!!.
+
+Ambari user: admin
+Password:
+
+BigDataSQL: Authentication succeeded.
+BigDataSQL: API version: 1.
+BigDataSQL: Cluster type: HDP.
+BigDataSQL: Cluster name: afghhdp.
+BigDataSQL: Cluster version: HDP-2.6.
+BigDataSQL: Service: BIGDATASQL.
+BigDataSQL: Verifying service configuration...
+BigDataSQL: Connection type: Ethernet.
+BigDataSQL: Initialization completed..
+BigDataSQL: Starting deployment server..
+BigDataSQL: Deployment server listening
+BigDataSQL: Requiring database keys only..
+BigDataSQL: reqkey file created: /root/BDSJaguar/dbkeys/laicadb.reqkey.
+BigDataSQL: DATABASEREQ workflow completed.
+</pre>
+<p><span class="bold">Now that we have a database-side installation bundle and a .reqkey file, we copy both to the database node.</span></p>
+<pre dir="ltr">
+[root@clust42bda07-adm BDSJaguar]# scp /root/BDSJaguar/db-bundles/bds-3.2.1-db-afghhdp-171113.1241.zip laica@clust42bda05-adm:/home/laica
+laica@clust42bda05-adm's password:
+bds-3.2.1-db-afghhdp-171113.1241.zip                                                            100%  604MB 112.0MB/s   00:05
+[root@clust42bda07-adm BDSJaguar]# scp /root/BDSJaguar/dbkeys/laicadb.reqkey laica@clust42bda05-adm:/home/laica                     laica@clust42bda05-adm's password:
+laicadb.reqkey                                                                                  100%  253   453.7KB/s   00:00
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">Next, unzip the bundle, execute run file, and copy the request key to the install directory created by the run file.</span></p>
+<pre dir="ltr">
+[laica@clust42bda05-adm ~]$ unzip bds-3.2.1-db-afghhdp-171113.1241.zip
+Archive:  bds-3.2.1-db-afghhdp-171113.1241.zip
+  inflating: bds-3.2.1-db-afghhdp-171113.1241.run
+[laica@clust42bda05-adm ~]$ ./bds-3.2.1-db-afghhdp-171113.1241.run
+bds-3.2.1-db-afghhdp-171113.1241.run: platform is               : Linux
+bds-3.2.1-db-afghhdp-171113.1241.run: script started at         : Mon Nov 13 15:03:19 CST 2017
+bds-3.2.1-db-afghhdp-171113.1241.run: running location          : /home/laica
+bds-3.2.1-db-afghhdp-171113.1241.run: ORACLE_SID                : laicadb
+bds-3.2.1-db-afghhdp-171113.1241.run: ORACLE_HOME               : /u03/app/laica/12.1.0/dbhome_laicadb
+bds-3.2.1-db-afghhdp-171113.1241.run: install directory         : /u03/app/laica/12.1.0/dbhome_laicadb/BDSJaguar-3.2.1/afghhdp-2-clust42bda07-adm.us.oracle.com
+bds-3.2.1-db-afghhdp-171113.1241.run: extracting...
+bds-3.2.1-db-afghhdp-171113.1241.run: installer extracted successfully
+
+cd $ORACLE_HOME/BDSJaguar-3.2.1/afghhdp-2-clust42bda07-adm.us.oracle.com
+
+bds-3.2.1-db-afghhdp-171113.1241.run: for setup Big Data SQL on this database instance
+[laica@clust42bda05-adm ~]$ mv laicadb.reqkey $ORACLE_HOME/BDSJaguar-3.2.1/afghhdp-2-clust42bda07-adm.us.oracle.com
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">Change to the install directory and run the database-side install utility (bds-database-install.sh).</span></p>
+<pre dir="ltr">
+[laica@clust42bda05-adm ~]$ cd $ORACLE_HOME/BDSJaguar-3.2.1/afghhdp-2-clust42bda07-adm.us.oracle.com
+[laica@clust42bda05-adm afghhdp-2-clust42bda07-adm.us.oracle.com]$ ./bds-database-install.sh --install
+bds-database-install: platform is               : Linux
+bds-database-install: script started at         : Mon Nov 13 15:04:54 CST 2017
+bds-database-install: running location          : /u03/app/laica/12.1.0/dbhome_laicadb/BDSJaguar-3.2.1/afghhdp-2-clust42bda07-adm.us.oracle.com
+bds-database-install: ORACLE_SID                : laicadb
+bds-database-install: ORACLE_HOME               : /u03/app/laica/12.1.0/dbhome_laicadb
+bds-database-install: configuration spfile      : spfilelaicadb.ora
+bds-database-install: Grid home                 : /u03/app/12.1.0/grid
+bds-database-install: db resource               : laicadb
+bds-database-install: crs resource              : ora.laicadb.db
+bds-database-install: database type             : SINGLE
+bds-database-install: cardinality               : 1
+bds-database-install: mta extproc sid           : bds_laicadb_afghhdp
+bds-database-install: use of crsctl             : true
+bds-database-install: cluster type              : hdp
+bds-database-install: connection type           : Ethernet
+bds-database-install: cluster name              : afghhdp
+bds-database-install: dictionary cluster name   : afghhdp
+bds-database-install: Hadoop version            : hadoop-2.7.3.2.6.3.0-235
+bds-database-install: Hive version              : apache-hive-1.2.1000.2.6.3.0-235-bin
+bds-database-install: HBase version             : hbase-1.1.2.2.6.3.0-235
+bds-database-install: BDSQL version             : 3.2.1
+bds-database-install: BDSQL install date        : Mon Nov 13 12:53:29 2017
+bds-database-install: bd_cell version           : bd_cell-12.1.2.0.100_LINUX.X64_171109.1-1.x86_64
+bds-database-install: cp2hadoop kit version     : orahivedp-3.2.1
+bds-database-install: ohsh kit version          : ohsh-1.3.1
+bds-database-install: cell config dir           : /etc/oracle/cell/network-config
+bds-database-install: hybrid cell model         : false
+bds-database-install: cell network(s)           : 10.128.18.35/21
+bds-database-install: allow multiple subnets    : _skgxp_ant_options=1
+bds-database-install: use UDP protocol          : _skgxp_dynamic_protocol=2
+bds-database-install: cellaffinity.ora file     : missing
+bds-database-install: listener end point        : EXTPROC1521
+bds-database-install: installing JDK            : jdk1.8.0_151
+bds-database-install: action                    : setup
+bds-database-setup: only one network interface detected, 10.128.18.35/21 at eth0
+bds-database-setup: ping to cluster nodes
+bds-database-setup: response ok from 10.128.18.36
+bds-database-setup: response ok from 10.128.20.189
+bds-database-setup: installing cluster configuration files
+bds-database-setup: unpacking hadoop-2.7.3.2.6.3.0-235.tar.gz
+bds-database-setup: unpacking hadoop-2.7.0-nativelib-ol6.tar.gz
+bds-database-setup: unpacking apache-hive-1.2.1000.2.6.3.0-235-bin.tar.gz
+bds-database-setup: unpacking hbase-1.1.2.2.6.3.0-235.tar.gz
+bds-database-setup: creating database objects
+bds-database-setup: mta will be setup
+bds-database-setup: creating /u03/app/laica/12.1.0/dbhome_laicadb/hs/admin/initbds_laicadb_afghhdp.ora
+bds-database-setup: mta shutdown bds_laicadb_afghhdp
+bds-database-setup: removing existing mta parameter settings
+bds-database-setup: stopping crs resource bds_laicadb_afghhdp
+bds-database-setup: deleting crs resource bds_laicadb_afghhdp
+bds-database-setup: registering crs resource bds_laicadb_afghhdp
+bds-database-setup: using dependency db resource of laicadb
+bds-database-setup: starting crs resource bds_laicadb_afghhdp
+bds-database-setup: patching view LOADER_DIR_OBJS
+bds-database-setup: creating mta dblinks
+bds-database-setup: installing cp2hadoop
+bds-database-setup: installing ohsh
+bds-database-setup: setup cell contiguration
+bds-database-setup: cellinit.ora already has the configured ip address
+bds-database-setup: cellinit.ora already enabled with UDP protocol
+bds-database-setup: celliniteth.ora already has the configured ip address
+bds-database-setup: celliniteth.ora already enabled with UDP protocol
+bds-database-setup: cellaffinity.ora already disabled
+bds-database-setup: no database restart needed
+
+bds-database-setup: activation zip file created: afghhdp-2-clust42bda07-adm.us.oracle.com-clust42bda05-adm.us.oracle.com.zip
+
+# /u03/app/laica/12.1.0/dbhome_laicadb/BDSJaguar-3.2.1/afghhdp-2-clust42bda07-adm.us.oracle.com/afghhdp-2-clust42bda07-adm.us.oracle.com-clust42bda05-adm.us.oracle.com.zip
+
+bds-database-setup: copy this file to root@clust42bda07-adm.us.oracle.com:/opt/oracle/DM/databases/conf
+bds-database-setup: and run:
+
+./jaguar databaseack
+
+bds-database-setup: configuration successful for cluster afghhdp
+
+bds-database-setup: log files in /u03/app/laica/12.1.0/dbhome_laicadb/install
+bds-database-setup: bds-database-install-29088-* files for more detailed info
+bds-database-setup: full log in bds-database-install-29088-main-script.log
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">The zip file created by the install operation contains the .ackkey file needed to complete Database Authentication setup. Copy this zip file back to the Hadoop cluster management server</span>.</p>
+<pre dir="ltr">
+[laica@clust42bda05-adm afghhdp-2-clust42bda07-adm.us.oracle.com]$ scp afghhdp-2-clust42bda07-adm.us.oracle.com-clust42bda05-adm.us.oracle.com.zip root@clust42bda07-adm.us.oracle.com:/opt/oracle/DM/databases/conf
+root@clust42bda07-adm.us.oracle.com's password:
+afghhdp-2-clust42bda07-adm.us.oracle.com-clust42bda05-adm.us.oracle.com.zip                       100%  739     0.7KB/s   00:00
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p><span class="bold">As root on the Hadoop side run Jaguar&rsquo;s Database Acknowledge operation.</span></p>
+<pre dir="ltr">
+[root@clust42bda07-adm BDSJaguar]# ./jaguar databaseack
+BigDataSQL: =======================================================================.
+BigDataSQL: Oracle Big Data SQL 3.2.1.
+BigDataSQL: Starting execution on: Mon Nov 13 13:08:43 2017.
+BigDataSQL:          in directory: /root/BDSJaguar.
+BigDataSQL:          and hostname: clust42bda07-adm.us.oracle.com.
+BigDataSQL: Verifying configuration parameters...
+BigDataSQL: Starting server...
+BigDataSQL: API protocol: http.
+BigDataSQL: API port: 8080.
+BigDataSQL: Waiting for management server to respond...
+BigDataSQL: WARNING: If there are services in the stale state, they will be restarted !!!.
+
+Ambari user: admin
+Password:
+
+BigDataSQL: Authentication succeeded.
+BigDataSQL: API version: 1.
+BigDataSQL: Cluster type: HDP.
+BigDataSQL: Cluster name: afghhdp.
+BigDataSQL: Cluster version: HDP-2.6.
+BigDataSQL: Service: BIGDATASQL.
+BigDataSQL: Verifying service configuration...
+BigDataSQL: Connection type: Ethernet.
+BigDataSQL: Initialization completed..
+BigDataSQL: Starting deployment server..
+BigDataSQL: Database acknowledge..
+BigDataSQL: Deployment server listening
+BigDataSQL: Refreshing Big Data SQL database connections..
+BigDataSQL: Starting bigdatasql service.
+BigDataSQL: Setting database key for Big Data SQL..
+BigDataSQL: Restarting stale services..
+BigDataSQL: Starting hdfs service.
+BigDataSQL: Starting yarn service.
+BigDataSQL: Starting mapreduce2 service.
+BigDataSQL: Starting hbase service.
+
+Big Data SQL setup finished !!!
+run bdschecksw tool on database node for sanity verification
+
+BigDataSQL: DATABASEACK workflow completed.
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="GUID-F615A82D-D02F-4B92-B9E4-3F580905EC8D.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="GUID-AD005660-CA98-46F6-A312-DF265D743B03.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds321/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

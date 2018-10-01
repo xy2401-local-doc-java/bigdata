@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Installing or Upgrading the Hadoop Side of Oracle Big Data SQL</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="After downloading the Oracle Big Data SQL deployment bundle and extracting the files, the next step is to configure the installer and then run the installation." />
+<meta name="dcterms.created" content="2018-08-03T19:37:49Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Big Data SQL Installation Guide" />
+<meta name="dcterms.identifier" content="E99049-01" />
+<meta name="dcterms.isVersionOf" content="BDSIG" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="http://docs.oracle.com/bigdata/bds32/index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Index" href="index.htm" title="Index" type="text/html" />
+<link rel="Prev" href="introduction.htm" title="Previous" type="text/html" />
+<link rel="Next" href="installdbside.htm" title="Next" type="text/html" />
+<link rel="alternate" href="E99049-01.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-CB4E25D4-B406-4CED-9097-D897C1AEAA58"></a> <span id="PAGE" style="display:none;">5/21</span> <!-- End Header -->
+<h1 id="BDSIG-GUID-CB4E25D4-B406-4CED-9097-D897C1AEAA58" class="sect1"><span class="enumeration_chapter">2</span> Installing or Upgrading the Hadoop Side of Oracle Big Data SQL</h1>
+<div>
+<p>After downloading the Oracle Big Data SQL deployment bundle and extracting the files, the next step is to configure the installer and then run the installation.</p>
+<div class="infobox-note" id="GUID-CB4E25D4-B406-4CED-9097-D897C1AEAA58__GUID-1C118414-7AED-481B-829C-B29564F184C1">
+<p class="notep1">Note to Oracle Big Data Appliance 4.10 Customers:</p>
+The Hadoop-side installation instructions provided in this section does not apply to Oracle Big Data Appliance 4.10. See <span class="italic">Special Installation Procedures for Oracle Big Data Appliance 4.10</span>.</div>
+<p><a id="d4061e21" class="indexterm-anchor"></a><a id="d4061e23" class="indexterm-anchor"></a>The installation of Oracle Big Data SQL on the Hadoop cluster is deployed using the services provides by the cluster management server (Cloudera Manager or Ambari). The Jaguar <code class="codeph">install</code> command uses the management server API to register the BDS service and start the deployment task. From there, the management server controls the process and deploys the software to the nodes of the cluster and installs it.</p>
+<p>The installation also generates the deployment bundle for the database side of the installation.</p>
+<p>If a previous version of Oracle Big Data SQL is already installed, Oracle Big Data SQL upgrades the installation to Release 3.2. Users of previous Oracle Big Data SQL releases, please note that <code class="codeph">setup-bds</code>, the previous Hadoop-side installer, had been replaced by the Jaguar installer and that the configuration parameters for the installation have changed significantly in this release.</p>
+</div>
+<div class="sect2"><a id="GUID-49BE7730-A32B-4F78-85A3-64DBEDB85756"></a>
+<h2 id="BDSIG-GUID-49BE7730-A32B-4F78-85A3-64DBEDB85756" class="sect2"><span class="enumeration_section">2.1</span> Before You Start</h2>
+<div>
+<div class="section">
+<p class="subhead2">Check to Ensure that all DataNodes of the Cluster Meet the Prerequisites</p>
+<p><a id="d4061e55" class="indexterm-anchor"></a><a id="d4061e57" class="indexterm-anchor"></a><a id="d4061e59" class="indexterm-anchor"></a><a id="d4061e61" class="indexterm-anchor"></a><a id="d4061e63" class="indexterm-anchor"></a><a id="d4061e65" class="indexterm-anchor"></a><a id="d4061e67" class="indexterm-anchor"></a><a id="d4061e69" class="indexterm-anchor"></a><a id="d4061e71" class="indexterm-anchor"></a><a id="d4061e73" class="indexterm-anchor"></a><a id="d4061e75" class="indexterm-anchor"></a>Prerequisites for both the Hadoop and Oracle Database sides of the installation are described earlier in this chapter.</p>
+<p>If you miss a prerequisite, the installer will alert you. You can see this in the output examples in <span class="italic">Appendix B</span>.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead2">Plan the Configuration and Edit the Jaguar Configuration File</p>
+<p>Review the <a href="installhadoopside.htm#GUID-91773A49-ABB4-4BC8-9068-3238DF50A108">Jaguar Configuration Parameter and Command Reference</a> in this chapter. You should know the answers to these questions before editing the configuration file:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="italic">Do you want to enable Database Authentication in order to validate connection requests from Oracle Database to Big Data SQL server processes on the Hadoop DataNodes?</span></p>
+<p>Database Authentication in the network connection between the Oracle Database and Hadoop is set to <code class="codeph">&ldquo;true&rdquo;</code> in the configuration by default. You have the option to disable it by setting the <code class="codeph">database_auth_enabled</code> to <code class="codeph">&ldquo;false&rdquo;</code>:</p>
+<pre dir="ltr">
+"database_auth_enabled" : "false",
+</pre></li>
+<li>
+<p><span class="italic">Do you want to use the Multi-User Authorization feature?</span></p>
+<p>Multi-User Authorization enables you to grant users other than <code class="codeph">oracle</code> permissions to run SQL queries against the Hadoop cluster.</p>
+<div class="p">The first step in setting up Multi-User Authorization is to set these parameters in the security section of the configuration file:
+<pre dir="ltr">
+"impersonation_enabled" : "true",
+"impersonation_usehosts" : "true",
+"impersonation_blacklist" : "hdfs,hive"
+</pre>
+Note that you can add any account to the blacklist.</div>
+</li>
+<li>
+<p><span class="italic">Are the Hadoop cluster and the Oracle Database system going to communicate over Ethernet or over InfiniBand? Also, do the Hadoop nodes have more than one network interface?</span></p>
+<div class="p">See the <code class="codeph">use_infiniband</code> and <code class="codeph">selection_subnet</code> parameters. (The <code class="codeph">selection_subnet</code> does not apply to Oracle Big Data Appliance.)
+<pre dir="ltr">
+"use_infiniband" : "false",
+"selection_subnet" : "5.32.128.10/21"
+</pre>
+By default <code class="codeph">use_infiniband</code> is set to false. Ethernet is the default protocol.</div>
+</li>
+<li>
+<p><span class="italic">Are you going pre-download the Hadoop and Hive client tarballs and set up a local repository or directory where the installer can acquire them, or, do you want the installer to download them directly from the Cloudera or Hortonworks repository on the Internet</span>?</p>
+<p>On Oracle Big Data Appliance the tarballs are stored on and automatically retrieved from a repository within the cluster. Therefore, the related configuration parameters do not apply. However, for other CDH systems or Hortonworks, you can choose to specify an URL or directory path or both for the tarballs. If instead you choose to accept the default and let the installer download the files from the Internet, then ensure that there is Internet access from the node where you are running the installation.</p>
+<pre dir="ltr">
+"url" : [
+"http://repo1.domain.com/loc/hadoop",
+"http://repo2.domain.com/loc",
+"http://alternate.domain.com/backup/repo"
+],
+"dir" : [ "/root/hadooprepo" ]
+</pre>
+<p>If you choose to let the installer download the tarballs from the Internet, you can configure the installer to work with HTTP/HTTPS proxies within your environment:</p>
+<pre dir="ltr">
+"http_proxy" : "http://my.proxy.server.com:80",
+"https_proxy" : "http://mysecure.proxy.server.com:80"
+</pre>
+<p>You can either set the proxy values in the configuration file or use preexisting proxy environment variables.</p>
+</li>
+<li>
+<p><span class="italic">If the network is Kerberos-secured, do you want the installer to set up automatic Kerberos ticket renewal for the</span> <code class="codeph">oracle</code> <span class="italic">account used by Oracle Big Data SQL?</span></p>
+<div class="p">See the parameters in the <code class="codeph">kerberos</code> section:
+<pre dir="ltr">
+"principal" : "oracle/mycluster@MY.DOMAIN.COM",
+"keytab" : "/home/oracle/security/oracle.keytab",
+"hdfs-principal" : "hdfs/mycluster@MY.DOMAIN.COM",
+"hdfs-keytab" : "/home/hdfs/security/hdfs.keytab"
+</pre></div>
+</li>
+<li>
+<p><span class="italic">Do you want the Oracle Big Data SQL install process to automatically restart services that are in a stale state?</span></p>
+<p>By default, stale services are restarted automatically. If you want to suppress this, you can set the <code class="codeph">restart_stale</code> parameter in the configuration file to <code class="codeph">&ldquo;false&rdquo;</code>.</p>
+</li>
+<li>
+<p><span class="italic">Is the Hadoop cluster using the default REST API port for CDH or Ambari?</span></p>
+<p>If not, set the <code class="codeph">ports</code> parameter.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-49BE7730-A32B-4F78-85A3-64DBEDB85756__GUID-D7EC7223-8327-49D4-802D-DDBDD10FC7E6">
+<p class="notep1">Note:</p>
+<p>Setting these parameters in the configuration file does not complete the set up for some features. For example, to enable Database Authentication, you must also pass a special <code class="codeph">-&mdash;requestdb</code> parameter to the Jaguar utility in order to identify the target database or databases. There are also steps required to generate and install the security key used by this feature. To enable Multi-User Authorization, you start by setting the Hadoop Impersonation parameters in the configuration file, but also need to set up the authorization rules. The steps to complete these setups are provided where needed as you work through the instructions in this guide.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-12D293B8-EE83-4FBC-9289-EBC6E9398D23"></a>
+<h2 id="BDSIG-GUID-12D293B8-EE83-4FBC-9289-EBC6E9398D23" class="sect2"><span class="enumeration_section">2.2</span> About the Jaguar Utility</h2>
+<div>
+<p><a id="d4061e226" class="indexterm-anchor"></a><a id="d4061e228" class="indexterm-anchor"></a><a id="d4061e230" class="indexterm-anchor"></a><a id="d4061e232" class="indexterm-anchor"></a><a id="d4061e234" class="indexterm-anchor"></a><a id="d4061e236" class="indexterm-anchor"></a><a id="d4061e238" class="indexterm-anchor"></a><a id="d4061e240" class="indexterm-anchor"></a>Jaguar is a multifunction command line utility that you use to perform all Oracle Big Data SQL operations on the Hadoop cluster.</p>
+<p>Jaguar currently supports these operations:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">install</code></p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Deploys Oracle Big Data SQL binaries to each cluster node that is provisioned with the DataNode service.</p>
+</li>
+<li>
+<p>Configures Linux and network settings for <code class="codeph">bd_cell</code> (the Oracle Big Data SQL service) on each of these nodes.</p>
+</li>
+<li>
+<p>Generates the bundle that installs Oracle Big Data SQL on the Oracle Database side. It uses the parameter values that you set in the configuration file in order to configure the Oracle Database connection to the cluster.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code class="codeph">updatenodes</code></p>
+<p>Checks and updates the installation on the DataNodes of the Hadoop cluster.</p>
+</li>
+<li>
+<p><code class="codeph">reconfigure</code></p>
+<p>Modifies the current configuration of the installation (according to the settings in the configuration file provided).</p>
+</li>
+<li>
+<p><code class="codeph">databasereq</code></p>
+<p>Generates a request key file that contains one segment of the GUID-key pair used in Database Authentication. (The <code class="codeph">databasereq</code> operation performs this function only. For <code class="codeph">install</code>, <code class="codeph">updatenodes</code>, and <code class="codeph">reconfigure</code>, request key generation is an option that can be included as part of the larger operation.)</p>
+</li>
+<li>
+<p><code class="codeph">databaseack</code></p>
+<p>Perform the last step in Database Authentication setup &ndash; install the GUID-key pair on all Hadoop DataNodes in a cluster in order to allow queries from the Oracle Database that provided it.</p>
+</li>
+<li>
+<p><code class="codeph">uninstall</code></p>
+<p>Uninstalls Oracle Big Data SQL from all DataNodes of the Hadoop cluster.</p>
+</li>
+</ul>
+<div class="infoboxnotealso" id="GUID-12D293B8-EE83-4FBC-9289-EBC6E9398D23__GUID-15C4C15E-4748-41AA-8822-B81CB0F76C8B">
+<p class="notep1">See Also:</p>
+<a href="installhadoopside.htm#GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__JAGUAROPERATIONS-0976E46B">Jaguar Operations</a> in the next section provides details and examples.</div>
+</div>
+<div class="sect3"><a id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108"></a>
+<h3 id="BDSIG-GUID-91773A49-ABB4-4BC8-9068-3238DF50A108" class="sect3"><span class="enumeration_section">2.2.1</span> Jaguar Configuration Parameter and Command Reference</h3>
+<div>
+<div class="section">
+<p class="subhead3">Configuration Parameters</p>
+<p><a id="d4061e331" class="indexterm-anchor"></a><a id="d4061e333" class="indexterm-anchor"></a><a id="d4061e335" class="indexterm-anchor"></a><a id="d4061e337" class="indexterm-anchor"></a><a id="d4061e339" class="indexterm-anchor"></a><a id="d4061e341" class="indexterm-anchor"></a><a id="d4061e343" class="indexterm-anchor"></a><a id="d4061e345" class="indexterm-anchor"></a><a id="d4061e347" class="indexterm-anchor"></a><a id="d4061e349" class="indexterm-anchor"></a><a id="d4061e351" class="indexterm-anchor"></a><a id="d4061e354" class="indexterm-anchor"></a><a id="d4061e356" class="indexterm-anchor"></a><a id="d4061e358" class="indexterm-anchor"></a>The table below describes all parameters available for use in <code class="codeph">bds-config.json</code> or your own configuration file. Only the cluster <code class="codeph">name</code> parameter is always required. Others are required under certain conditions stated in the description.</p>
+<div class="infobox-note" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__GUID-6A4D0F66-4747-4231-AC0A-05EAC5B535DB">
+<p class="notep1">Note:</p>
+When editing the configuration file, be sure to maintain the JSON format. Square brackets are required around lists, even in the case of a list with a single item.</div>
+<div class="tblformal" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__CONFIGURATIONPARAMETERSINBDS-CONFIG-4A57FD6F">
+<p class="titleintable">Table 2-1 Configuration Parameters in bds-config.json (or in Customer-Created Configuration Files)</p>
+<table class="cellalignment74" title="Configuration Parameters in bds-config.json (or in Customer-Created Configuration Files)" summary="The first column lists column names each parameter. The second column identifies the parameter type. The third column describes the parameter and identifies required or conditionally required parameters. Other parameters are optional.">
+<thead>
+<tr class="cellalignment54">
+<th class="cellalignment75" id="d4061e380"><span class="bold">Parameter</span></th>
+<th class="cellalignment75" id="d4061e383">Type</th>
+<th class="cellalignment75" id="d4061e385"><span class="bold">Description</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e390" headers="d4061e380"><code class="codeph">name</code></td>
+<td class="cellalignment76" headers="d4061e390 d4061e383"><code class="codeph">String</code></td>
+<td class="cellalignment76" headers="d4061e390 d4061e385">
+<p>The name of the cluster.</p>
+<p>For CDH clusters (Oracle Big Data Appliance or other), this name can be either the physical cluster name or the display name. The installer searches first by physical name and then by display name.</p>
+<p>Required.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e404" headers="d4061e380"><code class="codeph">port</code></td>
+<td class="cellalignment76" headers="d4061e404 d4061e383"><code class="codeph">Integer</code></td>
+<td class="cellalignment76" headers="d4061e404 d4061e385">
+<p>Cloudera Manager or Ambari REST API port.</p>
+<p>By default, on CDH clusters this port is 7183 for secured and 7180 for unsecured access. For Ambari, is 8443 for secured and 8080 for unsecured.</p>
+<p>Optional.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e418" headers="d4061e380"><code class="codeph">restart_stale</code></td>
+<td class="cellalignment76" headers="d4061e418 d4061e383"><code class="codeph">Boolean</code></td>
+<td class="cellalignment76" headers="d4061e418 d4061e385">
+<p>If <code class="codeph">&ldquo;true&rdquo;</code>, then services with stale configurations are restarted at the end of install process. These services are HDFS NodeName, YARN NodeManager and/or Hive (depending upon the settings selected).</p>
+<p>If <code class="codeph">&ldquo;false&rdquo;</code>, the installation will finish but those services will remain on stale state. This is useful for avoid service interruption in order to restart when it will be more convenient.</p>
+<p>Optional. The default is <code class="codeph">&ldquo;true&rdquo;</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e441" headers="d4061e380"><code class="codeph">dir</code></td>
+<td class="cellalignment76" headers="d4061e441 d4061e383"><code class="codeph">List</code></td>
+<td class="cellalignment76" headers="d4061e441 d4061e385">
+<p>List of directories where the Hadoop clients for deployment on the database side are located. These directories can be on the local file system or on NFS. Directories are searched in the order listed. By default, the list is empty. If the <code class="codeph">dir</code> list has any entries, these are searched before the URL list is searched, since this option should provide the fastest access to the clients. To give the installer the quickest access to the tarballs, you could set up a local repository, download the tarballs separately though a direct Internet connection, copy them into a directory on the same node where the Oracle Big Data SQL installer will run, and list that directory in the <code class="codeph">dir</code> parameter.</p>
+<p>Optional.</p>
+<p>Not applicable to Oracle Big Data Appliance.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e461" headers="d4061e380"><code class="codeph">url</code></td>
+<td class="cellalignment76" headers="d4061e461 d4061e383"><code class="codeph">List</code></td>
+<td class="cellalignment76" headers="d4061e461 d4061e385">
+<p>This is the list of URLs where the Hadoop client tarballs for deployment on the database side are located. If you data center already has repositories set up for access via HTTP, then you may prefer to maintain the Hadoop tarballs in that repository and use URL parameter for Oracle Big Data SQL installations. The URLs can be to the localhost, an internal network, or a site on the Internet (if the node has Internet access). The URLs are tried in the order listed. If Hadoop clients cannot be successfully located via the <code class="codeph">directory</code> list or <code class="codeph">url</code> list or if both lists are empty, then the Cloudera or Hortonworks public repo is used by default. In that case, the node must have Internet access at install time. Note that internal proxy values and/or OS environment proxy settings must be set to allow this access if needed.</p>
+<p>If access to all listed repositories fails and/or Internet access is blocked, the database installation bundle is not created and a warning message is displayed. After correcting any problems and providing access to a repository, you can re-run the installer using the <code class="codeph">reconfigure</code> and the installer should successfully generated the database-side installation bundle. Note that <code class="codeph">reconfigure</code> detects and implements changes according the current directives in the configuration file. It does not uninstall and reinstall Oracle Big Data SQL on the cluster.</p>
+<p>Not applicable to Oracle Big Data Appliance. The tarballs are stored in a local repository in the cluster and the location is automatically added to the configuration file.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e487" headers="d4061e380"><code class="codeph">use_infiniband</code></td>
+<td class="cellalignment76" headers="d4061e487 d4061e383"><code class="codeph">Boolean</code></td>
+<td class="cellalignment76" headers="d4061e487 d4061e385">
+<p>If <code class="codeph">&ldquo;true&rdquo;</code>, the communication will be set through private network interface, if <code class="codeph">"false"</code> by client network interface.</p>
+<p>Used for Oracle Big Data Appliance clusters only.</p>
+<p>Default value: <code class="codeph">&ldquo;false&rdquo;</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e510" headers="d4061e380"><code class="codeph">selection_subnet</code></td>
+<td class="cellalignment76" headers="d4061e510 d4061e383"><code class="codeph">String</code></td>
+<td class="cellalignment76" headers="d4061e510 d4061e385">
+<p>If Hadoop cluster nodes have several network interfaces, you can use <code class="codeph">selection_subnet</code> to select one. The selected IP address will be the nearest to the selection subnetwork.</p>
+<p>If the Hadoop cluster nodes have only one network interface, this parameter is ignored.</p>
+<p>The default value depends upon these conditions:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>On non-Oracle commodity Hadoop clusters (CDH or HDP) the default selection is 0.0.0.0/0. (If a cluster node has several IP addresses, the lowest address is selected.)</p>
+</li>
+<li>
+<p>On Oracle Big Data Appliance, the default is either the private or client IP address, depending upon the setting of the <code class="codeph">use_infiniband</code> parameter.</p>
+</li>
+</ul>
+<div class="infobox-note" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__GUID-B8673C4E-71DD-49B4-9CA2-1559C6DCF186">
+<p class="notep1">Note for Oracle Big Data Appliance Users:</p>
+It's possible to configure several networks on an Oracle Big Data Appliance. If multiple networks exist, then this parameter must be set in order to select a specific network.</div>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e539" headers="d4061e380">
+<pre dir="ltr">
+http_proxy
+https_proxy
+</pre></td>
+<td class="cellalignment76" headers="d4061e539 d4061e383"><code class="codeph">String</code></td>
+<td class="cellalignment76" headers="d4061e539 d4061e385">
+<p>Specify the proxy settings to enable download the Hadoop client tarballs and cluster settings.</p>
+<p>If both of these strings are empty, the OS environment proxy settings are used.</p>
+<p>By default, both strings are empty.</p>
+<p>Using these two parameters in the configuration file is optional. If they are needed, you could instead set them externally as in <code class="codeph">export http_proxy=&lt;<span class="codeinlineitalic">proxy value</span>&gt;</code></p>
+<p>Not applicable to Oracle Big Data Appliance</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e562" headers="d4061e380"><code class="codeph">database_auth_enabled</code></td>
+<td class="cellalignment76" headers="d4061e562 d4061e383"><code class="codeph">Boolean</code></td>
+<td class="cellalignment76" headers="d4061e562 d4061e385">
+<p>If <code class="codeph">"true"</code>, the database authentication through the GUID-key mechanism is enabled. This requires an extra step in the installation process in order to set up the database GUID-key pair on the cluster side.</p>
+<p>If <code class="codeph">"false"</code>, the feature will not be enabled.</p>
+<p>Default value: <code class="codeph">"true"</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e585" headers="d4061e380"><code class="codeph">impersonation_enabled</code></td>
+<td class="cellalignment76" headers="d4061e585 d4061e383"><code class="codeph">Boolean</code></td>
+<td class="cellalignment76" headers="d4061e585 d4061e385">
+<p>If <code class="codeph">"true"</code>, Hadoop impersonation for Multi-user Authorization support is enabled. This sets up the <code class="codeph">oracle</code> OS user as the Hadoop proxy user and propagates the proxy user&rsquo;s black list to the database nodes. If <code class="codeph">"false"</code>, this feature is not enabled.</p>
+<p>Default value: <code class="codeph">"false"</code> .</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e609" headers="d4061e380"><code class="codeph">impersonation_blacklist</code></td>
+<td class="cellalignment76" headers="d4061e609 d4061e383"><code class="codeph">String</code></td>
+<td class="cellalignment76" headers="d4061e609 d4061e385">
+<p>The Hadoop proxy users blacklisted for impersonation. This parameter is used only used if Hadoop impersonation is enabled.</p>
+<p>Since this is a required setting on the Oracle Database side, it is provided with a default value of <code class="codeph">"dummy"</code> in order to avoid extproc errors that can occur if Hadoop Impersonation is not enabled.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e625" headers="d4061e380"><code class="codeph">impersonation_usehosts</code></td>
+<td class="cellalignment76" headers="d4061e625 d4061e383"><code class="codeph">Boolean</code></td>
+<td class="cellalignment76" headers="d4061e625 d4061e385">
+<p>If "true", the proxy hosts variable is set to the IP address of the database node.</p>
+<p>If "false", the proxy hosts variable is set to the wildcard: "*".</p>
+<p>Default value: <code class="codeph">"true"</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e642" headers="d4061e380"><code class="codeph">principal</code></td>
+<td class="cellalignment76" headers="d4061e642 d4061e383"><code class="codeph">String</code></td>
+<td class="cellalignment76" headers="d4061e642 d4061e385">
+<p>The fully-qualified Kerberos principal name for the <code class="codeph">oracle</code> user. The principal has three parts:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The User Name: (must always be <code class="codeph">oracle</code>)</p>
+</li>
+<li>
+<p>Qualifier: "/&lt;<span class="italic">qualifier</span>&gt;." This is optional information to help you organize and identify principals.</p>
+</li>
+<li>
+<p>Domain: <code class="codeph">"@MY.DOMAIN.COM</code>." This is required information managed by the KDC.</p>
+</li>
+</ul>
+<p>The Oracle Big Data SQL installation uses the Kerberos <code class="codeph">principal</code> field (and <code class="codeph">keytab</code> field below) to set up automated Kerberos ticket renewal for the user represented by the principal. It does this on both the Hadoop and Oracle Database sides of the installation. The installer does not create the principal or the keytab. These must already exist.</p>
+<p>Required for secured clusters.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e684" headers="d4061e380"><code class="codeph">keytab</code></td>
+<td class="cellalignment76" headers="d4061e684 d4061e383"><code class="codeph">String</code></td>
+<td class="cellalignment76" headers="d4061e684 d4061e385">
+<p>Fully-qualified location for the principal&rsquo;s keytab file name.</p>
+<p>Copy the keytab file to a location accessible to the Jaguar installer and set the path as the value of this parameter.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e696" headers="d4061e380"><code class="codeph">hdfs-principal</code></td>
+<td class="cellalignment76" headers="d4061e696 d4061e383"><code class="codeph">String</code></td>
+<td class="cellalignment76" headers="d4061e696 d4061e385">
+<p>Fully-qualified Kerberos principal name for the "<code class="codeph">hdfs</code>" user. It has three parts: <code class="codeph">User name</code>, <code class="codeph">Qualifier</code>, and <code class="codeph">Domain</code>.</p>
+<p>The <code class="codeph">User name</code> is the fully-qualified principal name for the <code class="codeph">hdfs</code> user. <code class="codeph">Qualifier</code> is the cluster name prefixed by a forward slash, as in <code class="codeph">/mycluster</code>. <code class="codeph">Domain</code> is specified in the form <code class="codeph">@MY.DOMAIN.COM</code>. All three are required. The principal name is defined on the KDC.</p>
+<p>Required for secured clusters.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e741" headers="d4061e380"><code class="codeph">hdfs-keytab</code></td>
+<td class="cellalignment76" headers="d4061e741 d4061e383"><code class="codeph">String</code></td>
+<td class="cellalignment76" headers="d4061e741 d4061e385">
+<p>Fully-qualified path to the principal keytab file. A keytab file is created for each principal on the KDC server. It must exist in a location accessible to the Jaguar installer.</p>
+<p>Required for secured clusters.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e753" headers="d4061e380"><code class="codeph">min_hard_limit</code></td>
+<td class="cellalignment76" headers="d4061e753 d4061e383"><code class="codeph">Integer</code></td>
+<td class="cellalignment76" headers="d4061e753 d4061e385">
+<p>The minimum amount of memory reserved for Big Data SQL, in megabytes. This parameter is used on CDH clusters (Oracle Big Data Appliance and others). It is not used on HDP clusters. By default, the value is 8192 (8 GB).</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e763" headers="d4061e380"><code class="codeph">max_percentage</code></td>
+<td class="cellalignment76" headers="d4061e763 d4061e383"><code class="codeph">Integer</code></td>
+<td class="cellalignment76" headers="d4061e763 d4061e385">
+<p>On CDH clusters (Oracle Big Data Appliance and others) this parameter specifies the percentage of memory on each node to reserve for Big Data SQL. This percentage is considered from a total amount of: NodeManager if YARN ResourceManager is enabled for that node. Physical memory if not. .</p>
+<p>If the YARN Resource Manager is enabled for the node, then percentage should be based on the total amount of memory used by the NodeManager. Otherwise it should be a percentage of physical memory.</p>
+<p>This parameter is ignored on HDP clusters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infobox-note" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__GUID-C2B59771-261E-437A-9D85-662F9FC573E3">
+<p class="notep1">Note:</p>
+After Oracle Big Data SQL is installed on the Hadoop cluster management server, you can find configuration file examples that demonstrate various parameter combinations in the <code class="codeph">&lt;<span class="codeinlineitalic">Big Data SQL Install directory</span>&gt;/BDSjaguar</code> directory:
+<pre dir="ltr">
+example-bda-config.json
+example-cdh-config.json 
+example-kerberos-config.json
+example-localrepos-config.json
+example-subnetwork-config.json
+example-unsecure-config.json
+</pre>
+You can see all possible parameter options in use in <code class="codeph">example-cdh-config.json</code> .</div>
+<div class="infoboxnotealso" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__GUID-B8FF9F4E-51B0-4ED8-95FE-29B56B0EFF68">
+<p class="notep1">See Also:</p>
+See the Appendix <a href="GUID-AD005660-CA98-46F6-A312-DF265D743B03.htm">Determining the Correct Software Version and Composing the Download Paths for Hadoop Clients</a> for suggestions that can help with the setup of client tarball downloads.</div>
+</div>
+<!-- class="section" -->
+<div class="section" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__JAGUAROPERATIONS-0976E46B">
+<p class="subhead3">Jaguar Operations</p>
+<p>The table below lists the full set of operations performed by the Jaguar utility on the Hadoop side of the Oracle Big Data SQL installation.</p>
+<p>The general syntax for Jaguar commands is as follows. The <code class="codeph">--requestdb</code> parameter does not apply to all Jaguar commands.</p>
+<pre dir="ltr">
+# ./jaguar {--requestdb &lt;<span class="italic">comma-separated database names</span>&gt; | NULL } &lt;<span class="italic">action</span>&gt; { bds-config.json | &lt;<span class="italic">myfilename</span>&gt;.json | NULL } 
+</pre>
+<p>Examples:</p>
+<pre dir="ltr">
+# ./jaguar install
+# ./jaguar install bds-config.json
+# ./jaguar install mycustomconfig.json 
+# ./jaguar --requestdb orcl,testdb,proddb install
+# ./jaguar --requestdb orcl install
+</pre>
+<p>You can use the default <code class="codeph">bds-config.json</code> or your own configuration file, or omit the configuration file argument (which defaults to <code class="codeph">bds-config.json</code>).</p>
+<div class="infobox-note" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__GUID-93DAE68E-8A9E-4F12-8FE7-8F2B7F532709">
+<p class="notep1">About --requestdb:</p>
+<p>The <code class="codeph">--requestdb</code> parameter is required for the <code class="codeph">databasereq</code> command, optional for <code class="codeph">install</code>, <code class="codeph">updatenodes</code>, and <code class="codeph">reconfigure</code>, and non-applicable for other Jaguar commands. The parameter must be passed in to one of these operations in order to enable Database Authentication in the connection between a Hadoop cluster and a database. Unless you prefer to disable Database Authentication, it is recommended that you include <code class="codeph">--requestdb</code> with the initial <code class="codeph">install</code> operation. Otherwise, you will need perform an additional step later in order to generate the request key.</p>
+<p>This parameter is functional only when Database Authentication (<code class="codeph">database_auth_enabled</code>) is set to &ldquo;<code class="codeph">true</code>&rdquo; in the configuration. (This setting is a configuration default and does not need to be explicitly set in the configuration file.)</p>
+<p>Jaguar needs the database names in order to generate a unique <code>.reqkey</code> (request key) file for each database. When <code class="codeph">database_auth_enabled</code> is set &ldquo;<code class="codeph">true</code>&rdquo; at installation time, the <code class="codeph">--requestdb</code> parameter is still optional. Post-installation you have the same option to send the request key in the <code class="codeph">updatenodes</code>, <code class="codeph">reconfigure</code>, and <code class="codeph">databasereq</code> commands. Database Authentication is not implemented until you do all of the following:</p>
+<ol>
+<li>
+<p>Ensure that <code class="codeph">database_auth_enabled</code> is either absent from the configuration file or is set to &ldquo;<code class="codeph">&ldquo;true&rdquo;</code>. (It is <code class="codeph">&ldquo;true&rdquo;</code> by default.)</p>
+</li>
+<li>
+<p>Include <code class="codeph">--requestdb</code> in a Jaguar command:</p>
+<ol>
+<li>
+<p>Run the Jaguar <code class="codeph">install</code>, <code class="codeph">updatenodes</code>, or <code class="codeph">reconfigure</code> and install the updated database-side installation bundle, or</p>
+</li>
+<li>
+<p>Run Jaguar <code class="codeph">databasereq</code> to generate an acknowledge key from the existing database side installation.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Copy the generated ZIP file that contains the .ackkey file from the database-side installation directory to <code>/opt/oracle/DM/databases/conf</code> on the Hadoop cluster management server.</p>
+</li>
+<li>
+<p>Run the Jaguar <code class="codeph">databaseack</code> command as described in the table below.</p>
+</li>
+</ol>
+</div>
+<p>The table below shows the available Jaguar commands.</p>
+<div class="tblformal" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__GUID-47649605-898D-46FE-BE7C-C18526074CB7">
+<p class="titleintable">Table 2-2 Jaguar Operations</p>
+<table class="cellalignment74" title="Jaguar Operations" summary="The first column list the jaguar operations. The second column identifies whether or not --requestdb is an option. The third column describes the action and shows examples of using the Jaguar operation.">
+<thead>
+<tr class="cellalignment54">
+<th class="cellalignment75" id="d4061e956">Jaguar Operation</th>
+<th class="cellalignment75" id="d4061e958">Supports --requestdb?</th>
+<th class="cellalignment75" id="d4061e960">Usage and Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e964" headers="d4061e956"><code class="codeph">install</code>
+<p>The <code class="codeph">--requestdb</code> parameter is not strictly required by the install operation, but you cannot enable Database Authentication if you do not generate a request key for each database.</p>
+<code class="codeph">--requestdb &lt;<span class="codeinlineitalic">comma-separated database list</span>&gt;</code></td>
+<td class="cellalignment76" headers="d4061e964 d4061e958">Y</td>
+<td class="cellalignment76" headers="d4061e964 d4061e960">
+<p>Installs Oracle Big Data SQL on the Hadoop cluster identified in the configuration file and creates an installation bundle for the database side based on the parameters included in the configuration file (or default values for parameters not explicitly assigned value in the configuration file). Examples:</p>
+<pre dir="ltr">
+# ./jaguar --requestdb orcl,testdb,proddb install
+</pre>
+<p>No configuration file parameter is included in the above example. <code>bds-config.json</code> is the implicit default. You can specify a different configuration file as in<code class="codeph">./jaguar --requestdb mydb install myconfig.json</code></p>
+<div class="infobox-note" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__GUID-62BBABA8-819A-46EF-B863-C3664D96EB01">
+<p class="notep1">Note:</p>
+<p>You may need to use the <code class="codeph">scl</code> utility to ensure that the correct Python version is invoked:</p>
+<pre dir="ltr">
+scl enable python27 "./jaguar install"
+</pre></div>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e1000" headers="d4061e956"><code class="codeph">updatenodes</code></td>
+<td class="cellalignment76" headers="d4061e1000 d4061e958">Y</td>
+<td class="cellalignment76" headers="d4061e1000 d4061e960">
+<p>Expand or shrink the cluster. Oracle Big Data SQL to any new DataNodes and update the cells inventory if the cluster has grown since the last Oracle Big data SQL installation.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e1009" headers="d4061e956"><code class="codeph">reconfigure</code></td>
+<td class="cellalignment76" headers="d4061e1009 d4061e958">Y</td>
+<td class="cellalignment76" headers="d4061e1009 d4061e960">
+<p>Modify the current installation by applying changes you have made to the configuration file (<code>bds-config.json</code> or other).</p>
+<pre dir="ltr">
+# ./jaguar reconfigure myconfigfile.json
+</pre>
+<p>Note that if you run <code class="codeph">./jaguar reconfigure &lt;<span class="codeinlineitalic">config file</span>&gt;</code> to reconfigure Oracle Big Data SQL on the Hadoop cluster, a corresponding reconfiguration is required on the Oracle Database side. The two sides cannot communicate if the configurations do not match. The Jaguar utility regenerates the database-side bundle files to incorporate the changes, You must redeploy the bundle on all database servers where it was previously installed.</p>
+<p>The <code class="codeph">--requestdb</code> argument is required if <code class="codeph">database_auth_enabled</code> is set to <code class="codeph">&ldquo;true&rdquo;</code> in the updated configuration file. This is so that Jaguar will generate <code class="codeph">.reqkey</code> files that are included in the database-side installation bundle. Note that we let the configuration file parameter default to <code>bds-config.json</code>.</p>
+<pre dir="ltr">
+# ./jaguar --requestdb demodb,testdb,proddb1 reconfigure 
+</pre></td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e1050" headers="d4061e956"><code class="codeph">databasereq</code></td>
+<td class="cellalignment76" headers="d4061e1050 d4061e958">Y</td>
+<td class="cellalignment76" headers="d4061e1050 d4061e960">
+<p>Use this command to create the <code class="codeph">.reqkey</code> file without repeating the Hadoop-side installation, or doing an <code class="codeph">updatenodes</code> or <code class="codeph">reconfigure</code> operation. (For example, if you forgot to include the <code class="codeph">--requestdb</code> argument with the Jaguar <code class="codeph">install</code> command), you can create a request key later with <code class="codeph">databasereq</code>. This operation requires that <code class="codeph">database_auth_enabled</code> is set to &ldquo;true&rdquo; (the default value) in the configuration.</p>
+`
+<pre dir="ltr">
+# ./jaguar --requestdb demodb,testdb,proddb1 databasereq  
+</pre></td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e1084" headers="d4061e956"><code class="codeph">databaseack</code></td>
+<td class="cellalignment76" headers="d4061e1084 d4061e958">N</td>
+<td class="cellalignment76" headers="d4061e1084 d4061e960">
+<p>The &ldquo;Database Acknowledge&rdquo; process provides confirmation to the Oracle Big Data SQL installation on the Hadoop cluster that security features you enabled in the configuration file have been successfully implemented in the database-side installation. It then completes implementation of the selected security features on the Hadoop cluster side.</p>
+<pre dir="ltr">
+./jaguar databaseack bds-config.json
+</pre>
+<p>Only run <code class="codeph">databaseack</code> if you chose to enable security features by setting either of these parameters in the configuration file to &ldquo;<code class="codeph">true</code>&rdquo;:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">"impersonation_enabled" : "true"</code></p>
+</li>
+<li>
+<p><code class="codeph">"database_auth_enabled" : "true"</code></p>
+</li>
+</ul>
+<p>If a database-side installation bundle is built with any of these features set to <code class="codeph">&ldquo;true&rdquo;</code>, then the database-side installation from that bundle generates a ZIP file in the installation directory under <code class="codeph">$ORACLE_HOME</code> on the database server. The format of the ZIP file name is <code class="codeph">&lt;<span class="codeinlineitalic">Hadoop cluster name</span>&gt;-&lt;<span class="codeinlineitalic">Number nodes in the cluster</span>&gt;-&lt;<span class="codeinlineitalic">FQDN of the cluster management server node</span>&gt;-&lt;<span class="codeinlineitalic">FQDN of this database node</span>&gt;.zip.</code> For example:</p>
+<pre dir="ltr">
+$ ls $ORACLE_HOME/BDSJaguar-3.2.0/cdh510-6-node1.my.domain.com/*.zip
+$ cdh510-6-node1.my.domain.com-myoradb1.mydomain.com.zip
+</pre>
+<p>Copy this ZIP archive back to <code>/opt/oracle/DM/databases/conf</code> on the Hadoop cluster management server after the database-side installation is complete. Then, to fully enable the security features, run <code class="codeph">databaseack</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment54">
+<td class="cellalignment76" id="d4061e1145" headers="d4061e956"><code class="codeph">uninstall</code></td>
+<td class="cellalignment76" headers="d4061e1145 d4061e958">&nbsp;</td>
+<td class="cellalignment76" headers="d4061e1145 d4061e960">
+<p>Uninstall Oracle Big Data SQL from the Hadoop cluster.</p>
+<p>The uninstall process stops the <code class="codeph">bd_cell</code> process (the Oracle Big Data SQL process) on all Hadoop cluster nodes, removes all instances from Hadoop cluster, and release all related resources.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infobox-note" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__GUID-5E828093-F98E-427E-80D3-FFC9215CC914">
+<p class="notep1">Note:</p>
+When Oracle Big Data SQL is uninstalled on the Hadoop side, any queries against Hadoop data that are in process on the database side will fail. It is strongly recommended that you uninstall Oracle Big Data SQL from all databases systems shortly after uninstalling the Hadoop component of the software.</div>
+<div class="infoboxnotealso" id="GUID-91773A49-ABB4-4BC8-9068-3238DF50A108__GUID-799E4912-55A5-45CA-B2C7-CDD4D74FF4C3">
+<p class="notep1">See Also:</p>
+<a href="uninstall.htm#GUID-3634DD3B-5878-406D-BC08-8A4EE48CC406" title="If you want to completely uninstall Oracle Big Data SQL, the software must be removed from the Hadoop cluster management server and the Oracle Database nodes where it is currently installed.">Uninstalling Oracle Big Data SQL</a>.</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-D9E5CC9B-39A0-4A8B-8804-8F22C7A4B388"></a>
+<h2 id="BDSIG-GUID-D9E5CC9B-39A0-4A8B-8804-8F22C7A4B388" class="sect2"><span class="enumeration_section">2.3</span> Steps for Installing on the Hadoop Cluster</h2>
+<div>
+<p><a id="d4061e1183" class="indexterm-anchor"></a><a id="d4061e1185" class="indexterm-anchor"></a><a id="d4061e1187" class="indexterm-anchor"></a><a id="d4061e1189" class="indexterm-anchor"></a><a id="d4061e1191" class="indexterm-anchor"></a><a id="d4061e1193" class="indexterm-anchor"></a><a id="d4061e1195" class="indexterm-anchor"></a>After you have set up the Jaguar configuration file according to your requirements, follow these steps to run the Jaguar installer, which will install Oracle Big Data SQL on the Hadoop cluster and will also generate a database-side installation bundle that you deploy to the Oracle Database system. In these steps, <code class="codeph">bds-config.json</code> is the configuration filename passed to Jaguar. This is the default. Any file name is accepted, therefore you can create separate configuration files for installation on different clusters and save them in different files.</p>
+<div class="infobox-note" id="GUID-D9E5CC9B-39A0-4A8B-8804-8F22C7A4B388__GUID-837C63B6-36F3-466B-B96A-1CA6206D52FA">
+<p class="notep1">Note:</p>
+Jaguar requires Python 2.7 to 3.0. If necessary, you can add a Jaguar-compatible version of Python as a secondary installation. Revisit the prerequisites section in the Introduction for details. If you are using Oracle Big Data Appliance (and possibly other Hadoop platforms), do not overwrite the installed Python release.</div>
+<ol>
+<li>
+<p>Log on to the cluster management server node as <code class="codeph">root</code> and cd to the directory where you extracted the downloaded Oracle Big Data SQL installation bundle.</p>
+</li>
+<li>
+<p>Cd to the <code class="codeph">BDSJaguar</code> subdirectory under the path where you unzipped the bundle.</p>
+<pre dir="ltr">
+# cd &lt;<span class="italic">Big Data SQL Install Directory</span>&gt;/BDSJaguar
+</pre></li>
+<li>
+<p>Edit the file <code class="codeph">bds-config.json</code>. At a minimum, provide the required cluster name for the cluster where you want to install Oracle Big Data SQL:</p>
+<pre dir="ltr">
+{
+"cluster": {
+           "name": "&lt;<span class="italic">Your cluster name</span>&gt;"
+           }
+}
+</pre>
+<p>Add the parameters that you want to use in this installation.</p>
+<div class="infoboxnotealso" id="GUID-D9E5CC9B-39A0-4A8B-8804-8F22C7A4B388__GUID-CEB8ED35-EDE4-465C-8C79-B4E9594DA0E2">
+<p class="notep1">See Also:</p>
+<p>The cluster name is the only required parameter in this version of Oracle Big Data SQL. See the <a href="installhadoopside.htm#GUID-91773A49-ABB4-4BC8-9068-3238DF50A108">Jaguar Configuration Parameter and Command Reference</a> for a description of all available parameters. You can see an example of a <code>bds-config.json</code> file populated with all available parameters in <a href="GUID-F615A82D-D02F-4B92-B9E4-3F580905EC8D.htm" title="The following is an example of a fully-populated bds-config.json file, which includes all available configuration parameters.">bds-config.json Configuration Example</a>.</p>
+</div>
+<p>In the BDSJaguar directory, run the Jaguar<code class="codeph">install</code> operation. Pass the <code class="codeph">install</code> parameter and the configuration file name. (<code class="codeph">bds-config.json</code> is the implicit default) as arguments to the Jaguar command. You may or may not need to include the <code class="codeph">--requestdb</code> option.</p>
+<pre dir="ltr">
+[root@myclusteradminserver:BDSjaguar] #  ./jaguar install &lt;<span class="italic">config file name</span>&gt;
+</pre>
+<div class="infobox-note" id="GUID-D9E5CC9B-39A0-4A8B-8804-8F22C7A4B388__GUID-70B2C6F7-CE62-44B4-8FA3-D2F482F29338">
+<p class="notep1">Note:</p>
+<div class="p">By default, Database Authentication is set to true unless you set <code class="codeph">database_auth_enabled</code> to &ldquo;false&rdquo; in the configuration file. If you enable Database Authentication, then either as part of the install operation or later, generate a &ldquo;request key.&rdquo; This is half of a GUID/key pair used in the authentication process. To generate this key, include the <code class="codeph">--requestdb</code> parameter in the Jaguar <code class="codeph">install</code> command line:
+<pre dir="ltr">
+[root@myclusteradminserver:BDSjaguar] # ./jaguar --requestdb mydb install
+</pre>
+If the install was run with <code class="codeph">database_auth_enabled</code> is &ldquo;true&rdquo;, you can use the Jaguar <code class="codeph">databasereq</code> command to generate the key after the database-side installation. Several other Jaguar commands can also generate the request key if you pass them the <code class="codeph">--requestdb</code> parameter.</div>
+</div>
+<p>Jaguar prompts for the cluster management service administrator credentials and then installs Oracle Big Data SQL throughout the Hadoop cluster. It also generates the database-side installation bundle in the <code class="codeph">db-bundles</code> subdirectory. The following message is returned if the installation completed without error.</p>
+<div class="p">
+<pre dir="ltr">
+BigDataSQL: INSTALL workflow completed.
+</pre></div>
+</li>
+<li>
+<p>Check for the existence of the database side installation bundle:</p>
+<pre dir="ltr">
+# ls &lt;<span class="codeinlineitalic">Big Data SQL Install Directory</span>&gt;/BDSJaguar/db-bundles
+ bds-3.2.0-db-&lt;<span class="italic">cluster</span>&gt;-&lt;<span class="italic">yymmdd.hhmi</span>&gt;.zip
+</pre>
+<p>This bundle is for setting up Oracle Big Data SQL connectivity Oracle database and the specific cluster defined in the <code class="codeph">bds-config.json</code> (or other) configuration file. It contains all packages and settings files required except for an optional database request key file.</p>
+<div class="p">If you included <code class="codeph">--requestdb</code> in the install command, then the installation also generates one or more database request key files under the <code>dbkeys</code> subdirectory. You should check to see that this key exists.
+<pre dir="ltr">
+# ls &lt;<span class="codeinlineitalic">Big Data SQL Install Directory</span>&gt;/BDSJaguar/dbkeys
+ cluster1db.reqkey
+</pre></div>
+</li>
+</ol>
+<p>This completes the Oracle Big Data SQL installation on the Hadoop cluster.</p>
+<div class="section">
+<p class="subhead2">What Next?</p>
+</div>
+<!-- class="section" -->
+<p>After Jaguar has successfully installed Oracle Big Data SQL on the Hadoop cluster, you are done with the first half of the installation. The next step is to install Oracle Big Data SQL on the Oracle Database system that will run queries against the data on the Hadoop cluster.</p>
+<p>To do this, copy the database-side installation bundle to any location on the Oracle Database system. Unless you set <code class="codeph">database_auth_enabled</code> to <code class="codeph">&ldquo;false&rdquo;</code> in the configuration file, then also copy over the <code class="codeph">.reqkey</code> file generated by Jaguar.</p>
+<div class="infobox-tip" id="GUID-D9E5CC9B-39A0-4A8B-8804-8F22C7A4B388__GUID-BEEC2430-86D1-4C9F-AA8B-E76FD7389FC5">
+<p class="notep1">Tip:</p>
+You only need to send a request key to a database once. A single request key is valid for all Hadoop cluster connections to the same database. If you have already complete the installation to connect one Hadoop cluster to a specific database, then the database has the key permanently and you do not need to generate it again or copy it over to the database again in subsequent cluster installations.</div>
+<p>Go to <a href="installdbside.htm#GUID-E0E62C0F-F4FA-436A-95E8-0EB3287802A4" title="Oracle Big Data SQL must be installed on both the Hadoop cluster management server and the Oracle Database server. This section describes the installation of Oracle Big Data SQL 3.2 on Oracle Database systems, including single-node and RAC systems.">Installing or Upgrading the Oracle Database Side of Oracle Big Data SQL</a> for instructions on unpacking the bundle and installing the database-side components of the software.</p>
+<div class="infoboxnotealso" id="GUID-D9E5CC9B-39A0-4A8B-8804-8F22C7A4B388__GUID-E0B5F2AC-12D3-49B7-81F8-406E3AD7DF4F">
+<p class="notep1">See Also:</p>
+An example of the complete standard output from a successful installation is provided in <a href="installoutput.htm#GUID-D15A3626-F4F6-4EBB-A6BE-476EBC137CC9" title="The following are samples of the console output for the Oracle Big Data SQL installation.">Oracle Big Data SQL Installation Examples</a>.</div>
+</div>
+</div>
+<div class="sect2"><a id="GUID-20C5C943-E678-4765-8608-891CF4796F17"></a>
+<h2 id="BDSIG-GUID-20C5C943-E678-4765-8608-891CF4796F17" class="sect2"><span class="enumeration_section">2.4</span> Special Installation Procedures for Oracle Big Data Appliance 4.10</h2>
+<div>
+<p>If you have enabled or are planning to enable Big Data SQL 3.2, then download and install patch 27077322.</p>
+<div class="section">
+<p>Oracle Big Data Appliance 4.10 includes an early, unofficial release of Oracle Big Data SQL 3.2 in its deployment bundle.<a href="https://support.oracle.com/epmos/faces/PatchDetail?patchId=27077322" target="_blank">Patch 27077322</a> includes important changes which update the Oracle Big Data SQL package to the official 3.2 level. You can load the patch either before or after Oracle Big Data SQL 3.2 is enabled on Oracle Big Data Appliance 4.10.</p>
+<p>For the patch installation steps, see <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=308490844974298&amp;id=2340322.1&amp;_adf.ctrl-state=167d4n53hz_116" target="_blank">Installation of Mandatory One-Off Patch 27077322 On Big Data Appliance 4.10 OL5/OL6 with Big Data SQL 3.2 (Doc ID 2340322.1)</a> at <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a>.</p>
+<p>This patch is not needed if you installed Oracle Big Data SQL 3.2 from the download available at the Oracle Software Delivery Cloud (eDelivery). However, if Release 3.2 is not already installed, our recommendation is to install the patch first and then use <code class="codeph">bdacli</code> to install the Oracle Big Data SQL package that is included with Oracle Big Data Appliance 4.10. This installation method is better-integrated with the Oracle Big Data Appliance cluster and also includes checks before and after the installation.</p>
+<div class="infobox-note" id="GUID-20C5C943-E678-4765-8608-891CF4796F17__GUID-B7477C06-CB3D-4E15-A073-F28EADB1C413">
+<p class="notep1">Important:</p>
+As described in the <a class="olink BIGOG-GUID-B28E8660-E46A-4C0D-88D3-A5FD5EDDB76E" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E87336-01&amp;id=BIGOG-GUID-B28E8660-E46A-4C0D-88D3-A5FD5EDDB76E">Oracle Big Data Appliance Owner&rsquo;s Guide</a>, after the default installation of Oracle Big Data SQL, you can add customizations. If you have already customized your installation then before installing the patch, make a back up of all installation directories under <code class="codeph">/opt/oracle/ BDSJaguar</code> in order to preserve them. The <code class="codeph">/opt/oracle/BDSJaguar</code> directory is deleted and then recreated empty when the patch is installed. Copy the directories back to <code class="codeph">/opt/oracle/BDSJaguar</code> after the patch installation is complete.</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment53">
+<tr>
+<td class="cellalignment60">
+<table class="cellalignment58">
+<tr>
+<td class="cellalignment57"><a href="introduction.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment57"><a href="installdbside.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2012, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment62">
+<table class="cellalignment56">
+<tr>
+<td class="cellalignment57"><a href="http://docs.oracle.com/bigdata/bds32/index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment57"><a href="../nav/portal_booklist.htm"><img width="24" height="24" src="../dcommon/gifs/booklist.gif" alt="Go to Book List" /><br />
+<span class="icon">Book List</span></a></td>
+<td class="cellalignment57"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment57"><a href="index.htm"><img width="24" height="24" src="../dcommon/gifs/index.gif" alt="Go to Index" /><br />
+<span class="icon">Index</span></a></td>
+<td class="cellalignment57"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>
